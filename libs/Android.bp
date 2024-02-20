@@ -1,0 +1,40 @@
+//
+// SPDX-FileCopyrightText: 2024 ._______166
+// SPDX-License-Identifier: Apache-2.0
+//
+
+android_library_import {
+    name: "jOS_com.github.AppIntro_AppIntro-nodeps",
+    aars: ["com/github/AppIntro/AppIntro/6.3.1/AppIntro-6.3.1.aar"],
+    sdk_version: "33",
+    min_sdk_version: "14",
+    apex_available: [
+        "//apex_available:platform",
+        "//apex_available:anyapex",
+    ],
+    static_libs: [
+        "androidx-constraintlayout_constraintlayout",
+        "androidx.annotation_annotation",
+        "androidx.appcompat_appcompat",
+        "kotlin-stdlib-jdk8",
+    ],
+}
+
+android_library {
+    name: "jOS_com.github.AppIntro_AppIntro",
+    sdk_version: "33",
+    min_sdk_version: "14",
+    apex_available: [
+        "//apex_available:platform",
+        "//apex_available:anyapex",
+    ],
+    manifest: "com/github/AppIntro/AppIntro/6.3.1/AndroidManifest.xml",
+    static_libs: [
+        "jOS_com.github.AppIntro_AppIntro-nodeps",
+        "androidx-constraintlayout_constraintlayout",
+        "androidx.annotation_annotation",
+        "androidx.appcompat_appcompat",
+        "kotlin-stdlib-jdk8",
+    ],
+    java_version: "1.7",
+}
