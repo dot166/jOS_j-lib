@@ -2,6 +2,7 @@ package jOS.Core;
 
 import static android.os.Build.VERSION.RELEASE_OR_PREVIEW_DISPLAY;
 import static jOS.Core.Build.jOS_RELEASE;
+import static jOS.Core.Build.j_DEVICE;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -18,8 +19,9 @@ public class test extends Activity {
         super.onCreate(savedInstanceState);
         String android_sdk_test = "Android: " + RELEASE_OR_PREVIEW_DISPLAY;
         String j_sdk_test = "jOS: " + jOS_RELEASE;
-        String all = android_sdk_test + " " + j_sdk_test;
-        builder = new AlertDialog.Builder(this);
+        String j_verify_test = "is j Device: " + j_DEVICE();
+        String all = android_sdk_test + " " + j_sdk_test + " " + j_verify_test;
+        builder = new AlertDialog.Builder(this, android.R.style.Theme_Holo_Dialog);
         //Setting message manually and performing action on button click
         builder.setMessage(all)
                 .setCancelable(false)
@@ -35,3 +37,4 @@ public class test extends Activity {
         alert.show();
     }
 }
+

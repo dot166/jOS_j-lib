@@ -19,16 +19,31 @@ package jOS.Core;
 import android.os.SystemProperties;
 import android.text.TextUtils;
 import android.util.SparseArray;
+import java.util.Objects;
+
 
 /**
- * Information about the current LineageOS build, extracted from system properties.
+ * Information about the current jOS build, extracted from system properties.
  */
 public class Build {
     /** Value used for when a build property is unknown. */
     public static final String UNKNOWN = "unknown";
 
-    /** A build ID utilized to distinguish lineageos versions */
+    /** A build ID utilized to distinguish jos versions */
     public static final String jOS_RELEASE = getString("ro.j.osversion");
+
+    /** A binary integer utilized to distinguish official devices */
+    public static int j_DEVICE() {
+        boolean is_verify_allowed = Boolean.parseBoolean(getString("ro.j.en_verify"));
+        if (is_verify_allowed) {
+            if (Objects.equals(android.os.Build.MODEL, "Pixel 6")) {
+                return 1;
+            } else {
+                return 0;
+            }
+        }
+        return 0;
+    }
 
     private static String getString(String property) {
         return SystemProperties.get(property, UNKNOWN);
