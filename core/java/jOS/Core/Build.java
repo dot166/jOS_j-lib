@@ -32,7 +32,7 @@ public class Build {
     /** A build ID utilized to distinguish jos versions */
     public static final String jOS_RELEASE = getString("ro.j.osversion");
 
-    /** A binary integer utilized to distinguish official devices */
+    /** A binary integer utilized to distinguish supported devices */
     public static int j_DEVICE() {
         boolean is_verify_allowed = Boolean.parseBoolean(getString("ro.j.en_verify"));
         if (is_verify_allowed) {
