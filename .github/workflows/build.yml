@@ -23,10 +23,12 @@ jobs:
         cache: 'gradle'
 
     - name: Grant execute permission for gradlew
-      run: chmod +x ./Prebuilts/gradlew
+      run: |
+      cd Prebuilts
+      chmod +x gradlew
 
     - name: Build
-      run: ./Prebuilts/gradlew build
+      run: ./gradlew build
 
     - name: Publish
       run: |
