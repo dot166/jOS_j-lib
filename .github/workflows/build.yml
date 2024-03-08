@@ -24,8 +24,8 @@ jobs:
 
     - name: Grant execute permission for gradlew
       run: |
-      cd Prebuilts
-      chmod +x gradlew
+        cd Prebuilts
+        chmod +x gradlew
 
     - name: Build
       run: ./gradlew build
@@ -44,6 +44,7 @@ jobs:
     - name: Commit changes
       if: github.event_name == 'workflow_dispatch'
       run: |
+        cd ..
         git add .m2
         git commit -m "Publish maven artifacts" || true
 
