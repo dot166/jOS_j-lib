@@ -1,0 +1,30 @@
+plugins {
+    id 'maven-publish'
+    id 'com.android.library' version '8.3.0'
+}
+
+apply plugin: 'com.android.library'
+
+android {
+    namespace 'jOS.Core'
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            artifact 'jOS-Core.jar'
+                          pom.withXml {
+                def dependency = asNode().appendNode('dependencies').appendNode('dependency')
+                dependency.appendNode('groupId', 'jOS.Core')
+                dependency.appendNode('artifactId', 'j-SDK')
+                dependency.appendNode('version', '3.1')
+            }
+        }
+    }
+}
+
+dependencies {
+    implementation "androidx.constraintlayout:constraintlayout:2.1.4"
+    implementation "androidx.preference:preference:1.2.1"
+    implementation "com.google.android.material:material:1.11.0"
+}
