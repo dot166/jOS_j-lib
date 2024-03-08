@@ -14,16 +14,15 @@
 // limitations under the License.
 //
 
-j_sdk_LOCAL_STATIC_JAVA_LIBRARIES = [
-    "androidx.appcompat_appcompat",
-    "jOS_com.github.AppIntro_AppIntro",
-]
-
 android_library {
     name: "j.SDK",
     sdk_version: "core_platform",
     certificate: "platform",
-    static_libs: j_sdk_LOCAL_STATIC_JAVA_LIBRARIES,
+    static_libs: [
+        "androidx-constraintlayout_constraintlayout",
+        "androidx.preference_preference",
+        "com.google.android.material_material",
+    ],
     platform_apis: true,
 
     manifest: "core/AndroidManifest.xml",

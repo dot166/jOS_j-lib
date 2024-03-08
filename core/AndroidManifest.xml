@@ -27,14 +27,16 @@
                  android:persistent="true"
                  android:hasCode="false"
                  android:label="@string/jos_system_label"
-                 android:icon="@drawable/ic_launcher_jOS"
+                 android:icon="@drawable/ic_launcher_j"
                  android:allowClearUserData="false"
                  android:killAfterRestore="false"
                  android:theme="@style/jOS.Theme"
                  android:supportsRtl="true">
         <activity
             android:name=".sdkplaceholder"
-            android:exported="true" />
+            android:exported="true"
+            android:label="@string/jos_system_label"
+            android:icon="@drawable/ic_launcher_j" />
     </application>
 
 </manifest>

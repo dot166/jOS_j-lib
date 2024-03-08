@@ -34,7 +34,7 @@ public class Build {
 
     /** A binary integer utilized to distinguish supported devices */
     public static int j_DEVICE() {
-        boolean is_verify_allowed = Boolean.parseBoolean(getString("ro.j.en_verify"));
+        boolean is_verify_allowed = getBoolean("ro.j.en_verify");
         if (is_verify_allowed) {
             if (Objects.equals(android.os.Build.MODEL, "Pixel 6")) {
                 return 1;
@@ -43,6 +43,14 @@ public class Build {
             }
         }
         return 0;
+    }
+
+    private static Boolean getBoolean(String property) {
+        String prop = getString(property);
+        if (Objects.equals(prop, UNKNOWN)) {
+            return false;
+        }
+        return Boolean.parseBoolean(prop);
     }
 
     private static String getString(String property) {

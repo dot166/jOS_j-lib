@@ -17,4 +17,6 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Label for the LineageOS system components when they are shown to the user. -->
     <string name="jos_system_label">jOS Core</string>
+    <string name="capital_on">ON</string>
+    <string name="capital_off">OFF</string>
 </resources>
