@@ -28,10 +28,13 @@ jobs:
         chmod +x gradlew
 
     - name: Build
-      run: ./gradlew build
+      run: |
+        cd Prebuilts
+        ./gradlew build
 
     - name: Publish
       run: |
+        cd Prebuilts
         rm -rf $GITHUB_WORKSPACE/Prebuilts/.m2 || true
         ./gradlew \
           -Dmaven.repo.local=$GITHUB_WORKSPACE/Prebuilts/.m2 \
@@ -44,7 +47,6 @@ jobs:
     - name: Commit changes
       if: github.event_name == 'workflow_dispatch'
       run: |
-        cd ..
         git add .m2
         git commit -m "Publish maven artifacts" || true
 
