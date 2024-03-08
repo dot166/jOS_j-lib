@@ -27,11 +27,6 @@ jobs:
         cd Prebuilts
         chmod +x gradlew
 
-    - name: Build
-      run: |
-        cd Prebuilts
-        ./gradlew build
-
     - name: Publish
       run: |
         cd Prebuilts
