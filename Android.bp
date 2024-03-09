@@ -17,7 +17,6 @@
 android_library {
     name: "j.SDK",
     sdk_version: "core_platform",
-    certificate: "platform",
     static_libs: [
         "androidx-constraintlayout_constraintlayout",
         "androidx.preference_preference",
