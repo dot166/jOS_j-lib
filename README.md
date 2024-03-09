@@ -2,4 +2,4 @@
 
 contains a version of the holo theme that is based on appcompat and some other things.
 
-## CAN ONLY BE BUILT WITH AOSP, Prebuilts are will be available soon!
+## CAN ONLY BE BUILT WITH AOSP, See Prebuilts/README.MD for informaition about prebuilt jars

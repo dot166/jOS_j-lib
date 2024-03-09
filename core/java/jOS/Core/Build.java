@@ -16,7 +16,8 @@
 
 package jOS.Core;
 
-import android.os.SystemProperties;
+//import android.os.SystemProperties;
+import android.content.Context;
 import android.text.TextUtils;
 import android.util.SparseArray;
 import java.util.Objects;
@@ -26,8 +27,19 @@ import java.util.Objects;
  * Information about the current jOS build, extracted from system properties.
  */
 public class Build {
+
+    public static Context globalContext;
     /** Value used for when a build property is unknown. */
     public static final String UNKNOWN = "unknown";
+
+    public static final Context get_context(){
+        return globalContext;
+    }
+
+    public static final Context set_content(Context context) {
+        globalContext = context;
+        return context;
+    }
 
     /** A build ID utilized to distinguish jos versions */
     public static final String jOS_RELEASE = getString("ro.j.osversion");
@@ -54,6 +66,6 @@ public class Build {
     }
 
     private static String getString(String property) {
-        return SystemProperties.get(property, UNKNOWN);
+        return SystemPropertiesProxy.get(get_context(), property, UNKNOWN);
     }
 }
