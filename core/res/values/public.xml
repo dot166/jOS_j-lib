@@ -16,7 +16,7 @@
 
 <!-- Definitions to be exposed as public -->
 <resources>
-     <public type="colour" name="transparent"/>
+     <public type="color" name="transparent"/>
      <public type="style" name="jOS.Theme"/>
      <public type="dimen" name="action_bar_icon_vertical_padding"/>
 </resources>
