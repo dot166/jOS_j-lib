@@ -30,11 +30,11 @@ jobs:
     - name: Publish
       run: |
         cd Prebuilts
-        rm -rf $GITHUB_WORKSPACE/Prebuilts/.m2 || true
+        rm -rf $GITHUB_WORKSPACE/.m2 || true
         ./gradlew \
-          -Dmaven.repo.local=$GITHUB_WORKSPACE/Prebuilts/.m2 \
+          -Dmaven.repo.local=$GITHUB_WORKSPACE/.m2 \
           publishToMavenLocal
-        find $GITHUB_WORKSPACE/Prebuilts/.m2 \
+        find $GITHUB_WORKSPACE/.m2 \
           -type f \
           -name maven-metadata-local.xml \
           -execdir mv {} maven-metadata.xml \;
