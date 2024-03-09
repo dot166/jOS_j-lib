@@ -7,7 +7,7 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
-        maven { url 'https://raw.githubusercontent.com/jf916/jOS_j-SDK/jOS-15.0/.m2' }
+        maven { url 'https://raw.githubusercontent.com/dot166/jOS_j-SDK/jOS-15.0/.m2' }
     }
 }
 ```
