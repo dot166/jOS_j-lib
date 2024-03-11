@@ -25,7 +25,12 @@ public class ActionBar {
         Back.setImageResource(R.drawable.ic_ab_back_holo_dark_am);
         if (!home) {
             Back.setVisibility(View.VISIBLE);
+            Menu.setVisibility(View.GONE);
+        } else if (home) {
+            Back.setVisibility(View.GONE);
             Menu.setVisibility(View.VISIBLE);
+        } else {
+            throw new IllegalArgumentException("value home cannot equal null");
         }
         Back.setOnClickListener(new View.OnClickListener() {
             @Override
