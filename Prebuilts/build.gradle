@@ -16,13 +16,13 @@ version = "3.0.1"
 publishing {
     publications {
         maven(MavenPublication) {
-            artifact 'jOS-Core.jar'
+            artifact 'jOS-Core.aar'
             pom.withXml {
                 def dependenciesNode = asNode().appendNode('dependencies')
                 def dependencyNode = dependenciesNode.appendNode('dependency')
                 dependencyNode.appendNode('groupId', 'jOS.Core')
                 dependencyNode.appendNode('artifactId', 'j-SDK-core')
-                dependencyNode.appendNode('version', '3.0.1')
+                dependencyNode.appendNode('version', '3.0.2')
             }
         }
     }
