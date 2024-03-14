@@ -24,12 +24,14 @@ public class ThemeEngine {
             case "Holo":
                 Log.i("jOS Theme Engine", "jOS.Core.R.style.jOS_Theme");
                 return R.style.jOS_Theme;
-            case "M3":
-                Log.i("jOS Theme Engine", "com.google.android.material.R.style.Theme_Material3_DayNight_NoActionBar");
-                return com.google.android.material.R.style.Theme_Material3_DayNight_NoActionBar;
+            case "M3 Dark":
+                Log.i("jOS Theme Engine", "com.google.android.material.R.style.Theme_Material3_Dark_NoActionBar");
+                return com.google.android.material.R.style.Theme_Material3_Dark_NoActionBar;
+            case "M3 Light":
+                Log.i("jOS Theme Engine", "com.google.android.material.R.style.Theme_Material3_Light_NoActionBar");
+                return com.google.android.material.R.style.Theme_Material3_Light_NoActionBar;
         }
-        prefs.edit().putString(KEY_THEME, "Holo");
-        prefs.edit().apply();
+        prefs.edit().putString(KEY_THEME, "Holo").apply();
         throw new IllegalArgumentException("Unrecognised Theme");
     }
 
