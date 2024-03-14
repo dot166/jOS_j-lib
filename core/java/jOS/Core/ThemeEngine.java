@@ -41,7 +41,7 @@ public class ThemeEngine {
         return Theme;
     }
 
-    public static void relaunchSystemConfig(Activity context) {
+    public static void relaunch(Activity context) {
         if (!Objects.equals(currentTheme, getSystemThemeValue(context))) {
             Intent intent = context.getIntent();
             context.finish();
