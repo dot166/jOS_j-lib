@@ -32,7 +32,7 @@ public class ThemeEngine {
                 return com.google.android.material.R.style.Theme_Material3_Light_NoActionBar;
         }
         prefs.edit().putString(KEY_THEME, "Holo").apply();
-        throw new IllegalArgumentException("Unrecognised Theme");
+        throw new IllegalArgumentException("jOS Theme Engine : " + "Unrecognised Theme '" + currentTheme + "'");
     }
 
     public static String getSystemThemeValue(Context context){
