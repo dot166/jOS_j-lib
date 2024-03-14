@@ -11,7 +11,7 @@ android {
 }
 
 group = 'jOS.Core'
-version = "3.0.6"
+version = "3.0.7"
 
 publishing {
     publications {
@@ -22,7 +22,7 @@ publishing {
                 def dependencyNode = dependenciesNode.appendNode('dependency')
                 dependencyNode.appendNode('groupId', 'jOS.Core')
                 dependencyNode.appendNode('artifactId', 'j-SDK-core')
-                dependencyNode.appendNode('version', '3.0.6')
+                dependencyNode.appendNode('version', '3.0.7')
             }
         }
     }

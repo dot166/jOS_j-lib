@@ -3,4 +3,10 @@
     <string name="jos_system_label">jOSコア</string>
     <string name="capital_on">の上</string>
     <string name="capital_off">オフ</string>
+    <string name="settings_name">設定</string>
+    <string-array name="themes">
+        <item>ホロ</item>
+        <item>マテリアルユー(m3)(ダーク)</item>
+        <item>マテリアルユー(m3)(ライト)</item>
+    </string-array>
 </resources>

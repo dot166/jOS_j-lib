@@ -19,4 +19,16 @@
     <string name="jos_system_label">jOS Core</string>
     <string name="capital_on">ON</string>
     <string name="capital_off">OFF</string>
+    <string name="settings_fragment_name" translatable="false">jOS.Core.SDKConfigActivity$LauncherSettingsFragment</string>
+    <string name="settings_name">Settings</string>
+    <string-array name="themes">
+        <item>holo</item>
+        <item>material you (m3) (dark)</item>
+        <item>material you (m3) (light)</item>
+    </string-array>
+    <string-array name="themesConfig" translatable="false">
+        <item>Holo</item>
+        <item>M3 Dark</item>
+        <item>M3 Light</item>
+    </string-array>
 </resources>

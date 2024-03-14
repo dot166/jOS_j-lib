@@ -3,4 +3,10 @@
     <string name="jos_system_label">jOS Core</string>
     <string name="capital_on">AN</string>
     <string name="capital_off">AUS</string>
+    <string name="settings_name">Einstellungen</string>
+    <string-array name="themes">
+        <item>Holo</item>
+        <item>Material du (m3) (dunkel)</item>
+        <item>Material du (m3) (Licht)</item>
+    </string-array>
 </resources>
