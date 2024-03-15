@@ -22,6 +22,8 @@ android_library {
         "androidx.appcompat_appcompat",
         "androidx.preference_preference",
         "com.google.android.material_material",
+        "androidx.core_core",
+        "kotlin-stdlib",
     ],
     platform_apis: true,
 
@@ -29,10 +31,13 @@ android_library {
 
     srcs: [
         // common code
+        "core/java/**/*.kt",
         "core/java/**/*.java",
     ],
 
     resource_dirs: [
         "core/res",
     ],
+
+    kotlincflags: ["-Xjvm-default=enable"],
 }

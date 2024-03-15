@@ -1,12 +1,14 @@
 package jOS.Core;
 
+import static java.lang.Boolean.parseBoolean;
+
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
+import android.database.Cursor;
+import android.net.Uri;
 import android.util.Log;
-
-import androidx.preference.PreferenceManager;
 
 import java.util.Objects;
 
@@ -15,11 +17,9 @@ public class ThemeEngine {
     public static String currentTheme;
 
     public static int getSystemTheme(Context context){
-        SharedPreferences prefs;
         String Theme;
-        prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        Theme = prefs.getString(KEY_THEME, "jOS_System");
-        currentTheme = getSystemThemeValue(context);
+        Theme = getThemeFromDB1(context);
+        currentTheme = getThemeFromDB1(context);
         switch (Theme) {
             case "Holo":
                 Log.i("jOS Theme Engine", "jOS.Core.R.style.jOS_Theme");
@@ -31,20 +31,46 @@ public class ThemeEngine {
                 Log.i("jOS Theme Engine", "com.google.android.material.R.style.Theme_Material3_Light_NoActionBar");
                 return com.google.android.material.R.style.Theme_Material3_Light_NoActionBar;
         }
-        prefs.edit().putString(KEY_THEME, "Holo").apply();
-        throw new IllegalArgumentException("jOS Theme Engine : " + "Unrecognised Theme '" + currentTheme + "'");
+        Log.i("jOS Theme Engine", "Unrecognised Theme '" + currentTheme + "'");
+        return R.style.jOS_Theme;
     }
 
-    public static String getSystemThemeValue(Context context){
-        SharedPreferences prefs;
-        String Theme;
-        prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        Theme = prefs.getString(KEY_THEME, "Holo");
-        return Theme;
+    @SuppressLint("Range")
+    public static String getThemeFromDB1(Context context){
+        // get from database
+
+        // creating a cursor object of the
+        // content URI
+        Cursor cursor = context.getContentResolver().query(Uri.parse("content://jOS.Core.ThemeEngine.database/themes"), null, null, null, null);
+
+        // iteration of the cursor
+        // to print whole table
+        if(cursor.moveToFirst()) {
+            while (!cursor.isAfterLast()) {
+                if (parseBoolean(cursor.getString(cursor.getColumnIndex("current")))) {
+                    Log.i("jOS Theme Engine - DB1", cursor.getString(cursor.getColumnIndex("name")));
+                    return cursor.getString(cursor.getColumnIndex("name"));
+                } else {
+                    cursor.moveToNext();
+                }
+            }
+        }
+        Log.i("jOS Theme Engine - DB1", "No Records Found");
+        return "Holo";
     }
+
+    /**
+     * @deprecated This method has been deprecated in favor of using
+     * {@link #getThemeFromDB1(Context)}.
+     */
+    @Deprecated(since = "v3.0.8", forRemoval = true)
+    public static String getSystemThemeValue(Context context, String applicationID){
+        return getThemeFromDB1(context);
+    }
+
 
     public static void relaunch(Activity context) {
-        if (!Objects.equals(currentTheme, getSystemThemeValue(context))) {
+        if (!Objects.equals(currentTheme, getThemeFromDB1(context))) {
             Intent intent = context.getIntent();
             context.finish();
             context.startActivity(intent);

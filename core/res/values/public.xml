@@ -19,4 +19,7 @@
      <public type="style" name="jOS.Theme"/>
      <public type="layout" name="toolbar"/>
      <public type="drawable" name="ic_launcher_j"/>
+     <public name="themesConfig" type="array"/>
+     <public name="themes" type="array"/>
+     <public name="settings_name" type="string"/>
 </resources>

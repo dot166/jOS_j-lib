@@ -18,10 +18,11 @@
 -->
 <manifest
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:androidprv="http://schemas.android.com/apk/prv/res/android"
-    package="jOS.Core"
-    coreApp="true" android:sharedUserId="android.uid.system"
-    android:sharedUserLabel="@string/jos_system_label">
+    xmlns:androidprv="http://schemas.android.com/apk/prv/res/android">
+
+    <queries>
+        <package android:name="jOS.System"/>
+    </queries>
 
     <application android:process="system"
                  android:persistent="true"
