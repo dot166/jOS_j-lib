@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 
@@ -204,6 +205,15 @@ public class jConfigActivity extends AppCompatActivity
             PreferenceScreen screen = getPreferenceScreen();
             for (int i = screen.getPreferenceCount() - 1; i >= 0; i--) {
                 Preference preference = screen.getPreference(i);
+                if (Objects.equals(preference.getKey(), "sdk_category")) {
+                    PreferenceCategory category = (PreferenceCategory) preference;
+                    for (int i2 = category.getPreferenceCount() - 1; i2 >= 0; i2--) {
+                        Preference preference2 = category.getPreference(i2);
+                        if (!configPreference(preference2)) {
+                            category.removePreference(preference2);
+                        }
+                    }
+                }
                 if (!configPreference(preference)) {
                     screen.removePreference(preference);
                 }
@@ -215,8 +225,10 @@ public class jConfigActivity extends AppCompatActivity
          * will remove that preference from the list.
          */
         protected boolean configPreference(Preference preference) {
+            Log.i("Preference Logging", preference.getKey());
             switch (preference.getKey()) {
                 case "SDK":
+                    Log.i("Preference Logging", "SDK Found!!!!");
                     preference.setOnPreferenceClickListener(p -> {
                         Intent intent = new Intent("jOS.System.SDKConfig");
                         startActivity(intent);
