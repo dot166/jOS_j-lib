@@ -1,12 +1,10 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- Label for the LineageOS system components when they are shown to the user. -->
+    <!-- Label for the jOS system components when they are shown to the user. -->
     <string name="jos_system_label">jOS Core</string>
     <string name="capital_on">AN</string>
     <string name="capital_off">AUS</string>
     <string name="settings_name">Einstellungen</string>
-    <string-array name="themes">
-        <item>Holo</item>
-        <item>Material du (m3) (dunkel)</item>
-        <item>Material du (m3) (Licht)</item>
-    </string-array>
+    <string name="settings_fragment_name" translatable="false">jOS.Core.jConfigActivity$LauncherSettingsFragment</string>
+    <string name="jsdk_settings">jSDK-Einstellungen</string>
+    <string name="launch_sdk_preferences">Starten Sie die SDK-Einstellungen</string>
 </resources>

@@ -16,12 +16,10 @@
  * limitations under the License.
  */
 -->
-<manifest
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:androidprv="http://schemas.android.com/apk/prv/res/android">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <queries>
-        <package android:name="jOS.System"/>
+        <package android:name="jOS.ThemeEngine"/>
     </queries>
 
     <application android:process="system"

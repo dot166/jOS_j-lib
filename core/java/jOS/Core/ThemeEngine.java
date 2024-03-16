@@ -13,9 +13,19 @@ import android.util.Log;
 import java.util.Objects;
 
 public class ThemeEngine {
+
+    /**
+     * @deprecated This method has been deprecated because it is now private.
+     */
+    @Deprecated(since = "v3.0.9", forRemoval = true)
     public static final String KEY_THEME = "pref_theme";
     public static String currentTheme;
 
+    /**
+     * jOS ThemeEngine: get the theme
+     * @param context context
+     * @return theme
+     */
     public static int getSystemTheme(Context context){
         String Theme;
         Theme = getThemeFromDB1(context);
@@ -57,15 +67,6 @@ public class ThemeEngine {
         }
         Log.i("jOS Theme Engine - DB1", "No Records Found");
         return "Holo";
-    }
-
-    /**
-     * @deprecated This method has been deprecated in favor of using
-     * {@link #getThemeFromDB1(Context)}.
-     */
-    @Deprecated(since = "v3.0.8", forRemoval = true)
-    public static String getSystemThemeValue(Context context, String applicationID){
-        return getThemeFromDB1(context);
     }
 
 

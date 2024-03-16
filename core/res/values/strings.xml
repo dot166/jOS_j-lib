@@ -15,19 +15,12 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- Label for the LineageOS system components when they are shown to the user. -->
+    <!-- Label for the jOS system components when they are shown to the user. -->
     <string name="jos_system_label">jOS Core</string>
     <string name="capital_on">ON</string>
     <string name="capital_off">OFF</string>
     <string name="settings_name">Settings</string>
-    <string-array name="themes">
-        <item>holo</item>
-        <item>material you (m3) (dark)</item>
-        <item>material you (m3) (light)</item>
-    </string-array>
-    <string-array name="themesConfig" translatable="false">
-        <item>Holo</item>
-        <item>M3 Dark</item>
-        <item>M3 Light</item>
-    </string-array>
+    <string name="settings_fragment_name" translatable="false">jOS.Core.jConfigActivity$LauncherSettingsFragment</string>
+    <string name="jsdk_settings">jSDK Settings</string>
+    <string name="launch_sdk_preferences">Launch SDK Preferences</string>
 </resources>
