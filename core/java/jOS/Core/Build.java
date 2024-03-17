@@ -29,6 +29,9 @@ public class Build {
     /** Value used for when a build property is unknown. */
     public static final String UNKNOWN = "unknown";
 
+    /** Value used for sdk versioning. */
+    public static final String SDKVersion = "3.0.12";
+
     /** A build ID utilized to distinguish jos versions */
     public static final String jOS_RELEASE = getString("ro.j.osversion");
 

@@ -179,6 +179,9 @@ public class jConfigActivity extends AppCompatActivity
         public boolean isSDKConfig() {
             return false;
         }
+        public boolean hideSDK() {
+            return false;
+        }
         public int preferenceXML() {
             return R.xml.launcher_preferences;
         }
@@ -199,7 +202,7 @@ public class jConfigActivity extends AppCompatActivity
 
         public void initPreference(String rootKey){
             setPreferencesFromResource(preferenceXML(), rootKey);
-            if (!isSDKConfig()) {
+            if (!hideSDK()) {
                 addPreferencesFromResource(R.xml.sdk_preference);
             }
             PreferenceScreen screen = getPreferenceScreen();
@@ -232,14 +235,18 @@ public class jConfigActivity extends AppCompatActivity
                     preference.setOnPreferenceClickListener(p -> {
                         Intent intent = new Intent("jOS.System.SDKConfig");
                         startActivity(intent);
-                        return true;
+                        return !isSDKConfig();
                     });
+                    return !isSDKConfig();
+                case "SDKVer":
+                    Log.i("Preference Logging", "SDKVer Found!!!!");
+                    preference.setSummary(Build.SDKVersion);
                     return true;
             }
             return extraPrefs(preference);
         }
 
-        private boolean extraPrefs(Preference preference) {
+        protected boolean extraPrefs(Preference preference) {
             return true;
         }
 

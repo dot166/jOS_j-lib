@@ -6,5 +6,9 @@
         android:key="SDK"
         android:title="@string/jsdk_settings"
         android:summary="@string/launch_sdk_preferences"/>
+
+    <Preference
+        android:key="SDKVer"
+        android:title="jSDK Version"/>
 </androidx.preference.PreferenceCategory>
 </PreferenceScreen>
