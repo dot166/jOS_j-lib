@@ -5,6 +5,7 @@ import static jOS.Core.ThemeEngine.currentTheme;
 import static jOS.Core.ThemeEngine.getSystemTheme;
 import static jOS.Core.ThemeEngine.getThemeFromDB1;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -49,19 +50,49 @@ public class jConfigActivity extends AppCompatActivity
     public int appName() {
         return R.string.settings_name;
     }
+    public int appIcon() {
+        return R.drawable.ic_launcher_j;
+    }
+    public int appTheme(Context context) {
+        if (getAppTheme(context) != 0) {
+            return getAppTheme(context);
+        }
+        return getSystemTheme(context);
+    }
+    public String appDB1(Context context) {
+        if (!Objects.equals(getAppDB1(context), "")) {
+            return getAppDB1(context);
+        }
+        return getThemeFromDB1(context);
+    }
+    public String appCurrentTheme() {
+        if (!Objects.equals(getAppCurrentTheme(), "")) {
+            return getAppCurrentTheme();
+        }
+        return currentTheme;
+    }
+    public int getAppTheme(Context context) {
+        return 0;
+    }
+    public String getAppDB1(Context context) {
+        return "";
+    }
+    public String getAppCurrentTheme() {
+        return "";
+    }
     public int preferenceFragmentValue() {
         return R.string.settings_fragment_name;
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        setTheme(getSystemTheme(this));
+        setTheme(appTheme(this));
         super.onCreate(savedInstanceState);
         setContentView(R.layout.settings_activity);
         WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
 
         Intent intent = getIntent();
-        actionBarConfig(appName(), jOS.Core.R.drawable.ic_launcher_j, false, this, "");
+        actionBarConfig(appName(), appIcon(), false, this, "");
 
         if (savedInstanceState == null) {
             Bundle args = intent.getBundleExtra(EXTRA_FRAGMENT_ARGS);
@@ -157,7 +188,7 @@ public class jConfigActivity extends AppCompatActivity
 
     protected void onResume() {
         super.onResume();
-        if (!Objects.equals(currentTheme, getThemeFromDB1(this))) {
+        if (!Objects.equals(appCurrentTheme(), appDB1(this))) {
             Intent intent = getIntent();
             finish();
             startActivity(intent);
