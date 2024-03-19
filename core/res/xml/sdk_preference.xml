@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-<androidx.preference.PreferenceCategory android:title="jSDK" android:key="sdk_category">
+<androidx.preference.PreferenceCategory android:title="@string/jsdk" android:key="sdk_category">
 
     <Preference
         android:key="SDK"
@@ -9,6 +9,6 @@
 
     <Preference
         android:key="SDKVer"
-        android:title="jSDK Version"/>
+        android:title="@string/jsdk_version"/>
 </androidx.preference.PreferenceCategory>
 </PreferenceScreen>

@@ -7,4 +7,6 @@
     <string name="settings_fragment_name" translatable="false">jOS.Core.jConfigActivity$LauncherSettingsFragment</string>
     <string name="jsdk_settings">jSDKの設定</string>
     <string name="launch_sdk_preferences">SDK 設定の起動</string>
+    <string name="jsdk_version">jSDKのバージョン</string>
+    <string name="jsdk">jSDK</string>
 </resources>
