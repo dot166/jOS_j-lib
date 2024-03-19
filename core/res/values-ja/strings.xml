@@ -9,4 +9,6 @@
     <string name="launch_sdk_preferences">SDK 設定の起動</string>
     <string name="jsdk_version">jSDKのバージョン</string>
     <string name="jsdk">jSDK</string>
+    <string name="menu_button">メニューボタン</string>
+    <string name="back_button">戻るボタン</string>
 </resources>

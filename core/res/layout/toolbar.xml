@@ -19,7 +19,7 @@
         android:scaleType="fitCenter"
         android:background="@color/j_transparent"
         android:visibility="gone"
-        android:contentDescription="Back Button" />
+        android:contentDescription="@string/back_button" />
 
     <ImageView
         android:id="@+id/icon"
@@ -42,7 +42,8 @@
         android:layout_gravity="end"
         android:visibility="gone"
         android:background="@color/j_transparent"
-        android:contentDescription="Menu Button" />
+        android:contentDescription="@string/menu_button"
+        app:tint="@android:color/white" />
     <TextView
         android:id="@+id/Title"
         android:textAppearance="@android:style/TextAppearance.Holo.Widget.ActionBar.Title"

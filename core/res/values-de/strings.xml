@@ -9,4 +9,6 @@
     <string name="launch_sdk_preferences">Starten Sie die SDK-Einstellungen</string>
     <string name="jsdk_version">jSDK-Version</string>
     <string name="jsdk">jSDK</string>
+    <string name="menu_button">Menütaste</string>
+    <string name="back_button">Zurück-Button</string>
 </resources>

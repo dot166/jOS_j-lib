@@ -25,4 +25,6 @@
     <string name="launch_sdk_preferences">Launch SDK Preferences</string>
     <string name="jsdk_version">jSDK Version</string>
     <string name="jsdk">jSDK</string>
+    <string name="menu_button">Menu Button</string>
+    <string name="back_button">Back Button</string>
 </resources>

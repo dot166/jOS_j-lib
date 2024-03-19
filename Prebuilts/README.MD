@@ -15,6 +15,6 @@ dependencyResolutionManagement {
 then add the following lines to your apps build.gradle
 ```
 dependencies {
-    implementation "jOS.Core:j-SDK-core:+"
+    implementation "jOS.Core:j-SDK-core:3.0.16"
 }
 ```
