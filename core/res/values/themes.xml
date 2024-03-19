@@ -25,7 +25,6 @@
         <item name="android:textAppearanceInverse">@android:style/TextAppearance.Holo.Inverse</item>
 
         <item name="android:textColorPrimary">@color/j_primary_text_holo_dark</item>
-        <item name="colorPrimary">?android:attr/textColorPrimary</item>
         <item name="android:textColorSecondary">@color/j_secondary_text_holo_dark</item>
         <item name="android:textColorTertiary">@color/j_tertiary_text_holo_dark</item>
         <item name="android:textColorPrimaryInverse">@color/j_primary_text_holo_light</item>
@@ -112,14 +111,111 @@
         <item name="android:alertDialogStyle">@style/j.AlertDialog</item>
 
         <item name="editTextStyle">@android:style/Widget.Holo.EditText</item>
+
+        <item name="dividerVertical">?android:attr/listDivider</item>
+        <item name="dividerHorizontal">?android:attr/listDivider</item>
+        <item name="buttonBarStyle">@android:style/Holo.ButtonBar</item>
+        <item name="buttonBarButtonStyle">?attr/borderlessButtonStyle</item>
+        <item name="android:dividerVertical">?android:attr/listDivider</item>
+        <item name="android:dividerHorizontal">?android:attr/listDivider</item>
+        <item name="android:buttonBarStyle">@android:style/Holo.ButtonBar</item>
+        <item name="android:buttonBarButtonStyle">?attr/borderlessButtonStyle</item>
+        <item name="android:segmentedButtonStyle">@android:style/Holo.SegmentedButton</item>
+
+        <item name="colorPrimaryDark">@android:color/black</item>
+        <item name="colorPrimary">#ff222222</item>
+        <item name="colorAccent">@android:color/holo_blue_dark</item>
+        <item name="android:colorEdgeEffect">?attr/colorPrimary</item>
+
+        <item name="colorControlNormal">#39cccccc</item>
+        <item name="colorControlActivated">@android:color/holo_blue_light</item>
+
+        <item name="colorControlHighlight">#59f0f0f0</item>
+        <item name="colorButtonNormal">#bd292f34</item>
+        <item name="colorSwitchThumbNormal">@color/switch_thumb_material_light</item>
+
+        <item name="android:colorPrimaryDark">@android:color/black</item>
+        <item name="android:colorPrimary">#ff222222</item>
+        <item name="android:colorAccent">@android:color/holo_blue_dark</item>
+
+        <item name="android:colorControlNormal">#39cccccc</item>
+        <item name="android:colorControlActivated">@android:color/holo_blue_light</item>
+
+        <item name="android:colorControlHighlight">#59f0f0f0</item>
+        <item name="android:colorButtonNormal">#bd292f34</item>
+
+        <!-- Holo-only color attributes -->
+        <item name="android:colorPressedHighlight">#33999999</item>
+        <item name="android:colorLongPressedHighlight">#33CCCCCC</item>
+        <item name="android:colorFocusedHighlight">@android:color/holo_blue_dark</item>
+        <item name="android:colorMultiSelectHighlight">@android:color/holo_green_light</item>
+        <item name="android:colorActivatedHighlight">@android:color/holo_blue_dark</item>
+
+        <!-- Widget styles -->
+        <item name="autoCompleteTextViewStyle">@android:style/Widget.Holo.AutoCompleteTextView</item>
+        <item name="checkboxStyle">@android:style/Widget.Holo.CompoundButton.CheckBox</item>
+        <item name="checkedTextViewStyle">@android:style/Widget.Holo.CheckedTextView</item>
+        <item name="dropDownListViewStyle">@android:style/Widget.Holo.ListView.DropDown</item>
+        <item name="imageButtonStyle">@android:style/Widget.Holo.ImageButton</item>
+        <item name="popupWindowStyle">@android:style/Widget.Holo.PopupWindow</item>
+        <item name="progressBarStyle">@android:style/Widget.Holo.ProgressBar</item>
+        <item name="seekBarStyle">@android:style/Widget.Holo.SeekBar</item>
+        <item name="ratingBarStyle">@android:style/Widget.Holo.RatingBar</item>
+        <item name="ratingBarStyleIndicator">@android:style/Widget.Holo.RatingBar.Indicator</item>
+        <item name="ratingBarStyleSmall">@android:style/Widget.Holo.RatingBar.Small</item>
+        <item name="radioButtonStyle">@android:style/Widget.Holo.CompoundButton.RadioButton</item>
+        <item name="spinnerStyle">?android:attr/dropDownSpinnerStyle</item>
+        <item name="spinnerDropDownItemStyle">@android:style/Widget.Holo.DropDownItem.Spinner</item>
+        <item name="listPopupWindowStyle">@android:style/Widget.Holo.ListPopupWindow</item>
+        <item name="popupMenuStyle">@android:style/Widget.Holo.PopupMenu</item>
+        <item name="popupTheme">@null</item>
+        <item name="android:autoCompleteTextViewStyle">@android:style/Widget.Holo.AutoCompleteTextView</item>
+        <item name="android:checkboxStyle">@android:style/Widget.Holo.CompoundButton.CheckBox</item>
+        <item name="android:checkedTextViewStyle">@android:style/Widget.Holo.CheckedTextView</item>
+        <item name="android:dropDownListViewStyle">@android:style/Widget.Holo.ListView.DropDown</item>
+        <item name="android:imageButtonStyle">@android:style/Widget.Holo.ImageButton</item>
+        <item name="android:popupWindowStyle">@android:style/Widget.Holo.PopupWindow</item>
+        <item name="android:progressBarStyle">@android:style/Widget.Holo.ProgressBar</item>
+        <item name="android:seekBarStyle">@android:style/Widget.Holo.SeekBar</item>
+        <item name="android:ratingBarStyle">@android:style/Widget.Holo.RatingBar</item>
+        <item name="android:ratingBarStyleIndicator">@android:style/Widget.Holo.RatingBar.Indicator</item>
+        <item name="android:ratingBarStyleSmall">@android:style/Widget.Holo.RatingBar.Small</item>
+        <item name="android:radioButtonStyle">@android:style/Widget.Holo.CompoundButton.RadioButton</item>
+        <item name="android:spinnerStyle">?android:attr/dropDownSpinnerStyle</item>
+        <item name="android:spinnerDropDownItemStyle">@android:style/Widget.Holo.DropDownItem.Spinner</item>
+        <item name="android:listPopupWindowStyle">@android:style/Widget.Holo.ListPopupWindow</item>
+        <item name="android:popupMenuStyle">@android:style/Widget.Holo.PopupMenu</item>
+        <item name="android:popupTheme">@null</item>
+        <item name="android:expandableListViewStyle">@android:style/Widget.Holo.ExpandableListView</item>
+        <item name="android:gridViewStyle">@android:style/Widget.Holo.GridView</item>
+        <item name="android:listViewStyle">@android:style/Widget.Holo.ListView</item>
+        <item name="android:progressBarStyleHorizontal">@android:style/Widget.Holo.ProgressBar.Horizontal</item>
+        <item name="android:progressBarStyleSmall">@android:style/Widget.Holo.ProgressBar.Small</item>
+        <item name="android:progressBarStyleSmallTitle">@android:style/Widget.Holo.ProgressBar.Small.Title</item>
+        <item name="android:progressBarStyleLarge">@android:style/Widget.Holo.ProgressBar.Large</item>
+        <item name="android:progressBarStyleInverse">@android:style/Widget.Holo.ProgressBar</item>
+        <item name="android:progressBarStyleSmallInverse">@android:style/Widget.Holo.ProgressBar.Small</item>
+        <item name="android:progressBarStyleLargeInverse">@android:style/Widget.Holo.ProgressBar.Large</item>
+        <item name="android:scrollViewStyle">@android:style/Widget.Holo.ScrollView</item>
+        <item name="android:horizontalScrollViewStyle">@android:style/Widget.Holo.HorizontalScrollView</item>
+        <item name="android:dropDownSpinnerStyle">@android:style/Widget.Holo.Spinner</item>
+        <item name="android:starStyle">@android:style/Widget.Holo.CompoundButton.Star</item>
+        <item name="android:tabWidgetStyle">@android:style/Widget.Holo.TabWidget</item>
+        <item name="android:textViewStyle">@android:style/Widget.Holo.TextView</item>
+        <item name="android:webTextViewStyle">@android:style/Widget.Holo.WebTextView</item>
+        <item name="android:webViewStyle">@android:style/Widget.Holo.WebView</item>
+        <item name="android:dropDownItemStyle">@android:style/Widget.Holo.DropDownItem</item>
+        <item name="android:spinnerItemStyle">@android:style/Widget.Holo.TextView.SpinnerItem</item>
+        <item name="android:dropDownHintAppearance">@android:style/TextAppearance.Holo.Widget.DropDownHint</item>
+        <item name="android:contextPopupMenuStyle">?attr/popupMenuStyle</item>
         <!-- Customize the jOS System theme here. -->
     </style>
 
     <style name="jOS.Core.Theme.Dialog">
 
         <item name="android:colorPrimary">?attr/colorPrimary</item>
-        <item name="android:colorPrimaryDark">?attr/colorPrimary</item>
-        <item name="android:colorAccent">@android:color/holo_blue_dark</item>
+        <item name="android:colorPrimaryDark">?attr/colorPrimaryDark</item>
+        <item name="android:colorAccent">?attr/colorAccent</item>
         <item name="android:colorControlNormal">?attr/colorControlNormal</item>
         <item name="android:colorControlActivated">?attr/colorControlActivated</item>
         <item name="android:colorControlHighlight">?attr/colorControlHighlight</item>
