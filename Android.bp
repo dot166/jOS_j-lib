@@ -38,5 +38,5 @@ android_library {
         "core/res",
     ],
 
-    kotlincflags: ["-Xjvm-default=enable"],
+    kotlincflags: ["-Xjvm-default=all"],
 }
