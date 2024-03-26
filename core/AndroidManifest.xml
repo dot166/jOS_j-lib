@@ -24,13 +24,8 @@
         <package android:name="jOS.ThemeEngine"/>
     </queries>
 
-    <application android:process="system"
-                 android:persistent="true"
-                 android:hasCode="false"
-                 android:label="@string/jos_system_label"
+    <application android:label="@string/jos_system_label"
                  android:icon="@drawable/ic_launcher_j"
-                 android:allowClearUserData="false"
-                 android:killAfterRestore="false"
                  android:theme="@style/jOS.Theme"
                  android:supportsRtl="true">
         <activity
