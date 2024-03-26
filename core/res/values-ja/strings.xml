@@ -11,4 +11,5 @@
     <string name="jsdk">jSDK</string>
     <string name="menu_button">メニューボタン</string>
     <string name="back_button">戻るボタン</string>
+    <string name="sdkplaceholder">SDKプレースホルダー</string>
 </resources>

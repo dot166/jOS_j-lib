@@ -11,4 +11,5 @@
     <string name="jsdk">jSDK</string>
     <string name="menu_button">Menütaste</string>
     <string name="back_button">Zurück-Button</string>
+    <string name="sdkplaceholder">SDK-Platzhalter</string>
 </resources>

@@ -36,7 +36,7 @@ import java.util.Objects;
 /**
  * Settings activity for Launcher. Currently implements the following setting: Allow rotation
  */
-public class jConfigActivity extends AppCompatActivity
+public class jConfigActivity extends jActivity
         implements OnPreferenceStartFragmentCallback, OnPreferenceStartScreenCallback,
         SharedPreferences.OnSharedPreferenceChangeListener {
 
@@ -86,13 +86,11 @@ public class jConfigActivity extends AppCompatActivity
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        setTheme(appTheme(this));
+        configure(appName(), R.layout.settings_activity, false, appIcon(), "", appTheme(this));
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.settings_activity);
         WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
 
         Intent intent = getIntent();
-        actionBarConfig(appName(), appIcon(), false, this, "");
 
         if (savedInstanceState == null) {
             Bundle args = intent.getBundleExtra(EXTRA_FRAGMENT_ARGS);

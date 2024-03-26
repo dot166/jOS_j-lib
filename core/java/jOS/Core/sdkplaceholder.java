@@ -10,11 +10,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class sdkplaceholder extends Activity {
+public class sdkplaceholder extends jActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        configure(R.string.sdkplaceholder, R.layout.sdkplaceholder, false);
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.sdkplaceholder);
         alertdialog();
     }
 
