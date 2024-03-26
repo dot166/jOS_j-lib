@@ -46,6 +46,32 @@ public class ThemeEngine {
     }
 
     @SuppressLint("Range")
+    public static StringBuilder getAllThemes(jActivity context) {
+
+        // creating a cursor object of the
+        // content URI
+        Cursor cursor = context.getContentResolver().query(Uri.parse("content://jOS.Core.ThemeEngine.database/themes"), null, null, null, null);
+
+        if (cursor != null) {
+            // iteration of the cursor
+            // to print whole table
+            if (cursor.moveToFirst()) {
+                StringBuilder strBuild = new StringBuilder();
+                while (!cursor.isAfterLast()) {
+                    Log.i("Theme Engine - Load Data", cursor.getString(cursor.getColumnIndex("id")) + "-" + cursor.getString(cursor.getColumnIndex("name")) + "-" + cursor.getString(cursor.getColumnIndex("current")));
+                    strBuild.append("\n" + cursor.getString(cursor.getColumnIndex("id")) + "-" + cursor.getString(cursor.getColumnIndex("name")) + "-" + cursor.getString(cursor.getColumnIndex("current")));
+                    cursor.moveToNext();
+                }
+                return strBuild;
+            } else {
+                return new StringBuilder(context.getString(R.string.no_records_found));
+            }
+        } else {
+            return new StringBuilder(context.getString(R.string.no_records_found));
+        }
+    }
+
+    @SuppressLint("Range")
     public static String getThemeFromDB1(Context context){
         // get from database
 

@@ -12,4 +12,5 @@
     <string name="menu_button">Menütaste</string>
     <string name="back_button">Zurück-Button</string>
     <string name="sdkplaceholder">SDK-Platzhalter</string>
+    <string name="no_records_found">Keine Aufzeichnungen gefunden</string>
 </resources>
