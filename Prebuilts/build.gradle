@@ -12,18 +12,18 @@ android {
 }
 
 group = 'jOS.Core'
-version = "3.0.16"
+version = "3.1.0"
 
 publishing {
     publications {
         maven(MavenPublication) {
-            artifact 'jOS-Core.aar'
+            artifact 'j.SDK.aar'
             pom.withXml {
                 def dependenciesNode = asNode().appendNode('dependencies')
                 def dependencyNode = dependenciesNode.appendNode('dependency')
                 dependencyNode.appendNode('groupId', 'jOS.Core')
                 dependencyNode.appendNode('artifactId', 'j-SDK-core')
-                dependencyNode.appendNode('version', '3.0.16')
+                dependencyNode.appendNode('version', '3.1.0')
             }
         }
     }
