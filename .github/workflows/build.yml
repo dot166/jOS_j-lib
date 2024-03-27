@@ -29,11 +29,13 @@ jobs:
 
     - name: Build
       run: |
+        rm -rf Prebuilts/j-SDK.aar
         cd core
         ./gradlew build
         cp j-SDK-Core/build/outputs/aar/j-SDK-Core-release.aar ../Prebuilts/j-SDK.aar
 
     - name: Publish
+      if: github.event_name == 'workflow_dispatch'
       run: |
         cd core
         cp ../.m2/jOS/Core/j-SDK-core/maven-metadata.xml ../.m2/jOS/Core/j-SDK-core/maven-metadata-local.xml
@@ -46,13 +48,11 @@ jobs:
           -execdir mv {} maven-metadata.xml \;
 
     - name: Commit changes
-      if: github.event_name == 'workflow_dispatch'
       run: |
         git add .
         git commit -m "Publish maven artifacts" || true
 
     - name: Push changes to repo
-      if: github.event_name == 'workflow_dispatch'
       uses: ad-m/github-push-action@master
       with:
         branch: ${{ github.ref }}
