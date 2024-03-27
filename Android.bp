@@ -37,6 +37,7 @@ android_library {
     resource_dirs: [
         "core/res",
     ],
+    use_resource_processor: true,
 
     kotlincflags: ["-Xjvm-default=all"],
 }
