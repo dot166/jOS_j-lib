@@ -47,7 +47,7 @@ jobs:
 
     - name: Commit changes
       run: |
-        git add .m2
+        git add .
         git commit -m "Publish maven artifacts" || true
 
     - name: Push changes to repo
