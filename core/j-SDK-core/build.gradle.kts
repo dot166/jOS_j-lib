@@ -49,6 +49,11 @@ version = "3.1.1"
 publishing {
     publications {
         create<MavenPublication>("pluginMaven") {
+
+            afterEvaluate {
+                from(components["release"])
+            }
+
             pom {
                 name.set(rootProject.name)
                 url.set("https://github.com/dot166/jOS_j-SDK")
