@@ -36,7 +36,6 @@ jobs:
     - name: Publish
       run: |
         cd core
-        cp ../.m2/jOS/Core/j-SDK-core/maven-metadata.xml ../.m2/jOS/Core/j-SDK-core/maven-metadata-local.xml
         ./gradlew \
           -Dmaven.repo.local=$GITHUB_WORKSPACE/.m2 \
           publishToMavenLocal
