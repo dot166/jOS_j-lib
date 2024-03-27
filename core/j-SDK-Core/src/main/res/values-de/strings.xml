@@ -1,0 +1,16 @@
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Label for the jOS system components when they are shown to the user. -->
+    <string name="jos_system_label">jOS Core</string>
+    <string name="capital_on">AN</string>
+    <string name="capital_off">AUS</string>
+    <string name="settings_name">Einstellungen</string>
+    <string name="settings_fragment_name" translatable="false">jOS.Core.jConfigActivity$LauncherSettingsFragment</string>
+    <string name="jsdk_settings">jSDK-Einstellungen</string>
+    <string name="launch_sdk_preferences">Starten Sie die SDK-Einstellungen</string>
+    <string name="jsdk_version">jSDK-Version</string>
+    <string name="jsdk">jSDK</string>
+    <string name="menu_button">Menütaste</string>
+    <string name="back_button">Zurück-Button</string>
+    <string name="sdkplaceholder">SDK-Platzhalter</string>
+    <string name="no_records_found">Keine Aufzeichnungen gefunden</string>
+</resources>

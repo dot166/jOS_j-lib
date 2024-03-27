@@ -24,12 +24,18 @@ jobs:
 
     - name: Grant execute permission for gradlew
       run: |
-        cd Prebuilts
+        cd core
         chmod +x gradlew
+
+    - name: Build
+      run: |
+        cd core
+        ./gradlew build
+        cp j-SDK-Core/build/outputs/aar/j-SDK-Core-release.aar ../Prebuilts/j-SDK.aar
 
     - name: Publish
       run: |
-        cd Prebuilts
+        cd core
         cp ../.m2/jOS/Core/j-SDK-core/maven-metadata.xml ../.m2/jOS/Core/j-SDK-core/maven-metadata-local.xml
         ./gradlew \
           -Dmaven.repo.local=$GITHUB_WORKSPACE/.m2 \

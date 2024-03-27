@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <!-- Default height of an action bar. -->
-    <dimen name="j_action_bar_default_height">48dip</dimen>
-    <!-- Vertical padding around action bar icons. -->
-    <dimen name="j_action_bar_icon_vertical_padding">8dip</dimen>
-</resources>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2024 ._______166
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Label for the jOS system components when they are shown to the user. -->
+    <string name="jos_system_label">jOS Core</string>
+    <string name="capital_on">ON</string>
+    <string name="capital_off">OFF</string>
+    <string name="settings_name">Settings</string>
+    <string name="settings_fragment_name" translatable="false">jOS.Core.jConfigActivity$LauncherSettingsFragment</string>
+    <string name="jsdk_settings">jSDK Settings</string>
+    <string name="launch_sdk_preferences">Launch SDK Preferences</string>
+    <string name="jsdk_version">jSDK Version</string>
+    <string name="jsdk">jSDK</string>
+    <string name="menu_button">Menu Button</string>
+    <string name="back_button">Back Button</string>
+    <string name="sdkplaceholder">sdkplaceholder</string>
+    <string name="no_records_found">No Records Found</string>
+</resources>
