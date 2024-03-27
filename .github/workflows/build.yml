@@ -31,7 +31,7 @@ jobs:
       run: |
         cd core
         ./gradlew build
-        cp j-SDK-core/build/outputs/aar/j-SDK-Core-release.aar ../Prebuilts/j-SDK.aar
+        cp j-SDK-core/build/outputs/aar/j-SDK-core-release.aar ../Prebuilts/j-SDK.aar
 
     - name: Publish
       run: |
