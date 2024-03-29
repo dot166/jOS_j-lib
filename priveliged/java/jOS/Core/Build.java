@@ -17,8 +17,6 @@
 package jOS.Core;
 
 import android.os.SystemProperties;
-import android.text.TextUtils;
-import android.util.SparseArray;
 import java.util.Objects;
 
 
@@ -28,9 +26,6 @@ import java.util.Objects;
 public class Build {
     /** Value used for when a build property is unknown. */
     public static final String UNKNOWN = "unknown";
-
-    /** Value used for sdk versioning. */
-    public static final String SDKVersion = "3.1.0";
 
     /** A build ID utilized to distinguish jos versions */
     public static final String jOS_RELEASE = getString("ro.j.osversion");
