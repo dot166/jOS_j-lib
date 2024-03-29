@@ -1,6 +1,5 @@
 package jOS.Core;
 
-import static jOS.Core.ActionBar.actionBarConfig;
 import static jOS.Core.ThemeEngine.currentTheme;
 import static jOS.Core.ThemeEngine.getSystemTheme;
 import static jOS.Core.ThemeEngine.getThemeFromDB1;
@@ -269,7 +268,7 @@ public class jConfigActivity extends jActivity
                     return !isSDKConfig();
                 case "SDKVer":
                     Log.i("Preference Logging", "SDKVer Found!!!!");
-                    preference.setSummary(Build.SDKVersion);
+                    preference.setSummary(BuildConfig.SDKVersion);
                     return true;
             }
             return extraPrefs(preference);

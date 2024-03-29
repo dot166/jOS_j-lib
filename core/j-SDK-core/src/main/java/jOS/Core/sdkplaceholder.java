@@ -4,7 +4,6 @@ import static android.os.Build.VERSION.RELEASE_OR_PREVIEW_DISPLAY;
 import static jOS.Core.Build.jOS_RELEASE;
 import static jOS.Core.Build.j_DEVICE;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;

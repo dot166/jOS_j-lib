@@ -1,10 +1,13 @@
-import org.jetbrains.kotlin.gradle.plugin.mpp.pm20.util.libsDirectory
-
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
     `maven-publish`
 }
+
+android.buildFeatures.buildConfig=true
+
+group = "jOS.Core"
+version = "3.1.2"
 
 android {
     namespace = "jOS.Core"
@@ -14,6 +17,7 @@ android {
         minSdk = 33
 
         consumerProguardFiles("consumer-rules.pro")
+        buildConfigField("String", "SDKVersion", "\"$version\"")
     }
 
     buildTypes {
@@ -43,8 +47,6 @@ dependencies {
     implementation("androidx.core:core-ktx:1.12.0")
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("javalib.jar"))))
 }
-group = "jOS.Core"
-version = "3.1.1"
 
 publishing {
     publications {
