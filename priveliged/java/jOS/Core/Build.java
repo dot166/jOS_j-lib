@@ -27,7 +27,7 @@ public class Build {
     /** Value used for when a build property is unknown. */
     public static final String UNKNOWN = "unknown";
 
-    /** A build ID utilized to distinguish jos versions */
+    /** A Version String utilized to distinguish jOS versions */
     public static final String jOS_RELEASE = getString("ro.j.osversion");
 
     /** A binary integer utilized to distinguish supported devices */
@@ -42,6 +42,15 @@ public class Build {
         }
         return 0;
     }
+
+    /** An Integer utilized to distinguish jOS versions */
+    public static final int jOS_RELEASE_INT = Integer.parseInt(jOS_RELEASE.replaceAll("\\..*",""));
+
+    /** jOS M */
+    public static final int jOS_M = 13;
+
+    /** jOS Obsidian */
+    public static final int jOS_O = 15;
 
     private static Boolean getBoolean(String property) {
         String prop = getString(property);
