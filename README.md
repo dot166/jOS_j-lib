@@ -11,7 +11,7 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
-        maven { url 'https://raw.githubusercontent.com/dot166/jOS_j-SDK/jOS-15.0/.m2' }
+        maven { url 'https://raw.githubusercontent.com/dot166/jOS_j-SDK/main/.m2' }
     }
 }
 ```
@@ -33,9 +33,9 @@ dependencies {
 
 gradle library (main code)
 
-### priveliged/
+### privileged/
 
-aosp compiled java library (priveliged code (systemproperties)) included as javalib.jar in core/j-SDK-core/libs
+aosp compiled java library (privileged code (systemproperties)) included as javalib.jar in core/j-SDK-core/libs
 
 ### Prebuilts
 

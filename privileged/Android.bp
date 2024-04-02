@@ -15,8 +15,8 @@
 //
 
 java_library {
-    name: "j.SDK.Priveliged",
+    name: "j.SDK.Privileged",
 
-    srcs: ["src/**/*.java"],
+    srcs: ["java/**/*.java"],
 
 }
