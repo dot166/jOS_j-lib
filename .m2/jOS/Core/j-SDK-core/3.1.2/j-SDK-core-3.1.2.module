@@ -34,11 +34,11 @@
         {
           "name": "j-SDK-core-3.1.2.aar",
           "url": "j-SDK-core-3.1.2.aar",
-          "size": 125545,
-          "sha512": "271bc2358c33573d487002f201d88e05b62ffa792a51910a02684f8b33ae8926b4de53267f6a92fc9442e822af599b2cb800cb9b0b5b1b0080a4cf6ca44d5275",
-          "sha256": "95f414b87220e14a8f3db54def4c58e9df1416658aaf12ca8f3c795a7d82d32f",
-          "sha1": "dca748c1c107f149f63a06cedd123d02e3efb843",
-          "md5": "7ccc802fa4563eee24905f76b05fa335"
+          "size": 125697,
+          "sha512": "437e9e3c3b0cb67f054b7eb419d83173b70903e79573be43501a4f20e3959961ceb337f3128a78d824004dbaee894f34c7ed7faf76b6ffbbe28e749a2e9107cd",
+          "sha256": "81366959e6e55c4bba1b478b991719dd5fa2f2ee56578099071659c327d89f1b",
+          "sha1": "c541a41451cca715007c9664e0db42a5f93dd807",
+          "md5": "ccf69acb7ae406960bc9749eab849aa6"
         }
       ]
     },
@@ -104,11 +104,11 @@
         {
           "name": "j-SDK-core-3.1.2.aar",
           "url": "j-SDK-core-3.1.2.aar",
-          "size": 125545,
-          "sha512": "271bc2358c33573d487002f201d88e05b62ffa792a51910a02684f8b33ae8926b4de53267f6a92fc9442e822af599b2cb800cb9b0b5b1b0080a4cf6ca44d5275",
-          "sha256": "95f414b87220e14a8f3db54def4c58e9df1416658aaf12ca8f3c795a7d82d32f",
-          "sha1": "dca748c1c107f149f63a06cedd123d02e3efb843",
-          "md5": "7ccc802fa4563eee24905f76b05fa335"
+          "size": 125697,
+          "sha512": "437e9e3c3b0cb67f054b7eb419d83173b70903e79573be43501a4f20e3959961ceb337f3128a78d824004dbaee894f34c7ed7faf76b6ffbbe28e749a2e9107cd",
+          "sha256": "81366959e6e55c4bba1b478b991719dd5fa2f2ee56578099071659c327d89f1b",
+          "sha1": "c541a41451cca715007c9664e0db42a5f93dd807",
+          "md5": "ccf69acb7ae406960bc9749eab849aa6"
         }
       ]
     },
