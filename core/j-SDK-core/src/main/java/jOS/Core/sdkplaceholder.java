@@ -12,7 +12,7 @@ import android.widget.TextView;
 public class sdkplaceholder extends jActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        configure(R.string.sdkplaceholder, R.layout.sdkplaceholder, false);
+        configure(getString(R.string.sdkplaceholder), R.layout.sdkplaceholder, false);
         super.onCreate(savedInstanceState);
         alertdialog();
     }

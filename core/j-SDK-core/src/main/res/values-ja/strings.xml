@@ -13,4 +13,5 @@
     <string name="back_button">戻るボタン</string>
     <string name="sdkplaceholder">SDKプレースホルダー</string>
     <string name="no_records_found">レコードが見つかりませんでした</string>
+    <string name="logo">アプリアイコン</string>
 </resources>

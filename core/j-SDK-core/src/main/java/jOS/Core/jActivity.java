@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class jActivity extends AppCompatActivity {
 
-    int app_name;
+    String app_name;
     int layout;
     int icon;
     boolean home;
@@ -23,7 +23,7 @@ public class jActivity extends AppCompatActivity {
      * @param layout int, app layout. commonly R.layout.activitymain
      * @param home boolean, tells system if this is the first activity/home page
      */
-    protected void configure(int app_name, int layout, boolean home)
+    protected void configure(String app_name, int layout, boolean home)
     {
         configure(app_name, layout, home, R.drawable.ic_launcher_j);
     }
@@ -35,7 +35,7 @@ public class jActivity extends AppCompatActivity {
      * @param home boolean, tells system if this is the first activity/home page
      * @param icon int, drawable or mipmap resource. commonly R.mipmap.ic_launcher or R.drawable.ic_launcher_j
      */
-    protected void configure(int app_name, int layout, boolean home, int icon)
+    protected void configure(String app_name, int layout, boolean home, int icon)
     {
         configure(app_name, layout, home, icon, "");
     }
@@ -48,7 +48,7 @@ public class jActivity extends AppCompatActivity {
      * @param icon int, drawable or mipmap resource. commonly R.mipmap.ic_launcher or R.drawable.ic_launcher_j
      * @param action string, menu button action. commonly "android.intent.action.APPLICATION_PREFERENCES"
      */
-    protected void configure(int app_name, int layout, boolean home, int icon, String action)
+    protected void configure(String app_name, int layout, boolean home, int icon, String action)
     {
         configure(app_name, layout, home, icon, action, getSystemTheme(this));
     }
@@ -61,7 +61,7 @@ public class jActivity extends AppCompatActivity {
      * @param icon int, drawable or mipmap resource. commonly R.mipmap.ic_launcher or R.drawable.ic_launcher_j
      * @param action string, menu button action. commonly "android.intent.action.APPLICATION_PREFERENCES"
      */
-    protected void configure(int app_name, int layout, boolean home, int icon, String action, int Theme)
+    protected void configure(String app_name, int layout, boolean home, int icon, String action, int Theme)
     {
         this.app_name = app_name;
         this.layout = layout;
