@@ -74,15 +74,17 @@ public class ThemeEngine {
         // content URI
         Cursor cursor = context.getContentResolver().query(Uri.parse("content://jOS.Core.ThemeEngine.database/themes"), null, null, null, null);
 
-        // iteration of the cursor
-        // to print whole table
-        if(cursor.moveToFirst()) {
-            while (!cursor.isAfterLast()) {
-                if (parseBoolean(cursor.getString(cursor.getColumnIndex("current")))) {
-                    Log.i("jOS Theme Engine - DB1", cursor.getString(cursor.getColumnIndex("name")));
-                    return cursor.getString(cursor.getColumnIndex("name"));
-                } else {
-                    cursor.moveToNext();
+        if (cursor != null) {
+            // iteration of the cursor
+            // to find selected theme
+            if (cursor.moveToFirst()) {
+                while (!cursor.isAfterLast()) {
+                    if (parseBoolean(cursor.getString(cursor.getColumnIndex("current")))) {
+                        Log.i("jOS Theme Engine - DB1", cursor.getString(cursor.getColumnIndex("name")));
+                        return cursor.getString(cursor.getColumnIndex("name"));
+                    } else {
+                        cursor.moveToNext();
+                    }
                 }
             }
         }
