@@ -15,3 +15,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "j-SDK-core"
 include(":j-SDK-core")
+include(":sdk-example")
