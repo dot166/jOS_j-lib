@@ -7,7 +7,7 @@ plugins {
 android.buildFeatures.buildConfig=true
 
 group = "jOS.Core"
-version = "3.1.3"
+version = "3.1.4"
 
 android {
     namespace = "jOS.Core"
