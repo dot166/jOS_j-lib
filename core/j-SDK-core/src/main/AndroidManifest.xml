@@ -26,14 +26,14 @@
         <package android:name="jOS.ThemeEngine"/>
     </queries>
 
-    <application android:label="@string/jos_system_label"
-                 android:icon="@drawable/ic_launcher_j"
-                 android:theme="@style/jOS.Theme"
-                 android:supportsRtl="true">
+    <application android:icon="@drawable/ic_launcher_j"
+                 android:theme="@style/jOS.Theme">
         <activity
             android:name=".sdkplaceholder"
-            android:exported="true"
-            android:icon="@drawable/ic_launcher_j" />
+            android:exported="true" />
+        <activity
+            android:name=".SDKChangelogActivity"
+            android:exported="true" />
     </application>
 
 </manifest>
