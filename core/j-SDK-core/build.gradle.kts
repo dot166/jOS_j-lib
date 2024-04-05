@@ -46,6 +46,7 @@ dependencies {
     implementation("com.google.android.material:material:1.11.0")
     implementation("androidx.core:core-ktx:1.12.0")
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("javalib.jar"))))
+    implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
 }
 
 publishing {

@@ -22,6 +22,7 @@ dependencies {
     implementation "androidx.constraintlayout:constraintlayout:2.1.4" // j-SDK dependency
     implementation "androidx.preference:preference:1.2.1" // j-SDK dependency
     implementation "com.google.android.material:material:1.11.0" // j-SDK dependency
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0" // j-SDK dependency
     implementation "jOS.Core:j-SDK-core:3.+"
 }
 ```
