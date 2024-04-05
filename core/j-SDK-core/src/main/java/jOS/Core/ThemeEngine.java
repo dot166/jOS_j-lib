@@ -14,11 +14,6 @@ import java.util.Objects;
 
 public class ThemeEngine {
 
-    /**
-     * @deprecated This method has been deprecated because it is now private.
-     */
-    @Deprecated(since = "v3.0.9", forRemoval = true)
-    public static final String KEY_THEME = "pref_theme";
     public static String currentTheme;
 
     /**
