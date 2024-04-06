@@ -88,6 +88,7 @@
         <item name="android:borderlessButtonStyle">@android:style/Widget.Holo.Button.Borderless</item>
         <item name="android:homeAsUpIndicator">@drawable/j_ic_ab_back_holo_dark</item>
         <item name="actionBarTheme">@style/j.ActionBar</item>
+        <item name="toolbarStyle">?actionBarTheme</item>
         <item name="actionBarSize">@dimen/j_action_bar_default_height</item>
         <item name="android:windowBackground">@drawable/j_background_holo_dark</item>
         <item name="android:backgroundDimAmount">0.6</item>

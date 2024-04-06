@@ -45,7 +45,7 @@ public class jWebActivity extends jActivity {
      */
     protected void configure(String uri, boolean js, boolean zoom, boolean DOM, String app_name, boolean home, int icon)
     {
-        configure(uri, js, zoom, DOM, app_name, home, icon, "");
+        configure(uri, js, zoom, DOM, app_name, home, icon, getSystemTheme(this));
     }
 
     /**
@@ -53,27 +53,14 @@ public class jWebActivity extends jActivity {
      * @param app_name int, string resource. commonly R.string.app_name
      * @param home boolean, tells system if this is the first activity/home page
      * @param icon int, drawable or mipmap resource. commonly R.mipmap.ic_launcher or R.drawable.ic_launcher_j
-     * @param action string, menu button action. commonly "android.intent.action.APPLICATION_PREFERENCES"
      */
-    protected void configure(String uri, boolean js, boolean zoom, boolean DOM, String app_name, boolean home, int icon, String action)
-    {
-        configure(uri, js, zoom, DOM, app_name, home, icon, action, getSystemTheme(this));
-    }
-
-    /**
-     * Subclasses are obligated to call this before calling super.onCreate()
-     * @param app_name int, string resource. commonly R.string.app_name
-     * @param home boolean, tells system if this is the first activity/home page
-     * @param icon int, drawable or mipmap resource. commonly R.mipmap.ic_launcher or R.drawable.ic_launcher_j
-     * @param action string, menu button action. commonly "android.intent.action.APPLICATION_PREFERENCES"
-     */
-    protected void configure(String uri, boolean js, boolean zoom, boolean DOM, String app_name, boolean home, int icon, String action, int Theme)
+    protected void configure(String uri, boolean js, boolean zoom, boolean DOM, String app_name, boolean home, int icon, int Theme)
     {
         this.uri = uri;
         this.js = js;
         this.zoom = zoom;
         this.DOM = DOM;
-        super.configure(app_name, R.layout.jwebactivity, home, icon, action, Theme);
+        super.configure(app_name, R.layout.jwebactivity, home, icon, Theme);
     }
 
     @Override
@@ -105,12 +92,10 @@ public class jWebActivity extends jActivity {
             }
         });
 
-        //swipeRefreshLayout.setColorSchemeColors(
-                //getResources().getColor(android.R.color.holo_blue_dark),
-                //getResources().getColor(android.R.color.holo_orange_dark),
-                //getResources().getColor(android.R.color.holo_green_dark),
-                //getResources().getColor(android.R.color.holo_red_dark)
-        //);
+        swipeRefreshLayout.setColorSchemeColors(
+                getResources().getColor(android.R.color.holo_blue_dark),
+                getResources().getColor(android.R.color.holo_red_dark)
+        );
     }
 
 
@@ -118,6 +103,7 @@ public class jWebActivity extends jActivity {
 
         @Override
         public boolean shouldOverrideUrlLoading(WebView view, String url) {
+            webView.clearCache(true);
             view.loadUrl(url);
             return true;
         }
@@ -125,7 +111,6 @@ public class jWebActivity extends jActivity {
         @Override
         public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
             Toast.makeText(getApplicationContext(), "No internet connection", Toast.LENGTH_LONG).show();
-            webView.loadUrl("file:///android_asset/lost.html");
         }
 
         @Override
