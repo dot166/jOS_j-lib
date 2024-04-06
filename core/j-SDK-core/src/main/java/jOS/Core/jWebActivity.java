@@ -72,6 +72,7 @@ public class jWebActivity extends jActivity {
         swipeRefreshLayout = findViewById(R.id.swipe);
 
 
+        webView.clearCache(true);
         webView.getSettings().setJavaScriptEnabled(js);
         webView.getSettings().setSupportZoom(zoom);
         webView.getSettings().setDomStorageEnabled(DOM);
@@ -86,6 +87,7 @@ public class jWebActivity extends jActivity {
                     @Override
                     public void run() {
                         swipeRefreshLayout.setRefreshing(false);
+                        webView.clearCache(true);
                         webView.loadUrl(uri);
                     }
                 },  3000);
