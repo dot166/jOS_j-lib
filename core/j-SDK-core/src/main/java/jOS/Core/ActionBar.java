@@ -1,6 +1,7 @@
 package jOS.Core;
 
 import android.content.Intent;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -20,6 +21,9 @@ public class ActionBar {
         ImageView icon = (ImageView)context.findViewById(R.id.icon);
         LinearLayout Back_content = context.findViewById(R.id.back_layout);
         context.setSupportActionBar(actionbar);
+        if (context.getSupportActionBar() == null) {
+            Log.i("ActionBar", "You forgot to import the action bar in the layout file");
+        }
         context.getSupportActionBar().setDisplayShowTitleEnabled(false);
         context.getSupportActionBar().setDisplayHomeAsUpEnabled(false);
         Title.setText(name);
