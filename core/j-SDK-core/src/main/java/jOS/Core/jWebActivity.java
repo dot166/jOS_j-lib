@@ -79,6 +79,8 @@ public class jWebActivity extends jActivity {
         webView.setWebViewClient(new myWebViewclient());
         webView.loadUrl(uri);
 
+        swipeRefreshLayout.setProgressBackgroundColor(R.color.j_web_wheel_bg);
+
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
