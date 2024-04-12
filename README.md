@@ -2,9 +2,9 @@
 
 contains a version of the holo theme that is based on appcompat and some other things.
 
-## Build subfolder can only be built with aosp, rest of sdk can be built with gradle
+## privileged subfolder can only be built with aosp, rest of sdk can be built with gradle
 
-the j-SDK will work ONLY ON ANDROID PIE (9) AND LATER!!
+the j-SDK will work ONLY ON ANDROID PIE (9) AND LATER!! see [this commit](https://github.com/dot166/jOS_j-sdk/commit/ae05286e8cddad03afdfd88197add1796efc4f17) for more information
 
 add the following lines to your settings.gradle
 ```
