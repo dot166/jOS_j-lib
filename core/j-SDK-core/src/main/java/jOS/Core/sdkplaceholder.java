@@ -1,5 +1,6 @@
 package jOS.Core;
 
+import static android.os.Build.VERSION.RELEASE;
 import static android.os.Build.VERSION.RELEASE_OR_PREVIEW_DISPLAY;
 import static jOS.Core.Build.jOS_RELEASE;
 import static jOS.Core.Build.j_DEVICE;
@@ -20,7 +21,7 @@ public class sdkplaceholder extends jActivity {
     public void alertdialog() {
         TextView text = findViewById(R.id.textView);
         Button button = findViewById(R.id.button);
-        String android_sdk_test = "Android: " + RELEASE_OR_PREVIEW_DISPLAY;
+        String android_sdk_test = "Android: " + androidver();
         String j_sdk_test = "jOS: " + jOS_RELEASE;
         String j_verify_test = "is j Device: " + j_DEVICE();
         String all = android_sdk_test + " " + j_sdk_test + " " + j_verify_test;
@@ -31,6 +32,13 @@ public class sdkplaceholder extends jActivity {
                 finish();
             }
         });
+    }
+
+    private String androidver() {
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.TIRAMISU) {
+            return RELEASE_OR_PREVIEW_DISPLAY;
+        }
+        return RELEASE;
     }
 }
 

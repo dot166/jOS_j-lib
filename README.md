@@ -4,6 +4,8 @@ contains a version of the holo theme that is based on appcompat and some other t
 
 ## Build subfolder can only be built with aosp, rest of sdk can be built with gradle
 
+the j-SDK will work ONLY ON ANDROID PIE (9) AND LATER!!
+
 add the following lines to your settings.gradle
 ```
 dependencyResolutionManagement {

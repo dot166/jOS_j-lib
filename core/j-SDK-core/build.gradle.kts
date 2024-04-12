@@ -14,7 +14,7 @@ android {
     compileSdk = 34
 
     defaultConfig {
-        minSdk = 33
+        minSdk = 28
 
         consumerProguardFiles("consumer-rules.pro")
         buildConfigField("String", "SDKVersion", "\"$version\"")
