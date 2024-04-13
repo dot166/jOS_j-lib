@@ -29,6 +29,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.Objects;
 
+import jOS.Core.utils.PreferenceHighlighter;
+
 /**
  * Settings activity for Launcher. Currently implements the following setting: Allow rotation
  */
