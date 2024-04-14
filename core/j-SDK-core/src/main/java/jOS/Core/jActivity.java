@@ -64,6 +64,5 @@ public class jActivity extends AppCompatActivity {
         setTheme(Theme);
         super.onCreate(savedInstanceState);
         setContentView(layout);
-        ActionBar.actionBarConfig(app_name, icon, home, this);
     }
 }

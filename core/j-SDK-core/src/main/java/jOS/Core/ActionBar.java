@@ -12,6 +12,7 @@ import androidx.appcompat.widget.Toolbar;
 
 public class ActionBar {
 
+    @Deprecated(since = "3.2.0", forRemoval = true)
     public static void actionBarConfig(String name, int logo, boolean home, AppCompatActivity context){
         Toolbar actionbar = (Toolbar) context.findViewById(R.id.toolbar);
         TextView Title = (TextView)context.findViewById(R.id.Title);
