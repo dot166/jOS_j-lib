@@ -14,4 +14,7 @@
     <string name="sdkplaceholder">SDKプレースホルダー</string>
     <string name="no_records_found">レコードが見つかりませんでした</string>
     <string name="logo">アプリアイコン</string>
+    <string name="ok">わかりました</string>
+    <string name="changelog">変更履歴</string>
+    <string name="jsdk_changelog">jSDK変更ログ</string>
 </resources>

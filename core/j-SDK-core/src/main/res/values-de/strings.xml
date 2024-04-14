@@ -14,4 +14,7 @@
     <string name="sdkplaceholder">SDK-Platzhalter</string>
     <string name="no_records_found">Keine Aufzeichnungen gefunden</string>
     <string name="logo">App-Symbol</string>
+    <string name="ok">OK</string>
+    <string name="changelog">Änderungsprotokoll</string>
+    <string name="jsdk_changelog">jSDK-Änderungsprotokoll</string>
 </resources>
