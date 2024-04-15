@@ -1,0 +1,145 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "jOS.Core",
+    "module": "j-SDK-core",
+    "version": "3.2.0",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.4"
+    }
+  },
+  "variants": [
+    {
+      "name": "releaseApiElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.usage": "java-api",
+        "org.jetbrains.kotlin.platform.type": "androidJvm"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "1.9.22"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "j-SDK-core-3.2.0.aar",
+          "url": "j-SDK-core-3.2.0.aar",
+          "size": 147508,
+          "sha512": "fd0fa7182094aba6820c0be15b6202cfab02a1af2f5e2345f6d3765515d03db7f76dae38ae19e7af6cd4199e6c780e38c7456d42decee34586676977ea009031",
+          "sha256": "2d2c29ea455ccdf5783ed3958daf9ee37db67be76725f77b66330036a1a852ee",
+          "sha1": "cded5a3817df2016cdda01e82f5d90932edd899a",
+          "md5": "247ea6e0b05ec65f085d1955d4dbe850"
+        }
+      ]
+    },
+    {
+      "name": "releaseRuntimeElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "androidJvm"
+      },
+      "dependencies": [
+        {
+          "group": "androidx.appcompat",
+          "module": "appcompat",
+          "version": {
+            "requires": "1.6.1"
+          }
+        },
+        {
+          "group": "androidx.constraintlayout",
+          "module": "constraintlayout",
+          "version": {
+            "requires": "2.1.4"
+          }
+        },
+        {
+          "group": "androidx.preference",
+          "module": "preference",
+          "version": {
+            "requires": "1.2.1"
+          }
+        },
+        {
+          "group": "androidx.preference",
+          "module": "preference-ktx",
+          "version": {
+            "requires": "1.2.1"
+          }
+        },
+        {
+          "group": "com.google.android.material",
+          "module": "material",
+          "version": {
+            "requires": "1.11.0"
+          }
+        },
+        {
+          "group": "androidx.core",
+          "module": "core-ktx",
+          "version": {
+            "requires": "1.12.0"
+          }
+        },
+        {
+          "group": "androidx.swiperefreshlayout",
+          "module": "swiperefreshlayout",
+          "version": {
+            "requires": "1.1.0"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "1.9.22"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "j-SDK-core-3.2.0.aar",
+          "url": "j-SDK-core-3.2.0.aar",
+          "size": 147508,
+          "sha512": "fd0fa7182094aba6820c0be15b6202cfab02a1af2f5e2345f6d3765515d03db7f76dae38ae19e7af6cd4199e6c780e38c7456d42decee34586676977ea009031",
+          "sha256": "2d2c29ea455ccdf5783ed3958daf9ee37db67be76725f77b66330036a1a852ee",
+          "sha1": "cded5a3817df2016cdda01e82f5d90932edd899a",
+          "md5": "247ea6e0b05ec65f085d1955d4dbe850"
+        }
+      ]
+    },
+    {
+      "name": "releaseSourcesElements-published",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "androidJvm"
+      },
+      "files": [
+        {
+          "name": "j-SDK-core-3.2.0-sources.jar",
+          "url": "j-SDK-core-3.2.0-sources.jar",
+          "size": 39537,
+          "sha512": "9561a452a84bed69e4806af2939f6b5b0d21b17873ed7263173800b2c2068019cde285233fe3a7af9c265647f5c54e918c34f45b6f20b30c63269ad9e8628bf9",
+          "sha256": "4a47a1353f9e623cc255ab3f836435b0e953b121a48b7111fdd8484d1849e2a9",
+          "sha1": "d3619cd377c06b605f304e6184db98d6bfdef620",
+          "md5": "0d5dd88b339c72c7300a4aabe1d3d00e"
+        }
+      ]
+    }
+  ]
+}
