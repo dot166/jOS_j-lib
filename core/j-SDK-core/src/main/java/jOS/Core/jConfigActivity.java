@@ -37,12 +37,6 @@ import jOS.Core.utils.PreferenceHighlighter;
 public class jConfigActivity extends jActivity
         implements OnPreferenceStartFragmentCallback, OnPreferenceStartScreenCallback {
 
-    public String appName() {
-        return getString(R.string.settings_name);
-    }
-    public int appIcon() {
-        return R.drawable.ic_launcher_j;
-    }
     public int appTheme(Context context) {
         if (getAppTheme(context) != 0) {
             return getAppTheme(context);
@@ -86,7 +80,7 @@ public class jConfigActivity extends jActivity
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        configure(appName(), R.layout.settings_activity, false, appIcon(), appTheme(this));
+        configure(R.layout.settings_activity, false, true, true, true, appTheme(this));
         super.onCreate(savedInstanceState);
 
         WindowCompat.setDecorFitsSystemWindows(getWindow(), false);

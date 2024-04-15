@@ -15,9 +15,10 @@ import java.util.Objects;
 
 public class jActivity extends AppCompatActivity {
 
-    String app_name;
+    boolean app_name;
+    boolean actionbar;
     int layout;
-    int icon;
+    boolean icon;
     boolean home;
     int Theme;
     boolean configured = false;
@@ -25,38 +26,64 @@ public class jActivity extends AppCompatActivity {
 
     /**
      * Subclasses are obligated to call this before calling super.onCreate()
-     * @param app_name int, string resource. commonly R.string.app_name
      * @param layout int, app layout. commonly R.layout.activitymain
      * @param home boolean, tells system if this is the first activity/home page
      */
-    protected void configure(String app_name, int layout, boolean home)
+    protected void configure(int layout, boolean home)
     {
-        configure(app_name, layout, home, R.drawable.ic_launcher_j);
+        configure(layout, home, true);
     }
 
     /**
      * Subclasses are obligated to call this before calling super.onCreate()
-     * @param app_name int, string resource. commonly R.string.app_name
      * @param layout int, app layout. commonly R.layout.activitymain
      * @param home boolean, tells system if this is the first activity/home page
-     * @param icon int, drawable or mipmap resource. commonly R.mipmap.ic_launcher or R.drawable.ic_launcher_j
+     * @param actionbar boolean, tells system if you would like to show the actionbar
      */
-    protected void configure(String app_name, int layout, boolean home, int icon)
+    protected void configure(int layout, boolean home, boolean actionbar)
     {
-        configure(app_name, layout, home, icon, getSystemTheme(this));
+        configure(layout, home, actionbar, true);
     }
 
     /**
      * Subclasses are obligated to call this before calling super.onCreate()
-     * @param app_name int, string resource. commonly R.string.app_name
      * @param layout int, app layout. commonly R.layout.activitymain
      * @param home boolean, tells system if this is the first activity/home page
-     * @param icon int, drawable or mipmap resource. commonly R.mipmap.ic_launcher or R.drawable.ic_launcher_j
+     * @param actionbar boolean, tells system if you would like to show the actionbar
+     * @param app_name boolean, tells the system if you would like to show the activity label
      */
-    protected void configure(String app_name, int layout, boolean home, int icon, int Theme)
+    protected void configure(int layout, boolean home, boolean actionbar, boolean app_name)
+    {
+        configure(layout, home, actionbar, app_name, true);
+    }
+
+    /**
+     * Subclasses are obligated to call this before calling super.onCreate()
+     * @param layout int, app layout. commonly R.layout.activitymain
+     * @param home boolean, tells system if this is the first activity/home page
+     * @param actionbar boolean, tells system if you would like to show the actionbar
+     * @param app_name boolean, tells the system if you would like to show the activity label
+     * @param icon boolean, tells the system if you would like to show the activity icon
+     */
+    protected void configure(int layout, boolean home, boolean actionbar, boolean app_name, boolean icon)
+    {
+        configure(layout, home, actionbar, app_name, icon, getSystemTheme(this));
+    }
+
+    /**
+     * Subclasses are obligated to call this before calling super.onCreate()
+     * @param layout int, app layout. commonly R.layout.activitymain
+     * @param home boolean, tells system if this is the first activity/home page
+     * @param actionbar boolean, tells system if you would like to show the actionbar
+     * @param app_name boolean, tells the system if you would like to show the activity label
+     * @param icon boolean, tells the system if you would like to show the activity icon
+     * @param Theme int, selected theme. commonly themeengine call or R.style.{insert theme here}
+     */
+    protected void configure(int layout, boolean home, boolean actionbar, boolean app_name, boolean icon, int Theme)
     {
         this.app_name = app_name;
         this.layout = layout;
+        this.actionbar = actionbar;
         this.icon = icon;
         this.home = home;
         this.Theme = Theme;

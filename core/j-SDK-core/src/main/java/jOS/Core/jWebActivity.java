@@ -27,40 +27,28 @@ public class jWebActivity extends jActivity {
     boolean zoom;
     boolean DOM;
 
-    /**
-     * Subclasses are obligated to call this before calling super.onCreate()
-     * @param app_name int, string resource. commonly R.string.app_name
-     * @param home boolean, tells system if this is the first activity/home page
-     */
-    protected void configure(String uri, boolean js, boolean zoom, boolean DOM, String app_name, boolean home)
+    protected void configure(String uri, boolean js, boolean zoom, boolean DOM, boolean home, boolean actionbar)
     {
-        configure(uri, js, zoom, DOM, app_name, home, R.drawable.ic_launcher_j);
+        configure(uri, js, zoom, DOM, home, actionbar, true);
     }
 
-    /**
-     * Subclasses are obligated to call this before calling super.onCreate()
-     * @param app_name int, string resource. commonly R.string.app_name
-     * @param home boolean, tells system if this is the first activity/home page
-     * @param icon int, drawable or mipmap resource. commonly R.mipmap.ic_launcher or R.drawable.ic_launcher_j
-     */
-    protected void configure(String uri, boolean js, boolean zoom, boolean DOM, String app_name, boolean home, int icon)
+    protected void configure(String uri, boolean js, boolean zoom, boolean DOM, boolean home, boolean actionbar, boolean app_name)
     {
-        configure(uri, js, zoom, DOM, app_name, home, icon, getSystemTheme(this));
+        configure(uri, js, zoom, DOM, home, actionbar, app_name, true);
     }
 
-    /**
-     * Subclasses are obligated to call this before calling super.onCreate()
-     * @param app_name int, string resource. commonly R.string.app_name
-     * @param home boolean, tells system if this is the first activity/home page
-     * @param icon int, drawable or mipmap resource. commonly R.mipmap.ic_launcher or R.drawable.ic_launcher_j
-     */
-    protected void configure(String uri, boolean js, boolean zoom, boolean DOM, String app_name, boolean home, int icon, int Theme)
+    protected void configure(String uri, boolean js, boolean zoom, boolean DOM, boolean home, boolean actionbar, boolean app_name, boolean icon)
+    {
+        configure(uri, js, zoom, DOM, home, actionbar, app_name,icon, getSystemTheme(this));
+    }
+
+    protected void configure(String uri, boolean js, boolean zoom, boolean DOM, boolean home, boolean actionbar, boolean app_name, boolean icon, int Theme)
     {
         this.uri = uri;
         this.js = js;
         this.zoom = zoom;
         this.DOM = DOM;
-        super.configure(app_name, R.layout.jwebactivity, home, icon, Theme);
+        super.configure(R.layout.jwebactivity, home, actionbar, app_name, icon, Theme);
     }
 
     @Override
