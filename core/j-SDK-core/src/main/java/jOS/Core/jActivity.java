@@ -15,6 +15,7 @@ public class jActivity extends AppCompatActivity {
     boolean home;
     int Theme;
     boolean configured = false;
+    protected jSDKCoreApp mSDKApp;
 
     /**
      * Subclasses are obligated to call this before calling super.onCreate()
@@ -63,6 +64,34 @@ public class jActivity extends AppCompatActivity {
 
         setTheme(Theme);
         super.onCreate(savedInstanceState);
+        mSDKApp = (jSDKCoreApp) this.getApplicationContext();
+        mSDKApp.setCurrentActivity(this);
         setContentView(layout);
+        }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mSDKApp.setCurrentActivity(this);
+        }
+    }
+
+    @Override
+    protected void onPause() {
+        clearReferences();
+        super.onPause();
+    }
+
+    @Override
+    protected void onDestroy() {
+        clearReferences();
+        super.onDestroy();
+    }
+
+    private void clearReferences(){
+        Activity currActivity = mSDKApp.getCurrentActivity();
+        if (this.equals(currActivity))
+            mSDKApp.setCurrentActivity(null);
     }
 }
