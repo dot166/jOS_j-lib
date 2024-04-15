@@ -1,10 +1,16 @@
 package jOS.Core;
 
+import static jOS.Core.ThemeEngine.currentTheme;
 import static jOS.Core.ThemeEngine.getSystemTheme;
+import static jOS.Core.ThemeEngine.getThemeFromDB1;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.Objects;
 
 
 public class jActivity extends AppCompatActivity {
@@ -74,6 +80,10 @@ public class jActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         mSDKApp.setCurrentActivity(this);
+        if (!Objects.equals(currentTheme, getThemeFromDB1(this))) {
+            Intent intent = getIntent();
+            finish();
+            startActivity(intent);
         }
     }
 
