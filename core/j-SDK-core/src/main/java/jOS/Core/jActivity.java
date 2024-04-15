@@ -7,8 +7,11 @@ import static jOS.Core.ThemeEngine.getThemeFromDB1;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.MenuItem;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import java.util.Objects;
 
@@ -100,6 +103,41 @@ public class jActivity extends AppCompatActivity {
         mSDKApp = (jSDKCoreApp) this.getApplicationContext();
         mSDKApp.setCurrentActivity(this);
         setContentView(layout);
+        if (actionbar) {
+            setSupportActionBar(findViewById(R.id.actionbar));
+        }
+    }
+
+    @Override
+    public void setSupportActionBar(Toolbar toolbar) {
+        super.setSupportActionBar(toolbar);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(!home);
+            getSupportActionBar().setDisplayShowTitleEnabled(app_name);
+            actionBar2((ActionBar2) toolbar);
+        } else {
+            Log.e("ActionBar2", "no actionbar found");
+        }
+    }
+
+    /**
+     * ActionBar2 exclusive features
+     * @param toolbar ActionBar2
+     */
+    private void actionBar2(ActionBar2 toolbar) {
+        toolbar.fixLogo(icon);
+        toolbar.fixParameters();
+        toolbar.requestLayout();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
     }
 

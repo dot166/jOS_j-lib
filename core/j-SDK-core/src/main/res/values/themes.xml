@@ -209,6 +209,8 @@
         <item name="android:spinnerItemStyle">@android:style/Widget.Holo.TextView.SpinnerItem</item>
         <item name="android:dropDownHintAppearance">@android:style/TextAppearance.Holo.Widget.DropDownHint</item>
         <item name="android:contextPopupMenuStyle">?attr/popupMenuStyle</item>
+        <item name="android:actionOverflowButtonStyle">@android:style/Widget.Holo.ActionButton.Overflow</item>
+        <item name="actionOverflowButtonStyle">@android:style/Widget.Holo.ActionButton.Overflow</item>
         <!-- Customize the jOS System theme here. -->
     </style>
 
@@ -361,8 +363,20 @@
         <item name="height">?attr/actionBarSize</item>
         <item name="paddingStart">0dip</item>
         <item name="paddingEnd">0dip</item>
+        <item name="contentInsetEnd">0dp</item>
+        <item name="contentInsetStart">0dp</item>
+        <item name="contentInsetStartWithNavigation">0dp</item>
+        <item name="contentInsetEndWithActions">0dp</item>
+        <item name="contentInsetLeft">0dp</item>
+        <item name="contentInsetRight">0dp</item>
         <item name="android:paddingBottom">0dip</item>
         <item name="android:paddingTop">0dip</item>
+        <item name="android:contentInsetEnd">0dp</item>
+        <item name="android:contentInsetStart">0dp</item>
+        <item name="android:contentInsetStartWithNavigation">0dp</item>
+        <item name="android:contentInsetEndWithActions">0dp</item>
+        <item name="android:contentInsetLeft">0dp</item>
+        <item name="android:contentInsetRight">0dp</item>
         <item name="android:titleTextStyle">@android:style/TextAppearance.Holo.Widget.ActionBar.Title</item>
         <item name="android:subtitleTextStyle">@android:style/TextAppearance.Holo.Widget.ActionBar.Subtitle</item>
         <item name="android:background">@drawable/j_ab_transparent_dark_holo</item>

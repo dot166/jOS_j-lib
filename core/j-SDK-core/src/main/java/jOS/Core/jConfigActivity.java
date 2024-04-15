@@ -11,7 +11,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
-import android.view.MenuItem;
 import android.view.View;
 
 import androidx.core.view.WindowCompat;
@@ -140,15 +139,6 @@ public class jConfigActivity extends jActivity
         Bundle args = new Bundle();
         args.putString(ARG_PREFERENCE_ROOT, pref.getKey());
         return startPreference(getString(preferenceFragmentValue()), args, pref.getKey());
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == android.R.id.home) {
-            onBackPressed();
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
     }
 
     protected void onResume() {
