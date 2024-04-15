@@ -5,6 +5,8 @@ import static android.os.Build.VERSION.RELEASE_OR_PREVIEW_DISPLAY;
 import static jOS.Core.Build.jOS_RELEASE;
 import static jOS.Core.Build.j_DEVICE;
 
+import android.content.ComponentName;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -21,6 +23,7 @@ public class sdkplaceholder extends jActivity {
     public void alertdialog() {
         TextView text = findViewById(R.id.textView);
         Button button = findViewById(R.id.button);
+        Button button2 = findViewById(R.id.button2);
         String android_sdk_test = "Android: " + androidver();
         String j_sdk_test = "jOS: " + jOS_RELEASE;
         String j_verify_test = "is j Device: " + j_DEVICE();
@@ -30,6 +33,12 @@ public class sdkplaceholder extends jActivity {
             @Override
             public void onClick(View v) {
                 finish();
+            }
+        });
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent().setComponent(new ComponentName(getApplicationInfo().packageName, "jOS.Core.SDKChangelogActivity")));
             }
         });
     }

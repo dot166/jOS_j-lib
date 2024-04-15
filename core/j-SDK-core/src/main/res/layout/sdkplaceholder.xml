@@ -16,13 +16,26 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toTopOf="@id/button" />
 
-    <Button
-        android:id="@+id/button"
+    <LinearLayout
+        android:id="@+id/buttonPanel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="OK"
         app:layout_constraintTop_toBottomOf="@id/textView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent" >
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ok"
+            tools:ignore="ButtonStyle" />
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/changelog"
+            tools:ignore="ButtonStyle" />
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
