@@ -35,6 +35,12 @@ public class ThemeEngine {
             case "M3 Light":
                 Log.i("jOS Theme Engine", "com.google.android.material.R.style.Theme_Material3_Light_NoActionBar");
                 return com.google.android.material.R.style.Theme_Material3_Light_NoActionBar;
+            case "AppCompat Dark":
+                Log.i("jOS Theme Engine", "androidx.appcompat.R.style.Theme_AppCompat_NoActionBar");
+                return androidx.appcompat.R.style.Theme_AppCompat_NoActionBar;
+            case "AppCompat Light":
+                Log.i("jOS Theme Engine", "androidx.appcompat.R.style.Theme_AppCompat_Light_NoActionBar");
+                return androidx.appcompat.R.style.Theme_AppCompat_Light_NoActionBar;
         }
         Log.i("jOS Theme Engine", "Unrecognised Theme '" + currentTheme + "'");
         return R.style.jOS_Theme;
