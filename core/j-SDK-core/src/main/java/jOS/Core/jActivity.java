@@ -23,7 +23,6 @@ public class jActivity extends AppCompatActivity {
     int layout;
     boolean icon;
     boolean home;
-    int Theme;
     boolean configured = false;
     protected jSDKCoreApp mSDKApp;
 
@@ -70,26 +69,11 @@ public class jActivity extends AppCompatActivity {
      */
     protected void configure(int layout, boolean home, boolean actionbar, boolean app_name, boolean icon)
     {
-        configure(layout, home, actionbar, app_name, icon, getSystemTheme(this));
-    }
-
-    /**
-     * Subclasses are obligated to call this before calling super.onCreate()
-     * @param layout int, app layout. commonly R.layout.activitymain
-     * @param home boolean, tells system if this is the first activity/home page
-     * @param actionbar boolean, tells system if you would like to show the actionbar
-     * @param app_name boolean, tells the system if you would like to show the activity label
-     * @param icon boolean, tells the system if you would like to show the activity icon
-     * @param Theme int, selected theme. commonly themeengine call or R.style.{insert theme here}
-     */
-    protected void configure(int layout, boolean home, boolean actionbar, boolean app_name, boolean icon, int Theme)
-    {
         this.app_name = app_name;
         this.layout = layout;
         this.actionbar = actionbar;
         this.icon = icon;
         this.home = home;
-        this.Theme = Theme;
         this.configured = true;
     }
 
@@ -98,7 +82,7 @@ public class jActivity extends AppCompatActivity {
         if(!configured)
             throw new IllegalStateException("configure() not called prior to onCreate()");
 
-        setTheme(Theme);
+        setTheme(getSystemTheme(this));
         super.onCreate(savedInstanceState);
         mSDKApp = (jSDKCoreApp) this.getApplicationContext();
         mSDKApp.setCurrentActivity(this);

@@ -2,11 +2,9 @@ package jOS.Core;
 
 import static androidx.preference.PreferenceFragmentCompat.ARG_PREFERENCE_ROOT;
 import static jOS.Core.ThemeEngine.currentTheme;
-import static jOS.Core.ThemeEngine.getSystemTheme;
 import static jOS.Core.ThemeEngine.getThemeFromDB1;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -36,33 +34,6 @@ import jOS.Core.utils.PreferenceHighlighter;
 public class jConfigActivity extends jActivity
         implements OnPreferenceStartFragmentCallback, OnPreferenceStartScreenCallback {
 
-    public int appTheme(Context context) {
-        if (getAppTheme(context) != 0) {
-            return getAppTheme(context);
-        }
-        return getSystemTheme(context);
-    }
-    public static String appDB1(Context context) {
-        if (!Objects.equals(getAppDB1(context), "")) {
-            return getAppDB1(context);
-        }
-        return getThemeFromDB1(context);
-    }
-    public static String appCurrentTheme() {
-        if (!Objects.equals(getAppCurrentTheme(), "")) {
-            return getAppCurrentTheme();
-        }
-        return currentTheme;
-    }
-    public int getAppTheme(Context context) {
-        return 0;
-    }
-    public static String getAppDB1(Context context) {
-        return "";
-    }
-    public static String getAppCurrentTheme() {
-        return "";
-    }
     public int preferenceFragmentValue() {
         return R.string.settings_fragment_name;
     }
@@ -79,7 +50,7 @@ public class jConfigActivity extends jActivity
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        configure(R.layout.settings_activity, false, true, true, true, appTheme(this));
+        configure(R.layout.settings_activity, false);
         super.onCreate(savedInstanceState);
 
         WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
@@ -139,15 +110,6 @@ public class jConfigActivity extends jActivity
         Bundle args = new Bundle();
         args.putString(ARG_PREFERENCE_ROOT, pref.getKey());
         return startPreference(getString(preferenceFragmentValue()), args, pref.getKey());
-    }
-
-    protected void onResume() {
-        super.onResume();
-        if (!Objects.equals(appCurrentTheme(), appDB1(this))) {
-            Intent intent = getIntent();
-            finish();
-            startActivity(intent);
-        }
     }
 
 
@@ -270,7 +232,7 @@ public class jConfigActivity extends jActivity
                 }
             }
 
-            if (!Objects.equals(appCurrentTheme(), appDB1(getPreferenceManager().getContext()))) {
+            if (!Objects.equals(currentTheme, getThemeFromDB1(getPreferenceManager().getContext()))) {
                 recreateActivityNow();
             }
         }
