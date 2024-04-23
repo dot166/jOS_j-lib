@@ -1,7 +1,5 @@
 package jOS.Core;
 
-import static jOS.Core.ThemeEngine.getSystemTheme;
-
 import android.graphics.Bitmap;
 import android.net.http.SslError;
 import android.os.Bundle;

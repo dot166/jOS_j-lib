@@ -3,14 +3,11 @@ package jOS.Core;
 import static java.lang.Boolean.parseBoolean;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.util.Log;
 
-import java.util.Objects;
 
 public class ThemeEngine {
 
