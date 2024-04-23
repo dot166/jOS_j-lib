@@ -17,4 +17,8 @@
     <string name="ok">OK</string>
     <string name="changelog">Änderungsprotokoll</string>
     <string name="jsdk_changelog">jSDK-Änderungsprotokoll</string>
+    <string name="dialog_title">ThemeEngine fehlt</string>
+    <string name="dialog_message">Diese App erfordert ThemeEngine. Die ThemeEngine-App, die die Datenbank enthält, ist nicht auf Ihrem Gerät installiert!</string>
+    <string name="dialog_positive">Installieren</string>
+    <string name="dialog_negative">Ignorieren (App verwendet HOLO-Design)</string>
 </resources>

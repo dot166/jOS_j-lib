@@ -17,4 +17,8 @@
     <string name="ok">わかりました</string>
     <string name="changelog">変更履歴</string>
     <string name="jsdk_changelog">jSDK変更ログ</string>
+    <string name="dialog_title">テーマエンジンが見つかりません</string>
+    <string name="dialog_message">このアプリには ThemeEngine が必要ですが、データベースを含む ThemeEngine アプリがデバイスにインストールされていません。</string>
+    <string name="dialog_positive">インストール</string>
+    <string name="dialog_negative">無視 (アプリは HOLO テーマを使用します)</string>
 </resources>
