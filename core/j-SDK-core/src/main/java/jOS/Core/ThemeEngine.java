@@ -97,14 +97,4 @@ public class ThemeEngine {
         Log.i("jOS Theme Engine - DB1", "No Records Found");
         return "Holo";
     }
-
-
-    @Deprecated(since = "3.2.0", forRemoval = true)
-    public static void relaunch(Activity context) {
-        if (!Objects.equals(currentTheme, getThemeFromDB1(context))) {
-            Intent intent = context.getIntent();
-            context.finish();
-            context.startActivity(intent);
-        }
-    }
 }
