@@ -45,6 +45,7 @@ dependencies {
     implementation("androidx.preference:preference-ktx:1.2.1")
     implementation("com.google.android.material:material:1.11.0")
     implementation("androidx.core:core-ktx:1.12.0")
+    implementation("androidx.browser:browser:1.8.0")
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("javalib.jar"))))
     implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
 }
