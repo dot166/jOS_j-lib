@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -57,6 +58,16 @@ public class sdkplaceholder extends jActivity {
             return RELEASE_OR_PREVIEW_DISPLAY;
         }
         return RELEASE;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int itemId = item.getItemId();
+        if (itemId == R.id.action_settings) {
+            startActivity(new Intent(Intent.ACTION_APPLICATION_PREFERENCES).setPackage(getPackageName()));
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
 
