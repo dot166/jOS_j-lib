@@ -1,0 +1,152 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "jOS.Core",
+    "module": "j-SDK-core",
+    "version": "3.2.3",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.7"
+    }
+  },
+  "variants": [
+    {
+      "name": "releaseApiElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.usage": "java-api",
+        "org.jetbrains.kotlin.platform.type": "androidJvm"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "1.9.22"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "j-SDK-core-3.2.3.aar",
+          "url": "j-SDK-core-3.2.3.aar",
+          "size": 101122,
+          "sha512": "5c1282fa94993c973affda910ff27d0dac90d845ce49357be231efdc1c807984e2e4f90b5fde3f5e0fa860a3bf95cbea104452e7ba75fd85a04b9f8fbd4e7344",
+          "sha256": "eaf6a81ba06b4df52cac390869acdea6ef2e5453b4a96408b70ac0064bffd3c2",
+          "sha1": "208fcffa4315cd3b8d95d7d8624f99f3b24d4058",
+          "md5": "5280c97670b2c4e3b0865fd965c39e5d"
+        }
+      ]
+    },
+    {
+      "name": "releaseRuntimeElements-published",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "androidJvm"
+      },
+      "dependencies": [
+        {
+          "group": "androidx.appcompat",
+          "module": "appcompat",
+          "version": {
+            "requires": "1.7.0"
+          }
+        },
+        {
+          "group": "androidx.constraintlayout",
+          "module": "constraintlayout",
+          "version": {
+            "requires": "2.1.4"
+          }
+        },
+        {
+          "group": "androidx.preference",
+          "module": "preference",
+          "version": {
+            "requires": "1.2.1"
+          }
+        },
+        {
+          "group": "androidx.preference",
+          "module": "preference-ktx",
+          "version": {
+            "requires": "1.2.1"
+          }
+        },
+        {
+          "group": "com.google.android.material",
+          "module": "material",
+          "version": {
+            "requires": "1.12.0"
+          }
+        },
+        {
+          "group": "androidx.core",
+          "module": "core-ktx",
+          "version": {
+            "requires": "1.13.1"
+          }
+        },
+        {
+          "group": "androidx.browser",
+          "module": "browser",
+          "version": {
+            "requires": "1.8.0"
+          }
+        },
+        {
+          "group": "androidx.swiperefreshlayout",
+          "module": "swiperefreshlayout",
+          "version": {
+            "requires": "1.1.0"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "1.9.22"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "j-SDK-core-3.2.3.aar",
+          "url": "j-SDK-core-3.2.3.aar",
+          "size": 101122,
+          "sha512": "5c1282fa94993c973affda910ff27d0dac90d845ce49357be231efdc1c807984e2e4f90b5fde3f5e0fa860a3bf95cbea104452e7ba75fd85a04b9f8fbd4e7344",
+          "sha256": "eaf6a81ba06b4df52cac390869acdea6ef2e5453b4a96408b70ac0064bffd3c2",
+          "sha1": "208fcffa4315cd3b8d95d7d8624f99f3b24d4058",
+          "md5": "5280c97670b2c4e3b0865fd965c39e5d"
+        }
+      ]
+    },
+    {
+      "name": "releaseSourcesElements-published",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.platform.type": "androidJvm"
+      },
+      "files": [
+        {
+          "name": "j-SDK-core-3.2.3-sources.jar",
+          "url": "j-SDK-core-3.2.3-sources.jar",
+          "size": 36613,
+          "sha512": "4d64510e86dc483b402ced9c83d3bb7641bc0badc395e610935f9a779d9764147963ea79de22c767ce5b86870cb440ef9ea37ea9834da771136d148b60bed5ea",
+          "sha256": "745906c44685d62aeada45c936733482f6e4dc31abb268f97608749b2d1ab905",
+          "sha1": "23a10872fadcc838d2785f0dc16ac9297d74fa32",
+          "md5": "614c8a2f25bccf973ab896382a603a93"
+        }
+      ]
+    }
+  ]
+}
