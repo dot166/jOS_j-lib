@@ -31,6 +31,7 @@ public class sdkplaceholder extends jActivity {
     }
 
     public void alertdialog() {
+        getSupportActionBar().setSubtitle("AAAA");
         TextView text = findViewById(R.id.textView);
         Button button = findViewById(R.id.button);
         Button button2 = findViewById(R.id.button2);
