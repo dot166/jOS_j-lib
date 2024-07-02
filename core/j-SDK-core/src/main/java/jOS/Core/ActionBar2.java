@@ -16,7 +16,7 @@
 
 package jOS.Core;
 
-import static java.lang.Math.max;
+import static com.google.android.material.theme.overlay.MaterialThemeOverlay.wrap;
 
 import android.content.Context;
 import android.content.Intent;
@@ -27,30 +27,27 @@ import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.util.Log;
-import android.util.Pair;
 import android.util.TypedValue;
-import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.widget.Toolbar;
 
-import com.google.android.material.shape.MaterialShapeUtils;
+import com.google.android.material.appbar.MaterialToolbar;
 
 import jOS.Core.utils.ThemeEnforcement;
 import jOS.Core.utils.ToolbarUtils;
 
 /**
- * {@code ActionBar2} is a {@link Toolbar} that implements certain features, such as
- * centered titles.
+ * {@code ActionBar2} is a {@link MaterialToolbar} that implements certain features and fixes.
  *
  *
  * <p>To get started with the {@code ActionBar2} component, use {@code
  * jOS.Core.ActionBar2} in your layout XML instead of {@code
- * androidx.appcompat.widget.Toolbar} or {@code Toolbar}. E.g.,:
+ * androidx.appcompat.widget.Toolbar} or {@code Toolbar} or {@code
+ * com.google.android.material.appbar.MaterialToolbar} or {@code MaterialToolbar}. E.g.,:
  *
  * <pre>
  * &lt;jOS.Core.ActionBar2
@@ -58,12 +55,10 @@ import jOS.Core.utils.ToolbarUtils;
  *         android:layout_height=&quot;wrap_content&quot;/&gt;
  * </pre>
  */
-public class ActionBar2 extends Toolbar {
+public class ActionBar2 extends MaterialToolbar {
 
     private static final int DEF_STYLE_RES = R.style.j_ActionBar;
     private static final String TAG = "ActionBar2";
-    private boolean titleCentered;
-    private boolean subtitleCentered;
 
     public ActionBar2(@NonNull Context context) {
         this(context, null);
@@ -74,7 +69,7 @@ public class ActionBar2 extends Toolbar {
     }
 
     public ActionBar2(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
+        super(wrap(context, attrs, defStyleAttr, DEF_STYLE_RES), attrs, defStyleAttr);
         // Ensure we are using the correctly themed context rather than the context that was passed in.
         context = getContext();
 
@@ -82,8 +77,8 @@ public class ActionBar2 extends Toolbar {
                 ThemeEnforcement.obtainStyledAttributes(
                         context, attrs, R.styleable.jToolbar, defStyleAttr, DEF_STYLE_RES);
 
-        titleCentered = a.getBoolean(R.styleable.jToolbar_jtitleCentered, false);
-        subtitleCentered = a.getBoolean(R.styleable.jToolbar_jsubtitleCentered, false);
+        //titleCentered = a.getBoolean(R.styleable.jToolbar_jtitleCentered, false);
+        //subtitleCentered = a.getBoolean(R.styleable.jToolbar_jsubtitleCentered, false);
 
         a.recycle();
 
@@ -112,14 +107,12 @@ public class ActionBar2 extends Toolbar {
         super.onLayout(changed, left, top, right, bottom);
         TextView titleTextView = ToolbarUtils.getTitleTextView(this);
         if (titleTextView != null) {
-            titleTextView.setTextSize(TypedValue.COMPLEX_UNIT_PX, 35);
+            titleTextView.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 17.50F);
         }
         TextView subtitleTextView = ToolbarUtils.getSubtitleTextView(this);
         if (subtitleTextView != null) {
-            subtitleTextView.setTextSize(TypedValue.COMPLEX_UNIT_PX, 30);
+            subtitleTextView.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 15);
         }
-
-        maybeCenterTitleViews();
 
     }
 
@@ -167,137 +160,6 @@ public class ActionBar2 extends Toolbar {
         } else {
             Log.e(TAG, "nav is disabled!!!");
         }
-    }
-
-    private void maybeCenterTitleViews() {
-        if (!titleCentered && !subtitleCentered) {
-            return;
-        }
-
-        TextView titleTextView = ToolbarUtils.getTitleTextView(this);
-        TextView subtitleTextView = ToolbarUtils.getSubtitleTextView(this);
-        if (titleTextView == null && subtitleTextView == null) {
-            return;
-        }
-
-        Pair<Integer, Integer> titleBoundLimits =
-                calculateTitleBoundLimits(titleTextView, subtitleTextView);
-
-        if (titleCentered && titleTextView != null) {
-            layoutTitleCenteredHorizontally(titleTextView, titleBoundLimits);
-        }
-
-        if (subtitleCentered && subtitleTextView != null) {
-            layoutTitleCenteredHorizontally(subtitleTextView, titleBoundLimits);
-        }
-    }
-
-    private Pair<Integer, Integer> calculateTitleBoundLimits(
-            @Nullable TextView titleTextView, @Nullable TextView subtitleTextView) {
-        int width = getMeasuredWidth();
-        int midpoint = width / 2;
-        int leftLimit = getPaddingLeft();
-        int rightLimit = width - getPaddingRight();
-
-        for (int i = 0; i < getChildCount(); i++) {
-            View child = getChildAt(i);
-            if (child.getVisibility() != GONE && child != titleTextView && child != subtitleTextView) {
-                if (child.getRight() < midpoint && child.getRight() > leftLimit) {
-                    leftLimit = child.getRight();
-                }
-                if (child.getLeft() > midpoint && child.getLeft() < rightLimit) {
-                    rightLimit = child.getLeft();
-                }
-            }
-        }
-
-        return new Pair<>(leftLimit, rightLimit);
-    }
-
-    private void layoutTitleCenteredHorizontally(
-            View titleView, Pair<Integer, Integer> titleBoundLimits) {
-        int width = getMeasuredWidth();
-        int titleWidth = titleView.getMeasuredWidth();
-
-        int titleLeft = width / 2 - titleWidth / 2;
-        int titleRight = titleLeft + titleWidth;
-
-        int leftOverlap = max(titleBoundLimits.first - titleLeft, 0);
-        int rightOverlap = max(titleRight - titleBoundLimits.second, 0);
-        int overlap = max(leftOverlap, rightOverlap);
-
-        if (overlap > 0) {
-            titleLeft += overlap;
-            titleRight -= overlap;
-            titleWidth = titleRight - titleLeft;
-            titleView.measure(
-                    MeasureSpec.makeMeasureSpec(titleWidth, MeasureSpec.EXACTLY),
-                    titleView.getMeasuredHeightAndState());
-        }
-
-        titleView.layout(titleLeft, titleView.getTop(), titleRight, titleView.getBottom());
-    }
-
-    @Override
-    protected void onAttachedToWindow() {
-        super.onAttachedToWindow();
-
-        MaterialShapeUtils.setParentAbsoluteElevation(this);
-    }
-
-    @Override
-    public void setElevation(float elevation) {
-        super.setElevation(elevation);
-
-        MaterialShapeUtils.setElevation(this, elevation);
-    }
-
-    /**
-     * Sets whether the title text corresponding to the {@link #setTitle(int)} method should be
-     * centered horizontally within the toolbar.
-     *
-     * <p>Note: it is not recommended to use centered titles in conjunction with a nested custom view,
-     * as there may be positioning and overlap issues.
-     */
-    public void setTitleCentered(boolean titleCentered) {
-        if (this.titleCentered != titleCentered) {
-            this.titleCentered = titleCentered;
-            requestLayout();
-        }
-    }
-
-    /**
-     * Returns whether the title text corresponding to the {@link #setTitle(int)} method should be
-     * centered horizontally within the toolbar.
-     *
-     * @see #setTitleCentered(boolean)
-     */
-    public boolean isTitleCentered() {
-        return titleCentered;
-    }
-
-    /**
-     * Sets whether the subtitle text corresponding to the {@link #setSubtitle(int)} method should be
-     * centered horizontally within the toolbar.
-     *
-     * <p>Note: it is not recommended to use centered titles in conjunction with a nested custom view,
-     * as there may be positioning and overlap issues.
-     */
-    public void setSubtitleCentered(boolean subtitleCentered) {
-        if (this.subtitleCentered != subtitleCentered) {
-            this.subtitleCentered = subtitleCentered;
-            requestLayout();
-        }
-    }
-
-    /**
-     * Returns whether the subtitle text corresponding to the {@link #setSubtitle(int)} method should
-     * be centered horizontally within the toolbar.
-     *
-     * @see #setSubtitleCentered(boolean)
-     */
-    public boolean isSubtitleCentered() {
-        return subtitleCentered;
     }
 
 }
