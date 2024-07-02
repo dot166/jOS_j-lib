@@ -39,12 +39,11 @@ android {
 }
 
 dependencies {
-    implementation("androidx.appcompat:appcompat:1.6.1")
+    implementation("androidx.appcompat:appcompat:1.7.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
-    implementation("androidx.preference:preference:1.2.1")
     implementation("androidx.preference:preference-ktx:1.2.1")
-    implementation("com.google.android.material:material:1.11.0")
-    implementation("androidx.core:core-ktx:1.12.0")
+    implementation("com.google.android.material:material:1.12.0")
+    implementation("androidx.core:core-ktx:1.13.1")
     implementation("androidx.browser:browser:1.8.0")
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("javalib.jar"))))
     implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
