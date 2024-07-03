@@ -6,7 +6,7 @@ public class SDKChangelogActivity extends jWebActivity{
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        configure("https://dot166.github.io/jOS/commlib/Changelog/", true, false, true, false, true);
+        configure("https://github.com/dot166/jOS_j-sdk/commits/v" + BuildConfig.SDKVersion, true, false, true, false, true);
         super.onCreate(savedInstanceState);
     }
 }
