@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="jToolbar">
-        <!-- Whether the title text corresponding to the "app:title" attribute
-             should be centered horizontally within the toolbar. Default is false.
+        <!-- Whether the activity icon corresponding to the "android:icon" attribute
+             should be used as the logo within the toolbar. Default is true.
         -->
-        <attr name="jtitleCentered" format="boolean" />
+        <attr name="iconAsLogo" format="boolean" />
         <!-- Whether the subtitle text corresponding to the "app:subtitle" attribute
              should be centered horizontally within the toolbar. Default is false.
         -->

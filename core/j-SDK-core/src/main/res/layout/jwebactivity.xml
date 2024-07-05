@@ -9,8 +9,9 @@
     <jOS.Core.ActionBar2
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
-        app:navigationContentDescription="@string/back_button"
+        app:iconAsLogo="false"
         app:titleCentered="true"
+        app:subtitleCentered="true"
         android:id="@+id/actionbar"/>
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout

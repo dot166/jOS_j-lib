@@ -32,16 +32,11 @@ public class jWebActivity extends jActivity {
 
     protected void configure(String uri, boolean js, boolean zoom, boolean DOM, boolean home, boolean actionbar, boolean app_name)
     {
-        configure(uri, js, zoom, DOM, home, actionbar, app_name, true);
-    }
-
-    protected void configure(String uri, boolean js, boolean zoom, boolean DOM, boolean home, boolean actionbar, boolean app_name, boolean icon)
-    {
         this.uri = uri;
         this.js = js;
         this.zoom = zoom;
         this.DOM = DOM;
-        super.configure(R.layout.jwebactivity, home, actionbar, app_name, icon);
+        super.configure(R.layout.jwebactivity, home, actionbar, app_name);
     }
 
     @Override

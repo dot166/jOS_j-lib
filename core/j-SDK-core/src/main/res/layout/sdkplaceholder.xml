@@ -10,7 +10,6 @@
         android:layout_height="?actionBarSize"
         app:layout_constraintTop_toTopOf="parent"
         app:titleCentered="true"
-        app:navigationContentDescription="@string/back_button"
         android:id="@+id/actionbar"/>
 
     <TextView

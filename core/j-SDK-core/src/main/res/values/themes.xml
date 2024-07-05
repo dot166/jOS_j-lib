@@ -146,6 +146,7 @@
         <item name="colorError">?android:attr/colorError</item>
         <!-- We can use the platform styles on API 28+ -->
         <item name="dialogCornerRadius">?android:attr/dialogCornerRadius</item>
+        <item name="navigationContentDescription">@string/back_button</item>
     </style>
 
     <style name="jOS.Theme.CompactMenu">

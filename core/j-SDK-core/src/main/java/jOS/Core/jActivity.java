@@ -40,7 +40,7 @@ public class jActivity extends AppCompatActivity {
      * Subclasses are obligated to call this before calling super.onCreate()
      * @param layout int, app layout. commonly R.layout.activitymain
      * @param home boolean, tells system if this is the first activity/home page
-     * @param actionbar boolean, tells system if you would like to show the actionbar
+     * @param actionbar boolean, tells system if you would like to show the ActionBar
      */
     protected void configure(int layout, boolean home, boolean actionbar)
     {
@@ -51,28 +51,14 @@ public class jActivity extends AppCompatActivity {
      * Subclasses are obligated to call this before calling super.onCreate()
      * @param layout int, app layout. commonly R.layout.activitymain
      * @param home boolean, tells system if this is the first activity/home page
-     * @param actionbar boolean, tells system if you would like to show the actionbar
-     * @param app_name boolean, tells the system if you would like to show the activity label
+     * @param actionbar boolean, tells system if you would like to show the ActionBar
+     * @param app_name boolean, tells the system if you would like to show the ActionBar Title
      */
     protected void configure(int layout, boolean home, boolean actionbar, boolean app_name)
-    {
-        configure(layout, home, actionbar, app_name, true);
-    }
-
-    /**
-     * Subclasses are obligated to call this before calling super.onCreate()
-     * @param layout int, app layout. commonly R.layout.activitymain
-     * @param home boolean, tells system if this is the first activity/home page
-     * @param actionbar boolean, tells system if you would like to show the actionbar
-     * @param app_name boolean, tells the system if you would like to show the activity label
-     * @param icon boolean, tells the system if you would like to show the activity icon
-     */
-    protected void configure(int layout, boolean home, boolean actionbar, boolean app_name, boolean icon)
     {
         this.app_name = app_name;
         this.layout = layout;
         this.actionbar = actionbar;
-        this.icon = icon;
         this.home = home;
         this.configured = true;
     }
@@ -98,20 +84,9 @@ public class jActivity extends AppCompatActivity {
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(!home);
             getSupportActionBar().setDisplayShowTitleEnabled(app_name);
-            actionBar2((ActionBar2) toolbar);
         } else {
             Log.e("ActionBar2", "no actionbar found");
         }
-    }
-
-    /**
-     * ActionBar2 exclusive features
-     * @param toolbar ActionBar2
-     */
-    private void actionBar2(ActionBar2 toolbar) {
-        toolbar.fixLogo(icon);
-        toolbar.fixParameters();
-        toolbar.requestLayout();
     }
 
     @Override

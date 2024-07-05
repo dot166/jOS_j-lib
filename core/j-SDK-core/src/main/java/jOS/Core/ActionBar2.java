@@ -43,6 +43,10 @@ public class ActionBar2 extends MaterialToolbar {
 
     private static final int DEF_STYLE_RES = R.style.j_ActionBar;
     private static final String TAG = "ActionBar2";
+    private static boolean working;
+    private static boolean halt = false;
+    private static int tries;
+    private static boolean iconAsLogo;
 
     public ActionBar2(@NonNull Context context) {
         this(context, null);
@@ -61,19 +65,20 @@ public class ActionBar2 extends MaterialToolbar {
                 ThemeEnforcement.obtainStyledAttributes(
                         context, attrs, R.styleable.jToolbar, defStyleAttr, DEF_STYLE_RES);
 
-        //titleCentered = a.getBoolean(R.styleable.jToolbar_jtitleCentered, false);
+        iconAsLogo = a.getBoolean(R.styleable.jToolbar_iconAsLogo, true);
         //subtitleCentered = a.getBoolean(R.styleable.jToolbar_jsubtitleCentered, false);
 
         a.recycle();
 
+        useActivityIconAsLogo(false);
         Log.i(TAG, "init complete!!");
     }
 
-    public void fixLogo(boolean icon) {
-        if (icon) {
+    public void useActivityIconAsLogo(boolean override) {
+        if (iconAsLogo || override) {
             setLogo(getActivityIcon());
         } else {
-            Log.i(TAG, "icon disabled in config");
+            Log.i(TAG, "icon disabled in config, Please set icon manually");
         }
     }
 
@@ -97,52 +102,94 @@ public class ActionBar2 extends MaterialToolbar {
         if (subtitleTextView != null) {
             subtitleTextView.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 15);
         }
+        fixParameters();
 
     }
 
-    public void fixParameters(){
-        ImageButton nav = ToolbarUtils.getNavImageView(this);
-        ImageView logoImageView = ToolbarUtils.getLogoImageView(this);
-        TextView titleTextView = ToolbarUtils.getTitleTextView(this);
-        TextView subtitleTextView = ToolbarUtils.getSubtitleTextView(this);
-        Resources r = getContext().getResources();
-        int pxl = (int) TypedValue.applyDimension(
-                TypedValue.COMPLEX_UNIT_DIP,
-                0,
-                r.getDisplayMetrics()
-        );
-        int pxr = (int) TypedValue.applyDimension(
-                TypedValue.COMPLEX_UNIT_DIP,
-                8,
-                r.getDisplayMetrics()
-        );
-        if (logoImageView != null) {
-            LayoutParams params = (LayoutParams) logoImageView.getLayoutParams();
-            params.setMargins(pxl, (int) r.getDimension(R.dimen.j_action_bar_icon_vertical_padding), pxr, (int) r.getDimension(R.dimen.j_action_bar_icon_vertical_padding));
-            logoImageView.setLayoutParams(params);
+    @Override
+    public void requestLayout(){
+        if (working) {
+            Log.i(TAG, "give it a rest!");
         } else {
-            Log.e(TAG, "logoImageView is disabled!!!");
+            Log.i(TAG, "reloading layout");
+            super.requestLayout();
         }
-        if (titleTextView != null) {
-            LayoutParams params = (LayoutParams) titleTextView.getLayoutParams();
-            params.setMargins(pxl, pxl, pxl, pxl);
-            titleTextView.setLayoutParams(params);
+    }
+
+    private void fixParameters(){
+        Log.i(TAG, String.valueOf(tries));
+        Log.i(TAG, String.valueOf(working));
+        Log.i(TAG, String.valueOf(halt));
+        if (!halt) {
+            working = true;
+            int ABHeight = this.getHeight();
+            ImageButton nav = ToolbarUtils.getNavImageView(this);
+            ImageView logoImageView = ToolbarUtils.getLogoImageView(this);
+            TextView titleTextView = ToolbarUtils.getTitleTextView(this);
+            TextView subtitleTextView = ToolbarUtils.getSubtitleTextView(this);
+            Resources r = getContext().getResources();
+            int pxl = (int) TypedValue.applyDimension(
+                    TypedValue.COMPLEX_UNIT_DIP,
+                    0,
+                    r.getDisplayMetrics()
+            );
+            int pxr = (int) TypedValue.applyDimension(
+                    TypedValue.COMPLEX_UNIT_DIP,
+                    8,
+                    r.getDisplayMetrics()
+            );
+            if (logoImageView != null) {
+                LayoutParams params = (LayoutParams) logoImageView.getLayoutParams();
+                params.setMargins(pxl, (int) r.getDimension(R.dimen.j_action_bar_icon_vertical_padding), pxr, (int) r.getDimension(R.dimen.j_action_bar_icon_vertical_padding));
+                params.height = (int) (ABHeight - (15 * getContext().getResources().getDisplayMetrics().density));
+                params.width = (int) (ABHeight - (15 * getContext().getResources().getDisplayMetrics().density));
+                logoImageView.setLayoutParams(params);
+                logoImageView.setPadding(0, 0, 0, 0);
+            } else {
+                Log.e(TAG, "logoImageView is disabled!!!");
+            }
+            if (titleTextView != null) {
+                LayoutParams params = (LayoutParams) titleTextView.getLayoutParams();
+                params.setMargins(pxl, pxl, pxl, pxl);
+                params.height = LayoutParams.WRAP_CONTENT;
+                params.width = LayoutParams.WRAP_CONTENT;
+                titleTextView.setLayoutParams(params);
+                titleTextView.setPadding(0, 0, 0, 0);
+            } else {
+                Log.e(TAG, "titleTextView is disabled!!!");
+            }
+            if (subtitleTextView != null) {
+                LayoutParams params = (LayoutParams) subtitleTextView.getLayoutParams();
+                params.setMargins(pxl, pxl, pxl, pxl);
+                params.height = LayoutParams.WRAP_CONTENT;
+                params.width = LayoutParams.WRAP_CONTENT;
+                subtitleTextView.setLayoutParams(params);
+                subtitleTextView.setPadding(0, 0, 0, 0);
+            } else {
+                Log.e(TAG, "subtitleTextView is disabled!!!");
+            }
+            if (nav != null) {
+                LayoutParams params = (LayoutParams) nav.getLayoutParams();
+                params.setMargins(pxl, pxl, pxl, pxl);
+                params.height = ABHeight;
+                params.width = ABHeight;
+                nav.setLayoutParams(params);
+                nav.setPadding(0, 0, 0, 0);
+            } else {
+                Log.e(TAG, "nav is disabled!!!");
+            }
+            working = false;
+            requestLayout();
+            halt = true;
         } else {
-            Log.e(TAG, "titleTextView is disabled!!!");
-        }
-        if (subtitleTextView != null) {
-            LayoutParams params = (LayoutParams) subtitleTextView.getLayoutParams();
-            params.setMargins(pxl, pxl, pxl, pxl);
-            subtitleTextView.setLayoutParams(params);
-        } else {
-            Log.e(TAG, "subtitleTextView is disabled!!!");
-        }
-        if (nav != null) {
-            LayoutParams params = (LayoutParams) nav.getLayoutParams();
-            params.setMargins(pxl, pxl, pxl, pxl);
-            nav.setLayoutParams(params);
-        } else {
-            Log.e(TAG, "nav is disabled!!!");
+            if (tries < 1) {
+                tries++;
+                Log.i(TAG, String.valueOf(tries));
+            } else {
+                tries = 0;
+                halt = false;
+                Log.i(TAG, "it has finally shut up");
+            }
         }
     }
 

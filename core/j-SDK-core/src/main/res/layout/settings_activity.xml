@@ -25,7 +25,6 @@
     <jOS.Core.ActionBar2
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
-        app:navigationContentDescription="@string/back_button"
         android:id="@+id/actionbar"/>
 
     <FrameLayout
