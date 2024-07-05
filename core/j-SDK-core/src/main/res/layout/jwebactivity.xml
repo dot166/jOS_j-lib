@@ -10,6 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
         app:navigationContentDescription="@string/back_button"
+        app:titleCentered="true"
         android:id="@+id/actionbar"/>
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
