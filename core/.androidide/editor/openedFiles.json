@@ -1,61 +1,31 @@
 {
   "allFiles": [
     {
-      "file": "/storage/emulated/0/AndroidIDEProjects/jOS_j-sdk/core/j-SDK-core/src/main/java/jOS/Core/jActivity.java",
+      "file": "/storage/emulated/0/AndroidIDEProjects/jOS_j-sdk/core/build.gradle.kts",
       "selection": {
         "end": {
-          "column": 0,
-          "index": 0,
-          "line": 0
+          "column": 42,
+          "index": 220,
+          "line": 3
         },
         "start": {
-          "column": 0,
-          "index": 0,
-          "line": 0
+          "column": 42,
+          "index": 220,
+          "line": 3
         }
       }
     },
     {
-      "file": "/storage/emulated/0/AndroidIDEProjects/jOS_j-sdk/core/j-SDK-core/src/main/res/xml/sdk_preference.xml",
+      "file": "/storage/emulated/0/AndroidIDEProjects/jOS_j-sdk/core/gradle/wrapper/gradle-wrapper.properties",
       "selection": {
         "end": {
-          "column": 0,
-          "index": 0,
-          "line": 0
+          "column": 69,
+          "index": 164,
+          "line": 3
         },
         "start": {
-          "column": 0,
-          "index": 0,
-          "line": 0
-        }
-      }
-    },
-    {
-      "file": "/storage/emulated/0/AndroidIDEProjects/jOS_j-sdk/core/sdk-example/src/main/AndroidManifest.xml",
-      "selection": {
-        "end": {
-          "column": 0,
-          "index": 0,
-          "line": 0
-        },
-        "start": {
-          "column": 0,
-          "index": 0,
-          "line": 0
-        }
-      }
-    },
-    {
-      "file": "/storage/emulated/0/AndroidIDEProjects/jOS_j-sdk/core/j-SDK-core/src/main/java/jOS/Core/jSDKCoreApp.java",
-      "selection": {
-        "end": {
-          "column": 24,
-          "index": 104,
-          "line": 4
-        },
-        "start": {
-          "column": 31,
-          "index": 79,
+          "column": 69,
+          "index": 164,
           "line": 3
         }
       }
@@ -64,17 +34,17 @@
       "file": "/storage/emulated/0/AndroidIDEProjects/jOS_j-sdk/core/j-SDK-core/src/main/java/jOS/Core/sdkplaceholder.java",
       "selection": {
         "end": {
-          "column": 75,
-          "index": 2063,
+          "column": 77,
+          "index": 2065,
           "line": 58
         },
         "start": {
-          "column": 75,
-          "index": 2063,
+          "column": 77,
+          "index": 2065,
           "line": 58
         }
       }
     }
   ],
-  "selectedFile": "/storage/emulated/0/AndroidIDEProjects/jOS_j-sdk/core/j-SDK-core/src/main/java/jOS/Core/sdkplaceholder.java"
+  "selectedFile": "/storage/emulated/0/AndroidIDEProjects/jOS_j-sdk/core/build.gradle.kts"
 }
