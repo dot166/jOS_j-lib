@@ -1,0 +1,80 @@
+{
+  "allFiles": [
+    {
+      "file": "/storage/emulated/0/AndroidIDEProjects/jOS_j-sdk/core/j-SDK-core/src/main/java/jOS/Core/jActivity.java",
+      "selection": {
+        "end": {
+          "column": 0,
+          "index": 0,
+          "line": 0
+        },
+        "start": {
+          "column": 0,
+          "index": 0,
+          "line": 0
+        }
+      }
+    },
+    {
+      "file": "/storage/emulated/0/AndroidIDEProjects/jOS_j-sdk/core/j-SDK-core/src/main/res/xml/sdk_preference.xml",
+      "selection": {
+        "end": {
+          "column": 0,
+          "index": 0,
+          "line": 0
+        },
+        "start": {
+          "column": 0,
+          "index": 0,
+          "line": 0
+        }
+      }
+    },
+    {
+      "file": "/storage/emulated/0/AndroidIDEProjects/jOS_j-sdk/core/sdk-example/src/main/AndroidManifest.xml",
+      "selection": {
+        "end": {
+          "column": 0,
+          "index": 0,
+          "line": 0
+        },
+        "start": {
+          "column": 0,
+          "index": 0,
+          "line": 0
+        }
+      }
+    },
+    {
+      "file": "/storage/emulated/0/AndroidIDEProjects/jOS_j-sdk/core/j-SDK-core/src/main/java/jOS/Core/jSDKCoreApp.java",
+      "selection": {
+        "end": {
+          "column": 0,
+          "index": 0,
+          "line": 0
+        },
+        "start": {
+          "column": 0,
+          "index": 0,
+          "line": 0
+        }
+      }
+    },
+    {
+      "file": "/storage/emulated/0/AndroidIDEProjects/jOS_j-sdk/core/j-SDK-core/src/main/java/jOS/Core/sdkplaceholder.java",
+      "selection": {
+        "end": {
+          "column": 23,
+          "index": 2188,
+          "line": 61
+        },
+        "start": {
+          "column": 23,
+          "index": 2188,
+          "line": 61
+        }
+      }
+    }
+  ],
+  "selectedFile": "/storage/emulated/0/AndroidIDEProjects/jOS_j-sdk/core/j-SDK-core/src/main/java/jOS/Core/sdkplaceholder.java"
+}

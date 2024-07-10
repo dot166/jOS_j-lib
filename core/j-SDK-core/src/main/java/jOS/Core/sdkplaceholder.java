@@ -55,6 +55,7 @@ public class sdkplaceholder extends jActivity {
     }
 
     private String androidver() {
+        log.i(TAG, android.os.Build.VERSION.SDK_INT);
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.TIRAMISU) {
             return RELEASE_OR_PREVIEW_DISPLAY;
         }
