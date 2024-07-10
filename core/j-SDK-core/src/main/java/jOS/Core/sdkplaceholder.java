@@ -8,6 +8,7 @@ import static jOS.Core.Build.j_DEVICE;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -55,7 +56,7 @@ public class sdkplaceholder extends jActivity {
     }
 
     private String androidver() {
-        log.i(TAG, android.os.Build.VERSION.SDK_INT);
+        Log.i(jSDKCoreApp.TAG, android.os.Build.VERSION.SDK_INT);
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.TIRAMISU) {
             return RELEASE_OR_PREVIEW_DISPLAY;
         }

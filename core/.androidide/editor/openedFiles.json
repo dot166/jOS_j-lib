@@ -49,14 +49,14 @@
       "file": "/storage/emulated/0/AndroidIDEProjects/jOS_j-sdk/core/j-SDK-core/src/main/java/jOS/Core/jSDKCoreApp.java",
       "selection": {
         "end": {
-          "column": 0,
-          "index": 0,
-          "line": 0
+          "column": 24,
+          "index": 104,
+          "line": 4
         },
         "start": {
-          "column": 0,
-          "index": 0,
-          "line": 0
+          "column": 31,
+          "index": 79,
+          "line": 3
         }
       }
     },
@@ -64,14 +64,14 @@
       "file": "/storage/emulated/0/AndroidIDEProjects/jOS_j-sdk/core/j-SDK-core/src/main/java/jOS/Core/sdkplaceholder.java",
       "selection": {
         "end": {
-          "column": 23,
-          "index": 2188,
-          "line": 61
+          "column": 26,
+          "index": 2014,
+          "line": 58
         },
         "start": {
-          "column": 23,
-          "index": 2188,
-          "line": 61
+          "column": 26,
+          "index": 2014,
+          "line": 58
         }
       }
     }
