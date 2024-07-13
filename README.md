@@ -8,7 +8,7 @@ contains a version of the holo theme that is patched for use with appcompat, a c
 
 ## how to use it?
 
-to use the j SDK add the following lines to your settings.gradle
+to use the j-SDK in a gradle project add the following lines to your settings.gradle
 ```
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
@@ -44,12 +44,12 @@ gradle library (main code)
 
 ### PrivExt/
 
-aosp compiled java library (privileged code) included as PrivExt.jar in core/j-SDK-core/libs
+aosp compiled java library (privileged code) included as javalib.jar in core/j-SDK-core/libs
 
-### Prebuilts
+### Prebuilts/
 
 prebuilt aar of core/ (for use in aosp)
 
-### .m2
+### .m2/
 
 maven repo containing current and older versions (for use in gradle)
