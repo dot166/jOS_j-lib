@@ -1,8 +1,8 @@
 # jOS SDK - a common library that (most of) my android apps use
 
-contains a version of the holo theme that is based on appcompat and some other things.
+contains a version of the holo theme that is patched for use with appcompat, a custom actionbar baced on material3 Toolbar and some other things.
 
-## privileged subfolder can only be built with aosp, rest of sdk can be built with gradle
+## PrivExt subfolder can only be built with aosp, rest of sdk can be built with gradle
 
 the j-SDK will work ONLY ON ANDROID PIE (9) AND LATER!! see [this commit](https://github.com/dot166/jOS_j-sdk/commit/ae05286e8cddad03afdfd88197add1796efc4f17) for more information
 
