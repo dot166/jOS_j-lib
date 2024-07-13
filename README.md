@@ -44,7 +44,7 @@ gradle library (main code)
 
 ### PrivExt/
 
-aosp compiled java library (privileged code (systemproperties)) included as javalib.jar in core/j-SDK-core/libs
+aosp compiled java library (privileged code) included as PrivExt.jar in core/j-SDK-core/libs
 
 ### Prebuilts
 
