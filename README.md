@@ -40,7 +40,7 @@ dependencies {
 
 gradle library (main code)
 
-### privileged/
+### PrivExt/
 
 aosp compiled java library (privileged code (systemproperties)) included as javalib.jar in core/j-SDK-core/libs
 
