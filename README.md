@@ -31,7 +31,9 @@ dependencies {
     implementation "androidx.core:core-ktx:1.13.1" // j-SDK dependency
     implementation "androidx.browser:browser:1.8.0" // j-SDK dependency
     implementation "jOS.Core:j-SDK-core:3.+"
-    implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0" // j-SDK dependency
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0" // j-SDK dependency 
+    implementation "com.mikepenz:aboutlibraries-core:11.2.2" // j-SDK dependency 
+    implementation "com.mikepenz:aboutlibraries-compose-m3:11.2.2" // j-SDK dependency 
 }
 ```
 
