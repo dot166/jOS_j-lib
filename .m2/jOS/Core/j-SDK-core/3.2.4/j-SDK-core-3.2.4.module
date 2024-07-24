@@ -34,11 +34,11 @@
         {
           "name": "j-SDK-core-3.2.4.aar",
           "url": "j-SDK-core-3.2.4.aar",
-          "size": 155790,
-          "sha512": "47db3f4b9c064912735a548fdb230c05be16c1d0e4e098edb6bb7c1b1fbdb051fcf13043c8e11e594bb05c47107da1c83a7248041f7dadb6d819ded112b6adfd",
-          "sha256": "7a0fcb32dfb64830ae2995e55cad37152546ff72c95f0ad6ac11be5a0412155d",
-          "sha1": "594ff5d21617bb263f805eabf658f72afa3b7bcf",
-          "md5": "c75c83b5f78e1347801ffd8582276a65"
+          "size": 156399,
+          "sha512": "fb8d0637c9a30d1b65023c6e768d0d8391a7d5d7be9ef2ba81a6adb0be16b282cae7bfe8edff118da10f2789eec75ff367c5ceb2395f7bdf78f25d2c936879b0",
+          "sha256": "8d25dffa577ecb57cffd0e806e1cfa280bc25b78a88b3c1ac0849ad157bc57e5",
+          "sha1": "52cf1432d13586c27ee4f7b09e6ec7b28671c6ad",
+          "md5": "98cee8070b7484bf71147256f4fd2406"
         }
       ]
     },
@@ -107,6 +107,27 @@
           }
         },
         {
+          "group": "com.mikepenz",
+          "module": "aboutlibraries-core",
+          "version": {
+            "requires": "11.2.2"
+          }
+        },
+        {
+          "group": "com.mikepenz",
+          "module": "aboutlibraries-compose-m3",
+          "version": {
+            "requires": "11.2.2"
+          }
+        },
+        {
+          "group": "com.kieronquinn.smartspacer",
+          "module": "sdk-client",
+          "version": {
+            "requires": "+"
+          }
+        },
+        {
           "group": "org.jetbrains.kotlin",
           "module": "kotlin-stdlib",
           "version": {
@@ -118,11 +139,11 @@
         {
           "name": "j-SDK-core-3.2.4.aar",
           "url": "j-SDK-core-3.2.4.aar",
-          "size": 155790,
-          "sha512": "47db3f4b9c064912735a548fdb230c05be16c1d0e4e098edb6bb7c1b1fbdb051fcf13043c8e11e594bb05c47107da1c83a7248041f7dadb6d819ded112b6adfd",
-          "sha256": "7a0fcb32dfb64830ae2995e55cad37152546ff72c95f0ad6ac11be5a0412155d",
-          "sha1": "594ff5d21617bb263f805eabf658f72afa3b7bcf",
-          "md5": "c75c83b5f78e1347801ffd8582276a65"
+          "size": 156399,
+          "sha512": "fb8d0637c9a30d1b65023c6e768d0d8391a7d5d7be9ef2ba81a6adb0be16b282cae7bfe8edff118da10f2789eec75ff367c5ceb2395f7bdf78f25d2c936879b0",
+          "sha256": "8d25dffa577ecb57cffd0e806e1cfa280bc25b78a88b3c1ac0849ad157bc57e5",
+          "sha1": "52cf1432d13586c27ee4f7b09e6ec7b28671c6ad",
+          "md5": "98cee8070b7484bf71147256f4fd2406"
         }
       ]
     },
@@ -140,11 +161,11 @@
         {
           "name": "j-SDK-core-3.2.4-sources.jar",
           "url": "j-SDK-core-3.2.4-sources.jar",
-          "size": 36449,
-          "sha512": "f4730b6f472858256778269883c39520556cb19fa21792d6b6ea07ffbf7dec567fc62b5c00e17d9ea3d5f7877cede02df93d6bc9dccfa9a59fc3d93e991815ad",
-          "sha256": "5f3218202f57cb966a810d52a895ffcc1bb9a67df8d692d98d1471f2f909b5a3",
-          "sha1": "cb3604377cb6b9c8d3aca6c4bf646e8d8fec847c",
-          "md5": "77220007103d2ff29cc811888d061e99"
+          "size": 36975,
+          "sha512": "5449560580121065c24f35d2441cbb5b8786831f072610c7627c7727cabcaabee58bcccc9a09b39bb59b69d1655336c3897951754cf38ba1155e818c29cf5348",
+          "sha256": "625f911daff8859741dccd0573f7a22733d6a54603ee7d0bd6af100898a3be33",
+          "sha1": "1bf37177bb78af728cf46ff712ced687fbdaeba9",
+          "md5": "1f62069c1c679ccae58ac6bb21b16cdd"
         }
       ]
     }
