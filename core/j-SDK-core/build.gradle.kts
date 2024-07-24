@@ -50,6 +50,7 @@ dependencies {
     implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
     implementation("com.mikepenz:aboutlibraries-core:11.2.2")
     implementation("com.mikepenz:aboutlibraries-compose-m3:11.2.2")
+    implementation("com.kieronquinn.smartspacer:sdk-client:+")
 }
 
 publishing {
