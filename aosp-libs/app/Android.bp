@@ -1,0 +1,20 @@
+android_app {
+    name: "aosp-libs",
+    certificate: "platform",
+    system_ext_specific: true,
+    resource_dirs: ["src/main/res"],
+
+    srcs: [
+        "src/main/java/**/*.kt",
+        "src/main/java/**/*.java",
+    ],
+
+    manifest: "src/main/AndroidManifest.xml",
+
+    static_libs: [
+        // DO NOT EDIT THIS SECTION MANUALLY
+        "j.SDK",
+    ],
+
+    kotlincflags: ["-Xjvm-default=all"],
+}

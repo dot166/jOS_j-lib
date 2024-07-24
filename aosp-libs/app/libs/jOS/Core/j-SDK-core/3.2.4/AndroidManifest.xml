@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="jOS.Core" >
+
+    <uses-sdk android:minSdkVersion="29" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <queries>
+        <package android:name="jOS.ThemeEngine" />
+    </queries>
+
+    <application
+        android:name="jOS.Core.jSDKCoreApp"
+        android:icon="@drawable/ic_launcher_j"
+        android:theme="@style/jOS.Theme" >
+        <activity
+            android:name="jOS.Core.sdkplaceholder"
+            android:exported="true"
+            android:label="@string/sdkplaceholder" />
+        <activity
+            android:name="jOS.Core.SDKChangelogActivity"
+            android:exported="true"
+            android:label="@string/jsdk_changelog" />
+    </application>
+
+</manifest>
