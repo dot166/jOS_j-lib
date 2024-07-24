@@ -48,9 +48,9 @@ gradle library (main code)
 
 aosp compiled java library (privileged code) included as javalib.jar in core/j-SDK-core/libs
 
-### Prebuilts/
+### aosp-libs/
 
-prebuilt aar of core/ (for use in aosp)
+prebuilt aar of core/ and other dependencies (for use in aosp)
 
 ### .m2/
 
