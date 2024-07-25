@@ -44,7 +44,12 @@ public class Build {
     }
 
     /** An Integer utilized to distinguish jOS versions */
-    public static final int jOS_RELEASE_INT = Integer.parseInt(jOS_RELEASE.replaceAll("\\..*",""));
+    public static int jOS_RELEASE_INT() {
+        if (jOS_RELEASE != UNKNOWN) {
+            return Integer.parseInt(jOS_RELEASE.replaceAll("\\..*",""));
+        }
+        return 0;
+    }
 
     /** jOS M */
     public static final int jOS_M = 13;
