@@ -23,12 +23,12 @@ buildscript {
 
 android {
     namespace = "com.j.aosp_libs"
-    compileSdk = 35
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.j.aosp_libs"
         minSdk = 29
-        targetSdk = 35
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
     }
@@ -60,6 +60,7 @@ configure<GenerateBpPluginExtension> {
         when {
             module.group.startsWith("androidx") -> true
             module.group.startsWith("com.google") -> true
+            module.group == "androidx.databinding" -> false
             else -> false
         }
     }
