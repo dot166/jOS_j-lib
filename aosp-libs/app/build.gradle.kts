@@ -58,9 +58,9 @@ configure<GenerateBpPluginExtension> {
     targetSdk.set(android.defaultConfig.targetSdk!!)
     availableInAOSP.set { module: Module ->
         when {
+            module.group == "androidx.databinding" -> false
             module.group.startsWith("androidx") -> true
             module.group.startsWith("com.google") -> true
-            module.group == "androidx.databinding" -> false
             else -> false
         }
     }
