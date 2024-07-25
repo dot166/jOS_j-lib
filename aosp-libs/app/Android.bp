@@ -2,7 +2,7 @@ android_app {
     name: "aosp-libs",
     certificate: "platform",
     system_ext_specific: true,
-    resource_dirs: ["src/main/res"],
+    sdk_version: "34"
 
     srcs: [
         "src/main/java/**/*.kt",
