@@ -59,6 +59,7 @@ configure<GenerateBpPluginExtension> {
     availableInAOSP.set { module: Module ->
         when {
             module.group == "androidx.databinding" -> false
+            module.name == "preference-ktx" -> false
             module.group.startsWith("androidx") -> true
             module.group.startsWith("com.google") -> true
             else -> false
