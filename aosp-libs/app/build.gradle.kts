@@ -13,7 +13,7 @@ apply {
 
 buildscript {
     repositories {
-        maven("https://raw.githubusercontent.com/dot166/gradle-generatebp/v1.9/.m2")
+        maven("https://raw.githubusercontent.com/dot166/gradle-generatebp/main/.m2")
     }
 
     dependencies {
@@ -50,6 +50,7 @@ android {
 dependencies {
     //noinspection GradleDynamicVersion
     implementation("jOS.Core:j-SDK-core:3.+")
+    implementation("com.kieronquinn.smartspacer:sdk-client:+")
 }
 
 
@@ -59,7 +60,6 @@ configure<GenerateBpPluginExtension> {
         when {
             module.group.startsWith("androidx") -> true
             module.group.startsWith("com.google") -> true
-            module.group.startsWith("org.jetbrains") -> true
             else -> false
         }
     }
