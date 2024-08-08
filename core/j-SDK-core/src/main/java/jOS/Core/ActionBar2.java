@@ -3,12 +3,8 @@ package jOS.Core;
 import static com.google.android.material.theme.overlay.MaterialThemeOverlay.wrap;
 
 import android.content.Context;
-import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.content.pm.ResolveInfo;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
-import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.util.TypedValue;
@@ -81,15 +77,6 @@ public class ActionBar2 extends MaterialToolbar {
         } else {
             Log.i(TAG, "icon disabled in config, Please set icon manually");
         }
-    }
-
-    private Drawable getActivityIcon() {
-        PackageManager pm = getContext().getPackageManager();
-
-        Intent intent = ((jSDKCoreApp)getContext().getApplicationContext()).getCurrentActivity().getIntent();
-        ResolveInfo resolveInfo = pm.resolveActivity(intent, 0);
-
-        return resolveInfo.loadIcon(pm);
     }
 
     @Override
