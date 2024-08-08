@@ -18,6 +18,7 @@ public class ThemeEngine {
     static AlertDialog.Builder builder;
     static String TAG = "jOS Theme Engine";
     static String TAGDB1 = TAG + " - DB1";
+    public static boolean isDarkTheme;
 
     /**
      * jOS ThemeEngine: get the theme
@@ -32,18 +33,23 @@ public class ThemeEngine {
         switch (Theme) {
             case "Holo":
                 Log.i(TAG, "jOS.Core.R.style.jOS_Theme");
+                isDarkTheme = true;
                 return R.style.jOS_Theme;
             case "M3 Dark":
                 Log.i(TAG, "com.google.android.material.R.style.Theme_Material3_DynamicColors_Dark_NoActionBar");
+                isDarkTheme = true;
                 return com.google.android.material.R.style.Theme_Material3_DynamicColors_Dark_NoActionBar;
             case "M3 Light":
                 Log.i(TAG, "com.google.android.material.R.style.Theme_Material3_DynamicColors_Light_NoActionBar");
+                isDarkTheme = false;
                 return com.google.android.material.R.style.Theme_Material3_DynamicColors_Light_NoActionBar;
             case "AppCompat Dark":
                 Log.i(TAG, "androidx.appcompat.R.style.Theme_AppCompat_NoActionBar");
+                isDarkTheme = true;
                 return androidx.appcompat.R.style.Theme_AppCompat_NoActionBar;
             case "AppCompat Light":
                 Log.i(TAG, "androidx.appcompat.R.style.Theme_AppCompat_Light_NoActionBar");
+                isDarkTheme = false;
                 return androidx.appcompat.R.style.Theme_AppCompat_Light_NoActionBar;
         }
         if (!Theme.equals("none")) {
@@ -52,6 +58,7 @@ public class ThemeEngine {
             Log.e(TAG, "ThemeEngine is MISSING!!!!");
             missingThemeEngine(context);
         }
+        isDarkTheme = true;
         return R.style.jOS_Theme;
     }
 
