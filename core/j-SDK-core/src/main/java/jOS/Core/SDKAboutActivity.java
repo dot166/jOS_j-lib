@@ -13,7 +13,7 @@ public class SDKAboutActivity extends jAboutActivity {
     @NonNull
     @Override
     public Intent versionIntent(@NonNull Context context) {
-        return new Intent(Intent.ACTION_MAIN).addCategory(Intent.CATEGORY_LAUNCHER);
+        return new Intent(context, SDKTestActivity.class);
     }
 
     @NonNull

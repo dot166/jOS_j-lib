@@ -197,8 +197,20 @@ open class jAboutActivity : jActivity() {
                 }
             }
             Contributors()
-            Button(onClick = { startActivity(Intent(context, OSSLicenceActivity::class.java)) }) { Text(
-                stringResource(id = R.string.licences)) }
+            if (!showOnlyContributors(context)) {
+                Button(onClick = {
+                    startActivity(
+                        Intent(
+                            context,
+                            OSSLicenceActivity::class.java
+                        )
+                    )
+                }) {
+                    Text(
+                        stringResource(id = R.string.licences)
+                    )
+                }
+            }
         }
     }
 
