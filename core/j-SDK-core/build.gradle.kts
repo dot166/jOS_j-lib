@@ -36,6 +36,10 @@ android {
     kotlinOptions {
         jvmTarget = "17"
     }
+    buildFeatures { compose = true }
+    composeOptions{
+        kotlinCompilerExtensionVersion = "1.5.10"
+    }
 }
 
 dependencies {
@@ -47,6 +51,12 @@ dependencies {
     implementation("androidx.core:core-ktx:1.13.1")
     implementation("androidx.browser:browser:1.8.0")
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
+    implementation("androidx.compose.ui:ui-android:1.6.8")
+    implementation("androidx.compose.material3:material3-android:1.2.1")
+    implementation("androidx.compose.material:material-android:1.6.8")
+    implementation("io.coil-kt:coil-compose:2.7.0")
+    implementation("com.google.accompanist:accompanist-drawablepainter:0.35.1-alpha")
+    implementation("com.google.accompanist:accompanist-placeholder-material:0.35.1-alpha")
     implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
     implementation("com.mikepenz:aboutlibraries-core:11.2.2")
     implementation("com.mikepenz:aboutlibraries-compose-m3:11.2.2")

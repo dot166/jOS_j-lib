@@ -21,4 +21,10 @@
     <string name="dialog_message">このアプリには ThemeEngine が必要ですが、データベースを含む ThemeEngine アプリがデバイスにインストールされていません。</string>
     <string name="dialog_positive">インストール</string>
     <string name="dialog_negative">無視 (アプリは HOLO テーマを使用します)</string>
+    <string name="about">について</string>
+    <string name="leaddev">リード開発者</string>
+    <string name="dev">開発者</string>
+    <string name="github" translatable="false">GitHub</string>
+    <string name="licences">謝辞</string>
+    <string name="example_info">現在、貢献者リストを挿入するために product() 関数をオーバーライドしていません。</string>
 </resources>

@@ -21,4 +21,10 @@
     <string name="dialog_message">Diese App erfordert ThemeEngine. Die ThemeEngine-App, die die Datenbank enthält, ist nicht auf Ihrem Gerät installiert!</string>
     <string name="dialog_positive">Installieren</string>
     <string name="dialog_negative">Ignorieren (App verwendet HOLO-Design)</string>
+    <string name="about">Um</string>
+    <string name="leaddev">Leitender Entwickler</string>
+    <string name="dev">Entwickler</string>
+    <string name="github" translatable="false">GitHub</string>
+    <string name="licences">Danksagungen</string>
+    <string name="example_info">Derzeit haben Sie die Funktion „product()“ nicht überschrieben, um Ihre Mitwirkendenliste einzufügen</string>
 </resources>

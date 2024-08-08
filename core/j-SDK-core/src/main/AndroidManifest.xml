@@ -20,6 +20,18 @@
             android:name=".SDKChangelogActivity"
             android:label="@string/jsdk_changelog"
             android:exported="true" />
+        <activity
+            android:name=".SDKAboutActivity"
+            android:label="@string/about"
+            android:exported="true"/>
+        <activity
+            android:name=".jAboutActivity"
+            android:exported="false"/>
+        <!-- OpenSource Licence Activity -->
+        <activity
+            android:name=".OSSLicenceActivity"
+            android:label="@string/licences"
+            android:exported="false" />
     </application>
 
 </manifest>

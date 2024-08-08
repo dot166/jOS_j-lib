@@ -5,7 +5,7 @@
     <item
         android:id="@+id/action_favorite"
         android:icon="@drawable/ic_launcher_j"
-        android:title="@string/back_button"
+        android:title="@string/about"
         app:showAsAction="ifRoom"/>
 
     <!-- Settings, must always be in the overflow. -->
