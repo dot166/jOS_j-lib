@@ -24,12 +24,26 @@ then add the following lines to your project root build.gradle
 ```
 plugins {
     id 'com.android.application' version '8.5.0' apply false
-    id 'com.mikepenz.aboutlibraries.plugin' version "11.2.2" // j-SDK dependency
+    id 'com.mikepenz.aboutlibraries.plugin' version "11.2.2" apply false // j-SDK dependency
 }
 ```
 
 then add the following lines to your apps build.gradle
 ```
+plugins {
+    id 'com.android.application'
+    id 'com.mikepenz.aboutlibraries.plugin' // j-SDK dependency
+}
+
+android {
+...
+}
+
+aboutLibraries {
+    // Required to be set to true
+    registerAndroidTasks = true
+}
+
 dependencies {
     implementation "androidx.appcompat:appcompat:1.7.0" // j-SDK dependency
     implementation "androidx.constraintlayout:constraintlayout:2.1.4" // j-SDK dependency
