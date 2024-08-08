@@ -34,11 +34,11 @@ public class ThemeEngine {
                 Log.i(TAG, "jOS.Core.R.style.jOS_Theme");
                 return R.style.jOS_Theme;
             case "M3 Dark":
-                Log.i(TAG, "com.google.android.material.R.style.Theme_Material3_Dark_NoActionBar");
-                return com.google.android.material.R.style.Theme_Material3_Dark_NoActionBar;
+                Log.i(TAG, "com.google.android.material.R.style.Theme_Material3_DynamicColors_Dark_NoActionBar");
+                return com.google.android.material.R.style.Theme_Material3_DynamicColors_Dark_NoActionBar;
             case "M3 Light":
-                Log.i(TAG, "com.google.android.material.R.style.Theme_Material3_Light_NoActionBar");
-                return com.google.android.material.R.style.Theme_Material3_Light_NoActionBar;
+                Log.i(TAG, "com.google.android.material.R.style.Theme_Material3_DynamicColors_Light_NoActionBar");
+                return com.google.android.material.R.style.Theme_Material3_DynamicColors_Light_NoActionBar;
             case "AppCompat Dark":
                 Log.i(TAG, "androidx.appcompat.R.style.Theme_AppCompat_NoActionBar");
                 return androidx.appcompat.R.style.Theme_AppCompat_NoActionBar;
