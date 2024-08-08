@@ -7,7 +7,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         tools:ignore="MissingApplicationIcon">
-        <activity android:name="jOS.Core.sdkplaceholder"
+        <activity android:name="jOS.Core.SDKTestActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>

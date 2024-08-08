@@ -13,7 +13,7 @@
                  android:icon="@drawable/ic_launcher_j"
                  android:theme="@style/jOS.Theme">
         <activity
-            android:name=".sdkplaceholder"
+            android:name=".SDKTestActivity"
             android:label="@string/sdkplaceholder"
             android:exported="true" />
         <activity
