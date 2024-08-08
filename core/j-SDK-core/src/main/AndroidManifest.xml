@@ -6,24 +6,29 @@
     <uses-permission android:name="android.permission.INTERNET"/>
 
     <queries>
+        <!-- Theme Engine Database -->
         <package android:name="jOS.ThemeEngine"/>
     </queries>
 
     <application android:name=".jSDKCoreApp"
                  android:icon="@drawable/ic_launcher_j"
                  android:theme="@style/jOS.Theme">
+        <!-- Test Activity -->
         <activity
             android:name=".SDKTestActivity"
             android:label="@string/sdkplaceholder"
             android:exported="true" />
+        <!-- Changelog -->
         <activity
             android:name=".SDKChangelogActivity"
             android:label="@string/jsdk_changelog"
             android:exported="true" />
+        <!-- SDK About Menu -->
         <activity
             android:name=".SDKAboutActivity"
             android:label="@string/about"
             android:exported="true"/>
+        <!-- About Menu Core -->
         <activity
             android:name=".jAboutActivity"
             android:exported="false"/>
