@@ -87,7 +87,7 @@ public class ThemeEngine {
         alert.show();
     }
 
-    @SuppressLint("Range")
+    @SuppressLint({"Range", "LongLogTag"})
     public static StringBuilder getAllThemes(jActivity context) {
 
         // creating a cursor object of the
