@@ -32,5 +32,6 @@ aboutLibraries {
 }
 
 dependencies {
+    implementation "androidx.appcompat:appcompat:1.7.0" // fixes lint errors
     implementation project(":j-SDK-core")// implementation "jOS.Core:j-SDK-core:3.+"
 }
