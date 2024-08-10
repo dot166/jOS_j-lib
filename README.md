@@ -4,7 +4,7 @@ contains a version of the holo theme that is patched for use with appcompat, a c
 
 ## PrivExt subfolder can only be built with aosp, rest of sdk can be built with gradle
 
-## the j-SDK will work ONLY ON ANDROID LOLLIPOP (5) AND LATER!! because some dependencies require android lollipop or newer
+## the j-SDK will work ONLY ON ANDROID Q (10) AND LATER!! because some dependencies require android q or newer
 
 ## how to use it?
 
