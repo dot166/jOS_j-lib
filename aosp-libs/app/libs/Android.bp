@@ -36,6 +36,42 @@ android_library {
 }
 
 android_library_import {
+    name: "aosp-libs_androidx.preference_preference-ktx-nodeps",
+    aars: ["androidx/preference/preference-ktx/1.2.1/preference-ktx-1.2.1.aar"],
+    sdk_version: "34",
+    min_sdk_version: "14",
+    apex_available: [
+        "//apex_available:platform",
+        "//apex_available:anyapex",
+    ],
+    static_libs: [
+        "androidx.core_core-ktx",
+        "androidx.fragment_fragment-ktx",
+        "androidx.preference_preference",
+        "aosp-libs_org.jetbrains.kotlin_kotlin-stdlib",
+    ],
+}
+
+android_library {
+    name: "aosp-libs_androidx.preference_preference-ktx",
+    sdk_version: "34",
+    min_sdk_version: "14",
+    apex_available: [
+        "//apex_available:platform",
+        "//apex_available:anyapex",
+    ],
+    manifest: "androidx/preference/preference-ktx/1.2.1/AndroidManifest.xml",
+    static_libs: [
+        "aosp-libs_androidx.preference_preference-ktx-nodeps",
+        "androidx.core_core-ktx",
+        "androidx.fragment_fragment-ktx",
+        "androidx.preference_preference",
+        "aosp-libs_org.jetbrains.kotlin_kotlin-stdlib",
+    ],
+    java_version: "1.7",
+}
+
+android_library_import {
     name: "aosp-libs_com.github.skydoves_balloon-nodeps",
     aars: ["com/github/skydoves/balloon/1.4.7/balloon-1.4.7.aar"],
     sdk_version: "34",
@@ -279,8 +315,8 @@ android_library_import {
         "androidx.browser_browser",
         "androidx.core_core-ktx",
         "androidx.preference_preference",
-        "androidx.preference_preference-ktx",
         "androidx.swiperefreshlayout_swiperefreshlayout",
+        "aosp-libs_androidx.preference_preference-ktx",
         "aosp-libs_com.mikepenz_aboutlibraries-compose-m3",
         "aosp-libs_com.mikepenz_aboutlibraries-core",
         "aosp-libs_org.jetbrains.kotlin_kotlin-stdlib",
@@ -305,8 +341,8 @@ android_library {
         "androidx.browser_browser",
         "androidx.core_core-ktx",
         "androidx.preference_preference",
-        "androidx.preference_preference-ktx",
         "androidx.swiperefreshlayout_swiperefreshlayout",
+        "aosp-libs_androidx.preference_preference-ktx",
         "aosp-libs_com.mikepenz_aboutlibraries-compose-m3",
         "aosp-libs_com.mikepenz_aboutlibraries-core",
         "aosp-libs_org.jetbrains.kotlin_kotlin-stdlib",
