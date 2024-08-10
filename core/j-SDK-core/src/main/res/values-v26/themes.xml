@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Platform.jOS.Theme" parent="android:Theme.Holo.NoActionBar">
+        <item name="android:colorError">@android:color/holo_red_dark</item>
+    </style>
+</resources>
