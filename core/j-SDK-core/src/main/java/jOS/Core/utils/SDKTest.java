@@ -26,7 +26,7 @@ public class SDKTest {
         Button button2 = context.findViewById(R.id.button2);
         String android_sdk_test = "Android: " + androidver();
         String j_sdk_test = "jOS: " + jOS_RELEASE;
-        String j_verify_test = "is j Device: " + j_DEVICE();
+        String j_verify_test = context.getString(R.string.is_j_device) + ": " + j_DEVICE();
         String all = android_sdk_test + " " + j_sdk_test + " " + j_verify_test;
         text.setText(all);
         button.setOnClickListener(new View.OnClickListener() {
