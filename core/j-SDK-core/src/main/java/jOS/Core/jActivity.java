@@ -21,7 +21,6 @@ public class jActivity extends AppCompatActivity {
     boolean app_name;
     boolean actionbar;
     int layout;
-    boolean icon;
     boolean home;
     boolean configured = false;
     protected jSDKCoreApp mSDKApp;
