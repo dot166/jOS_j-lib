@@ -2,11 +2,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="jOS.Core" >
 
-    <uses-sdk android:minSdkVersion="29" />
+    <uses-sdk android:minSdkVersion="21" />
 
     <uses-permission android:name="android.permission.INTERNET" />
 
     <queries>
+
+        <!-- Theme Engine Database -->
         <package android:name="jOS.ThemeEngine" />
     </queries>
 
@@ -14,14 +16,31 @@
         android:name="jOS.Core.jSDKCoreApp"
         android:icon="@drawable/ic_launcher_j"
         android:theme="@style/jOS.Theme" >
+
+        <!-- Test Activity -->
         <activity
-            android:name="jOS.Core.sdkplaceholder"
+            android:name="jOS.Core.SDKTestActivity"
             android:exported="true"
             android:label="@string/sdkplaceholder" />
+        <!-- Changelog -->
         <activity
             android:name="jOS.Core.SDKChangelogActivity"
             android:exported="true"
             android:label="@string/jsdk_changelog" />
+        <!-- SDK About Menu -->
+        <activity
+            android:name="jOS.Core.SDKAboutActivity"
+            android:exported="true"
+            android:label="@string/about" />
+        <!-- About Menu Core -->
+        <activity
+            android:name="jOS.Core.jAboutActivity"
+            android:exported="false" />
+        <!-- OpenSource Licence Activity -->
+        <activity
+            android:name="jOS.Core.OSSLicenceActivity"
+            android:exported="false"
+            android:label="@string/licences" />
     </application>
 
 </manifest>

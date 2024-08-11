@@ -299,9 +299,19 @@ android_library {
     java_version: "1.7",
 }
 
-android_library_import {
-    name: "j.SDK-nodeps",
-    aars: ["jOS/Core/j-SDK-core/3.2.4/j-SDK-core-3.2.4.aar"],
+java_import {
+    name: "aosp-libs_com.squareup.okhttp3_okhttp-nodeps",
+    jars: ["com/squareup/okhttp3/okhttp/4.12.0/okhttp-4.12.0.jar"],
+    sdk_version: "34",
+    min_sdk_version: "14",
+    apex_available: [
+        "//apex_available:platform",
+        "//apex_available:anyapex",
+    ],
+}
+
+java_library_static {
+    name: "aosp-libs_com.squareup.okhttp3_okhttp",
     sdk_version: "34",
     min_sdk_version: "14",
     apex_available: [
@@ -309,17 +319,232 @@ android_library_import {
         "//apex_available:anyapex",
     ],
     static_libs: [
-        "SmartspacerClient",
+        "aosp-libs_com.squareup.okhttp3_okhttp-nodeps",
+        "aosp-libs_com.squareup.okio_okio",
+        "aosp-libs_org.jetbrains.kotlin_kotlin-stdlib-jdk8",
+    ],
+    java_version: "1.7",
+}
+
+java_library_static {
+    name: "aosp-libs_com.squareup.okio_okio",
+    sdk_version: "34",
+    min_sdk_version: "14",
+    apex_available: [
+        "//apex_available:platform",
+        "//apex_available:anyapex",
+    ],
+    static_libs: [
+        "aosp-libs_com.squareup.okio_okio-jvm",
+    ],
+    java_version: "1.7",
+}
+
+java_import {
+    name: "aosp-libs_com.squareup.okio_okio-jvm-nodeps",
+    jars: ["com/squareup/okio/okio-jvm/3.9.0/okio-jvm-3.9.0.jar"],
+    sdk_version: "34",
+    min_sdk_version: "14",
+    apex_available: [
+        "//apex_available:platform",
+        "//apex_available:anyapex",
+    ],
+}
+
+java_library_static {
+    name: "aosp-libs_com.squareup.okio_okio-jvm",
+    sdk_version: "34",
+    min_sdk_version: "14",
+    apex_available: [
+        "//apex_available:platform",
+        "//apex_available:anyapex",
+    ],
+    static_libs: [
+        "aosp-libs_com.squareup.okio_okio-jvm-nodeps",
+        "aosp-libs_org.jetbrains.kotlin_kotlin-stdlib",
+    ],
+    java_version: "1.7",
+}
+
+android_library_import {
+    name: "aosp-libs_io.coil-kt_coil-nodeps",
+    aars: ["io/coil-kt/coil/2.7.0/coil-2.7.0.aar"],
+    sdk_version: "34",
+    min_sdk_version: "14",
+    apex_available: [
+        "//apex_available:platform",
+        "//apex_available:anyapex",
+    ],
+    static_libs: [
+        "aosp-libs_io.coil-kt_coil-base",
+        "aosp-libs_org.jetbrains.kotlin_kotlin-stdlib",
+    ],
+}
+
+android_library {
+    name: "aosp-libs_io.coil-kt_coil",
+    sdk_version: "34",
+    min_sdk_version: "14",
+    apex_available: [
+        "//apex_available:platform",
+        "//apex_available:anyapex",
+    ],
+    manifest: "io/coil-kt/coil/2.7.0/AndroidManifest.xml",
+    static_libs: [
+        "aosp-libs_io.coil-kt_coil-nodeps",
+        "aosp-libs_io.coil-kt_coil-base",
+        "aosp-libs_org.jetbrains.kotlin_kotlin-stdlib",
+    ],
+    java_version: "1.7",
+}
+
+android_library_import {
+    name: "aosp-libs_io.coil-kt_coil-base-nodeps",
+    aars: ["io/coil-kt/coil-base/2.7.0/coil-base-2.7.0.aar"],
+    sdk_version: "34",
+    min_sdk_version: "14",
+    apex_available: [
+        "//apex_available:platform",
+        "//apex_available:anyapex",
+    ],
+    static_libs: [
+        "androidx.annotation_annotation",
+        "androidx.appcompat_appcompat-resources",
+        "androidx.collection_collection",
+        "androidx.core_core-ktx",
+        "androidx.exifinterface_exifinterface",
+        "androidx.lifecycle_lifecycle-runtime",
+        "androidx.profileinstaller_profileinstaller",
+        "aosp-libs_com.squareup.okhttp3_okhttp",
+        "aosp-libs_com.squareup.okio_okio",
+        "aosp-libs_org.jetbrains.kotlin_kotlin-stdlib",
+        "aosp-libs_org.jetbrains.kotlinx_kotlinx-coroutines-android",
+    ],
+}
+
+android_library {
+    name: "aosp-libs_io.coil-kt_coil-base",
+    sdk_version: "34",
+    min_sdk_version: "14",
+    apex_available: [
+        "//apex_available:platform",
+        "//apex_available:anyapex",
+    ],
+    manifest: "io/coil-kt/coil-base/2.7.0/AndroidManifest.xml",
+    static_libs: [
+        "aosp-libs_io.coil-kt_coil-base-nodeps",
+        "androidx.annotation_annotation",
+        "androidx.appcompat_appcompat-resources",
+        "androidx.collection_collection",
+        "androidx.core_core-ktx",
+        "androidx.exifinterface_exifinterface",
+        "androidx.lifecycle_lifecycle-runtime",
+        "androidx.profileinstaller_profileinstaller",
+        "aosp-libs_com.squareup.okhttp3_okhttp",
+        "aosp-libs_com.squareup.okio_okio",
+        "aosp-libs_org.jetbrains.kotlin_kotlin-stdlib",
+        "aosp-libs_org.jetbrains.kotlinx_kotlinx-coroutines-android",
+    ],
+    java_version: "1.7",
+}
+
+android_library_import {
+    name: "aosp-libs_io.coil-kt_coil-compose-nodeps",
+    aars: ["io/coil-kt/coil-compose/2.7.0/coil-compose-2.7.0.aar"],
+    sdk_version: "34",
+    min_sdk_version: "14",
+    apex_available: [
+        "//apex_available:platform",
+        "//apex_available:anyapex",
+    ],
+    static_libs: [
+        "aosp-libs_io.coil-kt_coil",
+        "aosp-libs_io.coil-kt_coil-compose-base",
+        "aosp-libs_org.jetbrains.kotlin_kotlin-stdlib",
+    ],
+}
+
+android_library {
+    name: "aosp-libs_io.coil-kt_coil-compose",
+    sdk_version: "34",
+    min_sdk_version: "14",
+    apex_available: [
+        "//apex_available:platform",
+        "//apex_available:anyapex",
+    ],
+    manifest: "io/coil-kt/coil-compose/2.7.0/AndroidManifest.xml",
+    static_libs: [
+        "aosp-libs_io.coil-kt_coil-compose-nodeps",
+        "aosp-libs_io.coil-kt_coil",
+        "aosp-libs_io.coil-kt_coil-compose-base",
+        "aosp-libs_org.jetbrains.kotlin_kotlin-stdlib",
+    ],
+    java_version: "1.7",
+}
+
+android_library_import {
+    name: "aosp-libs_io.coil-kt_coil-compose-base-nodeps",
+    aars: ["io/coil-kt/coil-compose-base/2.7.0/coil-compose-base-2.7.0.aar"],
+    sdk_version: "34",
+    min_sdk_version: "14",
+    apex_available: [
+        "//apex_available:platform",
+        "//apex_available:anyapex",
+    ],
+    static_libs: [
+        "androidx.compose.foundation_foundation",
+        "androidx.core_core-ktx",
+        "aosp-libs_io.coil-kt_coil-base",
+        "aosp-libs_org.jetbrains.kotlin_kotlin-stdlib",
+        "com.google.accompanist_accompanist-drawablepainter",
+    ],
+}
+
+android_library {
+    name: "aosp-libs_io.coil-kt_coil-compose-base",
+    sdk_version: "34",
+    min_sdk_version: "14",
+    apex_available: [
+        "//apex_available:platform",
+        "//apex_available:anyapex",
+    ],
+    manifest: "io/coil-kt/coil-compose-base/2.7.0/AndroidManifest.xml",
+    static_libs: [
+        "aosp-libs_io.coil-kt_coil-compose-base-nodeps",
+        "androidx.compose.foundation_foundation",
+        "androidx.core_core-ktx",
+        "aosp-libs_io.coil-kt_coil-base",
+        "aosp-libs_org.jetbrains.kotlin_kotlin-stdlib",
+        "com.google.accompanist_accompanist-drawablepainter",
+    ],
+    java_version: "1.7",
+}
+
+android_library_import {
+    name: "j.SDK-nodeps",
+    aars: ["jOS/Core/j-SDK-core/3.2.5/j-SDK-core-3.2.5.aar"],
+    sdk_version: "34",
+    min_sdk_version: "14",
+    apex_available: [
+        "//apex_available:platform",
+        "//apex_available:anyapex",
+    ],
+    static_libs: [
         "androidx-constraintlayout_constraintlayout",
         "androidx.appcompat_appcompat",
         "androidx.browser_browser",
+        "androidx.compose.material3_material3-android",
+        "androidx.compose.material_material-android",
+        "androidx.compose.ui_ui-android",
         "androidx.core_core-ktx",
-        "androidx.preference_preference",
         "androidx.swiperefreshlayout_swiperefreshlayout",
         "aosp-libs_androidx.preference_preference-ktx",
         "aosp-libs_com.mikepenz_aboutlibraries-compose-m3",
         "aosp-libs_com.mikepenz_aboutlibraries-core",
+        "aosp-libs_io.coil-kt_coil-compose",
         "aosp-libs_org.jetbrains.kotlin_kotlin-stdlib",
+        "com.google.accompanist_accompanist-drawablepainter",
+        "com.google.accompanist_accompanist-placeholder-material",
         "com.google.android.material_material",
     ],
 }
@@ -332,20 +557,24 @@ android_library {
         "//apex_available:platform",
         "//apex_available:anyapex",
     ],
-    manifest: "jOS/Core/j-SDK-core/3.2.4/AndroidManifest.xml",
+    manifest: "jOS/Core/j-SDK-core/3.2.5/AndroidManifest.xml",
     static_libs: [
         "j.SDK-nodeps",
-        "SmartspacerClient",
         "androidx-constraintlayout_constraintlayout",
         "androidx.appcompat_appcompat",
         "androidx.browser_browser",
+        "androidx.compose.material3_material3-android",
+        "androidx.compose.material_material-android",
+        "androidx.compose.ui_ui-android",
         "androidx.core_core-ktx",
-        "androidx.preference_preference",
         "androidx.swiperefreshlayout_swiperefreshlayout",
         "aosp-libs_androidx.preference_preference-ktx",
         "aosp-libs_com.mikepenz_aboutlibraries-compose-m3",
         "aosp-libs_com.mikepenz_aboutlibraries-core",
+        "aosp-libs_io.coil-kt_coil-compose",
         "aosp-libs_org.jetbrains.kotlin_kotlin-stdlib",
+        "com.google.accompanist_accompanist-drawablepainter",
+        "com.google.accompanist_accompanist-placeholder-material",
         "com.google.android.material_material",
     ],
     java_version: "1.7",
@@ -538,6 +767,20 @@ java_library_static {
     java_version: "1.7",
 }
 
+java_library_static {
+    name: "aosp-libs_org.jetbrains.kotlin_kotlin-stdlib-common",
+    sdk_version: "34",
+    min_sdk_version: "14",
+    apex_available: [
+        "//apex_available:platform",
+        "//apex_available:anyapex",
+    ],
+    static_libs: [
+        "aosp-libs_org.jetbrains.kotlin_kotlin-stdlib",
+    ],
+    java_version: "1.7",
+}
+
 java_import {
     name: "aosp-libs_org.jetbrains.kotlin_kotlin-stdlib-jdk7-nodeps",
     jars: ["org/jetbrains/kotlin/kotlin-stdlib-jdk7/1.9.10/kotlin-stdlib-jdk7-1.9.10.jar"],
@@ -633,7 +876,7 @@ java_library_static {
 
 java_import {
     name: "aosp-libs_org.jetbrains.kotlinx_kotlinx-coroutines-android-nodeps",
-    jars: ["org/jetbrains/kotlinx/kotlinx-coroutines-android/1.7.3/kotlinx-coroutines-android-1.7.3.jar"],
+    jars: ["org/jetbrains/kotlinx/kotlinx-coroutines-android/1.8.1/kotlinx-coroutines-android-1.8.1.jar"],
     sdk_version: "34",
     min_sdk_version: "14",
     apex_available: [
@@ -652,7 +895,7 @@ java_library_static {
     ],
     static_libs: [
         "aosp-libs_org.jetbrains.kotlinx_kotlinx-coroutines-android-nodeps",
-        "aosp-libs_org.jetbrains.kotlin_kotlin-stdlib-jdk8",
+        "aosp-libs_org.jetbrains.kotlin_kotlin-stdlib",
         "aosp-libs_org.jetbrains.kotlinx_kotlinx-coroutines-bom",
         "aosp-libs_org.jetbrains.kotlinx_kotlinx-coroutines-core",
     ],
@@ -688,7 +931,7 @@ java_library_static {
 
 java_import {
     name: "aosp-libs_org.jetbrains.kotlinx_kotlinx-coroutines-core-jvm-nodeps",
-    jars: ["org/jetbrains/kotlinx/kotlinx-coroutines-core-jvm/1.7.3/kotlinx-coroutines-core-jvm-1.7.3.jar"],
+    jars: ["org/jetbrains/kotlinx/kotlinx-coroutines-core-jvm/1.8.1/kotlinx-coroutines-core-jvm-1.8.1.jar"],
     sdk_version: "34",
     min_sdk_version: "14",
     apex_available: [
@@ -707,7 +950,7 @@ java_library_static {
     ],
     static_libs: [
         "aosp-libs_org.jetbrains.kotlinx_kotlinx-coroutines-core-jvm-nodeps",
-        "aosp-libs_org.jetbrains.kotlin_kotlin-stdlib-jdk8",
+        "aosp-libs_org.jetbrains.kotlin_kotlin-stdlib",
         "aosp-libs_org.jetbrains.kotlinx_kotlinx-coroutines-bom",
         "aosp-libs_org.jetbrains_annotations",
     ],
