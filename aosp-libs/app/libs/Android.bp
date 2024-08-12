@@ -112,6 +112,112 @@ android_library {
 }
 
 android_library_import {
+    name: "aosp-libs_com.google.accompanist_accompanist-drawablepainter-nodeps",
+    aars: ["com/google/accompanist/accompanist-drawablepainter/0.35.1-alpha/accompanist-drawablepainter-0.35.1-alpha.aar"],
+    sdk_version: "34",
+    min_sdk_version: "14",
+    apex_available: [
+        "//apex_available:platform",
+        "//apex_available:anyapex",
+    ],
+    static_libs: [
+        "androidx.compose.ui_ui",
+        "aosp-libs_org.jetbrains.kotlin_kotlin-stdlib",
+        "aosp-libs_org.jetbrains.kotlinx_kotlinx-coroutines-android",
+    ],
+}
+
+android_library {
+    name: "aosp-libs_com.google.accompanist_accompanist-drawablepainter",
+    sdk_version: "34",
+    min_sdk_version: "14",
+    apex_available: [
+        "//apex_available:platform",
+        "//apex_available:anyapex",
+    ],
+    manifest: "com/google/accompanist/accompanist-drawablepainter/0.35.1-alpha/AndroidManifest.xml",
+    static_libs: [
+        "aosp-libs_com.google.accompanist_accompanist-drawablepainter-nodeps",
+        "androidx.compose.ui_ui",
+        "aosp-libs_org.jetbrains.kotlin_kotlin-stdlib",
+        "aosp-libs_org.jetbrains.kotlinx_kotlinx-coroutines-android",
+    ],
+    java_version: "1.7",
+}
+
+android_library_import {
+    name: "aosp-libs_com.google.accompanist_accompanist-placeholder-nodeps",
+    aars: ["com/google/accompanist/accompanist-placeholder/0.35.1-alpha/accompanist-placeholder-0.35.1-alpha.aar"],
+    sdk_version: "34",
+    min_sdk_version: "14",
+    apex_available: [
+        "//apex_available:platform",
+        "//apex_available:anyapex",
+    ],
+    static_libs: [
+        "androidx.compose.foundation_foundation",
+        "androidx.compose.ui_ui-util",
+        "aosp-libs_org.jetbrains.kotlin_kotlin-stdlib",
+        "aosp-libs_org.jetbrains.kotlinx_kotlinx-coroutines-android",
+    ],
+}
+
+android_library {
+    name: "aosp-libs_com.google.accompanist_accompanist-placeholder",
+    sdk_version: "34",
+    min_sdk_version: "14",
+    apex_available: [
+        "//apex_available:platform",
+        "//apex_available:anyapex",
+    ],
+    manifest: "com/google/accompanist/accompanist-placeholder/0.35.1-alpha/AndroidManifest.xml",
+    static_libs: [
+        "aosp-libs_com.google.accompanist_accompanist-placeholder-nodeps",
+        "androidx.compose.foundation_foundation",
+        "androidx.compose.ui_ui-util",
+        "aosp-libs_org.jetbrains.kotlin_kotlin-stdlib",
+        "aosp-libs_org.jetbrains.kotlinx_kotlinx-coroutines-android",
+    ],
+    java_version: "1.7",
+}
+
+android_library_import {
+    name: "aosp-libs_com.google.accompanist_accompanist-placeholder-material-nodeps",
+    aars: ["com/google/accompanist/accompanist-placeholder-material/0.35.1-alpha/accompanist-placeholder-material-0.35.1-alpha.aar"],
+    sdk_version: "34",
+    min_sdk_version: "14",
+    apex_available: [
+        "//apex_available:platform",
+        "//apex_available:anyapex",
+    ],
+    static_libs: [
+        "androidx.compose.material_material",
+        "aosp-libs_com.google.accompanist_accompanist-placeholder",
+        "aosp-libs_org.jetbrains.kotlin_kotlin-stdlib",
+        "aosp-libs_org.jetbrains.kotlinx_kotlinx-coroutines-android",
+    ],
+}
+
+android_library {
+    name: "aosp-libs_com.google.accompanist_accompanist-placeholder-material",
+    sdk_version: "34",
+    min_sdk_version: "14",
+    apex_available: [
+        "//apex_available:platform",
+        "//apex_available:anyapex",
+    ],
+    manifest: "com/google/accompanist/accompanist-placeholder-material/0.35.1-alpha/AndroidManifest.xml",
+    static_libs: [
+        "aosp-libs_com.google.accompanist_accompanist-placeholder-material-nodeps",
+        "androidx.compose.material_material",
+        "aosp-libs_com.google.accompanist_accompanist-placeholder",
+        "aosp-libs_org.jetbrains.kotlin_kotlin-stdlib",
+        "aosp-libs_org.jetbrains.kotlinx_kotlinx-coroutines-android",
+    ],
+    java_version: "1.7",
+}
+
+android_library_import {
     name: "SmartspacerClient-nodeps",
     aars: ["com/kieronquinn/smartspacer/sdk-client/1.0.11/sdk-client-1.0.11.aar"],
     sdk_version: "34",
@@ -494,9 +600,9 @@ android_library_import {
     static_libs: [
         "androidx.compose.foundation_foundation",
         "androidx.core_core-ktx",
+        "aosp-libs_com.google.accompanist_accompanist-drawablepainter",
         "aosp-libs_io.coil-kt_coil-base",
         "aosp-libs_org.jetbrains.kotlin_kotlin-stdlib",
-        "com.google.accompanist_accompanist-drawablepainter",
     ],
 }
 
@@ -513,9 +619,9 @@ android_library {
         "aosp-libs_io.coil-kt_coil-compose-base-nodeps",
         "androidx.compose.foundation_foundation",
         "androidx.core_core-ktx",
+        "aosp-libs_com.google.accompanist_accompanist-drawablepainter",
         "aosp-libs_io.coil-kt_coil-base",
         "aosp-libs_org.jetbrains.kotlin_kotlin-stdlib",
-        "com.google.accompanist_accompanist-drawablepainter",
     ],
     java_version: "1.7",
 }
@@ -539,12 +645,12 @@ android_library_import {
         "androidx.core_core-ktx",
         "androidx.swiperefreshlayout_swiperefreshlayout",
         "aosp-libs_androidx.preference_preference-ktx",
+        "aosp-libs_com.google.accompanist_accompanist-drawablepainter",
+        "aosp-libs_com.google.accompanist_accompanist-placeholder-material",
         "aosp-libs_com.mikepenz_aboutlibraries-compose-m3",
         "aosp-libs_com.mikepenz_aboutlibraries-core",
         "aosp-libs_io.coil-kt_coil-compose",
         "aosp-libs_org.jetbrains.kotlin_kotlin-stdlib",
-        "com.google.accompanist_accompanist-drawablepainter",
-        "com.google.accompanist_accompanist-placeholder-material",
         "com.google.android.material_material",
     ],
 }
@@ -569,12 +675,12 @@ android_library {
         "androidx.core_core-ktx",
         "androidx.swiperefreshlayout_swiperefreshlayout",
         "aosp-libs_androidx.preference_preference-ktx",
+        "aosp-libs_com.google.accompanist_accompanist-drawablepainter",
+        "aosp-libs_com.google.accompanist_accompanist-placeholder-material",
         "aosp-libs_com.mikepenz_aboutlibraries-compose-m3",
         "aosp-libs_com.mikepenz_aboutlibraries-core",
         "aosp-libs_io.coil-kt_coil-compose",
         "aosp-libs_org.jetbrains.kotlin_kotlin-stdlib",
-        "com.google.accompanist_accompanist-drawablepainter",
-        "com.google.accompanist_accompanist-placeholder-material",
         "com.google.android.material_material",
     ],
     java_version: "1.7",
