@@ -13,23 +13,23 @@
     </queries>
 
     <application
-        android:name="jOS.Core.jSDKCoreApp"
+        android:name="jOS.Core.jLIBCoreApp"
         android:icon="@drawable/ic_launcher_j"
         android:theme="@style/jOS.Theme" >
 
         <!-- Test Activity -->
         <activity
-            android:name="jOS.Core.SDKTestActivity"
+            android:name="jOS.Core.LIBTestActivity"
             android:exported="true"
-            android:label="@string/sdkplaceholder" />
+            android:label="@string/libplaceholder" />
         <!-- Changelog -->
         <activity
-            android:name="jOS.Core.SDKChangelogActivity"
+            android:name="jOS.Core.LIBChangelogActivity"
             android:exported="true"
-            android:label="@string/jsdk_changelog" />
-        <!-- SDK About Menu -->
+            android:label="@string/jlib_changelog" />
+        <!-- LIB About Menu -->
         <activity
-            android:name="jOS.Core.SDKAboutActivity"
+            android:name="jOS.Core.LIBAboutActivity"
             android:exported="true"
             android:label="@string/about" />
         <!-- About Menu Core -->

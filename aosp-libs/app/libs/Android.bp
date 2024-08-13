@@ -1619,8 +1619,8 @@ android_library {
 }
 
 android_library_import {
-    name: "j.SDK-nodeps",
-    aars: ["jOS/Core/j-SDK-core/3.2.5/j-SDK-core-3.2.5.aar"],
+    name: "j.Lib-nodeps",
+    aars: ["io/github/dot166/j-Lib/3.2.6/j-Lib-3.2.6.aar"],
     sdk_version: "34",
     min_sdk_version: "14",
     apex_available: [
@@ -1648,16 +1648,16 @@ android_library_import {
 }
 
 android_library {
-    name: "j.SDK",
+    name: "j.Lib",
     sdk_version: "34",
     min_sdk_version: "14",
     apex_available: [
         "//apex_available:platform",
         "//apex_available:anyapex",
     ],
-    manifest: "jOS/Core/j-SDK-core/3.2.5/AndroidManifest.xml",
+    manifest: "io/github/dot166/j-Lib/3.2.6/AndroidManifest.xml",
     static_libs: [
-        "j.SDK-nodeps",
+        "j.Lib-nodeps",
         "androidx-constraintlayout_constraintlayout",
         "androidx.appcompat_appcompat",
         "androidx.browser_browser",

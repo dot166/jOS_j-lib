@@ -13,7 +13,7 @@ android_app {
 
     static_libs: [
         // DO NOT EDIT THIS SECTION MANUALLY
-        "j.SDK",
+        "j.Lib",
         "SmartspacerClient",
     ],
 
