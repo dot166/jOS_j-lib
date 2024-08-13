@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <!-- This module was also published with a richer model, Gradle metadata,  -->
+  <!-- which should be used instead. Do not delete the following line which  -->
+  <!-- is to indicate to Gradle or any Gradle module metadata file consumer  -->
+  <!-- that they should prefer consuming it instead. -->
+  <!-- do_not_remove: published-with-gradle-metadata -->
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>jOS.Core</groupId>
+  <artifactId>j-SDK-core</artifactId>
+  <version>3.2.6</version>
+  <packaging>aar</packaging>
+  <name>j Common Library</name>
+  <description>jLib - a common library that contains a version of the holo theme that is patched for use with appcompat, a custom actionbar based on material3 Toolbar and some other things.</description>
+  <url>https://github.com/dot166/jOS_j-lib</url>
+  <inceptionYear>2024</inceptionYear>
+  <licenses>
+    <license>
+      <name>The GNU General Public License v3.0</name>
+      <url>https://www.gnu.org/licenses/gpl-3.0.txt</url>
+      <distribution>https://www.gnu.org/licenses/gpl-3.0.txt</distribution>
+    </license>
+  </licenses>
+  <developers>
+    <developer>
+      <id>dot166</id>
+      <name>._______166</name>
+      <url>https://dot166.github.io</url>
+    </developer>
+  </developers>
+  <scm>
+    <connection>scm:git:git://github.com/github.com/dot166/jOS_j-lib.git</connection>
+    <developerConnection>scm:git:ssh://git@github.com/github.com/dot166/jOS_j-lib.git</developerConnection>
+    <url>https://github.com/github.com/dot166/jOS_j-lib</url>
+  </scm>
+  <dependencies>
+    <dependency>
+      <groupId>org.jetbrains.kotlin</groupId>
+      <artifactId>kotlin-stdlib</artifactId>
+      <version>1.9.22</version>
+    </dependency>
+    <dependency>
+      <groupId>androidx.appcompat</groupId>
+      <artifactId>appcompat</artifactId>
+      <version>1.7.0</version>
+    </dependency>
+    <dependency>
+      <groupId>androidx.constraintlayout</groupId>
+      <artifactId>constraintlayout</artifactId>
+      <version>2.1.4</version>
+    </dependency>
+    <dependency>
+      <groupId>androidx.preference</groupId>
+      <artifactId>preference-ktx</artifactId>
+      <version>1.2.1</version>
+    </dependency>
+    <dependency>
+      <groupId>com.google.android.material</groupId>
+      <artifactId>material</artifactId>
+      <version>1.12.0</version>
+    </dependency>
+    <dependency>
+      <groupId>androidx.core</groupId>
+      <artifactId>core-ktx</artifactId>
+      <version>1.13.1</version>
+    </dependency>
+    <dependency>
+      <groupId>androidx.browser</groupId>
+      <artifactId>browser</artifactId>
+      <version>1.8.0</version>
+    </dependency>
+    <dependency>
+      <groupId>androidx.compose.ui</groupId>
+      <artifactId>ui-android</artifactId>
+      <version>1.6.8</version>
+    </dependency>
+    <dependency>
+      <groupId>androidx.compose.material3</groupId>
+      <artifactId>material3-android</artifactId>
+      <version>1.2.1</version>
+    </dependency>
+    <dependency>
+      <groupId>androidx.compose.material</groupId>
+      <artifactId>material-android</artifactId>
+      <version>1.6.8</version>
+    </dependency>
+    <dependency>
+      <groupId>io.coil-kt</groupId>
+      <artifactId>coil-compose</artifactId>
+      <version>2.7.0</version>
+    </dependency>
+    <dependency>
+      <groupId>com.google.accompanist</groupId>
+      <artifactId>accompanist-drawablepainter</artifactId>
+      <version>0.35.1-alpha</version>
+    </dependency>
+    <dependency>
+      <groupId>com.google.accompanist</groupId>
+      <artifactId>accompanist-placeholder-material</artifactId>
+      <version>0.35.1-alpha</version>
+    </dependency>
+    <dependency>
+      <groupId>androidx.swiperefreshlayout</groupId>
+      <artifactId>swiperefreshlayout</artifactId>
+      <version>1.1.0</version>
+    </dependency>
+    <dependency>
+      <groupId>com.mikepenz</groupId>
+      <artifactId>aboutlibraries-core</artifactId>
+      <version>11.2.2</version>
+    </dependency>
+    <dependency>
+      <groupId>com.mikepenz</groupId>
+      <artifactId>aboutlibraries-compose-m3</artifactId>
+      <version>11.2.2</version>
+    </dependency>
+  </dependencies>
+</project>
