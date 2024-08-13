@@ -1,4 +1,11 @@
 import com.vanniktech.maven.publish.SonatypeHost
+import org.gradle.api.provider.Provider
+
+val Ver: String = providers.exec {
+    commandLine("cat", "ver")
+}.standardOutput.asText.get().trim()
+
+
 
 plugins {
     id("com.android.library")
@@ -10,7 +17,7 @@ plugins {
 android.buildFeatures.buildConfig=true
 
 group = "io.github.dot166"
-version = "3.2.6"
+version = Ver
 
 android {
     namespace = "jOS.Core"

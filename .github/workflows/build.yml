@@ -27,6 +27,14 @@ jobs:
         java-version: 17
         cache: 'gradle'
 
+    - name: Check if Release build
+      shell: sh
+      run: |
+        VERSION=v$(cat core/ver)
+          echo "VERSION=$VERSION" >> $GITHUB_ENV
+        RELEASE=0 && git show-ref --tags --verify --quiet "refs/tags/$VERSION" || RELEASE=1
+          echo "RELEASE=$RELEASE" >> $GITHUB_ENV
+
     - name: Grant execute permission for gradlew
       run: |
         cd core
@@ -38,13 +46,13 @@ jobs:
         ./gradlew build
 
     - name: Publish to Maven Central
-      if: github.event_name == 'workflow_dispatch'
+      if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && github.repository == 'dot166/jOS_j-Lib' && env.RELEASE == '1' }}
       run: |
         cd core
         ./gradlew j-Lib-core:publishAndReleaseToMavenCentral --no-configuration-cache
 
     - name: Wait
-      if: github.event_name == 'workflow_dispatch'
+      if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && github.repository == 'dot166/jOS_j-Lib' && env.RELEASE == '1' }}
       run: sleep 600s
       shell: bash
 
@@ -67,3 +75,11 @@ jobs:
       uses: ad-m/github-push-action@master
       with:
         branch: ${{ github.ref }}
+
+    - name: Upload to new Release
+      uses: softprops/action-gh-release@v2
+      if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && github.repository == 'dot166/jOS_j-Lib' && env.RELEASE == '1' }}
+      with:
+        tag_name: ${{ env.VERSION }}
+        make_latest: true
+        generate_release_notes: true
