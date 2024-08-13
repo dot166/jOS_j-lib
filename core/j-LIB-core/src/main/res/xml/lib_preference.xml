@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+<androidx.preference.PreferenceCategory android:title="@string/jlib" android:key="lib_category">
+
+    <Preference
+        android:key="LIB"
+        android:title="@string/jlib_settings"
+        android:icon="@mipmap/settings"
+        android:summary="@string/launch_lib_preferences"/>
+
+    <Preference
+        android:key="LIBVer"
+        android:icon="@android:mipmap/sym_def_app_icon"
+        android:title="@string/jlib_version"/>
+</androidx.preference.PreferenceCategory>
+</PreferenceScreen>

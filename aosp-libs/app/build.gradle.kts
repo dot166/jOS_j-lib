@@ -49,7 +49,7 @@ android {
 
 dependencies {
     //noinspection GradleDynamicVersion
-    implementation("jOS.Core:j-SDK-core:3.+")
+    implementation("io.github.dot166:j-Lib:3.+")
     implementation("com.kieronquinn.smartspacer:sdk-client:+")
 }
 

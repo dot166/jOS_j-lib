@@ -1,6 +1,6 @@
-# jOS SDK - a common library that (most of) my android apps use
+# jLib - a common library that (most of) my android apps use
 
-contains a version of the holo theme that is patched for use with appcompat, a custom actionbar baced on material3 Toolbar and some other things.
+contains a version of the holo theme that is patched for use with appcompat, a custom actionbar based on material3 Toolbar and some other things.
 
 ## PrivExt subfolder can only be built with aosp, rest of sdk can be built with gradle
 
@@ -15,7 +15,6 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
-        maven { url 'https://raw.githubusercontent.com/dot166/jOS_j-SDK/main/.m2' }
     }
 }
 ```
@@ -72,7 +71,3 @@ aosp compiled java library (privileged code) included as javalib.jar in core/j-S
 ### aosp-libs/
 
 prebuilt aar of core/ and other dependencies (for use in aosp)
-
-### .m2/
-
-maven repo containing current and older versions (for use in gradle)

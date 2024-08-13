@@ -9,8 +9,8 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/j-SDK-core" />
-            <option value="$PROJECT_DIR$/sdk-example" />
+            <option value="$PROJECT_DIR$/j-LIB-core" />
+            <option value="$PROJECT_DIR$/lib-example" />
           </set>
         </option>
         <option name="resolveExternalAnnotations" value="false" />

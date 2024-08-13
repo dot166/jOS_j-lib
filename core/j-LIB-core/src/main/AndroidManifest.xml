@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    package="jOS.Core">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <queries>
+        <!-- Theme Engine Database -->
+        <package android:name="jOS.ThemeEngine"/>
+    </queries>
+
+    <application android:name=".jLIBCoreApp"
+                 android:icon="@drawable/ic_launcher_j"
+                 android:theme="@style/jOS.Theme">
+        <!-- Test Activity -->
+        <activity
+            android:name=".LIBTestActivity"
+            android:label="@string/libplaceholder"
+            android:exported="true" />
+        <!-- Changelog -->
+        <activity
+            android:name=".LIBChangelogActivity"
+            android:label="@string/jlib_changelog"
+            android:exported="true" />
+        <!-- LIB About Menu -->
+        <activity
+            android:name=".LIBAboutActivity"
+            android:label="@string/about"
+            android:exported="true"/>
+        <!-- About Menu Core -->
+        <activity
+            android:name=".jAboutActivity"
+            android:exported="false"/>
+        <!-- OpenSource Licence Activity -->
+        <activity
+            android:name=".OSSLicenceActivity"
+            android:label="@string/licences"
+            android:exported="false" />
+    </application>
+
+</manifest>

@@ -13,6 +13,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "j-SDK-core"
-include(":j-SDK-core")
-include(":sdk-example")
+rootProject.name = "j-Lib"
+include(":j-LIB-core")
+include(":lib-example")

@@ -1,0 +1,31 @@
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Label for the jOS system components when they are shown to the user. -->
+    <string name="jos_system_label">jOSコア</string>
+    <string name="capital_on">の上</string>
+    <string name="capital_off">オフ</string>
+    <string name="settings_name">設定</string>
+    <string name="settings_fragment_name" translatable="false">jOS.Core.jConfigActivity$LauncherSettingsFragment</string>
+    <string name="jlib_settings">jLIB 設定</string>
+    <string name="launch_lib_preferences">LIB 設定の起動</string>
+    <string name="jlib_version">jLIB バージョン</string>
+    <string name="jlib">jLIB</string>
+    <string name="menu_button">メニューボタン</string>
+    <string name="back_button">戻るボタン</string>
+    <string name="libplaceholder">LIBテスト</string>
+    <string name="no_records_found">レコードが見つかりませんでした</string>
+    <string name="logo">アプリアイコン</string>
+    <string name="ok">わかりました</string>
+    <string name="changelog">変更履歴</string>
+    <string name="jlib_changelog">jLIB 変更ログ</string>
+    <string name="dialog_title">テーマエンジンが見つかりません</string>
+    <string name="dialog_message">このアプリには ThemeEngine が必要ですが、データベースを含む ThemeEngine アプリがデバイスにインストールされていません。</string>
+    <string name="dialog_positive">インストール</string>
+    <string name="dialog_negative">無視 (アプリは HOLO テーマを使用します)</string>
+    <string name="about">について</string>
+    <string name="leaddev">主任開発者</string>
+    <string name="dev">開発者</string>
+    <string name="github" translatable="false">GitHub</string>
+    <string name="licences">謝辞</string>
+    <string name="example_info">現在、貢献者リストを挿入するために product() 関数をオーバーライドしていません。</string>
+    <string name="is_j_device">jデバイスです</string>
+</resources>
