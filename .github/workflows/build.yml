@@ -69,12 +69,14 @@ jobs:
         ./gradlew generateBp
 
     - name: Commit changes
+      if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && github.repository == 'dot166/jOS_j-Lib' && env.RELEASE == '1' }}
       run: |
         git add .
         git commit -m "Publish prebuilts for AOSP" || true
 
     - name: Push changes to repo
       uses: ad-m/github-push-action@master
+      if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && github.repository == 'dot166/jOS_j-Lib' && env.RELEASE == '1' }}
       with:
         branch: ${{ github.ref }}
 
