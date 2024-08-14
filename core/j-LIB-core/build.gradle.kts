@@ -10,6 +10,7 @@ val Ver: String = providers.exec {
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
+    id("org.jetbrains.kotlin.plugin.compose")
     `maven-publish`
     id("com.vanniktech.maven.publish")
 }
@@ -47,9 +48,6 @@ android {
         jvmTarget = "17"
     }
     buildFeatures { compose = true }
-    composeOptions{
-        kotlinCompilerExtensionVersion = "1.5.10"
-    }
 }
 
 dependencies {

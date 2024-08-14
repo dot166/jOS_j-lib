@@ -22,8 +22,9 @@ dependencyResolutionManagement {
 then add the following lines to your project root build.gradle
 ```
 plugins {
-    id 'com.android.application' version '8.5.0' apply false
-    id 'org.jetbrains.kotlin.android' version '1.9.22' apply false
+    id 'com.android.application' version '8.5.2' apply false
+    id 'org.jetbrains.kotlin.android' version '2.0.10' apply false
+    id 'org.jetbrains.kotlin.plugin.compose' version '2.0.10' apply false
     id 'com.mikepenz.aboutlibraries.plugin' version "11.2.2" apply false // j-SDK dependency
 }
 ```
@@ -33,6 +34,7 @@ then add the following lines to your apps build.gradle
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'org.jetbrains.kotlin.plugin.compose'
     id 'com.mikepenz.aboutlibraries.plugin' // j-SDK dependency
 }
 
@@ -40,10 +42,6 @@ android {
 ...
     buildFeatures {
         compose = true
-    }
-
-    composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.10"
     }
 }
 
@@ -53,7 +51,7 @@ aboutLibraries {
 }
 
 dependencies {
-    implementation "jOS.Core:j-SDK-core:3.+"
+    implementation "io.github.dot166:j-Lib:3.2.6"
 }
 ```
 
