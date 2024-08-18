@@ -52,6 +52,7 @@ jobs:
       run: |
         cd core
         ./gradlew j-Lib-core:publishAndReleaseToMavenCentral --no-configuration-cache
+        ./gradlew --stop
 
     - name: Wait
       if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && github.repository == 'dot166/jOS_j-Lib' && env.RELEASE == '1' }}
