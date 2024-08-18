@@ -28,4 +28,8 @@
     <string name="licences">Danksagungen</string>
     <string name="example_info">Derzeit haben Sie die Funktion „product()“ zum Einfügen Ihrer Mitwirkendenliste nicht überschrieben</string>
     <string name="is_j_device">ist j Gerät</string>
+    <string name="dialog_fail_title">Nun... Es ist abgestürzt!</string>
+    <string name="dialog_fail_message">Wie ist das passiert??</string>
+    <string name="dialog_ignore">Ignorieren</string>
+    <string name="dialog_stacktrace">Stack-Trace anzeigen</string>
 </resources>

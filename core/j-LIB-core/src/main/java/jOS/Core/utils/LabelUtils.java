@@ -1,5 +1,6 @@
 package jOS.Core.utils;
 
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
@@ -24,6 +25,21 @@ public class LabelUtils {
             return resolveInfo.loadLabel(pm).toString();
         } else {
             return "";
+        }
+    }
+
+    public static String getExternalActivityLabel(String title, Context context, ComponentName componentName) {
+        PackageManager pm = context.getPackageManager();
+
+        Intent intent = new Intent();
+        intent.setComponent(componentName);
+        ResolveInfo resolveInfo = pm.resolveActivity(intent, 0);
+
+        if (resolveInfo != null) {
+            resolveInfo.loadLabel(pm);
+            return resolveInfo.loadLabel(pm).toString();
+        } else {
+            return title;
         }
     }
 

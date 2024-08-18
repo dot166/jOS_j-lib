@@ -29,4 +29,8 @@
     <string name="licences">Acknowledgements</string>
     <string name="example_info">Currently you have not overridden the product() function to insert your contributor list</string>
     <string name="is_j_device">is j Device</string>
+    <string name="dialog_fail_title">Well... It crashed!</string>
+    <string name="dialog_fail_message">how did that happen??</string>
+    <string name="dialog_ignore">Ignore</string>
+    <string name="dialog_stacktrace">Show Stack Trace</string>
 </resources>

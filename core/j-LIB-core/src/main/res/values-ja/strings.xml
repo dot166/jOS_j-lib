@@ -28,4 +28,8 @@
     <string name="licences">謝辞</string>
     <string name="example_info">現在、貢献者リストを挿入するために product() 関数をオーバーライドしていません。</string>
     <string name="is_j_device">jデバイスです</string>
+    <string name="dialog_fail_title">そうですね...クラッシュしました!</string>
+    <string name="dialog_fail_message">どうやってそうなったの？？</string>
+    <string name="dialog_ignore">無視する</string>
+    <string name="dialog_stacktrace">スタックトレースを表示</string>
 </resources>

@@ -47,6 +47,7 @@ import androidx.compose.ui.unit.dp
 import com.google.accompanist.drawablepainter.rememberDrawablePainter
 import jOS.Core.ThemeEngine.isDarkTheme
 import jOS.Core.utils.ContributorRow
+import jOS.Core.utils.ErrorUtils
 import jOS.Core.utils.IconUtils
 import jOS.Core.utils.LabelUtils.getAppLabel
 
@@ -131,7 +132,7 @@ open class jAboutActivity : jActivity() {
                 context.packageManager.getPackageInfo(context.packageName, 0)
             return pInfo.versionName
         } catch (e: PackageManager.NameNotFoundException) {
-            e.printStackTrace()
+            ErrorUtils.handle(e, context)
             return ""
         }
     }

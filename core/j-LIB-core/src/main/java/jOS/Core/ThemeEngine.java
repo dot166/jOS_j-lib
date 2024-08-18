@@ -65,7 +65,6 @@ public class ThemeEngine {
     private static void missingThemeEngine(Context context) {
         builder = new AlertDialog.Builder(context);
 
-        //Uncomment the below code to Set the message and title from the strings.xml file
         builder.setMessage(R.string.dialog_message)
                 .setTitle(R.string.dialog_title)
                 .setCancelable(false)
