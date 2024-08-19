@@ -6,6 +6,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
+import jOS.Core.utils.ErrorUtils;
 import jOS.Core.utils.IconUtils;
 import jOS.Core.utils.LIBTest;
 
@@ -29,7 +30,11 @@ public class LIBTestActivity extends jActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int itemId = item.getItemId();
         if (itemId == R.id.action_settings) {
-            startActivity(new Intent(this, jConfigActivity.class));
+            try {
+                startActivity(new Intent(this, jConfigActivity.class));
+            } catch (Exception e) {
+                ErrorUtils.handle(e, this);
+            }
             return true;
         } else if (itemId == R.id.action_favorite) {
             startActivity(new Intent(this, LIBAboutActivity.class));

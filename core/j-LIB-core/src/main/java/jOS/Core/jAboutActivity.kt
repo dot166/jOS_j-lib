@@ -200,12 +200,16 @@ open class jAboutActivity : jActivity() {
             Contributors()
             if (!showOnlyContributors(context)) {
                 Button(onClick = {
-                    startActivity(
-                        Intent(
-                            context,
-                            OSSLicenceActivity::class.java
+                    try {
+                        startActivity(
+                            Intent(
+                                context,
+                                OSSLicenceActivity::class.java
+                            )
                         )
-                    )
+                    } catch (e : Exception) {
+                        ErrorUtils.handle(e, context)
+                    }
                 }) {
                     Text(
                         stringResource(id = R.string.licences)

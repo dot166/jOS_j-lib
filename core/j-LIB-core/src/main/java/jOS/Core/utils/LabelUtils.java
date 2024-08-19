@@ -39,6 +39,15 @@ public class LabelUtils {
             resolveInfo.loadLabel(pm);
             return resolveInfo.loadLabel(pm).toString();
         } else {
+            return getExternalAppLabel(pm, componentName, context, title);
+        }
+    }
+
+    public static String getExternalAppLabel(PackageManager pm, ComponentName componentName, Context context, String title) {
+        try {
+            return pm.getApplicationLabel(pm.getApplicationInfo(componentName.getPackageName(), 0)).toString();
+        } catch (Exception e) {
+            ErrorUtils.handle(e, context);
             return title;
         }
     }
