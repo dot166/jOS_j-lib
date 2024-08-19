@@ -1,7 +1,5 @@
 package jOS.Core.utils;
 
-import static jOS.Core.utils.LabelUtils.getExternalActivityLabel;
-
 import android.annotation.SuppressLint;
 import android.content.ComponentName;
 import android.content.Context;
@@ -104,7 +102,7 @@ public class IconUtils {
         private ComponentName componentName;
 
         public Icon(String title, Drawable image, ComponentName componentName, Context context) {
-            this.title = getExternalActivityLabel(title, context, componentName);
+            this.title = title;
             this.image = image;
             this.componentName = componentName;
         }
