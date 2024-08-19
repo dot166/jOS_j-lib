@@ -180,7 +180,7 @@ public class jConfigActivity extends jActivity
                 case "LIB":
                     Log.i("Preference Logging", "LIB Found!!!!");
                     preference.setOnPreferenceClickListener(p -> {
-                        Intent intent = new Intent("jOS.System.LIBConfig");
+                        Intent intent = new Intent("jOS.System.LibConfig");
                         try {
                             startActivity(intent);
                         } catch (Exception e) {
