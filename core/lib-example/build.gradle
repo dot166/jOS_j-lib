@@ -32,7 +32,6 @@ aboutLibraries {
 }
 
 dependencies {
-    implementation "androidx.appcompat:appcompat:1.7.0"
-    implementation project(':j-LIB-core') // fixes lint errors
-    // implementation "jOS.Core:j-LIB-core:3.+"
+    implementation "androidx.appcompat:appcompat:1.7.0" // fixes lint errors
+    implementation project(':j-LIB-core') // implementation "io.github.dot166:j-Lib:3.+"
 }

@@ -26,6 +26,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.Objects;
 
+import jOS.Core.utils.ErrorUtils;
 import jOS.Core.utils.PreferenceHighlighter;
 
 /**
@@ -180,7 +181,11 @@ public class jConfigActivity extends jActivity
                     Log.i("Preference Logging", "LIB Found!!!!");
                     preference.setOnPreferenceClickListener(p -> {
                         Intent intent = new Intent("jOS.System.LIBConfig");
-                        startActivity(intent);
+                        try {
+                            startActivity(intent);
+                        } catch (Exception e) {
+                            ErrorUtils.handle(e, requireContext());
+                        }
                         return !isLIBConfig();
                     });
                     return !isLIBConfig();

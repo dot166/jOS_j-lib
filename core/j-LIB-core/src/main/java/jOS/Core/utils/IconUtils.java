@@ -126,7 +126,10 @@ public class IconUtils {
         String component = parseXml.getAttributeValue(null, "component");
         String drawable = parseXml.getAttributeValue(null, "drawable");
         String name = parseXml.getAttributeValue(null, "name");
-        if (component != null && drawable != null && name != null) {
+        if (component != null && drawable != null) {
+            if (name == null) {
+                name = component;
+            }
             Log.i(TAG, component);
             Log.i(TAG, drawable);
             Log.i(TAG, name);
@@ -158,6 +161,9 @@ public class IconUtils {
         @SuppressLint("SimpleDateFormat") SimpleDateFormat dateFormat = new SimpleDateFormat("dd");
         String date = dateFormat.format(calendar.getTime());
         if (component != null && prefix != null) {
+            if (name == null) {
+                name = component;
+            }
             Log.i(TAG, component);
             Log.i(TAG, prefix);
             Log.i(TAG, date);
