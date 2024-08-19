@@ -1620,7 +1620,7 @@ android_library {
 
 android_library_import {
     name: "j.Lib-nodeps",
-    aars: ["io/github/dot166/j-Lib/3.2.8/j-Lib-3.2.8.aar"],
+    aars: ["io/github/dot166/j-Lib/3.2.9/j-Lib-3.2.9.aar"],
     sdk_version: "34",
     min_sdk_version: "14",
     apex_available: [
@@ -1655,7 +1655,7 @@ android_library {
         "//apex_available:platform",
         "//apex_available:anyapex",
     ],
-    manifest: "io/github/dot166/j-Lib/3.2.8/AndroidManifest.xml",
+    manifest: "io/github/dot166/j-Lib/3.2.9/AndroidManifest.xml",
     static_libs: [
         "j.Lib-nodeps",
         "androidx-constraintlayout_constraintlayout",
