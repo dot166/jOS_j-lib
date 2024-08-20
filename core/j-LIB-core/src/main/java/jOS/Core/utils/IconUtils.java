@@ -123,14 +123,17 @@ public class IconUtils {
     private static void addItem(XmlResourceParser parseXml, List<Icon> icons, Context context, PackageManager pm, Resources res, String IconPackPackageName) throws PackageManager.NameNotFoundException {
         String component = parseXml.getAttributeValue(null, "component");
         String drawable = parseXml.getAttributeValue(null, "drawable");
-        String name = parseXml.getAttributeValue(null, "name");
+        int name = res.getIdentifier(parseXml.getAttributeValue(null, "name"), "string", IconPackPackageName);
         if (component != null && drawable != null) {
-            if (name == null) {
-                name = component;
+            String nameString;
+            if (name == 0) {
+                nameString = component;
+            } else {
+                nameString = res.getString(name);
             }
             Log.i(TAG, component);
             Log.i(TAG, drawable);
-            Log.i(TAG, name);
+            Log.i(TAG, nameString);
             boolean STOP = false;
             ComponentName componentName = parseComponent(component);
             if (componentName != null) {
@@ -145,7 +148,7 @@ public class IconUtils {
                     }
                 }
                 if (!STOP) {
-                    icons.add(new Icon(name, pm.getDrawable(IconPackPackageName, res.getIdentifier(drawable, "drawable", IconPackPackageName), pm.getApplicationInfo(IconPackPackageName, 0)), componentName, context));
+                    icons.add(new Icon(nameString, pm.getDrawable(IconPackPackageName, res.getIdentifier(drawable, "drawable", IconPackPackageName), pm.getApplicationInfo(IconPackPackageName, 0)), componentName, context));
                 }
             }
         }
@@ -154,22 +157,25 @@ public class IconUtils {
     private static void addCalendar(XmlResourceParser parseXml, List<Icon> icons, Context context, PackageManager pm, Resources res, String IconPackPackageName) throws PackageManager.NameNotFoundException {
         String component = parseXml.getAttributeValue(null, "component");
         String prefix = parseXml.getAttributeValue(null, "prefix");
-        String name = parseXml.getAttributeValue(null, "name");
+        int name = res.getIdentifier(parseXml.getAttributeValue(null, "name"), "string", IconPackPackageName);
         Calendar calendar = Calendar.getInstance();
         @SuppressLint("SimpleDateFormat") SimpleDateFormat dateFormat = new SimpleDateFormat("dd");
         String date = dateFormat.format(calendar.getTime());
         if (component != null && prefix != null) {
-            if (name == null) {
-                name = component;
+            String nameString;
+            if (name == 0) {
+                nameString = component;
+            } else {
+                nameString = res.getString(name);
             }
             Log.i(TAG, component);
             Log.i(TAG, prefix);
             Log.i(TAG, date);
-            Log.i(TAG, name);
+            Log.i(TAG, nameString);
             ComponentName componentName = parseComponent(component);
             if (componentName != null) {
                 calendars.add(componentName);
-                icons.add(new Icon(name, pm.getDrawable(IconPackPackageName, res.getIdentifier(prefix + date, "drawable", IconPackPackageName), pm.getApplicationInfo(IconPackPackageName, 0)), componentName, context));
+                icons.add(new Icon(nameString, pm.getDrawable(IconPackPackageName, res.getIdentifier(prefix + date, "drawable", IconPackPackageName), pm.getApplicationInfo(IconPackPackageName, 0)), componentName, context));
             }
         }
     }
