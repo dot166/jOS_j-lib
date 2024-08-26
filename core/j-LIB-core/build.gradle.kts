@@ -66,7 +66,7 @@ dependencies {
     implementation("com.google.accompanist:accompanist-placeholder-material:0.35.2-beta")
     implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
     implementation("com.mikepenz:aboutlibraries-core:11.2.3")
-    implementation("com.mikepenz:aboutlibraries-compose-m3:11.2.2")
+    implementation("com.mikepenz:aboutlibraries-compose-m3:11.2.3")
 }
 
 mavenPublishing {
