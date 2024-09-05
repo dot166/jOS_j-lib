@@ -53,7 +53,6 @@ import jOS.Core.utils.LabelUtils.getAppLabel
 
 open class jAboutActivity : jActivity() {
 
-    //code goes here
     open fun versionIntent(context : Context): Intent {
         return Intent()
     }
