@@ -1,9 +1,9 @@
 import com.vanniktech.maven.publish.SonatypeHost
 import org.gradle.api.provider.Provider
 
-val Ver: String = "1"//providers.exec {
-    //commandLine("cat", "ver")
-//}.standardOutput.asText.get().trim()
+val Ver: String = providers.exec {
+    commandLine("cat", "ver")
+}.standardOutput.asText.get().trim()
 
 
 
