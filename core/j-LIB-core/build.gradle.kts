@@ -58,7 +58,7 @@ dependencies {
     api("androidx.core:core-ktx:1.13.1")
     api("androidx.browser:browser:1.8.0")
     api(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
-    api("androidx.compose.ui:ui-android:1.6.8")
+    api("androidx.compose.ui:ui-android:1.7.0")
     api("androidx.compose.material3:material3-android:1.2.1")
     api("io.coil-kt:coil-compose:2.7.0")
     api("com.google.accompanist:accompanist-drawablepainter:0.35.2-beta")
