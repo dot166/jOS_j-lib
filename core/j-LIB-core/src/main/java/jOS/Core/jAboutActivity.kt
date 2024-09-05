@@ -129,7 +129,7 @@ open class jAboutActivity : jActivity() {
         try {
             val pInfo: PackageInfo =
                 context.packageManager.getPackageInfo(context.packageName, 0)
-            return pInfo.versionName
+            return pInfo.versionName!!
         } catch (e: PackageManager.NameNotFoundException) {
             ErrorUtils.handle(e, context)
             return ""
