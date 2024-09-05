@@ -60,7 +60,7 @@ dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
     implementation("androidx.compose.ui:ui-android:1.6.8")
     implementation("androidx.compose.material3:material3-android:1.2.1")
-    implementation("androidx.compose.material:material-android:1.6.8")
+    implementation("androidx.compose.material:material-android:1.7.0")
     implementation("io.coil-kt:coil-compose:2.7.0")
     implementation("com.google.accompanist:accompanist-drawablepainter:0.35.2-beta")
     implementation("com.google.accompanist:accompanist-placeholder-material:0.35.2-beta")
