@@ -62,7 +62,7 @@ dependencies {
     api("androidx.compose.material3:material3-android:1.2.1")
     api("io.coil-kt:coil-compose:2.7.0")
     api("com.google.accompanist:accompanist-drawablepainter:0.35.2-beta")
-    api("com.google.accompanist:accompanist-placeholder-material:0.35.2-beta")
+    api("com.google.accompanist:accompanist-placeholder-material:0.36.0")
     api("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
     api("com.mikepenz:aboutlibraries-core:11.2.3")
     api("com.mikepenz:aboutlibraries-compose-m3:11.2.3")
