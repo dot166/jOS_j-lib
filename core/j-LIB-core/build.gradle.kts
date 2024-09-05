@@ -51,22 +51,21 @@ android {
 }
 
 dependencies {
-    implementation("androidx.appcompat:appcompat:1.7.0")
-    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
-    implementation("androidx.preference:preference-ktx:1.2.1")
-    implementation("com.google.android.material:material:1.12.0")
-    implementation("androidx.core:core-ktx:1.13.1")
-    implementation("androidx.browser:browser:1.8.0")
-    implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
-    implementation("androidx.compose.ui:ui-android:1.6.8")
-    implementation("androidx.compose.material3:material3-android:1.2.1")
-    implementation("androidx.compose.material:material-android:1.6.8")
-    implementation("io.coil-kt:coil-compose:2.7.0")
-    implementation("com.google.accompanist:accompanist-drawablepainter:0.35.2-beta")
-    implementation("com.google.accompanist:accompanist-placeholder-material:0.35.2-beta")
-    implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
-    implementation("com.mikepenz:aboutlibraries-core:11.2.3")
-    implementation("com.mikepenz:aboutlibraries-compose-m3:11.2.3")
+    api("androidx.appcompat:appcompat:1.7.0")
+    api("androidx.constraintlayout:constraintlayout:2.1.4")
+    api("androidx.preference:preference-ktx:1.2.1")
+    api("com.google.android.material:material:1.12.0")
+    api("androidx.core:core-ktx:1.13.1")
+    api("androidx.browser:browser:1.8.0")
+    api(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
+    api("androidx.compose.ui:ui-android:1.6.8")
+    api("androidx.compose.material3:material3-android:1.2.1")
+    api("io.coil-kt:coil-compose:2.7.0")
+    api("com.google.accompanist:accompanist-drawablepainter:0.35.2-beta")
+    api("com.google.accompanist:accompanist-placeholder-material:0.35.2-beta")
+    api("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
+    api("com.mikepenz:aboutlibraries-core:11.2.3")
+    api("com.mikepenz:aboutlibraries-compose-m3:11.2.3")
 }
 
 mavenPublishing {
