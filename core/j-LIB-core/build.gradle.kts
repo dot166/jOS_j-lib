@@ -52,7 +52,6 @@ android {
 
 dependencies {
     api("androidx.appcompat:appcompat:1.7.0")
-    api("androidx.constraintlayout:constraintlayout:2.1.4")
     api("androidx.preference:preference-ktx:1.2.1")
     api("com.google.android.material:material:1.12.0")
     api("androidx.core:core-ktx:1.13.1")
@@ -67,6 +66,8 @@ dependencies {
     api("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
     api("com.mikepenz:aboutlibraries-core:11.2.3")
     api("com.mikepenz:aboutlibraries-compose-m3:11.2.3")
+    api("androidx.navigation:navigation-fragment:2.8.0")
+    api("androidx.navigation:navigation-ui:2.8.0")
 }
 
 mavenPublishing {

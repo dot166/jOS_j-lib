@@ -13,17 +13,18 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import jOS.Core.R;
 import jOS.Core.jLIBCoreApp;
 
 public class LIBTest {
 
-    public static void Test(AppCompatActivity context) {
-        context.getSupportActionBar().setSubtitle("AAAA");
-        TextView text = context.findViewById(R.id.textView);
-        Button button = context.findViewById(R.id.button);
-        Button button2 = context.findViewById(R.id.button2);
+    public static void Test(AppCompatActivity context, View view) {
+        TextView text;
+        Button button;
+        text = view.findViewById(R.id.textView);
+        button = view.findViewById(R.id.button);
         String android_lib_test = "Android: " + androidver();
         String j_lib_test = "jOS: " + jOS_RELEASE;
         String j_verify_test = context.getString(R.string.is_j_device) + ": " + j_DEVICE();
@@ -33,12 +34,6 @@ public class LIBTest {
             @Override
             public void onClick(View v) {
                 context.finish();
-            }
-        });
-        button2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                context.startActivity(new Intent().setComponent(new ComponentName(context.getApplicationInfo().packageName, "jOS.Core.LIBChangelogActivity")));
             }
         });
     }

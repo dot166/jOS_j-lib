@@ -8,10 +8,13 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.MenuItem;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.Objects;
 
@@ -126,5 +129,39 @@ public class jActivity extends AppCompatActivity {
         Activity currActivity = mLIBApp.getCurrentActivity();
         if (this.equals(currActivity))
             mLIBApp.setCurrentActivity(null);
+    }
+
+    public BottomNavigationView setupBottomNav(int menuId, boolean enable) {
+        BottomNavigationView nav = setupBottomNavWithoutMenu(enable);
+        nav.inflateMenu(menuId);
+        nav.setOnItemSelectedListener(this::selectedListener);
+        return nav;
+    }
+
+    public BottomNavigationView setupBottomNavWithoutMenu(boolean enable) {
+        BottomNavigationView nav = findViewById(R.id.bottom_navigation);
+        if (enable == true) {
+            nav.setVisibility(BottomNavigationView.VISIBLE);
+        } else {
+            nav.setVisibility(BottomNavigationView.GONE);
+        }
+        return nav;
+    }
+
+    public boolean selectedListener(MenuItem menuItem) {
+        return false;
+    }
+
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+
+        if (getSupportFragmentManager().findFragmentById(R.id.content_frame) instanceof jWebFragment) {
+            if ((keyCode == KeyEvent.KEYCODE_BACK) && jWebFragment.webView.canGoBack()) {
+                jWebFragment.webView.goBack();
+                return true;
+            }
+        }
+        return super.onKeyDown(keyCode, event);
     }
 }

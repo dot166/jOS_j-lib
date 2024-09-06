@@ -67,6 +67,12 @@ public class ActionBar2 extends MaterialToolbar {
 
         a.recycle();
 
+        if (isInEditMode()) {
+            iconAsLogo = false;
+            setLogo(R.drawable.ic_launcher_j);
+            setTitle("PREVIEW OF LAYOUT");
+        }
+
         useActivityIconAsLogo(false);
         Log.i(TAG, "init complete!!");
     }

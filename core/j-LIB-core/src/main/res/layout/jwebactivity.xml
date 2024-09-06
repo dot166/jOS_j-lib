@@ -14,31 +14,16 @@
         app:subtitleCentered="true"
         android:id="@+id/actionbar"/>
 
-    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-        android:id="@+id/swipe"
+    <FrameLayout
+        android:id="@+id/content_frame"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/actionbar"
-        tools:layout_behavior="@string/appbar_scrolling_view_behavior">
+        android:layout_height="match_parent" />
 
-
-
-        <WebView
-            android:id="@+id/web"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
-
-
-    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
-
-
-    <ProgressBar
-        android:id="@+id/progress"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        style="?android:attr/progressBarStyle"
-        />
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_alignParentBottom="true"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
 </RelativeLayout>

@@ -6,6 +6,14 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import androidx.navigation.NavController;
+import androidx.navigation.fragment.NavHostFragment;
+import androidx.navigation.ui.AppBarConfiguration;
+import androidx.navigation.ui.NavigationUI;
+import androidx.navigation.Navigation;
+
 import jOS.Core.utils.ErrorUtils;
 import jOS.Core.utils.IconUtils;
 import jOS.Core.utils.LIBTest;
@@ -15,7 +23,14 @@ public class LIBTestActivity extends jActivity {
     protected void onCreate(Bundle savedInstanceState) {
         configure(R.layout.libplaceholder, false);
         super.onCreate(savedInstanceState);
-        LIBTest.Test(this);
+        getSupportActionBar().setSubtitle("AAAA");
+        AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
+                R.id.LIBTestFragment, R.id.LIBChangelogFragment)
+                .build();
+        BottomNavigationView nav = setupBottomNav(R.menu.placeholder_nav, true);
+        NavController navController = Navigation.findNavController(this, R.id.content_frame);
+        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
+        NavigationUI.setupWithNavController(nav, navController);
     }
 
     @Override
