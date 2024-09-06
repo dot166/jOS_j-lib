@@ -1624,7 +1624,7 @@ android_library {
 
 android_library_import {
     name: "j.Lib-nodeps",
-    aars: ["io/github/dot166/j-Lib/3.2.12/j-Lib-3.2.12.aar"],
+    aars: ["io/github/dot166/j-Lib/3.2.13/j-Lib-3.2.13.aar"],
     sdk_version: "current",
     min_sdk_version: "14",
     apex_available: [
@@ -1632,10 +1632,11 @@ android_library_import {
         "//apex_available:anyapex",
     ],
     static_libs: [
-        "androidx-constraintlayout_constraintlayout",
         "androidx.appcompat_appcompat",
         "androidx.browser_browser",
         "androidx.core_core-ktx",
+        "androidx.navigation_navigation-fragment",
+        "androidx.navigation_navigation-ui",
         "androidx.swiperefreshlayout_swiperefreshlayout",
         "aosp-libs_androidx.compose.material3_material3-android",
         "aosp-libs_androidx.compose.material_material-android",
@@ -1659,13 +1660,14 @@ android_library {
         "//apex_available:platform",
         "//apex_available:anyapex",
     ],
-    manifest: "io/github/dot166/j-Lib/3.2.12/AndroidManifest.xml",
+    manifest: "io/github/dot166/j-Lib/3.2.13/AndroidManifest.xml",
     static_libs: [
         "j.Lib-nodeps",
-        "androidx-constraintlayout_constraintlayout",
         "androidx.appcompat_appcompat",
         "androidx.browser_browser",
         "androidx.core_core-ktx",
+        "androidx.navigation_navigation-fragment",
+        "androidx.navigation_navigation-ui",
         "androidx.swiperefreshlayout_swiperefreshlayout",
         "aosp-libs_androidx.compose.material3_material3-android",
         "aosp-libs_androidx.compose.material_material-android",
