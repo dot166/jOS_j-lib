@@ -1,5 +1,6 @@
 package jOS.Core
 
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageInfo
@@ -45,7 +46,6 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.google.accompanist.drawablepainter.rememberDrawablePainter
-import jOS.Core.ThemeEngine.isDarkTheme
 import jOS.Core.utils.ContributorRow
 import jOS.Core.utils.ErrorUtils
 import jOS.Core.utils.IconUtils
@@ -125,7 +125,7 @@ open class jAboutActivity : jActivity() {
         ),
     )
 
-    private fun versionName(context: Context): String {
+    private fun versionName(context: Activity): String {
         try {
             val pInfo: PackageInfo =
                 context.packageManager.getPackageInfo(context.packageName, 0)
@@ -138,7 +138,7 @@ open class jAboutActivity : jActivity() {
 
     @OptIn(ExperimentalFoundationApi::class)
     @Composable
-    open fun About() {
+    open fun About(activity: Activity) {
         val context = LocalContext.current
 
         Column(
@@ -159,7 +159,7 @@ open class jAboutActivity : jActivity() {
                     style = MaterialTheme.typography.titleLarge,
                 )
                 Text(
-                    text = versionName(context),
+                    text = versionName(activity),
                     style = MaterialTheme.typography.bodyLarge,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                     modifier = Modifier.combinedClickable(
@@ -207,7 +207,7 @@ open class jAboutActivity : jActivity() {
                             )
                         )
                     } catch (e : Exception) {
-                        ErrorUtils.handle(e, context)
+                        ErrorUtils.handle(e, activity)
                     }
                 }) {
                     Text(
@@ -239,20 +239,10 @@ open class jAboutActivity : jActivity() {
         super.onCreate(savedInstanceState)
         findViewById<ComposeView>(R.id.my_composable).setContent {
             MaterialTheme(
-                colorScheme = if (isDarkTheme) {
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-                        dynamicDarkColorScheme(this)
-                    } else {
-                        darkColorScheme()
-                    }
-                } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-                    dynamicLightColorScheme(this)
-                } else {
-                    lightColorScheme()
-                }
+                colorScheme = ThemeEngine.getColourScheme()
             ) {
                 Surface {
-                    About()
+                    About(this)
                 }
             }
         }

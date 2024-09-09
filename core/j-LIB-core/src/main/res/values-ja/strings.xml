@@ -22,7 +22,7 @@
     <string name="dialog_positive">インストール</string>
     <string name="dialog_negative">無視 (アプリは HOLO テーマを使用します)</string>
     <string name="about">について</string>
-    <string name="leaddev">主任開発者</string>
+    <string name="leaddev">リード開発者</string>
     <string name="dev">開発者</string>
     <string name="github" translatable="false">GitHub</string>
     <string name="licences">謝辞</string>
@@ -32,4 +32,5 @@
     <string name="dialog_fail_message">どうやってそうなったの？？</string>
     <string name="dialog_ignore">無視する</string>
     <string name="dialog_stacktrace">スタックトレースを表示</string>
+    <string name="no_aboutlibraries_json_file_found_in_this_app_please_contact_the_app_developer">このアプリには aboutlibraries.json ファイルが見つかりません。アプリ開発者にお問い合わせください。</string>
 </resources>

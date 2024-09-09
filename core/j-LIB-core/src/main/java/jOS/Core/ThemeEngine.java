@@ -2,15 +2,20 @@ package jOS.Core;
 
 import static java.lang.Boolean.parseBoolean;
 
+import static jOS.Core.ThemeEngineKT.getDarkColourScheme;
+import static jOS.Core.ThemeEngineKT.getLightColourScheme;
+
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.database.Cursor;
 import android.net.Uri;
+import android.os.Build;
 import android.util.Log;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.browser.customtabs.CustomTabsIntent;
+import androidx.compose.material3.ColorScheme;
 
 public class ThemeEngine {
 
@@ -18,7 +23,7 @@ public class ThemeEngine {
     static AlertDialog.Builder builder;
     static String TAG = "jOS Theme Engine";
     static String TAGDB1 = TAG + " - DB1";
-    public static boolean isDarkTheme;
+    private static ColorScheme ColourScheme;
 
     /**
      * jOS ThemeEngine: get the theme
@@ -33,23 +38,23 @@ public class ThemeEngine {
         switch (Theme) {
             case "Holo":
                 Log.i(TAG, "jOS.Core.R.style.jOS_Theme");
-                isDarkTheme = true;
+                ColourScheme = getDarkColourScheme(context);
                 return R.style.jOS_Theme;
             case "M3 Dark":
                 Log.i(TAG, "com.google.android.material.R.style.Theme_Material3_DynamicColors_Dark_NoActionBar");
-                isDarkTheme = true;
+                ColourScheme = getDarkColourScheme(context);
                 return com.google.android.material.R.style.Theme_Material3_DynamicColors_Dark_NoActionBar;
             case "M3 Light":
                 Log.i(TAG, "com.google.android.material.R.style.Theme_Material3_DynamicColors_Light_NoActionBar");
-                isDarkTheme = false;
+                ColourScheme = getLightColourScheme(context);
                 return com.google.android.material.R.style.Theme_Material3_DynamicColors_Light_NoActionBar;
             case "AppCompat Dark":
                 Log.i(TAG, "androidx.appcompat.R.style.Theme_AppCompat_NoActionBar");
-                isDarkTheme = true;
+                ColourScheme = getDarkColourScheme(context);
                 return androidx.appcompat.R.style.Theme_AppCompat_NoActionBar;
             case "AppCompat Light":
                 Log.i(TAG, "androidx.appcompat.R.style.Theme_AppCompat_Light_NoActionBar");
-                isDarkTheme = false;
+                ColourScheme = getLightColourScheme(context);
                 return androidx.appcompat.R.style.Theme_AppCompat_Light_NoActionBar;
         }
         if (!Theme.equals("none")) {
@@ -58,8 +63,12 @@ public class ThemeEngine {
             Log.e(TAG, "ThemeEngine is MISSING!!!!");
             missingThemeEngine(context);
         }
-        isDarkTheme = true;
+        ColourScheme = getDarkColourScheme(context);
         return R.style.jOS_Theme;
+    }
+
+    public static ColorScheme getColourScheme() {
+        return ColourScheme;
     }
 
     private static void missingThemeEngine(Context context) {

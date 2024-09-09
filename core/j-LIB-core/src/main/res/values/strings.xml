@@ -33,4 +33,5 @@
     <string name="dialog_fail_message">how did that happen??</string>
     <string name="dialog_ignore">Ignore</string>
     <string name="dialog_stacktrace">Show Stack Trace</string>
+    <string name="no_aboutlibraries_json_file_found_in_this_app_please_contact_the_app_developer">No aboutlibraries.json file found in this app, please contact the app developer</string>
 </resources>

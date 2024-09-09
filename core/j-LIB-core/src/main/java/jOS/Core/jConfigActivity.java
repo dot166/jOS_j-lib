@@ -184,7 +184,7 @@ public class jConfigActivity extends jActivity
                         try {
                             startActivity(intent);
                         } catch (Exception e) {
-                            ErrorUtils.handle(e, requireContext());
+                            ErrorUtils.handle(e, requireActivity());
                         }
                         return !isLIBConfig();
                     });
