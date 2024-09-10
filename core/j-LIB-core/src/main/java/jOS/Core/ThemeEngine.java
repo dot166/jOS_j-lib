@@ -10,7 +10,6 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.database.Cursor;
 import android.net.Uri;
-import android.os.Build;
 import android.util.Log;
 
 import androidx.appcompat.app.AlertDialog;
