@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="j_web_wheel_bg">#ff000000</color>
+    <color name="scrimBackground">#52000000</color>
+    <color name="popupMenuBackground">#52000000</color>
 </resources>

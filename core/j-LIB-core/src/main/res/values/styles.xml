@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <style name="j.BottomNav" parent="@style/Widget.MaterialComponents.BottomNavigationView">
+        <item name="android:background">?android:panelBackground</item>
+        <item name="itemIconTint">@color/navigation_bar_item_tint</item>
+        <item name="itemTextColor">@color/navigation_bar_item_tint</item>
+    </style>
+
     <style name="alertdialogstyle">
         <item name="android:textAppearance">?android:textAppearance</item>
         <item name="android:layout">@layout/abc_alert_dialog_material</item>

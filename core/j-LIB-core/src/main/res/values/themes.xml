@@ -1,6 +1,7 @@
 <resources>
     <!-- Base System theme. -->
     <style name="jOS.Theme" parent="Platform.jOS.Theme">
+        <!-- AppCompat Attributes -->
         <item name="listChoiceIndicatorSingleAnimated">?android:listChoiceIndicatorSingle</item>
         <item name="listChoiceIndicatorMultipleAnimated">?android:listChoiceIndicatorMultiple</item>
         <item name="windowNoTitle">?android:windowNoTitle</item>
@@ -147,10 +148,115 @@
         <item name="dialogCornerRadius">0dp</item>
         <item name="navigationContentDescription">@string/back_button</item>
 
+        <!-- Material Design Attributes -->
+        <item name="isMaterialTheme">true</item>
 
+        <item name="colorPrimaryVariant">?attr/colorPrimary</item>
+        <item name="colorSecondary">?android:colorSecondary</item>
+        <item name="colorSecondaryVariant">?attr/colorSecondary</item>
+        <item name="colorSurface">#121212</item>
+        <item name="colorPrimarySurface">?attr/colorSurface</item>
+        <item name="colorOnPrimary">#000000</item>
+        <item name="colorOnSecondary">#000000</item>
+        <item name="colorOnBackground">#FFFFFF</item>
+        <item name="colorOnError">#000000</item>
+        <item name="colorOnSurface">#FFFFFF</item>
+        <item name="colorOnPrimarySurface">?attr/colorOnSurface</item>
 
+        <item name="scrimBackground">@color/scrimBackground</item>
+        <item name="popupMenuBackground">@color/popupMenuBackground</item>
 
+        <item name="minTouchTargetSize">48dp</item>
 
+        <!-- MaterialComponents Widget styles -->
+        <item name="badgeStyle">@style/Widget.MaterialComponents.Badge</item>
+        <item name="bottomAppBarStyle">@style/Widget.MaterialComponents.BottomAppBar</item>
+        <item name="chipStyle">@style/Widget.MaterialComponents.Chip.Action</item>
+        <item name="chipGroupStyle">@style/Widget.MaterialComponents.ChipGroup</item>
+        <item name="chipStandaloneStyle">@style/Widget.MaterialComponents.Chip.Entry</item>
+        <item name="circularProgressIndicatorStyle">@style/Widget.MaterialComponents.CircularProgressIndicator</item>
+        <item name="extendedFloatingActionButtonStyle">@style/Widget.MaterialComponents.ExtendedFloatingActionButton.Icon</item>
+        <item name="linearProgressIndicatorStyle">@style/Widget.MaterialComponents.LinearProgressIndicator</item>
+        <item name="materialButtonStyle">?android:buttonStyle</item>
+        <item name="materialButtonOutlinedStyle">?android:buttonStyle</item>
+        <item name="materialButtonToggleGroupStyle">@style/Widget.MaterialComponents.MaterialButtonToggleGroup</item>
+        <item name="materialCardViewStyle">@style/Widget.MaterialComponents.CardView</item>
+        <item name="navigationRailStyle">@style/Widget.MaterialComponents.NavigationRailView</item>
+        <item name="sliderStyle">@style/Widget.MaterialComponents.Slider</item>
+
+        <!-- Type styles -->
+        <item name="textAppearanceHeadline1">@style/TextAppearance.MaterialComponents.Headline1</item>
+        <item name="textAppearanceHeadline2">@style/TextAppearance.MaterialComponents.Headline2</item>
+        <item name="textAppearanceHeadline3">@style/TextAppearance.MaterialComponents.Headline3</item>
+        <item name="textAppearanceHeadline4">@style/TextAppearance.MaterialComponents.Headline4</item>
+        <item name="textAppearanceHeadline5">@style/TextAppearance.MaterialComponents.Headline5</item>
+        <item name="textAppearanceHeadline6">@style/TextAppearance.MaterialComponents.Headline6</item>
+        <item name="textAppearanceSubtitle1">@style/TextAppearance.MaterialComponents.Subtitle1</item>
+        <item name="textAppearanceSubtitle2">@style/TextAppearance.MaterialComponents.Subtitle2</item>
+        <item name="textAppearanceBody1">@style/TextAppearance.MaterialComponents.Body1</item>
+        <item name="textAppearanceBody2">@style/TextAppearance.MaterialComponents.Body2</item>
+        <item name="textAppearanceCaption">@style/TextAppearance.MaterialComponents.Caption</item>
+        <item name="textAppearanceButton">@style/TextAppearance.MaterialComponents.Button</item>
+        <item name="textAppearanceOverline">@style/TextAppearance.MaterialComponents.Overline</item>
+
+        <!-- Shape styles -->
+        <item name="shapeAppearanceSmallComponent">
+            @style/ShapeAppearance.MaterialComponents.SmallComponent
+        </item>
+        <item name="shapeAppearanceMediumComponent">
+            @style/ShapeAppearance.MaterialComponents.MediumComponent
+        </item>
+        <item name="shapeAppearanceLargeComponent">
+            @style/ShapeAppearance.MaterialComponents.LargeComponent
+        </item>
+
+        <!-- Motion -->
+        <item name="motionEasingStandard">@string/material_motion_easing_standard</item>
+        <item name="motionEasingEmphasized">@string/material_motion_easing_emphasized</item>
+        <item name="motionEasingDecelerated">@string/material_motion_easing_decelerated</item>
+        <item name="motionEasingAccelerated">@string/material_motion_easing_accelerated</item>
+        <item name="motionEasingLinear">@string/material_motion_easing_linear</item>
+
+        <item name="motionDurationShort1">@integer/material_motion_duration_short_1</item>
+        <item name="motionDurationShort2">@integer/material_motion_duration_short_2</item>
+        <item name="motionDurationMedium1">@integer/material_motion_duration_medium_1</item>
+        <item name="motionDurationMedium2">@integer/material_motion_duration_medium_2</item>
+        <item name="motionDurationLong1">@integer/material_motion_duration_long_1</item>
+        <item name="motionDurationLong2">@integer/material_motion_duration_long_2</item>
+
+        <item name="motionPath">0</item>
+
+        <!-- Elevation Overlays -->
+        <item name="elevationOverlayEnabled">true</item>
+        <item name="elevationOverlayColor">?attr/colorOnSurface</item>
+        <item name="viewInflaterClass">com.google.android.material.theme.MaterialComponentsViewInflater</item>
+
+        <!-- Framework, AppCompat, or Design Widget styles -->
+        <item name="appBarLayoutStyle">@style/Widget.MaterialComponents.AppBarLayout.Surface</item>
+        <item name="bottomNavigationStyle">@style/j.BottomNav</item>
+        <item name="floatingActionButtonStyle">@style/Widget.MaterialComponents.FloatingActionButton</item>
+        <item name="navigationViewStyle">@style/Widget.MaterialComponents.NavigationView</item>
+        <item name="snackbarStyle">@style/Widget.MaterialComponents.Snackbar</item>
+        <item name="snackbarButtonStyle">@style/Widget.MaterialComponents.Button.TextButton.Snackbar</item>
+        <item name="snackbarTextViewStyle">@style/Widget.MaterialComponents.Snackbar.TextView</item>
+        <item name="tabStyle">@style/Widget.MaterialComponents.TabLayout</item>
+        <item name="textInputStyle">@style/Widget.MaterialComponents.TextInputLayout.FilledBox</item>
+        <item name="textInputOutlinedStyle">@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox</item>
+        <item name="textInputFilledStyle">@style/Widget.MaterialComponents.TextInputLayout.FilledBox</item>
+        <item name="textInputOutlinedDenseStyle">@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense</item>
+        <item name="textInputFilledDenseStyle">@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense</item>
+        <item name="textInputOutlinedExposedDropdownMenuStyle">@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu</item>
+        <item name="textInputFilledExposedDropdownMenuStyle">@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu</item>
+
+        <!-- Dialog themes -->
+        <item name="bottomSheetDialogTheme">@style/ThemeOverlay.MaterialComponents.BottomSheetDialog</item>
+        <item name="materialAlertDialogTheme">@style/ThemeOverlay.MaterialComponents.MaterialAlertDialog</item>
+
+        <!-- Picker styles and themes. -->
+        <item name="materialCalendarStyle">@style/Widget.MaterialComponents.MaterialCalendar</item>
+        <item name="materialCalendarFullscreenTheme">@style/ThemeOverlay.MaterialComponents.MaterialCalendar.Fullscreen</item>
+        <item name="materialCalendarTheme">@style/ThemeOverlay.MaterialComponents.MaterialCalendar</item>
+        <item name="materialTimePickerTheme">@style/ThemeOverlay.MaterialComponents.TimePicker</item>
     </style>
     <!-- Theme.Holo.NoActionbar overrides -->
     <style name="Platform.jOS.Theme" parent="android:Theme.Holo.NoActionBar"/>
