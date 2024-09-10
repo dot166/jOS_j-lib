@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="alertdialogstyle">
+        <item name="android:textAppearance">?android:textAppearance</item>
+        <item name="android:layout">@layout/abc_alert_dialog_material</item>
+        <item name="listLayout">@layout/abc_select_dialog_material</item>
+        <item name="listItemLayout">@layout/select_dialog_item_material</item>
+        <item name="multiChoiceItemLayout">@layout/select_dialog_multichoice_material</item>
+        <item name="singleChoiceItemLayout">@layout/select_dialog_singlechoice_material</item>
+        <item name="buttonIconDimen">@dimen/abc_alert_dialog_button_dimen</item>
+        <item name="android:fullDark">@drawable/dialog_full_holo_dark</item>
+        <item name="android:topDark">@drawable/dialog_top_holo_dark</item>
+        <item name="android:centerDark">@drawable/dialog_middle_holo_dark</item>
+        <item name="android:bottomDark">@drawable/dialog_bottom_holo_dark</item>
+        <item name="android:fullBright">@drawable/dialog_full_holo_dark</item>
+        <item name="android:topBright">@drawable/dialog_top_holo_dark</item>
+        <item name="android:centerBright">@drawable/dialog_middle_holo_dark</item>
+        <item name="android:bottomBright">@drawable/dialog_bottom_holo_dark</item>
+        <item name="android:bottomMedium">@drawable/dialog_bottom_holo_dark</item>
+        <item name="android:centerMedium">@drawable/dialog_middle_holo_dark</item>
+    </style>
+
+    <style name="jOS.Theme.CompactMenu">
+        <!-- Menu/item attributes -->
+        <item name="android:itemTextAppearance">?android:attr/textAppearanceMedium</item>
+        <item name="android:listViewStyle">@android:style/Widget.Holo.ListView</item>
+        <item name="android:windowAnimationStyle">@style/Animation.DropDownUp</item>
+        <item name="android:background">@null</item>
+        <item name="itemTextAppearance">?android:attr/textAppearanceMedium</item>
+        <item name="background">@null</item>
+    </style>
+
+    <style name="Animation"/>
+
+    <style name="Animation.DropDownUp">
+        <item name="android:windowEnterAnimation">@anim/grow_fade_in_from_bottom</item>
+        <item name="android:windowExitAnimation">@anim/shrink_fade_out_from_bottom</item>
+    </style>
+
+    <style name="j.ActionBar" parent="Platform.j.ActionBar">
+        <item name="titleTextStyle">@android:style/TextAppearance.Holo.Widget.ActionBar.Title</item>
+        <item name="subtitleTextStyle">@android:style/TextAppearance.Holo.Widget.ActionBar.Subtitle</item>
+        <item name="background">@drawable/j_ab_transparent_dark_holo</item>
+        <item name="backgroundStacked">@drawable/j_ab_stacked_transparent_dark_holo</item>
+        <item name="backgroundSplit">@drawable/j_ab_bottom_transparent_dark_holo</item>
+        <item name="divider">?attr/dividerVertical</item>
+        <item name="progressBarStyle">@android:style/Widget.Holo.ProgressBar.Horizontal</item>
+        <item name="indeterminateProgressStyle">@android:style/Widget.Holo.ProgressBar</item>
+        <item name="progressBarPadding">32dip</item>
+        <item name="itemPadding">8dip</item>
+        <item name="displayOptions">useLogo|showHome|showTitle</item>
+        <item name="height">?attr/actionBarSize</item>
+        <item name="paddingStart">0dip</item>
+        <item name="paddingEnd">0dip</item>
+        <item name="contentInsetEnd">0dp</item>
+        <item name="contentInsetStart">0dp</item>
+        <item name="contentInsetStartWithNavigation">0dp</item>
+        <item name="contentInsetEndWithActions">0dp</item>
+        <item name="contentInsetLeft">0dp</item>
+        <item name="contentInsetRight">0dp</item>
+        <item name="android:paddingBottom">0dip</item>
+        <item name="android:paddingTop">0dip</item>
+        <item name="android:contentInsetEnd">0dp</item>
+        <item name="android:contentInsetStart">0dp</item>
+        <item name="android:contentInsetLeft">0dp</item>
+        <item name="android:contentInsetRight">0dp</item>
+        <item name="android:titleTextStyle">@android:style/TextAppearance.Holo.Widget.ActionBar.Title</item>
+        <item name="android:subtitleTextStyle">@android:style/TextAppearance.Holo.Widget.ActionBar.Subtitle</item>
+        <item name="android:background">@drawable/j_ab_transparent_dark_holo</item>
+        <item name="android:backgroundStacked">@drawable/j_ab_stacked_transparent_dark_holo</item>
+        <item name="android:backgroundSplit">@drawable/j_ab_bottom_transparent_dark_holo</item>
+        <item name="android:divider">?attr/dividerVertical</item>
+        <item name="android:progressBarStyle">@android:style/Widget.Holo.ProgressBar.Horizontal</item>
+        <item name="android:indeterminateProgressStyle">@android:style/Widget.Holo.ProgressBar</item>
+        <item name="android:progressBarPadding">32dip</item>
+        <item name="android:itemPadding">8dip</item>
+        <item name="android:displayOptions">useLogo|showHome|showTitle</item>
+        <item name="android:height">?attr/actionBarSize</item>
+        <item name="android:paddingStart">0dip</item>
+        <item name="android:paddingEnd">0dip</item>
+    </style>
+    <!-- Widget.AppCompat.Toolbar overrides -->
+    <style name="Platform.j.ActionBar" parent="Widget.AppCompat.Toolbar"/>
+</resources>
