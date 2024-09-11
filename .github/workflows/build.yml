@@ -59,6 +59,27 @@ jobs:
       run: sleep 1200s
       shell: bash
 
+    - name: Build Changelog
+      uses: mikepenz/release-changelog-builder-action@v5
+      if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && github.repository == 'dot166/jOS_j-Lib' && env.RELEASE == '1' }}
+      with:
+        configurationJson: |
+          {
+            "template": "#{{CHANGELOG}}\n\n<details>\n<summary>Uncategorized</summary>\n\n#{{UNCATEGORIZED}}\n</details>",
+            "categories": [
+              {
+                  "title": "## 💬 Other",
+                  "labels": ["other"]
+              },
+              {
+                  "title": "## 📦 Dependencies",
+                  "labels": ["dependencies"]
+              }
+            ]
+          }
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
     - name: Grant execute permission for gradlew
       run: |
         cd aosp-libs
@@ -87,4 +108,4 @@ jobs:
       with:
         tag_name: ${{ env.VERSION }}
         make_latest: true
-        generate_release_notes: true
+        body: ${{steps.github_release.outputs.changelog}}
