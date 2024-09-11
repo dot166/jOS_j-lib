@@ -4,8 +4,10 @@ on:
   push:
     tags:
       - '*'
+    branches:
+      - '*'
   pull_request:
-  push:
+  workflow_dispatch:
 
 jobs:
   build:
