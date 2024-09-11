@@ -56,29 +56,8 @@ jobs:
 
     - name: Wait
       if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && github.repository == 'dot166/jOS_j-Lib' && env.RELEASE == '1' }}
-      run: sleep 1200s
+      run: sleep 1s
       shell: bash
-
-    - name: Build Changelog
-      uses: mikepenz/release-changelog-builder-action@v5
-      if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && github.repository == 'dot166/jOS_j-Lib' && env.RELEASE == '1' }}
-      with:
-        configurationJson: |
-          {
-            "template": "#{{CHANGELOG}}\n\n<details>\n<summary>Uncategorized</summary>\n\n#{{UNCATEGORIZED}}\n</details>",
-            "categories": [
-              {
-                  "title": "## 💬 Other",
-                  "labels": ["other"]
-              },
-              {
-                  "title": "## 📦 Dependencies",
-                  "labels": ["dependencies"]
-              }
-            ]
-          }
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Grant execute permission for gradlew
       run: |
@@ -101,6 +80,27 @@ jobs:
       if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && github.repository == 'dot166/jOS_j-Lib' && env.RELEASE == '1' }}
       with:
         branch: ${{ github.ref }}
+
+    - name: Build Changelog
+      uses: mikepenz/release-changelog-builder-action@v5
+      if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && github.repository == 'dot166/jOS_j-Lib' && env.RELEASE == '1' }}
+      with:
+        configurationJson: |
+          {
+            "template": "#{{CHANGELOG}}\n\n<details>\n<summary>Uncategorized</summary>\n\n#{{UNCATEGORIZED}}\n</details>",
+            "categories": [
+              {
+                  "title": "## 💬 Other",
+                  "labels": ["other"]
+              },
+              {
+                  "title": "## 📦 Dependencies",
+                  "labels": ["dependencies"]
+              }
+            ]
+          }
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Upload to new Release
       uses: softprops/action-gh-release@v2
