@@ -101,7 +101,7 @@ public class jWebFragment extends Fragment {
 
         @Override
         public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
-            Toast.makeText(requireContext(), "No internet connection", Toast.LENGTH_LONG).show();
+            Toast.makeText(view.getContext(), "No internet connection", Toast.LENGTH_LONG).show();
         }
 
         @Override

@@ -10,7 +10,6 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.database.Cursor;
 import android.net.Uri;
-import android.os.Build;
 import android.util.Log;
 
 import androidx.appcompat.app.AlertDialog;
@@ -48,14 +47,14 @@ public class ThemeEngine {
                 Log.i(TAG, "com.google.android.material.R.style.Theme_Material3_DynamicColors_Light_NoActionBar");
                 ColourScheme = getLightColourScheme(context);
                 return com.google.android.material.R.style.Theme_Material3_DynamicColors_Light_NoActionBar;
-            case "AppCompat Dark":
-                Log.i(TAG, "androidx.appcompat.R.style.Theme_AppCompat_NoActionBar");
+            case "M2 Dark":
+                Log.i(TAG, "com.google.android.material.R.style.Theme_MaterialComponents_NoActionBar");
                 ColourScheme = getDarkColourScheme(context);
-                return androidx.appcompat.R.style.Theme_AppCompat_NoActionBar;
-            case "AppCompat Light":
-                Log.i(TAG, "androidx.appcompat.R.style.Theme_AppCompat_Light_NoActionBar");
+                return com.google.android.material.R.style.Theme_MaterialComponents_NoActionBar;
+            case "M2 Light":
+                Log.i(TAG, "com.google.android.material.R.style.Theme_MaterialComponents_Light_NoActionBar");
                 ColourScheme = getLightColourScheme(context);
-                return androidx.appcompat.R.style.Theme_AppCompat_Light_NoActionBar;
+                return com.google.android.material.R.style.Theme_MaterialComponents_Light_NoActionBar;
         }
         if (!Theme.equals("none")) {
             Log.i(TAG, "Unrecognised Theme '" + currentTheme + "'");

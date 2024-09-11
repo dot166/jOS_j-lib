@@ -17,7 +17,6 @@ import androidx.annotation.Nullable;
 
 import com.google.android.material.appbar.MaterialToolbar;
 
-import jOS.Core.utils.ThemeEnforcement;
 import jOS.Core.utils.ToolbarUtils;
 import jOS.Core.utils.IconUtils;
 
@@ -59,8 +58,7 @@ public class ActionBar2 extends MaterialToolbar {
         context = getContext();
 
         final TypedArray a =
-                ThemeEnforcement.obtainStyledAttributes(
-                        context, attrs, R.styleable.jToolbar, defStyleAttr, DEF_STYLE_RES);
+                context.obtainStyledAttributes(attrs, R.styleable.jToolbar, defStyleAttr, DEF_STYLE_RES);
 
         iconAsLogo = a.getBoolean(R.styleable.jToolbar_iconAsLogo, true);
         //subtitleCentered = a.getBoolean(R.styleable.jToolbar_jsubtitleCentered, false);
