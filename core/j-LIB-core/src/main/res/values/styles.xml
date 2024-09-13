@@ -1,5 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <style name="preference_j">
+        <item name="android:scrollbars">vertical</item>
+        <item name="checkBoxPreferenceStyle">?android:checkBoxPreferenceStyle</item>
+        <item name="dialogPreferenceStyle">?android:dialogPreferenceStyle</item>
+        <item name="dropdownPreferenceStyle">@style/Preference.DropDown.Material</item>
+        <item name="editTextPreferenceStyle">@style/Preference.DialogPreference.EditTextPreference.Material</item>
+        <item name="preferenceCategoryStyle">?android:preferenceCategoryStyle</item>
+        <item name="preferenceFragmentCompatStyle">?android:preferenceFragmentStyle</item>
+        <item name="preferenceFragmentListStyle">@style/PreferenceFragmentList.Material</item>
+        <item name="preferenceFragmentStyle">?android:preferenceFragmentStyle</item>
+        <item name="preferenceScreenStyle">?android:preferenceScreenStyle</item>
+        <item name="preferenceStyle">?android:preferenceStyle</item>
+        <item name="seekBarPreferenceStyle">@style/Preference.SeekBarPreference.Material</item>
+        <item name="switchPreferenceCompatStyle">?android:switchPreferenceStyle</item>
+        <item name="switchPreferenceStyle">?android:switchPreferenceStyle</item>
+        <item name="preferenceCategoryTitleTextAppearance">@android:style/TextAppearance.Holo.Small</item>
+        <item name="preferenceCategoryTitleTextColor">@android:color/holo_blue_dark</item></style>
+
     <style name="j.BottomNav" parent="@style/Widget.MaterialComponents.BottomNavigationView">
         <item name="android:background">?android:panelBackground</item>
         <item name="itemIconTint">@color/navigation_bar_item_tint</item>
