@@ -19,10 +19,13 @@ import androidx.compose.material3.ColorScheme;
 public class ThemeEngine {
 
     public static String currentTheme;
-    static AlertDialog.Builder builder;
     static String TAG = "jOS Theme Engine";
     static String TAGDB1 = TAG + " - DB1";
     private static ColorScheme ColourScheme;
+    /**
+     * Set whether ThemeEngine should be enabled.
+     * MUST BE SET IN THE onCreate() FUNCTION IN EITHER THE APPLICATION OR ALL OF THE EXPORTED ACTIVITIES
+     */
     public static boolean isThemeEngineEnabled = true;
 
     /**
@@ -67,12 +70,16 @@ public class ThemeEngine {
         return R.style.jOS_Theme;
     }
 
+    /**
+     * gets the corresponding colour scheme to the theme and android version for jetpack compose
+     * @return the colour scheme
+     */
     public static ColorScheme getColourScheme() {
         return ColourScheme;
     }
 
     private static void missingThemeEngine(Context context) {
-        builder = new AlertDialog.Builder(context);
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
 
         builder.setMessage(R.string.dialog_message)
                 .setTitle(R.string.dialog_title)
