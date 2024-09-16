@@ -100,7 +100,7 @@ public class ThemeEngine {
 
         // creating a cursor object of the
         // content URI
-        Cursor cursor = context.getContentResolver().query(Uri.parse("content://jOS.Core.ThemeEngine.database/themes"), null, null, null, null);
+        Cursor cursor = getThemeEngineDatabase(context);
 
         if (cursor != null) {
             // iteration of the cursor
@@ -127,7 +127,7 @@ public class ThemeEngine {
 
         // creating a cursor object of the
         // content URI
-        Cursor cursor = context.getContentResolver().query(Uri.parse("content://jOS.Core.ThemeEngine.database/themes"), null, null, null, null);
+        Cursor cursor = getThemeEngineDatabase(context);
 
         if (cursor != null) {
             // iteration of the cursor
@@ -145,5 +145,9 @@ public class ThemeEngine {
         }
         Log.i(TAGDB1, "No Records Found");
         return "none";
+    }
+
+    private static Cursor getThemeEngineDatabase(Context context) {
+        return context.getContentResolver().query(Uri.parse("content://jOS.Core.ThemeEngine.database/themes"), null, null, null, null);
     }
 }
