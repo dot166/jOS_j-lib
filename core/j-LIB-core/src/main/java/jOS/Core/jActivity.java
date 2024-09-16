@@ -84,7 +84,6 @@ public class jActivity extends AppCompatActivity {
     public void setSupportActionBar(Toolbar toolbar) {
         super.setSupportActionBar(toolbar);
         if (getSupportActionBar() != null) {
-            getSupportActionBar().setDisplayHomeAsUpEnabled(!home);
             getSupportActionBar().setDisplayShowTitleEnabled(app_name);
         } else {
             Log.e("ActionBar2", "no actionbar found");

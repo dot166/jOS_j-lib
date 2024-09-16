@@ -2,6 +2,7 @@ package jOS.Core;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -23,6 +24,11 @@ public class LIBTestActivity extends jActivity {
     protected void onCreate(Bundle savedInstanceState) {
         configure(R.layout.libplaceholder, false);
         super.onCreate(savedInstanceState);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        } else {
+            Log.e("ActionBar2", "no actionbar found");
+        }
         getSupportActionBar().setSubtitle("AAAA");
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.LIBTestFragment, R.id.LIBChangelogFragment)

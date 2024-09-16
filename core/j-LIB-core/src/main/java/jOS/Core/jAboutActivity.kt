@@ -6,8 +6,8 @@ import android.content.Intent
 import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
 import android.net.Uri
-import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.browser.customtabs.CustomTabsIntent
@@ -31,10 +31,6 @@ import androidx.compose.material3.LocalContentColor
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
-import androidx.compose.material3.darkColorScheme
-import androidx.compose.material3.dynamicDarkColorScheme
-import androidx.compose.material3.dynamicLightColorScheme
-import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -220,7 +216,11 @@ open class jAboutActivity : jActivity() {
 
     @Composable
     fun Contributors() {
-        Surface(modifier = Modifier.padding(horizontal = 16.dp).border(1.0.dp, MaterialTheme.colorScheme.outline, RoundedCornerShape(12.dp)),) {
+        Surface(
+            modifier = Modifier
+                .padding(horizontal = 16.dp)
+                .border(1.0.dp, MaterialTheme.colorScheme.outline, RoundedCornerShape(12.dp))
+        ) {
             Column() {
                 product().forEach {
                     ContributorRow(
@@ -237,6 +237,11 @@ open class jAboutActivity : jActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         configure(R.layout.aboutactivity, false)
         super.onCreate(savedInstanceState)
+        if (supportActionBar != null) {
+            supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        } else {
+            Log.e("ActionBar2", "no actionbar found")
+        }
         findViewById<ComposeView>(R.id.my_composable).setContent {
             MaterialTheme(
                 colorScheme = ThemeEngine.getColourScheme()

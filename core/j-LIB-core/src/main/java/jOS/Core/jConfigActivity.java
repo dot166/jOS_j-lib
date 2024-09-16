@@ -53,6 +53,11 @@ public class jConfigActivity extends jActivity
     protected void onCreate(Bundle savedInstanceState) {
         configure(R.layout.settings_activity, false);
         super.onCreate(savedInstanceState);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        } else {
+            Log.e("ActionBar2", "no actionbar found");
+        }
 
         WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
 
