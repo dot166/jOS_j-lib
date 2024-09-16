@@ -51,7 +51,7 @@ aboutLibraries {
 }
 
 dependencies {
-    implementation "io.github.dot166:j-Lib:3.2.14"
+    implementation "io.github.dot166:j-Lib:3.2.15"
 }
 ```
 

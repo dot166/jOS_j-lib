@@ -32,5 +32,5 @@ aboutLibraries {
 }
 
 dependencies {
-    implementation project(':j-LIB-core') // implementation "io.github.dot166:j-Lib:3.+"
+    implementation project(':j-LIB-core') // implementation "io.github.dot166:j-Lib:3.2.15"
 }
