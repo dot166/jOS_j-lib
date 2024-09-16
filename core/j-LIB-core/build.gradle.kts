@@ -75,7 +75,7 @@ mavenPublishing {
 
     pom {
         name = "j Common Library"
-        description = "jLib - a common library that contains a version of the holo theme that is patched for use with appcompat, a custom actionbar based on material3 Toolbar and some other things."
+        description = "jLib - a common library that contains a version of the holo theme that is patched for use with material components and appcompat, a custom actionbar based on material components Toolbar and some other things."
         inceptionYear = "2024"
         url = "https://github.com/dot166/jOS_j-lib"
         licenses {
