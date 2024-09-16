@@ -38,8 +38,6 @@ import java.util.List;
 
 /**
  * Utility methods for {@link Toolbar}s.
- *
- * @hide
  */
 @RestrictTo(Scope.LIBRARY)
 public class ToolbarUtils {

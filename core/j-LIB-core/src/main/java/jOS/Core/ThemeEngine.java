@@ -94,7 +94,7 @@ public class ThemeEngine {
         alert.show();
     }
 
-    @SuppressLint({"Range", "LongLogTag"})
+    @SuppressLint("Range")
     public static StringBuilder getAllThemes(jActivity context) {
 
         // creating a cursor object of the
@@ -107,7 +107,7 @@ public class ThemeEngine {
             if (cursor.moveToFirst()) {
                 StringBuilder strBuild = new StringBuilder();
                 while (!cursor.isAfterLast()) {
-                    Log.i("Theme Engine - Load Data", cursor.getString(cursor.getColumnIndex("id")) + "-" + cursor.getString(cursor.getColumnIndex("name")) + "-" + cursor.getString(cursor.getColumnIndex("current")));
+                    Log.i(TAGDB1, cursor.getString(cursor.getColumnIndex("id")) + "-" + cursor.getString(cursor.getColumnIndex("name")) + "-" + cursor.getString(cursor.getColumnIndex("current")));
                     strBuild.append("\n" + cursor.getString(cursor.getColumnIndex("id")) + "-" + cursor.getString(cursor.getColumnIndex("name")) + "-" + cursor.getString(cursor.getColumnIndex("current")));
                     cursor.moveToNext();
                 }
