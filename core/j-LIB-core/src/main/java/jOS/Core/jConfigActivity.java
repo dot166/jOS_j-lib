@@ -20,14 +20,11 @@ import androidx.preference.PreferenceCategory;
 import androidx.preference.PreferenceFragmentCompat;
 import androidx.preference.PreferenceFragmentCompat.OnPreferenceStartFragmentCallback;
 import androidx.preference.PreferenceFragmentCompat.OnPreferenceStartScreenCallback;
-import androidx.preference.PreferenceGroup.PreferencePositionCallback;
 import androidx.preference.PreferenceScreen;
-import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.Objects;
 
 import jOS.Core.utils.ErrorUtils;
-import jOS.Core.utils.PreferenceHighlighter;
 
 /**
  * Settings activity for Launcher. Currently implements the following setting: Allow rotation
@@ -41,13 +38,9 @@ public class jConfigActivity extends jActivity
 
     public static final String EXTRA_FRAGMENT_ARGS = ":settings:fragment_args";
 
-    // Intent extra to indicate the pref-key to highlighted when opening the settings activity
-    public static final String EXTRA_FRAGMENT_HIGHLIGHT_KEY = ":settings:fragment_args_key";
     // Intent extra to indicate the pref-key of the root screen when opening the settings activity
     public static final String EXTRA_FRAGMENT_ROOT_KEY = ARG_PREFERENCE_ROOT;
 
-    private static final int DELAY_HIGHLIGHT_DURATION_MILLIS = 600;
-    public static final String SAVE_HIGHLIGHTED_KEY = "android:preference_highlighted";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,10 +62,6 @@ public class jConfigActivity extends jActivity
                 args = new Bundle();
             }
 
-            String highlight = intent.getStringExtra(EXTRA_FRAGMENT_HIGHLIGHT_KEY);
-            if (!TextUtils.isEmpty(highlight)) {
-                args.putString(EXTRA_FRAGMENT_HIGHLIGHT_KEY, highlight);
-            }
             String root = intent.getStringExtra(EXTRA_FRAGMENT_ROOT_KEY);
             if (!TextUtils.isEmpty(root)) {
                 args.putString(EXTRA_FRAGMENT_ROOT_KEY, root);
@@ -124,8 +113,6 @@ public class jConfigActivity extends jActivity
      */
     public static class LauncherSettingsFragment extends PreferenceFragmentCompat {
 
-        private String mHighLightKey;
-        private boolean mPreferenceHighlighted = false;
         public boolean isLIBConfig() {
             return false;
         }
@@ -138,13 +125,6 @@ public class jConfigActivity extends jActivity
 
         @Override
         public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
-            final Bundle args = getArguments();
-            mHighLightKey = args == null ? null : args.getString(EXTRA_FRAGMENT_HIGHLIGHT_KEY);
-
-            if (savedInstanceState != null) {
-                mPreferenceHighlighted = savedInstanceState.getBoolean(SAVE_HIGHLIGHTED_KEY);
-            }
-
             initPreference(rootKey);
         }
 
@@ -225,22 +205,8 @@ public class jConfigActivity extends jActivity
         }
 
         @Override
-        public void onSaveInstanceState(Bundle outState) {
-            super.onSaveInstanceState(outState);
-            outState.putBoolean(SAVE_HIGHLIGHTED_KEY, mPreferenceHighlighted);
-        }
-
-        @Override
         public void onResume() {
             super.onResume();
-
-            if (isAdded() && !mPreferenceHighlighted) {
-                PreferenceHighlighter highlighter = createHighlighter();
-                if (highlighter != null) {
-                    getView().postDelayed(highlighter, DELAY_HIGHLIGHT_DURATION_MILLIS);
-                    mPreferenceHighlighted = true;
-                }
-            }
 
             if (!Objects.equals(currentTheme, getThemeFromDB1(getPreferenceManager().getContext()))) {
                 recreateActivityNow();
@@ -252,24 +218,6 @@ public class jConfigActivity extends jActivity
             if (activity != null) {
                 activity.recreate();
             }
-        }
-
-        private PreferenceHighlighter createHighlighter() {
-            if (TextUtils.isEmpty(mHighLightKey)) {
-                return null;
-            }
-
-            PreferenceScreen screen = getPreferenceScreen();
-            if (screen == null) {
-                return null;
-            }
-
-            RecyclerView list = getListView();
-            PreferencePositionCallback callback = (PreferencePositionCallback) list.getAdapter();
-            int position = callback.getPreferenceAdapterPosition(mHighLightKey);
-            return position >= 0 ? new PreferenceHighlighter(
-                    list, position, screen.findPreference(mHighLightKey))
-                    : null;
         }
     }
 }
