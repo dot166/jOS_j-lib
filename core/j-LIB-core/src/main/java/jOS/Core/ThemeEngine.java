@@ -23,6 +23,7 @@ public class ThemeEngine {
     static String TAG = "jOS Theme Engine";
     static String TAGDB1 = TAG + " - DB1";
     private static ColorScheme ColourScheme;
+    public static boolean isThemeEngineEnabled = true;
 
     /**
      * jOS ThemeEngine: get the theme
