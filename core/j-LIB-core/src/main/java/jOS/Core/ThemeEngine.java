@@ -38,25 +38,21 @@ public class ThemeEngine {
         String Theme;
         Theme = getThemeFromDB1(context);
         currentTheme = getThemeFromDB1(context);
+        Log.i(TAG, Theme);
         switch (Theme) {
             case "Holo":
-                Log.i(TAG, "jOS.Core.R.style.jOS_Theme");
                 ColourScheme = getDarkColourScheme(context);
                 return R.style.jOS_Theme;
             case "M3 Dark":
-                Log.i(TAG, "com.google.android.material.R.style.Theme_Material3_DynamicColors_Dark_NoActionBar");
                 ColourScheme = getDarkColourScheme(context);
                 return com.google.android.material.R.style.Theme_Material3_DynamicColors_Dark_NoActionBar;
             case "M3 Light":
-                Log.i(TAG, "com.google.android.material.R.style.Theme_Material3_DynamicColors_Light_NoActionBar");
                 ColourScheme = getLightColourScheme(context);
                 return com.google.android.material.R.style.Theme_Material3_DynamicColors_Light_NoActionBar;
             case "M2 Dark":
-                Log.i(TAG, "com.google.android.material.R.style.Theme_MaterialComponents_NoActionBar");
                 ColourScheme = getDarkColourScheme(context);
                 return com.google.android.material.R.style.Theme_MaterialComponents_NoActionBar;
             case "M2 Light":
-                Log.i(TAG, "com.google.android.material.R.style.Theme_MaterialComponents_Light_NoActionBar");
                 ColourScheme = getLightColourScheme(context);
                 return com.google.android.material.R.style.Theme_MaterialComponents_Light_NoActionBar;
         }
