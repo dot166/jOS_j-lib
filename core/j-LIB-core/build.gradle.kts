@@ -67,7 +67,7 @@ dependencies {
     api("com.mikepenz:aboutlibraries-core:11.2.3")
     api("com.mikepenz:aboutlibraries-compose-m3:11.2.3")
     api("androidx.navigation:navigation-fragment-ktx:2.8.0")
-    api("androidx.navigation:navigation-ui-ktx:2.8.0")
+    api("androidx.navigation:navigation-ui-ktx:2.8.1")
 }
 
 mavenPublishing {
