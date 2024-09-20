@@ -57,7 +57,7 @@ dependencies {
     api("androidx.core:core-ktx:1.13.1")
     api("androidx.browser:browser:1.8.0")
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
-    api("androidx.compose.ui:ui-android:1.7.1")
+    api("androidx.compose.ui:ui-android:1.7.2")
     api("androidx.compose.material3:material3-android:1.3.0")
     api("androidx.compose.material:material-android:1.7.2")
     api("io.coil-kt:coil-compose:2.7.0")
