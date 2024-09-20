@@ -1,8 +1,8 @@
 package jOS.Core;
 
 import static androidx.preference.PreferenceFragmentCompat.ARG_PREFERENCE_ROOT;
-import static jOS.Core.ThemeEngine.currentTheme;
-import static jOS.Core.ThemeEngine.getThemeFromDB1;
+import static jOS.Core.ThemeEngine.ThemeEngine.currentTheme;
+import static jOS.Core.ThemeEngine.ThemeEngine.getThemeFromDB1;
 
 import android.app.Activity;
 import android.content.Intent;

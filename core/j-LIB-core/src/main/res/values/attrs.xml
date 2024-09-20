@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <declare-styleable name="jToolbar">
+    <declare-styleable name="ActionBar2">
         <!-- Whether the activity icon corresponding to the "android:icon" attribute
              should be used as the logo within the toolbar. Default is true.
         -->
@@ -9,5 +9,9 @@
              should be centered horizontally within the toolbar. Default is false.
         -->
         <attr name="jsubtitleCentered" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="ThemeEngine">
+        <attr name="isJTheme" format="boolean" />
     </declare-styleable>
 </resources>

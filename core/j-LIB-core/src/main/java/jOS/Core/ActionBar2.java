@@ -58,10 +58,10 @@ public class ActionBar2 extends MaterialToolbar {
         context = getContext();
 
         final TypedArray a =
-                context.obtainStyledAttributes(attrs, R.styleable.jToolbar, defStyleAttr, DEF_STYLE_RES);
+                context.obtainStyledAttributes(attrs, R.styleable.ActionBar2, defStyleAttr, DEF_STYLE_RES);
 
-        iconAsLogo = a.getBoolean(R.styleable.jToolbar_iconAsLogo, true);
-        //subtitleCentered = a.getBoolean(R.styleable.jToolbar_jsubtitleCentered, false);
+        iconAsLogo = a.getBoolean(R.styleable.ActionBar2_iconAsLogo, true);
+        //subtitleCentered = a.getBoolean(R.styleable.ActionBar2_jsubtitleCentered, false);
 
         a.recycle();
 

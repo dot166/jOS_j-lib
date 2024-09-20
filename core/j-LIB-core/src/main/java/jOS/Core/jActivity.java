@@ -1,9 +1,9 @@
 package jOS.Core;
 
-import static jOS.Core.ThemeEngine.currentTheme;
-import static jOS.Core.ThemeEngine.getSystemTheme;
-import static jOS.Core.ThemeEngine.getThemeFromDB1;
-import static jOS.Core.ThemeEngine.isThemeEngineEnabled;
+import static jOS.Core.ThemeEngine.ThemeEngine.currentTheme;
+import static jOS.Core.ThemeEngine.ThemeEngine.getSystemTheme;
+import static jOS.Core.ThemeEngine.ThemeEngine.getThemeFromDB1;
+import static jOS.Core.ThemeEngine.ThemeEngine.isThemeEngineEnabled;
 
 import android.app.Activity;
 import android.content.Intent;

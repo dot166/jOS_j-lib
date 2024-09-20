@@ -8,6 +8,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.ComposeView
 import com.mikepenz.aboutlibraries.ui.compose.m3.LibrariesContainer
+import jOS.Core.ThemeEngine.ThemeEngine
 
 class OSSLicenceActivity : jActivity() {
     public override fun onCreate(savedInstanceState: Bundle?) {
