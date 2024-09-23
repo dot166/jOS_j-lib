@@ -3,7 +3,6 @@ package jOS.Core;
 import static jOS.Core.ThemeEngine.ThemeEngine.currentTheme;
 import static jOS.Core.ThemeEngine.ThemeEngine.getSystemTheme;
 import static jOS.Core.ThemeEngine.ThemeEngine.getThemeFromDB1;
-import static jOS.Core.ThemeEngine.ThemeEngine.isThemeEngineEnabled;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -71,9 +70,7 @@ public class jActivity extends AppCompatActivity {
         if(!configured)
             throw new IllegalStateException("configure() not called prior to onCreate()");
 
-        if(isThemeEngineEnabled) {
-            setTheme(getSystemTheme(this));
-        }
+        setTheme(getSystemTheme(this));
         super.onCreate(savedInstanceState);
         mLIBApp = (jLIBCoreApp) this.getApplicationContext();
         mLIBApp.setCurrentActivity(this);

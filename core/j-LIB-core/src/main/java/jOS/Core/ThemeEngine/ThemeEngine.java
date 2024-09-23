@@ -30,11 +30,9 @@ public class ThemeEngine {
     private static values themeClass;
     private static final int[] JOS_CHECK_ATTRS = {R.attr.isJTheme};
     private static final int[] MATERIAL_CHECK_ATTRS = {com.google.android.material.R.attr.colorPrimaryVariant};
-    /**
-     * Set whether ThemeEngine should be enabled.
-     * MUST BE SET IN THE onCreate() FUNCTION IN EITHER THE APPLICATION OR ALL OF THE EXPORTED ACTIVITIES
-     */
-    public static boolean isThemeEngineEnabled = true;
+    private static final int[] LIGHT_CHECK_ATTRS = {androidx.appcompat.R.attr.isLightTheme};
+    @SuppressLint("PrivateResource")
+    private static final int[] MATERIAL3_CHECK_ATTRS = {com.google.android.material.R.attr.isMaterial3Theme};
 
     /**
      * Set the class that contains the theme values.
@@ -91,38 +89,94 @@ public class ThemeEngine {
             Log.i(TAG, "Unrecognised Theme '" + currentTheme + "'");
         } else {
             Log.e(TAG, "ThemeEngine is MISSING!!!!");
-            missingThemeEngine(context);
+            AlertDialog.Builder builder = new AlertDialog.Builder(context);
+
+            builder.setMessage(R.string.dialog_message)
+                    .setTitle(R.string.dialog_title)
+                    .setCancelable(false)
+                    .setPositiveButton(R.string.dialog_positive, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            String url = "https://github.com/dot166/jOS_ThemeEngine/releases";
+                            CustomTabsIntent intent = new CustomTabsIntent.Builder()
+                                    .build();
+                            intent.launchUrl(context, Uri.parse(url));
+                        }
+                    })
+                    .setNegativeButton(R.string.dialog_negative, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            Log.i(TAG, "IGNORING ThemeEngine ERROR");
+                        }
+                    });
+            //Creating dialog box
+            AlertDialog alert = builder.create();
+            alert.show();
         }
         ColourScheme = getDarkColourScheme(context);
         return R.style.jOS_Theme;
     }
 
+    /**
+     * checks if theme is light or not
+     * @param context context for getting value of lightTheme attribute
+     * @param theme int theme to check
+     * @return boolean true if theme is a light theme
+     */
     public static boolean isLightTheme(@NonNull Context context, int theme) {
-        int[] lightattr = new int[]{androidx.appcompat.R.attr.isLightTheme};
-        return isThemeBoolean(context, lightattr, theme);
+        return isThemeBoolean(context, LIGHT_CHECK_ATTRS, theme);
     }
 
+    /**
+     * checks if theme is extended from jOSTheme
+     * @param context context for checking the theme
+     * @param theme int theme to check
+     * @return boolean true if theme is extended from jOSTheme
+     */
     public static boolean isjOSTheme(@NonNull Context context, int theme) {
         return isThemeBoolean(context, JOS_CHECK_ATTRS, theme);
     }
 
+    /**
+     * checks if theme is extended from ThemeMaterialComponents
+     * @param context context for checking the theme
+     * @param theme int theme to check
+     * @return boolean true if theme is extended from ThemeMaterialComponents
+     */
     public static boolean isMaterialTheme(@NonNull Context context, int theme) {
         return isTheme(context, MATERIAL_CHECK_ATTRS, theme);
     }
 
+    /**
+     * checks if theme is extended from ThemeMaterial3
+     * @param context context for checking the theme
+     * @param theme int theme to check
+     * @return boolean true if theme is extended from ThemeMaterial3
+     */
     public static boolean isMaterial3Theme(@NonNull Context context, int theme) {
-        @SuppressLint("PrivateResource") int[] m3attr = new int[]{com.google.android.material.R.attr.isMaterial3Theme};
-        return isThemeBoolean(context, m3attr, theme);
+        return isThemeBoolean(context, MATERIAL3_CHECK_ATTRS, theme);
     }
 
-    private static boolean isThemeBoolean(@NonNull Context context, @NonNull int[] themeAttributes, int theme) {
+    /**
+     * checks if the theme has the attributes and returns value of boolean attribute at index 0
+     * @param context Context for getting attributes to check
+     * @param themeAttributes int[] attributes to check
+     * @param theme int theme id
+     * @return boolean value of checked attribute at index 0
+     */
+    public static boolean isThemeBoolean(@NonNull Context context, @NonNull int[] themeAttributes, int theme) {
         TypedArray array = context.getTheme().obtainStyledAttributes(theme, themeAttributes);
         boolean value = array.getBoolean(0, false);
         array.recycle();
         return value;
     }
 
-    private static boolean isTheme(@NonNull Context context, @NonNull int[] themeAttributes, int theme) {
+    /**
+     * checks if the theme has the attributes
+     * @param context Context for getting attributes to check
+     * @param themeAttributes int[] attributes to check
+     * @param theme int theme id
+     * @return boolean true if the theme has the attributes
+     */
+    public static boolean isTheme(@NonNull Context context, @NonNull int[] themeAttributes, int theme) {
         TypedArray a = context.obtainStyledAttributes(theme, themeAttributes);
         for (int i = 0; i < themeAttributes.length; i++) {
             if (!a.hasValue(i)) {
@@ -140,30 +194,6 @@ public class ThemeEngine {
      */
     public static ColorScheme getColourScheme() {
         return ColourScheme;
-    }
-
-    private static void missingThemeEngine(Context context) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(context);
-
-        builder.setMessage(R.string.dialog_message)
-                .setTitle(R.string.dialog_title)
-                .setCancelable(false)
-                .setPositiveButton(R.string.dialog_positive, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        String url = "https://github.com/dot166/jOS_ThemeEngine/releases";
-                        CustomTabsIntent intent = new CustomTabsIntent.Builder()
-                                .build();
-                        intent.launchUrl(context, Uri.parse(url));
-                    }
-                })
-                .setNegativeButton(R.string.dialog_negative, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        Log.i(TAG, "IGNORING ThemeEngine ERROR");
-                    }
-                });
-        //Creating dialog box
-        AlertDialog alert = builder.create();
-        alert.show();
     }
 
     @SuppressLint("Range")
