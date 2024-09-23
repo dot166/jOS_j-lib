@@ -1,6 +1,7 @@
 <resources>
     <!-- Base System theme. -->
     <style name="jOS.Theme" parent="Platform.jOS.Theme">
+        <item name="isJTheme">true</item>
         <!-- AppCompat Attributes -->
         <item name="listChoiceIndicatorSingleAnimated">?android:listChoiceIndicatorSingle</item>
         <item name="listChoiceIndicatorMultipleAnimated">?android:listChoiceIndicatorMultiple</item>
