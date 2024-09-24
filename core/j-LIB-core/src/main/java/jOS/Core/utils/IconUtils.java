@@ -83,10 +83,10 @@ public class IconUtils {
                 if (parseXml.getEventType() == XmlPullParser.START_TAG) {
                     switch (parseXml.getName()) {
                         case "item":
-                            addItem(parseXml, icons, context, pm, res, IconPackPackageName);
+                            addItem(parseXml, icons, pm, res, IconPackPackageName);
                             break;
                         case "calendar":
-                            addCalendar(parseXml, icons, context, pm, res, IconPackPackageName);
+                            addCalendar(parseXml, icons, pm, res, IconPackPackageName);
                             break;
                     }
                 }
@@ -97,18 +97,12 @@ public class IconUtils {
     }
 
     public static class Icon {
-        private String title;
         private Drawable image;
         private ComponentName componentName;
 
-        public Icon(String title, Drawable image, ComponentName componentName, Context context) {
-            this.title = title;
+        public Icon(Drawable image, ComponentName componentName) {
             this.image = image;
             this.componentName = componentName;
-        }
-
-        public String getTitle() {
-            return title;
         }
 
         public Drawable getImage() {
@@ -120,20 +114,12 @@ public class IconUtils {
         }
     }
 
-    private static void addItem(XmlResourceParser parseXml, List<Icon> icons, Context context, PackageManager pm, Resources res, String IconPackPackageName) throws PackageManager.NameNotFoundException {
+    private static void addItem(XmlResourceParser parseXml, List<Icon> icons, PackageManager pm, Resources res, String IconPackPackageName) throws PackageManager.NameNotFoundException {
         String component = parseXml.getAttributeValue(null, "component");
         String drawable = parseXml.getAttributeValue(null, "drawable");
-        int name = res.getIdentifier(parseXml.getAttributeValue(null, "name"), "string", IconPackPackageName);
         if (component != null && drawable != null) {
-            String nameString;
-            if (name == 0) {
-                nameString = component;
-            } else {
-                nameString = res.getString(name);
-            }
             Log.i(TAG, component);
             Log.i(TAG, drawable);
-            Log.i(TAG, nameString);
             boolean STOP = false;
             ComponentName componentName = parseComponent(component);
             if (componentName != null) {
@@ -148,34 +134,26 @@ public class IconUtils {
                     }
                 }
                 if (!STOP) {
-                    icons.add(new Icon(nameString, pm.getDrawable(IconPackPackageName, res.getIdentifier(drawable, "drawable", IconPackPackageName), pm.getApplicationInfo(IconPackPackageName, 0)), componentName, context));
+                    icons.add(new Icon(pm.getDrawable(IconPackPackageName, res.getIdentifier(drawable, "drawable", IconPackPackageName), pm.getApplicationInfo(IconPackPackageName, 0)), componentName));
                 }
             }
         }
     }
 
-    private static void addCalendar(XmlResourceParser parseXml, List<Icon> icons, Context context, PackageManager pm, Resources res, String IconPackPackageName) throws PackageManager.NameNotFoundException {
+    private static void addCalendar(XmlResourceParser parseXml, List<Icon> icons, PackageManager pm, Resources res, String IconPackPackageName) throws PackageManager.NameNotFoundException {
         String component = parseXml.getAttributeValue(null, "component");
         String prefix = parseXml.getAttributeValue(null, "prefix");
-        int name = res.getIdentifier(parseXml.getAttributeValue(null, "name"), "string", IconPackPackageName);
         Calendar calendar = Calendar.getInstance();
         @SuppressLint("SimpleDateFormat") SimpleDateFormat dateFormat = new SimpleDateFormat("dd");
         String date = dateFormat.format(calendar.getTime());
         if (component != null && prefix != null) {
-            String nameString;
-            if (name == 0) {
-                nameString = component;
-            } else {
-                nameString = res.getString(name);
-            }
             Log.i(TAG, component);
             Log.i(TAG, prefix);
             Log.i(TAG, date);
-            Log.i(TAG, nameString);
             ComponentName componentName = parseComponent(component);
             if (componentName != null) {
                 calendars.add(componentName);
-                icons.add(new Icon(nameString, pm.getDrawable(IconPackPackageName, res.getIdentifier(prefix + date, "drawable", IconPackPackageName), pm.getApplicationInfo(IconPackPackageName, 0)), componentName, context));
+                icons.add(new Icon(pm.getDrawable(IconPackPackageName, res.getIdentifier(prefix + date, "drawable", IconPackPackageName), pm.getApplicationInfo(IconPackPackageName, 0)), componentName));
             }
         }
     }
