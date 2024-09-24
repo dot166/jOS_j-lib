@@ -19,7 +19,8 @@
         <item name="switchPreferenceCompatStyle">?android:switchPreferenceStyle</item>
         <item name="switchPreferenceStyle">?android:switchPreferenceStyle</item>
         <item name="preferenceCategoryTitleTextAppearance">@android:style/TextAppearance.Holo.Small</item>
-        <item name="preferenceCategoryTitleTextColor">@android:color/holo_blue_dark</item></style>
+        <item name="preferenceCategoryTitleTextColor">@android:color/holo_blue_dark</item>
+    </style>
 
     <style name="j.BottomNav" parent="@style/Widget.MaterialComponents.BottomNavigationView">
         <item name="android:background">?android:panelBackground</item>
