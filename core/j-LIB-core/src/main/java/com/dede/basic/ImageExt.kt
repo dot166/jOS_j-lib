@@ -5,10 +5,10 @@ package com.dede.basic
 import android.content.*
 import android.graphics.Bitmap
 import android.net.Uri
-import android.os.Build
 import android.os.Environment
 import android.provider.MediaStore
 import android.util.Log
+import jOS.Core.utils.VersionUtils
 import java.io.File
 import java.io.FileNotFoundException
 import java.io.InputStream
@@ -38,7 +38,7 @@ private fun getImageMime(fileName: String): String {
 
 private fun getImageFormat(fileName: String): Bitmap.CompressFormat {
     return when (File(fileName).extension.lowercase()) {
-        "webp" -> if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+        "webp" -> if (VersionUtils.Android.isAtLeastR()) {
             Bitmap.CompressFormat.WEBP_LOSSY
         } else {
             @Suppress("DEPRECATION")
@@ -147,7 +147,7 @@ private fun Uri.finishPending(
     outputFile: File?,
 ) {
     val imageValues = ContentValues()
-    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.Q) {
+    if (VersionUtils.Android.isAtLeastQ()) {
         if (outputFile != null) {
             imageValues.put(MediaStore.Images.Media.SIZE, outputFile.length())
         }
@@ -181,7 +181,7 @@ private fun ContentResolver.insertMediaImage(
     }
     // 保存的位置
     val collection: Uri
-    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+    if (VersionUtils.Android.isAtLeastQ()) {
         val path = if (relativePath != null) "${ALBUM_DIR}/${relativePath}" else ALBUM_DIR
         imageValues.apply {
             put(MediaStore.Images.Media.DISPLAY_NAME, fileName)
@@ -232,7 +232,7 @@ private fun ContentResolver.insertMediaImage(
  * @return Uri 返回null时说明不存在，可以进行图片插入逻辑
  */
 private fun ContentResolver.queryMediaImage28(imagePath: String): Uri? {
-    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) return null
+    if (VersionUtils.Android.isAtLeastQ()) return null
 
     val imageFile = File(imagePath)
     if (imageFile.canRead() && imageFile.exists()) {

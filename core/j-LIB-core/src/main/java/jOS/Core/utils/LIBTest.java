@@ -5,15 +5,12 @@ import static android.os.Build.VERSION.RELEASE_OR_PREVIEW_DISPLAY;
 import static jOS.Core.Build.jOS_RELEASE;
 import static jOS.Core.Build.j_DEVICE;
 
-import android.content.ComponentName;
-import android.content.Intent;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
 
 import jOS.Core.R;
 import jOS.Core.jLIBCoreApp;
@@ -40,7 +37,7 @@ public class LIBTest {
 
     private static String androidver() {
         Log.i(jLIBCoreApp.TAG, String.valueOf(android.os.Build.VERSION.SDK_INT));
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.TIRAMISU) {
+        if (VersionUtils.Android.isAtLeastT()) {
             return RELEASE_OR_PREVIEW_DISPLAY;
         }
         return RELEASE;
