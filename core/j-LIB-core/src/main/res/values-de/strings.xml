@@ -27,7 +27,6 @@
     <string name="github" translatable="false">GitHub</string>
     <string name="licences">Danksagungen</string>
     <string name="example_info">Derzeit haben Sie die Funktion „product()“ nicht überschrieben, um Ihre Mitwirkendenliste einzufügen</string>
-    <string name="is_j_device">ist j Gerät</string>
     <string name="dialog_fail_title">Nun... Es ist abgestürzt!</string>
     <string name="dialog_fail_message">Wie ist das passiert??</string>
     <string name="dialog_ignore">Ignorieren</string>

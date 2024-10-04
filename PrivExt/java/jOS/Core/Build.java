@@ -30,19 +30,6 @@ public class Build {
     /** A Version String utilized to distinguish jOS versions */
     public static final String jOS_RELEASE = getString("ro.j.osversion");
 
-    /** A binary integer utilized to distinguish supported devices */
-    public static int j_DEVICE() {
-        boolean is_verify_allowed = getBoolean("ro.j.en_verify");
-        if (is_verify_allowed) {
-            if (Objects.equals(android.os.Build.MODEL, "Pixel 6")) {
-                return 1;
-            } else {
-                return 0;
-            }
-        }
-        return 0;
-    }
-
     /** An Integer utilized to distinguish jOS versions */
     public static int jOS_RELEASE_INT() {
         if (jOS_RELEASE != UNKNOWN) {
@@ -56,14 +43,6 @@ public class Build {
 
     /** jOS Obsidian */
     public static final int jOS_O = 15;
-
-    private static Boolean getBoolean(String property) {
-        String prop = getString(property);
-        if (Objects.equals(prop, UNKNOWN)) {
-            return false;
-        }
-        return Boolean.parseBoolean(prop);
-    }
 
     private static String getString(String property) {
         return SystemProperties.get(property, UNKNOWN);

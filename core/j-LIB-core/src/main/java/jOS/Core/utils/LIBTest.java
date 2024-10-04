@@ -24,8 +24,7 @@ public class LIBTest {
         button = view.findViewById(R.id.button);
         String android_lib_test = "Android: " + androidver();
         String j_lib_test = "jOS: " + jOS_RELEASE;
-        String j_verify_test = context.getString(R.string.is_j_device) + ": " + j_DEVICE();
-        String all = android_lib_test + " " + j_lib_test + " " + j_verify_test;
+        String all = android_lib_test + " " + j_lib_test;
         text.setText(all);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
