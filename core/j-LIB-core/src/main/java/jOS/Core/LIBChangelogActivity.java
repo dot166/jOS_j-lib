@@ -20,4 +20,15 @@ public class LIBChangelogActivity extends jWebActivity{
         }
         setupBottomNavWithoutMenu(false);
     }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                getOnBackPressedDispatcher().onBackPressed();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
 }

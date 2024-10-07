@@ -60,7 +60,7 @@ public class jWebFragment extends Fragment {
 
         webView.clearCache(true);
         webView.getSettings().setJavaScriptEnabled(js);
-        webView.getSettings().setSupportZoom(true);
+        webView.getSettings().setSupportZoom(true);// Support zoom by default for accessibility
         webView.getSettings().setDomStorageEnabled(DOM);
         webView.setWebViewClient(new webViewclient());
         webView.loadUrl(uri);

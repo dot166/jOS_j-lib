@@ -8,6 +8,7 @@ import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
+import android.view.MenuItem
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.browser.customtabs.CustomTabsIntent
@@ -238,11 +239,6 @@ open class jAboutActivity : jActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         configure(R.layout.aboutactivity, false)
         super.onCreate(savedInstanceState)
-        if (supportActionBar != null) {
-            supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-        } else {
-            Log.e("ActionBar2", "no actionbar found")
-        }
         findViewById<ComposeView>(R.id.my_composable).setContent {
             MaterialTheme(
                 colorScheme = ThemeEngine.getColourScheme()

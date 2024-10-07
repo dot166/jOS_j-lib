@@ -60,6 +60,9 @@ public class LIBTestActivity extends jActivity {
         } else if (itemId == R.id.action_favorite) {
             startActivity(new Intent(this, LIBAboutActivity.class));
             return true;
+        } else if (itemId == android.R.id.home) {
+            getOnBackPressedDispatcher().onBackPressed();
+            return true;
         }
         return super.onOptionsItemSelected(item);
     }

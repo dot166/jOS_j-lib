@@ -84,20 +84,11 @@ public class jActivity extends AppCompatActivity {
     public void setSupportActionBar(Toolbar toolbar) {
         super.setSupportActionBar(toolbar);
         if (getSupportActionBar() != null) {
-            getSupportActionBar().setDisplayShowTitleEnabled(app_name);
+            if (app_name) {
+                getSupportActionBar().setDisplayShowTitleEnabled(true);
+            }
         } else {
             Log.e("ActionBar2", "no actionbar found");
-        }
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                onBackPressed();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
         }
     }
 
@@ -139,7 +130,7 @@ public class jActivity extends AppCompatActivity {
 
     public BottomNavigationView setupBottomNavWithoutMenu(boolean enable) {
         BottomNavigationView nav = findViewById(R.id.bottom_navigation);
-        if (enable == true) {
+        if (enable) {
             nav.setVisibility(BottomNavigationView.VISIBLE);
         } else {
             nav.setVisibility(BottomNavigationView.GONE);
