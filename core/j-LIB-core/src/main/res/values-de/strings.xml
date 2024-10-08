@@ -1,21 +1,14 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- Label for the jOS system components when they are shown to the user. -->
-    <string name="jos_system_label">jOS Core</string>
-    <string name="capital_on">AN</string>
-    <string name="capital_off">AUS</string>
     <string name="settings_name">Einstellungen</string>
     <string name="settings_fragment_name" translatable="false">jOS.Core.jConfigActivity$LauncherSettingsFragment</string>
     <string name="jlib_settings">jLIB-Einstellungen</string>
     <string name="launch_lib_preferences">Starten Sie die LIB-Einstellungen</string>
     <string name="jlib_version">jLIB-Version</string>
     <string name="jlib">jLIB</string>
-    <string name="menu_button">Menütaste</string>
     <string name="back_button">Zurück-Button</string>
     <string name="libplaceholder">LIB-Test</string>
     <string name="no_records_found">Keine Aufzeichnungen gefunden</string>
-    <string name="logo">App-Symbol</string>
     <string name="ok">OK</string>
-    <string name="changelog">Änderungsprotokoll</string>
     <string name="jlib_changelog">jLIB-Änderungsprotokoll</string>
     <string name="dialog_title">ThemeEngine fehlt</string>
     <string name="dialog_message">Diese App erfordert ThemeEngine. Die ThemeEngine-App, die die Datenbank enthält, ist nicht auf Ihrem Gerät installiert!</string>
@@ -26,10 +19,9 @@
     <string name="dev">Entwickler</string>
     <string name="github" translatable="false">GitHub</string>
     <string name="licences">Danksagungen</string>
-    <string name="example_info">Derzeit haben Sie die Funktion „product()“ nicht überschrieben, um Ihre Mitwirkendenliste einzufügen</string>
+    <string name="example_info">Derzeit haben Sie die Funktion „product()“ zum Einfügen Ihrer Mitwirkendenliste nicht überschrieben</string>
     <string name="dialog_fail_title">Nun... Es ist abgestürzt!</string>
     <string name="dialog_fail_message">Wie ist das passiert??</string>
     <string name="dialog_ignore">Ignorieren</string>
     <string name="dialog_stacktrace">Stack-Trace anzeigen</string>
-    <string name="no_aboutlibraries_json_file_found_in_this_app_please_contact_the_app_developer">In dieser App wurde keine Datei „aboutlibraries.json“ gefunden. Bitte wenden Sie sich an den App-Entwickler</string>
 </resources>

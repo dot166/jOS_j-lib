@@ -1,21 +1,14 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- Label for the jOS system components when they are shown to the user. -->
-    <string name="jos_system_label">jOSコア</string>
-    <string name="capital_on">の上</string>
-    <string name="capital_off">オフ</string>
     <string name="settings_name">設定</string>
     <string name="settings_fragment_name" translatable="false">jOS.Core.jConfigActivity$LauncherSettingsFragment</string>
     <string name="jlib_settings">jLIB 設定</string>
     <string name="launch_lib_preferences">LIB 設定の起動</string>
     <string name="jlib_version">jLIB バージョン</string>
     <string name="jlib">jLIB</string>
-    <string name="menu_button">メニューボタン</string>
     <string name="back_button">戻るボタン</string>
     <string name="libplaceholder">LIBテスト</string>
     <string name="no_records_found">レコードが見つかりませんでした</string>
-    <string name="logo">アプリアイコン</string>
     <string name="ok">わかりました</string>
-    <string name="changelog">変更履歴</string>
     <string name="jlib_changelog">jLIB 変更ログ</string>
     <string name="dialog_title">テーマエンジンが見つかりません</string>
     <string name="dialog_message">このアプリには ThemeEngine が必要ですが、データベースを含む ThemeEngine アプリがデバイスにインストールされていません。</string>
@@ -27,9 +20,8 @@
     <string name="github" translatable="false">GitHub</string>
     <string name="licences">謝辞</string>
     <string name="example_info">現在、貢献者リストを挿入するために product() 関数をオーバーライドしていません。</string>
-    <string name="dialog_fail_title">そうですね...クラッシュしました!</string>
+    <string name="dialog_fail_title">そうですね…クラッシュしました！</string>
     <string name="dialog_fail_message">どうやってそうなったの？？</string>
     <string name="dialog_ignore">無視する</string>
     <string name="dialog_stacktrace">スタックトレースを表示</string>
-    <string name="no_aboutlibraries_json_file_found_in_this_app_please_contact_the_app_developer">このアプリには aboutlibraries.json ファイルが見つかりません。アプリ開発者にお問い合わせください。</string>
 </resources>
