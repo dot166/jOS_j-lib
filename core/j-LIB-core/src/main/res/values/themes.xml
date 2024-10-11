@@ -117,7 +117,7 @@
         <!-- Dialog attributes -->
         <item name="dialogTheme">?android:dialogTheme</item>
         <item name="dialogPreferredPadding">16dp</item>
-        <item name="alertDialogTheme">?android:alertDialogTheme</item>
+        <item name="alertDialogTheme">@style/ThemeOverlay.MaterialComponents.MaterialAlertDialog</item>
         <item name="alertDialogStyle">@style/alertdialogstyle</item>
         <item name="alertDialogCenterButtons">false</item>
         <item name="textColorAlertDialogListItem">?android:textColorAlertDialogListItem</item>
@@ -251,7 +251,7 @@
 
         <!-- Dialog themes -->
         <item name="bottomSheetDialogTheme">@style/ThemeOverlay.MaterialComponents.BottomSheetDialog</item>
-        <item name="materialAlertDialogTheme">@style/ThemeOverlay.MaterialComponents.MaterialAlertDialog</item>
+        <item name="materialAlertDialogTheme">?alertDialogTheme</item>
 
         <!-- Picker styles and themes. -->
         <item name="materialCalendarStyle">@style/Widget.MaterialComponents.MaterialCalendar</item>

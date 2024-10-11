@@ -37,4 +37,16 @@ public class jWebActivity extends jActivity {
         // Display the fragment as the main content.
         fm.beginTransaction().replace(R.id.content_frame, f).commit();
     }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+
+        if (getSupportFragmentManager().findFragmentById(R.id.content_frame) instanceof jWebFragment) {
+            if ((keyCode == KeyEvent.KEYCODE_BACK) && jWebFragment.webView.canGoBack()) {
+                jWebFragment.webView.goBack();
+                return true;
+            }
+        }
+        return super.onKeyDown(keyCode, event);
+    }
 }

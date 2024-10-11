@@ -141,17 +141,4 @@ public class jActivity extends AppCompatActivity {
     public boolean selectedListener(MenuItem menuItem) {
         return false;
     }
-
-
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-
-        if (getSupportFragmentManager().findFragmentById(R.id.content_frame) instanceof jWebFragment) {
-            if ((keyCode == KeyEvent.KEYCODE_BACK) && jWebFragment.webView.canGoBack()) {
-                jWebFragment.webView.goBack();
-                return true;
-            }
-        }
-        return super.onKeyDown(keyCode, event);
-    }
 }
