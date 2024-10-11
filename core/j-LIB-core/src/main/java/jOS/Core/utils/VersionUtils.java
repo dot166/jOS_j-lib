@@ -10,21 +10,6 @@ import androidx.annotation.ChecksSdkIntAtLeast;
 public class VersionUtils {
     public static class Android {
 
-        @ChecksSdkIntAtLeast(api = VERSION_CODES.LOLLIPOP_MR1)
-        public static boolean isAtLeastL_1() {
-            return VERSION.SDK_INT >= VERSION_CODES.LOLLIPOP_MR1;
-        }
-
-        @ChecksSdkIntAtLeast(api = VERSION_CODES.M)
-        public static boolean isAtLeastM() {
-            return VERSION.SDK_INT >= VERSION_CODES.M;
-        }
-
-        @ChecksSdkIntAtLeast(api = VERSION_CODES.N)
-        public static boolean isAtLeastN() {
-            return VERSION.SDK_INT >= VERSION_CODES.N;
-        }
-
         @ChecksSdkIntAtLeast(api = VERSION_CODES.N_MR1)
         public static boolean isAtLeastN_1() {
             return VERSION.SDK_INT >= VERSION_CODES.N_MR1;

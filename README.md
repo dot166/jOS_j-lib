@@ -4,7 +4,7 @@ contains a version of the holo theme that is patched for use with material compo
 
 ## PrivExt subfolder can only be built with aosp, rest of lib can be built with gradle
 
-## jLib will work ONLY ON ANDROID LOLLIPOP (5) AND LATER!! because some dependencies require android lollipop or newer
+## jLib will work ONLY ON ANDROID NOUGAT (7) AND LATER!! because 97.2% of Android devices use Android nougat or newer and it would be a nightmare to keep supporting Android Marshmallow (6) and older
 
 ## how to use it?
 

@@ -65,7 +65,9 @@
         <item name="android:windowExitAnimation">@anim/shrink_fade_out_from_bottom</item>
     </style>
 
-    <style name="j.ActionBar" parent="Platform.j.ActionBar">
+    <style name="j.ActionBar" parent="Widget.AppCompat.Toolbar">
+        <item name="android:contentInsetStartWithNavigation">0dp</item>
+        <item name="android:contentInsetEndWithActions">0dp</item>
         <item name="titleTextStyle">@android:style/TextAppearance.Holo.Widget.ActionBar.Title</item>
         <item name="subtitleTextStyle">@android:style/TextAppearance.Holo.Widget.ActionBar.Subtitle</item>
         <item name="background">@drawable/j_ab_transparent_dark_holo</item>
@@ -107,6 +109,4 @@
         <item name="android:paddingStart">0dip</item>
         <item name="android:paddingEnd">0dip</item>
     </style>
-    <!-- Widget.AppCompat.Toolbar overrides -->
-    <style name="Platform.j.ActionBar" parent="Widget.AppCompat.Toolbar"/>
 </resources>
