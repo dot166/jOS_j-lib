@@ -51,7 +51,7 @@ aboutLibraries {
 }
 
 dependencies {
-    implementation "io.github.dot166:j-Lib:3.2.15"
+    implementation "io.github.dot166:j-Lib:3.2.16"
 }
 ```
 
@@ -91,7 +91,7 @@ android {
 }
 
 dependencies {
-    api "io.github.dot166:j-Lib:3.2.14"
+    api "io.github.dot166:j-Lib:3.2.16"
 }
 ```
 
@@ -119,3 +119,9 @@ will. Specifically you can redistribute and/or modify it under the terms of the
 [GNU General Public License](https://www.gnu.org/licenses/gpl.html) as
 published by the Free Software Foundation, either version 3 of the License, or
 (at your option) any later version.
+
+### NOTICE: There is code in jLib from other projects, Those files are licenced under the licence from their respective projects, the files, projects and licences are listed below.
+
+ContributorRow.kt is from [Lawnchair Launcher](https://github.com/LawnchairLauncher/lawnchair) and is licenced under Apache 2.0
+modifierIf.kt is from [Lawnchair Launcher](https://github.com/LawnchairLauncher/lawnchair) and is licenced under Apache 2.0
+all files under com.dede.basic ('src/com/dede/basic' folder) are from [AndroidEasterEggs](https://github.com/hushenghao/AndroidEasterEggs) and are licenced under Apache 2.0

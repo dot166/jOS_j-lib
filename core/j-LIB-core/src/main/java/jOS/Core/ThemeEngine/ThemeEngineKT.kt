@@ -9,6 +9,9 @@ import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.lightColorScheme
 import jOS.Core.utils.VersionUtils
 
+/**
+ * Internal AndroidX Compose Extension for ThemeEngine
+ */
 @RestrictTo(RestrictTo.Scope.LIBRARY)
 class ThemeEngineKT {
     companion object {
