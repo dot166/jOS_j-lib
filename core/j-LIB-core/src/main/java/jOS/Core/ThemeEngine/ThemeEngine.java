@@ -27,7 +27,7 @@ public class ThemeEngine {
     static String TAG = "jOS Theme Engine";
     static String TAGDB1 = TAG + " - DB1";
     private static ColorScheme ColourScheme;
-    private static values themeClass;
+    public static values themeClass;
     private static final int[] JOS_CHECK_ATTRS = {R.attr.isJTheme};
     private static final int[] MATERIAL_CHECK_ATTRS = {com.google.android.material.R.attr.colorPrimaryVariant};
     private static final int[] LIGHT_CHECK_ATTRS = {androidx.appcompat.R.attr.isLightTheme};

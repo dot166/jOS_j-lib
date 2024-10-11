@@ -7,6 +7,7 @@ import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.dynamicDarkColorScheme
 import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.lightColorScheme
+import jOS.Core.ThemeEngine.ThemeEngine.themeClass
 import jOS.Core.utils.VersionUtils
 
 /**
@@ -21,6 +22,9 @@ class ThemeEngineKT {
             return if (VersionUtils.Android.isAtLeastS()) {
                 dynamicLightColorScheme(context)
             } else {
+                if (themeClass != null && themeClass.LColourScheme() != null) {
+                    themeClass.LColourScheme();
+                }
                 lightColorScheme()
             }
         }
@@ -30,6 +34,9 @@ class ThemeEngineKT {
             return if (VersionUtils.Android.isAtLeastS()) {
                 dynamicDarkColorScheme(context)
             } else {
+                if (themeClass != null && themeClass.DColourScheme() != null) {
+                    themeClass.DColourScheme();
+                }
                 darkColorScheme()
             }
         }
