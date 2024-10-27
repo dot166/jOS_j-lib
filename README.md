@@ -1,6 +1,6 @@
 # jLib - a common library that (most of) my android apps use
 
-contains a version of the holo theme that is patched for use with material components and appcompat, a custom actionbar based on material components Toolbar and some other things.
+contains a custom actionbar based on material components Toolbar and some other things.
 
 ## PrivExt subfolder can only be built with aosp, rest of lib can be built with gradle
 
@@ -91,7 +91,7 @@ android {
 }
 
 dependencies {
-    api "io.github.dot166:j-Lib:3.2.16"
+    api "io.github.dot166:j-Lib:3.2.17"
 }
 ```
 
@@ -120,9 +120,9 @@ will. Specifically you can redistribute and/or modify it under the terms of the
 published by the Free Software Foundation, either version 3 of the License, or
 (at your option) any later version.
 
-### NOTICE: There is code in jLib from other projects, Those files are licenced under the licence from their respective projects, the files, projects and licences are listed below.
+### NOTICE: There is code in jLib that are from other projects, Those files are licenced under the licence from their respective projects, the files, projects and licences are listed below.
 
-ContributorRow.kt and modifierIf.kt is from [Lawnchair Launcher](https://github.com/LawnchairLauncher/lawnchair) and is licenced under Apache 2.0
-all files under com.dede.basic ('src/com/dede/basic' folder) are from [AndroidEasterEggs](https://github.com/hushenghao/AndroidEasterEggs) and are licenced under Apache 2.0
+ContributorRow.kt, modifierIf.kt and most of the about menu code is adapted from [Lawnchair Launcher](https://github.com/LawnchairLauncher/lawnchair) and is licenced under Apache 2.0
+all files under com.dede.basic ('src/com/dede/basic' folder) are adapted from [AndroidEasterEggs](https://github.com/hushenghao/AndroidEasterEggs) and are licenced under Apache 2.0
 Some of the preference and holo theme related files are adapted from [The Android Open Source Project](https://source.android.com/) and are licenced under Apache 2.0
-ToolbarUtils.java is from [Material Components](https://github.com/material-components/material-components-android) and is licenced under Apache 2.0
+ToolbarUtils.java is adapted from [Material Components](https://github.com/material-components/material-components-android) and is licenced under Apache 2.0

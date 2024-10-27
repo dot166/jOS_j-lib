@@ -54,7 +54,8 @@ public class ThemeEngine {
         currentTheme = getThemeFromDB1(context);
         Log.i(TAG, Theme);
         switch (Theme) {
-            case "Holo":
+            case "Holo": // DEPRECATED! Holo Design is not fully implemented anymore, only certain parts of it live on in jOS Theme
+            case "jOS":
                 ColourScheme = getDarkColourScheme(context);
                 if (themeClass != null && themeClass.jOSTheme() != 0 && isjOSTheme(context, themeClass.jOSTheme()) && !isLightTheme(context, themeClass.jOSTheme())) {
                     return themeClass.jOSTheme();

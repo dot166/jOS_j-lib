@@ -6,7 +6,6 @@
     <string name="launch_lib_preferences">Launch LIB Preferences</string>
     <string name="jlib_version">jLIB Version</string>
     <string name="jlib">jLIB</string>
-    <string name="back_button">Back Button</string>
     <string name="libplaceholder">LIB Test</string>
     <string name="no_records_found">No Records Found</string>
     <string name="ok">OK</string>
@@ -14,7 +13,7 @@
     <string name="dialog_title">ThemeEngine Missing</string>
     <string name="dialog_message">This App requires ThemeEngine, the ThemeEngine App that contains the database is not installed on your device!</string>
     <string name="dialog_positive">Install</string>
-    <string name="dialog_negative">Ignore (App Will Use HOLO Theme)</string>
+    <string name="dialog_negative">Ignore (App Will Use jOS Theme)</string>
     <string name="about">About</string>
     <string name="leaddev">Lead Developer</string>
     <string name="dev">Developer</string>

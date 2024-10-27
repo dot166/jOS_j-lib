@@ -33,6 +33,7 @@ public class LIBAboutActivity extends jAboutActivity {
         super.onCreate(savedInstanceState);
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setHomeActionContentDescription(androidx.appcompat.R.string.abc_action_bar_up_description);
         } else {
             Log.e("ActionBar2", "no actionbar found");
         }

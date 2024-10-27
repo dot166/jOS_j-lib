@@ -1,153 +1,129 @@
 <resources>
     <!-- Base System theme. -->
-    <style name="jOS.Theme" parent="Platform.jOS.Theme">
+    <style name="jOS.Theme" parent="Platform.v26.jOS.Theme">
         <item name="isJTheme">true</item>
+        <item name="android:textAppearance">@android:style/TextAppearance.Holo</item>
+        <item name="android:textAppearanceInverse">@android:style/TextAppearance.Holo.Inverse</item>
+
+        <item name="android:textColorPrimary">@color/j_primary_text_holo_dark</item>
+        <item name="android:textColorSecondary">@color/j_secondary_text_holo_dark</item>
+        <item name="android:textColorTertiary">@color/j_tertiary_text_holo_dark</item>
+        <item name="android:textColorPrimaryInverse">@color/j_primary_text_holo_light</item>
+        <item name="android:textColorSecondaryInverse">@color/j_secondary_text_holo_light</item>
+        <item name="android:textColorTertiaryInverse">@color/j_tertiary_text_holo_light</item>
+        <item name="android:textColorPrimaryDisableOnly">@color/j_primary_text_disable_only_holo_dark</item>
+        <item name="android:textColorPrimaryInverseDisableOnly">@color/j_primary_text_disable_only_holo_light</item>
+        <item name="android:textColorPrimaryNoDisable">@color/j_primary_text_nodisable_holo_dark</item>
+        <item name="android:textColorSecondaryNoDisable">@color/j_secondary_text_nodisable_holo_dark</item>
+        <item name="android:textColorPrimaryInverseNoDisable">@color/j_primary_text_nodisable_holo_light</item>
+        <item name="android:textColorSecondaryInverseNoDisable">@color/j_secondary_text_nodisable_holo_light</item>
+        <item name="android:textColorHint">#808080</item>
+        <item name="android:textColorHintInverse">#808080</item>
+        <item name="android:textColorHighlight">#6633B5E5</item>
+        <item name="android:textColorHighlightInverse">#6633B5E5</item>
+        <item name="android:textColorLink">@android:color/holo_blue_light</item>
+        <item name="android:textColorLinkInverse">@android:color/holo_blue_light</item>
+        <item name="android:textColorAlertDialogListItem">@color/j_primary_text_holo_dark</item>
+
+        <item name="android:textAppearanceLarge">@android:style/TextAppearance.Holo.Large</item>
+        <item name="android:textAppearanceMedium">@android:style/TextAppearance.Holo.Medium</item>
+        <item name="android:textAppearanceSmall">@android:style/TextAppearance.Holo.Small</item>
+        <item name="android:textAppearanceLargeInverse">@android:style/TextAppearance.Holo.Large.Inverse</item>
+        <item name="android:textAppearanceMediumInverse">@android:style/TextAppearance.Holo.Medium.Inverse</item>
+        <item name="android:textAppearanceSmallInverse">@android:style/TextAppearance.Holo.Small.Inverse</item>
+        <item name="android:textAppearanceSearchResultTitle">@android:style/TextAppearance.Holo.SearchResult.Title</item>
+        <item name="android:textAppearanceSearchResultSubtitle">@android:style/TextAppearance.Holo.SearchResult.Subtitle</item>
+
+        <item name="textAppearanceButton">@android:style/TextAppearance.Holo.Widget.Button</item>
+
+        <item name="textColorAlertDialogListItem">@color/j_primary_text_holo_dark</item>
+        <item name="textAppearanceSearchResultTitle">@android:style/TextAppearance.Holo.SearchResult.Title</item>
+        <item name="textAppearanceSearchResultSubtitle">@android:style/TextAppearance.Holo.SearchResult.Subtitle</item>
+
+        <item name="android:colorPrimaryDark">@android:color/black</item>
+        <item name="android:colorPrimary">#222222</item>
+        <item name="android:colorAccent">@android:color/holo_blue_dark</item>
+        <item name="android:colorEdgeEffect">?attr/colorPrimary</item>
+
+        <item name="android:colorControlNormal">#39CCCCCC</item>
+        <item name="android:colorControlActivated">@android:color/holo_blue_light</item>
+
+        <item name="android:colorControlHighlight">#59F0F0F0</item>
+        <item name="android:colorButtonNormal">#BD292F34</item>
+        <item name="android:panelBackground">@drawable/menu_hardkey_panel_holo_dark</item>
+        <item name="android:windowBackground">@drawable/background</item>
+        <item name="android:windowBackgroundFallback">?android:attr/colorBackground</item>
+        <item name="android:listChoiceIndicatorSingle">@drawable/btn_radio_holo_dark</item>
+        <item name="android:listChoiceIndicatorMultiple">@drawable/btn_check_holo_dark</item>
+        <item name="android:listDivider">@drawable/list_divider_holo_dark</item>
+        <item name="android:selectableItemBackground">@drawable/item_background_holo_dark</item>
+        <item name="android:selectableItemBackgroundBorderless">?android:attr/selectableItemBackground</item>
+
         <!-- AppCompat Attributes -->
-        <item name="listChoiceIndicatorSingleAnimated">?android:listChoiceIndicatorSingle</item>
-        <item name="listChoiceIndicatorMultipleAnimated">?android:listChoiceIndicatorMultiple</item>
-        <item name="windowNoTitle">?android:windowNoTitle</item>
-        <item name="windowActionBar">?android:windowActionBar</item>
-        <item name="android:windowActionBarOverlay">false</item>
-        <item name="windowActionBarOverlay">?android:windowActionBarOverlay</item>
-        <item name="windowActionModeOverlay">?android:windowActionModeOverlay</item>
+        <item name="listChoiceIndicatorSingleAnimated">@drawable/btn_radio_holo_dark</item>
+        <item name="listChoiceIndicatorMultipleAnimated">@drawable/btn_check_holo_dark</item>
         <item name="actionBarPopupTheme">@null</item>
         <item name="colorBackgroundFloating">#ff000000</item>
         <!-- Used by MediaRouter -->
         <item name="isLightTheme">false</item>
-        <item name="selectableItemBackground">?android:selectableItemBackground</item>
-        <item name="selectableItemBackgroundBorderless">?android:selectableItemBackgroundBorderless</item>
-        <item name="borderlessButtonStyle">?android:borderlessButtonStyle</item>
-        <item name="homeAsUpIndicator">?android:homeAsUpIndicator</item>
-        <item name="dividerVertical">?android:dividerVertical</item>
-        <item name="dividerHorizontal">?android:dividerHorizontal</item>
+        <item name="selectableItemBackground">@drawable/item_background_holo_dark</item>
+        <item name="selectableItemBackgroundBorderless">?attr/selectableItemBackground</item>
+        <item name="borderlessButtonStyle">@android:style/Widget.Holo.Button</item>
+        <item name="homeAsUpIndicator">@drawable/j_ic_ab_back_holo_dark</item>
+        <item name="dividerVertical">@drawable/list_divider_holo_dark</item>
+        <item name="dividerHorizontal">@drawable/list_divider_holo_dark</item>
         <!-- Action Bar Styles -->
-        <item name="actionBarTabStyle">?android:actionBarTabStyle</item>
-        <item name="actionBarTabBarStyle">?android:actionBarTabBarStyle</item>
-        <item name="actionBarTabTextStyle">?android:actionBarTabTextStyle</item>
-        <item name="actionButtonStyle">?android:actionButtonStyle</item>
-        <item name="actionOverflowMenuStyle">?android:actionOverflowMenuStyle</item>
-        <item name="actionBarStyle">?android:actionBarStyle</item>
-        <item name="actionBarSplitStyle">?android:actionBarSplitStyle</item>
-        <item name="actionBarWidgetTheme">@null</item>
-        <item name="actionBarTheme">?android:actionBarTheme</item>
-        <item name="actionBarSize">?android:actionBarSize</item>
-        <item name="actionBarDivider">?android:actionBarDivider</item>
-        <!-- Dropdown Spinner Attributes -->
-        <item name="actionDropDownStyle">?android:actionDropDownStyle</item>
-        <!-- Action Mode -->
-        <item name="actionModeTheme">?attr/actionBarTheme</item>
-        <item name="actionModeStyle">?android:actionModeStyle</item>
-        <item name="actionModeBackground">?android:actionModeBackground</item>
-        <item name="actionModeSplitBackground">?android:actionModeSplitBackground</item>
-        <item name="actionModeCloseContentDescription">@string/abc_action_mode_done</item>
-        <item name="actionModeCloseDrawable">?android:actionModeCloseDrawable</item>
-        <item name="actionModeCloseButtonStyle">?android:actionModeCloseButtonStyle</item>
-        <item name="actionModeCutDrawable">?android:actionModeCutDrawable</item>
-        <item name="actionModeCopyDrawable">?android:actionModeCopyDrawable</item>
-        <item name="actionModePasteDrawable">?android:actionModePasteDrawable</item>
-        <item name="actionModeSelectAllDrawable">?android:actionModeSelectAllDrawable</item>
+        <item name="actionBarSize">@dimen/j_action_bar_default_height</item>
         <!-- Panel attributes -->
         <item name="panelMenuListWidth">250dip</item>
         <item name="panelMenuListTheme">@style/jOS.Theme.CompactMenu</item>
-        <item name="panelBackground">?android:panelBackground</item>
-        <item name="listChoiceBackgroundIndicator">?android:listChoiceBackgroundIndicator</item>
-        <!-- List attributes -->
-        <item name="textAppearanceListItem">?android:textAppearanceListItem</item>
-        <item name="textAppearanceListItemSmall">?android:textAppearanceListItemSmall</item>
-        <item name="textAppearanceListItemSecondary">?android:textAppearanceListItemSecondary</item>
-        <item name="listPreferredItemHeight">?android:listPreferredItemHeight</item>
-        <item name="listPreferredItemHeightSmall">?android:listPreferredItemHeightSmall</item>
-        <item name="listPreferredItemHeightLarge">?android:listPreferredItemHeightLarge</item>
-        <item name="listPreferredItemPaddingLeft">?android:listPreferredItemPaddingLeft</item>
-        <item name="listPreferredItemPaddingRight">?android:listPreferredItemPaddingRight</item>
-        <item name="listPreferredItemPaddingStart">?android:listPreferredItemPaddingStart</item>
-        <item name="listPreferredItemPaddingEnd">?android:listPreferredItemPaddingEnd</item>
+        <item name="panelBackground">@drawable/menu_hardkey_panel_holo_dark</item>
         <!-- Spinner styles -->
-        <item name="spinnerStyle">?android:spinnerStyle</item>
-        <!-- Required for use of support_simple_spinner_dropdown_item.xml -->
-        <item name="spinnerDropDownItemStyle">?android:spinnerDropDownItemStyle</item>
-        <item name="dropdownListPreferredItemHeight">48dip</item>
+        <item name="spinnerStyle">@android:style/Widget.Holo.Spinner</item>
         <!-- Popup Menu styles -->
-        <item name="popupMenuStyle">?android:popupMenuStyle</item>
-        <item name="textAppearanceLargePopupMenu">?android:textAppearanceLargePopupMenu</item>
-        <item name="textAppearanceSmallPopupMenu">?android:textAppearanceSmallPopupMenu</item>
-        <item name="textAppearancePopupMenuHeader">@style/TextAppearance.AppCompat.Widget.PopupMenu.Header</item>
-        <item name="listPopupWindowStyle">?android:listPopupWindowStyle</item>
-        <item name="dropDownListViewStyle">?android:dropDownListViewStyle</item>
-        <item name="listMenuViewStyle">@style/Widget.AppCompat.ListMenuView</item>
-        <!-- SearchView attributes -->
-        <item name="searchViewStyle">?android:searchViewStyle</item>
-        <!--<item name="textColorSearchUrl">@android:color/search_url_text_holo</item>-->
-        <item name="textAppearanceSearchResultTitle">?android:textAppearanceSearchResultTitle</item>
-        <item name="textAppearanceSearchResultSubtitle">?android:textAppearanceSearchResultSubtitle</item>
-        <!-- ShareActionProvider attributes -->
-        <item name="activityChooserViewStyle">@style/Widget.AppCompat.ActivityChooserView</item>
+        <item name="popupMenuStyle">@android:style/Widget.Holo.PopupMenu</item>
         <!-- Toolbar styles -->
         <item name="toolbarStyle">@style/j.ActionBar</item>
-        <item name="toolbarNavigationButtonStyle">@style/Widget.AppCompat.Toolbar.Button.Navigation</item><!--no idea if i can replace-->
-        <item name="editTextStyle">?android:editTextStyle</item>
-        <item name="editTextColor">?android:editTextColor</item>
-        <item name="autoCompleteTextViewStyle">?android:autoCompleteTextViewStyle</item>
+        <item name="editTextStyle">@android:style/Widget.Holo.EditText</item>
+        <item name="editTextColor">@color/j_primary_text_holo_dark</item>
         <!-- Color palette -->
-        <item name="colorPrimaryDark">?android:colorPrimaryDark</item>
-        <item name="colorPrimary">?android:colorPrimary</item>
-        <item name="colorAccent">?colorSecondary</item>
-        <item name="colorControlNormal">?android:colorControlNormal</item>
-        <item name="colorControlActivated">?android:colorControlActivated</item>
-        <item name="colorControlHighlight">?android:colorControlHighlight</item>
-        <item name="colorButtonNormal">?android:colorButtonNormal</item>
+        <item name="colorPrimaryDark">@android:color/black</item>
+        <item name="colorPrimary">#222222</item>
+        <item name="colorAccent">@android:color/holo_blue_dark</item>
+        <item name="colorControlNormal">#39CCCCCC</item>
+        <item name="colorControlActivated">@android:color/holo_blue_light</item>
+        <item name="colorControlHighlight">#59F0F0F0</item>
+        <item name="colorButtonNormal">#BD292F34</item>
         <item name="colorSwitchThumbNormal">@color/switch_thumb_material_light</item>
         <item name="controlBackground">?android:selectableItemBackgroundBorderless</item>
-        <item name="drawerArrowStyle">@style/Widget.AppCompat.DrawerArrowToggle</item>
-        <item name="checkedTextViewStyle">?android:checkedTextViewStyle</item>
-        <item name="checkboxStyle">?android:checkboxStyle</item>
-        <item name="radioButtonStyle">?android:radioButtonStyle</item>
-        <item name="switchStyle">?android:switchStyle</item>
-        <item name="ratingBarStyle">?android:ratingBarStyle</item>
-        <item name="seekBarStyle">?android:seekBarStyle</item>
+        <item name="switchStyle">@style/j.Switch</item>
+        <item name="progressBarStyle">@android:style/Widget.Holo.ProgressBar</item>
+        <item name="android:progressBarStyle">@android:style/Widget.Holo.ProgressBar</item>
+        <item name="android:progressBarStyleHorizontal">@android:style/Widget.Holo.ProgressBar.Horizontal</item>
+        <item name="android:progressBarStyleSmall">@android:style/Widget.Holo.ProgressBar.Small</item>
+        <item name="android:progressBarStyleSmallTitle">@android:style/Widget.Holo.ProgressBar.Small.Title</item>
+        <item name="android:progressBarStyleLarge">@android:style/Widget.Holo.ProgressBar.Large</item>
+        <item name="seekBarStyle">@android:style/Widget.Holo.SeekBar</item>
         <!-- Button styles -->
-        <item name="buttonStyle">?android:buttonStyle</item>
-        <item name="buttonStyleSmall">?android:buttonStyleSmall</item>
-        <item name="imageButtonStyle">?android:imageButtonStyle</item>
-        <item name="buttonBarStyle">?android:buttonBarStyle</item>
-        <item name="buttonBarButtonStyle">?android:buttonBarButtonStyle</item>
+        <item name="buttonStyle">@android:style/Widget.Holo.Button</item>
+        <item name="buttonStyleSmall">@android:style/Widget.Holo.Button.Small</item>
+        <item name="imageButtonStyle">@android:style/Widget.Holo.ImageButton</item>
+        <item name="buttonBarStyle">@android:style/Holo.ButtonBar</item>
+        <item name="buttonBarButtonStyle">?attr/borderlessButtonStyle</item>
         <item name="buttonBarPositiveButtonStyle">?android:buttonBarPositiveButtonStyle</item>
         <item name="buttonBarNegativeButtonStyle">?android:buttonBarNegativeButtonStyle</item>
         <item name="buttonBarNeutralButtonStyle">?android:buttonBarNeutralButtonStyle</item>
         <!-- Dialog attributes -->
-        <item name="dialogTheme">?android:dialogTheme</item>
+        <item name="dialogTheme">@android:style/Theme.Holo.Dialog</item>
         <item name="dialogPreferredPadding">16dp</item>
-        <item name="alertDialogTheme">@style/ThemeOverlay.MaterialComponents.MaterialAlertDialog</item>
+        <item name="alertDialogTheme">@style/j.Alert.theme</item>
         <item name="alertDialogStyle">@style/alertdialogstyle</item>
-        <item name="alertDialogCenterButtons">false</item>
-        <item name="textColorAlertDialogListItem">?android:textColorAlertDialogListItem</item>
-        <item name="listDividerAlertDialog">?android:listDividerAlertDialog</item>
-        <!-- Define these here; ContextThemeWrappers around themes that define them should
-             always clear these values. -->
-        <item name="windowFixedWidthMajor">@null</item>
-        <item name="windowFixedWidthMinor">@null</item>
-        <item name="windowFixedHeightMajor">@null</item>
-        <item name="windowFixedHeightMinor">@null</item>
         <!-- Tooltip attributes -->
         <item name="tooltipFrameBackground">@drawable/tooltip_frame</item>
         <item name="tooltipForegroundColor">#ff000000</item>
-        <item name="actionModeShareDrawable">?android:attr/actionModeShareDrawable</item>
-        <!-- We use the framework provided edit text background on 22+ -->
-        <item name="editTextBackground">?android:attr/editTextBackground</item>
-        <!-- We can use the platform styles on API 23+ -->
-        <item name="ratingBarStyleIndicator">?android:attr/ratingBarStyleIndicator</item>
-        <item name="ratingBarStyleSmall">?android:attr/ratingBarStyleSmall</item>
-        <!-- We can use the platform drawable on v23+ -->
-        <item name="actionBarItemBackground">?android:attr/actionBarItemBackground</item>
-        <!-- We can use the platform styles on v23+ -->
-        <item name="actionMenuTextColor">?android:attr/actionMenuTextColor</item>
-        <item name="actionMenuTextAppearance">?android:attr/actionMenuTextAppearance</item>
-        <item name="actionOverflowButtonStyle">?android:attr/actionOverflowButtonStyle</item>
-        <!-- We can use the platform styles on API 26+ -->
+        <item name="editTextBackground">@drawable/j_edit_text_holo_dark</item>
+        <item name="actionOverflowButtonStyle">@android:style/Widget.Holo.ActionButton.Overflow</item>
         <item name="colorError">@android:color/holo_red_dark</item>
-        <!-- We can use the platform styles on API 28+ -->
-        <item name="dialogCornerRadius">0dp</item>
-        <item name="navigationContentDescription">@string/back_button</item>
 
         <!-- Material Design Attributes -->
         <item name="isMaterialTheme">true</item>
@@ -165,103 +141,18 @@
         <item name="colorOnPrimarySurface">?attr/colorOnSurface</item>
 
         <item name="scrimBackground">@color/scrimBackground</item>
-        <item name="popupMenuBackground">@color/popupMenuBackground</item>
-
-        <item name="minTouchTargetSize">48dp</item>
+        <item name="popupMenuBackground">@drawable/menu_panel_holo_dark</item>
 
         <!-- MaterialComponents Widget styles -->
-        <item name="badgeStyle">@style/Widget.MaterialComponents.Badge</item>
-        <item name="bottomAppBarStyle">@style/Widget.MaterialComponents.BottomAppBar</item>
-        <item name="chipStyle">@style/Widget.MaterialComponents.Chip.Action</item>
-        <item name="chipGroupStyle">@style/Widget.MaterialComponents.ChipGroup</item>
-        <item name="chipStandaloneStyle">@style/Widget.MaterialComponents.Chip.Entry</item>
-        <item name="circularProgressIndicatorStyle">@style/Widget.MaterialComponents.CircularProgressIndicator</item>
-        <item name="extendedFloatingActionButtonStyle">@style/Widget.MaterialComponents.ExtendedFloatingActionButton.Icon</item>
-        <item name="linearProgressIndicatorStyle">@style/Widget.MaterialComponents.LinearProgressIndicator</item>
-        <item name="materialButtonStyle">?android:buttonStyle</item>
-        <item name="materialButtonOutlinedStyle">?android:buttonStyle</item>
-        <item name="materialButtonToggleGroupStyle">@style/Widget.MaterialComponents.MaterialButtonToggleGroup</item>
-        <item name="materialCardViewStyle">@style/Widget.MaterialComponents.CardView</item>
-        <item name="navigationRailStyle">@style/Widget.MaterialComponents.NavigationRailView</item>
-        <item name="sliderStyle">@style/Widget.MaterialComponents.Slider</item>
-
-        <!-- Type styles -->
-        <item name="textAppearanceHeadline1">@style/TextAppearance.MaterialComponents.Headline1</item>
-        <item name="textAppearanceHeadline2">@style/TextAppearance.MaterialComponents.Headline2</item>
-        <item name="textAppearanceHeadline3">@style/TextAppearance.MaterialComponents.Headline3</item>
-        <item name="textAppearanceHeadline4">@style/TextAppearance.MaterialComponents.Headline4</item>
-        <item name="textAppearanceHeadline5">@style/TextAppearance.MaterialComponents.Headline5</item>
-        <item name="textAppearanceHeadline6">@style/TextAppearance.MaterialComponents.Headline6</item>
-        <item name="textAppearanceSubtitle1">@style/TextAppearance.MaterialComponents.Subtitle1</item>
-        <item name="textAppearanceSubtitle2">@style/TextAppearance.MaterialComponents.Subtitle2</item>
-        <item name="textAppearanceBody1">@style/TextAppearance.MaterialComponents.Body1</item>
-        <item name="textAppearanceBody2">@style/TextAppearance.MaterialComponents.Body2</item>
-        <item name="textAppearanceCaption">@style/TextAppearance.MaterialComponents.Caption</item>
-        <item name="textAppearanceButton">?android:textAppearanceButton</item>
-        <item name="textAppearanceOverline">@style/TextAppearance.MaterialComponents.Overline</item>
-
-        <!-- Shape styles -->
-        <item name="shapeAppearanceSmallComponent">
-            @style/ShapeAppearance.MaterialComponents.SmallComponent
-        </item>
-        <item name="shapeAppearanceMediumComponent">
-            @style/ShapeAppearance.MaterialComponents.MediumComponent
-        </item>
-        <item name="shapeAppearanceLargeComponent">
-            @style/ShapeAppearance.MaterialComponents.LargeComponent
-        </item>
-
-        <!-- Motion -->
-        <item name="motionEasingStandard">@string/material_motion_easing_standard</item>
-        <item name="motionEasingEmphasized">@string/material_motion_easing_emphasized</item>
-        <item name="motionEasingDecelerated">@string/material_motion_easing_decelerated</item>
-        <item name="motionEasingAccelerated">@string/material_motion_easing_accelerated</item>
-        <item name="motionEasingLinear">@string/material_motion_easing_linear</item>
-
-        <item name="motionDurationShort1">@integer/material_motion_duration_short_1</item>
-        <item name="motionDurationShort2">@integer/material_motion_duration_short_2</item>
-        <item name="motionDurationMedium1">@integer/material_motion_duration_medium_1</item>
-        <item name="motionDurationMedium2">@integer/material_motion_duration_medium_2</item>
-        <item name="motionDurationLong1">@integer/material_motion_duration_long_1</item>
-        <item name="motionDurationLong2">@integer/material_motion_duration_long_2</item>
-
-        <item name="motionPath">0</item>
-
-        <!-- Elevation Overlays -->
-        <item name="elevationOverlayEnabled">true</item>
-        <item name="elevationOverlayColor">?attr/colorOnSurface</item>
-        <item name="viewInflaterClass">com.google.android.material.theme.MaterialComponentsViewInflater</item>
+        <item name="materialButtonStyle">?buttonStyle</item>
+        <item name="materialButtonOutlinedStyle">?buttonStyle</item>
 
         <!-- Framework, AppCompat, or Design Widget styles -->
-        <item name="appBarLayoutStyle">@style/Widget.MaterialComponents.AppBarLayout.Surface</item>
         <item name="bottomNavigationStyle">@style/j.BottomNav</item>
-        <item name="floatingActionButtonStyle">@style/Widget.Design.FloatingActionButton</item>
-        <item name="navigationViewStyle">@style/Widget.MaterialComponents.NavigationView</item>
-        <item name="snackbarStyle">@style/Widget.MaterialComponents.Snackbar</item>
-        <item name="snackbarButtonStyle">@style/Widget.MaterialComponents.Button.TextButton.Snackbar</item>
-        <item name="snackbarTextViewStyle">@style/Widget.MaterialComponents.Snackbar.TextView</item>
         <item name="tabStyle">@style/tab</item>
-        <item name="textInputStyle">@style/Widget.MaterialComponents.TextInputLayout.FilledBox</item>
-        <item name="textInputOutlinedStyle">@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox</item>
-        <item name="textInputFilledStyle">@style/Widget.MaterialComponents.TextInputLayout.FilledBox</item>
-        <item name="textInputOutlinedDenseStyle">@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense</item>
-        <item name="textInputFilledDenseStyle">@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense</item>
-        <item name="textInputOutlinedExposedDropdownMenuStyle">@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu</item>
-        <item name="textInputFilledExposedDropdownMenuStyle">@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu</item>
-
-        <!-- Dialog themes -->
-        <item name="bottomSheetDialogTheme">@style/ThemeOverlay.MaterialComponents.BottomSheetDialog</item>
-        <item name="materialAlertDialogTheme">?alertDialogTheme</item>
-
-        <!-- Picker styles and themes. -->
-        <item name="materialCalendarStyle">@style/Widget.MaterialComponents.MaterialCalendar</item>
-        <item name="materialCalendarFullscreenTheme">@style/ThemeOverlay.MaterialComponents.MaterialCalendar.Fullscreen</item>
-        <item name="materialCalendarTheme">@style/ThemeOverlay.MaterialComponents.MaterialCalendar</item>
-        <item name="materialTimePickerTheme">@style/ThemeOverlay.MaterialComponents.TimePicker</item>
-
-        <!-- AndroidX Preference Fixes -->
-        <item name="preferenceTheme">@style/preference_j</item>
     </style>
-    <!-- Theme.Holo.NoActionbar overrides -->
-    <style name="Platform.jOS.Theme" parent="android:Theme.Holo.NoActionBar"/>
+    <!-- v26 overrides -->
+    <style name="Platform.v26.jOS.Theme" parent="Platform.jOS.Theme"/>
+    <!-- Theme.MaterialComponents.NoActionBar overrides -->
+    <style name="Platform.jOS.Theme" parent="Theme.MaterialComponents.NoActionBar"/>
 </resources>

@@ -66,8 +66,8 @@ dependencies {
     api("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
     api("com.mikepenz:aboutlibraries-core:11.2.3")
     api("com.mikepenz:aboutlibraries-compose-m3:11.2.3")
-    api("androidx.navigation:navigation-fragment-ktx:2.8.2")
-    api("androidx.navigation:navigation-ui-ktx:2.8.2")
+    api("androidx.navigation:navigation-fragment-ktx:2.8.3")
+    api("androidx.navigation:navigation-ui-ktx:2.8.3")
 }
 
 mavenPublishing {
@@ -75,7 +75,7 @@ mavenPublishing {
 
     pom {
         name = "j Common Library"
-        description = "jLib - a common library that contains a version of the holo theme that is patched for use with material components and appcompat, a custom actionbar based on material components Toolbar and some other things."
+        description = "jLib - a common library that contains a custom actionbar based on material components Toolbar and some other things."
         inceptionYear = "2024"
         url = "https://github.com/dot166/jOS_j-lib"
         licenses {
