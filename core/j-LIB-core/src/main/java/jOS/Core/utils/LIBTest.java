@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import jOS.Core.LIBTestBottomSheet;
 import jOS.Core.R;
 import jOS.Core.jLIBCoreApp;
 
@@ -28,7 +29,7 @@ public class LIBTest {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                context.finish();
+                new LIBTestBottomSheet().show(context.getSupportFragmentManager(), LIBTestBottomSheet.TAG);
             }
         });
     }

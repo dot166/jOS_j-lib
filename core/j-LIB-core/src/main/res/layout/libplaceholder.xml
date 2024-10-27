@@ -11,7 +11,7 @@
         app:navigationContentDescription="@string/abc_action_bar_up_description"
         android:id="@+id/actionbar"/>
 
-    <androidx.fragment.app.FragmentContainerView
+    <fragment
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:name="androidx.navigation.fragment.NavHostFragment"

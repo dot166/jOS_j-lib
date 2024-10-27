@@ -24,4 +24,5 @@
     <string name="dialog_fail_message">how did that happen??</string>
     <string name="dialog_ignore">Ignore</string>
     <string name="dialog_stacktrace">Show Stack Trace</string>
+    <string name="exit_test_menu">Exit test menu</string>
 </resources>
