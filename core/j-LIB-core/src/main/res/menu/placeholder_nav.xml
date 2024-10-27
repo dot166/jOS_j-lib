@@ -3,8 +3,10 @@
 
     <item
         android:title="@string/libplaceholder"
+        android:icon="@mipmap/ic_app_foreground"
         android:id="@+id/LIBTestFragment"/>
     <item
         android:title="@string/jlib_changelog"
+        android:icon="@drawable/ic_github"
         android:id="@+id/LIBChangelogFragment"/>
 </menu>
