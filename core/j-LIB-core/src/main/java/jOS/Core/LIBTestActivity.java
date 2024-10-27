@@ -10,14 +10,12 @@ import android.view.MenuItem;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.navigation.NavController;
-import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 import androidx.navigation.Navigation;
 
 import jOS.Core.utils.ErrorUtils;
 import jOS.Core.utils.IconUtils;
-import jOS.Core.utils.LIBTest;
 
 public class LIBTestActivity extends jActivity {
     @Override

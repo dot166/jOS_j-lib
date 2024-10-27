@@ -22,10 +22,10 @@ dependencyResolutionManagement {
 then add the following lines to your project root build.gradle
 ```
 plugins {
-    id 'com.android.application' version '8.6.0' apply false
-    id 'org.jetbrains.kotlin.android' version '2.0.10' apply false
-    id 'org.jetbrains.kotlin.plugin.compose' version '2.0.10' apply false
-    id 'com.mikepenz.aboutlibraries.plugin' version "11.2.2" apply false // j-SDK dependency
+    id 'com.android.application' version '8.7.1' apply false
+    id 'org.jetbrains.kotlin.android' version '2.0.21' apply false
+    id 'org.jetbrains.kotlin.plugin.compose' version '2.0.21' apply false
+    id 'com.mikepenz.aboutlibraries.plugin' version "11.2.3" apply false // j-SDK dependency
 }
 ```
 
@@ -51,7 +51,7 @@ aboutLibraries {
 }
 
 dependencies {
-    implementation "io.github.dot166:j-Lib:3.2.16"
+    implementation "io.github.dot166:j-Lib:3.2.17"
 }
 ```
 
@@ -69,9 +69,9 @@ dependencyResolutionManagement {
 then add the following lines to your project root build.gradle
 ```
 plugins {
-    id 'com.android.library' version '8.6.0' apply false
-    id 'org.jetbrains.kotlin.android' version '2.0.10' apply false
-    id 'org.jetbrains.kotlin.plugin.compose' version '2.0.10' apply false
+    id 'com.android.library' version '8.7.1' apply false
+    id 'org.jetbrains.kotlin.android' version '2.0.21' apply false
+    id 'org.jetbrains.kotlin.plugin.compose' version '2.0.21' apply false
 }
 ```
 
