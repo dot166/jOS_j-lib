@@ -15,6 +15,7 @@ android_app {
         // DO NOT EDIT THIS SECTION MANUALLY
         "j.Lib",
         "SmartspacerClient",
+        "aosp-libs_org.jetbrains.kotlin_kotlin-stdlib",
     ],
 
     kotlincflags: ["-Xjvm-default=all"],

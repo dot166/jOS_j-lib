@@ -1,5 +1,5 @@
 //
-// SPDX-FileCopyrightText: 2024 ._______166
+// SPDX-FileCopyrightText: ._______166
 // SPDX-License-Identifier: GPL-3.0
 //
 
@@ -21,8 +21,8 @@ java_library_static {
 
 android_library_import {
     name: "aosp-libs_androidx.compose.animation_animation-android-nodeps",
-    aars: ["androidx/compose/animation/animation-android/1.7.2/animation-release.aar"],
-    sdk_version: "current",
+    aars: ["androidx/compose/animation/animation-android/1.7.4/animation-release.aar"],
+    sdk_version: "35",
     min_sdk_version: "14",
     apex_available: [
         "//apex_available:platform",
@@ -45,13 +45,13 @@ android_library_import {
 
 android_library {
     name: "aosp-libs_androidx.compose.animation_animation-android",
-    sdk_version: "current",
+    sdk_version: "35",
     min_sdk_version: "14",
     apex_available: [
         "//apex_available:platform",
         "//apex_available:anyapex",
     ],
-    manifest: "androidx/compose/animation/animation-android/1.7.2/AndroidManifest.xml",
+    manifest: "androidx/compose/animation/animation-android/1.7.4/AndroidManifest.xml",
     static_libs: [
         "aosp-libs_androidx.compose.animation_animation-android-nodeps",
         "androidx.annotation_annotation",
@@ -85,8 +85,8 @@ java_library_static {
 
 android_library_import {
     name: "aosp-libs_androidx.compose.animation_animation-core-android-nodeps",
-    aars: ["androidx/compose/animation/animation-core-android/1.7.2/animation-core-release.aar"],
-    sdk_version: "current",
+    aars: ["androidx/compose/animation/animation-core-android/1.7.4/animation-core-release.aar"],
+    sdk_version: "35",
     min_sdk_version: "14",
     apex_available: [
         "//apex_available:platform",
@@ -107,13 +107,13 @@ android_library_import {
 
 android_library {
     name: "aosp-libs_androidx.compose.animation_animation-core-android",
-    sdk_version: "current",
+    sdk_version: "35",
     min_sdk_version: "14",
     apex_available: [
         "//apex_available:platform",
         "//apex_available:anyapex",
     ],
-    manifest: "androidx/compose/animation/animation-core-android/1.7.2/AndroidManifest.xml",
+    manifest: "androidx/compose/animation/animation-core-android/1.7.4/AndroidManifest.xml",
     static_libs: [
         "aosp-libs_androidx.compose.animation_animation-core-android-nodeps",
         "androidx.annotation_annotation",
@@ -145,8 +145,8 @@ java_library_static {
 
 android_library_import {
     name: "aosp-libs_androidx.compose.foundation_foundation-android-nodeps",
-    aars: ["androidx/compose/foundation/foundation-android/1.7.2/foundation-release.aar"],
-    sdk_version: "current",
+    aars: ["androidx/compose/foundation/foundation-android/1.7.4/foundation-release.aar"],
+    sdk_version: "35",
     min_sdk_version: "14",
     apex_available: [
         "//apex_available:platform",
@@ -170,13 +170,13 @@ android_library_import {
 
 android_library {
     name: "aosp-libs_androidx.compose.foundation_foundation-android",
-    sdk_version: "current",
+    sdk_version: "35",
     min_sdk_version: "14",
     apex_available: [
         "//apex_available:platform",
         "//apex_available:anyapex",
     ],
-    manifest: "androidx/compose/foundation/foundation-android/1.7.2/AndroidManifest.xml",
+    manifest: "androidx/compose/foundation/foundation-android/1.7.4/AndroidManifest.xml",
     static_libs: [
         "aosp-libs_androidx.compose.foundation_foundation-android-nodeps",
         "androidx.annotation_annotation",
@@ -211,8 +211,8 @@ java_library_static {
 
 android_library_import {
     name: "aosp-libs_androidx.compose.foundation_foundation-layout-android-nodeps",
-    aars: ["androidx/compose/foundation/foundation-layout-android/1.7.2/foundation-layout-release.aar"],
-    sdk_version: "current",
+    aars: ["androidx/compose/foundation/foundation-layout-android/1.7.4/foundation-layout-release.aar"],
+    sdk_version: "35",
     min_sdk_version: "14",
     apex_available: [
         "//apex_available:platform",
@@ -234,13 +234,13 @@ android_library_import {
 
 android_library {
     name: "aosp-libs_androidx.compose.foundation_foundation-layout-android",
-    sdk_version: "current",
+    sdk_version: "35",
     min_sdk_version: "14",
     apex_available: [
         "//apex_available:platform",
         "//apex_available:anyapex",
     ],
-    manifest: "androidx/compose/foundation/foundation-layout-android/1.7.2/AndroidManifest.xml",
+    manifest: "androidx/compose/foundation/foundation-layout-android/1.7.4/AndroidManifest.xml",
     static_libs: [
         "aosp-libs_androidx.compose.foundation_foundation-layout-android-nodeps",
         "androidx.annotation_annotation",
@@ -273,8 +273,8 @@ java_library_static {
 
 android_library_import {
     name: "aosp-libs_androidx.compose.material_material-android-nodeps",
-    aars: ["androidx/compose/material/material-android/1.7.2/material-release.aar"],
-    sdk_version: "current",
+    aars: ["androidx/compose/material/material-android/1.7.4/material-release.aar"],
+    sdk_version: "35",
     min_sdk_version: "14",
     apex_available: [
         "//apex_available:platform",
@@ -301,13 +301,13 @@ android_library_import {
 
 android_library {
     name: "aosp-libs_androidx.compose.material_material-android",
-    sdk_version: "current",
+    sdk_version: "35",
     min_sdk_version: "14",
     apex_available: [
         "//apex_available:platform",
         "//apex_available:anyapex",
     ],
-    manifest: "androidx/compose/material/material-android/1.7.2/AndroidManifest.xml",
+    manifest: "androidx/compose/material/material-android/1.7.4/AndroidManifest.xml",
     static_libs: [
         "aosp-libs_androidx.compose.material_material-android-nodeps",
         "androidx.annotation_annotation",
@@ -346,7 +346,7 @@ java_library_static {
 android_library_import {
     name: "aosp-libs_androidx.compose.material_material-icons-core-android-nodeps",
     aars: ["androidx/compose/material/material-icons-core-android/1.6.0/material-icons-core-release.aar"],
-    sdk_version: "current",
+    sdk_version: "35",
     min_sdk_version: "14",
     apex_available: [
         "//apex_available:platform",
@@ -360,7 +360,7 @@ android_library_import {
 
 android_library {
     name: "aosp-libs_androidx.compose.material_material-icons-core-android",
-    sdk_version: "current",
+    sdk_version: "35",
     min_sdk_version: "14",
     apex_available: [
         "//apex_available:platform",
@@ -391,8 +391,8 @@ java_library_static {
 
 android_library_import {
     name: "aosp-libs_androidx.compose.material_material-ripple-android-nodeps",
-    aars: ["androidx/compose/material/material-ripple-android/1.7.2/material-ripple-release.aar"],
-    sdk_version: "current",
+    aars: ["androidx/compose/material/material-ripple-android/1.7.4/material-ripple-release.aar"],
+    sdk_version: "35",
     min_sdk_version: "14",
     apex_available: [
         "//apex_available:platform",
@@ -410,13 +410,13 @@ android_library_import {
 
 android_library {
     name: "aosp-libs_androidx.compose.material_material-ripple-android",
-    sdk_version: "current",
+    sdk_version: "35",
     min_sdk_version: "14",
     apex_available: [
         "//apex_available:platform",
         "//apex_available:anyapex",
     ],
-    manifest: "androidx/compose/material/material-ripple-android/1.7.2/AndroidManifest.xml",
+    manifest: "androidx/compose/material/material-ripple-android/1.7.4/AndroidManifest.xml",
     static_libs: [
         "aosp-libs_androidx.compose.material_material-ripple-android-nodeps",
         "androidx.collection_collection",
@@ -446,7 +446,7 @@ java_library_static {
 android_library_import {
     name: "aosp-libs_androidx.compose.material3_material3-android-nodeps",
     aars: ["androidx/compose/material3/material3-android/1.3.0/material3-release.aar"],
-    sdk_version: "current",
+    sdk_version: "35",
     min_sdk_version: "14",
     apex_available: [
         "//apex_available:platform",
@@ -472,7 +472,7 @@ android_library_import {
 
 android_library {
     name: "aosp-libs_androidx.compose.material3_material3-android",
-    sdk_version: "current",
+    sdk_version: "35",
     min_sdk_version: "14",
     apex_available: [
         "//apex_available:platform",
@@ -515,8 +515,8 @@ java_library_static {
 
 android_library_import {
     name: "aosp-libs_androidx.compose.runtime_runtime-android-nodeps",
-    aars: ["androidx/compose/runtime/runtime-android/1.7.2/runtime-release.aar"],
-    sdk_version: "current",
+    aars: ["androidx/compose/runtime/runtime-android/1.7.4/runtime-release.aar"],
+    sdk_version: "35",
     min_sdk_version: "14",
     apex_available: [
         "//apex_available:platform",
@@ -533,13 +533,13 @@ android_library_import {
 
 android_library {
     name: "aosp-libs_androidx.compose.runtime_runtime-android",
-    sdk_version: "current",
+    sdk_version: "35",
     min_sdk_version: "14",
     apex_available: [
         "//apex_available:platform",
         "//apex_available:anyapex",
     ],
-    manifest: "androidx/compose/runtime/runtime-android/1.7.2/AndroidManifest.xml",
+    manifest: "androidx/compose/runtime/runtime-android/1.7.4/AndroidManifest.xml",
     static_libs: [
         "aosp-libs_androidx.compose.runtime_runtime-android-nodeps",
         "androidx.annotation_annotation-experimental",
@@ -567,8 +567,8 @@ java_library_static {
 
 android_library_import {
     name: "aosp-libs_androidx.compose.runtime_runtime-saveable-android-nodeps",
-    aars: ["androidx/compose/runtime/runtime-saveable-android/1.7.2/runtime-saveable-release.aar"],
-    sdk_version: "current",
+    aars: ["androidx/compose/runtime/runtime-saveable-android/1.7.4/runtime-saveable-release.aar"],
+    sdk_version: "35",
     min_sdk_version: "14",
     apex_available: [
         "//apex_available:platform",
@@ -584,13 +584,13 @@ android_library_import {
 
 android_library {
     name: "aosp-libs_androidx.compose.runtime_runtime-saveable-android",
-    sdk_version: "current",
+    sdk_version: "35",
     min_sdk_version: "14",
     apex_available: [
         "//apex_available:platform",
         "//apex_available:anyapex",
     ],
-    manifest: "androidx/compose/runtime/runtime-saveable-android/1.7.2/AndroidManifest.xml",
+    manifest: "androidx/compose/runtime/runtime-saveable-android/1.7.4/AndroidManifest.xml",
     static_libs: [
         "aosp-libs_androidx.compose.runtime_runtime-saveable-android-nodeps",
         "androidx.annotation_annotation",
@@ -617,8 +617,8 @@ java_library_static {
 
 android_library_import {
     name: "aosp-libs_androidx.compose.ui_ui-android-nodeps",
-    aars: ["androidx/compose/ui/ui-android/1.7.2/ui-release.aar"],
-    sdk_version: "current",
+    aars: ["androidx/compose/ui/ui-android/1.7.4/ui-release.aar"],
+    sdk_version: "35",
     min_sdk_version: "14",
     apex_available: [
         "//apex_available:platform",
@@ -652,13 +652,13 @@ android_library_import {
 
 android_library {
     name: "aosp-libs_androidx.compose.ui_ui-android",
-    sdk_version: "current",
+    sdk_version: "35",
     min_sdk_version: "14",
     apex_available: [
         "//apex_available:platform",
         "//apex_available:anyapex",
     ],
-    manifest: "androidx/compose/ui/ui-android/1.7.2/AndroidManifest.xml",
+    manifest: "androidx/compose/ui/ui-android/1.7.4/AndroidManifest.xml",
     static_libs: [
         "aosp-libs_androidx.compose.ui_ui-android-nodeps",
         "androidx.activity_activity-ktx",
@@ -703,8 +703,8 @@ java_library_static {
 
 android_library_import {
     name: "aosp-libs_androidx.compose.ui_ui-geometry-android-nodeps",
-    aars: ["androidx/compose/ui/ui-geometry-android/1.7.2/ui-geometry-release.aar"],
-    sdk_version: "current",
+    aars: ["androidx/compose/ui/ui-geometry-android/1.7.4/ui-geometry-release.aar"],
+    sdk_version: "35",
     min_sdk_version: "14",
     apex_available: [
         "//apex_available:platform",
@@ -720,13 +720,13 @@ android_library_import {
 
 android_library {
     name: "aosp-libs_androidx.compose.ui_ui-geometry-android",
-    sdk_version: "current",
+    sdk_version: "35",
     min_sdk_version: "14",
     apex_available: [
         "//apex_available:platform",
         "//apex_available:anyapex",
     ],
-    manifest: "androidx/compose/ui/ui-geometry-android/1.7.2/AndroidManifest.xml",
+    manifest: "androidx/compose/ui/ui-geometry-android/1.7.4/AndroidManifest.xml",
     static_libs: [
         "aosp-libs_androidx.compose.ui_ui-geometry-android-nodeps",
         "androidx.annotation_annotation",
@@ -753,8 +753,8 @@ java_library_static {
 
 android_library_import {
     name: "aosp-libs_androidx.compose.ui_ui-graphics-android-nodeps",
-    aars: ["androidx/compose/ui/ui-graphics-android/1.7.2/ui-graphics-release.aar"],
-    sdk_version: "current",
+    aars: ["androidx/compose/ui/ui-graphics-android/1.7.4/ui-graphics-release.aar"],
+    sdk_version: "35",
     min_sdk_version: "14",
     apex_available: [
         "//apex_available:platform",
@@ -775,13 +775,13 @@ android_library_import {
 
 android_library {
     name: "aosp-libs_androidx.compose.ui_ui-graphics-android",
-    sdk_version: "current",
+    sdk_version: "35",
     min_sdk_version: "14",
     apex_available: [
         "//apex_available:platform",
         "//apex_available:anyapex",
     ],
-    manifest: "androidx/compose/ui/ui-graphics-android/1.7.2/AndroidManifest.xml",
+    manifest: "androidx/compose/ui/ui-graphics-android/1.7.4/AndroidManifest.xml",
     static_libs: [
         "aosp-libs_androidx.compose.ui_ui-graphics-android-nodeps",
         "androidx.annotation_annotation",
@@ -813,8 +813,8 @@ java_library_static {
 
 android_library_import {
     name: "aosp-libs_androidx.compose.ui_ui-text-android-nodeps",
-    aars: ["androidx/compose/ui/ui-text-android/1.7.2/ui-text-release.aar"],
-    sdk_version: "current",
+    aars: ["androidx/compose/ui/ui-text-android/1.7.4/ui-text-release.aar"],
+    sdk_version: "35",
     min_sdk_version: "14",
     apex_available: [
         "//apex_available:platform",
@@ -838,13 +838,13 @@ android_library_import {
 
 android_library {
     name: "aosp-libs_androidx.compose.ui_ui-text-android",
-    sdk_version: "current",
+    sdk_version: "35",
     min_sdk_version: "14",
     apex_available: [
         "//apex_available:platform",
         "//apex_available:anyapex",
     ],
-    manifest: "androidx/compose/ui/ui-text-android/1.7.2/AndroidManifest.xml",
+    manifest: "androidx/compose/ui/ui-text-android/1.7.4/AndroidManifest.xml",
     static_libs: [
         "aosp-libs_androidx.compose.ui_ui-text-android-nodeps",
         "androidx.annotation_annotation",
@@ -879,8 +879,8 @@ java_library_static {
 
 android_library_import {
     name: "aosp-libs_androidx.compose.ui_ui-tooling-preview-android-nodeps",
-    aars: ["androidx/compose/ui/ui-tooling-preview-android/1.7.2/ui-tooling-preview-release.aar"],
-    sdk_version: "current",
+    aars: ["androidx/compose/ui/ui-tooling-preview-android/1.7.4/ui-tooling-preview-release.aar"],
+    sdk_version: "35",
     min_sdk_version: "14",
     apex_available: [
         "//apex_available:platform",
@@ -894,13 +894,13 @@ android_library_import {
 
 android_library {
     name: "aosp-libs_androidx.compose.ui_ui-tooling-preview-android",
-    sdk_version: "current",
+    sdk_version: "35",
     min_sdk_version: "14",
     apex_available: [
         "//apex_available:platform",
         "//apex_available:anyapex",
     ],
-    manifest: "androidx/compose/ui/ui-tooling-preview-android/1.7.2/AndroidManifest.xml",
+    manifest: "androidx/compose/ui/ui-tooling-preview-android/1.7.4/AndroidManifest.xml",
     static_libs: [
         "aosp-libs_androidx.compose.ui_ui-tooling-preview-android-nodeps",
         "androidx.annotation_annotation",
@@ -925,8 +925,8 @@ java_library_static {
 
 android_library_import {
     name: "aosp-libs_androidx.compose.ui_ui-unit-android-nodeps",
-    aars: ["androidx/compose/ui/ui-unit-android/1.7.2/ui-unit-release.aar"],
-    sdk_version: "current",
+    aars: ["androidx/compose/ui/ui-unit-android/1.7.4/ui-unit-release.aar"],
+    sdk_version: "35",
     min_sdk_version: "14",
     apex_available: [
         "//apex_available:platform",
@@ -946,13 +946,13 @@ android_library_import {
 
 android_library {
     name: "aosp-libs_androidx.compose.ui_ui-unit-android",
-    sdk_version: "current",
+    sdk_version: "35",
     min_sdk_version: "14",
     apex_available: [
         "//apex_available:platform",
         "//apex_available:anyapex",
     ],
-    manifest: "androidx/compose/ui/ui-unit-android/1.7.2/AndroidManifest.xml",
+    manifest: "androidx/compose/ui/ui-unit-android/1.7.4/AndroidManifest.xml",
     static_libs: [
         "aosp-libs_androidx.compose.ui_ui-unit-android-nodeps",
         "androidx.annotation_annotation",
@@ -983,8 +983,8 @@ java_library_static {
 
 android_library_import {
     name: "aosp-libs_androidx.compose.ui_ui-util-android-nodeps",
-    aars: ["androidx/compose/ui/ui-util-android/1.7.2/ui-util-release.aar"],
-    sdk_version: "current",
+    aars: ["androidx/compose/ui/ui-util-android/1.7.4/ui-util-release.aar"],
+    sdk_version: "35",
     min_sdk_version: "14",
     apex_available: [
         "//apex_available:platform",
@@ -998,13 +998,13 @@ android_library_import {
 
 android_library {
     name: "aosp-libs_androidx.compose.ui_ui-util-android",
-    sdk_version: "current",
+    sdk_version: "35",
     min_sdk_version: "14",
     apex_available: [
         "//apex_available:platform",
         "//apex_available:anyapex",
     ],
-    manifest: "androidx/compose/ui/ui-util-android/1.7.2/AndroidManifest.xml",
+    manifest: "androidx/compose/ui/ui-util-android/1.7.4/AndroidManifest.xml",
     static_libs: [
         "aosp-libs_androidx.compose.ui_ui-util-android-nodeps",
         "androidx.annotation_annotation-experimental",
@@ -1016,7 +1016,7 @@ android_library {
 android_library_import {
     name: "aosp-libs_androidx.databinding_viewbinding-nodeps",
     aars: ["androidx/databinding/viewbinding/8.4.1/viewbinding-8.4.1.aar"],
-    sdk_version: "current",
+    sdk_version: "35",
     min_sdk_version: "14",
     apex_available: [
         "//apex_available:platform",
@@ -1029,7 +1029,7 @@ android_library_import {
 
 android_library {
     name: "aosp-libs_androidx.databinding_viewbinding",
-    sdk_version: "current",
+    sdk_version: "35",
     min_sdk_version: "14",
     apex_available: [
         "//apex_available:platform",
@@ -1046,7 +1046,7 @@ android_library {
 android_library_import {
     name: "aosp-libs_androidx.preference_preference-ktx-nodeps",
     aars: ["androidx/preference/preference-ktx/1.2.1/preference-ktx-1.2.1.aar"],
-    sdk_version: "current",
+    sdk_version: "35",
     min_sdk_version: "14",
     apex_available: [
         "//apex_available:platform",
@@ -1062,7 +1062,7 @@ android_library_import {
 
 android_library {
     name: "aosp-libs_androidx.preference_preference-ktx",
-    sdk_version: "current",
+    sdk_version: "35",
     min_sdk_version: "14",
     apex_available: [
         "//apex_available:platform",
@@ -1082,7 +1082,7 @@ android_library {
 android_library_import {
     name: "aosp-libs_com.github.skydoves_balloon-nodeps",
     aars: ["com/github/skydoves/balloon/1.4.7/balloon-1.4.7.aar"],
-    sdk_version: "current",
+    sdk_version: "35",
     min_sdk_version: "14",
     apex_available: [
         "//apex_available:platform",
@@ -1100,7 +1100,7 @@ android_library_import {
 
 android_library {
     name: "aosp-libs_com.github.skydoves_balloon",
-    sdk_version: "current",
+    sdk_version: "35",
     min_sdk_version: "14",
     apex_available: [
         "//apex_available:platform",
@@ -1122,7 +1122,7 @@ android_library {
 android_library_import {
     name: "aosp-libs_com.google.accompanist_accompanist-drawablepainter-nodeps",
     aars: ["com/google/accompanist/accompanist-drawablepainter/0.36.0/accompanist-drawablepainter-0.36.0.aar"],
-    sdk_version: "current",
+    sdk_version: "35",
     min_sdk_version: "14",
     apex_available: [
         "//apex_available:platform",
@@ -1137,7 +1137,7 @@ android_library_import {
 
 android_library {
     name: "aosp-libs_com.google.accompanist_accompanist-drawablepainter",
-    sdk_version: "current",
+    sdk_version: "35",
     min_sdk_version: "14",
     apex_available: [
         "//apex_available:platform",
@@ -1156,7 +1156,7 @@ android_library {
 android_library_import {
     name: "aosp-libs_com.google.accompanist_accompanist-placeholder-nodeps",
     aars: ["com/google/accompanist/accompanist-placeholder/0.36.0/accompanist-placeholder-0.36.0.aar"],
-    sdk_version: "current",
+    sdk_version: "35",
     min_sdk_version: "14",
     apex_available: [
         "//apex_available:platform",
@@ -1172,7 +1172,7 @@ android_library_import {
 
 android_library {
     name: "aosp-libs_com.google.accompanist_accompanist-placeholder",
-    sdk_version: "current",
+    sdk_version: "35",
     min_sdk_version: "14",
     apex_available: [
         "//apex_available:platform",
@@ -1192,7 +1192,7 @@ android_library {
 android_library_import {
     name: "aosp-libs_com.google.accompanist_accompanist-placeholder-material-nodeps",
     aars: ["com/google/accompanist/accompanist-placeholder-material/0.36.0/accompanist-placeholder-material-0.36.0.aar"],
-    sdk_version: "current",
+    sdk_version: "35",
     min_sdk_version: "14",
     apex_available: [
         "//apex_available:platform",
@@ -1208,7 +1208,7 @@ android_library_import {
 
 android_library {
     name: "aosp-libs_com.google.accompanist_accompanist-placeholder-material",
-    sdk_version: "current",
+    sdk_version: "35",
     min_sdk_version: "14",
     apex_available: [
         "//apex_available:platform",
@@ -1228,7 +1228,7 @@ android_library {
 android_library_import {
     name: "SmartspacerClient-nodeps",
     aars: ["com/kieronquinn/smartspacer/sdk-client/1.0.11/sdk-client-1.0.11.aar"],
-    sdk_version: "current",
+    sdk_version: "35",
     min_sdk_version: "14",
     apex_available: [
         "//apex_available:platform",
@@ -1242,15 +1242,15 @@ android_library_import {
         "androidx.lifecycle_lifecycle-service",
         "aosp-libs_androidx.databinding_viewbinding",
         "aosp-libs_com.github.skydoves_balloon",
-        "aosp-libs_com.kieronquinn.smartspacer_sdk-core",
         "aosp-libs_org.jetbrains.kotlin_kotlin-stdlib-jdk8",
         "aosp-libs_org.jetbrains.kotlinx_kotlinx-coroutines-core",
+        "com.kieronquinn.smartspacer_sdk-core",
     ],
 }
 
 android_library {
     name: "SmartspacerClient",
-    sdk_version: "current",
+    sdk_version: "35",
     min_sdk_version: "14",
     apex_available: [
         "//apex_available:platform",
@@ -1266,17 +1266,17 @@ android_library {
         "androidx.lifecycle_lifecycle-service",
         "aosp-libs_androidx.databinding_viewbinding",
         "aosp-libs_com.github.skydoves_balloon",
-        "aosp-libs_com.kieronquinn.smartspacer_sdk-core",
         "aosp-libs_org.jetbrains.kotlin_kotlin-stdlib-jdk8",
         "aosp-libs_org.jetbrains.kotlinx_kotlinx-coroutines-core",
+        "com.kieronquinn.smartspacer_sdk-core",
     ],
     java_version: "1.7",
 }
 
 android_library_import {
-    name: "aosp-libs_com.kieronquinn.smartspacer_sdk-core-nodeps",
+    name: "com.kieronquinn.smartspacer_sdk-core-nodeps",
     aars: ["com/kieronquinn/smartspacer/sdk-core/1.0.5/sdk-core-1.0.5.aar"],
-    sdk_version: "current",
+    sdk_version: "35",
     min_sdk_version: "14",
     apex_available: [
         "//apex_available:platform",
@@ -1290,8 +1290,8 @@ android_library_import {
 }
 
 android_library {
-    name: "aosp-libs_com.kieronquinn.smartspacer_sdk-core",
-    sdk_version: "current",
+    name: "com.kieronquinn.smartspacer_sdk-core",
+    sdk_version: "35",
     min_sdk_version: "14",
     apex_available: [
         "//apex_available:platform",
@@ -1299,7 +1299,7 @@ android_library {
     ],
     manifest: "com/kieronquinn/smartspacer/sdk-core/1.0.5/AndroidManifest.xml",
     static_libs: [
-        "aosp-libs_com.kieronquinn.smartspacer_sdk-core-nodeps",
+        "com.kieronquinn.smartspacer_sdk-core-nodeps",
         "androidx.core_core-ktx",
         "aosp-libs_org.jetbrains.kotlin_kotlin-parcelize-runtime",
         "aosp-libs_org.jetbrains.kotlin_kotlin-stdlib-jdk8",
@@ -1324,7 +1324,7 @@ java_library_static {
 android_library_import {
     name: "aosp-libs_com.mikepenz_aboutlibraries-compose-m3-android-nodeps",
     aars: ["com/mikepenz/aboutlibraries-compose-m3-android/11.2.3/aboutlibraries-compose-m3-release.aar"],
-    sdk_version: "current",
+    sdk_version: "35",
     min_sdk_version: "14",
     apex_available: [
         "//apex_available:platform",
@@ -1344,7 +1344,7 @@ android_library_import {
 
 android_library {
     name: "aosp-libs_com.mikepenz_aboutlibraries-compose-m3-android",
-    sdk_version: "current",
+    sdk_version: "35",
     min_sdk_version: "14",
     apex_available: [
         "//apex_available:platform",
@@ -1382,7 +1382,7 @@ java_library_static {
 android_library_import {
     name: "aosp-libs_com.mikepenz_aboutlibraries-core-android-nodeps",
     aars: ["com/mikepenz/aboutlibraries-core-android/11.2.3/aboutlibraries-core-release.aar"],
-    sdk_version: "current",
+    sdk_version: "35",
     min_sdk_version: "14",
     apex_available: [
         "//apex_available:platform",
@@ -1397,7 +1397,7 @@ android_library_import {
 
 android_library {
     name: "aosp-libs_com.mikepenz_aboutlibraries-core-android",
-    sdk_version: "current",
+    sdk_version: "35",
     min_sdk_version: "14",
     apex_available: [
         "//apex_available:platform",
@@ -1416,7 +1416,7 @@ android_library {
 java_import {
     name: "aosp-libs_com.squareup.okhttp3_okhttp-nodeps",
     jars: ["com/squareup/okhttp3/okhttp/4.12.0/okhttp-4.12.0.jar"],
-    sdk_version: "current",
+    sdk_version: "35",
     min_sdk_version: "14",
     apex_available: [
         "//apex_available:platform",
@@ -1426,7 +1426,7 @@ java_import {
 
 java_library_static {
     name: "aosp-libs_com.squareup.okhttp3_okhttp",
-    sdk_version: "current",
+    sdk_version: "35",
     min_sdk_version: "14",
     apex_available: [
         "//apex_available:platform",
@@ -1457,7 +1457,7 @@ java_library_static {
 java_import {
     name: "aosp-libs_com.squareup.okio_okio-jvm-nodeps",
     jars: ["com/squareup/okio/okio-jvm/3.9.0/okio-jvm-3.9.0.jar"],
-    sdk_version: "current",
+    sdk_version: "35",
     min_sdk_version: "14",
     apex_available: [
         "//apex_available:platform",
@@ -1467,7 +1467,7 @@ java_import {
 
 java_library_static {
     name: "aosp-libs_com.squareup.okio_okio-jvm",
-    sdk_version: "current",
+    sdk_version: "35",
     min_sdk_version: "14",
     apex_available: [
         "//apex_available:platform",
@@ -1483,7 +1483,7 @@ java_library_static {
 android_library_import {
     name: "aosp-libs_io.coil-kt_coil-nodeps",
     aars: ["io/coil-kt/coil/2.7.0/coil-2.7.0.aar"],
-    sdk_version: "current",
+    sdk_version: "35",
     min_sdk_version: "14",
     apex_available: [
         "//apex_available:platform",
@@ -1497,7 +1497,7 @@ android_library_import {
 
 android_library {
     name: "aosp-libs_io.coil-kt_coil",
-    sdk_version: "current",
+    sdk_version: "35",
     min_sdk_version: "14",
     apex_available: [
         "//apex_available:platform",
@@ -1515,7 +1515,7 @@ android_library {
 android_library_import {
     name: "aosp-libs_io.coil-kt_coil-base-nodeps",
     aars: ["io/coil-kt/coil-base/2.7.0/coil-base-2.7.0.aar"],
-    sdk_version: "current",
+    sdk_version: "35",
     min_sdk_version: "14",
     apex_available: [
         "//apex_available:platform",
@@ -1538,7 +1538,7 @@ android_library_import {
 
 android_library {
     name: "aosp-libs_io.coil-kt_coil-base",
-    sdk_version: "current",
+    sdk_version: "35",
     min_sdk_version: "14",
     apex_available: [
         "//apex_available:platform",
@@ -1565,7 +1565,7 @@ android_library {
 android_library_import {
     name: "aosp-libs_io.coil-kt_coil-compose-nodeps",
     aars: ["io/coil-kt/coil-compose/2.7.0/coil-compose-2.7.0.aar"],
-    sdk_version: "current",
+    sdk_version: "35",
     min_sdk_version: "14",
     apex_available: [
         "//apex_available:platform",
@@ -1580,7 +1580,7 @@ android_library_import {
 
 android_library {
     name: "aosp-libs_io.coil-kt_coil-compose",
-    sdk_version: "current",
+    sdk_version: "35",
     min_sdk_version: "14",
     apex_available: [
         "//apex_available:platform",
@@ -1599,7 +1599,7 @@ android_library {
 android_library_import {
     name: "aosp-libs_io.coil-kt_coil-compose-base-nodeps",
     aars: ["io/coil-kt/coil-compose-base/2.7.0/coil-compose-base-2.7.0.aar"],
-    sdk_version: "current",
+    sdk_version: "35",
     min_sdk_version: "14",
     apex_available: [
         "//apex_available:platform",
@@ -1616,7 +1616,7 @@ android_library_import {
 
 android_library {
     name: "aosp-libs_io.coil-kt_coil-compose-base",
-    sdk_version: "current",
+    sdk_version: "35",
     min_sdk_version: "14",
     apex_available: [
         "//apex_available:platform",
@@ -1636,8 +1636,8 @@ android_library {
 
 android_library_import {
     name: "j.Lib-nodeps",
-    aars: ["io/github/dot166/j-Lib/3.2.16/j-Lib-3.2.16.aar"],
-    sdk_version: "current",
+    aars: ["io/github/dot166/j-Lib/3.2.17/j-Lib-3.2.17.aar"],
+    sdk_version: "35",
     min_sdk_version: "14",
     apex_available: [
         "//apex_available:platform",
@@ -1666,13 +1666,13 @@ android_library_import {
 
 android_library {
     name: "j.Lib",
-    sdk_version: "current",
+    sdk_version: "35",
     min_sdk_version: "14",
     apex_available: [
         "//apex_available:platform",
         "//apex_available:anyapex",
     ],
-    manifest: "io/github/dot166/j-Lib/3.2.16/AndroidManifest.xml",
+    manifest: "io/github/dot166/j-Lib/3.2.17/AndroidManifest.xml",
     static_libs: [
         "j.Lib-nodeps",
         "androidx.appcompat_appcompat",
@@ -1699,7 +1699,7 @@ android_library {
 java_import {
     name: "aosp-libs_org.jetbrains_annotations-nodeps",
     jars: ["org/jetbrains/annotations/23.0.0/annotations-23.0.0.jar"],
-    sdk_version: "current",
+    sdk_version: "35",
     min_sdk_version: "14",
     apex_available: [
         "//apex_available:platform",
@@ -1709,7 +1709,7 @@ java_import {
 
 java_library_static {
     name: "aosp-libs_org.jetbrains_annotations",
-    sdk_version: "current",
+    sdk_version: "35",
     min_sdk_version: "14",
     apex_available: [
         "//apex_available:platform",
@@ -1794,7 +1794,7 @@ java_library_static {
 java_import {
     name: "aosp-libs_org.jetbrains.kotlin_kotlin-android-extensions-runtime-nodeps",
     jars: ["org/jetbrains/kotlin/kotlin-android-extensions-runtime/1.9.10/kotlin-android-extensions-runtime-1.9.10.jar"],
-    sdk_version: "current",
+    sdk_version: "35",
     min_sdk_version: "14",
     apex_available: [
         "//apex_available:platform",
@@ -1804,7 +1804,7 @@ java_import {
 
 java_library_static {
     name: "aosp-libs_org.jetbrains.kotlin_kotlin-android-extensions-runtime",
-    sdk_version: "current",
+    sdk_version: "35",
     min_sdk_version: "14",
     apex_available: [
         "//apex_available:platform",
@@ -1833,7 +1833,7 @@ java_library_static {
 java_import {
     name: "aosp-libs_org.jetbrains.kotlin_kotlin-parcelize-runtime-nodeps",
     jars: ["org/jetbrains/kotlin/kotlin-parcelize-runtime/1.9.10/kotlin-parcelize-runtime-1.9.10.jar"],
-    sdk_version: "current",
+    sdk_version: "35",
     min_sdk_version: "14",
     apex_available: [
         "//apex_available:platform",
@@ -1843,7 +1843,7 @@ java_import {
 
 java_library_static {
     name: "aosp-libs_org.jetbrains.kotlin_kotlin-parcelize-runtime",
-    sdk_version: "current",
+    sdk_version: "35",
     min_sdk_version: "14",
     apex_available: [
         "//apex_available:platform",
@@ -1859,8 +1859,8 @@ java_library_static {
 
 java_import {
     name: "aosp-libs_org.jetbrains.kotlin_kotlin-stdlib-nodeps",
-    jars: ["org/jetbrains/kotlin/kotlin-stdlib/2.0.20/kotlin-stdlib-2.0.20.jar"],
-    sdk_version: "current",
+    jars: ["org/jetbrains/kotlin/kotlin-stdlib/2.0.21/kotlin-stdlib-2.0.21.jar"],
+    sdk_version: "35",
     min_sdk_version: "14",
     apex_available: [
         "//apex_available:platform",
@@ -1870,7 +1870,7 @@ java_import {
 
 java_library_static {
     name: "aosp-libs_org.jetbrains.kotlin_kotlin-stdlib",
-    sdk_version: "current",
+    sdk_version: "35",
     min_sdk_version: "14",
     apex_available: [
         "//apex_available:platform",
@@ -1900,7 +1900,7 @@ java_library_static {
 java_import {
     name: "aosp-libs_org.jetbrains.kotlin_kotlin-stdlib-jdk7-nodeps",
     jars: ["org/jetbrains/kotlin/kotlin-stdlib-jdk7/1.9.10/kotlin-stdlib-jdk7-1.9.10.jar"],
-    sdk_version: "current",
+    sdk_version: "35",
     min_sdk_version: "14",
     apex_available: [
         "//apex_available:platform",
@@ -1910,7 +1910,7 @@ java_import {
 
 java_library_static {
     name: "aosp-libs_org.jetbrains.kotlin_kotlin-stdlib-jdk7",
-    sdk_version: "current",
+    sdk_version: "35",
     min_sdk_version: "14",
     apex_available: [
         "//apex_available:platform",
@@ -1926,7 +1926,7 @@ java_library_static {
 java_import {
     name: "aosp-libs_org.jetbrains.kotlin_kotlin-stdlib-jdk8-nodeps",
     jars: ["org/jetbrains/kotlin/kotlin-stdlib-jdk8/1.9.10/kotlin-stdlib-jdk8-1.9.10.jar"],
-    sdk_version: "current",
+    sdk_version: "35",
     min_sdk_version: "14",
     apex_available: [
         "//apex_available:platform",
@@ -1936,7 +1936,7 @@ java_import {
 
 java_library_static {
     name: "aosp-libs_org.jetbrains.kotlin_kotlin-stdlib-jdk8",
-    sdk_version: "current",
+    sdk_version: "35",
     min_sdk_version: "14",
     apex_available: [
         "//apex_available:platform",
@@ -1967,7 +1967,7 @@ java_library_static {
 java_import {
     name: "aosp-libs_org.jetbrains.kotlinx_kotlinx-collections-immutable-jvm-nodeps",
     jars: ["org/jetbrains/kotlinx/kotlinx-collections-immutable-jvm/0.3.7/kotlinx-collections-immutable-jvm-0.3.7.jar"],
-    sdk_version: "current",
+    sdk_version: "35",
     min_sdk_version: "14",
     apex_available: [
         "//apex_available:platform",
@@ -1977,7 +1977,7 @@ java_import {
 
 java_library_static {
     name: "aosp-libs_org.jetbrains.kotlinx_kotlinx-collections-immutable-jvm",
-    sdk_version: "current",
+    sdk_version: "35",
     min_sdk_version: "14",
     apex_available: [
         "//apex_available:platform",
@@ -1993,7 +1993,7 @@ java_library_static {
 java_import {
     name: "aosp-libs_org.jetbrains.kotlinx_kotlinx-coroutines-android-nodeps",
     jars: ["org/jetbrains/kotlinx/kotlinx-coroutines-android/1.8.1/kotlinx-coroutines-android-1.8.1.jar"],
-    sdk_version: "current",
+    sdk_version: "35",
     min_sdk_version: "14",
     apex_available: [
         "//apex_available:platform",
@@ -2003,7 +2003,7 @@ java_import {
 
 java_library_static {
     name: "aosp-libs_org.jetbrains.kotlinx_kotlinx-coroutines-android",
-    sdk_version: "current",
+    sdk_version: "35",
     min_sdk_version: "14",
     apex_available: [
         "//apex_available:platform",
@@ -2048,7 +2048,7 @@ java_library_static {
 java_import {
     name: "aosp-libs_org.jetbrains.kotlinx_kotlinx-coroutines-core-jvm-nodeps",
     jars: ["org/jetbrains/kotlinx/kotlinx-coroutines-core-jvm/1.8.1/kotlinx-coroutines-core-jvm-1.8.1.jar"],
-    sdk_version: "current",
+    sdk_version: "35",
     min_sdk_version: "14",
     apex_available: [
         "//apex_available:platform",
@@ -2058,7 +2058,7 @@ java_import {
 
 java_library_static {
     name: "aosp-libs_org.jetbrains.kotlinx_kotlinx-coroutines-core-jvm",
-    sdk_version: "current",
+    sdk_version: "35",
     min_sdk_version: "14",
     apex_available: [
         "//apex_available:platform",
@@ -2103,7 +2103,7 @@ java_library_static {
 java_import {
     name: "aosp-libs_org.jetbrains.kotlinx_kotlinx-serialization-core-jvm-nodeps",
     jars: ["org/jetbrains/kotlinx/kotlinx-serialization-core-jvm/1.7.1/kotlinx-serialization-core-jvm-1.7.1.jar"],
-    sdk_version: "current",
+    sdk_version: "35",
     min_sdk_version: "14",
     apex_available: [
         "//apex_available:platform",
@@ -2113,7 +2113,7 @@ java_import {
 
 java_library_static {
     name: "aosp-libs_org.jetbrains.kotlinx_kotlinx-serialization-core-jvm",
-    sdk_version: "current",
+    sdk_version: "35",
     min_sdk_version: "14",
     apex_available: [
         "//apex_available:platform",
@@ -2144,7 +2144,7 @@ java_library_static {
 java_import {
     name: "aosp-libs_org.jetbrains.kotlinx_kotlinx-serialization-json-jvm-nodeps",
     jars: ["org/jetbrains/kotlinx/kotlinx-serialization-json-jvm/1.7.1/kotlinx-serialization-json-jvm-1.7.1.jar"],
-    sdk_version: "current",
+    sdk_version: "35",
     min_sdk_version: "14",
     apex_available: [
         "//apex_available:platform",
@@ -2154,7 +2154,7 @@ java_import {
 
 java_library_static {
     name: "aosp-libs_org.jetbrains.kotlinx_kotlinx-serialization-json-jvm",
-    sdk_version: "current",
+    sdk_version: "35",
     min_sdk_version: "14",
     apex_available: [
         "//apex_available:platform",
