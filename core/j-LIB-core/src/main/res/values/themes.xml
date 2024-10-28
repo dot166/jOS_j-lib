@@ -110,9 +110,9 @@
         <item name="imageButtonStyle">@android:style/Widget.Holo.ImageButton</item>
         <item name="buttonBarStyle">@android:style/Holo.ButtonBar</item>
         <item name="buttonBarButtonStyle">?attr/borderlessButtonStyle</item>
-        <item name="buttonBarPositiveButtonStyle">?android:buttonBarPositiveButtonStyle</item>
-        <item name="buttonBarNegativeButtonStyle">?android:buttonBarNegativeButtonStyle</item>
-        <item name="buttonBarNeutralButtonStyle">?android:buttonBarNeutralButtonStyle</item>
+        <item name="buttonBarPositiveButtonStyle">?buttonBarButtonStyle</item>
+        <item name="buttonBarNegativeButtonStyle">?buttonBarButtonStyle</item>
+        <item name="buttonBarNeutralButtonStyle">?buttonBarButtonStyle</item>
         <!-- Dialog attributes -->
         <item name="dialogTheme">@android:style/Theme.Holo.Dialog</item>
         <item name="dialogPreferredPadding">16dp</item>
