@@ -5,10 +5,12 @@
              should be used as the logo within the toolbar. Default is true.
         -->
         <attr name="iconAsLogo" format="boolean" />
-        <!-- Whether the subtitle text corresponding to the "app:subtitle" attribute
-             should be centered horizontally within the toolbar. Default is false.
-        -->
-        <attr name="jsubtitleCentered" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="MenuButton">
+        <attr name="android:text" />
+        <attr name="android:icon" />
+        <attr name="tint" />
     </declare-styleable>
 
     <declare-styleable name="ThemeEngine">

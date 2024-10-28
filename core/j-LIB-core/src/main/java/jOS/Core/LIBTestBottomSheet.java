@@ -13,7 +13,7 @@ public class LIBTestBottomSheet extends BottomSheetDialogFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.modal_bottom_sheet_content, container, false);
-        view.findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
+        view.findViewById(R.id.button1).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(v.getContext(), "Exiting...", Toast.LENGTH_SHORT).show();

@@ -25,4 +25,5 @@
     <string name="dialog_ignore">Ignore</string>
     <string name="dialog_stacktrace">Show Stack Trace</string>
     <string name="exit_test_menu">Exit test menu</string>
+    <string name="menu_action_icon">Menu Action Icon</string>
 </resources>
