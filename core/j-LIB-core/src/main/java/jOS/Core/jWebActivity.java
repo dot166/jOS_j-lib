@@ -4,7 +4,6 @@ import android.graphics.Bitmap;
 import android.net.http.SslError;
 import android.os.Bundle;
 import android.os.Handler;
-import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
 import android.webkit.SslErrorHandler;
@@ -13,17 +12,28 @@ import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 public class jWebActivity extends jActivity {
 
-    String fragment;
+    WebView webView;
+    ProgressBar progressBar;
+    SwipeRefreshLayout swipeRefreshLayout;
 
-    protected void configure(String fragment, boolean home, boolean actionbar, boolean app_name)
+    String uri;
+    boolean js;
+    boolean DOM;
+
+    protected void configure(String uri, boolean js, boolean DOM, boolean home, boolean actionbar)
     {
-        this.fragment = fragment;
+        configure(uri, js, DOM, home, actionbar, true);
+    }
+
+    protected void configure(String uri, boolean js, boolean DOM, boolean home, boolean actionbar, boolean app_name)
+    {
+        this.uri = uri;
+        this.js = js;
+        this.DOM = DOM;
         super.configure(R.layout.jwebactivity, home, actionbar, app_name);
     }
 
@@ -31,21 +41,82 @@ public class jWebActivity extends jActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        final FragmentManager fm = getSupportFragmentManager();
-        final Fragment f = fm.getFragmentFactory().instantiate(getClassLoader(),
-                fragment);
-        // Display the fragment as the main content.
-        fm.beginTransaction().replace(R.id.content_frame, f).commit();
+        webView = findViewById(R.id.web);
+        progressBar = findViewById(R.id.progress);
+        swipeRefreshLayout = findViewById(R.id.swipe);
+
+
+        webView.clearCache(true);
+        webView.getSettings().setJavaScriptEnabled(js);
+        webView.getSettings().setSupportZoom(true);// Support zoom by default for accessibility
+        webView.getSettings().setDomStorageEnabled(DOM);
+        webView.setWebViewClient(new myWebViewclient());
+        webView.loadUrl(uri);
+
+        swipeRefreshLayout.setProgressBackgroundColor(R.color.j_web_wheel_bg);
+
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                swipeRefreshLayout.setRefreshing(true);
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        swipeRefreshLayout.setRefreshing(false);
+                        webView.clearCache(true);
+                        webView.loadUrl(uri);
+                    }
+                },  3000);
+            }
+        });
+
+        swipeRefreshLayout.setColorSchemeColors(
+                getResources().getColor(android.R.color.holo_blue_dark),
+                getResources().getColor(android.R.color.holo_red_dark)
+        );
     }
+
+
+    public class myWebViewclient extends WebViewClient {
+
+        @Override
+        public boolean shouldOverrideUrlLoading(WebView view, String url) {
+            webView.clearCache(true);
+            view.loadUrl(url);
+            return true;
+        }
+
+        @Override
+        public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
+            Toast.makeText(getApplicationContext(), "No internet connection", Toast.LENGTH_LONG).show();
+        }
+
+        @Override
+        public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error) {
+            super.onReceivedSslError(view, handler, error);
+            handler.cancel();
+        }
+
+        @Override
+        public void onPageStarted(WebView view, String url, Bitmap favicon) {
+            super.onPageStarted(view, url, favicon);
+            progressBar.setVisibility(View.VISIBLE);
+        }
+
+        @Override
+        public void onPageFinished(WebView view, String url) {
+            super.onPageFinished(view, url);
+            progressBar.setVisibility(View.GONE);
+        }
+    }
+
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
 
-        if (getSupportFragmentManager().findFragmentById(R.id.content_frame) instanceof jWebFragment) {
-            if ((keyCode == KeyEvent.KEYCODE_BACK) && jWebFragment.webView.canGoBack()) {
-                jWebFragment.webView.goBack();
-                return true;
-            }
+        if ((keyCode == KeyEvent.KEYCODE_BACK) && webView.canGoBack()) {
+            webView.goBack();
+            return true;
         }
         return super.onKeyDown(keyCode, event);
     }

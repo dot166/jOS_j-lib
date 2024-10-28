@@ -8,7 +8,7 @@ public class LIBChangelogActivity extends jWebActivity{
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        configure("jOS.Core.LIBChangelogFragment", false, true, true);
+        configure("https://github.com/dot166/jOS_j-lib/commits/v" + BuildConfig.LIBVersion, true, true, false, true);
         super.onCreate(savedInstanceState);
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -16,7 +16,6 @@ public class LIBChangelogActivity extends jWebActivity{
         } else {
             Log.e("ActionBar2", "no actionbar found");
         }
-        setupBottomNavWithoutMenu(false);
     }
 
     @Override
