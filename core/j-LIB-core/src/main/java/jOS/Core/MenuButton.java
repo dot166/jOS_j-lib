@@ -28,7 +28,7 @@ public class MenuButton extends LinearLayout {
 
             String textValue = styledAttributes.getString(R.styleable.MenuButton_android_text);
             Drawable icon = styledAttributes.getDrawable(R.styleable.MenuButton_android_icon);
-            int iconTint = styledAttributes.getColor(R.styleable.MenuButton_tint, context.getTheme().obtainStyledAttributes(new int[]{android.R.attr.textColorPrimary}).getColor(0, R.color.j_primary_text_holo_dark));
+            int iconTint = styledAttributes.getColor(R.styleable.MenuButton_tint, context.getTheme().obtainStyledAttributes(new int[]{android.R.attr.textColorPrimary}).getColor(0, getResources().getColor(R.color.j_primary_text_holo_dark)));
 
             if (icon != null) {
                 icon.setTint(iconTint);
