@@ -76,7 +76,6 @@ mavenPublishing {
             license {
                 name = "GNU General Public License, Version 3.0"
                 url = "https://www.gnu.org/licenses/gpl-3.0.txt"
-                distribution = POM_LICENCE_DIST
             }
         }
         developers {
