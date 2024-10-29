@@ -74,9 +74,9 @@ mavenPublishing {
         url = "https://github.com/dot166/jOS_j-lib"
         licenses {
             license {
-                name = "The GNU General Public License v3.0"
+                name = "GNU General Public License, Version 3.0"
                 url = "https://www.gnu.org/licenses/gpl-3.0.txt"
-                distribution = "https://www.gnu.org/licenses/gpl-3.0.txt"
+                distribution = POM_LICENCE_DIST
             }
         }
         developers {
