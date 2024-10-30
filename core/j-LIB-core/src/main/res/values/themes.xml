@@ -58,6 +58,48 @@
         <item name="android:listDivider">@drawable/list_divider_holo_dark</item>
         <item name="android:selectableItemBackground">@drawable/item_background_holo_dark</item>
         <item name="android:selectableItemBackgroundBorderless">?android:attr/selectableItemBackground</item>
+        <item name="android:actionBarPopupTheme">@null</item>
+        <item name="android:colorBackgroundFloating">#ff000000</item>
+        <!-- Used by MediaRouter -->
+        <item name="android:borderlessButtonStyle">@android:style/Widget.Holo.Button</item>
+        <item name="android:homeAsUpIndicator">@drawable/j_ic_ab_back_holo_dark</item>
+        <item name="android:dividerVertical">@drawable/list_divider_holo_dark</item>
+        <item name="android:dividerHorizontal">@drawable/list_divider_holo_dark</item>
+        <!-- Action Bar Styles -->
+        <item name="android:actionBarSize">@dimen/j_action_bar_default_height</item>
+        <!-- Spinner styles -->
+        <item name="android:spinnerStyle">@android:style/Widget.Holo.Spinner</item>
+        <!-- Popup Menu styles -->
+        <item name="android:popupMenuStyle">@android:style/Widget.Holo.PopupMenu</item>
+        <!-- Toolbar styles -->
+        <item name="android:toolbarStyle">@style/j.ActionBar</item>
+        <item name="android:editTextStyle">@android:style/Widget.Holo.EditText</item>
+        <item name="android:editTextColor">@color/j_primary_text_holo_dark</item>
+        <!-- Color palette -->
+        <item name="android:switchStyle">@style/j.Switch</item>
+        <item name="android:progressBarStyle">@android:style/Widget.Holo.ProgressBar</item>
+        <item name="android:progressBarStyleHorizontal">@android:style/Widget.Holo.ProgressBar.Horizontal</item>
+        <item name="android:progressBarStyleSmall">@android:style/Widget.Holo.ProgressBar.Small</item>
+        <item name="android:progressBarStyleSmallTitle">@android:style/Widget.Holo.ProgressBar.Small.Title</item>
+        <item name="android:progressBarStyleLarge">@android:style/Widget.Holo.ProgressBar.Large</item>
+        <item name="android:seekBarStyle">@android:style/Widget.Holo.SeekBar</item>
+        <!-- Button styles -->
+        <item name="android:buttonStyle">@android:style/Widget.Holo.Button</item>
+        <item name="android:buttonStyleSmall">@android:style/Widget.Holo.Button.Small</item>
+        <item name="android:imageButtonStyle">@android:style/Widget.Holo.ImageButton</item>
+        <item name="android:buttonBarStyle">@android:style/Holo.ButtonBar</item>
+        <item name="android:buttonBarButtonStyle">?attr/borderlessButtonStyle</item>
+        <item name="android:buttonBarPositiveButtonStyle">?buttonBarButtonStyle</item>
+        <item name="android:buttonBarNegativeButtonStyle">?buttonBarButtonStyle</item>
+        <item name="android:buttonBarNeutralButtonStyle">?buttonBarButtonStyle</item>
+        <!-- Dialog attributes -->
+        <item name="android:dialogTheme">@android:style/Theme.Holo.Dialog</item>
+        <item name="android:dialogPreferredPadding">16dp</item>
+        <item name="android:alertDialogTheme">@style/j.Alert.theme</item>
+        <item name="android:alertDialogStyle">@style/alertdialogstyle</item>
+        <!-- Tooltip attributes -->
+        <item name="android:editTextBackground">@drawable/j_edit_text_holo_dark</item>
+        <item name="android:actionOverflowButtonStyle">@android:style/Widget.Holo.ActionButton.Overflow</item>
 
         <!-- AppCompat Attributes -->
         <item name="listChoiceIndicatorSingleAnimated">@drawable/btn_radio_holo_dark</item>
@@ -98,11 +140,6 @@
         <item name="controlBackground">?android:selectableItemBackgroundBorderless</item>
         <item name="switchStyle">@style/j.Switch</item>
         <item name="progressBarStyle">@android:style/Widget.Holo.ProgressBar</item>
-        <item name="android:progressBarStyle">@android:style/Widget.Holo.ProgressBar</item>
-        <item name="android:progressBarStyleHorizontal">@android:style/Widget.Holo.ProgressBar.Horizontal</item>
-        <item name="android:progressBarStyleSmall">@android:style/Widget.Holo.ProgressBar.Small</item>
-        <item name="android:progressBarStyleSmallTitle">@android:style/Widget.Holo.ProgressBar.Small.Title</item>
-        <item name="android:progressBarStyleLarge">@android:style/Widget.Holo.ProgressBar.Large</item>
         <item name="seekBarStyle">@android:style/Widget.Holo.SeekBar</item>
         <!-- Button styles -->
         <item name="buttonStyle">@android:style/Widget.Holo.Button</item>
