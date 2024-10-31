@@ -208,7 +208,7 @@ public class jConfigActivity extends jActivity
             }
         }
 
-        private void recreateActivityNow() {
+        protected void recreateActivityNow() {
             Activity activity = getActivity();
             if (activity != null) {
                 activity.recreate();

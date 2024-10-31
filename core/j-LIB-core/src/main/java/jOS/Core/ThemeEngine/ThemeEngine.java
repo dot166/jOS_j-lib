@@ -19,7 +19,6 @@ import androidx.browser.customtabs.CustomTabsIntent;
 import androidx.compose.material3.ColorScheme;
 
 import jOS.Core.R;
-import jOS.Core.jActivity;
 
 public class ThemeEngine {
 
@@ -54,7 +53,6 @@ public class ThemeEngine {
         currentTheme = getThemeFromDB1(context);
         Log.i(TAG, Theme);
         switch (Theme) {
-            case "Holo": // DEPRECATED! Holo Design is not fully implemented anymore, only certain parts of it live on in jOS Theme
             case "jOS":
                 ColourScheme = getDarkColourScheme(context);
                 if (themeClass != null && themeClass.jOSTheme() != 0 && isjOSTheme(context, themeClass.jOSTheme()) && !isLightTheme(context, themeClass.jOSTheme())) {
@@ -85,6 +83,10 @@ public class ThemeEngine {
                     return themeClass.M2L();
                 }
                 return com.google.android.material.R.style.Theme_MaterialComponents_Light_NoActionBar;
+            case "Disabled":
+                ColourScheme = getDarkColourScheme(context);
+                Log.i(TAG, "ThemeEngine Disabled, Returning no legacy scheme and dark compose colour scheme");
+                return 0;
         }
         if (!Theme.equals("none")) {
             Log.i(TAG, "Unrecognised Theme '" + currentTheme + "'");
@@ -198,38 +200,12 @@ public class ThemeEngine {
     }
 
     @SuppressLint("Range")
-    public static StringBuilder getAllThemes(jActivity context) {
-
-        // creating a cursor object of the
-        // content URI
-        Cursor cursor = getThemeEngineDatabase(context);
-
-        if (cursor != null) {
-            // iteration of the cursor
-            // to print whole table
-            if (cursor.moveToFirst()) {
-                StringBuilder strBuild = new StringBuilder();
-                while (!cursor.isAfterLast()) {
-                    Log.i(TAGDB1, cursor.getString(cursor.getColumnIndex("id")) + "-" + cursor.getString(cursor.getColumnIndex("name")) + "-" + cursor.getString(cursor.getColumnIndex("current")));
-                    strBuild.append("\n").append(cursor.getString(cursor.getColumnIndex("id"))).append("-").append(cursor.getString(cursor.getColumnIndex("name"))).append("-").append(cursor.getString(cursor.getColumnIndex("current")));
-                    cursor.moveToNext();
-                }
-                return strBuild;
-            } else {
-                return new StringBuilder(context.getString(R.string.no_records_found));
-            }
-        } else {
-            return new StringBuilder(context.getString(R.string.no_records_found));
-        }
-    }
-
-    @SuppressLint("Range")
     public static String getThemeFromDB1(Context context) {
         // get from database
 
         // creating a cursor object of the
         // content URI
-        Cursor cursor = getThemeEngineDatabase(context);
+        Cursor cursor = context.getContentResolver().query(Uri.parse("content://jOS.Core.ThemeEngine.database/themes"), null, null, null, null);
 
         if (cursor != null) {
             // iteration of the cursor
@@ -249,7 +225,4 @@ public class ThemeEngine {
         return "none";
     }
 
-    private static Cursor getThemeEngineDatabase(Context context) {
-        return context.getContentResolver().query(Uri.parse("content://jOS.Core.ThemeEngine.database/themes"), null, null, null, null);
-    }
 }
