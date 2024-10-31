@@ -50,7 +50,7 @@ dependencies {
     api("androidx.constraintlayout:constraintlayout:2.1.4")
     api("androidx.preference:preference-ktx:1.2.1")
     api("com.google.android.material:material:1.12.0")
-    api("androidx.core:core-ktx:1.13.1")
+    api("androidx.core:core-ktx:1.15.0")
     api("androidx.browser:browser:1.8.0")
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
     api("androidx.compose.ui:ui-android:1.7.4")
