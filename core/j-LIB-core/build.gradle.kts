@@ -47,7 +47,7 @@ android {
 
 dependencies {
     api("androidx.appcompat:appcompat:1.7.0")
-    api("androidx.constraintlayout:constraintlayout:2.1.4")
+    api("androidx.constraintlayout:constraintlayout:2.2.0")
     api("androidx.preference:preference-ktx:1.2.1")
     api("com.google.android.material:material:1.12.0")
     api("androidx.core:core-ktx:1.13.1")
