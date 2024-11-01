@@ -23,5 +23,5 @@ public class LIBTestBottomSheet extends BottomSheetDialogFragment {
         return view;
     }
 
-    public static final String TAG = "ModalBottomSheet";
+    public static final String TAG = "LIBTestBottomSheet";
 }
