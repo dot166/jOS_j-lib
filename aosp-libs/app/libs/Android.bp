@@ -21,7 +21,7 @@ java_library_static {
 
 android_library_import {
     name: "aosp-libs_androidx.compose.animation_animation-android-nodeps",
-    aars: ["androidx/compose/animation/animation-android/1.7.4/animation-release.aar"],
+    aars: ["androidx/compose/animation/animation-android/1.7.5/animation-release.aar"],
     sdk_version: "35",
     min_sdk_version: "14",
     apex_available: [
@@ -51,7 +51,7 @@ android_library {
         "//apex_available:platform",
         "//apex_available:anyapex",
     ],
-    manifest: "androidx/compose/animation/animation-android/1.7.4/AndroidManifest.xml",
+    manifest: "androidx/compose/animation/animation-android/1.7.5/AndroidManifest.xml",
     static_libs: [
         "aosp-libs_androidx.compose.animation_animation-android-nodeps",
         "androidx.annotation_annotation",
@@ -85,7 +85,7 @@ java_library_static {
 
 android_library_import {
     name: "aosp-libs_androidx.compose.animation_animation-core-android-nodeps",
-    aars: ["androidx/compose/animation/animation-core-android/1.7.4/animation-core-release.aar"],
+    aars: ["androidx/compose/animation/animation-core-android/1.7.5/animation-core-release.aar"],
     sdk_version: "35",
     min_sdk_version: "14",
     apex_available: [
@@ -113,7 +113,7 @@ android_library {
         "//apex_available:platform",
         "//apex_available:anyapex",
     ],
-    manifest: "androidx/compose/animation/animation-core-android/1.7.4/AndroidManifest.xml",
+    manifest: "androidx/compose/animation/animation-core-android/1.7.5/AndroidManifest.xml",
     static_libs: [
         "aosp-libs_androidx.compose.animation_animation-core-android-nodeps",
         "androidx.annotation_annotation",
@@ -145,7 +145,7 @@ java_library_static {
 
 android_library_import {
     name: "aosp-libs_androidx.compose.foundation_foundation-android-nodeps",
-    aars: ["androidx/compose/foundation/foundation-android/1.7.4/foundation-release.aar"],
+    aars: ["androidx/compose/foundation/foundation-android/1.7.5/foundation-release.aar"],
     sdk_version: "35",
     min_sdk_version: "14",
     apex_available: [
@@ -176,7 +176,7 @@ android_library {
         "//apex_available:platform",
         "//apex_available:anyapex",
     ],
-    manifest: "androidx/compose/foundation/foundation-android/1.7.4/AndroidManifest.xml",
+    manifest: "androidx/compose/foundation/foundation-android/1.7.5/AndroidManifest.xml",
     static_libs: [
         "aosp-libs_androidx.compose.foundation_foundation-android-nodeps",
         "androidx.annotation_annotation",
@@ -211,7 +211,7 @@ java_library_static {
 
 android_library_import {
     name: "aosp-libs_androidx.compose.foundation_foundation-layout-android-nodeps",
-    aars: ["androidx/compose/foundation/foundation-layout-android/1.7.4/foundation-layout-release.aar"],
+    aars: ["androidx/compose/foundation/foundation-layout-android/1.7.5/foundation-layout-release.aar"],
     sdk_version: "35",
     min_sdk_version: "14",
     apex_available: [
@@ -240,7 +240,7 @@ android_library {
         "//apex_available:platform",
         "//apex_available:anyapex",
     ],
-    manifest: "androidx/compose/foundation/foundation-layout-android/1.7.4/AndroidManifest.xml",
+    manifest: "androidx/compose/foundation/foundation-layout-android/1.7.5/AndroidManifest.xml",
     static_libs: [
         "aosp-libs_androidx.compose.foundation_foundation-layout-android-nodeps",
         "androidx.annotation_annotation",
@@ -273,7 +273,7 @@ java_library_static {
 
 android_library_import {
     name: "aosp-libs_androidx.compose.material_material-android-nodeps",
-    aars: ["androidx/compose/material/material-android/1.7.4/material-release.aar"],
+    aars: ["androidx/compose/material/material-android/1.7.5/material-release.aar"],
     sdk_version: "35",
     min_sdk_version: "14",
     apex_available: [
@@ -307,7 +307,7 @@ android_library {
         "//apex_available:platform",
         "//apex_available:anyapex",
     ],
-    manifest: "androidx/compose/material/material-android/1.7.4/AndroidManifest.xml",
+    manifest: "androidx/compose/material/material-android/1.7.5/AndroidManifest.xml",
     static_libs: [
         "aosp-libs_androidx.compose.material_material-android-nodeps",
         "androidx.annotation_annotation",
@@ -391,7 +391,7 @@ java_library_static {
 
 android_library_import {
     name: "aosp-libs_androidx.compose.material_material-ripple-android-nodeps",
-    aars: ["androidx/compose/material/material-ripple-android/1.7.4/material-ripple-release.aar"],
+    aars: ["androidx/compose/material/material-ripple-android/1.7.5/material-ripple-release.aar"],
     sdk_version: "35",
     min_sdk_version: "14",
     apex_available: [
@@ -416,7 +416,7 @@ android_library {
         "//apex_available:platform",
         "//apex_available:anyapex",
     ],
-    manifest: "androidx/compose/material/material-ripple-android/1.7.4/AndroidManifest.xml",
+    manifest: "androidx/compose/material/material-ripple-android/1.7.5/AndroidManifest.xml",
     static_libs: [
         "aosp-libs_androidx.compose.material_material-ripple-android-nodeps",
         "androidx.collection_collection",
@@ -445,7 +445,7 @@ java_library_static {
 
 android_library_import {
     name: "aosp-libs_androidx.compose.material3_material3-android-nodeps",
-    aars: ["androidx/compose/material3/material3-android/1.3.0/material3-release.aar"],
+    aars: ["androidx/compose/material3/material3-android/1.3.1/material3-release.aar"],
     sdk_version: "35",
     min_sdk_version: "14",
     apex_available: [
@@ -478,7 +478,7 @@ android_library {
         "//apex_available:platform",
         "//apex_available:anyapex",
     ],
-    manifest: "androidx/compose/material3/material3-android/1.3.0/AndroidManifest.xml",
+    manifest: "androidx/compose/material3/material3-android/1.3.1/AndroidManifest.xml",
     static_libs: [
         "aosp-libs_androidx.compose.material3_material3-android-nodeps",
         "androidx.activity_activity-compose",
@@ -515,7 +515,7 @@ java_library_static {
 
 android_library_import {
     name: "aosp-libs_androidx.compose.runtime_runtime-android-nodeps",
-    aars: ["androidx/compose/runtime/runtime-android/1.7.4/runtime-release.aar"],
+    aars: ["androidx/compose/runtime/runtime-android/1.7.5/runtime-release.aar"],
     sdk_version: "35",
     min_sdk_version: "14",
     apex_available: [
@@ -539,7 +539,7 @@ android_library {
         "//apex_available:platform",
         "//apex_available:anyapex",
     ],
-    manifest: "androidx/compose/runtime/runtime-android/1.7.4/AndroidManifest.xml",
+    manifest: "androidx/compose/runtime/runtime-android/1.7.5/AndroidManifest.xml",
     static_libs: [
         "aosp-libs_androidx.compose.runtime_runtime-android-nodeps",
         "androidx.annotation_annotation-experimental",
@@ -567,7 +567,7 @@ java_library_static {
 
 android_library_import {
     name: "aosp-libs_androidx.compose.runtime_runtime-saveable-android-nodeps",
-    aars: ["androidx/compose/runtime/runtime-saveable-android/1.7.4/runtime-saveable-release.aar"],
+    aars: ["androidx/compose/runtime/runtime-saveable-android/1.7.5/runtime-saveable-release.aar"],
     sdk_version: "35",
     min_sdk_version: "14",
     apex_available: [
@@ -590,7 +590,7 @@ android_library {
         "//apex_available:platform",
         "//apex_available:anyapex",
     ],
-    manifest: "androidx/compose/runtime/runtime-saveable-android/1.7.4/AndroidManifest.xml",
+    manifest: "androidx/compose/runtime/runtime-saveable-android/1.7.5/AndroidManifest.xml",
     static_libs: [
         "aosp-libs_androidx.compose.runtime_runtime-saveable-android-nodeps",
         "androidx.annotation_annotation",
@@ -617,7 +617,7 @@ java_library_static {
 
 android_library_import {
     name: "aosp-libs_androidx.compose.ui_ui-android-nodeps",
-    aars: ["androidx/compose/ui/ui-android/1.7.4/ui-release.aar"],
+    aars: ["androidx/compose/ui/ui-android/1.7.5/ui-release.aar"],
     sdk_version: "35",
     min_sdk_version: "14",
     apex_available: [
@@ -658,7 +658,7 @@ android_library {
         "//apex_available:platform",
         "//apex_available:anyapex",
     ],
-    manifest: "androidx/compose/ui/ui-android/1.7.4/AndroidManifest.xml",
+    manifest: "androidx/compose/ui/ui-android/1.7.5/AndroidManifest.xml",
     static_libs: [
         "aosp-libs_androidx.compose.ui_ui-android-nodeps",
         "androidx.activity_activity-ktx",
@@ -703,7 +703,7 @@ java_library_static {
 
 android_library_import {
     name: "aosp-libs_androidx.compose.ui_ui-geometry-android-nodeps",
-    aars: ["androidx/compose/ui/ui-geometry-android/1.7.4/ui-geometry-release.aar"],
+    aars: ["androidx/compose/ui/ui-geometry-android/1.7.5/ui-geometry-release.aar"],
     sdk_version: "35",
     min_sdk_version: "14",
     apex_available: [
@@ -726,7 +726,7 @@ android_library {
         "//apex_available:platform",
         "//apex_available:anyapex",
     ],
-    manifest: "androidx/compose/ui/ui-geometry-android/1.7.4/AndroidManifest.xml",
+    manifest: "androidx/compose/ui/ui-geometry-android/1.7.5/AndroidManifest.xml",
     static_libs: [
         "aosp-libs_androidx.compose.ui_ui-geometry-android-nodeps",
         "androidx.annotation_annotation",
@@ -753,7 +753,7 @@ java_library_static {
 
 android_library_import {
     name: "aosp-libs_androidx.compose.ui_ui-graphics-android-nodeps",
-    aars: ["androidx/compose/ui/ui-graphics-android/1.7.4/ui-graphics-release.aar"],
+    aars: ["androidx/compose/ui/ui-graphics-android/1.7.5/ui-graphics-release.aar"],
     sdk_version: "35",
     min_sdk_version: "14",
     apex_available: [
@@ -781,7 +781,7 @@ android_library {
         "//apex_available:platform",
         "//apex_available:anyapex",
     ],
-    manifest: "androidx/compose/ui/ui-graphics-android/1.7.4/AndroidManifest.xml",
+    manifest: "androidx/compose/ui/ui-graphics-android/1.7.5/AndroidManifest.xml",
     static_libs: [
         "aosp-libs_androidx.compose.ui_ui-graphics-android-nodeps",
         "androidx.annotation_annotation",
@@ -813,7 +813,7 @@ java_library_static {
 
 android_library_import {
     name: "aosp-libs_androidx.compose.ui_ui-text-android-nodeps",
-    aars: ["androidx/compose/ui/ui-text-android/1.7.4/ui-text-release.aar"],
+    aars: ["androidx/compose/ui/ui-text-android/1.7.5/ui-text-release.aar"],
     sdk_version: "35",
     min_sdk_version: "14",
     apex_available: [
@@ -844,7 +844,7 @@ android_library {
         "//apex_available:platform",
         "//apex_available:anyapex",
     ],
-    manifest: "androidx/compose/ui/ui-text-android/1.7.4/AndroidManifest.xml",
+    manifest: "androidx/compose/ui/ui-text-android/1.7.5/AndroidManifest.xml",
     static_libs: [
         "aosp-libs_androidx.compose.ui_ui-text-android-nodeps",
         "androidx.annotation_annotation",
@@ -879,7 +879,7 @@ java_library_static {
 
 android_library_import {
     name: "aosp-libs_androidx.compose.ui_ui-tooling-preview-android-nodeps",
-    aars: ["androidx/compose/ui/ui-tooling-preview-android/1.7.4/ui-tooling-preview-release.aar"],
+    aars: ["androidx/compose/ui/ui-tooling-preview-android/1.7.5/ui-tooling-preview-release.aar"],
     sdk_version: "35",
     min_sdk_version: "14",
     apex_available: [
@@ -900,7 +900,7 @@ android_library {
         "//apex_available:platform",
         "//apex_available:anyapex",
     ],
-    manifest: "androidx/compose/ui/ui-tooling-preview-android/1.7.4/AndroidManifest.xml",
+    manifest: "androidx/compose/ui/ui-tooling-preview-android/1.7.5/AndroidManifest.xml",
     static_libs: [
         "aosp-libs_androidx.compose.ui_ui-tooling-preview-android-nodeps",
         "androidx.annotation_annotation",
@@ -925,7 +925,7 @@ java_library_static {
 
 android_library_import {
     name: "aosp-libs_androidx.compose.ui_ui-unit-android-nodeps",
-    aars: ["androidx/compose/ui/ui-unit-android/1.7.4/ui-unit-release.aar"],
+    aars: ["androidx/compose/ui/ui-unit-android/1.7.5/ui-unit-release.aar"],
     sdk_version: "35",
     min_sdk_version: "14",
     apex_available: [
@@ -952,7 +952,7 @@ android_library {
         "//apex_available:platform",
         "//apex_available:anyapex",
     ],
-    manifest: "androidx/compose/ui/ui-unit-android/1.7.4/AndroidManifest.xml",
+    manifest: "androidx/compose/ui/ui-unit-android/1.7.5/AndroidManifest.xml",
     static_libs: [
         "aosp-libs_androidx.compose.ui_ui-unit-android-nodeps",
         "androidx.annotation_annotation",
@@ -983,7 +983,7 @@ java_library_static {
 
 android_library_import {
     name: "aosp-libs_androidx.compose.ui_ui-util-android-nodeps",
-    aars: ["androidx/compose/ui/ui-util-android/1.7.4/ui-util-release.aar"],
+    aars: ["androidx/compose/ui/ui-util-android/1.7.5/ui-util-release.aar"],
     sdk_version: "35",
     min_sdk_version: "14",
     apex_available: [
@@ -1004,7 +1004,7 @@ android_library {
         "//apex_available:platform",
         "//apex_available:anyapex",
     ],
-    manifest: "androidx/compose/ui/ui-util-android/1.7.4/AndroidManifest.xml",
+    manifest: "androidx/compose/ui/ui-util-android/1.7.5/AndroidManifest.xml",
     static_libs: [
         "aosp-libs_androidx.compose.ui_ui-util-android-nodeps",
         "androidx.annotation_annotation-experimental",
@@ -1636,7 +1636,7 @@ android_library {
 
 android_library_import {
     name: "j.Lib-nodeps",
-    aars: ["io/github/dot166/j-Lib/3.2.19/j-Lib-3.2.19.aar"],
+    aars: ["io/github/dot166/j-Lib/3.2.20/j-Lib-3.2.20.aar"],
     sdk_version: "35",
     min_sdk_version: "14",
     apex_available: [
@@ -1671,7 +1671,7 @@ android_library {
         "//apex_available:platform",
         "//apex_available:anyapex",
     ],
-    manifest: "io/github/dot166/j-Lib/3.2.19/AndroidManifest.xml",
+    manifest: "io/github/dot166/j-Lib/3.2.20/AndroidManifest.xml",
     static_libs: [
         "j.Lib-nodeps",
         "androidx-constraintlayout_constraintlayout",
