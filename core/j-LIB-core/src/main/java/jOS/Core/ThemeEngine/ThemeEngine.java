@@ -35,7 +35,7 @@ public class ThemeEngine {
 
     /**
      * Set the class that contains the theme values.
-     * MUST BE SET IN THE onCreate() FUNCTION IN EITHER THE APPLICATION OR ALL OF THE EXPORTED ACTIVITIES
+     * MUST BE SET IN THE onCreate() FUNCTION IN EITHER THE APPLICATION CLASS OR ALL OF THE EXPORTED ACTIVITIES
      */
     public static void setCustomThemeClass(values customThemeClass){
         themeClass = customThemeClass;
@@ -45,7 +45,7 @@ public class ThemeEngine {
      * jOS ThemeEngine: get the theme
      *
      * @param context context
-     * @return theme
+     * @return theme, will return 0 if ThemeEngine is disabled
      */
     public static int getSystemTheme(Context context) {
         String Theme;
