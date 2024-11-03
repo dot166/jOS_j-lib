@@ -22,7 +22,7 @@ import java.util.Objects;
 import jOS.Core.utils.ErrorUtils;
 
 /**
- * Settings activity for Launcher. Currently implements the following setting: Allow rotation
+ * jLib Settings activity.
  */
 public class jConfigActivity extends jActivity {
 
@@ -49,7 +49,7 @@ public class jConfigActivity extends jActivity {
      */
     public static class jLIBSettingsFragment extends PreferenceFragmentCompat {
 
-        public boolean isLIBConfig() {
+        public boolean isTEConfig() {
             return false;
         }
         public boolean hideLIB() {
@@ -94,18 +94,18 @@ public class jConfigActivity extends jActivity {
         protected boolean configPreference(Preference preference) {
             Log.i("Preference Logging", preference.getKey());
             switch (preference.getKey()) {
-                case "LIB":
-                    Log.i("Preference Logging", "LIB Found!!!!");
+                case "ThemeEngine":
+                    Log.i("Preference Logging", "ThemeEngine Found!!!!");
                     preference.setOnPreferenceClickListener(p -> {
-                        Intent intent = new Intent("jOS.System.LibConfig");
+                        Intent intent = new Intent("jOS.ThemeEngine.CONFIG");
                         try {
                             startActivity(intent);
                         } catch (Exception e) {
                             ErrorUtils.handle(e, requireActivity());
                         }
-                        return !isLIBConfig();
+                        return !isTEConfig();
                     });
-                    return !isLIBConfig();
+                    return !isTEConfig();
                 case "LIBVer":
                     Log.i("Preference Logging", "LIBVer Found!!!!");
                     preference.setSummary(BuildConfig.LIBVersion);

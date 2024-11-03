@@ -2,11 +2,11 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
     <androidx.preference.PreferenceCategory android:title="@string/jlib" android:key="lib_category">
 
+	<!-- TODO: add ThemeEngine forground icon to the preference menu -->
         <Preference
-            android:key="LIB"
-            android:title="@string/jlib_settings"
-            android:icon="@mipmap/settings"
-            android:summary="@string/launch_lib_preferences"/>
+            android:key="ThemeEngine"
+            android:title="@string/theme_settings"
+            android:summary="@string/global_theme_settings"/>
 
         <Preference
             android:key="LIBVer"
