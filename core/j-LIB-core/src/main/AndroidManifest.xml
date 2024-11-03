@@ -11,7 +11,7 @@
     </queries>
 
     <application android:name=".jLIBCoreApp"
-                 android:icon="@drawable/ic_launcher_j"
+                 android:icon="@mipmap/ic_launcher_j"
                  android:theme="@style/jOS.Theme">
         <!-- Test Activity -->
         <activity
