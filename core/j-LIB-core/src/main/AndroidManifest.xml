@@ -26,7 +26,7 @@
         <!-- LIB About Menu -->
         <activity
             android:name=".LIBAboutActivity"
-            android:label="@string/about"
+            android:label="@string/about_jlib"
             android:exported="true"/>
         <!-- OpenSource Licence Activity -->
         <activity

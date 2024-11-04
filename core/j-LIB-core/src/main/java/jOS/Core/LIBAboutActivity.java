@@ -1,15 +1,19 @@
 package jOS.Core;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.content.res.AppCompatResources;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class LIBAboutActivity extends jAboutActivity {
 
@@ -17,6 +21,29 @@ public class LIBAboutActivity extends jAboutActivity {
     @Override
     public Intent versionIntent(@NonNull Context context) {
         return new Intent(context, LIBTestActivity.class);
+    }
+
+    @NonNull
+    @Override
+    public Drawable getActivityIcon(@NonNull Context context) {
+        return Objects.requireNonNull(AppCompatResources.getDrawable(context, R.mipmap.ic_launcher_j));
+    }
+
+    @NonNull
+    @Override
+    public String getAppLabel(@NonNull Context context) {
+        return getString(R.string.jlib);
+    }
+
+    @NonNull
+    @Override
+    public String versionName(@NonNull Activity context) {
+        return BuildConfig.LIBVersion;
+    }
+
+    @Override
+    public boolean hideAcknowledgements(@NonNull Context context) {
+        return true;
     }
 
     @NonNull

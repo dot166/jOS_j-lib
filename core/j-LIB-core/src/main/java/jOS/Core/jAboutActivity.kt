@@ -5,10 +5,9 @@ import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
+import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.os.Bundle
-import android.util.Log
-import android.view.MenuItem
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.browser.customtabs.CustomTabsIntent
@@ -47,12 +46,20 @@ import jOS.Core.ThemeEngine.ThemeEngine
 import jOS.Core.utils.ContributorRow
 import jOS.Core.utils.ErrorUtils
 import jOS.Core.utils.IconUtils
-import jOS.Core.utils.LabelUtils.getAppLabel
+import jOS.Core.utils.LabelUtils
 
 open class jAboutActivity : jActivity() {
 
     open fun versionIntent(context : Context): Intent {
         return Intent()
+    }
+
+    open fun getActivityIcon(context: Context): Drawable {
+        return IconUtils.getActivityIcon(context)
+    }
+
+    open fun getAppLabel(context: Context): String {
+        return LabelUtils.getAppLabel(context)
     }
 
     interface Roles {
@@ -123,7 +130,7 @@ open class jAboutActivity : jActivity() {
         ),
     )
 
-    private fun versionName(context: Activity): String {
+    open fun versionName(context: Activity): String {
         try {
             val pInfo: PackageInfo =
                 context.packageManager.getPackageInfo(context.packageName, 0)
@@ -145,7 +152,7 @@ open class jAboutActivity : jActivity() {
         ) {
             if (!showOnlyContributors(context)) {
                 Image(
-                    painter = rememberDrawablePainter(drawable = IconUtils.getActivityIcon(context)),
+                    painter = rememberDrawablePainter(drawable = getActivityIcon(context)),
                     contentDescription = null,
                     modifier = Modifier
                         .size(72.dp)
@@ -195,7 +202,7 @@ open class jAboutActivity : jActivity() {
                 }
             }
             Contributors()
-            if (!showOnlyContributors(context)) {
+            if (!hideAcknowledgements(context)) {
                 Button(onClick = {
                     try {
                         startActivity(
@@ -214,6 +221,13 @@ open class jAboutActivity : jActivity() {
                 }
             }
         }
+    }
+
+    /**
+     * SHOULD ONLY BE CHANGED IN LIB ABOUT!!
+     */
+    open fun hideAcknowledgements(context: Context): Boolean {
+        return showOnlyContributors(context);
     }
 
     @Composable

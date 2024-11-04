@@ -24,4 +24,5 @@
     <string name="menu_action_icon">Menu Action Icon</string>
     <string name="theme_settings">Theme Settings</string>
     <string name="global_theme_settings">Theme Engine Settings</string>
+    <string name="about_jlib">About jLib</string>
 </resources>

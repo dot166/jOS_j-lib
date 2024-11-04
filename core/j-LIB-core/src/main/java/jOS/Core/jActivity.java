@@ -15,9 +15,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import java.util.Objects;
+
+import jOS.Core.utils.VersionUtils;
 
 
 public class jActivity extends AppCompatActivity {
@@ -75,27 +78,24 @@ public class jActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         mLIBApp = (jLIBCoreApp) this.getApplicationContext();
         mLIBApp.setCurrentActivity(this);
-        View layout_parsed = getLayoutInflater().inflate(layout, null);
-        setContentView(layout_parsed);
+        setContentView(layout);
 
-        // Fix A15 EdgeToEdge
-        ViewCompat.setOnApplyWindowInsetsListener(layout_parsed, (v, windowInsets) -> {
-            Insets insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars());
-            // Apply the insets as a margin to the view. This solution sets only the
-            // bottom, left, top and right dimensions, but you can apply whichever insets are
-            // appropriate to your layout. You can also update the view padding if that's
-            // more appropriate.
-            ViewGroup.MarginLayoutParams mlp = (ViewGroup.MarginLayoutParams) v.getLayoutParams();
-            mlp.leftMargin = insets.left;
-            mlp.bottomMargin = insets.bottom;
-            mlp.rightMargin = insets.right;
-            mlp.topMargin = insets.top;
-            v.setLayoutParams(mlp);
+        if (VersionUtils.Android.isAtLeastV()) {
+            // Fix A15 EdgeToEdge
+            ViewCompat.setOnApplyWindowInsetsListener(findViewById(android.R.id.content), (v, windowInsets) -> {
+                Insets insets = windowInsets.getInsets(
+                        WindowInsetsCompat.Type.systemBars() | WindowInsetsCompat.Type.ime()
+                                | WindowInsetsCompat.Type.displayCutout());
+                int statusBarHeight = getWindow().getDecorView().getRootWindowInsets()
+                        .getInsets(WindowInsetsCompat.Type.statusBars()).top;
+                // Apply the insets paddings to the view.
+                v.setPadding(insets.left, statusBarHeight, insets.right, insets.bottom);
 
-            // Return CONSUMED if you don't want want the window insets to keep passing
-            // down to descendant views.
-            return WindowInsetsCompat.CONSUMED;
-        });
+                // Return CONSUMED if you don't want the window insets to keep being
+                // passed down to descendant views.
+                return WindowInsetsCompat.CONSUMED;
+            });
+        }
 
         if (actionbar) {
             setSupportActionBar(findViewById(R.id.actionbar));
