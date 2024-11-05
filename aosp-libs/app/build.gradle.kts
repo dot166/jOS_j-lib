@@ -57,14 +57,6 @@ dependencies {
 configure<GenerateBpPluginExtension> {
     targetSdk.set(android.defaultConfig.targetSdk!!)
     availableInAOSP.set { module: Module ->
-        when {
-            module.group == "androidx.databinding" -> false
-            module.name == "preference-ktx" -> false
-            module.group == "com.google.accompanist" -> false
-            module.group.startsWith("androidx.compose") -> false
-            module.group.startsWith("androidx") -> true
-            module.group.startsWith("com.google") -> true
-            else -> false
-        }
+        false
     }
 }
