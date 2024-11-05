@@ -31,7 +31,7 @@
         <activity
             android:name="jOS.Core.LIBAboutActivity"
             android:exported="true"
-            android:label="@string/about" />
+            android:label="@string/about_jlib" />
         <!-- OpenSource Licence Activity -->
         <activity
             android:name="jOS.Core.OSSLicenceActivity"

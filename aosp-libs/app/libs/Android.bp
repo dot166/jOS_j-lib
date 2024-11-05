@@ -4208,7 +4208,7 @@ android_library {
 
 android_library_import {
     name: "j.Lib-nodeps",
-    aars: ["io/github/dot166/j-Lib/3.3.0/j-Lib-3.3.0.aar"],
+    aars: ["io/github/dot166/j-Lib/3.3.1/j-Lib-3.3.1.aar"],
     sdk_version: "35",
     min_sdk_version: "14",
     apex_available: [
@@ -4243,7 +4243,7 @@ android_library {
         "//apex_available:platform",
         "//apex_available:anyapex",
     ],
-    manifest: "io/github/dot166/j-Lib/3.3.0/AndroidManifest.xml",
+    manifest: "io/github/dot166/j-Lib/3.3.1/AndroidManifest.xml",
     static_libs: [
         "j.Lib-nodeps",
         "aosp-libs_androidx.appcompat_appcompat",
