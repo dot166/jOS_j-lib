@@ -20,7 +20,9 @@ android_library {
         "aosp-libs_io.coil-kt_coil-compose",
         "com.google.android.material_material",
         "kotlin-stdlib",
-        "j.Lib.PrivExt"
+        "j.Lib.PrivExt",
+        "androidx.compose.foundation_foundation",
+        "androidx.compose.runtime_runtime"
     ],
 
     manifest: "src/main/AndroidManifest.xml",
