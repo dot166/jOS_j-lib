@@ -253,7 +253,7 @@ open class jAboutActivity : jActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         configure(R.layout.aboutactivity, false)
         super.onCreate(savedInstanceState)
-        findViewById<ComposeView>(R.id.my_composable).setContent {
+        findViewById<ComposeView>(R.id.my_composable)?.setContent {
             MaterialTheme(
                 colorScheme = ThemeEngine.getColourScheme()
             ) {

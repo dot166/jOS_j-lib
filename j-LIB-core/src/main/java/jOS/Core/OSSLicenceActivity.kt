@@ -20,7 +20,7 @@ class OSSLicenceActivity : jActivity() {
         } else {
             Log.e("ActionBar2", "no actionbar found")
         }
-        findViewById<ComposeView>(R.id.my_composable).setContent {
+        findViewById<ComposeView>(R.id.my_composable)?.setContent {
             MaterialTheme(
                 colorScheme = ThemeEngine.getColourScheme()
             ) {
