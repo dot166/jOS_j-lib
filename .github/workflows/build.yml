@@ -51,30 +51,27 @@ jobs:
         ./gradlew j-Lib-core:publishAndReleaseToMavenCentral --no-configuration-cache
         ./gradlew --stop
 
-    - name: Wait
-      if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && github.repository == 'dot166/jOS_j-Lib' && env.RELEASE == '1' }}
-      run: sleep 1500s
-      shell: bash
-
     - name: Grant execute permission for gradlew
       run: |
         cd aosp-libs
         chmod +x gradlew
 
-    - name: Build
+    - name: add Dependencies to AOSP
       run: |
         cd aosp-libs
         ./gradlew generateBp
 
     - name: Commit changes
-      if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && github.repository == 'dot166/jOS_j-Lib' && env.RELEASE == '1' }}
+      if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && github.repository == 'dot166/jOS_j-Lib' }}
       run: |
+        cd aosp-libs
         git add .
+        cd ..
         git commit -m "Publish prebuilts for AOSP" || true
 
     - name: Push changes to repo
       uses: ad-m/github-push-action@master
-      if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && github.repository == 'dot166/jOS_j-Lib' && env.RELEASE == '1' }}
+      if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && github.repository == 'dot166/jOS_j-Lib' }}
       with:
         branch: ${{ github.ref }}
     
