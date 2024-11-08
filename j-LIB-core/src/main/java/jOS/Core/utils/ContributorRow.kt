@@ -16,12 +16,10 @@
 
 package jOS.Core.utils
 
-import android.content.Intent
 import android.net.Uri
 import androidx.browser.customtabs.CustomTabsIntent
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 //noinspection UsingMaterialAndMaterial3Libraries
@@ -33,19 +31,15 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.surfaceColorAtElevation
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import coil.compose.SubcomposeAsyncImage
-import com.google.accompanist.placeholder.PlaceholderHighlight
-import com.google.accompanist.placeholder.material.fade
-import com.google.accompanist.placeholder.material.placeholder
-import androidx.compose.material3.MaterialTheme as Material3Theme
 
 @Composable
 fun PreferenceTemplate(
@@ -88,14 +82,14 @@ fun PreferenceTemplate(
             ) {
                 Column(Modifier.weight(1f)) {
                     CompositionLocalProvider(
-                        LocalContentColor provides Material3Theme.colorScheme.onBackground,
-                        LocalTextStyle provides Material3Theme.typography.bodyLarge
+                        LocalContentColor provides MaterialTheme.colorScheme.onBackground,
+                        LocalTextStyle provides MaterialTheme.typography.bodyLarge
                     ) {
                         title()
                     }
                     CompositionLocalProvider(
-                        LocalContentColor provides Material3Theme.colorScheme.onBackground.copy(alpha = ContentAlpha.medium),
-                        LocalTextStyle provides Material3Theme.typography.bodyMedium
+                        LocalContentColor provides MaterialTheme.colorScheme.onBackground.copy(alpha = ContentAlpha.medium),
+                        LocalTextStyle provides MaterialTheme.typography.bodyMedium
                     ) {
                         description()
                     }
@@ -140,10 +134,7 @@ fun ContributorRow(name: String, description: String, photoUrl: String, url: Str
                     Box(
                         modifier = Modifier
                             .fillMaxSize()
-                            .placeholder(
-                                visible = true,
-                                highlight = PlaceholderHighlight.fade(),
-                            )
+                            .background(color = Color.Green)
                     )
                 }
             )

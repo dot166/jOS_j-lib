@@ -2,7 +2,7 @@
 
 contains a custom actionbar based on material components Toolbar and some other things.
 
-## PrivExt subfolder can only be built with aosp, rest of lib can be built with gradle
+## PrivExt subfolder can only be built with AOSP, rest of lib can be built with gradle or AOSP
 
 ## jLib will work ONLY ON ANDROID NOUGAT (7) AND LATER!! because 97.2% of Android devices use Android nougat or newer and it would be a nightmare to keep supporting Android Marshmallow (6) and older
 
@@ -51,7 +51,7 @@ aboutLibraries {
 }
 
 dependencies {
-    implementation "io.github.dot166:j-Lib:3.2.17"
+    implementation "io.github.dot166:j-Lib:3.3.1"
 }
 ```
 
@@ -91,24 +91,28 @@ android {
 }
 
 dependencies {
-    api "io.github.dot166:j-Lib:3.2.17"
+    api "io.github.dot166:j-Lib:3.3.1"
 }
 ```
 
 
 ## folder structure
 
-### core/
+### j-LIB-core/
 
 gradle library (main code)
 
 ### PrivExt/
 
-aosp compiled java library (privileged code) included as javalib.jar in core/j-SDK-core/libs
+aosp compiled java library (privileged code) included as javalib.jar in core/j-SDK-core/libs and included in AOSP Build
+
+### lib-example/
+
+example gradle application
 
 ### aosp-libs/
 
-prebuilt aar of core/ and other dependencies (for use in aosp)
+prebuilt dependencies (for use in aosp)
 
 ## License
 

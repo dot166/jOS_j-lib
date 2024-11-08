@@ -1,0 +1,40 @@
+//
+// Copyright (C) 2024 ._______166
+//
+
+android_library {
+    name: "j.Lib",
+    static_libs: [
+        "androidx-constraintlayout_constraintlayout",
+        "androidx.appcompat_appcompat",
+        "androidx.browser_browser",
+        "androidx.core_core-ktx",
+        "androidx.swiperefreshlayout_swiperefreshlayout",
+        "androidx.compose.material3_material3",
+        "androidx.compose.material_material",
+        "androidx.compose.ui_ui",
+        "androidx.preference_preference",
+        "aosp-libs_com.google.accompanist_accompanist-drawablepainter",
+        "aosp-libs_com.mikepenz_aboutlibraries-compose-m3",
+        "aosp-libs_com.mikepenz_aboutlibraries-core",
+        "aosp-libs_io.coil-kt_coil-compose",
+        "com.google.android.material_material",
+        "kotlin-stdlib",
+        "j.Lib.PrivExt"
+    ],
+
+    manifest: "src/main/AndroidManifest.xml",
+
+    srcs: [
+        // common code
+        "src/main/java/**/*.kt",
+        "src/main/java/**/*.java",
+    ],
+
+    resource_dirs: [
+        "src/main/res",
+    ],
+    use_resource_processor: true,
+
+    kotlincflags: ["-Xjvm-default=all"],
+}

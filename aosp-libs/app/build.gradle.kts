@@ -49,14 +49,23 @@ android {
 
 dependencies {
     //noinspection GradleDynamicVersion
-    implementation("io.github.dot166:j-Lib:3.+")
     implementation("com.kieronquinn.smartspacer:sdk-client:+")
+    implementation("io.coil-kt:coil-compose:2.7.0")
+    implementation("com.google.accompanist:accompanist-drawablepainter:0.36.0")
+    implementation("com.mikepenz:aboutlibraries-core:11.2.3")
+    implementation("com.mikepenz:aboutlibraries-compose-m3:11.2.3")
 }
 
 
 configure<GenerateBpPluginExtension> {
     targetSdk.set(android.defaultConfig.targetSdk!!)
     availableInAOSP.set { module: Module ->
-        false
+        when {
+            module.group == "androidx.databinding" -> false
+            module.group == "com.google.accompanist" -> false
+            module.group.startsWith("androidx") -> true
+            module.group.startsWith("com.google") -> true
+            else -> false
+        }
     }
 }
