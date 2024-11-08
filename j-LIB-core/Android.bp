@@ -18,7 +18,7 @@ android_library {
         "aosp-libs_com.mikepenz_aboutlibraries-compose-m3",
         "aosp-libs_com.mikepenz_aboutlibraries-core",
         "aosp-libs_io.coil-kt_coil-compose",
-        "com.google.android.material_material",
+        "aosp-libs_com.google.android.material_material",
         "kotlin-stdlib",
         "j.Lib.PrivExt",
         "androidx.compose.foundation_foundation",
