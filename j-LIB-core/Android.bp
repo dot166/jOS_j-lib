@@ -31,6 +31,8 @@ android_library {
         // common code
         "src/main/java/**/*.kt",
         "src/main/java/**/*.java",
+        // buildconfig
+        "src-aosp/jOS/Core/BuildConfig.java"
     ],
 
     resource_dirs: [
