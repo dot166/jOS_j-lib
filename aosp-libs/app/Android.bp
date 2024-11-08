@@ -19,6 +19,7 @@ android_app {
         "aosp-libs_com.google.accompanist_accompanist-drawablepainter",
         "aosp-libs_com.mikepenz_aboutlibraries-core",
         "aosp-libs_com.mikepenz_aboutlibraries-compose-m3",
+        "aosp-libs_com.google.android.material_material",
     ],
 
     kotlincflags: ["-Xjvm-default=all"],
