@@ -13,7 +13,7 @@ apply {
 
 buildscript {
     repositories {
-        maven("https://raw.githubusercontent.com/lineage-next/gradle-generatebp/v1.14/.m2")
+        maven("https://raw.githubusercontent.com/dot166/gradle-generatebp/main/.m2")
     }
 
     dependencies {
@@ -60,7 +60,7 @@ configure<GenerateBpPluginExtension> {
     targetSdk.set(android.defaultConfig.targetSdk!!)
     availableInAOSP.set { module: Module ->
         when {
-            module.group == "androidx.databinding" -> false
+            module.group.startsWith("org.jetbrains") -> true
             module.group == "com.google.accompanist" -> false
             module.group == "com.google.android.material" -> false // TEMPORARY, is set to false until AOSP updates their version of material components to 1.12.0 or newer
             module.group.startsWith("androidx") -> true
