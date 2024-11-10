@@ -13,7 +13,7 @@ apply {
 
 buildscript {
     repositories {
-        maven("https://raw.githubusercontent.com/dot166/gradle-generatebp/main/.m2")
+        maven("https://raw.githubusercontent.com/lineage-next/gradle-generatebp/v1.14/.m2")
     }
 
     dependencies {
