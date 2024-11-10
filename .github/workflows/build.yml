@@ -68,7 +68,7 @@ jobs:
         cd aosp-libs
         git add .
         cd ..
-        git commit -m "Publish prebuilts for AOSP" || true
+        git commit -m "Publish dependencies for AOSP" || true
 
     - name: Push changes to repo
       uses: ad-m/github-push-action@master
