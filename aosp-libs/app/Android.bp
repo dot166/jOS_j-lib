@@ -14,7 +14,6 @@ android_app {
     static_libs: [
         // DO NOT EDIT THIS SECTION MANUALLY
         "aosp-libs_org.jetbrains.kotlin_kotlin-stdlib",
-        "SmartspacerClient",
         "aosp-libs_io.coil-kt_coil-compose",
         "aosp-libs_com.google.accompanist_accompanist-drawablepainter",
         "aosp-libs_com.mikepenz_aboutlibraries-core",
