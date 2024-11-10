@@ -48,8 +48,6 @@ android {
 }
 
 dependencies {
-    //noinspection GradleDynamicVersion
-    implementation("com.kieronquinn.smartspacer:sdk-client:+")
     implementation("io.coil-kt:coil-compose:2.7.0")
     implementation("com.google.accompanist:accompanist-drawablepainter:0.36.0")
     implementation("com.mikepenz:aboutlibraries-core:11.2.3")
