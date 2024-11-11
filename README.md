@@ -95,24 +95,22 @@ dependencies {
 }
 ```
 
+to use jLib in an AOSP Project add the module ```j.Lib``` to the static_libs section of your Android.bp file
+
 
 ## folder structure
 
 ### j-LIB-core/
 
-gradle library (main code)
+gradle library (main code) with AOSP Build Files
 
 ### PrivExt/
 
-aosp compiled java library (privileged code) included as javalib.jar in core/j-SDK-core/libs and included in AOSP Build
+AOSP compiled java library (privileged code) included as javalib.jar in core/j-SDK-core/libs and included in AOSP Build
 
 ### lib-example/
 
 example gradle application
-
-### aosp-libs/
-
-prebuilt dependencies (for use in aosp)
 
 ## License
 

@@ -52,22 +52,13 @@ jobs:
         ./gradlew j-Lib-core:publishAndReleaseToMavenCentral --no-configuration-cache
         ./gradlew --stop
 
-    - name: Grant execute permission for gradlew
-      run: |
-        cd aosp-libs
-        chmod +x gradlew
-
     - name: add Dependencies to AOSP
-      run: |
-        cd aosp-libs
-        ./gradlew generateBp
+      run: ./gradlew generateBp
 
     - name: Commit changes
       if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && github.repository == 'dot166/jOS_j-Lib' }}
       run: |
-        cd aosp-libs
         git add .
-        cd ..
         git commit -m "Publish dependencies for AOSP" || true
 
     - name: Push changes to repo

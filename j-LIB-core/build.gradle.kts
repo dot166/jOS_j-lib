@@ -1,3 +1,7 @@
+import org.lineageos.generatebp.GenerateBpPlugin
+import org.lineageos.generatebp.GenerateBpPluginExtension
+import org.lineageos.generatebp.models.Module
+
 val Ver: String = providers.exec {
     commandLine("cat", "ver")
 }.standardOutput.asText.get().trim()
@@ -8,6 +12,20 @@ plugins {
     id("org.jetbrains.kotlin.plugin.compose")
     `maven-publish`
     id("com.vanniktech.maven.publish")
+}
+
+apply {
+    plugin<GenerateBpPlugin>()
+}
+
+buildscript {
+    repositories {
+        maven("https://raw.githubusercontent.com/lineage-next/gradle-generatebp/main/.m2")
+    }
+
+    dependencies {
+        classpath("org.lineageos:gradle-generatebp:+")
+    }
 }
 
 android.buildFeatures.buildConfig=true
@@ -48,11 +66,12 @@ android {
 dependencies {
     api("androidx.appcompat:appcompat:1.7.0")
     api("androidx.constraintlayout:constraintlayout:2.2.0")
-    api("androidx.preference:preference-ktx:1.2.1")
+    //noinspection KtxExtensionAvailable
+    api("androidx.preference:preference:1.2.1")
     api("com.google.android.material:material:1.12.0")
     api("androidx.core:core-ktx:1.15.0")
     api("androidx.browser:browser:1.8.0")
-    implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
+    implementation(fileTree(mapOf("dir" to "lib", "include" to listOf("*.jar"))))
     api("androidx.compose.ui:ui-android:1.7.5")
     api("androidx.compose.material3:material3-android:1.3.1")
     api("androidx.compose.material:material-android:1.7.5")
@@ -88,6 +107,21 @@ mavenPublishing {
             url = "https://github.com/github.com/dot166/jOS_j-lib"
             connection = "scm:git:git://github.com/github.com/dot166/jOS_j-lib.git"
             developerConnection = "scm:git:ssh://git@github.com/github.com/dot166/jOS_j-lib.git"
+        }
+    }
+}
+
+configure<GenerateBpPluginExtension> {
+    targetSdk.set(35)
+    availableInAOSP.set { module: Module ->
+        when {
+            module.group.startsWith("org.jetbrains.compose") -> false
+            module.group.startsWith("org.jetbrains") -> true
+            module.group == "com.google.accompanist" -> false
+            module.group == "com.google.android.material" -> false // TEMPORARY, is set to false until AOSP updates their version of material components to 1.12.0 or newer
+            module.group.startsWith("androidx") -> true
+            module.group.startsWith("com.google") -> true
+            else -> false
         }
     }
 }

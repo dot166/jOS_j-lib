@@ -15,7 +15,7 @@ android {
         applicationId = "com.j.lib_example"
         minSdk = 24
         targetSdk = 35
-        versionCode = 32 // 3.2.x
+        versionCode = 33 // 3.3.x
         versionName = Ver
     }
 
