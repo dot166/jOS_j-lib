@@ -38,9 +38,6 @@ public class Build {
         return 0;
     }
 
-    /** jOS M */
-    public static final int jOS_M = 13;
-
     /** jOS Obsidian */
     public static final int jOS_O = 15;
 
