@@ -116,6 +116,7 @@ configure<GenerateBpPluginExtension> {
     availableInAOSP.set { module: Module ->
         when {
             module.group.startsWith("org.jetbrains.compose") -> false
+            module.name.startsWith("kotlinx-collections-immutable") -> false
             module.group.startsWith("org.jetbrains") -> true
             module.group == "com.google.accompanist" -> false
             module.group == "com.google.android.material" -> false // TEMPORARY, is set to false until AOSP updates their version of material components to 1.12.0 or newer
