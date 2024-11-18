@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
+import android.graphics.drawable.VectorDrawable;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.widget.ImageView;
@@ -30,7 +31,7 @@ public class MenuButton extends LinearLayout {
             Drawable icon = styledAttributes.getDrawable(R.styleable.MenuButton_android_icon);
             int iconTint = styledAttributes.getColor(R.styleable.MenuButton_tint, context.getTheme().obtainStyledAttributes(new int[]{android.R.attr.textColorPrimary}).getColor(0, getResources().getColor(R.color.j_primary_text_holo_dark)));
 
-            if (icon != null && iconTint != null) {
+            if (icon != null && icon instanceof VectorDrawable) {
                 icon.setTint(iconTint);
             }
             setIcon(icon);
