@@ -30,18 +30,27 @@ public class Build {
     /** A Version String utilized to distinguish jOS versions */
     public static final String jOS_RELEASE = getString("ro.j.osversion");
 
-    /** An Integer utilized to distinguish jOS versions */
-    public static int jOS_RELEASE_INT() {
+    protected static int getinternalint() {
         if (jOS_RELEASE != UNKNOWN) {
-            return Integer.parseInt(jOS_RELEASE.replaceAll("\\..*",""));
+            return jOS_RELEASE.replaceAll("-\\(.*","");
         }
-        return 0;
+        return "0";
     }
+
+    /** An Integer utilized to distinguish jOS versions */
+    public static final int jOS_RELEASE_INT = Integer.parseInt(getinternalint().replaceAll("-.*",""));
+
+    /** An Integer utilized to distinguish incremental jOS versions */
+    public static final int jOS_INCREMENTAL_RELEASE_INT = Integer.parseInt(getinternalint().replaceAll("-",""));
 
     /** jOS Obsidian */
     public static final int jOS_O = 15;
 
     private static String getString(String property) {
         return SystemProperties.get(property, UNKNOWN);
+    }
+
+    private static String getInt(String property) {
+        return SystemProperties.getInt(property, 0);
     }
 }
