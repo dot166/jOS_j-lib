@@ -69,7 +69,7 @@ public class VersionUtils {
     public static class jOS {
 
         public static boolean isAtLeastObsidian() {
-            return Build.jOS_RELEASE_INT() >= Build.jOS_O;
+            return Build.jOS_RELEASE_INT >= Build.jOS_O;
         }
     }
 }
