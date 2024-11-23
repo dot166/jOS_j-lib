@@ -30,7 +30,7 @@ public class Build {
     /** A Version String utilized to distinguish jOS versions */
     public static final String jOS_RELEASE = getString("ro.j.osversion");
 
-    protected static int getinternalint() {
+    protected static String getinternalint() {
         if (jOS_RELEASE != UNKNOWN) {
             return jOS_RELEASE.replaceAll("-\\(.*","");
         }
@@ -48,9 +48,5 @@ public class Build {
 
     private static String getString(String property) {
         return SystemProperties.get(property, UNKNOWN);
-    }
-
-    private static String getInt(String property) {
-        return SystemProperties.getInt(property, 0);
     }
 }
