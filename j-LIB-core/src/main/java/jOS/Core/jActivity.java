@@ -8,6 +8,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -27,10 +28,47 @@ public class jActivity extends AppCompatActivity {
 
     boolean app_name;
     boolean actionbar;
-    int layout;
+    View layout;
     boolean home;
     boolean configured = false;
     protected jLIBCoreApp mLIBApp;
+
+    /**
+     * Subclasses are obligated to call this before calling super.onCreate()
+     * @param layout View, app layout.
+     * @param home boolean, tells system if this is the first activity/home page
+     */
+    protected void configure(View layout, boolean home)
+    {
+        configure(layout, home, true);
+    }
+
+    /**
+     * Subclasses are obligated to call this before calling super.onCreate()
+     * @param layout View, app layout.
+     * @param home boolean, tells system if this is the first activity/home page
+     * @param actionbar boolean, tells system if you would like to show the ActionBar
+     */
+    protected void configure(View layout, boolean home, boolean actionbar)
+    {
+        configure(layout, home, actionbar, true);
+    }
+
+    /**
+     * Subclasses are obligated to call this before calling super.onCreate()
+     * @param layout View, app layout.
+     * @param home boolean, tells system if this is the first activity/home page
+     * @param actionbar boolean, tells system if you would like to show the ActionBar
+     * @param app_name boolean, tells the system if you would like to show the ActionBar Title
+     */
+    protected void configure(View layout, boolean home, boolean actionbar, boolean app_name)
+    {
+        this.app_name = app_name;
+        this.layout = layout;
+        this.actionbar = actionbar;
+        this.home = home;
+        this.configured = true;
+    }
 
     /**
      * Subclasses are obligated to call this before calling super.onCreate()
@@ -63,7 +101,7 @@ public class jActivity extends AppCompatActivity {
     protected void configure(int layout, boolean home, boolean actionbar, boolean app_name)
     {
         this.app_name = app_name;
-        this.layout = layout;
+        this.layout = LayoutInflater.from(getApplicationContext()).inflate(layout, null);
         this.actionbar = actionbar;
         this.home = home;
         this.configured = true;
@@ -78,7 +116,9 @@ public class jActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         mLIBApp = (jLIBCoreApp) this.getApplicationContext();
         mLIBApp.setCurrentActivity(this);
-        setContentView(layout);
+        if (layout != null) {
+            setContentView(layout);
+        }
 
         if (VersionUtils.Android.isAtLeastV()) {
             // Fix A15 EdgeToEdge
