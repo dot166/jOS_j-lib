@@ -10,7 +10,7 @@ public class jWebActivity extends jActivity {
 
     String uri;
 
-   protected void configure(String uri)
+    protected void configure(String uri)
     {
         this.uri = uri;
         super.configure(null, false, false, false);

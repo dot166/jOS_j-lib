@@ -19,6 +19,7 @@ import androidx.browser.customtabs.CustomTabsIntent;
 import androidx.compose.material3.ColorScheme;
 
 import jOS.Core.R;
+import jOS.Core.jWebActivity;
 
 public class ThemeEngine {
 
@@ -92,27 +93,29 @@ public class ThemeEngine {
             Log.i(TAG, "Unrecognised Theme '" + currentTheme + "'");
         } else {
             Log.e(TAG, "ThemeEngine is MISSING!!!!");
-            AlertDialog.Builder builder = new AlertDialog.Builder(context);
+            if (!(context instanceof jWebActivity)) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
 
-            builder.setMessage(R.string.dialog_message)
-                    .setTitle(R.string.dialog_title)
-                    .setCancelable(false)
-                    .setPositiveButton(R.string.dialog_positive, new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id) {
-                            String url = "https://github.com/dot166/jOS_ThemeEngine/releases";
-                            CustomTabsIntent intent = new CustomTabsIntent.Builder()
-                                    .build();
-                            intent.launchUrl(context, Uri.parse(url));
-                        }
-                    })
-                    .setNegativeButton(R.string.dialog_negative, new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id) {
-                            Log.i(TAG, "IGNORING ThemeEngine ERROR");
-                        }
-                    });
-            //Creating dialog box
-            AlertDialog alert = builder.create();
-            alert.show();
+                builder.setMessage(R.string.dialog_message)
+                        .setTitle(R.string.dialog_title)
+                        .setCancelable(false)
+                        .setPositiveButton(R.string.dialog_positive, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                String url = "https://github.com/dot166/jOS_ThemeEngine/releases";
+                                CustomTabsIntent intent = new CustomTabsIntent.Builder()
+                                        .build();
+                                intent.launchUrl(context, Uri.parse(url));
+                            }
+                        })
+                        .setNegativeButton(R.string.dialog_negative, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                Log.i(TAG, "IGNORING ThemeEngine ERROR");
+                            }
+                        });
+                //Creating dialog box
+                AlertDialog alert = builder.create();
+                alert.show();
+            }
         }
         ColourScheme = getDarkColourScheme(context);
         return R.style.jOS_Theme;

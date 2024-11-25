@@ -29,6 +29,7 @@ public class jActivity extends AppCompatActivity {
     boolean app_name;
     boolean actionbar;
     View layout;
+    int layoutId;
     boolean home;
     boolean configured = false;
     protected jLIBCoreApp mLIBApp;
@@ -65,6 +66,7 @@ public class jActivity extends AppCompatActivity {
     {
         this.app_name = app_name;
         this.layout = layout;
+        this.layoutId = 0; // layout is added from view so id is set to null
         this.actionbar = actionbar;
         this.home = home;
         this.configured = true;
@@ -101,7 +103,8 @@ public class jActivity extends AppCompatActivity {
     protected void configure(int layout, boolean home, boolean actionbar, boolean app_name)
     {
         this.app_name = app_name;
-        this.layout = LayoutInflater.from(getApplicationContext()).inflate(layout, null);
+        this.layout = null; // layout is inflated from id so layout view is set to null
+        this.layoutId = layout;
         this.actionbar = actionbar;
         this.home = home;
         this.configured = true;
@@ -116,6 +119,9 @@ public class jActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         mLIBApp = (jLIBCoreApp) this.getApplicationContext();
         mLIBApp.setCurrentActivity(this);
+        if (layout == null && layoutId != 0) {
+            layout = LayoutInflater.from(this).inflate(layoutId, null);
+        }
         if (layout != null) {
             setContentView(layout);
         }

@@ -19,25 +19,25 @@ class ThemeEngineKT {
 
         @JvmStatic
         fun getLightColourScheme(context: Context): ColorScheme {
-            return if (VersionUtils.Android.isAtLeastS()) {
-                dynamicLightColorScheme(context)
+            if (themeClass != null && themeClass.LComposeColourScheme(context) != null) {
+                return themeClass.LComposeColourScheme(context);
             } else {
-                if (themeClass != null && themeClass.LColourScheme() != null) {
-                    themeClass.LColourScheme();
+                if (VersionUtils.Android.isAtLeastS()) {
+                    return dynamicLightColorScheme(context)
                 }
-                lightColorScheme()
+                return lightColorScheme()
             }
         }
 
         @JvmStatic
         fun getDarkColourScheme(context: Context): ColorScheme {
-            return if (VersionUtils.Android.isAtLeastS()) {
-                dynamicDarkColorScheme(context)
+            if (themeClass != null && themeClass.DComposeColourScheme(context) != null) {
+                return themeClass.DComposeColourScheme(context);
             } else {
-                if (themeClass != null && themeClass.DColourScheme() != null) {
-                    themeClass.DColourScheme();
+                if (VersionUtils.Android.isAtLeastS()) {
+                    return dynamicDarkColorScheme(context)
                 }
-                darkColorScheme()
+                return darkColorScheme()
             }
         }
     }
