@@ -12,9 +12,13 @@ public interface values {
 
     public int M3();
 
+    public int M3D();
+
     public int M2L();
 
     public int M2();
+
+    public int M2D();
 
     public ColorScheme DComposeColourScheme(Context context);
 

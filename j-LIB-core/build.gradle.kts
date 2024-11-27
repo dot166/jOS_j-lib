@@ -24,6 +24,7 @@ buildscript {
     }
 
     dependencies {
+        //noinspection GradleDynamicVersion
         classpath("org.lineageos:gradle-generatebp:+")
     }
 }

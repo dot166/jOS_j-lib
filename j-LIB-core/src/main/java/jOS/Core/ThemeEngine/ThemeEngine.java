@@ -3,9 +3,11 @@ package jOS.Core.ThemeEngine;
 import static java.lang.Boolean.parseBoolean;
 
 import static jOS.Core.ThemeEngine.ThemeEngineKT.getDarkColourScheme;
+import static jOS.Core.ThemeEngine.ThemeEngineKT.getDayNightColourScheme;
 import static jOS.Core.ThemeEngine.ThemeEngineKT.getLightColourScheme;
 
 import android.annotation.SuppressLint;
+import android.app.UiModeManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.res.TypedArray;
@@ -17,6 +19,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.browser.customtabs.CustomTabsIntent;
 import androidx.compose.material3.ColorScheme;
+
+import java.util.Objects;
 
 import jOS.Core.R;
 import jOS.Core.jWebActivity;
@@ -52,6 +56,8 @@ public class ThemeEngine {
         String Theme;
         Theme = getThemeFromDB1(context);
         currentTheme = getThemeFromDB1(context);
+        UiModeManager manager = (UiModeManager) context.getSystemService(Context.UI_MODE_SERVICE);
+        boolean isDarkMode = manager.getNightMode() == UiModeManager.MODE_NIGHT_YES;
         Log.i(TAG, Theme);
         switch (Theme) {
             case "jOS":
@@ -62,10 +68,16 @@ public class ThemeEngine {
                 return R.style.jOS_Theme;
             case "M3 Dark":
                 ColourScheme = getDarkColourScheme(context);
+                if (themeClass != null && themeClass.M3D() != 0 && isMaterial3Theme(context, themeClass.M3D()) && !isLightTheme(context, themeClass.M3D())) {
+                    return themeClass.M3D();
+                }
+                return com.google.android.material.R.style.Theme_Material3_DynamicColors_Dark_NoActionBar;
+            case "M3":
+                ColourScheme = getDayNightColourScheme(context, isDarkMode);
                 if (themeClass != null && themeClass.M3() != 0 && isMaterial3Theme(context, themeClass.M3()) && !isLightTheme(context, themeClass.M3())) {
                     return themeClass.M3();
                 }
-                return com.google.android.material.R.style.Theme_Material3_DynamicColors_Dark_NoActionBar;
+                return com.google.android.material.R.style.Theme_Material3_DynamicColors_DayNight_NoActionBar;
             case "M3 Light":
                 ColourScheme = getLightColourScheme(context);
                 if (themeClass != null && themeClass.M3L() != 0 && isMaterial3Theme(context, themeClass.M3L()) && isLightTheme(context, themeClass.M3L())) {
@@ -74,10 +86,16 @@ public class ThemeEngine {
                 return com.google.android.material.R.style.Theme_Material3_DynamicColors_Light_NoActionBar;
             case "M2 Dark":
                 ColourScheme = getDarkColourScheme(context);
+                if (themeClass != null && themeClass.M2D() != 0 && isMaterialTheme(context, themeClass.M2D()) && !isLightTheme(context, themeClass.M2D())) {
+                    return themeClass.M2D();
+                }
+                return com.google.android.material.R.style.Theme_MaterialComponents_NoActionBar;
+            case "M2":
+                ColourScheme = getDayNightColourScheme(context, isDarkMode);
                 if (themeClass != null && themeClass.M2() != 0 && isMaterialTheme(context, themeClass.M2()) && !isLightTheme(context, themeClass.M2())) {
                     return themeClass.M2();
                 }
-                return com.google.android.material.R.style.Theme_MaterialComponents_NoActionBar;
+                return com.google.android.material.R.style.Theme_MaterialComponents_DayNight_NoActionBar;
             case "M2 Light":
                 ColourScheme = getLightColourScheme(context);
                 if (themeClass != null && themeClass.M2L() != 0 && isMaterialTheme(context, themeClass.M2L()) && isLightTheme(context, themeClass.M2L())) {
@@ -85,8 +103,8 @@ public class ThemeEngine {
                 }
                 return com.google.android.material.R.style.Theme_MaterialComponents_Light_NoActionBar;
             case "Disabled":
-                ColourScheme = getDarkColourScheme(context);
-                Log.i(TAG, "ThemeEngine Disabled, Returning no legacy scheme and dark compose colour scheme");
+                ColourScheme = getDayNightColourScheme(context, isDarkMode);
+                Log.i(TAG, "ThemeEngine Disabled, Returning no legacy scheme and the DayNight compose colour scheme");
                 return 0;
         }
         if (!Theme.equals("none")) {

@@ -30,6 +30,15 @@ class ThemeEngineKT {
         }
 
         @JvmStatic
+        fun getDayNightColourScheme(context: Context, dark: Boolean): ColorScheme {
+            return if (dark) {
+                getDarkColourScheme(context);
+            } else {
+                getLightColourScheme(context)
+            }
+        }
+
+        @JvmStatic
         fun getDarkColourScheme(context: Context): ColorScheme {
             if (themeClass != null && themeClass.DComposeColourScheme(context) != null) {
                 return themeClass.DComposeColourScheme(context);
