@@ -130,7 +130,7 @@ open class jAboutActivity : jActivity() {
         ),
     )
 
-    open fun versionName(context: Activity): String {
+    open fun versionName(context: Context): String {
         try {
             val pInfo: PackageInfo =
                 context.packageManager.getPackageInfo(context.packageName, 0)
@@ -212,7 +212,7 @@ open class jAboutActivity : jActivity() {
                             )
                         )
                     } catch (e : Exception) {
-                        ErrorUtils.handle(e, activity)
+                        ErrorUtils.handle(e, context)
                     }
                 }) {
                     Text(

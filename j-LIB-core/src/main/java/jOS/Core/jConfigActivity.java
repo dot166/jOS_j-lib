@@ -101,7 +101,7 @@ public class jConfigActivity extends jActivity {
                         try {
                             startActivity(intent);
                         } catch (Exception e) {
-                            ErrorUtils.handle(e, requireActivity());
+                            ErrorUtils.handle(e, preference.getContext());
                         }
                         return !isTEConfig();
                     });

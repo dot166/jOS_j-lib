@@ -1,0 +1,10 @@
+//
+// Copyright (C) 2024 ._______166
+//
+
+java_library {
+    name: "j.Lib.PrivExt",
+
+    srcs: ["java/**/*.java"],
+
+}

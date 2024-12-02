@@ -1,6 +1,7 @@
 package jOS.Core.utils;
 
 import static jOS.Core.utils.VersionUtils.getAndroidVersion;
+import static jOS.Core.Build.jOS_RELEASE;
 
 import android.content.ComponentName;
 import android.content.Intent;
@@ -20,7 +21,9 @@ public class LIBTest {
         TextView text = context.findViewById(R.id.textView);
         Button button = context.findViewById(R.id.button);
         Button button2 = context.findViewById(R.id.button2);
-        String all = "Android: " + getAndroidVersion();
+        String android_lib_test = "Android: " + getAndroidVersion();
+        String j_lib_test = "jOS: " + jOS_RELEASE;
+        String all = android_lib_test + " " + j_lib_test;
         text.setText(all);
         button.setOnClickListener(new View.OnClickListener() {
             @Override

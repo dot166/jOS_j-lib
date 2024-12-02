@@ -40,6 +40,8 @@ android_library {
         "j-Lib_com.mikepenz_aboutlibraries-core-android",
         "j-Lib_io.coil-kt_coil-compose",
         "kotlin-stdlib",
+    ] + [
+        "j.Lib.PrivExt",
     ],
 
     manifest: "src/main/AndroidManifest.xml",
