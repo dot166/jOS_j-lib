@@ -1,6 +1,5 @@
 package jOS.Core;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
@@ -37,7 +36,7 @@ public class LIBAboutActivity extends jAboutActivity {
 
     @NonNull
     @Override
-    public String versionName(@NonNull Activity context) {
+    public String versionName(@NonNull Context context) {
         return BuildConfig.LIBVersion;
     }
 
