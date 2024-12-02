@@ -14,12 +14,6 @@ public interface values {
 
     public int M3D();
 
-    public int M2L();
-
-    public int M2();
-
-    public int M2D();
-
     public ColorScheme DComposeColourScheme(Context context);
 
     public ColorScheme LComposeColourScheme(Context context);

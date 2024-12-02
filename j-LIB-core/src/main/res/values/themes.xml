@@ -191,5 +191,5 @@
     <!-- v26 overrides -->
     <style name="Platform.v26.jOS.Theme" parent="Platform.jOS.Theme"/>
     <!-- Theme.MaterialComponents.NoActionBar overrides -->
-    <style name="Platform.jOS.Theme" parent="Theme.MaterialComponents.NoActionBar"/>
+    <style name="Platform.jOS.Theme" parent="Theme.Material3.DynamicColors.Dark.NoActionBar"/>
 </resources>

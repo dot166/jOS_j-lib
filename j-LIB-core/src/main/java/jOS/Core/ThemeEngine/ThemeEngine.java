@@ -31,7 +31,6 @@ public class ThemeEngine {
     private static ColorScheme ColourScheme;
     public static values themeClass;
     private static final int[] JOS_CHECK_ATTRS = {R.attr.isJTheme};
-    private static final int[] MATERIAL_CHECK_ATTRS = {com.google.android.material.R.attr.colorPrimaryVariant};
     private static final int[] LIGHT_CHECK_ATTRS = {androidx.appcompat.R.attr.isLightTheme};
     @SuppressLint("PrivateResource")
     private static final int[] MATERIAL3_CHECK_ATTRS = {com.google.android.material.R.attr.isMaterial3Theme};
@@ -82,24 +81,6 @@ public class ThemeEngine {
                     return themeClass.M3L();
                 }
                 return com.google.android.material.R.style.Theme_Material3_DynamicColors_Light_NoActionBar;
-            case "M2 Dark":
-                ColourScheme = getDarkColourScheme(context);
-                if (themeClass != null && themeClass.M2D() != 0 && isMaterialTheme(context, themeClass.M2D()) && !isLightTheme(context, themeClass.M2D())) {
-                    return themeClass.M2D();
-                }
-                return com.google.android.material.R.style.Theme_MaterialComponents_NoActionBar;
-            case "M2":
-                ColourScheme = getDayNightColourScheme(context, isDarkMode);
-                if (themeClass != null && themeClass.M2() != 0 && isMaterialTheme(context, themeClass.M2()) && isDayNightTheme(context, themeClass.M2(), isDarkMode)) {
-                    return themeClass.M2();
-                }
-                return com.google.android.material.R.style.Theme_MaterialComponents_DayNight_NoActionBar;
-            case "M2 Light":
-                ColourScheme = getLightColourScheme(context);
-                if (themeClass != null && themeClass.M2L() != 0 && isMaterialTheme(context, themeClass.M2L()) && isLightTheme(context, themeClass.M2L())) {
-                    return themeClass.M2L();
-                }
-                return com.google.android.material.R.style.Theme_MaterialComponents_Light_NoActionBar;
             case "Disabled":
                 ColourScheme = getDayNightColourScheme(context, isDarkMode);
                 Log.i(TAG, "ThemeEngine Disabled, Returning no legacy scheme and the DayNight compose colour scheme");
@@ -173,16 +154,6 @@ public class ThemeEngine {
     }
 
     /**
-     * checks if theme is extended from ThemeMaterialComponents
-     * @param context context for checking the theme
-     * @param theme int theme to check
-     * @return boolean true if theme is extended from ThemeMaterialComponents
-     */
-    public static boolean isMaterialTheme(@NonNull Context context, int theme) {
-        return isTheme(context, MATERIAL_CHECK_ATTRS, theme);
-    }
-
-    /**
      * checks if theme is extended from ThemeMaterial3
      * @param context context for checking the theme
      * @param theme int theme to check
@@ -204,25 +175,6 @@ public class ThemeEngine {
         boolean value = array.getBoolean(0, false);
         array.recycle();
         return value;
-    }
-
-    /**
-     * checks if the theme has the attributes
-     * @param context Context for getting attributes to check
-     * @param themeAttributes int[] attributes to check
-     * @param theme int theme id
-     * @return boolean true if the theme has the attributes
-     */
-    public static boolean isTheme(@NonNull Context context, @NonNull int[] themeAttributes, int theme) {
-        TypedArray a = context.obtainStyledAttributes(theme, themeAttributes);
-        for (int i = 0; i < themeAttributes.length; i++) {
-            if (!a.hasValue(i)) {
-                a.recycle();
-                return false;
-            }
-        }
-        a.recycle();
-        return true;
     }
 
     /**
