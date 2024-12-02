@@ -20,8 +20,6 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.browser.customtabs.CustomTabsIntent;
 import androidx.compose.material3.ColorScheme;
 
-import java.util.Objects;
-
 import jOS.Core.R;
 import jOS.Core.jWebActivity;
 
@@ -29,7 +27,7 @@ public class ThemeEngine {
 
     public static String currentTheme;
     static String TAG = "jOS Theme Engine";
-    static String TAGDB1 = TAG + " - DB1";
+    static String TAGDB = TAG + " - DB";
     private static ColorScheme ColourScheme;
     public static values themeClass;
     private static final int[] JOS_CHECK_ATTRS = {R.attr.isJTheme};
@@ -74,7 +72,7 @@ public class ThemeEngine {
                 return com.google.android.material.R.style.Theme_Material3_DynamicColors_Dark_NoActionBar;
             case "M3":
                 ColourScheme = getDayNightColourScheme(context, isDarkMode);
-                if (themeClass != null && themeClass.M3() != 0 && isMaterial3Theme(context, themeClass.M3()) && !isLightTheme(context, themeClass.M3())) {
+                if (themeClass != null && themeClass.M3() != 0 && isMaterial3Theme(context, themeClass.M3()) && isDayNightTheme(context, themeClass.M3(), isDarkMode)) {
                     return themeClass.M3();
                 }
                 return com.google.android.material.R.style.Theme_Material3_DynamicColors_DayNight_NoActionBar;
@@ -92,7 +90,7 @@ public class ThemeEngine {
                 return com.google.android.material.R.style.Theme_MaterialComponents_NoActionBar;
             case "M2":
                 ColourScheme = getDayNightColourScheme(context, isDarkMode);
-                if (themeClass != null && themeClass.M2() != 0 && isMaterialTheme(context, themeClass.M2()) && !isLightTheme(context, themeClass.M2())) {
+                if (themeClass != null && themeClass.M2() != 0 && isMaterialTheme(context, themeClass.M2()) && isDayNightTheme(context, themeClass.M2(), isDarkMode)) {
                     return themeClass.M2();
                 }
                 return com.google.android.material.R.style.Theme_MaterialComponents_DayNight_NoActionBar;
@@ -137,6 +135,21 @@ public class ThemeEngine {
         }
         ColourScheme = getDarkColourScheme(context);
         return R.style.jOS_Theme;
+    }
+
+    /**
+     * checks if theme is DayNight or not
+     * @param context context for getting value of lightTheme attribute
+     * @param theme int theme to check
+     * @param dark boolean darkmode value
+     * @return boolean true if theme is a light theme
+     */
+    public static boolean isDayNightTheme(@NonNull Context context, int theme, boolean dark) {
+        if (dark) {
+            return !isLightTheme(context, theme);
+        } else {
+            return isLightTheme(context, theme);
+        }
     }
 
     /**
@@ -226,7 +239,7 @@ public class ThemeEngine {
 
         // creating a cursor object of the
         // content URI
-        Cursor cursor = context.getContentResolver().query(Uri.parse("content://jOS.Core.ThemeEngine.database/themes"), null, null, null, null);
+        @SuppressLint("Recycle") Cursor cursor = context.getContentResolver().query(Uri.parse("content://jOS.Core.ThemeEngine.database/themes"), null, null, null, null);
 
         if (cursor != null) {
             // iteration of the cursor
@@ -234,7 +247,7 @@ public class ThemeEngine {
             if (cursor.moveToFirst()) {
                 while (!cursor.isAfterLast()) {
                     if (parseBoolean(cursor.getString(cursor.getColumnIndex("current")))) {
-                        Log.i(TAGDB1, cursor.getString(cursor.getColumnIndex("name")));
+                        Log.i(TAGDB, cursor.getString(cursor.getColumnIndex("name")));
                         return cursor.getString(cursor.getColumnIndex("name"));
                     } else {
                         cursor.moveToNext();
@@ -242,7 +255,7 @@ public class ThemeEngine {
                 }
             }
         }
-        Log.i(TAGDB1, "No Records Found");
+        Log.i(TAGDB, "No Records Found");
         return "none";
     }
 

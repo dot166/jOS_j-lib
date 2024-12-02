@@ -124,7 +124,7 @@ public class jActivity extends AppCompatActivity {
             setContentView(layout);
         }
 
-        if (VersionUtils.Android.isAtLeastV()) {
+        if (VersionUtils.isAtLeastV()) {
             // Fix A15 EdgeToEdge
             ViewCompat.setOnApplyWindowInsetsListener(findViewById(android.R.id.content), (v, windowInsets) -> {
                 Insets insets = windowInsets.getInsets(

@@ -38,7 +38,7 @@ private fun getImageMime(fileName: String): String {
 
 private fun getImageFormat(fileName: String): Bitmap.CompressFormat {
     return when (File(fileName).extension.lowercase()) {
-        "webp" -> if (VersionUtils.Android.isAtLeastR()) {
+        "webp" -> if (VersionUtils.isAtLeastR()) {
             Bitmap.CompressFormat.WEBP_LOSSY
         } else {
             @Suppress("DEPRECATION")
@@ -147,7 +147,7 @@ private fun Uri.finishPending(
     outputFile: File?,
 ) {
     val imageValues = ContentValues()
-    if (VersionUtils.Android.isAtLeastQ()) {
+    if (VersionUtils.isAtLeastQ()) {
         if (outputFile != null) {
             imageValues.put(MediaStore.Images.Media.SIZE, outputFile.length())
         }
@@ -181,7 +181,7 @@ private fun ContentResolver.insertMediaImage(
     }
     // 保存的位置
     val collection: Uri
-    if (VersionUtils.Android.isAtLeastQ()) {
+    if (VersionUtils.isAtLeastQ()) {
         val path = if (relativePath != null) "${ALBUM_DIR}/${relativePath}" else ALBUM_DIR
         imageValues.apply {
             put(MediaStore.Images.Media.DISPLAY_NAME, fileName)
@@ -232,7 +232,7 @@ private fun ContentResolver.insertMediaImage(
  * @return Uri 返回null时说明不存在，可以进行图片插入逻辑
  */
 private fun ContentResolver.queryMediaImage28(imagePath: String): Uri? {
-    if (VersionUtils.Android.isAtLeastQ()) return null
+    if (VersionUtils.isAtLeastQ()) return null
 
     val imageFile = File(imagePath)
     if (imageFile.canRead() && imageFile.exists()) {

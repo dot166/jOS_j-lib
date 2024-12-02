@@ -49,7 +49,7 @@ public class ErrorUtils {
                                         if (recoverable) {
                                             dialog.dismiss();
                                         } else {
-                                            activity.finish();
+                                            activity.finishAffinity();
                                         }
                                     }
                                 });
@@ -67,7 +67,7 @@ public class ErrorUtils {
         } else {
             builder.setNegativeButton(R.string.ok, new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int id) {
-                    activity.finish();
+                    activity.finishAffinity();
                 }
             });
         }

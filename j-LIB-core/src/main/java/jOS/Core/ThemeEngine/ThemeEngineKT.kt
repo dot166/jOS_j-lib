@@ -22,7 +22,7 @@ class ThemeEngineKT {
             if (themeClass != null && themeClass.LComposeColourScheme(context) != null) {
                 return themeClass.LComposeColourScheme(context);
             } else {
-                if (VersionUtils.Android.isAtLeastS()) {
+                if (VersionUtils.isAtLeastS()) {
                     return dynamicLightColorScheme(context)
                 }
                 return lightColorScheme()
@@ -43,7 +43,7 @@ class ThemeEngineKT {
             if (themeClass != null && themeClass.DComposeColourScheme(context) != null) {
                 return themeClass.DComposeColourScheme(context);
             } else {
-                if (VersionUtils.Android.isAtLeastS()) {
+                if (VersionUtils.isAtLeastS()) {
                     return dynamicDarkColorScheme(context)
                 }
                 return darkColorScheme()
