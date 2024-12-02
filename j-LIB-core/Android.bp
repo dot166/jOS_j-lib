@@ -31,7 +31,6 @@ android_library {
         "androidx.lifecycle_lifecycle-runtime-compose",
         "androidx.lifecycle_lifecycle-runtime-ktx",
         "androidx.preference_preference",
-        "androidx.swiperefreshlayout_swiperefreshlayout",
         "j-Lib_com.google.accompanist_accompanist-drawablepainter",
         "j-Lib_com.google.android.material_material",
         "j-Lib_com.mikepenz_aboutlibraries-compose-m3",
