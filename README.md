@@ -125,6 +125,9 @@ published by the Free Software Foundation, either version 3 of the License, or
 ### NOTICE: There is code in jLib that are from other projects, Those files are licenced under the licence from their respective projects, the files, projects and licences are listed below.
 
 ContributorRow.kt, modifierIf.kt and most of the about menu code is adapted from [Lawnchair Launcher](https://github.com/LawnchairLauncher/lawnchair) and is licenced under Apache 2.0
+
 all files under com.dede.basic ('src/com/dede/basic' folder) are adapted from [AndroidEasterEggs](https://github.com/hushenghao/AndroidEasterEggs) and are licenced under Apache 2.0
+
 Some of the preference and holo theme related files are adapted from [The Android Open Source Project](https://source.android.com/) and are licenced under Apache 2.0
+
 ToolbarUtils.java is adapted from [Material Components](https://github.com/material-components/material-components-android) and is licenced under Apache 2.0
