@@ -110,7 +110,7 @@ gradle library (main code) with AOSP Build Files
 
 ### PrivExt/
 
-AOSP compiled java library (privileged code) included as javalib.jar in core/j-SDK-core/libs and included in AOSP Build (will eventually be replaced by a different check for jOS Version)
+AOSP compiled java library (privileged code) included as javalib.jar in core/j-SDK-core/libs and included in AOSP Build
 
 ### lib-example/
 
