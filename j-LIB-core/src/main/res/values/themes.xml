@@ -163,8 +163,6 @@
         <item name="colorError">@android:color/holo_red_dark</item>
 
         <!-- Material Design Attributes -->
-        <item name="isMaterialTheme">true</item>
-
         <item name="colorPrimaryVariant">?attr/colorPrimary</item>
         <item name="colorSecondary">@android:color/holo_blue_dark</item>
         <item name="colorSecondaryVariant">?attr/colorSecondary</item>
@@ -187,6 +185,7 @@
         <!-- Framework, AppCompat, or Design Widget styles -->
         <item name="bottomNavigationStyle">@style/j.BottomNav</item>
         <item name="tabStyle">@style/tab</item>
+        <item name="checkboxStyle">@style/j.CheckBox</item>
     </style>
     <!-- v26 overrides -->
     <style name="Platform.v26.jOS.Theme" parent="Platform.jOS.Theme"/>

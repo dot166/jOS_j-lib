@@ -2,6 +2,10 @@
 
 contains a custom actionbar based on material components Toolbar and some other things.
 
+## A Note On ThemeEngine
+
+ThemeEngine is an important component of jLib but the code for the database app is at https://github.com/dot166/jOS_ThemeEngine
+
 ## PrivExt subfolder can only be built with AOSP, rest of lib can be built with gradle or AOSP
 
 ## jLib will work ONLY ON ANDROID NOUGAT (7) AND LATER!! because 97.2% of Android devices use Android nougat or newer and it would be a nightmare to keep supporting Android Marshmallow (6) and older
@@ -106,7 +110,7 @@ gradle library (main code) with AOSP Build Files
 
 ### PrivExt/
 
-AOSP compiled java library (privileged code) included as javalib.jar in core/j-SDK-core/libs and included in AOSP Build
+AOSP compiled java library (privileged code) included as javalib.jar in core/j-SDK-core/libs and included in AOSP Build (will eventually be replaced by a different check for jOS Version)
 
 ### lib-example/
 

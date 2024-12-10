@@ -3,8 +3,6 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     package="jOS.Core">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-
     <queries>
         <!-- Theme Engine Database -->
         <package android:name="jOS.ThemeEngine"/>
