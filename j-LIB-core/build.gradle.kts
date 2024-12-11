@@ -72,7 +72,6 @@ dependencies {
     api("com.google.android.material:material:1.12.0")
     api("androidx.core:core-ktx:1.15.0")
     api("androidx.browser:browser:1.8.0")
-    implementation(fileTree(mapOf("dir" to "lib", "include" to listOf("*.jar"))))
     api("androidx.compose.ui:ui-android:1.7.5")
     api("androidx.compose.material3:material3-android:1.3.1")
     api("androidx.compose.material:material-android:1.7.5")
@@ -92,8 +91,8 @@ mavenPublishing {
         url = "https://github.com/dot166/jOS_j-lib"
         licenses {
             license {
-                name = "GNU General Public License, Version 3.0"
-                url = "https://www.gnu.org/licenses/gpl-3.0.txt"
+                name.set("MIT License")
+                url.set("https://choosealicense.com/licenses/mit/")
             }
         }
         developers {

@@ -6,8 +6,6 @@ contains a custom actionbar based on material components Toolbar and some other 
 
 ThemeEngine is an important component of jLib but the code for the database app is at https://github.com/dot166/jOS_ThemeEngine
 
-## PrivExt subfolder can only be built with AOSP, rest of lib can be built with gradle or AOSP
-
 ## jLib will work ONLY ON ANDROID NOUGAT (7) AND LATER!! because 97.2% of Android devices use Android nougat or newer and it would be a nightmare to keep supporting Android Marshmallow (6) and older
 
 ## how to use it?
@@ -108,29 +106,19 @@ to use jLib in an AOSP Project add the module ```j.Lib``` to the static_libs sec
 
 gradle library (main code) with AOSP Build Files
 
-### PrivExt/
-
-AOSP compiled java library (privileged code) included as javalib.jar in core/j-SDK-core/libs and included in AOSP Build
-
 ### lib-example/
 
 example gradle application
 
 ## License
 
-[![GNU GPLv3 Image](https://www.gnu.org/graphics/gplv3-127x51.png)](http://www.gnu.org/licenses/gpl-3.0.en.html)
-
-jLib is Free Software: You can use, study share and improve it at your
-will. Specifically you can redistribute and/or modify it under the terms of the
-[GNU General Public License](https://www.gnu.org/licenses/gpl.html) as
-published by the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
+see [LICENSE](LICENSE)
 
 ### NOTICE: There is code in jLib that are from other projects, Those files are licenced under the licence from their respective projects, the files, projects and licences are listed below.
 
 ContributorRow.kt, modifierIf.kt and most of the about menu code is adapted from [Lawnchair Launcher](https://github.com/LawnchairLauncher/lawnchair) and is licenced under Apache 2.0
 
-all files under com.dede.basic ('src/main/java/com/dede/basic' folder) are adapted from [AndroidEasterEggs](https://github.com/hushenghao/AndroidEasterEggs) and are licenced under Apache 2.0
+all files under com.dede.basic ('src/com/dede/basic' folder) are adapted from [AndroidEasterEggs](https://github.com/hushenghao/AndroidEasterEggs) and are licenced under Apache 2.0
 
 Some of the preference and holo theme related files are adapted from [The Android Open Source Project](https://source.android.com/) and are licenced under Apache 2.0
 
