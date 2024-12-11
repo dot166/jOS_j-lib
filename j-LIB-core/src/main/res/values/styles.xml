@@ -19,7 +19,7 @@
 
     <style name="TextAppearance.Holo.Widget.Switch" parent="android:TextAppearance.Holo.Small">
         <!-- Switch thumb asset presents a dark background. -->
-        <item name="android:textColor">@color/j_secondary_text_holo_dark</item>
+        <item name="android:textColor">?android:textColorSecondary</item>
     </style>
 
     <style name="j.Switch" parent="Widget.MaterialComponents.CompoundButton.Switch">
@@ -74,23 +74,6 @@
         <item name="android:bottomBright">@drawable/dialog_bottom_holo_dark</item>
         <item name="android:bottomMedium">@drawable/dialog_bottom_holo_dark</item>
         <item name="android:centerMedium">@drawable/dialog_middle_holo_dark</item>
-    </style>
-
-    <style name="jOS.Theme.CompactMenu">
-        <!-- Menu/item attributes -->
-        <item name="android:itemTextAppearance">?android:attr/textAppearanceMedium</item>
-        <item name="android:listViewStyle">@android:style/Widget.Holo.ListView</item>
-        <item name="android:windowAnimationStyle">@style/Animation.DropDownUp</item>
-        <item name="android:background">@null</item>
-        <item name="itemTextAppearance">?android:attr/textAppearanceMedium</item>
-        <item name="background">@null</item>
-    </style>
-
-    <style name="Animation"/>
-
-    <style name="Animation.DropDownUp">
-        <item name="android:windowEnterAnimation">@anim/grow_fade_in_from_bottom</item>
-        <item name="android:windowExitAnimation">@anim/shrink_fade_out_from_bottom</item>
     </style>
 
     <style name="j.ActionBar" parent="Widget.AppCompat.Toolbar">

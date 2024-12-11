@@ -57,4 +57,5 @@ android_library {
     use_resource_processor: true,
 
     kotlincflags: ["-Xjvm-default=all"],
+    sdk_version: "current",
 }

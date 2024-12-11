@@ -7,12 +7,10 @@ import static jOS.Core.ThemeEngine.ThemeEngine.getThemeFromDB1;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -24,7 +22,6 @@ import jOS.Core.utils.VersionUtils;
 
 public class jActivity extends AppCompatActivity {
 
-    boolean app_name;
     boolean actionbar;
     View layout;
     int layoutId;
@@ -50,19 +47,6 @@ public class jActivity extends AppCompatActivity {
      */
     protected void configure(View layout, boolean home, boolean actionbar)
     {
-        configure(layout, home, actionbar, true);
-    }
-
-    /**
-     * Subclasses are obligated to call this before calling super.onCreate()
-     * @param layout View, app layout.
-     * @param home boolean, tells system if this is the first activity/home page
-     * @param actionbar boolean, tells system if you would like to show the ActionBar
-     * @param app_name boolean, tells the system if you would like to show the ActionBar Title
-     */
-    protected void configure(View layout, boolean home, boolean actionbar, boolean app_name)
-    {
-        this.app_name = app_name;
         this.layout = layout;
         this.layoutId = 0; // layout is added from view so id is set to null
         this.actionbar = actionbar;
@@ -88,19 +72,6 @@ public class jActivity extends AppCompatActivity {
      */
     protected void configure(int layout, boolean home, boolean actionbar)
     {
-        configure(layout, home, actionbar, true);
-    }
-
-    /**
-     * Subclasses are obligated to call this before calling super.onCreate()
-     * @param layout int, app layout. commonly R.layout.activitymain
-     * @param home boolean, tells system if this is the first activity/home page
-     * @param actionbar boolean, tells system if you would like to show the ActionBar
-     * @param app_name boolean, tells the system if you would like to show the ActionBar Title
-     */
-    protected void configure(int layout, boolean home, boolean actionbar, boolean app_name)
-    {
-        this.app_name = app_name;
         this.layout = null; // layout is inflated from id so layout view is set to null
         this.layoutId = layout;
         this.actionbar = actionbar;
@@ -143,18 +114,6 @@ public class jActivity extends AppCompatActivity {
 
         if (actionbar) {
             setSupportActionBar(findViewById(R.id.actionbar));
-        }
-    }
-
-    @Override
-    public void setSupportActionBar(Toolbar toolbar) {
-        super.setSupportActionBar(toolbar);
-        if (getSupportActionBar() != null) {
-            if (app_name) {
-                getSupportActionBar().setDisplayShowTitleEnabled(true);
-            }
-        } else {
-            Log.e("ActionBar2", "no actionbar found");
         }
     }
 

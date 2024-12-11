@@ -17,7 +17,9 @@ import jOS.Core.R;
 public class LIBTest {
 
     public static void Test(AppCompatActivity context) {
-        context.getSupportActionBar().setSubtitle("AAAA");
+        if (context.getSupportActionBar() != null) {
+            context.getSupportActionBar().setSubtitle("AAAA");
+        }
         TextView text = context.findViewById(R.id.textView);
         Button button = context.findViewById(R.id.button);
         Button button2 = context.findViewById(R.id.button2);

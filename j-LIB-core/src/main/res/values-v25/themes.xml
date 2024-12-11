@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <style name="Platform.jOS.Theme" parent="Theme.Material3.DynamicColors.Dark.NoActionBar">
-        <item name="android:colorSecondary">@android:color/holo_blue_dark</item></style>
-</resources>

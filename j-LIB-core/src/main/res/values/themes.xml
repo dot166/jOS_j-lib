@@ -1,29 +1,16 @@
 <resources>
     <!-- Base System theme. -->
-    <style name="jOS.Theme" parent="Platform.v26.jOS.Theme">
+    <style name="jOS.Theme" parent="Platform.jOS.Theme">
         <item name="isJTheme">true</item>
         <item name="android:textAppearance">@android:style/TextAppearance.Holo</item>
         <item name="android:textAppearanceInverse">@android:style/TextAppearance.Holo.Inverse</item>
 
-        <item name="android:textColorPrimary">@color/j_primary_text_holo_dark</item>
-        <item name="android:textColorSecondary">@color/j_secondary_text_holo_dark</item>
-        <item name="android:textColorTertiary">@color/j_tertiary_text_holo_dark</item>
-        <item name="android:textColorPrimaryInverse">@color/j_primary_text_holo_light</item>
-        <item name="android:textColorSecondaryInverse">@color/j_secondary_text_holo_light</item>
-        <item name="android:textColorTertiaryInverse">@color/j_tertiary_text_holo_light</item>
-        <item name="android:textColorPrimaryDisableOnly">@color/j_primary_text_disable_only_holo_dark</item>
-        <item name="android:textColorPrimaryInverseDisableOnly">@color/j_primary_text_disable_only_holo_light</item>
         <item name="android:textColorPrimaryNoDisable">@color/j_primary_text_nodisable_holo_dark</item>
         <item name="android:textColorSecondaryNoDisable">@color/j_secondary_text_nodisable_holo_dark</item>
         <item name="android:textColorPrimaryInverseNoDisable">@color/j_primary_text_nodisable_holo_light</item>
         <item name="android:textColorSecondaryInverseNoDisable">@color/j_secondary_text_nodisable_holo_light</item>
-        <item name="android:textColorHint">#808080</item>
-        <item name="android:textColorHintInverse">#808080</item>
-        <item name="android:textColorHighlight">#6633B5E5</item>
-        <item name="android:textColorHighlightInverse">#6633B5E5</item>
         <item name="android:textColorLink">@android:color/holo_blue_light</item>
         <item name="android:textColorLinkInverse">@android:color/holo_blue_light</item>
-        <item name="android:textColorAlertDialogListItem">@color/j_primary_text_holo_dark</item>
 
         <item name="android:textAppearanceLarge">@android:style/TextAppearance.Holo.Large</item>
         <item name="android:textAppearanceMedium">@android:style/TextAppearance.Holo.Medium</item>
@@ -117,8 +104,6 @@
         <!-- Action Bar Styles -->
         <item name="actionBarSize">@dimen/j_action_bar_default_height</item>
         <!-- Panel attributes -->
-        <item name="panelMenuListWidth">250dip</item>
-        <item name="panelMenuListTheme">@style/jOS.Theme.CompactMenu</item>
         <item name="panelBackground">@drawable/menu_hardkey_panel_holo_dark</item>
         <!-- Spinner styles -->
         <item name="spinnerStyle">@android:style/Widget.Holo.Spinner</item>
@@ -129,14 +114,6 @@
         <item name="editTextStyle">@android:style/Widget.Holo.EditText</item>
         <item name="editTextColor">@color/j_primary_text_holo_dark</item>
         <!-- Color palette -->
-        <item name="colorPrimaryDark">@android:color/black</item>
-        <item name="colorPrimary">#222222</item>
-        <item name="colorAccent">@android:color/holo_blue_dark</item>
-        <item name="colorControlNormal">#39CCCCCC</item>
-        <item name="colorControlActivated">@android:color/holo_blue_light</item>
-        <item name="colorControlHighlight">#59F0F0F0</item>
-        <item name="colorButtonNormal">#BD292F34</item>
-        <item name="colorSwitchThumbNormal">@color/switch_thumb_material_light</item>
         <item name="controlBackground">?android:selectableItemBackgroundBorderless</item>
         <item name="switchStyle">@style/j.Switch</item>
         <item name="progressBarStyle">@android:style/Widget.Holo.ProgressBar</item>
@@ -160,21 +137,8 @@
         <item name="tooltipForegroundColor">#ff000000</item>
         <item name="editTextBackground">@drawable/j_edit_text_holo_dark</item>
         <item name="actionOverflowButtonStyle">@android:style/Widget.Holo.ActionButton.Overflow</item>
-        <item name="colorError">@android:color/holo_red_dark</item>
 
         <!-- Material Design Attributes -->
-        <item name="colorPrimaryVariant">?attr/colorPrimary</item>
-        <item name="colorSecondary">@android:color/holo_blue_dark</item>
-        <item name="colorSecondaryVariant">?attr/colorSecondary</item>
-        <item name="colorSurface">#121212</item>
-        <item name="colorPrimarySurface">?attr/colorSurface</item>
-        <item name="colorOnPrimary">#000000</item>
-        <item name="colorOnSecondary">#000000</item>
-        <item name="colorOnBackground">#FFFFFF</item>
-        <item name="colorOnError">#000000</item>
-        <item name="colorOnSurface">#FFFFFF</item>
-        <item name="colorOnPrimarySurface">?attr/colorOnSurface</item>
-
         <item name="scrimBackground">@color/scrimBackground</item>
         <item name="popupMenuBackground">@drawable/menu_panel_holo_dark</item>
 
@@ -187,8 +151,34 @@
         <item name="tabStyle">@style/tab</item>
         <item name="checkboxStyle">@style/j.CheckBox</item>
     </style>
-    <!-- v26 overrides -->
-    <style name="Platform.v26.jOS.Theme" parent="Platform.jOS.Theme"/>
-    <!-- Theme.MaterialComponents.NoActionBar overrides -->
-    <style name="Platform.jOS.Theme" parent="Theme.Material3.DynamicColors.Dark.NoActionBar"/>
+    <!-- Theme.Material3.DynamicColors.Dark.NoActionBar overrides -->
+    <style name="Platform.jOS.Theme" parent="Theme.Material3.DynamicColors.Dark.NoActionBar">
+        <item name="android:textColorPrimary">@color/j_primary_text_holo_dark</item>
+        <item name="android:textColorSecondary">@color/j_secondary_text_holo_dark</item>
+        <item name="android:textColorTertiary">@color/j_tertiary_text_holo_dark</item>
+        <item name="android:textColorPrimaryInverse">@color/j_primary_text_holo_light</item>
+        <item name="android:textColorSecondaryInverse">@color/j_secondary_text_holo_light</item>
+        <item name="android:textColorTertiaryInverse">@color/j_tertiary_text_holo_light</item>
+        <item name="android:textColorPrimaryDisableOnly">@color/j_primary_text_disable_only_holo_dark</item>
+        <item name="android:textColorPrimaryInverseDisableOnly">@color/j_primary_text_disable_only_holo_light</item>
+        <item name="android:textColorHint">#808080</item>
+        <item name="android:textColorHintInverse">#808080</item>
+        <item name="android:textColorHighlight">#6633B5E5</item>
+        <item name="android:textColorHighlightInverse">#6633B5E5</item>
+        <item name="android:textColorAlertDialogListItem">@color/j_primary_text_holo_dark</item>
+        <item name="colorPrimaryDark">@android:color/black</item>
+        <item name="colorPrimary">#222222</item>
+        <item name="colorControlNormal">#39CCCCCC</item>
+        <item name="colorControlActivated">@android:color/holo_blue_light</item>
+        <item name="colorControlHighlight">#59F0F0F0</item>
+        <item name="colorButtonNormal">#BD292F34</item>
+        <item name="colorError">@android:color/holo_red_dark</item>
+        <item name="colorSecondary">@android:color/holo_blue_dark</item>
+        <item name="colorSurface">#121212</item>
+        <item name="colorOnPrimary">#000000</item>
+        <item name="colorOnSecondary">#000000</item>
+        <item name="colorOnBackground">#FFFFFF</item>
+        <item name="colorOnError">#000000</item>
+        <item name="colorOnSurface">#FFFFFF</item>
+    </style>
 </resources>
