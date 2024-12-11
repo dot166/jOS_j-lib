@@ -31,8 +31,8 @@ public class Build {
     private static final String jOS_RELEASE_INTERNAL = getString("ro.j.osversion");
 
     private static String getinternalint() {
-        if (jOS_RELEASE != UNKNOWN) {
-            return jOS_RELEASE + android.os.Build.DISPLAY;
+        if (jOS_RELEASE_INTERNAL != UNKNOWN) {
+            return jOS_RELEASE_INTERNAL + android.os.Build.DISPLAY;
         }
         return "0";
     }
