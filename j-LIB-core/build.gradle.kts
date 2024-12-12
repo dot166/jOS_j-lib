@@ -72,7 +72,7 @@ dependencies {
     api("com.google.android.material:material:1.12.0")
     api("androidx.core:core-ktx:1.15.0")
     api("androidx.browser:browser:1.8.0")
-    api("androidx.compose.ui:ui-android:1.7.5")
+    api("androidx.compose.ui:ui-android:1.7.6")
     api("androidx.compose.material3:material3-android:1.3.1")
     api("androidx.compose.material:material-android:1.7.5")
     api("io.coil-kt:coil-compose:2.7.0")
