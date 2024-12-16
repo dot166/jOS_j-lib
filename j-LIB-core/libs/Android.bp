@@ -7,7 +7,7 @@
 
 android_library_import {
     name: "j-Lib_com.google.accompanist_accompanist-drawablepainter-nodeps",
-    aars: ["com/google/accompanist/accompanist-drawablepainter/0.36.0/accompanist-drawablepainter-0.36.0.aar"],
+    aars: ["com/google/accompanist/accompanist-drawablepainter/0.37.0/accompanist-drawablepainter-0.37.0.aar"],
     sdk_version: "35",
     min_sdk_version: "14",
     apex_available: [
@@ -29,7 +29,7 @@ android_library {
         "//apex_available:platform",
         "//apex_available:anyapex",
     ],
-    manifest: "com/google/accompanist/accompanist-drawablepainter/0.36.0/AndroidManifest.xml",
+    manifest: "com/google/accompanist/accompanist-drawablepainter/0.37.0/AndroidManifest.xml",
     static_libs: [
         "j-Lib_com.google.accompanist_accompanist-drawablepainter-nodeps",
         "androidx.compose.ui_ui",
