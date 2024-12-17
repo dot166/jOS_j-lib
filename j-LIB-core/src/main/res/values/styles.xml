@@ -39,11 +39,10 @@
         <item name="switchMinWidth">96dip</item>
         <item name="android:textOn">@string/abc_capital_on</item>
         <item name="android:textOff">@string/abc_capital_off</item>
-        <item name="useMaterialThemeColors">false</item>
     </style>
 
-    <style name="j.CheckBox" parent="Widget.MaterialComponents.CompoundButton.CheckBox">
-        <item name="useMaterialThemeColors">false</item>
+    <style name="j.Button" parent="android:Widget.Holo.Button">
+        <item name="android:textColor">?android:textColorPrimary</item>
     </style>
 
     <style name="tab" parent="Widget.Design.TabLayout">

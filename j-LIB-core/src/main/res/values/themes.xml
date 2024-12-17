@@ -20,7 +20,7 @@
         <item name="android:actionBarPopupTheme">@null</item>
         <item name="android:colorBackgroundFloating">#ff000000</item>
         <!-- Used by MediaRouter -->
-        <item name="android:borderlessButtonStyle">@android:style/Widget.Holo.Button</item>
+        <item name="android:borderlessButtonStyle">@style/j.Switch</item>
         <item name="android:homeAsUpIndicator">@drawable/j_ic_ab_back_holo_dark</item>
         <item name="android:dividerVertical">@drawable/list_divider_holo_dark</item>
         <item name="android:dividerHorizontal">@drawable/list_divider_holo_dark</item>
@@ -42,9 +42,8 @@
         <item name="android:progressBarStyleLarge">@android:style/Widget.Holo.ProgressBar.Large</item>
         <item name="android:seekBarStyle">@android:style/Widget.Holo.SeekBar</item>
         <!-- Button styles -->
-        <item name="android:buttonStyle">@android:style/Widget.Holo.Button</item>
-        <item name="android:buttonStyleSmall">@android:style/Widget.Holo.Button.Small</item>
-        <item name="android:imageButtonStyle">@android:style/Widget.Holo.ImageButton</item>
+        <item name="android:buttonStyle">@style/j.Button</item>
+        <item name="android:buttonStyleSmall">@style/j.Button</item>
         <item name="android:buttonBarStyle">@android:style/Holo.ButtonBar</item>
         <item name="android:buttonBarButtonStyle">?attr/borderlessButtonStyle</item>
         <item name="android:buttonBarPositiveButtonStyle">?buttonBarButtonStyle</item>
@@ -68,7 +67,7 @@
         <item name="isLightTheme">false</item>
         <item name="selectableItemBackground">@drawable/item_background_holo_dark</item>
         <item name="selectableItemBackgroundBorderless">?attr/selectableItemBackground</item>
-        <item name="borderlessButtonStyle">@android:style/Widget.Holo.Button</item>
+        <item name="borderlessButtonStyle">@style/j.Button</item>
         <item name="homeAsUpIndicator">@drawable/j_ic_ab_back_holo_dark</item>
         <item name="dividerVertical">@drawable/list_divider_holo_dark</item>
         <item name="dividerHorizontal">@drawable/list_divider_holo_dark</item>
@@ -89,8 +88,7 @@
         <item name="progressBarStyle">@android:style/Widget.Holo.ProgressBar</item>
         <item name="seekBarStyle">@android:style/Widget.Holo.SeekBar</item>
         <!-- Button styles -->
-        <item name="buttonStyle">@android:style/Widget.Holo.Button</item>
-        <item name="buttonStyleSmall">@android:style/Widget.Holo.Button.Small</item>
+        <item name="buttonStyle">@style/j.Button</item>
         <item name="imageButtonStyle">@android:style/Widget.Holo.ImageButton</item>
         <item name="buttonBarStyle">@android:style/Holo.ButtonBar</item>
         <item name="buttonBarButtonStyle">?attr/borderlessButtonStyle</item>
@@ -104,6 +102,7 @@
         <item name="alertDialogStyle">@style/alertdialogstyle</item>
         <!-- Tooltip attributes -->
         <item name="actionOverflowButtonStyle">@android:style/Widget.Holo.ActionButton.Overflow</item>
+        <item name="editTextBackground">@drawable/j_edit_text_holo_dark</item>
 
         <!-- Material Design Attributes -->
         <item name="scrimBackground">@color/scrimBackground</item>
@@ -116,10 +115,10 @@
         <!-- Framework, AppCompat, or Design Widget styles -->
         <item name="bottomNavigationStyle">@style/j.BottomNav</item>
         <item name="tabStyle">@style/tab</item>
-        <item name="checkboxStyle">@style/j.CheckBox</item>
     </style>
     <!-- Theme.Material3.DynamicColors.Dark.NoActionBar overrides -->
     <style name="Platform.jOS.Theme" parent="Theme.Material3.DynamicColors.Dark.NoActionBar">
+        <!-- Android Red Velvet Cake (11) and older do not support dynamic colours -->
         <item name="android:textColorPrimary">@color/j_primary_text_holo_dark</item>
         <item name="android:textColorSecondary">@color/j_secondary_text_holo_dark</item>
         <item name="android:textColorTertiary">@color/j_tertiary_text_holo_dark</item>
