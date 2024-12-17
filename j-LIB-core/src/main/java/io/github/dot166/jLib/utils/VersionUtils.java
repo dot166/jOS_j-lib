@@ -1,4 +1,4 @@
-package jOS.Core.utils;
+package io.github.dot166.jLib.utils;
 
 import android.os.Build;
 

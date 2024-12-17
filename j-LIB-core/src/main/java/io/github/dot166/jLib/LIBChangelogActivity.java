@@ -1,8 +1,8 @@
-package jOS.Core;
+package io.github.dot166.jLib;
 
 import android.os.Bundle;
 
-import io.github.dot166.jLib.BuildConfig;
+import io.github.dot166.jLib.app.jWebActivity;
 
 public class LIBChangelogActivity extends jWebActivity {
 

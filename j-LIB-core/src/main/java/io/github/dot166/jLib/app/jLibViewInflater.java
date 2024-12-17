@@ -14,7 +14,7 @@ import com.google.android.material.theme.MaterialComponentsViewInflater;
 
 import org.jetbrains.annotations.Contract;
 
-import jOS.Core.ActionBar2;
+import io.github.dot166.jLib.widget.ActionBar2;
 
 public class jLibViewInflater extends MaterialComponentsViewInflater {
 

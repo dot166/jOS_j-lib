@@ -1,4 +1,4 @@
-package jOS.Core;
+package io.github.dot166.jLib;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,9 +6,10 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
-import io.github.dot166.jLib.R;
-import jOS.Core.utils.ErrorUtils;
-import jOS.Core.utils.IconUtils;
+import io.github.dot166.jLib.app.jActivity;
+import io.github.dot166.jLib.app.jConfigActivity;
+import io.github.dot166.jLib.utils.ErrorUtils;
+import io.github.dot166.jLib.utils.IconUtils;
 import io.github.dot166.jLib.internal.utils.LIBTest;
 
 public class LIBTestActivity extends jActivity {

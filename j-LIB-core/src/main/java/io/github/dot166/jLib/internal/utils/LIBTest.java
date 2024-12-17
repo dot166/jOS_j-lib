@@ -1,7 +1,7 @@
 package io.github.dot166.jLib.internal.utils;
 
-import static jOS.Core.utils.VersionUtils.getAndroidVersion;
-import static jOS.Core.Build.jOS_RELEASE;
+import static io.github.dot166.jLib.utils.VersionUtils.getAndroidVersion;
+import static io.github.dot166.jLib.jOS.Build.jOS_RELEASE;
 
 import android.content.ComponentName;
 import android.content.Intent;
@@ -38,7 +38,7 @@ public class LIBTest {
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                context.startActivity(new Intent().setComponent(new ComponentName(context.getApplicationInfo().packageName, "jOS.Core.LIBChangelogActivity")));
+                context.startActivity(new Intent().setComponent(new ComponentName(context.getApplicationInfo().packageName, "io.github.dot166.jLib.LIBChangelogActivity")));
             }
         });
     }

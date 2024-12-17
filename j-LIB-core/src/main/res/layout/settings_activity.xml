@@ -20,7 +20,7 @@
     android:orientation="vertical"
     android:fitsSystemWindows="true">
 
-    <jOS.Core.ActionBar2
+    <io.github.dot166.jLib.widget.ActionBar2
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
         android:id="@+id/actionbar"/>

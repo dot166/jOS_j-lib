@@ -1,4 +1,4 @@
-package jOS.Core;
+package io.github.dot166.jLib;
 
 import android.content.Context;
 import android.content.Intent;
@@ -14,8 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-import io.github.dot166.jLib.BuildConfig;
-import io.github.dot166.jLib.R;
+import io.github.dot166.jLib.app.jAboutActivity;
 
 public class LIBAboutActivity extends jAboutActivity {
 

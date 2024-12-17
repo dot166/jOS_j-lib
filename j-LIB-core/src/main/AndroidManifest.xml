@@ -5,10 +5,10 @@
 
     <queries>
         <!-- Theme Engine Database -->
-        <package android:name="jOS.ThemeEngine"/>
+        <package android:name="io.github.dot166.ThemeEngine"/>
     </queries>
 
-    <application android:name=".jLIBCoreApp"
+    <application android:name=".app.jLIBCoreApp"
                  android:icon="@mipmap/ic_launcher_j"
                  android:theme="@style/j.Theme">
         <!-- Test Activity -->
@@ -28,7 +28,7 @@
             android:exported="true"/>
         <!-- OpenSource Licence Activity -->
         <activity
-            android:name=".OSSLicenceActivity"
+            android:name=".app.OSSLicenceActivity"
             android:label="@string/licences"
             android:exported="false" />
     </application>

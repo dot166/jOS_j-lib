@@ -7,7 +7,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         tools:ignore="MissingApplicationIcon">
-        <activity android:name="jOS.Core.LIBTestActivity"
+        <activity android:name="io.github.dot166.jLib.LIBTestActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -15,7 +15,7 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name="jOS.Core.jConfigActivity"
+        <activity android:name="io.github.dot166.jLib.app.jConfigActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.APPLICATION_PREFERENCES"/>

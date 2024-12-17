@@ -1,4 +1,4 @@
-package jOS.Core;
+package io.github.dot166.jLib.widget;
 
 import static com.google.android.material.theme.overlay.MaterialThemeOverlay.wrap;
 
@@ -19,19 +19,19 @@ import com.google.android.material.appbar.MaterialToolbar;
 
 import io.github.dot166.jLib.R;
 import io.github.dot166.jLib.internal.utils.ToolbarUtils;
-import jOS.Core.utils.IconUtils;
+import io.github.dot166.jLib.utils.IconUtils;
 
 /**
  * {@code ActionBar2} is a {@link MaterialToolbar} that implements certain features and fixes.
  *
  *
  * <p>To get started with the {@code ActionBar2} component, use {@code
- * jOS.Core.ActionBar2} in your layout XML instead of {@code
+ * io.github.dot166.jLib.widget.ActionBar2} in your layout XML instead of {@code
  * androidx.appcompat.widget.Toolbar} or {@code Toolbar} or {@code
  * com.google.android.material.appbar.MaterialToolbar}. E.g.,:
  *
  * <pre>
- * &lt;jOS.Core.ActionBar2
+ * &lt;io.github.dot166.jLib.widget.ActionBar2
  *         android:layout_width=&quot;match_parent&quot;
  *         android:layout_height=&quot;wrap_content&quot;/&gt;
  * </pre>

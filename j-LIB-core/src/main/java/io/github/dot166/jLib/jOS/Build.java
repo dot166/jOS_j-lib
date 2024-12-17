@@ -1,10 +1,10 @@
-package jOS.Core;
+package io.github.dot166.jLib.jOS;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-import jOS.Core.utils.VersionUtils;
+import io.github.dot166.jLib.utils.VersionUtils;
 
 public class Build {
 

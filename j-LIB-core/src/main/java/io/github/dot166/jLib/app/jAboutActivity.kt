@@ -1,4 +1,4 @@
-package jOS.Core
+package io.github.dot166.jLib.app
 
 import android.app.Activity
 import android.content.Context
@@ -42,12 +42,12 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.google.accompanist.drawablepainter.rememberDrawablePainter
-import jOS.Core.ThemeEngine.ThemeEngine
+import io.github.dot166.jLib.ThemeEngine.ThemeEngine
 import io.github.dot166.jLib.internal.utils.ContributorRow
 import io.github.dot166.jLib.R
-import jOS.Core.utils.ErrorUtils
-import jOS.Core.utils.IconUtils
-import jOS.Core.utils.LabelUtils
+import io.github.dot166.jLib.utils.ErrorUtils
+import io.github.dot166.jLib.utils.IconUtils
+import io.github.dot166.jLib.utils.LabelUtils
 
 open class jAboutActivity : jActivity() {
 

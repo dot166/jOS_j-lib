@@ -1,4 +1,4 @@
-package jOS.Core
+package io.github.dot166.jLib.app
 
 import android.os.Bundle
 

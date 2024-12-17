@@ -42,7 +42,7 @@ aboutLibraries {
 }
 
 dependencies {
-    implementation "io.github.dot166:j-Lib:3.3.4"
+    implementation "io.github.dot166:j-Lib:4.0.0"
 }
 ```
 
@@ -71,7 +71,7 @@ android {
 }
 
 dependencies {
-    api "io.github.dot166:j-Lib:3.3.4"
+    api "io.github.dot166:j-Lib:4.0.0"
 }
 ```
 

@@ -1,7 +1,7 @@
-package jOS.Core;
+package io.github.dot166.jLib.app;
 
-import static jOS.Core.ThemeEngine.ThemeEngine.currentTheme;
-import static jOS.Core.ThemeEngine.ThemeEngine.getThemeFromDB;
+import static io.github.dot166.jLib.ThemeEngine.ThemeEngine.currentTheme;
+import static io.github.dot166.jLib.ThemeEngine.ThemeEngine.getThemeFromDB;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -21,7 +21,8 @@ import java.util.Objects;
 
 import io.github.dot166.jLib.BuildConfig;
 import io.github.dot166.jLib.R;
-import jOS.Core.utils.ErrorUtils;
+import io.github.dot166.jLib.utils.ErrorUtils;
+import io.github.dot166.jLib.LIBAboutActivity;
 
 /**
  * jLib Settings activity.
@@ -99,7 +100,7 @@ public class jConfigActivity extends jActivity {
                 case "ThemeEngine":
                     Log.i("Preference Logging", "ThemeEngine Found!!!!");
                     preference.setOnPreferenceClickListener(p -> {
-                        Intent intent = new Intent("jOS.ThemeEngine.CONFIG");
+                        Intent intent = new Intent("io.github.dot166.ThemeEngine.CONFIG");
                         try {
                             startActivity(intent);
                         } catch (Exception e) {

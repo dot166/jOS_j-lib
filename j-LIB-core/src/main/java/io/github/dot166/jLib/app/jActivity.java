@@ -1,8 +1,8 @@
-package jOS.Core;
+package io.github.dot166.jLib.app;
 
-import static jOS.Core.ThemeEngine.ThemeEngine.currentTheme;
-import static jOS.Core.ThemeEngine.ThemeEngine.getSystemTheme;
-import static jOS.Core.ThemeEngine.ThemeEngine.getThemeFromDB;
+import static io.github.dot166.jLib.ThemeEngine.ThemeEngine.currentTheme;
+import static io.github.dot166.jLib.ThemeEngine.ThemeEngine.getSystemTheme;
+import static io.github.dot166.jLib.ThemeEngine.ThemeEngine.getThemeFromDB;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -18,7 +18,7 @@ import androidx.core.view.WindowInsetsCompat;
 import java.util.Objects;
 
 import io.github.dot166.jLib.R;
-import jOS.Core.utils.VersionUtils;
+import io.github.dot166.jLib.utils.VersionUtils;
 
 
 public class jActivity extends AppCompatActivity {

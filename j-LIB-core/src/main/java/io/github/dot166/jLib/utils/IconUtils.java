@@ -1,4 +1,4 @@
-package jOS.Core.utils;
+package io.github.dot166.jLib.utils;
 
 import android.content.Context;
 import android.content.Intent;
@@ -8,7 +8,7 @@ import android.graphics.drawable.Drawable;
 
 import androidx.appcompat.content.res.AppCompatResources;
 
-import jOS.Core.jLIBCoreApp;
+import io.github.dot166.jLib.app.jLIBCoreApp;
 
 public class IconUtils {
 

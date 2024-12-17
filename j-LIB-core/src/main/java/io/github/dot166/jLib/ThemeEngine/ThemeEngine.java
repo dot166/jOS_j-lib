@@ -1,4 +1,4 @@
-package jOS.Core.ThemeEngine;
+package io.github.dot166.jLib.ThemeEngine;
 
 import static java.lang.Boolean.parseBoolean;
 
@@ -21,7 +21,7 @@ import androidx.browser.customtabs.CustomTabsIntent;
 import androidx.compose.material3.ColorScheme;
 
 import io.github.dot166.jLib.R;
-import jOS.Core.jWebActivity;
+import io.github.dot166.jLib.app.jWebActivity;
 
 public class ThemeEngine {
 
@@ -191,7 +191,7 @@ public class ThemeEngine {
 
         // creating a cursor object of the
         // content URI
-        @SuppressLint("Recycle") Cursor cursor = context.getContentResolver().query(Uri.parse("content://jOS.Core.ThemeEngine.database/themes"), null, null, null, null);
+        @SuppressLint("Recycle") Cursor cursor = context.getContentResolver().query(Uri.parse("content://io.github.dot166.ThemeEngine.database/themes"), null, null, null, null);
 
         if (cursor != null) {
             // iteration of the cursor

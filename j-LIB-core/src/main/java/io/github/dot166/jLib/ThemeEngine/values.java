@@ -1,4 +1,4 @@
-package jOS.Core.ThemeEngine;
+package io.github.dot166.jLib.ThemeEngine;
 
 import android.content.Context;
 

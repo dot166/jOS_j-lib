@@ -1,4 +1,4 @@
-package jOS.Core.utils;
+package io.github.dot166.jLib.utils;
 
 import android.content.Context;
 import android.content.Intent;
@@ -6,7 +6,7 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 
-import jOS.Core.jLIBCoreApp;
+import io.github.dot166.jLib.app.jLIBCoreApp;
 
 public class LabelUtils {
 

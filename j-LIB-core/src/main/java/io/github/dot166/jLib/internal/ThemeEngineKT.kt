@@ -7,8 +7,8 @@ import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.dynamicDarkColorScheme
 import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.lightColorScheme
-import jOS.Core.ThemeEngine.ThemeEngine.themeClass
-import jOS.Core.utils.VersionUtils
+import io.github.dot166.jLib.ThemeEngine.ThemeEngine.themeClass
+import io.github.dot166.jLib.utils.VersionUtils
 
 /**
  * Internal AndroidX Compose Extension for ThemeEngine
