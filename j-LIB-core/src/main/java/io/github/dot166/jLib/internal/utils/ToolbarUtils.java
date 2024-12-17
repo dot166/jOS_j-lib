@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package jOS.Core.utils;
+package io.github.dot166.jLib.internal.utils;
 
 import static java.util.Collections.max;
 import static java.util.Collections.min;
@@ -29,7 +29,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RestrictTo;
-import androidx.annotation.RestrictTo.Scope;
 import androidx.appcompat.widget.Toolbar;
 
 import java.util.ArrayList;
@@ -39,7 +38,7 @@ import java.util.List;
 /**
  * Utility methods for {@link Toolbar}s.
  */
-@RestrictTo(Scope.LIBRARY)
+@RestrictTo(RestrictTo.Scope.LIBRARY)
 public class ToolbarUtils {
 
     private static final Comparator<View> VIEW_TOP_COMPARATOR =

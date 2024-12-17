@@ -1,4 +1,4 @@
-package jOS.Core.ThemeEngine
+package io.github.dot166.jLib.internal
 
 import android.content.Context
 import androidx.annotation.RestrictTo

@@ -43,7 +43,8 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.google.accompanist.drawablepainter.rememberDrawablePainter
 import jOS.Core.ThemeEngine.ThemeEngine
-import jOS.Core.utils.ContributorRow
+import io.github.dot166.jLib.internal.utils.ContributorRow
+import io.github.dot166.jLib.R
 import jOS.Core.utils.ErrorUtils
 import jOS.Core.utils.IconUtils
 import jOS.Core.utils.LabelUtils

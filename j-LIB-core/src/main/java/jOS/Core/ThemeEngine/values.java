@@ -6,7 +6,7 @@ import androidx.compose.material3.ColorScheme;
 
 public interface values {
 
-    public int jOSTheme();
+    public int jLibTheme();
 
     public int M3L();
 

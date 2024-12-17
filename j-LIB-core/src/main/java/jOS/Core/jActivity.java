@@ -2,7 +2,7 @@ package jOS.Core;
 
 import static jOS.Core.ThemeEngine.ThemeEngine.currentTheme;
 import static jOS.Core.ThemeEngine.ThemeEngine.getSystemTheme;
-import static jOS.Core.ThemeEngine.ThemeEngine.getThemeFromDB1;
+import static jOS.Core.ThemeEngine.ThemeEngine.getThemeFromDB;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -17,6 +17,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 import java.util.Objects;
 
+import io.github.dot166.jLib.R;
 import jOS.Core.utils.VersionUtils;
 
 
@@ -121,7 +122,7 @@ public class jActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         mLIBApp.setCurrentActivity(this);
-        if (!Objects.equals(currentTheme, getThemeFromDB1(this))) {
+        if (!Objects.equals(currentTheme, getThemeFromDB(this))) {
             Intent intent = getIntent();
             finish();
             startActivity(intent);

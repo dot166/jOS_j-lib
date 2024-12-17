@@ -14,6 +14,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import io.github.dot166.jLib.BuildConfig;
+import io.github.dot166.jLib.R;
+
 public class LIBAboutActivity extends jAboutActivity {
 
     @NonNull

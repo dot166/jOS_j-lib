@@ -8,7 +8,7 @@ import androidx.appcompat.app.AlertDialog;
 
 import java.util.Arrays;
 
-import jOS.Core.R;
+import io.github.dot166.jLib.R;
 
 public class ErrorUtils {
     static String TAG = "jLib Error Handler";

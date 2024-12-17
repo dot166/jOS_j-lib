@@ -6,9 +6,10 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
+import io.github.dot166.jLib.R;
 import jOS.Core.utils.ErrorUtils;
 import jOS.Core.utils.IconUtils;
-import jOS.Core.utils.LIBTest;
+import io.github.dot166.jLib.internal.utils.LIBTest;
 
 public class LIBTestActivity extends jActivity {
     @Override

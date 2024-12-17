@@ -2,9 +2,9 @@ package jOS.Core.ThemeEngine;
 
 import static java.lang.Boolean.parseBoolean;
 
-import static jOS.Core.ThemeEngine.ThemeEngineKT.getDarkColourScheme;
-import static jOS.Core.ThemeEngine.ThemeEngineKT.getDayNightColourScheme;
-import static jOS.Core.ThemeEngine.ThemeEngineKT.getLightColourScheme;
+import static io.github.dot166.jLib.internal.ThemeEngineKT.getDarkColourScheme;
+import static io.github.dot166.jLib.internal.ThemeEngineKT.getDayNightColourScheme;
+import static io.github.dot166.jLib.internal.ThemeEngineKT.getLightColourScheme;
 
 import android.annotation.SuppressLint;
 import android.app.UiModeManager;
@@ -20,17 +20,17 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.browser.customtabs.CustomTabsIntent;
 import androidx.compose.material3.ColorScheme;
 
-import jOS.Core.R;
+import io.github.dot166.jLib.R;
 import jOS.Core.jWebActivity;
 
 public class ThemeEngine {
 
     public static String currentTheme;
-    static String TAG = "jOS Theme Engine";
+    static String TAG = "jLib Theme Engine";
     static String TAGDB = TAG + " - DB";
     private static ColorScheme ColourScheme;
     public static values themeClass;
-    private static final int[] JOS_CHECK_ATTRS = {R.attr.isJTheme};
+    private static final int[] JLIB_CHECK_ATTRS = {R.attr.isJTheme};
     private static final int[] LIGHT_CHECK_ATTRS = {androidx.appcompat.R.attr.isLightTheme};
     @SuppressLint("PrivateResource")
     private static final int[] MATERIAL3_CHECK_ATTRS = {com.google.android.material.R.attr.isMaterial3Theme};
@@ -51,18 +51,18 @@ public class ThemeEngine {
      */
     public static int getSystemTheme(Context context) {
         String Theme;
-        Theme = getThemeFromDB1(context);
-        currentTheme = getThemeFromDB1(context);
+        Theme = getThemeFromDB(context);
+        currentTheme = getThemeFromDB(context);
         UiModeManager manager = (UiModeManager) context.getSystemService(Context.UI_MODE_SERVICE);
         boolean isDarkMode = manager.getNightMode() == UiModeManager.MODE_NIGHT_YES;
         Log.i(TAG, Theme);
         switch (Theme) {
-            case "jOS":
+            case "jLib":
                 ColourScheme = getDarkColourScheme(context);
-                if (themeClass != null && themeClass.jOSTheme() != 0 && isjOSTheme(context, themeClass.jOSTheme()) && !isLightTheme(context, themeClass.jOSTheme())) {
-                    return themeClass.jOSTheme();
+                if (themeClass != null && themeClass.jLibTheme() != 0 && isjLibTheme(context, themeClass.jLibTheme()) && !isLightTheme(context, themeClass.jLibTheme())) {
+                    return themeClass.jLibTheme();
                 }
-                return R.style.jOS_Theme;
+                return R.style.j_Theme;
             case "M3 Dark":
                 ColourScheme = getDarkColourScheme(context);
                 if (themeClass != null && themeClass.M3D() != 0 && isMaterial3Theme(context, themeClass.M3D()) && !isLightTheme(context, themeClass.M3D())) {
@@ -115,7 +115,7 @@ public class ThemeEngine {
             }
         }
         ColourScheme = getDarkColourScheme(context);
-        return R.style.jOS_Theme;
+        return R.style.j_Theme;
     }
 
     /**
@@ -144,13 +144,13 @@ public class ThemeEngine {
     }
 
     /**
-     * checks if theme is extended from jOSTheme
+     * checks if theme is extended from jTheme
      * @param context context for checking the theme
      * @param theme int theme to check
-     * @return boolean true if theme is extended from jOSTheme
+     * @return boolean true if theme is extended from jTheme
      */
-    public static boolean isjOSTheme(@NonNull Context context, int theme) {
-        return isThemeBoolean(context, JOS_CHECK_ATTRS, theme);
+    public static boolean isjLibTheme(@NonNull Context context, int theme) {
+        return isThemeBoolean(context, JLIB_CHECK_ATTRS, theme);
     }
 
     /**
@@ -186,7 +186,7 @@ public class ThemeEngine {
     }
 
     @SuppressLint("Range")
-    public static String getThemeFromDB1(Context context) {
+    public static String getThemeFromDB(Context context) {
         // get from database
 
         // creating a cursor object of the

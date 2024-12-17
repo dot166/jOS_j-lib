@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Android Snow Cone (12) Supports Dynamic Colours -->
-    <style name="Platform.jOS.Theme" parent="Theme.Material3.DynamicColors.Dark.NoActionBar"/>
+    <style name="Platform.j.Theme" parent="Theme.Material3.DynamicColors.Dark.NoActionBar"/>
 </resources>

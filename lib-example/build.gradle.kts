@@ -8,14 +8,14 @@ plugins {
 }
 
 android {
-    namespace = "com.j.lib_example"
+    namespace = "io.github.dot166.jLib_example"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.j.lib_example"
+        applicationId = "io.github.dot166.jLib_example"
         minSdk = 24
         targetSdk = 35
-        versionCode = 33 // 3.3.x
+        versionCode = 40 // 4.0.x
         versionName = Ver
     }
 
@@ -32,5 +32,5 @@ aboutLibraries {
 }
 
 dependencies {
-    implementation(project(":j-LIB-core")) // implementation "io.github.dot166:j-Lib:3.2.17"
+    implementation(project(":j-LIB-core")) // implementation "io.github.dot166:j-Lib:4.0.0"
 }

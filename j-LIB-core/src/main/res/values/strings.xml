@@ -9,7 +9,7 @@
     <string name="dialog_title">ThemeEngine Missing</string>
     <string name="dialog_message">This App requires ThemeEngine, the ThemeEngine App that contains the database is not installed on your device!</string>
     <string name="dialog_positive">Install</string>
-    <string name="dialog_negative">Ignore (App Will Use jOS Theme)</string>
+    <string name="dialog_negative">Ignore (App Will Use jLib Default Theme)</string>
     <string name="about">About</string>
     <string name="leaddev">Lead Developer</string>
     <string name="dev">Developer</string>

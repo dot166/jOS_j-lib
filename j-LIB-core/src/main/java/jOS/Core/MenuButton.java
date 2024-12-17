@@ -10,6 +10,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import io.github.dot166.jLib.R;
+
 public class MenuButton extends LinearLayout {
 
     public MenuButton(Context context) {

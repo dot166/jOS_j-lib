@@ -14,9 +14,10 @@
  * limitations under the License.
  */
 
-package jOS.Core.utils
+package io.github.dot166.jLib.internal.utils
 
 import android.net.Uri
+import androidx.annotation.RestrictTo
 import androidx.browser.customtabs.CustomTabsIntent
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -41,6 +42,7 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import coil.compose.SubcomposeAsyncImage
 
+@RestrictTo(RestrictTo.Scope.LIBRARY)
 @Composable
 fun PreferenceTemplate(
     modifier: Modifier = Modifier,
@@ -105,6 +107,7 @@ fun PreferenceTemplate(
     }
 }
 
+@RestrictTo(RestrictTo.Scope.LIBRARY)
 @Composable
 fun ContributorRow(name: String, description: String, photoUrl: String, url: String) {
     val context = LocalContext.current

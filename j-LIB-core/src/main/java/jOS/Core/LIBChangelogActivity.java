@@ -2,6 +2,8 @@ package jOS.Core;
 
 import android.os.Bundle;
 
+import io.github.dot166.jLib.BuildConfig;
+
 public class LIBChangelogActivity extends jWebActivity {
 
     @Override

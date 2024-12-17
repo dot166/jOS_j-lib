@@ -44,7 +44,7 @@ jobs:
       run: ./gradlew build
 
     - name: Copy BuildConfig.java
-      run: cp j-LIB-core/build/generated/source/buildConfig/release/jOS/Core/BuildConfig.java j-LIB-core/src-aosp/jOS/Core/BuildConfig.java
+      run: cp j-LIB-core/build/generated/source/buildConfig/release/io/github/dot166/jLib/BuildConfig.java j-LIB-core/src-aosp/io/github/dot166/jLib/BuildConfig.java
 
     - name: Publish to Maven Central
       if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && github.repository == 'dot166/jOS_j-Lib' && env.RELEASE == '1' }}

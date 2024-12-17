@@ -35,7 +35,7 @@ group = "io.github.dot166"
 version = Ver
 
 android {
-    namespace = "jOS.Core"
+    namespace = "io.github.dot166.jLib"
     compileSdk = 35
 
     defaultConfig {

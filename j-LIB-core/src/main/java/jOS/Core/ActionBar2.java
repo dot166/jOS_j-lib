@@ -17,7 +17,8 @@ import androidx.annotation.Nullable;
 
 import com.google.android.material.appbar.MaterialToolbar;
 
-import jOS.Core.utils.ToolbarUtils;
+import io.github.dot166.jLib.R;
+import io.github.dot166.jLib.internal.utils.ToolbarUtils;
 import jOS.Core.utils.IconUtils;
 
 /**
@@ -27,7 +28,7 @@ import jOS.Core.utils.IconUtils;
  * <p>To get started with the {@code ActionBar2} component, use {@code
  * jOS.Core.ActionBar2} in your layout XML instead of {@code
  * androidx.appcompat.widget.Toolbar} or {@code Toolbar} or {@code
- * com.google.android.material.appbar.MaterialToolbar} or {@code MaterialToolbar}. E.g.,:
+ * com.google.android.material.appbar.MaterialToolbar}. E.g.,:
  *
  * <pre>
  * &lt;jOS.Core.ActionBar2

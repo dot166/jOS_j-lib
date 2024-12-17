@@ -1,7 +1,8 @@
 <resources>
     <!-- Base System theme. -->
-    <style name="jOS.Theme" parent="Platform.jOS.Theme">
+    <style name="j.Theme" parent="Platform.j.Theme">
         <item name="isJTheme">true</item>
+        <item name="viewInflaterClass">io.github.dot166.jLib.app.jLibViewInflater</item>
         <item name="android:textAppearance">@android:style/TextAppearance.Holo</item>
         <item name="android:textAppearanceInverse">@android:style/TextAppearance.Holo.Inverse</item>
 
@@ -117,7 +118,7 @@
         <item name="tabStyle">@style/tab</item>
     </style>
     <!-- Theme.Material3.DynamicColors.Dark.NoActionBar overrides -->
-    <style name="Platform.jOS.Theme" parent="Theme.Material3.DynamicColors.Dark.NoActionBar">
+    <style name="Platform.j.Theme" parent="Theme.Material3.DynamicColors.Dark.NoActionBar">
         <!-- Android Red Velvet Cake (11) and older do not support dynamic colours -->
         <item name="android:textColorPrimary">@color/j_primary_text_holo_dark</item>
         <item name="android:textColorSecondary">@color/j_secondary_text_holo_dark</item>

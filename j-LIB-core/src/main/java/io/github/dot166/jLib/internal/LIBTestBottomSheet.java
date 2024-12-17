@@ -1,4 +1,4 @@
-package jOS.Core;
+package io.github.dot166.jLib.internal;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -6,8 +6,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import androidx.annotation.RestrictTo;
+
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
+import io.github.dot166.jLib.R;
+
+@RestrictTo(RestrictTo.Scope.LIBRARY)
 public class LIBTestBottomSheet extends BottomSheetDialogFragment {
 
     @Override

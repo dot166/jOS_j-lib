@@ -10,6 +10,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.ComposeView
 import com.mikepenz.aboutlibraries.ui.compose.m3.LibrariesContainer
 import jOS.Core.ThemeEngine.ThemeEngine
+import io.github.dot166.jLib.R
 
 class OSSLicenceActivity : jActivity() {
     public override fun onCreate(savedInstanceState: Bundle?) {

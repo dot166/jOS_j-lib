@@ -1,4 +1,4 @@
-package jOS.Core.utils;
+package io.github.dot166.jLib.internal.utils;
 
 import static jOS.Core.utils.VersionUtils.getAndroidVersion;
 import static jOS.Core.Build.jOS_RELEASE;
@@ -9,11 +9,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import androidx.annotation.RestrictTo;
 import androidx.appcompat.app.AppCompatActivity;
 
-import jOS.Core.LIBTestBottomSheet;
-import jOS.Core.R;
+import io.github.dot166.jLib.internal.LIBTestBottomSheet;
+import io.github.dot166.jLib.R;
 
+@RestrictTo(RestrictTo.Scope.LIBRARY)
 public class LIBTest {
 
     public static void Test(AppCompatActivity context) {

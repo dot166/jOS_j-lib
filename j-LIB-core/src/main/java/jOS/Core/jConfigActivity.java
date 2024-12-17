@@ -1,7 +1,7 @@
 package jOS.Core;
 
 import static jOS.Core.ThemeEngine.ThemeEngine.currentTheme;
-import static jOS.Core.ThemeEngine.ThemeEngine.getThemeFromDB1;
+import static jOS.Core.ThemeEngine.ThemeEngine.getThemeFromDB;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -19,6 +19,8 @@ import androidx.preference.PreferenceScreen;
 
 import java.util.Objects;
 
+import io.github.dot166.jLib.BuildConfig;
+import io.github.dot166.jLib.R;
 import jOS.Core.utils.ErrorUtils;
 
 /**
@@ -147,7 +149,7 @@ public class jConfigActivity extends jActivity {
         public void onResume() {
             super.onResume();
 
-            if (!Objects.equals(currentTheme, getThemeFromDB1(getPreferenceManager().getContext()))) {
+            if (!Objects.equals(currentTheme, getThemeFromDB(getPreferenceManager().getContext()))) {
                 recreateActivityNow();
             }
         }
