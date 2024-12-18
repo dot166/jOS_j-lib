@@ -23,7 +23,6 @@
     <dimen name="l_player_hit_size">40dp</dimen>
     <dimen name="l_player_size">40dp</dimen>
     <dimen name="l_obstacle_width">90dp</dimen>
-    <dimen name="l_obstacle_stem_width">12dp</dimen>
     <dimen name="l_obstacle_gap">170dp</dimen>
     <dimen name="l_obstacle_height_min">40dp</dimen>
     <dimen name="l_building_width_min">20dp</dimen>

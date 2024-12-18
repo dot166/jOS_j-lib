@@ -10,4 +10,12 @@
         android:icon="@drawable/baseline_exit_to_app_24"
         android:contentDescription="@string/exit_test_menu"
         android:layout_height="?minTouchTargetSize"/>
+
+    <io.github.dot166.jLib.widget.MenuButton
+        android:id="@+id/button2"
+        android:layout_width="match_parent"
+        android:text="@string/birdgame"
+        android:icon="@drawable/outline_videogame_asset_24"
+        android:contentDescription="@string/birdgame"
+        android:layout_height="?minTouchTargetSize"/>
 </FrameLayout>

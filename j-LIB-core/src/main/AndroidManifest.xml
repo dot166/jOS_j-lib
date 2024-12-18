@@ -32,13 +32,16 @@
             android:label="@string/licences"
             android:exported="false" />
         <!-- BirdGame -->
-        <activity android:name=".BirdGameActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
-        </activity>
+        <activity
+            android:name=".BirdGameActivity"
+            android:excludeFromRecents="true"
+            android:exported="true"
+            android:hardwareAccelerated="true"
+            android:icon="@mipmap/ic_launcher_j"
+            android:label="@string/birdgame"
+            android:launchMode="singleInstance"
+            android:screenOrientation="locked"
+            android:theme="@android:style/Theme.Material.NoActionBar" />
     </application>
 
 </manifest>
