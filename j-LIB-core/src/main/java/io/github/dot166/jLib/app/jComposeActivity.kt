@@ -10,7 +10,7 @@ import io.github.dot166.jLib.ThemeEngine.ThemeEngine.GetComposeTheme
 open class jComposeActivity : jActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        configure(null, false) // compose overrides view content (i think)
+        configure() // compose overrides view content (i think)
         super.onCreate(savedInstanceState)
         setContent {
             GetComposeTheme(context = this) {

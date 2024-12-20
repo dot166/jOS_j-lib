@@ -27,7 +27,7 @@ import io.github.dot166.jLib.widget.BirdGame;
 public class BirdGameActivity extends jActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        configure(R.layout.birdgame, false);
+        configure(null, R.layout.birdgame, false);
         super.onCreate(savedInstanceState);
         BirdGame world = (BirdGame) findViewById(R.id.world);
         world.setScoreField((TextView) findViewById(R.id.score));

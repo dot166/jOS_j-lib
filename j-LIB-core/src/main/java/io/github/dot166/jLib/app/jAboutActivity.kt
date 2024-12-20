@@ -253,7 +253,7 @@ open class jAboutActivity : jActivity() {
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        configure(R.layout.aboutactivity, true)
+        configure(layoutId = R.layout.aboutactivity, actionbar = true)
         super.onCreate(savedInstanceState)
         findViewById<ComposeView>(R.id.my_composable)?.setContent {
             GetComposeTheme(context = this) {

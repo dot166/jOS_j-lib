@@ -35,7 +35,7 @@ public class jConfigActivity extends jActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        configure(R.layout.settings_activity, true);
+        configure(null, R.layout.settings_activity, true);
         super.onCreate(savedInstanceState);
 
         WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
