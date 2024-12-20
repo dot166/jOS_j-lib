@@ -45,6 +45,7 @@ import com.google.accompanist.drawablepainter.rememberDrawablePainter
 import io.github.dot166.jLib.ThemeEngine.ThemeEngine
 import io.github.dot166.jLib.internal.utils.ContributorRow
 import io.github.dot166.jLib.R
+import io.github.dot166.jLib.ThemeEngine.ThemeEngine.GetComposeTheme
 import io.github.dot166.jLib.utils.ErrorUtils
 import io.github.dot166.jLib.utils.IconUtils
 import io.github.dot166.jLib.utils.LabelUtils
@@ -255,9 +256,7 @@ open class jAboutActivity : jActivity() {
         configure(R.layout.aboutactivity, true)
         super.onCreate(savedInstanceState)
         findViewById<ComposeView>(R.id.my_composable)?.setContent {
-            MaterialTheme(
-                colorScheme = ThemeEngine.getColourScheme()
-            ) {
+            GetComposeTheme(context = this) {
                 Surface {
                     About(this)
                 }

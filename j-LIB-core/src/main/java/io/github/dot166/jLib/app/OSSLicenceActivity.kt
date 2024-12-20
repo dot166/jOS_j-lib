@@ -11,6 +11,7 @@ import androidx.compose.ui.platform.ComposeView
 import com.mikepenz.aboutlibraries.ui.compose.m3.LibrariesContainer
 import io.github.dot166.jLib.ThemeEngine.ThemeEngine
 import io.github.dot166.jLib.R
+import io.github.dot166.jLib.ThemeEngine.ThemeEngine.GetComposeTheme
 
 class OSSLicenceActivity : jActivity() {
     public override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,9 +23,7 @@ class OSSLicenceActivity : jActivity() {
             Log.e("ActionBar2", "no actionbar found")
         }
         findViewById<ComposeView>(R.id.my_composable)?.setContent {
-            MaterialTheme(
-                colorScheme = ThemeEngine.getColourScheme()
-            ) {
+            GetComposeTheme(context = this) {
                 Surface {
                     LibrariesContainer(
                         Modifier.fillMaxSize()
