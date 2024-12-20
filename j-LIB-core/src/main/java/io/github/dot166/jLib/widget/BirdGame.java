@@ -41,7 +41,10 @@ import android.view.animation.DecelerateInterpolator;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
+import androidx.annotation.ColorInt;
+
 import java.util.ArrayList;
+import java.util.Random;
 
 import io.github.dot166.jLib.R;
 
@@ -659,12 +662,18 @@ public class BirdGame extends FrameLayout {
         };
         public final float[] corners = new float[sHull.length];
 
+        private int getRandomTint() {
+            int[] colours = new int[] {0xFF680000, 0xFF006800, 0xFF000068};
+            Random rand = new Random();
+            return colours[rand.nextInt(3)];
+        }
+
         public Player(Context context) {
             super(context);
 
             setBackgroundResource(R.drawable.l_android);// TODO: Create a new character drawable
-            //getBackground().setTintMode(PorterDuff.Mode.SRC_ATOP);// Disable Tint (will use a better character design)
-            //getBackground().setTint(0xFF680000);// Disable Tint (will use a better character design)
+            getBackground().setTintMode(PorterDuff.Mode.SRC_ATOP);
+            getBackground().setTint(getRandomTint());
             setOutlineProvider(new ViewOutlineProvider() {
                 @Override
                 public void getOutline(View view, Outline outline) {
