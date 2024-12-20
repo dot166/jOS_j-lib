@@ -14,7 +14,7 @@ import io.github.dot166.jLib.R
 
 class OSSLicenceActivity : jActivity() {
     public override fun onCreate(savedInstanceState: Bundle?) {
-        configure(R.layout.ossactivity, false)
+        configure(R.layout.ossactivity, true)
         super.onCreate(savedInstanceState)
         if (supportActionBar != null) {
             supportActionBar!!.setDisplayHomeAsUpEnabled(true)

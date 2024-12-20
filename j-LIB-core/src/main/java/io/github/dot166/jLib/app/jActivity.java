@@ -26,57 +26,32 @@ public class jActivity extends AppCompatActivity {
     boolean actionbar;
     View layout;
     int layoutId;
-    boolean home;
     boolean configured = false;
     protected jLIBCoreApp mLIBApp;
 
     /**
      * Subclasses are obligated to call this before calling super.onCreate()
      * @param layout View, app layout.
-     * @param home boolean, tells system if this is the first activity/home page
-     */
-    protected void configure(View layout, boolean home)
-    {
-        configure(layout, home, true);
-    }
-
-    /**
-     * Subclasses are obligated to call this before calling super.onCreate()
-     * @param layout View, app layout.
-     * @param home boolean, tells system if this is the first activity/home page
      * @param actionbar boolean, tells system if you would like to show the ActionBar
      */
-    protected void configure(View layout, boolean home, boolean actionbar)
+    protected void configure(View layout, boolean actionbar)
     {
         this.layout = layout;
         this.layoutId = 0; // layout is added from view so id is set to null
         this.actionbar = actionbar;
-        this.home = home;
         this.configured = true;
     }
 
     /**
      * Subclasses are obligated to call this before calling super.onCreate()
      * @param layout int, app layout. commonly R.layout.activitymain
-     * @param home boolean, tells system if this is the first activity/home page
-     */
-    protected void configure(int layout, boolean home)
-    {
-        configure(layout, home, true);
-    }
-
-    /**
-     * Subclasses are obligated to call this before calling super.onCreate()
-     * @param layout int, app layout. commonly R.layout.activitymain
-     * @param home boolean, tells system if this is the first activity/home page
      * @param actionbar boolean, tells system if you would like to show the ActionBar
      */
-    protected void configure(int layout, boolean home, boolean actionbar)
+    protected void configure(int layout, boolean actionbar)
     {
         this.layout = null; // layout is inflated from id so layout view is set to null
         this.layoutId = layout;
         this.actionbar = actionbar;
-        this.home = home;
         this.configured = true;
     }
 

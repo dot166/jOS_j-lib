@@ -13,7 +13,7 @@ public class jWebActivity extends jActivity {
     protected void configure(String uri)
     {
         this.uri = uri;
-        super.configure(null, false, false);
+        super.configure(null, false);
     }
 
     @Override

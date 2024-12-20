@@ -252,7 +252,7 @@ open class jAboutActivity : jActivity() {
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        configure(R.layout.aboutactivity, false)
+        configure(R.layout.aboutactivity, true)
         super.onCreate(savedInstanceState)
         findViewById<ComposeView>(R.id.my_composable)?.setContent {
             MaterialTheme(
