@@ -102,10 +102,12 @@ Some of the preference and theme related files are adapted from [The Android Ope
 
 ToolbarUtils.java is adapted from [Material Components](https://github.com/material-components/material-components-android) and is licenced under Apache 2.0
 
+customseekbarpreference is adapted from [crDroid Android](https://github.com/crdroidandroid) and is licenced under Apache 2.0
+
+birdgame is adapted from [The Android Open Source Project](https://source.android.com/) and are licenced under Apache 2.0
+
 ## TODO
 
 move ThemeEngine App to this repo
-
-add custom blink layout (based on androidx.constraintlayout.widget.ConstraintLayout)
 
 improve documentation (low priority)
