@@ -70,25 +70,6 @@ public class CustomSeekBarPreference extends Preference implements SeekBar.OnSee
     public CustomSeekBarPreference(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
 
-        if (!VersionUtils.isAtLeastO()) {
-            AlertDialog.Builder builder = new AlertDialog.Builder(context);
-
-            builder.setMessage(R.string.dialog_tabpref_message)
-                    .setTitle(R.string.dialog_tabpref_title)
-                    .setCancelable(false)
-                    .setNeutralButton(
-                            R.string.ok,
-                            new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    dialog.dismiss();
-                                }
-                            });
-            //Creating dialog box
-            AlertDialog alert = builder.create();
-            alert.show();
-        }
-
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.CustomSeekBarPreferencejLib);
         try {
             mShowSign = a.getBoolean(R.styleable.CustomSeekBarPreferencejLib_showSign, mShowSign);

@@ -13,7 +13,7 @@ android {
 
     defaultConfig {
         applicationId = "io.github.dot166.jLib_example"
-        minSdk = 24
+        minSdk = 26
         targetSdk = 35
         versionCode = 40 // 4.0.x
         versionName = Ver

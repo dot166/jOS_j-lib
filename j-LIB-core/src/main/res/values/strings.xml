@@ -32,6 +32,4 @@
     <string name="custom_seekbar_jLib_default_value_to_set">Default value: <xliff:g id="v">%s</xliff:g>\nLong tap to set</string>
     <string name="custom_seekbar_jLib_default_value_is_set">Default value is set</string>
     <string name="blink_speed_title">Blink Delay</string>
-    <string name="dialog_tabpref_title">Warning, potential bugs ahead!</string>
-    <string name="dialog_tabpref_message">your device is using Android Nougat (7(.1)) (API 24 and 25) and the android:min attribute does not work on that version for some reason, so the slider preference is slightly broken on this version (since there is not a minimum limit).</string>
 </resources>

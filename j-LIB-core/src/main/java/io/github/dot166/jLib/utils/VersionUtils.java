@@ -6,16 +6,6 @@ import androidx.annotation.ChecksSdkIntAtLeast;
 
 public class VersionUtils {
 
-    @ChecksSdkIntAtLeast(api = Build.VERSION_CODES.N_MR1)
-    public static boolean isAtLeastN_1() {
-        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.N_MR1;
-    }
-
-    @ChecksSdkIntAtLeast(api = Build.VERSION_CODES.O)
-    public static boolean isAtLeastO() {
-        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.O;
-    }
-
     @ChecksSdkIntAtLeast(api = Build.VERSION_CODES.O_MR1)
     public static boolean isAtLeastO_1() {
         return Build.VERSION.SDK_INT >= Build.VERSION_CODES.O_MR1;
