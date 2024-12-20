@@ -6,6 +6,7 @@ android_library {
     name: "j.Lib",
     static_libs: [
         // DO NOT EDIT THIS SECTION MANUALLY
+        "androidx.activity_activity-compose",
         "androidx.appcompat_appcompat",
         "androidx.browser_browser",
         "androidx.compose.animation_animation",
