@@ -9,7 +9,6 @@
         android:layout_height="?actionBarSize"
         app:layout_constraintTop_toTopOf="parent"
         app:titleCentered="true"
-        app:iconAsLogo="false"
         android:id="@+id/actionbar"/>
 
     <androidx.compose.ui.platform.ComposeView

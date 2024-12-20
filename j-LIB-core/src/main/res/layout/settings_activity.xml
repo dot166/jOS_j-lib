@@ -17,12 +17,14 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:fitsSystemWindows="true">
 
     <io.github.dot166.jLib.widget.ActionBar2
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
+        app:iconAsLogo="true"
         android:id="@+id/actionbar"/>
 
     <FrameLayout

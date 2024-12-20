@@ -61,7 +61,7 @@ public class ActionBar2 extends MaterialToolbar {
         final TypedArray a =
                 context.obtainStyledAttributes(attrs, R.styleable.ActionBar2, defStyleAttr, DEF_STYLE_RES);
 
-        iconAsLogo = a.getBoolean(R.styleable.ActionBar2_iconAsLogo, true);
+        iconAsLogo = a.getBoolean(R.styleable.ActionBar2_iconAsLogo, false);
         //subtitleCentered = a.getBoolean(R.styleable.ActionBar2_jsubtitleCentered, false);
 
         a.recycle();
@@ -76,7 +76,15 @@ public class ActionBar2 extends MaterialToolbar {
         Log.i(TAG, "init complete!!");
     }
 
-    public void useActivityIconAsLogo(boolean override) {
+    /**
+     * calling this function goes against the material design guidelines for android 5 and later
+     * restores behavior from android KitKat
+     */
+    public void useActivityIconAsLogo() {
+        useActivityIconAsLogo(true);
+    }
+
+    private void useActivityIconAsLogo(boolean override) {
         if (iconAsLogo || override) {
             setLogo(IconUtils.getActivityIcon(getContext()));
         } else {
