@@ -49,7 +49,7 @@ android_library {
         "src/main/java/**/*.kt",
         "src/main/java/**/*.java",
         // buildconfig
-        "src-aosp/jOS/Core/BuildConfig.java"
+        "src-aosp/io/github/dot166/jLib/BuildConfig.java"
     ],
 
     resource_dirs: [
