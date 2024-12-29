@@ -2,7 +2,7 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"     xmlns:settings="http://schemas.android.com/apk/res-auto">
     <androidx.preference.PreferenceCategory android:title="@string/jlib" android:key="lib_category">
 
-        <io.github.dot166.jLib.preference.CustomSeekBarPreference
+        <io.github.dot166.jLib.preference.SeekBarPreference
             android:key="blink_speed"
             android:title="@string/blink_speed_title"
             android:persistent="true"

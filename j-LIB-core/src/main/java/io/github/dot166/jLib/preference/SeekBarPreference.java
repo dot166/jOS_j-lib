@@ -18,14 +18,8 @@ package io.github.dot166.jLib.preference;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.res.TypedArray;
 import android.graphics.PorterDuff;
-import androidx.annotation.ColorInt;
-import androidx.appcompat.app.AlertDialog;
-import androidx.core.content.res.TypedArrayUtils;
-import androidx.preference.*;
-
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
@@ -36,13 +30,15 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import io.github.dot166.jLib.R;
-import io.github.dot166.jLib.utils.VersionUtils;
+import androidx.annotation.ColorInt;
+import androidx.core.content.res.TypedArrayUtils;
+import androidx.preference.Preference;
+import androidx.preference.PreferenceViewHolder;
 
-public class CustomSeekBarPreference extends Preference implements SeekBar.OnSeekBarChangeListener {
+import io.github.dot166.jLib.R;
+
+public class SeekBarPreference extends Preference implements SeekBar.OnSeekBarChangeListener {
     protected final String TAG = getClass().getName();
-    private static final String SETTINGS_NS = "http://schemas.android.com/apk/res/com.android.settings";
-    protected static final String ANDROIDNS = "http://schemas.android.com/apk/res/android";
 
     protected int mInterval = 1;
     protected boolean mShowSign = false;
@@ -67,61 +63,54 @@ public class CustomSeekBarPreference extends Preference implements SeekBar.OnSee
     protected boolean mTrackingTouch = false;
     protected int mTrackingValue;
 
-    public CustomSeekBarPreference(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+    public SeekBarPreference(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
 
-        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.CustomSeekBarPreferencejLib);
+        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.jLibSeekBarPreference);
         try {
-            mShowSign = a.getBoolean(R.styleable.CustomSeekBarPreferencejLib_showSign, mShowSign);
-            String units = a.getString(R.styleable.CustomSeekBarPreferencejLib_units);
+            mShowSign = a.getBoolean(R.styleable.jLibSeekBarPreference_showSign, mShowSign);
+            String units = a.getString(R.styleable.jLibSeekBarPreference_units);
             if (units != null)
                 mUnits = " " + units;
-            mContinuousUpdates = a.getBoolean(R.styleable.CustomSeekBarPreferencejLib_continuousUpdates, mContinuousUpdates);
-            String defaultValueText = a.getString(R.styleable.CustomSeekBarPreferencejLib_defaultValueText);
+            mContinuousUpdates = a.getBoolean(R.styleable.jLibSeekBarPreference_continuousUpdates, mContinuousUpdates);
+            String defaultValueText = a.getString(R.styleable.jLibSeekBarPreference_defaultValueText);
             mDefaultValueTextExists = defaultValueText != null && !defaultValueText.isEmpty();
             if (mDefaultValueTextExists) {
                 mDefaultValueText = defaultValueText;
             }
+            mMinValue = a.getInt(R.styleable.jLibSeekBarPreference_android_min, mMinValue);
+            mMaxValue = a.getInt(R.styleable.jLibSeekBarPreference_android_max, mMaxValue);
+            mInterval = a.getInt(R.styleable.jLibSeekBarPreference_interval, mInterval);
+            String defaultValue = a.getString(R.styleable.jLibSeekBarPreference_android_defaultValue);
+            mDefaultValueExists = defaultValue != null && !defaultValue.isEmpty();
+            if (mDefaultValueExists) {
+                mDefaultValue = getLimitedValue(Integer.parseInt(defaultValue));
+                mValue = mDefaultValue;
+            } else {
+                mValue = mMinValue;
+            }
         } finally {
             a.recycle();
         }
-
-        try {
-            String newInterval = attrs.getAttributeValue(SETTINGS_NS, "interval");
-            if (newInterval != null)
-                mInterval = Integer.parseInt(newInterval);
-        } catch (Exception e) {
-            Log.e(TAG, "Invalid interval value", e);
-        }
-        mMinValue = attrs.getAttributeIntValue(SETTINGS_NS, "min", mMinValue);
-        mMaxValue = attrs.getAttributeIntValue(ANDROIDNS, "max", mMaxValue);
         if (mMaxValue < mMinValue)
             mMaxValue = mMinValue;
-        String defaultValue = attrs.getAttributeValue(ANDROIDNS, "defaultValue");
-        mDefaultValueExists = defaultValue != null && !defaultValue.isEmpty();
-        if (mDefaultValueExists) {
-            mDefaultValue = getLimitedValue(Integer.parseInt(defaultValue));
-            mValue = mDefaultValue;
-        } else {
-            mValue = mMinValue;
-        }
 
         mSeekBar = new SeekBar(context, attrs);
-        setLayoutResource(R.layout.preference_custom_seekbar_jlib);
+        setLayoutResource(R.layout.preference_seekbar_jlib);
     }
 
-    public CustomSeekBarPreference(Context context, AttributeSet attrs, int defStyleAttr) {
+    public SeekBarPreference(Context context, AttributeSet attrs, int defStyleAttr) {
         this(context, attrs, defStyleAttr, 0);
     }
 
     @SuppressLint("RestrictedApi")
-    public CustomSeekBarPreference(Context context, AttributeSet attrs) {
+    public SeekBarPreference(Context context, AttributeSet attrs) {
         this(context, attrs, TypedArrayUtils.getAttr(context,
                 androidx.preference.R.attr.preferenceStyle,
                 android.R.attr.preferenceStyle));
     }
 
-    public CustomSeekBarPreference(Context context) {
+    public SeekBarPreference(Context context) {
         this(context, null);
     }
 
@@ -162,6 +151,7 @@ public class CustomSeekBarPreference extends Preference implements SeekBar.OnSee
         }
 
         mSeekBar.setMax(getSeekValue(mMaxValue));
+        mSeekBar.setMin(getSeekValue(mMinValue));
         mSeekBar.setProgress(getSeekValue(mValue));
         mSeekBar.setEnabled(isEnabled());
 
