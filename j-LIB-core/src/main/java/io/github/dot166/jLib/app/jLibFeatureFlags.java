@@ -32,6 +32,15 @@ public class jLibFeatureFlags {
         prefs.edit().putBoolean("enable_blink", value).apply();
     }
 
+    /**
+     * Call this method at startup (in any class that extends {@link android.app.Application} or {@link io.github.dot166.jLib.app.jLIBCoreApp}) to 'remove' (more like turns it off and hides the settings option (in any {@link androidx.preference.PreferenceFragmentCompat} that extends {@link io.github.dot166.jLib.app.jConfigActivity.jLIBSettingsFragment})) the blink feature
+     */
+    public static void force_disable_blink() {
+        set_Blink_enabled(false);
+        set_Blink_speed(blink_speed_default_value);
+        prefs.edit().putBoolean("is_blink_force_disabled", true).apply();
+    }
+
     public static void init_values(Context context) {
         prefs = PreferenceManager.getDefaultSharedPreferences(context);
         for(jLibFlags flag : jLibFlags.values()) {
@@ -47,6 +56,9 @@ public class jLibFeatureFlags {
                     }
                 }
             }
+        }
+        if (!prefs.contains("is_blink_force_disabled")) {
+            prefs.edit().putBoolean("is_blink_force_disabled", false).apply();
         }
     }
 }

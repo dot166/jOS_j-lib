@@ -32,4 +32,7 @@
     <string name="custom_seekbar_jLib_default_value_to_set">Default value: <xliff:g id="v">%s</xliff:g>\nLong tap to set</string>
     <string name="custom_seekbar_jLib_default_value_is_set">Default value is set</string>
     <string name="blink_speed_title">Blink Delay</string>
+    <string name="enable_blink">Enable Blink</string>
+    <string name="enable_blink_summary">allow the blink layout to blink</string>
+    <string name="set_the_delay_in_milliseconds_between_each_blink">set the delay in milliseconds between each blink (minimum is 100ms and maximum is 1000ms)</string>
 </resources>

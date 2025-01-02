@@ -15,6 +15,7 @@ import androidx.core.view.WindowCompat;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceCategory;
 import androidx.preference.PreferenceFragmentCompat;
+import androidx.preference.PreferenceManager;
 import androidx.preference.PreferenceScreen;
 
 import java.util.Objects;
@@ -65,20 +66,21 @@ public class jConfigActivity extends jActivity {
         @Override
         public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
             setPreferencesFromResource(preferenceXML(), rootKey);
-            if (!hideLIB()) {
-                addPreferencesFromResource(R.xml.lib_preference);
-            }
+            addPreferencesFromResource(R.xml.lib_preference);
 
             PreferenceScreen screen = getPreferenceScreen();
             for (int i = screen.getPreferenceCount() - 1; i >= 0; i--) {
                 Preference preference = screen.getPreference(i);
                 if (Objects.equals(preference.getKey(), "lib_category")) {
                     PreferenceCategory category = (PreferenceCategory) preference;
-                    for (int i2 = category.getPreferenceCount() - 1; i2 >= 0; i2--) {
-                        Preference preference2 = category.getPreference(i2);
+                    for (int j = category.getPreferenceCount() - 1; j >= 0; j--) {
+                        Preference preference2 = category.getPreference(j);
                         if (!configPreference(preference2)) {
                             category.removePreference(preference2);
                         }
+                    }
+                    if (category.getPreferenceCount() == 0) {
+                        screen.removePreference(category);
                     }
                 }
                 if (!configPreference(preference)) {
@@ -104,11 +106,11 @@ public class jConfigActivity extends jActivity {
                         try {
                             startActivity(intent);
                         } catch (Exception e) {
-                            ErrorUtils.handle(e, preference.getContext());
+                            ErrorUtils.handle(e, p.getContext());
                         }
-                        return !isTEConfig();
+                        return !isTEConfig() && !hideLIB();
                     });
-                    return !isTEConfig();
+                    return !isTEConfig() && !hideLIB();
                 case "LIBVer":
                     Log.i("Preference Logging", "LIBVer Found!!!!");
                     preference.setSummary(BuildConfig.LIBVersion);
@@ -116,10 +118,16 @@ public class jConfigActivity extends jActivity {
                         @Override
                         public boolean onPreferenceClick(@NonNull Preference preference) {
                             startActivity(new Intent(preference.getContext(), LIBAboutActivity.class));
-                            return true;
+                            return !hideLIB();
                         }
                     });
-                    return true;
+                    return !hideLIB();
+                case "enable_blink":
+                    Log.i("Preference Logging", "blink enable toggle");
+                    return !PreferenceManager.getDefaultSharedPreferences(preference.getContext()).getBoolean("is_blink_force_disabled", false) && !hideLIB();
+                case "blink_speed":
+                    Log.i("Preference Logging", "blink speed slider");
+                    return !PreferenceManager.getDefaultSharedPreferences(preference.getContext()).getBoolean("is_blink_force_disabled", false) && !hideLIB();
             }
             return extraPrefs(preference);
         }

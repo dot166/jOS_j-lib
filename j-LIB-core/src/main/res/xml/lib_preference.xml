@@ -2,13 +2,21 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"     xmlns:settings="http://schemas.android.com/apk/res-auto">
     <androidx.preference.PreferenceCategory android:title="@string/jlib" android:key="lib_category">
 
+        <SwitchPreference android:key="enable_blink"
+            android:title="@string/enable_blink"
+            android:summary="@string/enable_blink_summary"
+            android:persistent="true"
+            android:defaultValue="true"/>
+
         <io.github.dot166.jLib.preference.SeekBarPreference
             android:key="blink_speed"
             android:title="@string/blink_speed_title"
             android:persistent="true"
+            android:summary="@string/set_the_delay_in_milliseconds_between_each_blink"
             android:max="1000"
             android:min="100"
             settings:units="ms"
+            android:dependency="enable_blink"
             android:defaultValue="500" />
 
 	<!-- TODO: add ThemeEngine forground icon to the preference menu -->
