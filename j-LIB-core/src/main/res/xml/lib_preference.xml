@@ -19,7 +19,7 @@
             android:dependency="enable_blink"
             android:defaultValue="500" />
 
-	    <!-- TODO: add ThemeEngine forground icon to the preference menu -->
+	    <!-- TODO: add ThemeEngine foreground icon to the preference menu -->
         <Preference
             android:key="ThemeEngine"
             android:title="@string/theme_settings"
