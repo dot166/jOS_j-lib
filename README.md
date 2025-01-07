@@ -16,7 +16,7 @@ plugins {
     ...
     id 'org.jetbrains.kotlin.android' version '2.1.0' apply false
     id 'org.jetbrains.kotlin.plugin.compose' version '2.1.0' apply false
-    id 'com.mikepenz.aboutlibraries.plugin' version "11.2.3" apply false // j-LIB dependency
+    id 'com.mikepenz.aboutlibraries.plugin' version "11.4.0" apply false // j-LIB dependency
 }
 ```
 
