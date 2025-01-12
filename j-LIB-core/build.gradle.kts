@@ -116,6 +116,7 @@ configure<GenerateBpPluginExtension> {
     availableInAOSP.set { module: Module ->
         when {
             module.group.startsWith("org.jetbrains.compose") -> false
+            module.name.startsWith("atomicfu") -> false
             module.name.startsWith("kotlinx-collections-immutable") -> false
             module.group.startsWith("org.jetbrains") -> true
             module.group == "com.google.accompanist" -> false
