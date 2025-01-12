@@ -6,6 +6,9 @@ val Ver: String = providers.exec {
     commandLine("cat", "ver")
 }.standardOutput.asText.get().trim()
 
+val libMinSdk: Int = 26;
+val libCompileSdk: Int = 35;
+
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
@@ -20,7 +23,7 @@ apply {
 
 buildscript {
     repositories {
-        maven("https://raw.githubusercontent.com/lineage-next/gradle-generatebp/v1.15/.m2")
+        maven("https://raw.githubusercontent.com/lineage-next/gradle-generatebp/v1.21/.m2")
     }
 
     dependencies {
@@ -36,10 +39,10 @@ version = Ver
 
 android {
     namespace = "io.github.dot166.jLib"
-    compileSdk = 35
+    compileSdk = libCompileSdk
 
     defaultConfig {
-        minSdk = 26
+        minSdk = libMinSdk
 
         consumerProguardFiles("consumer-rules.pro")
         buildConfigField("String", "LIBVersion", "\"$version\"")
@@ -112,7 +115,8 @@ mavenPublishing {
 }
 
 configure<GenerateBpPluginExtension> {
-    targetSdk.set(35)
+    minSdk.set(libMinSdk)
+    targetSdk.set(libCompileSdk)
     availableInAOSP.set { module: Module ->
         when {
             module.group.startsWith("org.jetbrains.compose") -> false
