@@ -4,20 +4,18 @@ namespace aurora;
 
 public class Ui
 {
-    internal static Window? _window = null;
-
-    public bool IsGtk()
+    public static int YesNoDialog()
     {
-        return _window != null;
-    }
 
-    public class Gtk
-    {
-        
-    }
+        var md = new MessageDialog(null,
+                DialogFlags.DestroyWithParent, MessageType.Info,
+                ButtonsType.YesNo, "oh i give up");
 
-    public class ConsoleUi
-    {
-        
+        Console.WriteLine(2);
+        int response = md.Run();
+            
+        Console.WriteLine(3);
+        md.Destroy();
+        return response; //TODO: parse it properly
     }
 }
