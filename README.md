@@ -88,12 +88,6 @@ gradle library (main code) with AOSP Build Files
 
 example gradle application
 
-### aurora/
-
-Codename Aurora
-
-c# common code library
-
 ## License
 
 see [LICENSE](LICENSE)
