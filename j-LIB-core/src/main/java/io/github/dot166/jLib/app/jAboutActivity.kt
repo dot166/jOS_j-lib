@@ -35,9 +35,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
@@ -49,8 +51,15 @@ import io.github.dot166.jLib.ThemeEngine.ThemeEngine.GetComposeTheme
 import io.github.dot166.jLib.utils.ErrorUtils
 import io.github.dot166.jLib.utils.IconUtils
 import io.github.dot166.jLib.utils.LabelUtils
+import io.github.dot166.jLib.utils.VersionUtils
 
 open class jAboutActivity : jActivity() {
+
+    var mUseThemeColours: Boolean = false;
+
+    fun setUseThemeColours(b: Boolean) {
+        mUseThemeColours = b;
+    }
 
     open fun versionIntent(context : Context): Intent {
         return Intent()
@@ -143,6 +152,15 @@ open class jAboutActivity : jActivity() {
         }
     }
 
+    @Composable
+    open fun getLinkColourFilter(context: Context): Color {
+        return if (VersionUtils.isAtLeastS() || mUseThemeColours == true) {
+            LocalContentColor.current;
+        } else {
+            Color(context.obtainStyledAttributes(intArrayOf(com.google.android.material.R.attr.colorSecondary)).getColor(0, 0))
+        }
+    }
+
     @OptIn(ExperimentalFoundationApi::class)
     @Composable
     open fun About(activity: Activity) {
@@ -188,7 +206,7 @@ open class jAboutActivity : jActivity() {
                                 Image(
                                     painter = painterResource(id = link.iconResId),
                                     contentDescription = stringResource(id = link.labelResId),
-                                    colorFilter = ColorFilter.tint(color = LocalContentColor.current)
+                                    colorFilter = ColorFilter.tint(color = getLinkColourFilter(context))
                                 )
                             },
                             label = { Text(stringResource(id = link.labelResId)) },
