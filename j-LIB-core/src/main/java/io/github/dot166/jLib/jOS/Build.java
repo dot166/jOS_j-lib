@@ -18,6 +18,6 @@ public class Build {
     }
 
 
-    /** An Integer utilized to distinguish jOS versions */
-    public static final double jOS_RELEASE = Double.parseDouble(getInternalRelease());
+    /** A String utilized to distinguish jOS versions */
+    public static final String jOS_RELEASE = getInternalRelease();
 }
