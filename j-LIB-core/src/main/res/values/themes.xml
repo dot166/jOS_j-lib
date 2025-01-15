@@ -36,12 +36,15 @@
         <item name="android:editTextStyle">@android:style/Widget.Holo.EditText</item>
         <!-- Color palette -->
         <item name="android:switchStyle">@style/j.Switch</item>
-        <item name="android:progressBarStyle">@android:style/Widget.Holo.ProgressBar</item>
-        <item name="android:progressBarStyleHorizontal">@android:style/Widget.Holo.ProgressBar.Horizontal</item>
-        <item name="android:progressBarStyleSmall">@android:style/Widget.Holo.ProgressBar.Small</item>
-        <item name="android:progressBarStyleSmallTitle">@android:style/Widget.Holo.ProgressBar.Small.Title</item>
-        <item name="android:progressBarStyleLarge">@android:style/Widget.Holo.ProgressBar.Large</item>
-        <item name="android:seekBarStyle">@android:style/Widget.Holo.SeekBar</item>
+        <item name="android:progressBarStyle">@style/j.Progress</item>
+        <item name="android:progressBarStyleHorizontal">@style/j.Progress.Horizontal</item>
+        <item name="android:progressBarStyleSmall">@style/j.Progress.Small</item>
+        <item name="android:progressBarStyleSmallTitle">@style/j.Progress.Small.Title</item>
+        <item name="android:progressBarStyleLarge">@style/j.Progress.Large</item>
+        <item name="android:progressBarStyleInverse">@style/j.Progress</item>
+        <item name="android:progressBarStyleSmallInverse">@style/j.Progress.Small</item>
+        <item name="android:progressBarStyleLargeInverse">@style/j.Progress.Large</item>
+        <item name="android:seekBarStyle">@style/j.SeekBar</item>
         <!-- Button styles -->
         <item name="android:buttonStyle">@style/j.Button</item>
         <item name="android:buttonStyleSmall">@style/j.Button</item>
@@ -86,8 +89,8 @@
         <!-- Color palette -->
         <item name="controlBackground">?android:selectableItemBackgroundBorderless</item>
         <item name="switchStyle">@style/j.Switch</item>
-        <item name="progressBarStyle">@android:style/Widget.Holo.ProgressBar</item>
-        <item name="seekBarStyle">@android:style/Widget.Holo.SeekBar</item>
+        <item name="progressBarStyle">@style/j.Progress</item>
+        <item name="seekBarStyle">@style/j.SeekBar</item>
         <!-- Button styles -->
         <item name="buttonStyle">@style/j.Button</item>
         <item name="imageButtonStyle">@android:style/Widget.Holo.ImageButton</item>

@@ -123,4 +123,31 @@
         <item name="android:paddingStart">0dip</item>
         <item name="android:paddingEnd">0dip</item>
     </style>
+
+    <style name="j.Progress" parent="android:Widget.Holo.ProgressBar">
+        <item name="android:indeterminateTint">?colorSecondary</item>
+    </style>
+
+    <style name="j.Progress.Horizontal" parent="android:Widget.Holo.ProgressBar.Horizontal">
+        <item name="android:progressTint">?colorSecondary</item>
+        <item name="android:indeterminateTint">?colorSecondary</item>
+    </style>
+
+    <style name="j.Progress.Small" parent="android:Widget.Holo.ProgressBar.Small">
+        <item name="android:indeterminateTint">?colorSecondary</item>
+    </style>
+
+    <style name="j.Progress.Small.Title" parent="android:Widget.Holo.ProgressBar.Small.Title">
+        <item name="android:indeterminateTint">?colorSecondary</item>
+    </style>
+
+    <style name="j.Progress.Large" parent="android:Widget.Holo.ProgressBar.Large">
+        <item name="android:indeterminateTint">?colorSecondary</item>
+    </style>
+
+    <style name="j.SeekBar" parent="android:Widget.Holo.SeekBar">
+        <item name="android:progressTint">?colorSecondary</item>
+        <item name="android:indeterminateTint">?colorSecondary</item>
+        <item name="android:thumbTint">?colorSecondary</item>
+    </style>
 </resources>
