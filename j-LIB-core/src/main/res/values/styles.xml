@@ -4,7 +4,11 @@
         <item name="maxLines">1</item>
         <item name="android:maxLines">1</item>
         <item name="android:scrollHorizontally">true</item>
-        <item name="android:textAppearance">@android:style/TextAppearance.Holo.DialogWindowTitle</item>
+        <item name="android:textAppearance">@style/j.TextAppearance.DialogWindowTitle</item>
+    </style>
+
+    <style name="j.TextAppearance.DialogWindowTitle" parent="android:TextAppearance.Holo.DialogWindowTitle">
+        <item name="android:textColor">?colorSecondary</item>
     </style>
 
     <style name="j.Alert.theme" parent="android:Theme.Holo.Dialog">
@@ -45,7 +49,7 @@
         <item name="android:textColor">?android:textColorPrimary</item>
     </style>
 
-    <style name="tab" parent="Widget.Design.TabLayout">
+    <style name="j.tab" parent="Widget.Design.TabLayout">
         <item name="android:background">?android:panelBackground</item>
     </style>
 

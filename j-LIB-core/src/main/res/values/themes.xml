@@ -115,7 +115,7 @@
 
         <!-- Framework, AppCompat, or Design Widget styles -->
         <item name="bottomNavigationStyle">@style/j.BottomNav</item>
-        <item name="tabStyle">@style/tab</item>
+        <item name="tabStyle">@style/j.tab</item>
     </style>
     <!-- Theme.Material3.DynamicColors.Dark.NoActionBar overrides -->
     <style name="Platform.j.Theme" parent="Theme.Material3.DynamicColors.Dark.NoActionBar">
