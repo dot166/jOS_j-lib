@@ -23,8 +23,12 @@ public class jLibViewInflater extends MaterialComponentsViewInflater {
     protected View createView(Context context, @NonNull String name, AttributeSet attrs) {
         View view = null;
 
-        // We need to 'inject' our tint aware Views in place of the standard framework versions
+        // We need to 'inject' our Views in place of the standard framework versions and appcompat versions and materialcomponents versions
         switch (name) {
+            case "com.google.android.material.materialswitch.MaterialSwitch": // does not theme properly so replace with the older one
+                view = createSwitch(context, attrs);
+                verifyNotNull(view, name);
+                break;
             case "androidx.appcompat.widget.SwitchCompat":
                 view = createSwitch(context, attrs);
                 verifyNotNull(view, name);
