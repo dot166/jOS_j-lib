@@ -57,7 +57,7 @@ public class jLibViewInflater extends MaterialComponentsViewInflater {
 
     @NonNull
     @Contract("_, _ -> new")
-    private Toolbar createToolbar(Context context, AttributeSet attrs) {
+    protected Toolbar createToolbar(Context context, AttributeSet attrs) {
         return new ActionBar2(context, attrs);
     }
 
