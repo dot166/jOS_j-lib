@@ -120,7 +120,7 @@ object ThemeEngine {
                 alert.show()
             }
         }
-        isDarkOnly = false
+        isDarkOnly = true
         return R.style.j_Theme
     }
 
