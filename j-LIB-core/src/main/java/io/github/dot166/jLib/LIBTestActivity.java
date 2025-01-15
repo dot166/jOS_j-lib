@@ -7,7 +7,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 
 import io.github.dot166.jLib.app.jActivity;
-import io.github.dot166.jLib.app.jConfigActivity;
 import io.github.dot166.jLib.utils.ErrorUtils;
 import io.github.dot166.jLib.utils.IconUtils;
 import io.github.dot166.jLib.internal.utils.LIBTest;
@@ -33,7 +32,7 @@ public class LIBTestActivity extends jActivity {
         int itemId = item.getItemId();
         if (itemId == R.id.action_settings) {
             try {
-                startActivity(new Intent(this, jConfigActivity.class));
+                startActivity(new Intent(Intent.ACTION_APPLICATION_PREFERENCES).setPackage(getPackageName()));
             } catch (Exception e) {
                 ErrorUtils.handle(e, this);
             }
