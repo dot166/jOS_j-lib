@@ -33,8 +33,10 @@ public class BlinkLayout extends ConstraintLayout {
     }
 
     private void makeBlink() {
-        Message message = mHandler.obtainMessage(MESSAGE_BLINK);
-        mHandler.sendMessageDelayed(message, jLibFeatureFlags.get_Blink_speed());
+        if (isInEditMode() == false) {
+            Message message = mHandler.obtainMessage(MESSAGE_BLINK);
+            mHandler.sendMessageDelayed(message, jLibFeatureFlags.get_Blink_speed());
+        }
     }
 
     @Override
