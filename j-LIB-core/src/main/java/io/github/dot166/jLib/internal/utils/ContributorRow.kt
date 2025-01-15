@@ -17,11 +17,22 @@
 package io.github.dot166.jLib.internal.utils
 
 import android.net.Uri
+import android.view.LayoutInflater
+import android.view.View
+import android.widget.ProgressBar
 import androidx.annotation.RestrictTo
 import androidx.browser.customtabs.CustomTabsIntent
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.IntrinsicSize
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.requiredWidth
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 //noinspection UsingMaterialAndMaterial3Libraries
 import androidx.compose.material.ContentAlpha
@@ -40,7 +51,9 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.viewinterop.AndroidView
 import coil.compose.SubcomposeAsyncImage
+import io.github.dot166.jLib.R
 
 @RestrictTo(RestrictTo.Scope.LIBRARY)
 @Composable
@@ -134,10 +147,17 @@ fun ContributorRow(name: String, description: String, photoUrl: String, url: Str
                     .size(32.dp)
                     .background(MaterialTheme.colorScheme.surfaceColorAtElevation(3.dp)),
                 loading = {
-                    Box(
-                        modifier = Modifier
-                            .fillMaxSize()
-                            .background(color = Color.Green)
+                    AndroidView(
+                        factory = { context ->
+                            val view = LayoutInflater.from(context).inflate(R.layout.progress_bar, null, false)
+                            val progressBar = view.findViewById<ProgressBar>(R.id.progressBar)
+
+                            // do whatever you want...
+                            view // return the view
+                        },
+                        update = { view: View ->
+                            // Update the view
+                        }
                     )
                 }
             )
