@@ -2,12 +2,9 @@ import org.lineageos.generatebp.GenerateBpPlugin
 import org.lineageos.generatebp.GenerateBpPluginExtension
 import org.lineageos.generatebp.models.Module
 
-val Ver: String = providers.exec {
-    commandLine("cat", "ver")
-}.standardOutput.asText.get().trim()
-
-val libMinSdk: Int = 26;
-val libCompileSdk: Int = 35;
+val Ver: String = rootProject.extra["libVersion"] as String;
+val libMinSdk: Int = rootProject.extra["libMinSdk"] as Int;
+val libCompileSdk: Int = rootProject.extra["libCompileSdk"] as Int;
 
 plugins {
     id("com.android.library")

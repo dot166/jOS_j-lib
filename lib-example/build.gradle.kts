@@ -1,6 +1,6 @@
-val Ver: String = providers.exec {
-    commandLine("cat", "ver")
-}.standardOutput.asText.get().trim()
+val Ver: String = rootProject.extra["libVersion"] as String;
+val libMinSdk: Int = rootProject.extra["libMinSdk"] as Int;
+val libCompileSdk: Int = rootProject.extra["libCompileSdk"] as Int;
 
 plugins {
     id("com.android.application")
@@ -9,12 +9,12 @@ plugins {
 
 android {
     namespace = "io.github.dot166.jLib_example"
-    compileSdk = 35
+    compileSdk = libCompileSdk
 
     defaultConfig {
         applicationId = "io.github.dot166.jLib_example"
-        minSdk = 26
-        targetSdk = 35
+        minSdk = libMinSdk
+        targetSdk = libCompileSdk
         versionCode = 40 // 4.0.x
         versionName = Ver
     }
