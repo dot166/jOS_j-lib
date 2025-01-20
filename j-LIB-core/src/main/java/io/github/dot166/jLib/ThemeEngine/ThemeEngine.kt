@@ -12,28 +12,23 @@ import androidx.compose.material3.ColorScheme
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Shapes
 import androidx.compose.material3.Typography
-import androidx.compose.material3.darkColorScheme
-import androidx.compose.material3.dynamicDarkColorScheme
-import androidx.compose.material3.dynamicLightColorScheme
-import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.Color
 import io.github.dot166.jLib.R
 import io.github.dot166.jLib.app.jWebActivity
-import io.github.dot166.jLib.utils.VersionUtils
 
 object ThemeEngine {
     @JvmField
     var currentTheme: String? = null
     var TAG: String = "jLib Theme Engine"
     var TAG_DB: String = "$TAG - DB"
-    private var isDarkOnly: Boolean? = null
     var themeClass: values? = null
-    private val jLIB_CHECK_ATTRS = intArrayOf(R.attr.isJTheme)
     private val LIGHT_CHECK_ATTRS = intArrayOf(androidx.appcompat.R.attr.isLightTheme)
 
-    @SuppressLint("PrivateResource")
-    private val MATERIAL3_CHECK_ATTRS =
-        intArrayOf(com.google.android.material.R.attr.isMaterial3Theme)
+    private enum class valid_themes {
+        jLibTheme,
+        M3,
+    }
 
     /**
      * Set the class that contains the theme values.
@@ -56,11 +51,7 @@ object ThemeEngine {
         Log.i(TAG, theme)
         when (theme) {
             "jLib" -> {
-                isDarkOnly = true
-                if (themeClass != null && themeClass!!.jLibTheme() != 0 && isjLibTheme(
-                        context,
-                        themeClass!!.jLibTheme()
-                    ) && !isLightTheme(context, themeClass!!.jLibTheme())
+                if (themeClass != null && themeClass!!.jLibTheme() != 0 && isValidTheme(valid_themes.jLibTheme, context, themeClass!!.jLibTheme())
                 ) {
                     return themeClass!!.jLibTheme()
                 }
@@ -68,11 +59,7 @@ object ThemeEngine {
             }
 
             "M3" -> {
-                isDarkOnly = false
-                if (themeClass != null && themeClass!!.M3() != 0 && isMaterial3Theme(
-                        context,
-                        themeClass!!.M3()
-                    ) && isDayNightTheme(context, themeClass!!.M3())
+                if (themeClass != null && themeClass!!.M3() != 0 && isValidTheme(valid_themes.M3, context, themeClass!!.M3())
                 ) {
                     return themeClass!!.M3()
                 }
@@ -80,7 +67,6 @@ object ThemeEngine {
             }
 
             "Disabled" -> {
-                isDarkOnly = false
                 Log.i(
                     TAG,
                     "ThemeEngine Disabled, Returning no legacy scheme and the Default Compose Theme"
@@ -120,29 +106,48 @@ object ThemeEngine {
                 alert.show()
             }
         }
-        isDarkOnly = true
         return R.style.j_Theme
     }
 
-    private fun getLightColourScheme(context: Context): ColorScheme {
-        if (themeClass != null && themeClass!!.LComposeColourScheme(context) != null) {
-            return themeClass!!.LComposeColourScheme(context)
-        } else {
-            if (VersionUtils.isAtLeastS()) {
-                return dynamicLightColorScheme(context)
-            }
-            return lightColorScheme()
-        }
-    }
-
-    private fun getDayNightColourScheme(context: Context): ColorScheme {
-        val manager = context.getSystemService(Context.UI_MODE_SERVICE) as UiModeManager
-        val dark = manager.nightMode == UiModeManager.MODE_NIGHT_YES
-        return if (dark || isDarkOnly == true) {
-            getDarkColourScheme(context)
-        } else {
-            getLightColourScheme(context)
-        }
+    @SuppressLint("Recycle")
+    private fun getColourScheme(context: Context): ColorScheme {
+        return ColorScheme(
+            primary = Color(context.obtainStyledAttributes(intArrayOf(com.google.android.material.R.attr.colorPrimary)).getColor(0, 0)),
+            onPrimary= Color(context.obtainStyledAttributes(intArrayOf(com.google.android.material.R.attr.colorOnPrimary)).getColor(0, 0)),
+            primaryContainer = Color(context.obtainStyledAttributes(intArrayOf(com.google.android.material.R.attr.colorPrimaryContainer)).getColor(0, 0)),
+            onPrimaryContainer = Color(context.obtainStyledAttributes(intArrayOf(com.google.android.material.R.attr.colorOnPrimaryContainer)).getColor(0, 0)),
+            inversePrimary = Color(context.obtainStyledAttributes(intArrayOf(com.google.android.material.R.attr.colorPrimaryInverse)).getColor(0, 0)),
+            secondary = Color(context.obtainStyledAttributes(intArrayOf(com.google.android.material.R.attr.colorSecondary)).getColor(0, 0)),
+            onSecondary = Color(context.obtainStyledAttributes(intArrayOf(com.google.android.material.R.attr.colorOnSecondary)).getColor(0, 0)),
+            secondaryContainer = Color(context.obtainStyledAttributes(intArrayOf(com.google.android.material.R.attr.colorSecondaryContainer)).getColor(0, 0)),
+            onSecondaryContainer = Color(context.obtainStyledAttributes(intArrayOf(com.google.android.material.R.attr.colorOnSecondaryContainer)).getColor(0, 0)),
+            tertiary = Color(context.obtainStyledAttributes(intArrayOf(com.google.android.material.R.attr.colorTertiary)).getColor(0, 0)),
+            onTertiary = Color(context.obtainStyledAttributes(intArrayOf(com.google.android.material.R.attr.colorOnTertiary)).getColor(0, 0)),
+            tertiaryContainer = Color(context.obtainStyledAttributes(intArrayOf(com.google.android.material.R.attr.colorTertiaryContainer)).getColor(0, 0)),
+            onTertiaryContainer = Color(context.obtainStyledAttributes(intArrayOf(com.google.android.material.R.attr.colorOnTertiaryContainer)).getColor(0, 0)),
+            background = Color(red = 0, green = 0, blue = 0, alpha = 0),
+            onBackground = Color(context.obtainStyledAttributes(intArrayOf(com.google.android.material.R.attr.colorOnBackground)).getColor(0, 0)),
+            surface = Color(context.obtainStyledAttributes(intArrayOf(com.google.android.material.R.attr.colorSurface)).getColor(0, 0)),
+            onSurface = Color(context.obtainStyledAttributes(intArrayOf(com.google.android.material.R.attr.colorOnSurface)).getColor(0, 0)),
+            surfaceVariant = Color(context.obtainStyledAttributes(intArrayOf(com.google.android.material.R.attr.colorSurfaceVariant)).getColor(0, 0)),
+            onSurfaceVariant = Color(context.obtainStyledAttributes(intArrayOf(com.google.android.material.R.attr.colorOnSurfaceVariant)).getColor(0, 0)),
+            surfaceTint = Color(context.obtainStyledAttributes(intArrayOf(com.google.android.material.R.attr.colorPrimary)).getColor(0, 0)),
+            inverseSurface = Color(context.obtainStyledAttributes(intArrayOf(com.google.android.material.R.attr.colorSurfaceInverse)).getColor(0, 0)),
+            inverseOnSurface = Color(context.obtainStyledAttributes(intArrayOf(com.google.android.material.R.attr.colorOnSurfaceInverse)).getColor(0, 0)),
+            error = Color(context.obtainStyledAttributes(intArrayOf(com.google.android.material.R.attr.colorError)).getColor(0, 0)),
+            onError = Color(context.obtainStyledAttributes(intArrayOf(com.google.android.material.R.attr.colorOnError)).getColor(0, 0)),
+            errorContainer = Color(context.obtainStyledAttributes(intArrayOf(com.google.android.material.R.attr.colorErrorContainer)).getColor(0, 0)),
+            onErrorContainer = Color(context.obtainStyledAttributes(intArrayOf(com.google.android.material.R.attr.colorOnErrorContainer)).getColor(0, 0)),
+            outline = Color(context.obtainStyledAttributes(intArrayOf(com.google.android.material.R.attr.colorOutline)).getColor(0, 0)),
+            outlineVariant = Color(context.obtainStyledAttributes(intArrayOf(com.google.android.material.R.attr.colorOutlineVariant)).getColor(0, 0)),
+            scrim = Color(red = 0, green = 0, blue = 0), // copied from PaletteTokens.kt (default in light and dark)
+            surfaceBright = Color(context.obtainStyledAttributes(intArrayOf(com.google.android.material.R.attr.colorSurfaceBright)).getColor(0, 0)),
+            surfaceContainer = Color(context.obtainStyledAttributes(intArrayOf(com.google.android.material.R.attr.colorSurfaceContainer)).getColor(0, 0)),
+            surfaceContainerHigh = Color(context.obtainStyledAttributes(intArrayOf(com.google.android.material.R.attr.colorSurfaceContainerHigh)).getColor(0, 0)),
+            surfaceContainerHighest = Color(context.obtainStyledAttributes(intArrayOf(com.google.android.material.R.attr.colorSurfaceContainerHighest)).getColor(0, 0)),
+            surfaceContainerLow = Color(context.obtainStyledAttributes(intArrayOf(com.google.android.material.R.attr.colorSurfaceContainerLow)).getColor(0, 0)),
+            surfaceContainerLowest = Color(context.obtainStyledAttributes(intArrayOf(com.google.android.material.R.attr.colorSurfaceContainerLowest)).getColor(0, 0)),
+            surfaceDim = Color(context.obtainStyledAttributes(intArrayOf(com.google.android.material.R.attr.colorSurfaceDim)).getColor(0, 0)),)
     }
 
     @Composable
@@ -163,17 +168,6 @@ object ThemeEngine {
         }
     }
 
-    private fun getDarkColourScheme(context: Context): ColorScheme {
-        if (themeClass != null && themeClass!!.DComposeColourScheme(context) != null) {
-            return themeClass!!.DComposeColourScheme(context)
-        } else {
-            if (VersionUtils.isAtLeastS()) {
-                return dynamicDarkColorScheme(context)
-            }
-            return darkColorScheme()
-        }
-    }
-
 
     /**
      * gets the androidx compose theme
@@ -183,54 +177,26 @@ object ThemeEngine {
     @JvmStatic
     fun GetComposeTheme(context: Context,
                         content: @Composable () -> Unit) {
-        MaterialTheme(colorScheme = getDayNightColourScheme(context), shapes = getShapes(context), typography = getTypography(context), content = content)
+        MaterialTheme(colorScheme = getColourScheme(context), shapes = getShapes(context), typography = getTypography(context), content = content)
         Log.i(TAG, "jLib ThemeEngine Compose initialised")
     }
 
-    /**
-     * checks if theme is DayNight or not
-     * @param context context for getting value of lightTheme attribute
-     * @param theme int theme to check
-     * @return boolean true if theme is a light theme
-     */
-    fun isDayNightTheme(context: Context, theme: Int): Boolean {
-        val manager = context.getSystemService(Context.UI_MODE_SERVICE) as UiModeManager
-        val dark = manager.nightMode == UiModeManager.MODE_NIGHT_YES
-        return if (dark) {
-            !isLightTheme(context, theme)
-        } else {
-            isLightTheme(context, theme)
+    @SuppressLint("PrivateResource")
+    private fun isValidTheme(validTheme: valid_themes, context: Context, theme: Int): Boolean {
+        when (validTheme) {
+            valid_themes.jLibTheme -> {
+                val isDark = !isThemeBoolean(context, LIGHT_CHECK_ATTRS, theme) // jLib Theme is dark only
+                val isExtendedFromJLib = isThemeBoolean(context, intArrayOf(R.attr.isJTheme), theme)
+                return isDark == true && isExtendedFromJLib == true
+            }
+            valid_themes.M3 -> {
+                val manager = context.getSystemService(Context.UI_MODE_SERVICE) as UiModeManager
+                val isDayNight = isThemeBoolean(context, LIGHT_CHECK_ATTRS, theme) == ((manager.nightMode == UiModeManager.MODE_NIGHT_YES) == false) // let android determine whether it is dark or light (m3 supports light and dark)
+                val isExtendedFromM3 = isThemeBoolean(context, intArrayOf(com.google.android.material.R.attr.isMaterial3Theme), theme)
+                return isDayNight == true && isExtendedFromM3 == true
+            }
+            else -> return false
         }
-    }
-
-    /**
-     * checks if theme is light or not
-     * @param context context for getting value of lightTheme attribute
-     * @param theme int theme to check
-     * @return boolean true if theme is a light theme
-     */
-    fun isLightTheme(context: Context, theme: Int): Boolean {
-        return isThemeBoolean(context, LIGHT_CHECK_ATTRS, theme)
-    }
-
-    /**
-     * checks if theme is extended from jTheme
-     * @param context context for checking the theme
-     * @param theme int theme to check
-     * @return boolean true if theme is extended from jTheme
-     */
-    fun isjLibTheme(context: Context, theme: Int): Boolean {
-        return isThemeBoolean(context, jLIB_CHECK_ATTRS, theme)
-    }
-
-    /**
-     * checks if theme is extended from ThemeMaterial3
-     * @param context context for checking the theme
-     * @param theme int theme to check
-     * @return boolean true if theme is extended from ThemeMaterial3
-     */
-    fun isMaterial3Theme(context: Context, theme: Int): Boolean {
-        return isThemeBoolean(context, MATERIAL3_CHECK_ATTRS, theme)
     }
 
     /**

@@ -55,12 +55,6 @@ import io.github.dot166.jLib.utils.VersionUtils
 
 open class jAboutActivity : jActivity() {
 
-    var mUseThemeColours: Boolean = false;
-
-    fun setUseThemeColours(b: Boolean) {
-        mUseThemeColours = b;
-    }
-
     open fun versionIntent(context : Context): Intent {
         return Intent()
     }
@@ -152,15 +146,6 @@ open class jAboutActivity : jActivity() {
         }
     }
 
-    @Composable
-    open fun getLinkColourFilter(context: Context): Color {
-        return if (VersionUtils.isAtLeastS() || mUseThemeColours == true) {
-            LocalContentColor.current;
-        } else {
-            Color(context.obtainStyledAttributes(intArrayOf(com.google.android.material.R.attr.colorSecondary)).getColor(0, 0))
-        }
-    }
-
     @OptIn(ExperimentalFoundationApi::class)
     @Composable
     open fun About(activity: Activity) {
@@ -206,7 +191,7 @@ open class jAboutActivity : jActivity() {
                                 Image(
                                     painter = painterResource(id = link.iconResId),
                                     contentDescription = stringResource(id = link.labelResId),
-                                    colorFilter = ColorFilter.tint(color = getLinkColourFilter(context))
+                                    colorFilter = ColorFilter.tint(color = LocalContentColor.current)
                                 )
                             },
                             label = { Text(stringResource(id = link.labelResId)) },

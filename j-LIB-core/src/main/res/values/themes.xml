@@ -137,8 +137,8 @@
         <item name="android:textColorHighlightInverse">#6633B5E5</item>
         <item name="android:textColorAlertDialogListItem">@color/j_primary_text_holo_dark</item>
         <item name="colorPrimaryDark">@android:color/black</item>
-        <item name="colorPrimary">#222222</item>
-        <item name="colorControlNormal">#39CCCCCC</item>
+        <item name="colorPrimary">#0077aa</item>
+        <item name="colorControlNormal">#CCCCCC</item>
         <item name="colorControlActivated">@android:color/holo_blue_light</item>
         <item name="colorControlHighlight">#59F0F0F0</item>
         <item name="colorButtonNormal">#BD292F34</item>
