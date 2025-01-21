@@ -36,8 +36,9 @@ public class jConfigActivity extends jActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        configure(null, R.layout.settings_activity, true);
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.settings_activity);
+        setSupportActionBar(findViewById(R.id.actionbar));
 
         WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
 

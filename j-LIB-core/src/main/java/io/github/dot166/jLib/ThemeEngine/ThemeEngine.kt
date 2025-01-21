@@ -125,7 +125,7 @@ object ThemeEngine {
             onTertiary = Color(context.obtainStyledAttributes(intArrayOf(com.google.android.material.R.attr.colorOnTertiary)).getColor(0, 0)),
             tertiaryContainer = Color(context.obtainStyledAttributes(intArrayOf(com.google.android.material.R.attr.colorTertiaryContainer)).getColor(0, 0)),
             onTertiaryContainer = Color(context.obtainStyledAttributes(intArrayOf(com.google.android.material.R.attr.colorOnTertiaryContainer)).getColor(0, 0)),
-            background = Color(red = 0, green = 0, blue = 0, alpha = 0),
+            background = Color(context.obtainStyledAttributes(intArrayOf(android.R.attr.colorBackground)).getColor(0, 0)),
             onBackground = Color(context.obtainStyledAttributes(intArrayOf(com.google.android.material.R.attr.colorOnBackground)).getColor(0, 0)),
             surface = Color(context.obtainStyledAttributes(intArrayOf(com.google.android.material.R.attr.colorSurface)).getColor(0, 0)),
             onSurface = Color(context.obtainStyledAttributes(intArrayOf(com.google.android.material.R.attr.colorOnSurface)).getColor(0, 0)),

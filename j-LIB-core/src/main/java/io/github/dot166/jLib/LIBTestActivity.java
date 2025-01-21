@@ -14,8 +14,9 @@ import io.github.dot166.jLib.internal.utils.LIBTest;
 public class LIBTestActivity extends jActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        configure(null, R.layout.libplaceholder, true);
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.libplaceholder);
+        setSupportActionBar(findViewById(R.id.actionbar));
         LIBTest.Test(this);
     }
 

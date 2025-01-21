@@ -10,6 +10,7 @@ import android.net.Uri
 import android.os.Bundle
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
+import androidx.appcompat.widget.Toolbar
 import androidx.browser.customtabs.CustomTabsIntent
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
@@ -35,23 +36,19 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.google.accompanist.drawablepainter.rememberDrawablePainter
-import io.github.dot166.jLib.ThemeEngine.ThemeEngine
 import io.github.dot166.jLib.internal.utils.ContributorRow
 import io.github.dot166.jLib.R
 import io.github.dot166.jLib.ThemeEngine.ThemeEngine.GetComposeTheme
 import io.github.dot166.jLib.utils.ErrorUtils
 import io.github.dot166.jLib.utils.IconUtils
 import io.github.dot166.jLib.utils.LabelUtils
-import io.github.dot166.jLib.utils.VersionUtils
 
 open class jAboutActivity : jActivity() {
 
@@ -256,8 +253,8 @@ open class jAboutActivity : jActivity() {
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        configure(layoutId = R.layout.aboutactivity, actionbar = true)
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.aboutactivity)
         findViewById<ComposeView>(R.id.my_composable)?.setContent {
             GetComposeTheme(context = this) {
                 Surface {
@@ -265,5 +262,6 @@ open class jAboutActivity : jActivity() {
                 }
             }
         }
+        setSupportActionBar(findViewById<Toolbar?>(R.id.actionbar))
     }
 }

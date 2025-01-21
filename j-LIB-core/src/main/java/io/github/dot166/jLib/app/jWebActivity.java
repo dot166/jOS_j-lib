@@ -10,14 +10,16 @@ public class jWebActivity extends jActivity {
 
     String uri;
 
-    protected void configure(String uri)
+    protected void setUri(String uri)
     {
         this.uri = uri;
-        super.configure(null, 0, false);
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        if (uri == null) {
+            throw new IllegalStateException("setUri() not called prior to onCreate()");
+        }
         super.onCreate(savedInstanceState);
         Uri webpage = Uri.parse(uri);
         CustomTabsIntent intent = new CustomTabsIntent.Builder()
