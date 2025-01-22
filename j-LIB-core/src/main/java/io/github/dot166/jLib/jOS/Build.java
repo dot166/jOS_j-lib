@@ -10,9 +10,9 @@ public class Build {
 
     private static String getInternalRelease() {
         Date date = new Date(android.os.Build.TIME);
-        String formattedDate = new SimpleDateFormat("yyyyMMdd", Locale.UK).format(date) + "00";
-        if (formattedDate.equals(android.os.Build.DISPLAY) && android.os.Build.USER.equals("jos")) {
-            return VersionUtils.getAndroidVersion() + "." + android.os.Build.DISPLAY;
+        String formattedDate = new SimpleDateFormat("yMMdd", Locale.UK).format(date) + "j";
+        if (formattedDate.equals(android.os.Build.DISPLAY)) {
+            return VersionUtils.getAndroidVersion() + "-" + android.os.Build.DISPLAY;
         }
         return "0";
     }
