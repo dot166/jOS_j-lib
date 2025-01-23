@@ -6,7 +6,7 @@
     <uses-permission android:name="android.permission.INTERNET"/>
 
     <queries>
-        <!-- Theme Engine Database -->
+        <!-- Theme Engine Provider -->
         <package android:name="io.github.dot166.ThemeEngine"/>
     </queries>
 

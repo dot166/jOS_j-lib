@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Theme Engine</string>
+    <string name="enable_themeengine">Enable ThemeEngine</string>
+    <string name="theme_settings">Theme Settings</string>
+    <string name="global_theme_settings">Global Theme Settings</string>
+    <string-array name="themes">
+        <item>jLib Default Theme</item>
+        <item>Material You (M3)</item>
+    </string-array>
+    <string-array name="themesConfig" translatable="false">
+        <item>jLib</item>
+        <item>M3</item>
+    </string-array>
+
+    <!-- DO NOT TRANSLATE Empty summary for dynamic preferences -->
+    <string name="summary_empty" translatable="false" />
+
+    <!-- AOSP Customization Things -->
+    <array name="partner_wallpapers">
+        <item>lock01</item>
+        <item>nexus_chroma</item>
+    </array>
+</resources>

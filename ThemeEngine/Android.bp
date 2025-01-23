@@ -1,0 +1,21 @@
+android_app {
+    name: "ThemeEngine",
+    sdk_version: "current",
+    product_specific: true,
+
+    resource_dirs: ["src/main/res"],
+
+    srcs: [
+        "src/main/java/**/*.kt",
+        "src/main/java/**/*.java",
+    ],
+
+    manifest: "src/main/AndroidManifest.xml",
+
+    static_libs: [
+        "j.Lib",
+    ],
+
+    kotlincflags: ["-Xjvm-default=all"],
+    aaptflags: ["--auto-add-overlay"],
+}

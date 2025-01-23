@@ -42,11 +42,6 @@ public class LIBAboutActivity extends jAboutActivity {
         return BuildConfig.LIBVersion;
     }
 
-    @Override
-    public boolean hideAcknowledgements(@NonNull Context context) {
-        return true;
-    }
-
     @NonNull
     @Override
     public List<jAboutActivity.Contributor> product() {

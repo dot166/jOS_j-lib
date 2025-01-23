@@ -37,11 +37,24 @@ jobs:
         RELEASE=0 && git show-ref --tags --verify --quiet "refs/tags/$VERSION" || RELEASE=1
           echo "RELEASE=$RELEASE" >> $GITHUB_ENV
 
+    - name: fix version in json
+      if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && github.repository == 'dot166/jOS_j-Lib' && env.RELEASE == '1' }}
+      run:  |
+        gitTag="$(git describe --tags --abbrev=0)"
+        gitTag="${gitTag:1}"
+        sed -ri 's/'"$gitTag"'/'"$(cat ver)"'/g' config/libraries/lib_jLib.json
+
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
 
     - name: Build
       run: ./gradlew build
+
+    - name: Copy aboutlibraries.json
+      run: cp ThemeEngine/build/generated/aboutLibraries/release/res/raw/aboutlibraries.json j-LIB-core/src/main/res/raw/aboutlibraries_jlib.json
+
+    - name: Copy gradleResValues.xml
+      run: cp ThemeEngine/build/generated/res/resValues/release/values/gradleResValues.xml ThemeEngine/res-aosp/values/gradleResValues.xml
 
     - name: Copy BuildConfig.java
       run: cp j-LIB-core/build/generated/source/buildConfig/release/io/github/dot166/jLib/BuildConfig.java j-LIB-core/src-aosp/io/github/dot166/jLib/BuildConfig.java
@@ -74,3 +87,4 @@ jobs:
         tag_name: ${{ env.VERSION }}
         make_latest: true
         generate_release_notes: true
+        files: "ThemeEngine/build/outputs/apk/release/ThemeEngine-v$(cat ver)-release.apk"

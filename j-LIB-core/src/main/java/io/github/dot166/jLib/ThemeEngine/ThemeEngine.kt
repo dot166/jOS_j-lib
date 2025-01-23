@@ -1,10 +1,12 @@
 package io.github.dot166.jLib.ThemeEngine
 
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.app.UiModeManager
 import android.content.Context
 import android.content.DialogInterface
 import android.net.Uri
+import android.os.Handler
 import android.util.Log
 import androidx.appcompat.app.AlertDialog
 import androidx.browser.customtabs.CustomTabsIntent
@@ -14,14 +16,15 @@ import androidx.compose.material3.Shapes
 import androidx.compose.material3.Typography
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
+import io.github.dot166.jLib.BuildConfig
 import io.github.dot166.jLib.R
 import io.github.dot166.jLib.app.jWebActivity
+import io.github.dot166.jLib.utils.NetUtils
 
 object ThemeEngine {
     @JvmField
     var currentTheme: String? = null
     var TAG: String = "jLib Theme Engine"
-    var TAG_DB: String = "$TAG - DB"
     var themeClass: values? = null
     private val LIGHT_CHECK_ATTRS = intArrayOf(androidx.appcompat.R.attr.isLightTheme)
 
@@ -45,9 +48,9 @@ object ThemeEngine {
      * @return theme, will return 0 if ThemeEngine is disabled
      */
     @JvmStatic
-    fun getSystemTheme(context: Context): Int {
-        var theme: String = getThemeFromDB(context)
-        currentTheme = getThemeFromDB(context)
+    fun getSystemTheme(context: Activity): Int {
+        var theme: String = getThemeFromThemeProvider(context)
+        currentTheme = getThemeFromThemeProvider(context)
         Log.i(TAG, theme)
         when (theme) {
             "jLib" -> {
@@ -81,21 +84,21 @@ object ThemeEngine {
             if (context !is jWebActivity) {
                 val builder = AlertDialog.Builder(context)
 
-                builder.setMessage(R.string.dialog_message)
-                    .setTitle(R.string.dialog_title)
+                builder.setMessage(R.string.theme_dialog_message)
+                    .setTitle(R.string.theme_dialog_title)
                     .setCancelable(false)
                     .setPositiveButton(
-                        R.string.dialog_positive,
+                        R.string.theme_dialog_positive,
                         object : DialogInterface.OnClickListener {
                             override fun onClick(dialog: DialogInterface?, id: Int) {
-                                val url = "https://github.com/dot166/jOS_ThemeEngine/releases"
+                                val url = "https://github.com/dot166/jOS_j-lib/releases/tag/v" + BuildConfig.LIBVersion
                                 val intent = CustomTabsIntent.Builder()
                                     .build()
                                 intent.launchUrl(context, Uri.parse(url))
                             }
                         })
                     .setNegativeButton(
-                        R.string.dialog_negative,
+                        R.string.theme_dialog_negative,
                         object : DialogInterface.OnClickListener {
                             override fun onClick(dialog: DialogInterface?, id: Int) {
                                 Log.i(TAG, "IGNORING ThemeEngine ERROR")
@@ -215,35 +218,80 @@ object ThemeEngine {
 
     @JvmStatic
     @SuppressLint("Range")
-    fun getThemeFromDB(context: Context): String {
-        // get from database
+    fun getThemeFromThemeProvider(context: Activity): String {
+        // get from ThemeProvider
 
         // creating a cursor object of the
         // content URI
 
         @SuppressLint("Recycle") val cursor = context.contentResolver.query(
-            Uri.parse("content://io.github.dot166.ThemeEngine.database/themes"),
+            Uri.parse("content://io.github.dot166.ThemeEngine.ThemeProvider/themes"),
             null,
             null,
             null,
             null
         )
 
+        val allValues = HashMap<String?, String?>()
         if (cursor != null) {
-            // iteration of the cursor
-            // to find selected theme
-            if (cursor.moveToFirst()) {
-                while (!cursor.isAfterLast) {
-                    if (cursor.getString(cursor.getColumnIndex("current")).toBoolean()) {
-                        Log.i(TAG_DB, cursor.getString(cursor.getColumnIndex("name")))
-                        return cursor.getString(cursor.getColumnIndex("name"))
-                    } else {
-                        cursor.moveToNext()
+            while (cursor.moveToNext()) {
+                allValues.put(cursor.getString(0), cursor.getString(1))
+            }
+
+            if (allValues.containsKey("UpdateAvailable") || allValues.containsKey("isInSystem")) {
+                // update check logic
+                if (allValues.get("UpdateAvailable").toBoolean() == true) {
+                    val builder = AlertDialog.Builder(context)
+
+                    builder.setMessage(R.string.dialog_te_message)
+                        .setTitle(R.string.text_label)
+                    if (allValues.get("isInSystem").toBoolean() == false) {
+                        builder.setPositiveButton(
+                            R.string.dialog_te_positive,
+                            object : DialogInterface.OnClickListener {
+                                override fun onClick(dialog: DialogInterface?, which: Int) {
+                                    val url =
+                                        "https://github.com/dot166/jOS_j-lib/releases/tag/v" + NetUtils.getDataRaw(
+                                            "https://raw.githubusercontent.com/dot166/jOS_j-lib/refs/heads/main/ver",
+                                            context
+                                        )
+
+                                    val intent = CustomTabsIntent.Builder()
+                                        .build()
+                                    intent.launchUrl(context, Uri.parse(url))
+                                }
+                            })
                     }
+                    builder.setNegativeButton(
+                        R.string.dialog_te_negative,
+                        object : DialogInterface.OnClickListener {
+                            override fun onClick(dialog: DialogInterface, which: Int) {
+                                dialog.dismiss()
+                            }
+                        })
+
+                    val dialog = builder.create()
+                    dialog.show()
+                    val handler = Handler()
+                    handler.postDelayed(object : Runnable {
+                        override fun run() {
+                            dialog.dismiss()
+                        }
+                    }, 2000)
                 }
+            } else {
+                Log.e(TAG, "Update Check Values not found in cursor")
+            }
+
+            if (allValues.containsKey("Theme")) {
+                return allValues.get("Theme").toString()
+            } else {
+                Log.e(TAG, "Theme not found in cursor")
             }
         }
-        Log.i(TAG_DB, "No Records Found")
+        Log.i(TAG, "No Records Found")
         return "none"
     }
 }
+
+

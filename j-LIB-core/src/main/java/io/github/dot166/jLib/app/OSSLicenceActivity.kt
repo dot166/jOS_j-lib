@@ -1,5 +1,7 @@
 package io.github.dot166.jLib.app
 
+import android.annotation.SuppressLint
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
@@ -8,11 +10,15 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.ComposeView
+import com.mikepenz.aboutlibraries.Libs
 import com.mikepenz.aboutlibraries.ui.compose.m3.LibrariesContainer
+import com.mikepenz.aboutlibraries.util.withContext
+import com.mikepenz.aboutlibraries.util.withJson
 import io.github.dot166.jLib.R
 import io.github.dot166.jLib.ThemeEngine.ThemeEngine.GetComposeTheme
 
 class OSSLicenceActivity : jActivity() {
+    @SuppressLint("DiscouragedApi")
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.ossactivity)
@@ -22,11 +28,22 @@ class OSSLicenceActivity : jActivity() {
         } else {
             Log.e("ActionBar2", "no actionbar found")
         }
+        var librariesBlock: (Context) -> Libs =
+            if (resources.getIdentifier("aboutlibraries", "raw", packageName) == 0) {
+            { context ->
+                Libs.Builder().withJson(context, R.raw.aboutlibraries_jlib).build()
+            }
+        } else {
+            { context ->
+                Libs.Builder().withContext(context).build()
+            }
+        }
         findViewById<ComposeView>(R.id.my_composable)?.setContent {
             GetComposeTheme(context = this) {
                 Surface {
                     LibrariesContainer(
-                        Modifier.fillMaxSize()
+                        modifier = Modifier.fillMaxSize(),
+                        librariesBlock = librariesBlock
                     )
                 }
             }

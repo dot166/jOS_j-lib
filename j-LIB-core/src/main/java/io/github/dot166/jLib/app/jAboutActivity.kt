@@ -8,6 +8,7 @@ import android.content.pm.PackageManager
 import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.appcompat.widget.Toolbar
@@ -172,7 +173,12 @@ open class jAboutActivity : jActivity() {
                     modifier = Modifier.combinedClickable(
                         onClick = {},
                         onLongClick = {
-                            context.startActivity(versionIntent(context))
+                            try {
+                                context.startActivity(versionIntent(context))
+                            } catch (_: Exception) {
+                                Log.i("LibTest", "Test Activity Disabled")
+                                Log.i("GLaDOS", "you have completed all available tests, you will now receive cake")
+                            }
                         },
                     ),
                 )
@@ -204,7 +210,7 @@ open class jAboutActivity : jActivity() {
                 }
             }
             Contributors()
-            if (!hideAcknowledgements(context)) {
+            if (!showOnlyContributors(context)) {
                 Button(onClick = {
                     try {
                         startActivity(
@@ -223,13 +229,6 @@ open class jAboutActivity : jActivity() {
                 }
             }
         }
-    }
-
-    /**
-     * SHOULD ONLY BE CHANGED IN LIB ABOUT!!
-     */
-    open fun hideAcknowledgements(context: Context): Boolean {
-        return showOnlyContributors(context);
     }
 
     @Composable

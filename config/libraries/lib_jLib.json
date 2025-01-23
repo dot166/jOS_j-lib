@@ -1,0 +1,17 @@
+{
+  "uniqueId":"io.github.dot166:j-Lib",
+  "funding":[],
+  "developers":[{
+    "name":"._______166"
+  }],
+  "artifactVersion":"4.0.1",
+  "description":"jLib - a common library that contains a custom actionbar based on material components Toolbar and some other things.",
+  "scm":{
+    "connection":"scm:git:git://github.com/github.com/dot166/jOS_j-lib.git",
+    "url":"https://github.com/github.com/dot166/jOS_j-lib",
+    "developerConnection":"scm:git:ssh://git@github.com/github.com/dot166/jOS_j-lib.git"
+  },
+  "name":"j Common Library",
+  "website":"https://github.com/dot166/jOS_j-lib",
+  "licenses":["MIT"]
+}

@@ -1,7 +1,7 @@
 package io.github.dot166.jLib.app;
 
 import static io.github.dot166.jLib.ThemeEngine.ThemeEngine.currentTheme;
-import static io.github.dot166.jLib.ThemeEngine.ThemeEngine.getThemeFromDB;
+import static io.github.dot166.jLib.ThemeEngine.ThemeEngine.getThemeFromThemeProvider;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -48,7 +48,7 @@ public class jActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         mLIBApp.setCurrentActivity(this);
-        if (!Objects.equals(currentTheme, getThemeFromDB(this))) {
+        if (!Objects.equals(currentTheme, getThemeFromThemeProvider(this))) {
             Intent intent = getIntent();
             finish();
             startActivity(intent);

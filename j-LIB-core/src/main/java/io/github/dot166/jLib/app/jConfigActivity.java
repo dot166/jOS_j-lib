@@ -1,7 +1,7 @@
 package io.github.dot166.jLib.app;
 
 import static io.github.dot166.jLib.ThemeEngine.ThemeEngine.currentTheme;
-import static io.github.dot166.jLib.ThemeEngine.ThemeEngine.getThemeFromDB;
+import static io.github.dot166.jLib.ThemeEngine.ThemeEngine.getThemeFromThemeProvider;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -159,7 +159,7 @@ public class jConfigActivity extends jActivity {
         public void onResume() {
             super.onResume();
 
-            if (!Objects.equals(currentTheme, getThemeFromDB(getPreferenceManager().getContext()))) {
+            if (!Objects.equals(currentTheme, getThemeFromThemeProvider(requireActivity()))) {
                 recreateActivityNow();
             }
         }

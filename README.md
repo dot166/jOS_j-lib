@@ -2,10 +2,6 @@
 
 contains a custom actionbar based on material components Toolbar and some other things.
 
-## A Note On ThemeEngine
-
-ThemeEngine is an important component of jLib but the code for the database app is at https://github.com/dot166/jOS_ThemeEngine
-
 ## jLib will work ONLY ON ANDROID OREO (8) AND LATER!! because there is less devices that use Android NOUGAT (7) or older and apps are now dropping support for those versions
 
 ## how to use it?
@@ -84,9 +80,9 @@ to use jLib in an AOSP Project add the module ```j.Lib``` to the static_libs sec
 
 gradle library (main code) with AOSP Build Files
 
-### lib-example/
+### ThemeEngine/
 
-example gradle application
+sources for the ThemeEngine Application with AOSP Build Files
 
 ## License
 
