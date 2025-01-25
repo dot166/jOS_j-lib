@@ -71,7 +71,7 @@ public class ThemeProvider extends ContentProvider
         if (!latest_ver.isEmpty()) {
             return !BuildConfig.LIBVersion.equals(latest_ver);
         } else {
-            Log.i(TAG, "Unable to check for update");
+            Log.e(TAG, "Unable to check for update");
             return false;
         }
     }
