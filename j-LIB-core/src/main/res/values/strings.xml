@@ -35,10 +35,8 @@
     <string name="enable_blink">Enable Blink</string>
     <string name="enable_blink_summary">allow the blink layout to blink</string>
     <string name="set_the_delay_in_milliseconds_between_each_blink">set the delay in milliseconds between each blink (minimum is 100ms and maximum is 1000ms)</string>
-    <string name="action_te_text">Learn More</string>
     <string name="text_te_label">ThemeEngine is out of date</string>
     <string name="dialog_te_message">The version of ThemeEngine that is installed on your device is now out of date, please update it (if ThemeEngine was included with your OS then wait for an OS update)</string>
-    <string name="text_label">The version of ThemeEngine you are using is out of date</string>
     <string name="dialog_te_negative">Ignore</string>
     <string name="dialog_te_positive">Update</string>
 </resources>

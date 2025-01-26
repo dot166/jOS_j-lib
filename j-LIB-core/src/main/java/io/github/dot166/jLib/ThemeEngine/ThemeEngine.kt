@@ -244,7 +244,7 @@ object ThemeEngine {
                     val builder = AlertDialog.Builder(context)
 
                     builder.setMessage(R.string.dialog_te_message)
-                        .setTitle(R.string.text_label)
+                        .setTitle(R.string.text_te_label)
                     if (allValues.get("isInSystem").toBoolean() == false) {
                         builder.setPositiveButton(
                             R.string.dialog_te_positive,
