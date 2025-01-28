@@ -1,11 +1,9 @@
 package io.github.dot166.jLib.utils;
 
 import android.content.Context;
-import android.database.Cursor;
-import android.net.Uri;
+import android.net.ConnectivityManager;
+import android.net.NetworkCapabilities;
 import android.os.StrictMode;
-import android.util.Log;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
@@ -15,20 +13,25 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.HashMap;
+
+import io.github.dot166.jLib.app.jLibFeatureFlags;
 
 public class NetUtils {
 
     public static String getDataRaw(String urlString, @NonNull Context context) {
-        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitNetwork().build();
-        StrictMode.setThreadPolicy(policy);
-        try {
-            URL url = new URL(urlString);
-            HttpURLConnection connection = ((HttpURLConnection) url.openConnection());
-            InputStream in_stream = connection.getInputStream();
-            return inputSteramToString(in_stream);
-        } catch (Exception e) {
-            ErrorUtils.handle(e, context);
+        if (isNetworkAvailable(context) == true) {
+            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitNetwork().build();
+            StrictMode.setThreadPolicy(policy);
+            try {
+                URL url = new URL(urlString);
+                HttpURLConnection connection = ((HttpURLConnection) url.openConnection());
+                InputStream in_stream = connection.getInputStream();
+                return inputSteramToString(in_stream);
+            } catch (Exception e) {
+                ErrorUtils.handle(e, context);
+                return "";
+            }
+        } else {
             return "";
         }
     }
@@ -42,5 +45,21 @@ public class NetUtils {
         }
         reader.close();
         return builder.toString();
+    }
+
+    public static boolean isNetworkAvailable(Context context) {
+        ConnectivityManager manager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkCapabilities capabilities = manager.getNetworkCapabilities(manager.getActiveNetwork());
+
+        if (capabilities!= null) {
+            if (capabilities.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR)) {
+                return jLibFeatureFlags.isDataEnabled();
+            } else if (capabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI)) {
+                return true;
+            } else if (capabilities.hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET)) {
+                return true;
+            }
+        }
+        return false;
     }
 }

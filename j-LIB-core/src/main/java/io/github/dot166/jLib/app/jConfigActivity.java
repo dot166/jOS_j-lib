@@ -4,7 +4,10 @@ import static io.github.dot166.jLib.ThemeEngine.ThemeEngine.currentTheme;
 import static io.github.dot166.jLib.ThemeEngine.ThemeEngine.getThemeFromThemeProvider;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkCapabilities;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -129,6 +132,15 @@ public class jConfigActivity extends jActivity {
                 case "blink_speed":
                     Log.i("Preference Logging", "blink speed slider");
                     return !PreferenceManager.getDefaultSharedPreferences(preference.getContext()).getBoolean("is_blink_force_disabled", false) && !hideLIB();
+                case "is_data_enabled":
+                    Log.i("Preference Logging", "mobile data switch");
+                    ConnectivityManager manager = (ConnectivityManager) preference.getContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+                    NetworkCapabilities capabilities = manager.getNetworkCapabilities(manager.getActiveNetwork());
+                    if (capabilities != null) {
+                        return !capabilities.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR);
+                    } else {
+                        return true;
+                    }
             }
             return extraPrefs(preference);
         }

@@ -39,4 +39,5 @@
     <string name="dialog_te_message">The version of ThemeEngine that is installed on your device is now out of date, please update it (if ThemeEngine was included with your OS then wait for an OS update)</string>
     <string name="dialog_te_negative">Ignore</string>
     <string name="dialog_te_positive">Update</string>
+    <string name="usage_of_mobile_data">Usage of Mobile Data</string>
 </resources>

@@ -19,6 +19,10 @@
             android:dependency="enable_blink"
             android:defaultValue="500" />
 
+        <SwitchPreference
+            android:key="is_data_enabled"
+            android:title="@string/usage_of_mobile_data" />
+
 	    <Preference
             android:key="ThemeEngine"
             android:title="@string/theme_settings"
