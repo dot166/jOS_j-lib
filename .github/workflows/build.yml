@@ -48,7 +48,7 @@ jobs:
       run: chmod +x gradlew
 
     - name: Generate aboutlibraries.json
-      run: ./gradlew ThemeEngine:exportLibraryDefinitions -PaboutLibraries.exportPath=build/jLib/aboutlibs`
+      run: ./gradlew :ThemeEngine:exportLibraryDefinitions -PaboutLibraries.exportPath=build/jLib/aboutlibs`
 
     - name: Copy aboutlibraries.json
       run: cp ThemeEngine/build/jLib/aboutlibs/aboutlibraries.json j-LIB-core/src/main/res/raw/aboutlibraries_jlib.json
