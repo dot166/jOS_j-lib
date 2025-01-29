@@ -47,11 +47,14 @@ jobs:
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
 
-    - name: Build
-      run: ./gradlew build
+    - name: Generate aboutlibraries.json
+      run: ./gradlew ThemeEngine:exportLibraryDefinitions -PaboutLibraries.exportPath=build/jLib/aboutlibs`
 
     - name: Copy aboutlibraries.json
-      run: cp ThemeEngine/build/generated/aboutLibraries/release/res/raw/aboutlibraries.json j-LIB-core/src/main/res/raw/aboutlibraries_jlib.json
+      run: cp ThemeEngine/build/jLib/aboutlibs/aboutlibraries.json j-LIB-core/src/main/res/raw/aboutlibraries_jlib.json
+
+    - name: Build
+      run: ./gradlew build
 
     - name: Copy gradleResValues.xml
       run: cp ThemeEngine/build/generated/res/resValues/release/values/gradleResValues.xml ThemeEngine/res-aosp/values/gradleResValues.xml
