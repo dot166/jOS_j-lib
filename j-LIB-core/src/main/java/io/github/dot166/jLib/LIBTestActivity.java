@@ -7,8 +7,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 
 import io.github.dot166.jLib.app.jActivity;
+import io.github.dot166.jLib.utils.AppUtils;
 import io.github.dot166.jLib.utils.ErrorUtils;
-import io.github.dot166.jLib.utils.IconUtils;
 import io.github.dot166.jLib.internal.utils.LIBTest;
 
 public class LIBTestActivity extends jActivity {
@@ -24,7 +24,7 @@ public class LIBTestActivity extends jActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu, menu);
-        menu.findItem(R.id.action_favorite).setIcon(IconUtils.getActivityIcon(this));
+        menu.findItem(R.id.action_favorite).setIcon(AppUtils.Icon.getActivityIcon(this));
         return true;
     }
 

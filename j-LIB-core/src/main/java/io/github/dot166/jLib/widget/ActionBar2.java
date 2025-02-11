@@ -19,7 +19,7 @@ import com.google.android.material.appbar.MaterialToolbar;
 
 import io.github.dot166.jLib.R;
 import io.github.dot166.jLib.internal.utils.ToolbarUtils;
-import io.github.dot166.jLib.utils.IconUtils;
+import io.github.dot166.jLib.utils.AppUtils;
 
 /**
  * {@code ActionBar2} is a {@link MaterialToolbar} that implements certain features and fixes.
@@ -86,7 +86,7 @@ public class ActionBar2 extends MaterialToolbar {
 
     private void useActivityIconAsLogo(boolean override) {
         if (iconAsLogo || override) {
-            setLogo(IconUtils.getActivityIcon(getContext()));
+            setLogo(AppUtils.Icon.getActivityIcon(getContext()));
         } else {
             Log.i(TAG, "icon disabled in config, Please set icon manually");
         }

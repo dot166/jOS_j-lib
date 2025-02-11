@@ -47,9 +47,8 @@ import com.google.accompanist.drawablepainter.rememberDrawablePainter
 import io.github.dot166.jLib.internal.utils.ContributorRow
 import io.github.dot166.jLib.R
 import io.github.dot166.jLib.ThemeEngine.ThemeEngine.GetComposeTheme
+import io.github.dot166.jLib.utils.AppUtils
 import io.github.dot166.jLib.utils.ErrorUtils
-import io.github.dot166.jLib.utils.IconUtils
-import io.github.dot166.jLib.utils.LabelUtils
 
 open class jAboutActivity : jActivity() {
 
@@ -58,11 +57,11 @@ open class jAboutActivity : jActivity() {
     }
 
     open fun getActivityIcon(context: Context): Drawable {
-        return IconUtils.getActivityIcon(context)
+        return AppUtils.Icon.getActivityIcon(context)
     }
 
     open fun getAppLabel(context: Context): String {
-        return LabelUtils.getAppLabel(context)
+        return AppUtils.Label.getAppLabel(context)
     }
 
     interface Roles {
