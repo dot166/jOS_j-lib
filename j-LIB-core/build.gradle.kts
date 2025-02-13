@@ -74,7 +74,7 @@ dependencies {
     api("androidx.core:core-ktx:1.15.0")
     api("androidx.browser:browser:1.8.0")
     api("androidx.activity:activity-compose:1.10.0")
-    api("androidx.compose.ui:ui-android:1.7.7")
+    api("androidx.compose.ui:ui-android:1.7.8")
     api("androidx.compose.material3:material3-android:1.3.1")
     api("androidx.compose.material:material-android:1.7.7")
     api("io.coil-kt:coil-compose:2.7.0")
