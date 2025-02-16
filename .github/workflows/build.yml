@@ -49,8 +49,8 @@ jobs:
 
     - name: Generate Keystore
       run: |
-        ls
         echo "${{ secrets.KEYSTORE }}" > a.txt
+        ls
         base64 -d a.txt > key.jks
         rm -rf a.txt
         echo "${{ secrets.KEYSTORE_PROPS }}" > b.txt
