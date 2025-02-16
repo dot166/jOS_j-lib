@@ -47,6 +47,15 @@ jobs:
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
 
+    - name: Generate Keystore
+      run: |
+        echo "${{ secrets.KEYSTORE }}" > a.txt
+        base64 -d a.txt > key.jks
+        rm -rf a.txt
+        echo "${{ secrets.KEYSTORE_PROPS }}" > b.txt
+        base64 -d a.txt > keystore.properties
+        rm -rf b.txt
+
     - name: Generate aboutlibraries.json
       run: ./gradlew ThemeEngine:exportLibraryDefinitions -PaboutLibraries.exportPath=build/jLib/aboutlibs
 
