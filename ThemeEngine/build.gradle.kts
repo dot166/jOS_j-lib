@@ -1,4 +1,6 @@
 import com.android.build.gradle.internal.api.ApkVariantOutputImpl
+import java.util.Properties
+import java.io.FileInputStream
 
 val Ver: String = rootProject.extra["libVersion"] as String;
 val libMinSdk: Int = rootProject.extra["libMinSdk"] as Int;
@@ -10,7 +12,23 @@ plugins {
     id("com.mikepenz.aboutlibraries.plugin")
 }
 
+val keystorePropertiesFile = rootProject.file("keystore.properties")
+
+// Initialize a new Properties() object called keystoreProperties.
+val keystoreProperties = Properties()
+
+// Load your keystore.properties file into the keystoreProperties object.
+keystoreProperties.load(FileInputStream(keystorePropertiesFile))
+
 android {
+    signingConfigs {
+        create("release") {
+            keyAlias = keystoreProperties["keyAlias"] as String
+            keyPassword = keystoreProperties["keyPassword"] as String
+            storeFile = file(keystoreProperties["storeFile"] as String)
+            storePassword = keystoreProperties["storePassword"] as String
+        }
+    }
     namespace = "io.github.dot166.ThemeEngine"
     compileSdk = libCompileSdk
 
@@ -33,6 +51,7 @@ android {
         }
         named("release") {
             isMinifyEnabled = false
+            signingConfig = signingConfigs.getByName("release")
             setProguardFiles(listOf(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"))
         }
     }

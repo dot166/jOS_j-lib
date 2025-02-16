@@ -47,6 +47,13 @@ jobs:
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
 
+    - name: Generate Keystore
+      run: |
+        echo "${{ secrets.KEYSTORE }}" > a.txt
+        base64 -d a.txt > key.jks
+        echo "${{ secrets.KEYSTORE_PROPS }}" > b.txt
+        base64 -d b.txt > keystore.properties
+
     - name: Generate aboutlibraries.json
       run: ./gradlew ThemeEngine:exportLibraryDefinitions -PaboutLibraries.exportPath=build/jLib/aboutlibs
 
@@ -54,7 +61,7 @@ jobs:
       run: cp ThemeEngine/build/jLib/aboutlibs/aboutlibraries.json j-LIB-core/src/main/res/raw/aboutlibraries_jlib.json
 
     - name: Build
-      run: ./gradlew build
+      run: ./gradlew assembleRelease
 
     - name: Copy gradleResValues.xml
       run: cp ThemeEngine/build/generated/res/resValues/release/values/gradleResValues.xml ThemeEngine/res-aosp/values/gradleResValues.xml
@@ -70,6 +77,9 @@ jobs:
 
     - name: add Dependencies to AOSP
       run: ./gradlew generateBp
+
+    - name: Remove temp files
+      run: rm -rf a.txt b.txt
 
     - name: Commit changes
       if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && github.repository == 'dot166/jOS_j-Lib' }}
