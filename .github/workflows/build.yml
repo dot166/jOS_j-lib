@@ -52,10 +52,8 @@ jobs:
         echo "${{ secrets.KEYSTORE }}" > a.txt
         ls
         base64 -d a.txt > key.jks
-        rm -rf a.txt
         echo "${{ secrets.KEYSTORE_PROPS }}" > b.txt
         base64 -d a.txt > keystore.properties
-        rm -rf b.txt
 
     - name: Generate aboutlibraries.json
       run: ./gradlew ThemeEngine:exportLibraryDefinitions -PaboutLibraries.exportPath=build/jLib/aboutlibs
@@ -80,6 +78,9 @@ jobs:
 
     - name: add Dependencies to AOSP
       run: ./gradlew generateBp
+
+    - name: Remove temp files
+      run: rm -rf a.txt b.txt
 
     - name: Commit changes
       if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && github.repository == 'dot166/jOS_j-Lib' }}
