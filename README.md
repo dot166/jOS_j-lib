@@ -12,7 +12,7 @@ plugins {
     ...
     id 'org.jetbrains.kotlin.android' version '2.1.10' apply false
     id 'org.jetbrains.kotlin.plugin.compose' version '2.1.10' apply false
-    id 'com.mikepenz.aboutlibraries.plugin' version "11.5.0" apply false // j-LIB dependency
+    id 'com.mikepenz.aboutlibraries.plugin' version "11.6.2" apply false // j-LIB dependency
 }
 ```
 
@@ -38,7 +38,7 @@ aboutLibraries {
 }
 
 dependencies {
-    implementation "io.github.dot166:j-Lib:4.0.0"
+    implementation "io.github.dot166:j-Lib:4.0.3"
 }
 ```
 
@@ -67,7 +67,7 @@ android {
 }
 
 dependencies {
-    api "io.github.dot166:j-Lib:4.0.0"
+    api "io.github.dot166:j-Lib:4.0.3"
 }
 ```
 
