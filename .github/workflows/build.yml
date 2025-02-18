@@ -21,7 +21,25 @@ jobs:
       run: |
         git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
         git config --global user.name "github-actions[bot]"
+    
+    - name: Update Helpline List
+      run: |
+        cd aosp/sensitive-pn/etc
+        curl -O https://raw.githubusercontent.com/LineageOS/android_vendor_lineage/refs/heads/lineage-22.1/prebuilt/common/etc/sensitive_pn.xml
+        cd ../../..
 
+    - name: Commit changes
+      if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && github.repository == 'dot166/jOS_j-Lib' }}
+      run: |
+        git add .
+        git commit -m "Update Helpline List" || true
+
+    - name: Push changes to repo
+      uses: ad-m/github-push-action@master
+      if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && github.repository == 'dot166/jOS_j-Lib' }}
+      with:
+        branch: ${{ github.ref }}
+    
     - name: Setup JDK 17
       uses: actions/setup-java@v4
       with:

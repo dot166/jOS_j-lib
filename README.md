@@ -84,6 +84,10 @@ gradle library (main code) with AOSP Build Files
 
 sources for the ThemeEngine Application with AOSP Build Files
 
+### aosp/
+
+sources for aosp features that normally be in a vendor or 'sdk' folder
+
 ## License
 
 see [LICENSE](LICENSE)
@@ -101,3 +105,5 @@ ToolbarUtils.java is adapted from [Material Components](https://github.com/mater
 seekbarpreference is adapted from [crDroid Android](https://github.com/crdroidandroid) and is licenced under Apache 2.0
 
 birdgame is adapted from [The Android Open Source Project](https://source.android.com/) and are licenced under Apache 2.0
+
+sensitive-pn is adapted from [LineageOS](https://github.com/LineageOS), see aosp/sensitive-pn/readme.md for more information
