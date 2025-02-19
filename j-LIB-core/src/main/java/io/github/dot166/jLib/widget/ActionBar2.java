@@ -79,7 +79,9 @@ public class ActionBar2 extends MaterialToolbar {
     /**
      * calling this function goes against the material design guidelines for android 5 and later
      * restores behavior from android KitKat
+     * @deprecated using this is not recommended, if you NEED this feature, implement it yourself.
      */
+    @Deprecated(since = "4.0.4", forRemoval = true)
     public void useActivityIconAsLogo() {
         useActivityIconAsLogo(true);
     }

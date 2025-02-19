@@ -3,8 +3,9 @@
     <declare-styleable name="ActionBar2">
         <!-- Whether the activity icon corresponding to the "android:icon" attribute
              should be used as the logo within the toolbar. Default is true.
+             {@deprecated using this feature is not recommended, if you NEED this feature, implement it yourself.}
         -->
-        <attr name="iconAsLogo" format="boolean" />
+        <attr name="iconAsLogo" format="boolean" /> <!-- DEPRECATED -->
     </declare-styleable>
 
     <declare-styleable name="MenuButton">

@@ -10,7 +10,6 @@
         android:layout_height="?actionBarSize"
         app:layout_constraintTop_toTopOf="parent"
         app:titleCentered="true"
-        app:iconAsLogo="true"
         app:navigationContentDescription="@string/abc_action_bar_up_description"
         android:id="@+id/actionbar"/>
 
