@@ -80,7 +80,7 @@ dependencies {
     api("io.coil-kt:coil-compose:2.7.0")
     api("com.google.accompanist:accompanist-drawablepainter:0.37.1")
     api("com.mikepenz:aboutlibraries-core:11.6.3")
-    api("com.mikepenz:aboutlibraries-compose-m3:11.6.2")
+    api("com.mikepenz:aboutlibraries-compose-m3:11.6.3")
 }
 
 mavenPublishing {
