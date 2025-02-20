@@ -1980,7 +1980,7 @@
                     "name": "Google"
                 }
             ],
-            "artifactVersion": "0.37.0",
+            "artifactVersion": "0.37.1",
             "description": "Utilities for Jetpack Compose",
             "scm": {
                 "connection": "scm:git:git://github.com/google/accompanist.git",

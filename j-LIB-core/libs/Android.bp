@@ -7,7 +7,7 @@
 
 android_library_import {
     name: "j-Lib_com.google.accompanist_accompanist-drawablepainter",
-    aars: ["com/google/accompanist/accompanist-drawablepainter/0.37.0/accompanist-drawablepainter-0.37.0.aar"],
+    aars: ["com/google/accompanist/accompanist-drawablepainter/0.37.1/accompanist-drawablepainter-0.37.1.aar"],
     sdk_version: "35",
     min_sdk_version: "26",
     apex_available: [
