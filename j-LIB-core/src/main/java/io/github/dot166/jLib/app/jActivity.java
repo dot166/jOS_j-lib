@@ -7,6 +7,8 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.ContentView;
+import androidx.annotation.LayoutRes;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -19,6 +21,30 @@ import io.github.dot166.jLib.utils.VersionUtils;
 
 public class jActivity extends AppCompatActivity {
     protected jLIBCoreApp mLIBApp = null;
+
+    /**
+     * Default constructor for jActivity. All Activities must have a default constructor
+     * for API 27 and lower devices or when using the default
+     * {@link android.app.AppComponentFactory}.
+     */
+    public jActivity() {
+        super();
+    }
+
+    /**
+     * Alternate constructor that can be used to provide a default layout
+     * that will be inflated as part of <code>super.onCreate(savedInstanceState)</code>.
+     *
+     * <p>This should generally be called from your constructor that takes no parameters,
+     * as is required for API 27 and lower or when using the default
+     * {@link android.app.AppComponentFactory}.
+     *
+     * @see #jActivity()
+     */
+    @ContentView
+    public jActivity(@LayoutRes int contentLayoutId) {
+        super(contentLayoutId);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
