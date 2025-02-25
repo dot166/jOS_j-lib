@@ -43,7 +43,6 @@ public class ActionBar2 extends MaterialToolbar {
     private static boolean working;
     private static boolean halt = false;
     private static int tries;
-    private static boolean iconAsLogo;
 
     public ActionBar2(@NonNull Context context) {
         this(context, null);
@@ -61,37 +60,21 @@ public class ActionBar2 extends MaterialToolbar {
         final TypedArray a =
                 context.obtainStyledAttributes(attrs, R.styleable.ActionBar2, defStyleAttr, DEF_STYLE_RES);
 
-        iconAsLogo = a.getBoolean(R.styleable.ActionBar2_iconAsLogo, false);
+        //iconAsLogo = a.getBoolean(R.styleable.ActionBar2_iconAsLogo, false);
         //subtitleCentered = a.getBoolean(R.styleable.ActionBar2_jsubtitleCentered, false);
 
         a.recycle();
 
         if (isInEditMode()) {
-            iconAsLogo = false;
             setLogo(R.mipmap.ic_launcher_j);
             setTitle("PREVIEW OF LAYOUT");
         }
 
-        useActivityIconAsLogo(false);
         Log.i(TAG, "init complete!!");
     }
 
-    /**
-     * calling this function goes against the material design guidelines for android 5 and later
-     * restores behavior from android KitKat
-     * @deprecated using this is not recommended, if you NEED this feature, implement it yourself.
-     */
-    @Deprecated(since = "4.0.4", forRemoval = true)
-    public void useActivityIconAsLogo() {
-        useActivityIconAsLogo(true);
-    }
-
-    private void useActivityIconAsLogo(boolean override) {
-        if (iconAsLogo || override) {
-            setLogo(AppUtils.Icon.getActivityIcon(getContext()));
-        } else {
-            Log.i(TAG, "icon disabled in config, Please set icon manually");
-        }
+    private void useActivityIconAsLogo(Context context) {
+        setLogo(AppUtils.Icon.getActivityIcon(context));
     }
 
     @Override

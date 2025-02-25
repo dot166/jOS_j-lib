@@ -50,7 +50,7 @@ object ThemeEngine {
     @JvmStatic
     fun getSystemTheme(context: Activity): Int {
         var theme: String = getThemeFromThemeProvider(context)
-        currentTheme = getThemeFromThemeProvider(context)
+        currentTheme = theme
         Log.i(TAG, theme)
         when (theme) {
             "jLib" -> {

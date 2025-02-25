@@ -118,4 +118,4 @@ jobs:
         tag_name: ${{ env.VERSION }}
         make_latest: true
         generate_release_notes: true
-        files: "ThemeEngine/build/outputs/apk/release/ThemeEngine-v$(cat ver)-release.apk"
+        files: "ThemeEngine/build/outputs/apk/release/ThemeEngine-${{ env.VERSION }}-release.apk"
