@@ -289,7 +289,7 @@ object ThemeEngine {
                 Log.e(TAG, "Theme not found in cursor")
             }
         }
-        Log.i(TAG, "No Records Found")
+        Log.e(TAG, "No Records Found")
         return "none"
     }
 }
