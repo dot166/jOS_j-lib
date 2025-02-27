@@ -10,14 +10,14 @@
                     "name": "The Android Open Source Project"
                 }
             ],
-            "artifactVersion": "1.10.0",
+            "artifactVersion": "1.10.1",
             "description": "Provides the base Activity subclass and the relevant hooks to build a composable structure on top.",
             "scm": {
                 "connection": "scm:git:https://android.googlesource.com/platform/frameworks/support",
                 "url": "https://cs.android.com/androidx/platform/frameworks/support"
             },
             "name": "Activity",
-            "website": "https://developer.android.com/jetpack/androidx/releases/activity#1.10.0",
+            "website": "https://developer.android.com/jetpack/androidx/releases/activity#1.10.1",
             "licenses": [
                 "Apache-2.0"
             ],
@@ -35,14 +35,14 @@
                     "name": "The Android Open Source Project"
                 }
             ],
-            "artifactVersion": "1.10.0",
+            "artifactVersion": "1.10.1",
             "description": "Compose integration with Activity",
             "scm": {
                 "connection": "scm:git:https://android.googlesource.com/platform/frameworks/support",
                 "url": "https://cs.android.com/androidx/platform/frameworks/support"
             },
             "name": "Activity Compose",
-            "website": "https://developer.android.com/jetpack/androidx/releases/activity#1.10.0",
+            "website": "https://developer.android.com/jetpack/androidx/releases/activity#1.10.1",
             "licenses": [
                 "Apache-2.0"
             ],
@@ -60,14 +60,14 @@
                     "name": "The Android Open Source Project"
                 }
             ],
-            "artifactVersion": "1.10.0",
+            "artifactVersion": "1.10.1",
             "description": "Kotlin extensions for 'activity' artifact",
             "scm": {
                 "connection": "scm:git:https://android.googlesource.com/platform/frameworks/support",
                 "url": "https://cs.android.com/androidx/platform/frameworks/support"
             },
             "name": "Activity Kotlin Extensions",
-            "website": "https://developer.android.com/jetpack/androidx/releases/activity#1.10.0",
+            "website": "https://developer.android.com/jetpack/androidx/releases/activity#1.10.1",
             "licenses": [
                 "Apache-2.0"
             ],
@@ -795,14 +795,14 @@
                     "name": "The Android Open Source Project"
                 }
             ],
-            "artifactVersion": "2.2.0",
+            "artifactVersion": "2.2.1",
             "description": "This library offers a flexible and adaptable way to position and animate widgets",
             "scm": {
                 "connection": "scm:git:https://android.googlesource.com/platform/frameworks/support",
                 "url": "https://cs.android.com/androidx/platform/frameworks/support"
             },
             "name": "ConstraintLayout",
-            "website": "https://developer.android.com/jetpack/androidx/releases/constraintlayout#2.2.0",
+            "website": "https://developer.android.com/jetpack/androidx/releases/constraintlayout#2.2.1",
             "licenses": [
                 "Apache-2.0"
             ],
@@ -820,14 +820,14 @@
                     "name": "The Android Open Source Project"
                 }
             ],
-            "artifactVersion": "1.1.0",
+            "artifactVersion": "1.1.1",
             "description": "This library contains engines and algorithms for constraint based layout and complex animations (it is used by the ConstraintLayout library)",
             "scm": {
                 "connection": "scm:git:https://android.googlesource.com/platform/frameworks/support",
                 "url": "https://cs.android.com/androidx/platform/frameworks/support"
             },
             "name": "ConstraintLayout Core",
-            "website": "https://developer.android.com/jetpack/androidx/releases/constraintlayout#1.1.0",
+            "website": "https://developer.android.com/jetpack/androidx/releases/constraintlayout#1.1.1",
             "licenses": [
                 "Apache-2.0"
             ],
@@ -900,6 +900,31 @@
             },
             "name": "Core Kotlin Extensions",
             "website": "https://developer.android.com/jetpack/androidx/releases/core#1.15.0",
+            "licenses": [
+                "Apache-2.0"
+            ],
+            "organization": {
+                "name": "The Android Open Source Project"
+            }
+        },
+        {
+            "uniqueId": "androidx.core:core-viewtree",
+            "funding": [
+                
+            ],
+            "developers": [
+                {
+                    "name": "The Android Open Source Project"
+                }
+            ],
+            "artifactVersion": "1.0.0",
+            "description": "Provides ViewTree extensions packaged for use by other core androidx libraries",
+            "scm": {
+                "connection": "scm:git:https://android.googlesource.com/platform/frameworks/support",
+                "url": "https://cs.android.com/androidx/platform/frameworks/support"
+            },
+            "name": "androidx.core:core-viewtree",
+            "website": "https://developer.android.com/jetpack/androidx/releases/core#1.0.0",
             "licenses": [
                 "Apache-2.0"
             ],
