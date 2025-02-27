@@ -3,7 +3,7 @@ plugins {
     id("org.jetbrains.kotlin.android") version "2.1.10" apply false
     id("org.jetbrains.kotlin.plugin.compose") version "2.1.10" apply false
     id("com.android.library") version "8.8.2" apply false
-    id("com.android.application") version "8.8.1" apply false
+    id("com.android.application") version "8.8.2" apply false
     id("com.mikepenz.aboutlibraries.plugin") version "11.6.3" apply false
     id("com.vanniktech.maven.publish") version "0.30.0"
 }
