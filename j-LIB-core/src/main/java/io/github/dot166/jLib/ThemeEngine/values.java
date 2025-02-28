@@ -4,6 +4,7 @@ import android.content.Context;
 
 import androidx.compose.material3.Shapes;
 import androidx.compose.material3.Typography;
+import androidx.compose.runtime.Composable;
 
 public interface values {
 
@@ -11,7 +12,9 @@ public interface values {
 
     public int M3();
 
-    public Typography ComposeTypography(Context context);
+    @Composable
+    public Typography composeTypography(Context context);
 
-    public Shapes ComposeShapes(Context context);
+    @Composable
+    public Shapes composeShapes(Context context);
 }

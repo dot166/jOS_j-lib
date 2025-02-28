@@ -51,6 +51,9 @@ public class VersionUtils {
         return Build.VERSION.SDK_INT >= Build.VERSION_CODES.VANILLA_ICE_CREAM;
     }
 
+    // TODO: add check for Android Baklava once it has released
+    // TODO: use the new SDK_INT_FULL variable for sdk checks once Android Baklava releases
+
     public static String getAndroidVersion() {
         if (isAtLeastT()) {
             return Build.VERSION.RELEASE_OR_PREVIEW_DISPLAY;

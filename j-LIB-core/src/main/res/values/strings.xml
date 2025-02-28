@@ -11,8 +11,8 @@
     <string name="theme_dialog_positive">Install</string>
     <string name="theme_dialog_negative">Ignore (App Will Use jLib Default Theme)</string>
     <string name="about">About</string>
-    <string name="leaddev">Lead Developer</string>
-    <string name="dev">Developer</string>
+    <string name="maintainer">Maintainer</string>
+    <string name="contributor">Contributor</string>
     <string name="github" translatable="false">GitHub</string>
     <string name="licences">Acknowledgements</string>
     <string name="example_info">Currently you have not overridden the product() function to insert your contributor list</string>

@@ -46,8 +46,8 @@ public class LIBAboutActivity extends jAboutActivity {
     @Override
     public List<jAboutActivity.Contributor> product() {
         return new ArrayList<>() {{
-            add(new Contributor("._______166", Role.LeadDev, "https://avatars.githubusercontent.com/u/62702353", "https://github.com/dot166"));
-            add(new Contributor("bh916", Role.Dev, "https://avatars.githubusercontent.com/u/138221251", "https://github.com/bh196"));
+            add(new Contributor("._______166", Role.Maintainer, "https://avatars.githubusercontent.com/u/62702353", "https://github.com/dot166"));
+            add(new Contributor("bh916", Role.Contributor, "https://avatars.githubusercontent.com/u/138221251", "https://github.com/bh196"));
         }};
     }
 
@@ -74,8 +74,8 @@ public class LIBAboutActivity extends jAboutActivity {
     }
 
     public enum Role implements Roles {
-        LeadDev(R.string.leaddev),
-        Dev(R.string.dev);
+        Maintainer(R.string.maintainer),
+        Contributor(R.string.contributor);
 
         private final int descriptionResId;
 

@@ -69,8 +69,8 @@ open class jAboutActivity : jActivity() {
     }
 
     enum class Role(val descriptionResId: Int) : Roles {
-        LeadDev(descriptionResId = R.string.leaddev),
-        Dev(descriptionResId = R.string.dev),
+        Maintainer(descriptionResId = R.string.maintainer),
+        Contributor(descriptionResId = R.string.contributor),
         Example(descriptionResId = R.string.example_info),;
 
         override fun descriptionResId(): Int {
@@ -102,13 +102,13 @@ open class jAboutActivity : jActivity() {
     private val defaultProduct = listOf(
         Contributor(
             name = "._______166",
-            role = Role.LeadDev,
+            role = Role.Maintainer,
             photoUrl = "https://avatars.githubusercontent.com/u/62702353",
             socialUrl = "https://github.com/jf916",
         ),
         Contributor(
             name = "bh916",
-            role = Role.Dev,
+            role = Role.Contributor,
             photoUrl = "https://avatars.githubusercontent.com/u/138221251",
             socialUrl = "https://github.com/bh916",
         ),
