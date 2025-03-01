@@ -14,6 +14,7 @@ def generate_smallvariants(resource):
     wallpapers = os.listdir(wallpapers_path)
 
     for wallpaper in wallpapers:
+        print(wallpaper)
         # Append _small.jpg to the wallpaper
         wallpaper_small = os.path.splitext(wallpaper)[0] + "_small.jpg"
         wallpaper_small_path = os.path.join(wallpapers_path, wallpaper_small)
