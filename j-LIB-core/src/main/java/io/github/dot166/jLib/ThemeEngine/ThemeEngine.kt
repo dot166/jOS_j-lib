@@ -154,18 +154,18 @@ object ThemeEngine {
     }
 
     @Composable
-    private fun getTypography(context: Context): @Composable Typography {
+    private fun getTypography(context: Context): Typography {
         return if (themeClass != null && themeClass!!.composeTypography(context) != null) {
-            themeClass!!.composeTypography(context)
+            themeClass!!.composeTypography(context)!!
         } else {
             MaterialTheme.typography
         }
     }
 
     @Composable
-    private fun getShapes(context: Context): @Composable Shapes {
+    private fun getShapes(context: Context): Shapes {
         return if (themeClass != null && themeClass!!.composeShapes(context) != null) {
-            themeClass!!.composeShapes(context)
+            themeClass!!.composeShapes(context)!!
         } else {
             MaterialTheme.shapes
         }
