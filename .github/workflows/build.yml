@@ -21,6 +21,18 @@ jobs:
       run: |
         git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
         git config --global user.name "github-actions[bot]"
+
+    - name: Generate wallpaper thumbnails
+      run: |
+        cd ThemeEngine
+        python generate_smallvariants.py
+        cd ..
+
+    - name: Commit changes
+      if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && github.repository == 'dot166/jOS_j-Lib' }}
+      run: |
+        git add .
+        git commit -m "Update Wallpaper Thumbnails" || true
     
     - name: Update Helpline List
       run: |
