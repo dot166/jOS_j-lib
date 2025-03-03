@@ -33,12 +33,6 @@ jobs:
       run: |
         git add .
         git commit -m "Update Helpline List" || true
-
-    - name: Push changes to repo
-      uses: ad-m/github-push-action@master
-      if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && github.repository == 'dot166/jOS_j-Lib' }}
-      with:
-        branch: ${{ github.ref }}
     
     - name: Setup JDK 17
       uses: actions/setup-java@v4
@@ -93,11 +87,17 @@ jobs:
         ./gradlew j-Lib-core:publishAndReleaseToMavenCentral --no-configuration-cache
         ./gradlew --stop
 
-    - name: add Dependencies to AOSP
-      run: ./gradlew generateBp
-
     - name: Remove temp files
       run: rm -rf a.txt b.txt
+
+    - name: Commit changes
+      if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && github.repository == 'dot166/jOS_j-Lib' }}
+      run: |
+        git add .
+        git commit -m "Update gradle generated files for AOSP" || true
+
+    - name: add Dependencies to AOSP
+      run: ./gradlew generateBp
 
     - name: Commit changes
       if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && github.repository == 'dot166/jOS_j-Lib' }}
