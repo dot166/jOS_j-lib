@@ -25,6 +25,7 @@ jobs:
     - name: Generate wallpaper thumbnails
       run: |
         cd ThemeEngine
+        pip install pillow
         python generate_smallvariants.py
         cd ..
 
