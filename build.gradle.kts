@@ -5,7 +5,7 @@ plugins {
     id("com.android.library") version "8.9.0" apply false
     id("com.android.application") version "8.9.0" apply false
     id("com.mikepenz.aboutlibraries.plugin") version "11.6.3" apply false
-    id("com.vanniktech.maven.publish") version "0.30.0"
+    id("com.vanniktech.maven.publish") version "0.31.0"
 }
 
 buildscript {
