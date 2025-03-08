@@ -73,6 +73,8 @@ dependencies {
 
 to use jLib in an AOSP Project add the module ```j.Lib``` to the static_libs section of your Android.bp file
 
+TODO: explain 'fix' for generateBp
+
 
 ## folder structure
 
