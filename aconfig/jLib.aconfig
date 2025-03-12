@@ -1,0 +1,9 @@
+package: "io.github.dot166.jLib.flags"
+container: "system"
+
+flag {
+    name: "test_flag"
+    namespace: "jLib"
+    description: "test aconfig flag - does nothing"
+    bug: "<none>"
+}

@@ -1,0 +1,10 @@
+aconfig_declarations {
+    name: "io_github_dot166_jlib_flags",
+    package: "io.gihub.dot166.jLib.flags",
+    srcs: ["**/*.aconfig"],
+}
+
+java_aconfig_library {
+    name: "io_github_dot166_jlib_flags_lib",
+    aconfig_declarations: "io_github_dot166_jlib_flags",
+}
