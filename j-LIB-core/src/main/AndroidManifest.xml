@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest
     xmlns:android="http://schemas.android.com/apk/res/android"
-    package="io.github.dot166.jLib">
+    package="io.github.dot166.jlib">
 
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 
@@ -10,7 +10,7 @@
 
     <queries>
         <!-- Theme Engine Provider -->
-        <package android:name="io.github.dot166.ThemeEngine"/>
+        <package android:name="io.github.dot166.themeengine"/>
     </queries>
 
     <application android:name=".app.jLIBCoreApp"

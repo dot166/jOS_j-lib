@@ -8,7 +8,7 @@
             android:persistent="true"
             android:defaultValue="true"/>
 
-        <io.github.dot166.jLib.preference.SeekBarPreference
+        <io.github.dot166.jlib.preference.SeekBarPreference
             android:key="blink_speed"
             android:title="@string/blink_speed_title"
             android:persistent="true"

@@ -21,7 +21,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     >
-    <io.github.dot166.jLib.widget.BirdGame
+    <io.github.dot166.jlib.widget.BirdGame
         android:id="@+id/world"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>

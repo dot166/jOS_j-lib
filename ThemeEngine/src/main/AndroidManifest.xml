@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="io.github.dot166.ThemeEngine"
+    package="io.github.dot166.themeengine"
     android:versionCode="40"
     android:versionName="@string/ver_name">
 
@@ -14,12 +14,12 @@
         tools:replace="android:icon"
         android:supportsRtl="true">
         <activity
-            android:name=".ConfigActivity"
+            android:name="io.github.dot166.themeengine.ConfigActivity"
             android:exported="true"
             android:label="@string/app_name"
             tools:ignore="RedundantLabel">
             <intent-filter>
-                <action android:name="io.github.dot166.ThemeEngine.CONFIG" />
+                <action android:name="io.github.dot166.themeengine.CONFIG" />
                 <action android:name="com.android.settings.action.IA_SETTINGS" />
 
                 <category android:name="android.intent.category.DEFAULT" />
@@ -42,7 +42,7 @@
                 android:resource="@string/summary_empty" />
         </activity>
 
-        <activity android:name=".LauncherActivity"
+        <activity android:name="io.github.dot166.themeengine.LauncherActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:icon="@mipmap/ic_themeengine"
@@ -53,7 +53,7 @@
             </intent-filter>
         </activity>
 
-        <receiver android:name=".TEBroadcastReceiver"
+        <receiver android:name="io.github.dot166.themeengine.TEBroadcastReceiver"
             android:exported="true"
             tools:ignore="ExportedReceiver">
             <intent-filter>
@@ -65,8 +65,8 @@
         </receiver>
 
         <provider
-            android:name=".ThemeProvider"
-            android:authorities="io.github.dot166.ThemeEngine.ThemeProvider"
+            android:name="io.github.dot166.themeengine.ThemeProvider"
+            android:authorities="io.github.dot166.themeengine.ThemeProvider"
             android:enabled="true"
             android:exported="true"
             tools:ignore="ExportedContentProvider" />

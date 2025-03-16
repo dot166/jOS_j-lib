@@ -29,11 +29,11 @@ android {
             storePassword = keystoreProperties["storePassword"] as String
         }
     }
-    namespace = "io.github.dot166.ThemeEngine"
+    namespace = "io.github.dot166.themeengine"
     compileSdk = libCompileSdk
 
     defaultConfig {
-        applicationId = "io.github.dot166.ThemeEngine"
+        applicationId = "io.github.dot166.themeengine"
         minSdk = libMinSdk
         targetSdk = libCompileSdk
     }

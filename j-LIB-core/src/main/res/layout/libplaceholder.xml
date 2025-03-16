@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <io.github.dot166.jLib.widget.ActionBar2
+    <io.github.dot166.jlib.widget.ActionBar2
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
         app:layout_constraintTop_toTopOf="parent"
@@ -36,7 +36,7 @@
             android:layout_height="wrap_content"
             android:text="@string/ok"
             tools:ignore="ButtonStyle" />
-        <io.github.dot166.jLib.widget.BlinkLayout
+        <io.github.dot166.jlib.widget.BlinkLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
         <Button
@@ -45,6 +45,6 @@
             android:layout_height="wrap_content"
             android:text="@string/jlib_changelog"
             tools:ignore="ButtonStyle" />
-        </io.github.dot166.jLib.widget.BlinkLayout>
+        </io.github.dot166.jlib.widget.BlinkLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

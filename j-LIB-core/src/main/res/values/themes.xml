@@ -2,7 +2,7 @@
     <!-- Base System theme. -->
     <style name="j.Theme" parent="Platform.j.Theme">
         <item name="isJTheme">true</item>
-        <item name="viewInflaterClass">io.github.dot166.jLib.app.jLibViewInflater</item>
+        <item name="viewInflaterClass">io.github.dot166.jlib.app.jLibViewInflater</item>
         <item name="android:colorBackground">#00000000</item> <!-- fixes bug in compose -->
         <item name="android:textAppearance">@android:style/TextAppearance.Holo</item>
         <item name="android:textAppearanceInverse">@android:style/TextAppearance.Holo.Inverse</item>
