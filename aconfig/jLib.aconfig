@@ -3,7 +3,7 @@ container: "system"
 
 flag {
     name: "test_flag"
-    namespace: "jLib"
+    namespace: "jlib"
     description: "test aconfig flag - does nothing"
     bug: "<none>"
 }
