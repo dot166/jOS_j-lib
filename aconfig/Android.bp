@@ -1,6 +1,7 @@
 aconfig_declarations {
     name: "io_github_dot166_jlib_flags",
     package: "io.gihub.dot166.jLib.flags",
+    container: "system",
     srcs: ["**/*.aconfig"],
 }
 
