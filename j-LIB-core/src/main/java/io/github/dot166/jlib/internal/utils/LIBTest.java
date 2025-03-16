@@ -1,7 +1,7 @@
 package io.github.dot166.jlib.internal.utils;
 
 import static io.github.dot166.jlib.utils.VersionUtils.getAndroidVersion;
-import static io.github.dot166.jlib.jOS.Build.jOS_RELEASE;
+import static io.github.dot166.jlib.jos.Build.jOS_RELEASE;
 
 import android.content.ComponentName;
 import android.content.Intent;

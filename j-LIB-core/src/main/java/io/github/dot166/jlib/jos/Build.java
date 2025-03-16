@@ -1,4 +1,4 @@
-package io.github.dot166.jlib.jOS;
+package io.github.dot166.jlib.jos;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
