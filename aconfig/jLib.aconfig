@@ -1,4 +1,4 @@
-package: "io.github.dot166.jlib.flags"
+package: "io.github.dot166.jLib.flags"
 container: "system"
 
 flag {
