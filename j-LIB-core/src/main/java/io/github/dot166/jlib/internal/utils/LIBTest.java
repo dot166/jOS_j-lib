@@ -12,6 +12,7 @@ import android.widget.TextView;
 import androidx.annotation.RestrictTo;
 import androidx.appcompat.app.AppCompatActivity;
 
+import io.github.dot166.jlib.flags.Flags;
 import io.github.dot166.jlib.internal.LIBTestBottomSheet;
 import io.github.dot166.jlib.R;
 
@@ -20,7 +21,13 @@ public class LIBTest {
 
     public static void Test(AppCompatActivity context) {
         if (context.getSupportActionBar() != null) {
-            context.getSupportActionBar().setSubtitle("AAAA");
+            String str;
+            if (Flags.testFlag()) {
+                str = "flag_flag";
+            } else {
+                str = "AAAA";
+            }
+            context.getSupportActionBar().setSubtitle(str);
         }
         TextView text = context.findViewById(R.id.textView);
         Button button = context.findViewById(R.id.button);
