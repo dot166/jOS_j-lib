@@ -22,8 +22,6 @@ import io.github.dot166.jlib.app.jWebActivity
 import io.github.dot166.jlib.utils.NetUtils
 
 object ThemeEngine {
-    @JvmField
-    var currentTheme: String? = null
     var TAG: String = "jLib Theme Engine"
     var themeClass: values? = null
     private val LIGHT_CHECK_ATTRS = intArrayOf(androidx.appcompat.R.attr.isLightTheme)
@@ -50,7 +48,6 @@ object ThemeEngine {
     @JvmStatic
     fun getSystemTheme(context: Activity): Int {
         var theme: String = getThemeFromThemeProvider(context)
-        currentTheme = theme
         Log.i(TAG, theme)
         when (theme) {
             "jLib" -> {
@@ -78,7 +75,7 @@ object ThemeEngine {
             }
         }
         if (theme != "none") {
-            Log.i(TAG, "Unrecognised Theme '$currentTheme'")
+            Log.i(TAG, "Unrecognised Theme '$theme'")
         } else {
             Log.e(TAG, "ThemeEngine is MISSING!!!!")
             if (context !is jWebActivity) {

@@ -1,6 +1,5 @@
 package io.github.dot166.jlib.app;
 
-import static io.github.dot166.jlib.themeengine.ThemeEngine.currentTheme;
 import static io.github.dot166.jlib.themeengine.ThemeEngine.getThemeFromThemeProvider;
 
 import android.app.Activity;
@@ -20,6 +19,7 @@ import io.github.dot166.jlib.themeengine.ThemeEngine;
 import io.github.dot166.jlib.utils.VersionUtils;
 
 public class jActivity extends AppCompatActivity {
+    String currentTheme = null;
     protected jLIBCoreApp mLIBApp = null;
 
     /**
@@ -48,6 +48,7 @@ public class jActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        currentTheme = getThemeFromThemeProvider(this);
         setTheme(ThemeEngine.getSystemTheme(this));
         super.onCreate(savedInstanceState);
         mLIBApp = (jLIBCoreApp) this.getApplicationContext();
