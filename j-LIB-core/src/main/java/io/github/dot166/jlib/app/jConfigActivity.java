@@ -77,6 +77,7 @@ public class jConfigActivity extends jActivity {
                 Preference preference = screen.getPreference(i);
                 if (Objects.equals(preference.getKey(), "lib_category")) {
                     PreferenceCategory category = (PreferenceCategory) preference;
+                    category.setOrder(999999999); // put at bottom of screen because the user added prefs are more important
                     for (int j = category.getPreferenceCount() - 1; j >= 0; j--) {
                         Preference preference2 = category.getPreference(j);
                         if (!configPreference(preference2)) {
