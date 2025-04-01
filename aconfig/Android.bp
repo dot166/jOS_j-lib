@@ -2,7 +2,9 @@ aconfig_declarations {
     name: "io_github_dot166_jlib_flags",
     package: "io.github.dot166.jlib.flags",
     container: "system",
-    srcs: ["**/*.aconfig"],
+    srcs: [
+        "jLib.aconfig",
+    ],
 }
 
 java_aconfig_library {
