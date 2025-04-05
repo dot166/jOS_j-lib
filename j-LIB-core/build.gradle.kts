@@ -134,5 +134,5 @@ configure<GenerateBpPluginExtension> {
 aconfig {
     textProtoRepo = "https://github.com/dot166/platform_build_release"
     flagsPackage = "io.github.dot166.jlib.flags"
-    aconfigFile = "../aconfig/jLib.aconfig"
+    aconfigFiles = "../aconfig/jLib.aconfig"
 }
