@@ -72,7 +72,7 @@ dependencies {
     //noinspection KtxExtensionAvailable
     api("androidx.preference:preference:1.2.1")
     api("com.google.android.material:material:1.12.0")
-    api("androidx.core:core-ktx:1.15.0")
+    api("androidx.core:core-ktx:1.16.0")
     api("androidx.browser:browser:1.8.0")
     api("androidx.activity:activity-compose:1.10.1")
     api("androidx.compose.ui:ui-android:1.7.8")
