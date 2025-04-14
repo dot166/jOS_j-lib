@@ -25,6 +25,8 @@ object ThemeEngine {
     var TAG: String = "jLib Theme Engine"
     var themeClass: values? = null
     private val LIGHT_CHECK_ATTRS = intArrayOf(androidx.appcompat.R.attr.isLightTheme)
+    @JvmStatic
+    public var tmpCurrentTheme: String = null.toString();
 
     private enum class valid_themes {
         jLibTheme,
@@ -51,6 +53,7 @@ object ThemeEngine {
         Log.i(TAG, theme)
         when (theme) {
             "jLib" -> {
+                tmpCurrentTheme = null.toString()
                 if (themeClass != null && themeClass!!.jLibTheme() != 0 && isValidTheme(valid_themes.jLibTheme, context, themeClass!!.jLibTheme())
                 ) {
                     return themeClass!!.jLibTheme()
@@ -59,6 +62,7 @@ object ThemeEngine {
             }
 
             "M3" -> {
+                tmpCurrentTheme = null.toString()
                 if (themeClass != null && themeClass!!.M3() != 0 && isValidTheme(valid_themes.M3, context, themeClass!!.M3())
                 ) {
                     return themeClass!!.M3()
@@ -67,6 +71,7 @@ object ThemeEngine {
             }
 
             "Disabled" -> {
+                tmpCurrentTheme = null.toString()
                 Log.i(
                     TAG,
                     "ThemeEngine Disabled, Returning no legacy scheme and the Default Compose Theme"
@@ -106,6 +111,7 @@ object ThemeEngine {
                 alert.show()
             }
         }
+        tmpCurrentTheme = null.toString()
         return R.style.j_Theme
     }
 
@@ -233,6 +239,10 @@ object ThemeEngine {
         if (cursor != null) {
             while (cursor.moveToNext()) {
                 allValues.put(cursor.getString(0), cursor.getString(1))
+            }
+            tmpCurrentTheme = allValues.get("Theme").toString()
+            if (tmpCurrentTheme == null.toString() || tmpCurrentTheme == "Disabled") {
+                tmpCurrentTheme = "jLib"
             }
 
             if (allValues.containsKey("UpdateAvailable") || allValues.containsKey("isInSystem")) {

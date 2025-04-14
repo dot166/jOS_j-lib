@@ -55,10 +55,10 @@
         <item name="android:buttonBarNegativeButtonStyle">?buttonBarButtonStyle</item>
         <item name="android:buttonBarNeutralButtonStyle">?buttonBarButtonStyle</item>
         <!-- Dialog attributes -->
-        <item name="android:dialogTheme">@android:style/Theme.Holo.Dialog</item>
+        <item name="android:dialogTheme">@style/ThemeOverlay.j.Dialog</item>
         <item name="android:dialogPreferredPadding">16dp</item>
-        <item name="android:alertDialogTheme">@style/j.Alert.theme</item>
-        <item name="android:alertDialogStyle">@style/alertdialogstyle</item>
+        <item name="android:alertDialogTheme">@style/ThemeOverlay.j.Dialog.Alert.Framework</item>
+        <item name="android:alertDialogStyle">@style/AlertDialog.AppCompat</item>
         <!-- Tooltip attributes -->
         <item name="android:editTextBackground">@drawable/j_edit_text_holo_dark</item>
         <item name="android:actionOverflowButtonStyle">@android:style/Widget.Holo.ActionButton.Overflow</item>
@@ -101,10 +101,10 @@
         <item name="buttonBarNegativeButtonStyle">?buttonBarButtonStyle</item>
         <item name="buttonBarNeutralButtonStyle">?buttonBarButtonStyle</item>
         <!-- Dialog attributes -->
-        <item name="dialogTheme">@android:style/Theme.Holo.Dialog</item>
+        <item name="dialogTheme">@style/ThemeOverlay.j.Dialog</item>
         <item name="dialogPreferredPadding">16dp</item>
-        <item name="alertDialogTheme">@style/j.Alert.theme</item>
-        <item name="alertDialogStyle">@style/alertdialogstyle</item>
+        <item name="alertDialogTheme">@style/ThemeOverlay.j.Dialog.Alert</item>
+        <item name="alertDialogStyle">@style/AlertDialog.AppCompat</item>
         <!-- Tooltip attributes -->
         <item name="actionOverflowButtonStyle">@android:style/Widget.Holo.ActionButton.Overflow</item>
         <item name="editTextBackground">@drawable/j_edit_text_holo_dark</item>
@@ -120,6 +120,7 @@
         <!-- Framework, AppCompat, or Design Widget styles -->
         <item name="bottomNavigationStyle">@style/j.BottomNav</item>
         <item name="tabStyle">@style/j.tab</item>
+        <item name="materialAlertDialogTheme">@style/ThemeOverlay.Material3.MaterialAlertDialog</item>
     </style>
     <!-- Theme.Material3.DynamicColors.Dark.NoActionBar overrides -->
     <style name="Platform.j.Theme" parent="Theme.Material3.DynamicColors.Dark.NoActionBar">
