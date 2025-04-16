@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- CollapsingToolbarTitle -->
+    <style name="CollapsingToolbar.Collapsed"
+        parent="@android:style/TextAppearance.DeviceDefault.Widget.ActionBar.Title">
+        <item name="android:fontFamily">google-sans</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/settingslib_text_color_primary_device_default</item>
+    </style>
+
+    <!-- Preview attribution pane styles -->
+    <style name="WallpaperPicker.BottomPaneStyle" parent="@android:style/Theme.DeviceDefault.Settings"/>
+
+    <!-- Bottom action item -->
+    <style name="BottomActionItemStyle">
+        <item name="android:paddingHorizontal">@dimen/bottom_action_button_padding_horizontal</item>
+    </style>
+
+    <style name="TitleTextAppearance" parent="@android:style/TextAppearance.DeviceDefault.Widget.ActionBar.Title">
+        <item name="android:textSize">14sp</item>
+    </style>
+    <!-- Preview cards -->
+    <style name="PreviewCard" parent="CardView">
+        <item name="cardCornerRadius">?android:dialogCornerRadius</item>
+        <item name="android:clipChildren">true</item>
+        <item name="contentPadding">@dimen/preview_card_padding</item>
+        <item name="cardElevation">0dp</item>
+    </style>
+
+    <style name="FullContentPreviewCard" parent="PreviewCard">
+        <item name="contentPadding">0dp</item>
+    </style>
+    <style name="OptionTitleTextAppearance" parent="TitleTextAppearance">
+        <item name="android:textColor">@color/option_title_color</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textSize">@dimen/option_title_font_text_size</item>
+        <item name="android:lineHeight">@dimen/option_title_line_height</item>
+    </style>
+</resources>

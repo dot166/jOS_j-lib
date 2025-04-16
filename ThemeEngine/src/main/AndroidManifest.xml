@@ -13,33 +13,17 @@
         android:label="@string/app_name"
         android:theme="@style/j.Theme"
         android:supportsRtl="true">
+        <!-- this is just here for jLib -->
         <activity
-            android:name="io.github.dot166.themeengine.ConfigActivity"
+            android:name="io.github.dot166.themeengine.ThemeEngineActivity"
             android:exported="true"
             android:label="@string/app_name"
             tools:ignore="RedundantLabel">
             <intent-filter>
                 <action android:name="io.github.dot166.themeengine.CONFIG" />
-                <action android:name="com.android.settings.action.IA_SETTINGS" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
-
-            <meta-data
-                android:name="com.android.settings.category"
-                android:value="com.android.settings.category.ia.system" />
-            <meta-data
-                android:name="com.android.settings.icon"
-                android:resource="@drawable/settings_icon" />
-            <meta-data
-                android:name="com.android.settings.icon_tintable"
-                android:value="true" />
-            <meta-data
-                android:name="com.android.settings.order"
-                android:value="-254" />
-            <meta-data
-                android:name="com.android.settings.summary"
-                android:resource="@string/summary_empty" />
         </activity>
 
         <activity android:name="io.github.dot166.themeengine.LauncherActivity"
@@ -66,7 +50,7 @@
 
         <provider
             android:name="io.github.dot166.themeengine.ThemeProvider"
-            android:authorities="io.github.dot166.themeengine.ThemeProvider"
+            android:authorities="i.github.dot166.themeengine.ThemeProvider"
             android:enabled="true"
             android:exported="true"
             tools:ignore="ExportedContentProvider" />

@@ -56,6 +56,17 @@ android {
         }
     }
 
+    sourceSets {
+        named("main") {
+            java {
+                srcDir(rootProject.projectDir.absolutePath + "/themepickerimpl/java")
+            }
+            res {
+                srcDir(rootProject.projectDir.absolutePath + "/themepickerimpl/res")
+            }
+        }
+    }
+
     aaptOptions.additionalParameters.add("--auto-add-overlay")
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
@@ -75,5 +86,5 @@ aboutLibraries {
 }
 
 dependencies {
-    implementation(project(":j-LIB-core")) // implementation("io.github.dot166:j-Lib:4.0.1")
+    implementation(project(":j-LIB-core")) // implementation("io.github.dot166:j-Lib:+")
 }

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="system_surface_container">#1E1F25</color>
+    <color name="system_surface_container_highest">#33343A</color>
+
+    <color name="theme_preview_icon_color">@color/google_grey700</color>
+    <color name="google_grey700">#5f6368</color>
+    <color name="text_color_primary">@color/settingslib_text_color_primary</color>
+    <color name="text_color_secondary">@color/settingslib_text_color_secondary</color>
+    <color name="text_color_secondary_inverse">
+        @color/settingslib_text_color_secondary_device_default
+    </color>
+</resources>

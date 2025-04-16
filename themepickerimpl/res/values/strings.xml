@@ -1,0 +1,484 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2"><!-- Title for the toolbar when displaying a wallpaper preview. [CHAR LIMIT=30] -->
+
+    <!-- Label for the 'Info' tab of view pager in wallpaper preview activity. [CHAR_LIMIT=25] -->
+    <string name="tab_info">Info</string>
+    <!-- Label for the 'Customize' tab of view pager in wallpaper preview activity.
+         [CHAR_LIMIT=25] -->
+    <string name="tab_customize">Customize</string>
+
+    <!-- Label for the 'Effects' tab of view pager in wallpaper preview activity.
+         [CHAR_LIMIT=25] -->
+    <string name="tab_effects">Effects</string>
+
+    <!-- Label for the 'Share' tab of view pager in wallpaper preview activity.
+     [CHAR_LIMIT=25] -->
+
+    <!-- Generic label for the my photos action [CHAR_LIMIT=20] -->
+
+    <!-- List item for configuring the current wallpaper [CHAR LIMIT=30] -->
+
+    <!-- List item for deleting the current wallpaper [CHAR LIMIT=30] -->
+    <string name="delete_live_wallpaper">Delete</string>
+
+    <!-- List item for editing the current wallpaper [CHAR LIMIT=NONE] -->
+
+    <!-- Confirmation dialog. Shown after user selects to delete one wallpaper. [CHAR LIMIT=NONE] -->
+
+    <!-- Content description of back button on the bottom action bar. [CHAR LIMIT=30] -->
+    <string name="bottom_action_bar_back">Navigate up</string>
+
+    <!-- Content description of edit button on the bottom action bar. [CHAR LIMIT=30] -->
+    <string name="bottom_action_bar_edit">Edit</string>
+
+    <!-- TODO(b/154299462): Separate downloadable related actions from WallpaperPicker. -->
+    <!-- Content description of download button on the bottom action bar. [CHAR LIMIT=30] -->
+    <string name="bottom_action_bar_download">Download</string>
+
+    <!-- Content description of download effects button on the bottom action bar. [CHAR LIMIT=30] -->
+
+    <!-- Content description of "slideshow wallpaper" button on the bottom action bar. [CHAR LIMIT=50] -->
+    <string name="bottom_action_bar_slideshow_wallpaper">Slideshow Wallpaper</string>
+
+    <!-- Apply button on the bottom action bar. [CHAR LIMIT=30] -->
+    <string name="bottom_action_bar_apply">Apply</string>
+
+
+    <!-- Title of a section of the customization picker where the user can select a Theme for the
+        device. [CHAR LIMIT=15] -->
+
+    <!-- Title of a section of the customization picker where the user can select a Clock face.
+        [CHAR LIMIT=15] -->
+
+    <!-- Description of a section of the customization picker where the user can select a Clock
+        face. [CHAR LIMIT=15] -->
+
+    <!-- The content description of clock entry. [CHAR LIMIT=NONE] -->
+
+    <!-- action description for announcing selected Clock [CHAR LIMIT=NONE]-->
+
+    <!-- Title of a section of the customization picker where the user can configure Clock face. [CHAR LIMIT=19] -->
+
+    <!-- Title of a section of the customization picker where the user can configure clock color and size. [CHAR LIMIT=20] -->
+
+    <!-- Description of a section of the customization picker where the user can configure clock color and size, e.g. Violet, small. [CHAR LIMIT=NONE] -->
+
+    <!-- Title of a tab to change the clock style. [CHAR LIMIT=15] -->
+
+    <!-- Title of a tab to change the clock color. [CHAR LIMIT=15] -->
+
+    <!-- Title of a clock color red option that will appear in the description of the custom clock section. [CHAR LIMIT=15] -->
+
+    <!-- Title of a clock color orange option that will appear in the description of the custom clock section. [CHAR LIMIT=15] -->
+
+    <!-- Title of a clock color yellow option that will appear in the description of the custom clock section. [CHAR LIMIT=15] -->
+
+    <!-- Title of a clock color green option that will appear in the description of the custom clock section. [CHAR LIMIT=15] -->
+
+    <!-- Title of a clock color blue option that will appear in the description of the custom clock section. [CHAR LIMIT=15] -->
+
+    <!-- Title of a clock color indigo option that will appear in the description of the custom clock section. [CHAR LIMIT=15] -->
+
+    <!-- Title of a clock color violet option that will appear in the description of the custom clock section. [CHAR LIMIT=15] -->
+
+    <!-- Title of a clock color grey option that will appear in the description of the custom clock section. [CHAR LIMIT=15] -->
+
+    <!-- Title of a clock color teal option that will appear in the description of the custom clock section. [CHAR LIMIT=15] -->
+
+    <!-- Title of a tab to change the clock size. [CHAR LIMIT=15] -->
+
+    <!-- Title of a radio button to apply clock size dynamic. [CHAR LIMIT=15] -->
+
+    <!-- Description of a radio button to apply clock size dynamic. [CHAR LIMIT=NONE] -->
+
+    <!-- Title of a radio button to apply clock size large. [CHAR LIMIT=15] -->
+
+    <!-- Title of a radio button to apply clock size small. [CHAR LIMIT=15] -->
+
+    <!-- Description of a radio button to apply clock size small. [CHAR LIMIT=NONE] -->
+
+    <!-- Description for clock font editor axis apply button. [CHAR LIMIT=NONE] -->
+
+    <!-- Description for clock font editor axis revert button. [CHAR LIMIT=NONE] -->
+
+    <!-- Title of a section of the customization picker where the user can select a Grid size for
+        the home screen. [CHAR LIMIT=15] -->
+
+    <!-- Title of a section of the customization picker where the user can select app shapes and
+        grid layouts for the home screen. [CHAR LIMIT=32] -->
+
+    <!-- Tab title that switch to app grid customization section, where people can customization
+        the grid layout of the apps -->
+
+    <!-- Label for a button that allows the user to apply the currently selected Theme.
+        [CHAR LIMIT=20] -->
+
+    <!-- Label telling the user they can tap the card to edit the currently selected custom Theme.
+        [CHAR LIMIT=50] -->
+
+    <!-- Label for a checkbox to allow the user to use their currently set wallpaper instead of
+        the one bundled with selected Theme [CHAR LIMIT=35]-->
+
+    <!-- Content description of theme preview card. [CHAR_LIMIT=30]-->
+
+    <!-- Content description of grid preview card. [CHAR_LIMIT=30]-->
+
+    <!-- Content description of font preview. [CHAR_LIMIT=30]-->
+
+    <!-- Content description of icon preview. [CHAR_LIMIT=30]-->
+    <string name="icon_preview_content_description">Icon preview</string>
+
+    <!-- Content description of color preview. [CHAR_LIMIT=30]-->
+
+    <!-- Content description of shape preview. [CHAR_LIMIT=30]-->
+
+    <!-- Content description indicating that the selected option is currently applied to the device. [CHAR_LIMIT=NONE] -->
+    <string name="option_applied_description"><xliff:g name="style_name">%1$s</xliff:g>, currently applied</string>
+
+    <!-- Content description indicating that the selected option is currently applied and previewed. [CHAR_LIMIT=NONE] -->
+    <string name="option_applied_previewed_description"><xliff:g name="style_name">%1$s</xliff:g>, currently applied and previewed</string>
+
+    <!-- Content description indicating that the selected option is currently being previewed. [CHAR_LIMIT=NONE] -->
+    <string name="option_previewed_description"><xliff:g name="style_name">%1$s</xliff:g>, currently previewed</string>
+
+    <!-- Content description indicating that the focused option can be selected and previewed if clicked. [CHAR_LIMIT=NONE] -->
+    <string name="option_change_applied_previewed_description"><xliff:g name="style_name">%1$s</xliff:g>, change selected and previewed</string>
+
+    <!-- Sample text used to show a preview of a selected font [CHAR LIMIT=3] -->
+
+    <!-- Content description for previewing a style, describing each of their components. [CHAR_LIMIT=NONE] -->
+
+    <!-- Plus sign used to indicate that the user can add a custom theme -->
+
+    <!-- Name for the Android Theme (Style/Wallpaper/Grid/Clock...) that comes preset with the device [CHAR LIMIT=10]-->
+
+    <!-- Title of a page that shows the user the preview of a font selection [CHAR_LIMIT=20] -->
+
+    <!-- Title of a page that shows the user the preview of a set of icons [CHAR_LIMIT=20] -->
+    <string name="preview_name_icon">Icon</string>
+
+    <!-- Title of a page that shows the user the preview of a color [CHAR_LIMIT=20] -->
+
+    <!-- Title of a page that shows the user the preview of a set of icons' shape [CHAR_LIMIT=20] -->
+
+    <!-- Title of a page that shows the user the preview of a wallpaper associated with a theme [CHAR_LIMIT=20] -->
+
+    <!-- Header sample text used to preview the look of a particular font, we show samples of
+        uppercase and lowercase characters and numbers. [CHAR LIMIT=30] -->
+
+    <!-- Body text for previewing a font [CHAR LIMIT=160] -->
+
+    <!--Title for grid options [CHAR LIMIT=NONE] -->
+
+    <!--Title for a grid option, describing the number of columns and rows, eg: 4x4 [CHAR LIMIT=10] -->
+
+    <!-- Label of what will happen when user tap on apply button to change grid. [CHAR LIMIT=50] -->
+
+    <!-- Toast of reloading workspace with new grid. -->
+
+    <!-- Toast of failure to reload workspace with new grid. -->
+
+    <!-- Message shown when a theme has been applied successfully in the system [CHAR LIMIT=NONE] -->
+
+    <!-- Message shown when a clock has been applied successfully in the system [CHAR LIMIT=NONE] -->
+
+    <!-- Message shown when a grid has been applied successfully in the system [CHAR LIMIT=NONE] -->
+
+    <!-- Message shown when a theme couldn't be applied in the system because of an error
+        [CHAR LIMIT=NONE] -->
+
+    <!-- Label for a button that takes the user to the next step when configuring a custom theme.
+        [CHAR LIMIT=20] -->
+
+    <!-- Label for a button that takes the user back to the previous step when configuring a custom theme.
+        [CHAR LIMIT=20] -->
+
+    <!-- Title for "Custom theme" option. [CHAR LIMIT=20] -->
+
+    <!-- Generic label for one system Style/Theme (combination of fonts/colors/icons) that is
+        defined and customized by the user (note there could be more than one so the label includes
+        a number, eg "Custom 1, Custom 2, etc") [CHAR LIMIT=15] -->
+
+    <!-- Title for a screen that lets the user define their custom system Style/Theme
+        [CHAR LIMIT=30] -->
+
+    <!-- Title of a menu option that removes the custom theme being currently edited
+        [CHAR LIMIT=30] -->
+
+    <!-- Title of a page allowing the user to choose a font for a custom theme [CHAR LIMIT=40]-->
+
+    <!-- Title of a page allowing the user to choose an icon set for a custom theme [CHAR LIMIT=40]-->
+
+    <!-- Title of a page allowing the user to choose a color for a custom theme [CHAR LIMIT=40]-->
+
+    <!-- Title of a page allowing the user to choose an icon shape for a custom theme [CHAR LIMIT=40]-->
+
+    <!-- Title of a page allowing the user to set a name for a custom theme [CHAR LIMIT=40]-->
+
+    <!-- Title of a set of icons that the user can chose for their custom style (eg, "Icons 2") -->
+
+    <!-- Dialog box asking the user to confirm if they want to delete the current custom style
+        [CHAR_LIMIT=NONE] -->
+
+    <!-- Button in a dialog box confirming that the current style will be deleted [CHAR_LIMIT=20] -->
+
+    <!-- Generic label for canceling the current action [CHAR_LIMIT=20] -->
+
+    <!-- Label for a dialog which asks the user the destination (home screen, lock screen, both)
+        where to set the theme's bundled image as wallpaper. [CHAR LIMIT=50] -->
+
+    <!-- Title for a dialog box asking the user to use an existing, equivalent theme (style) instead
+        of their customly defined one. [CHAR_LIMIT=30] -->
+
+    <!-- Body for a dialog box asking the user to use an existing, equivalent theme (style) instead
+        of their customly defined one. [CHAR_LIMIT=NONE] -->
+
+    <!-- Label for a button in the dialog box that asks the user to use an existing, theme (style)
+        instead of their customly defined one. The button let's the user use the suggested theme
+        [CHAR_LIMIT=16] -->
+
+    <!-- Label for a button in the dialog box that asks the user to use an existing, theme (style)
+        instead of their customly defined one. The button dismisses the dialog and goes back to the
+        previous screen. [CHAR_LIMIT=16]  -->
+
+    <!-- Content description for a screen showing the preview of a clock face. [CHAR_LIMIT=NONE] -->
+
+    <!-- Generic error message [CHAR_LIMIT=NONE] -->
+    <string name="something_went_wrong">Oops! Something went wrong.</string>
+
+    <!-- Title for a section of a style preview screen that shows a preview of the style color and icons. [CHAR_LIMIT=30]-->
+
+    <!-- Bottom sheet dialog which displaying different theme's info. [CHAR_LIMIT=80] -->
+
+    <!-- Accessibility for custom style font page [CHAR_LIMIT=50] -->
+
+    <!-- Accessibility for custom style icon page [CHAR_LIMIT=50] -->
+
+    <!-- Accessibility for custom style color page [CHAR_LIMIT=50] -->
+
+    <!-- Accessibility for custom style shape page [CHAR_LIMIT=50] -->
+
+    <!-- Accessibility for custom style name page [CHAR_LIMIT=50] -->
+
+    <!-- Accessibility for clock color slider [CHAR_LIMIT=50] -->
+
+    <!--Name of metadata in the main launcher Activity which values contains the authority
+    corresponding to a ContentProvider in launcher to query or change themed icon option  -->
+
+    <!--  Strings for new customization UI.  -->
+
+    <!-- The title of mode section view. [CHAR_LIMIT=20] -->
+    <!-- The text for A11y announcement when theme changes. -->
+
+    <!-- Title of a section of the customization where the user can select color override for icon. [CHAR LIMIT=30] -->
+
+    <!-- Title of the tag to indicate beta version. [CHAR LIMIT=6] -->
+
+    <!-- The content description of grid picker entry. [CHAR LIMIT=NONE] -->
+
+    <!-- The title for the tab with colors from wallpaper. [CHAR_LIMIT=20]-->
+    <!-- The subheader for the tab with colors from wallpaper. [CHAR_LIMIT=55]-->
+    <!-- The description on an item that shows a color obtained from the wallpaper
+        (used mainly for accessibility). [CHAR_LIMIT=NONE] -->
+    <!-- The title for the tab with a default set of color options. [CHAR_LIMIT=20]-->
+    <!-- The revised title for the tab with a default set of color options. [CHAR_LIMIT=20]-->
+    <!-- The subheader for the tab with a default set of color options. [CHAR_LIMIT=55]-->
+    <!-- The text for A11y announcement when color changes. -->
+    <!-- Title of a section of color selection option that obtains colors automatically from the
+        wallpaper instead of a set color [CHAR LIMIT=15] -->
+    <!--
+    Title for a screen where the user can configure the system colors by selecting from a list of
+    color options.
+    [CHAR LIMIT=32].
+    -->
+
+    <!--
+    Name of the slot on the "start" side of the bottom of the lock screen, where lock screen
+    shortcuts can be added to the lock screen. In left-to-right languages, this is the left-hand
+    side button. In right-to-left languages, this is the right-hand side button. [CHAR LIMIT=16].
+    -->
+
+    <!--
+    Name of the slot on the "end" side of the bottom of the lock screen, where lock screen shortcuts
+    can be added to the lock screen. In left-to-right languages, this is the right-hand side button.
+    In right-to-left languages, this is the left-hand side button. [CHAR LIMIT=16].
+    -->
+
+    <!--
+    Name for an option to have no quick affordance selected for one of the sides of the lock
+    screen. We show this as an option in a settings experience, where users get to choose which
+    quick affordances (or buttons) are available on their device's lock screen. [CHAR LIMIT=10].
+    -->
+
+    <!--
+    Title for a popup dialog shown when the user attempts to select an option that is not currently
+    enabled. The dialog contains a list of instructions that the user needs to take in order to
+    enable the option before it can be selected again. [CHAR LIMIT=NONE].
+    -->
+
+    <!--
+    Template for an action that opens a specific app. [CHAR LIMIT=16]
+    -->
+
+    <!--
+    Template for a message shown right before a list of instructions that tell the user what to do
+    in order to enable a shortcut to a specific app. [CHAR LIMIT=NONE]
+    -->
+
+    <!--
+    Label for button in a dialog shown to the user with a list of instructions that the user should
+    follow in order to make a piece of functionality available as a lock screen quick affordance.
+    [CHAR LIMIT=10].
+    -->
+
+    <!--
+    Title for a screen where the user can configure the lock screen shortcut buttons that appear on
+    the device without unlocking.
+    [CHAR LIMIT=32].
+    -->
+
+    <!--
+    Label for a menu item on a settings screen that helps the user open a new screen where they can
+    configure the lock screen shortcut buttons that appear on the device without unlocking.
+    [CHAR LIMIT=16].
+    -->
+
+    <!--
+    Label for a menu item on a settings screen that helps the user open a new screen where they can
+    configure the lock screen shortcut buttons that appear on the device without unlocking.
+    [CHAR LIMIT=16].
+    -->
+
+    <!--
+    Label for color contrast settings button with default contrast setting.
+    [CHAR LIMIT=16].
+    -->
+
+    <!--
+    Label for color contrast settings button with medium contrast setting.
+    [CHAR LIMIT=16].
+    -->
+
+    <!--
+    Label for color contrast settings button with maximum contrast setting.
+    [CHAR LIMIT=16].
+    -->
+
+    <!--
+    Template for text that shows the names of two currently-selected lock screen shortcuts on the
+    lock screen. For example, it may say "Camera, Wallet", if the first selected shortcut opens the
+    camera app and the second one opens the tap-to-pay wallet experience.
+    [CHAR LIMIT=60].
+    -->
+
+    <!--
+    Placeholder text that shows when no lock screen shortcuts are currently selected on the lock
+    screen. When selected, "None" is replaced by another string that shows what is currently
+    selected. For example, it may say "Camera, Wallet", if the first selected shortcut opens the
+    camera app and the second one opens the tap-to-pay wallet experience.
+    [CHAR LIMIT=60].
+    -->
+
+    <!--
+    Summary for a setting that lets the user toggle between showing or hiding notifications on their
+    device's lock screen. This one is shown when the user is allowing notifications to show on their
+    device's lock screen.
+
+    [CHAR LIMIT=64].
+    -->
+
+    <!--
+    Title for a section in a list of sections in the settings app that allows the user to access
+    additional settings related to lock screen behaviour.
+
+    [CHAR LIMIT=32].
+    -->
+
+    <!--
+    Summary for a setting that lets the user access additional settings related to lock screen
+    behaviour. Please note that "Now Playing" is an entity; it's a name of an existing feature
+    that allows users to see the song that the device is picking up through its microphone on
+    the lock screen; therefore, it should not be translated literally.
+
+    [CHAR LIMIT=64].
+    -->
+
+    <!--
+    Label for button that lets the user navigate to a full-screen experience of selecting
+    system colors.
+
+    [CHAR LIMIT=128].
+    -->
+
+    <!--
+    Accessibility string for a button that allows the user to select a color scheme generated from
+    their current wallpaper as the system color. This is shown in a list with other color options.
+
+    [CHAR LIMIT=NONE].
+    -->
+
+    <!--
+    Accessibility string for a button that allows the user to select a color scheme generated from
+    their current wallpaper as the system color. This is shown in a list with other color options.
+
+    [CHAR LIMIT=NONE].
+    -->
+
+    <!--
+    Accessibility string for a button that allows the user to select a color scheme generated from
+    their current wallpaper as the system color. This is shown in a list with other color options.
+
+    [CHAR LIMIT=NONE].
+    -->
+
+    <!--
+    Accessibility string for a button that allows the user to select a color scheme generated from
+    their current wallpaper as the system color. This is shown in a list with other color options.
+
+    [CHAR LIMIT=NONE].
+    -->
+
+    <!--
+    Accessibility string for a button that allows the user to select the default color for their
+    lock screen clock on the device. This is shown next to other buttons that allow the user to
+    select from a set of custom colors.
+
+    [CHAR LIMIT=NONE].
+    -->
+
+    <!--
+    Accessibility string for a button that allows the user to select a custom color for their lock
+    screen clock on the device. This is shown next to other such buttons that allow the user to
+    select from a set of custom colors.
+
+    [CHAR LIMIT=NONE].
+    -->
+
+    <!--
+    Accessibility label for forward scrolling in the carousel of clock faces.
+    [CHAR LIMIT=128].
+    -->
+
+    <!--
+    Accessibility label for backward scrolling in the carousel of clock faces.
+    [CHAR LIMIT=128].
+    -->
+
+    <!--
+    Accessibility label for the carousel of clock faces.
+    [CHAR LIMIT=128].
+    -->
+
+
+    <!-- Content description for customize panel is hidden. [CHAR_LIMIT=50] -->
+    <string name="accessibility_customize_hidden">Customize hidden</string>
+
+    <!-- Content description for customize panel is shown. [CHAR_LIMIT=50] -->
+    <string name="accessibility_customize_shown">Customize shown</string>
+
+    <!-- Content description for info panel is hidden. [CHAR_LIMIT=50] -->
+    <string name="accessibility_info_hidden">Info hidden</string>
+
+    <!-- Content description for info panel is shown. [CHAR_LIMIT=50] -->
+    <string name="accessibility_info_shown">Info shown</string>
+</resources>
