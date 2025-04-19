@@ -15,24 +15,31 @@
  */
 package io.github.dot166.themeengine;
 
+import static android.widget.Toast.LENGTH_LONG;
+
 import android.content.Context;
+import android.content.SharedPreferences;
+import android.util.Log;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
+import androidx.fragment.app.FragmentActivity;
+import androidx.preference.PreferenceManager;
 
 import com.android.customization.model.CustomizationManager;
 
-import java.util.List;
+import java.util.Objects;
 
 public class ThemeEngineManager implements CustomizationManager<ThemeEngineOption> {
 
     private static ThemeEngineManager sThemeEngineOptionManager;
-    private Context mContext;
+    private FragmentActivity mActivtiy;
     private ThemeEngineOptionProvider mProvider;
     private static final String TAG = "ThemeEngineManager";
     private static final String KEY_STATE_CURRENT_SELECTION = "ThemeEngineManager.currentSelection";
 
-    ThemeEngineManager(Context context, ThemeEngineOptionProvider provider) {
-        mContext = context;
+    ThemeEngineManager(FragmentActivity activity, ThemeEngineOptionProvider provider) {
+        mActivtiy = activity;
         mProvider = provider;
     }
 
@@ -43,9 +50,17 @@ public class ThemeEngineManager implements CustomizationManager<ThemeEngineOptio
 
     @Override
     public void apply(ThemeEngineOption option, @Nullable Callback callback) {
-        if (callback != null) {
-            callback.onSuccess();
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(mActivtiy);
+        String themeId = option.getThemeId();
+        if (Objects.equals(themeId, "Disabled")) {
+            prefs.edit().putBoolean("pref_enableThemeEngine", false).apply();
+        } else {
+            prefs.edit().putString("pref_theme", themeId).apply();
+            prefs.edit().putBoolean("pref_enableThemeEngine", true).apply();
         }
+        Log.i(TAG, "Theme changed, recreating activity.");
+        Toast.makeText(mActivtiy, TAG + ": Theme changed, recreating activity.", LENGTH_LONG).show();
+        mActivtiy.recreate();
     }
 
     @Override
@@ -53,10 +68,10 @@ public class ThemeEngineManager implements CustomizationManager<ThemeEngineOptio
         callback.onOptionsLoaded(mProvider.getOptions());
     }
 
-    public static ThemeEngineManager getInstance(Context context) {
+    public static ThemeEngineManager getInstance(FragmentActivity activity) {
         if (sThemeEngineOptionManager == null) {
-            Context applicationContext = context.getApplicationContext();
-            sThemeEngineOptionManager = new ThemeEngineManager(context, new ThemeEngineOptionProvider(applicationContext));
+            Context applicationContext = activity.getApplicationContext();
+            sThemeEngineOptionManager = new ThemeEngineManager(activity, new ThemeEngineOptionProvider(applicationContext));
         }
         return sThemeEngineOptionManager;
     }

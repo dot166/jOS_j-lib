@@ -38,6 +38,8 @@
                 android:clipToPadding="false"
                 android:paddingTop="@dimen/preview_page_top_margin"
                 android:paddingBottom="@dimen/preview_page_bottom_margin"
+                android:background="@color/transparent"
+                android:colorBackground="@color/transparent"
                 app:layout_constrainedHeight="true"
                 app:layout_constraintBottom_toTopOf="@+id/options_container"
                 app:layout_constraintEnd_toEndOf="parent"

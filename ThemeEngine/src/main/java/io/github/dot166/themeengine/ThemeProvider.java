@@ -50,7 +50,7 @@ public class ThemeProvider extends ContentProvider
         return mc;
     }
 
-    public String getTheme(Context context)
+    public static String getTheme(Context context)
     {
         //access your shared preference or whatever else you're using here
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(Objects.requireNonNull(context));

@@ -126,7 +126,6 @@
     <!-- Content description of font preview. [CHAR_LIMIT=30]-->
 
     <!-- Content description of icon preview. [CHAR_LIMIT=30]-->
-    <string name="icon_preview_content_description">Icon preview</string>
 
     <!-- Content description of color preview. [CHAR_LIMIT=30]-->
 

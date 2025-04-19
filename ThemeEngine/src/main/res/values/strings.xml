@@ -20,4 +20,5 @@
         <item>lock01</item>
         <item>nexus_chroma</item>
     </array>
+    <string name="te_preview_content_description">Theme preview</string>
 </resources>

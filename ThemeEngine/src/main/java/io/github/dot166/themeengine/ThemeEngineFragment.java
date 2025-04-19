@@ -15,6 +15,7 @@
  */
 package io.github.dot166.themeengine;
 
+import static android.widget.Toast.LENGTH_LONG;
 import static com.android.wallpaper.widget.BottomActionBar.BottomAction.APPLY_TEXT;
 
 import android.content.SharedPreferences;
@@ -23,6 +24,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -39,6 +41,7 @@ import com.android.wallpaper.picker.AppbarFragment;
 import com.android.wallpaper.widget.BottomActionBar;
 
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Fragment that contains the UI for selecting and applying a ThemeEngineOption.
@@ -68,9 +71,9 @@ public class ThemeEngineFragment extends AppbarFragment {
     private final Callback mApplyThemeEngineCallback = new Callback() {
         @Override
         public void onSuccess() {
-            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(requireContext());
-            prefs.edit().putString("pref_theme", mSelectedOption.getThemeId()).apply();
-
+            Log.i(TAG, "Theme changed, recreating activity.");
+            Toast.makeText(getContext(), TAG + ": Theme changed, recreating activity.", LENGTH_LONG).show();
+            requireActivity().recreate();
         }
 
         @Override
@@ -104,7 +107,7 @@ public class ThemeEngineFragment extends AppbarFragment {
             return windowInsets.consumeSystemWindowInsets();
         });
 
-        mThemeEngineManager = ThemeEngineManager.getInstance(getContext());
+        mThemeEngineManager = ThemeEngineManager.getInstance(getActivity());
         setUpOptions(savedInstanceState);
 
         return view;

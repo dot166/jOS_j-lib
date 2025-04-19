@@ -20,8 +20,8 @@
     android:id="@+id/app_bar"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    app:liftOnScrollColor="@color/system_surface_container_highest"
-    android:background="@color/system_surface_container"
+    app:liftOnScrollColor="@color/transparent"
+    android:background="@color/transparent"
     android:fitsSystemWindows="true"
     app:liftOnScroll="true"
     app:elevation="0dp">
@@ -30,7 +30,6 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?android:attr/actionBarSize"
-        android:theme="?android:attr/actionBarTheme"
         android:importantForAccessibility="yes"
         android:layout_gravity="top">
         <TextView

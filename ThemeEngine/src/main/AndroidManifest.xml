@@ -50,7 +50,7 @@
 
         <provider
             android:name="io.github.dot166.themeengine.ThemeProvider"
-            android:authorities="i.github.dot166.themeengine.ThemeProvider"
+            android:authorities="io.github.dot166.themeengine.ThemeProvider"
             android:enabled="true"
             android:exported="true"
             tools:ignore="ExportedContentProvider" />

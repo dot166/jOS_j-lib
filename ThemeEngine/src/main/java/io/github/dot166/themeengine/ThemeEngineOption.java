@@ -16,6 +16,7 @@
 package io.github.dot166.themeengine;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
@@ -26,6 +27,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.util.Log;
+
+import androidx.preference.PreferenceManager;
 
 import com.android.wallpaper.util.ResourceUtils;
 
@@ -38,13 +41,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-public class ThemeEngineOption implements CustomizationOption<ThemeEngineOption> {
+import io.github.dot166.jlib.widget.ActionBar2;
 
-    public static final int THUMBNAIL_ICON_POSITION = 0;
-    private static int[] mIconIds = {
-            R.id.preview_icon_0, R.id.preview_icon_1, R.id.preview_icon_2, R.id.preview_icon_3,
-            R.id.preview_icon_4, R.id.preview_icon_5
-    };
+public class ThemeEngineOption implements CustomizationOption<ThemeEngineOption> {
 
     private Drawable mIcon;
     private String mTitle;
@@ -76,7 +75,7 @@ public class ThemeEngineOption implements CustomizationOption<ThemeEngineOption>
 
     @Override
     public boolean isActive(CustomizationManager<ThemeEngineOption> manager) {
-        return Objects.equals(mThemeId, (new ThemeProvider()).getTheme(mContext));
+        return Objects.equals(mThemeId, ThemeProvider.getTheme(mContext));
     }
 
     @Override
@@ -94,15 +93,17 @@ public class ThemeEngineOption implements CustomizationOption<ThemeEngineOption>
     }
 
     public void bindPreview(ViewGroup container) {
-//        ViewGroup cardBody = container.findViewById(R.id.theme_preview_card_body_container);
-//        if (cardBody.getChildCount() == 0) {
-//            LayoutInflater.from(container.getContext()).inflate(
-//                    R.layout.preview_card_te_content, cardBody, true);
-//        }
-//        for (int i = 0; i < mIconIds.length && i < mIcons.size(); i++) {
-//            ((ImageView) container.findViewById(mIconIds[i])).setImageDrawable(
-//                    mIcons.get(i));
-//        }
+        ViewGroup cardBody = container.findViewById(R.id.theme_preview_card_body_container);
+        cardBody.removeAllViews();
+        int layout = R.layout.te_preview_jlib;
+        if (Objects.equals(getThemeId(), "Disabled")) {
+            layout = R.layout.te_preview_off;
+        } else if (Objects.equals(getThemeId(), "jLib")) {
+            layout = R.layout.te_preview_jlib;
+        } else if (Objects.equals(getThemeId(), "M3")) {
+            layout = R.layout.te_preview_m3;
+        }
+        LayoutInflater.from(mContext).inflate(layout, cardBody, true);
     }
 
     public void setIcon(Drawable previewIcon) {
