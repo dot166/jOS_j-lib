@@ -448,14 +448,14 @@
                     "name": "The Android Open Source Project"
                 }
             ],
-            "artifactVersion": "1.3.1",
+            "artifactVersion": "1.3.2",
             "description": "Compose Material You Design Components library",
             "scm": {
                 "connection": "scm:git:https://android.googlesource.com/platform/frameworks/support",
                 "url": "https://cs.android.com/androidx/platform/frameworks/support"
             },
             "name": "Compose Material3 Components",
-            "website": "https://developer.android.com/jetpack/androidx/releases/compose-material3#1.3.1",
+            "website": "https://developer.android.com/jetpack/androidx/releases/compose-material3#1.3.2",
             "licenses": [
                 "Apache-2.0"
             ],
@@ -867,14 +867,14 @@
                     "name": "The Android Open Source Project"
                 }
             ],
-            "artifactVersion": "1.15.0",
+            "artifactVersion": "1.16.0",
             "description": "Provides backward-compatible implementations of Android platform APIs and features.",
             "scm": {
                 "connection": "scm:git:https://android.googlesource.com/platform/frameworks/support",
                 "url": "https://cs.android.com/androidx/platform/frameworks/support"
             },
             "name": "Core",
-            "website": "https://developer.android.com/jetpack/androidx/releases/core#1.15.0",
+            "website": "https://developer.android.com/jetpack/androidx/releases/core#1.16.0",
             "licenses": [
                 "Apache-2.0"
             ],
@@ -892,14 +892,14 @@
                     "name": "The Android Open Source Project"
                 }
             ],
-            "artifactVersion": "1.15.0",
+            "artifactVersion": "1.16.0",
             "description": "Kotlin extensions for 'core' artifact",
             "scm": {
                 "connection": "scm:git:https://android.googlesource.com/platform/frameworks/support",
                 "url": "https://cs.android.com/androidx/platform/frameworks/support"
             },
             "name": "Core Kotlin Extensions",
-            "website": "https://developer.android.com/jetpack/androidx/releases/core#1.15.0",
+            "website": "https://developer.android.com/jetpack/androidx/releases/core#1.16.0",
             "licenses": [
                 "Apache-2.0"
             ],
@@ -2585,6 +2585,29 @@
             },
             "name": "JetBrains Java Annotations",
             "website": "https://github.com/JetBrains/java-annotations",
+            "licenses": [
+                "Apache-2.0"
+            ]
+        },
+        {
+            "uniqueId": "org.jspecify:jspecify",
+            "funding": [
+                
+            ],
+            "developers": [
+                {
+                    "name": "Kevin Bourrillion"
+                }
+            ],
+            "artifactVersion": "1.0.0",
+            "description": "An artifact of well-named and well-specified annotations to power static analysis checks",
+            "scm": {
+                "connection": "scm:git:git@github.com:jspecify/jspecify.git",
+                "url": "https://github.com/jspecify/jspecify/",
+                "developerConnection": "scm:git:git@github.com:jspecify/jspecify.git"
+            },
+            "name": "JSpecify annotations",
+            "website": "http://jspecify.org/",
             "licenses": [
                 "Apache-2.0"
             ]
