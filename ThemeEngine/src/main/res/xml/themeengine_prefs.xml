@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.preference.PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <Preference
+        android:title="@string/te_legacy_warning"
+        android:key="te_legacy_warning"/>
     <SwitchPreference
         android:title="@string/enable_themeengine"
         android:key="pref_enableThemeEngine"

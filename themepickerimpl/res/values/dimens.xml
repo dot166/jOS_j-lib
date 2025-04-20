@@ -192,7 +192,6 @@
     <dimen name="grid_options_container_horizontal_margin">24dp</dimen>
 
     <dimen name="preview_theme_content_max_height">200dp</dimen>
-    <dimen name="preview_theme_icon_size">30dp</dimen>
 
     <!--  For the new preview of theme picker.  -->
 

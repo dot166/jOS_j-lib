@@ -4,7 +4,9 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
-public class LauncherActivity extends Activity {
+import io.github.dot166.themeengine.flags.Flags;
+
+public class TrampolineTEActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -14,10 +16,13 @@ public class LauncherActivity extends Activity {
 
     private void invokeSettings() {
         final Intent intent = new Intent();
-        intent.setClass(this, TrampolineTEActivity.class);
+        if (Flags.useNewConfigUi()) {
+            intent.setClass(this, ThemeEngineActivity.class);
+        } else {
+            intent.setClass(this, ConfigActivity.class);
+        }
         intent.setFlags(Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED
                 | Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
     }
-
 }

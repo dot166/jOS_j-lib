@@ -13,7 +13,6 @@
     </string-array>
 
     <!-- DO NOT TRANSLATE Empty summary for dynamic preferences -->
-    <string name="summary_empty" translatable="false" />
 
     <!-- AOSP Customization Things -->
     <array name="partner_wallpapers">
@@ -21,4 +20,5 @@
         <item>nexus_chroma</item>
     </array>
     <string name="te_preview_content_description">Theme preview</string>
+    <string name="te_legacy_warning">WARNING! This screen has been deprecated in favor of the new ThemePicker based UI, if you are the developer of this application please point ThemeEngine intents to the io.github.dot166.themeengine.CONFIG intent action. If you are not the developer, Please contact the developer of the application</string>
 </resources>

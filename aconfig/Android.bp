@@ -4,6 +4,7 @@ aconfig_declarations {
     container: "system",
     srcs: [
         "jLib.aconfig",
+        "TE.aconfig",
     ],
 }
 

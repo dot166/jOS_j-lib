@@ -10,6 +10,7 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("com.mikepenz.aboutlibraries.plugin")
+    id("io.github.dot166.aconfig")
 }
 
 val keystorePropertiesFile = rootProject.file("keystore.properties")
@@ -87,4 +88,10 @@ aboutLibraries {
 
 dependencies {
     implementation(project(":j-LIB-core")) // implementation("io.github.dot166:j-Lib:+")
+}
+
+aconfig {
+    textProtoRepo = "https://github.com/dot166/platform_build_release"
+    flagsPackage = "io.github.dot166.themeengine.flags"
+    aconfigFiles = "../aconfig/TE.aconfig"
 }

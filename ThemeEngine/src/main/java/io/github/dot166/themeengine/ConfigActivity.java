@@ -1,13 +1,8 @@
 package io.github.dot166.themeengine;
 
-import static android.view.View.GONE;
-
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 
 import androidx.preference.PreferenceManager;
 
@@ -17,6 +12,7 @@ import java.util.Objects;
 
 import io.github.dot166.jlib.widget.ActionBar2;
 import io.github.dot166.jlib.app.jConfigActivity;
+import io.github.dot166.themeengine.flags.Flags;
 
 public class ConfigActivity extends jConfigActivity implements AppbarFragment.AppbarFragmentHost {
     @Override
@@ -28,9 +24,6 @@ public class ConfigActivity extends jConfigActivity implements AppbarFragment.Ap
         super.onCreate(savedInstanceState);
         ActionBar2 actionBar2 = findViewById(io.github.dot166.jlib.R.id.actionbar);
         actionBar2.setTitleCentered(true);
-        actionBar2.setVisibility(GONE);
-        addContentView(LayoutInflater.from(this).inflate(R.layout.bottom_action_bar, (ViewGroup)findViewById(io.github.dot166.jlib.R.id.content_frame).getParent()), null);
-        getSupportFragmentManager().beginTransaction().replace(io.github.dot166.jlib.R.id.content_frame, new ThemeEngineFragment()).commit();
     }
 
     @Override
@@ -57,6 +50,9 @@ public class ConfigActivity extends jConfigActivity implements AppbarFragment.Ap
         @Override
         public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
             super.onCreatePreferences(savedInstanceState, rootKey);
+            if (!Flags.useNewConfigUi()) {
+                getPreferenceScreen().removePreference(Objects.requireNonNull(findPreference("te_legacy_warning")));
+            }
             PreferenceManager.getDefaultSharedPreferences(requireContext()).registerOnSharedPreferenceChangeListener(this);
         }
         @Override
