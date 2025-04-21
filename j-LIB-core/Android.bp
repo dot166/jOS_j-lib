@@ -35,6 +35,7 @@ android_library {
         "androidx.recyclerview_recyclerview",
         "j-Lib_com.google.accompanist_accompanist-drawablepainter",
         "com.google.android.material_material",
+        "j-Lib_com.mikepenz_aboutlibraries-compose-core-android",
         "j-Lib_com.mikepenz_aboutlibraries-compose-m3",
         "j-Lib_com.mikepenz_aboutlibraries-compose-m3-android",
         "j-Lib_com.mikepenz_aboutlibraries-core",
