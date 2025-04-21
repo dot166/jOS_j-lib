@@ -2087,6 +2087,29 @@
             ]
         },
         {
+            "uniqueId": "com.mikepenz:aboutlibraries-compose-core-android",
+            "funding": [
+                
+            ],
+            "developers": [
+                {
+                    "name": "Mike Penz"
+                }
+            ],
+            "artifactVersion": "12.0.0",
+            "description": "AboutLibraries automatically detects all dependencies of a project and collects their information including the license. Optionally visualising it via the provided ui components.",
+            "scm": {
+                "connection": "scm:git@github.com:mikepenz/AboutLibraries.git",
+                "url": "https://github.com/mikepenz/AboutLibraries",
+                "developerConnection": "scm:git@github.com:mikepenz/AboutLibraries.git"
+            },
+            "name": "AboutLibraries Compose UI Library",
+            "website": "https://github.com/mikepenz/AboutLibraries",
+            "licenses": [
+                "Apache-2.0"
+            ]
+        },
+        {
             "uniqueId": "com.mikepenz:aboutlibraries-compose-m3-android",
             "funding": [
                 
@@ -2096,7 +2119,7 @@
                     "name": "Mike Penz"
                 }
             ],
-            "artifactVersion": "11.6.3",
+            "artifactVersion": "12.0.0",
             "description": "AboutLibraries automatically detects all dependencies of a project and collects their information including the license. Optionally visualising it via the provided ui components.",
             "scm": {
                 "connection": "scm:git@github.com:mikepenz/AboutLibraries.git",
@@ -2119,7 +2142,7 @@
                     "name": "Mike Penz"
                 }
             ],
-            "artifactVersion": "11.6.3",
+            "artifactVersion": "12.0.0",
             "description": "AboutLibraries automatically detects all dependencies of a project and collects their information including the license. Optionally visualising it via the provided ui components.",
             "scm": {
                 "connection": "scm:git@github.com:mikepenz/AboutLibraries.git",
@@ -2294,30 +2317,6 @@
             ]
         },
         {
-            "uniqueId": "org.jetbrains.kotlin:kotlin-bom",
-            "funding": [
-                
-            ],
-            "developers": [
-                {
-                    "organisationUrl": "https://www.jetbrains.com",
-                    "name": "JetBrains Team"
-                }
-            ],
-            "artifactVersion": "1.8.22",
-            "description": "Kotlin is a statically typed programming language that compiles to JVM byte codes and JavaScript",
-            "scm": {
-                "connection": "scm:git:https://github.com/JetBrains/kotlin.git",
-                "url": "https://github.com/JetBrains/kotlin",
-                "developerConnection": "scm:git:https://github.com/JetBrains/kotlin.git"
-            },
-            "name": "Kotlin Libraries bill-of-materials",
-            "website": "https://kotlinlang.org/",
-            "licenses": [
-                "Apache-2.0"
-            ]
-        },
-        {
             "uniqueId": "org.jetbrains.kotlin:kotlin-stdlib",
             "funding": [
                 
@@ -2456,28 +2455,6 @@
             ]
         },
         {
-            "uniqueId": "org.jetbrains.kotlinx:kotlinx-coroutines-bom",
-            "funding": [
-                
-            ],
-            "developers": [
-                {
-                    "organisationUrl": "https://www.jetbrains.com",
-                    "name": "JetBrains Team"
-                }
-            ],
-            "artifactVersion": "1.8.1",
-            "description": "Coroutines support libraries for Kotlin",
-            "scm": {
-                "url": "https://github.com/Kotlin/kotlinx.coroutines"
-            },
-            "name": "kotlinx-coroutines-bom",
-            "website": "https://github.com/Kotlin/kotlinx.coroutines",
-            "licenses": [
-                "Apache-2.0"
-            ]
-        },
-        {
             "uniqueId": "org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm",
             "funding": [
                 
@@ -2500,28 +2477,6 @@
             ]
         },
         {
-            "uniqueId": "org.jetbrains.kotlinx:kotlinx-serialization-bom",
-            "funding": [
-                
-            ],
-            "developers": [
-                {
-                    "organisationUrl": "https://www.jetbrains.com",
-                    "name": "JetBrains Team"
-                }
-            ],
-            "artifactVersion": "1.8.0",
-            "description": "Kotlin multiplatform serialization runtime library",
-            "scm": {
-                "url": "https://github.com/Kotlin/kotlinx.serialization"
-            },
-            "name": "kotlinx-serialization-bom",
-            "website": "https://github.com/Kotlin/kotlinx.serialization",
-            "licenses": [
-                "Apache-2.0"
-            ]
-        },
-        {
             "uniqueId": "org.jetbrains.kotlinx:kotlinx-serialization-core-jvm",
             "funding": [
                 
@@ -2532,7 +2487,7 @@
                     "name": "JetBrains Team"
                 }
             ],
-            "artifactVersion": "1.8.0",
+            "artifactVersion": "1.8.1",
             "description": "Kotlin multiplatform serialization runtime library",
             "scm": {
                 "url": "https://github.com/Kotlin/kotlinx.serialization"
@@ -2554,7 +2509,7 @@
                     "name": "JetBrains Team"
                 }
             ],
-            "artifactVersion": "1.8.0",
+            "artifactVersion": "1.8.1",
             "description": "Kotlin multiplatform serialization runtime library",
             "scm": {
                 "url": "https://github.com/Kotlin/kotlinx.serialization"
