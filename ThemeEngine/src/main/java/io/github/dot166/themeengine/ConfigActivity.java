@@ -6,15 +6,13 @@ import android.os.Handler;
 
 import androidx.preference.PreferenceManager;
 
-import com.android.wallpaper.picker.AppbarFragment;
-
 import java.util.Objects;
 
 import io.github.dot166.jlib.widget.ActionBar2;
 import io.github.dot166.jlib.app.jConfigActivity;
 import io.github.dot166.themeengine.flags.Flags;
 
-public class ConfigActivity extends jConfigActivity implements AppbarFragment.AppbarFragmentHost {
+public class ConfigActivity extends jConfigActivity {
     @Override
     public jLIBSettingsFragment preferenceFragment() {
         return new jThemeEngineConfigFragment();
@@ -24,16 +22,6 @@ public class ConfigActivity extends jConfigActivity implements AppbarFragment.Ap
         super.onCreate(savedInstanceState);
         ActionBar2 actionBar2 = findViewById(io.github.dot166.jlib.R.id.actionbar);
         actionBar2.setTitleCentered(true);
-    }
-
-    @Override
-    public void onUpArrowPressed() {
-        finish();
-    }
-
-    @Override
-    public boolean isUpArrowSupported() {
-        return true;
     }
 
     public static class jThemeEngineConfig {
