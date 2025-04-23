@@ -10,11 +10,11 @@ public class TEApplication extends CustomizationPickerApplication {
 
     @Override
     public CustomizationSectionController<?> getTEController(CustomizationManager<?> themeEngineOptionsManager, CustomizationSectionController.CustomizationSectionNavigationController sectionNavigationController) {
-        return new ThemeEngineSectionController((ThemeEngineManager) themeEngineOptionsManager, sectionNavigationController); // default
+        return new ThemeEngineSectionController((ThemeEngineManager) themeEngineOptionsManager, sectionNavigationController);
     }
 
     @Override
     public CustomizationManager<?> getTEManager(FragmentActivity activity) {
-        return ThemeEngineManager.getInstance(activity); // default
+        return ThemeEngineManager.getInstance(activity);
     }
 }
