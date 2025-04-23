@@ -1,5 +1,5 @@
 package: "io.github.dot166.themeengine.flags"
-container: "system"
+container: "system_ext"
 
 flag {
     name: "use_new_config_ui"
