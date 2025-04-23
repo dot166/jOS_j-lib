@@ -37,9 +37,9 @@ public class ThemeEngineOptionProvider {
     }
 
     private void loadOptions() {
-        ThemeEngineOption disabledOption = new ThemeEngineOption("Disable ThemeEngine", "Disabled", mContext);
-        disabledOption.setIcon(mContext.getResources().getDrawable(android.R.drawable.sym_def_app_icon));
-        mOptions.add(disabledOption);
+        ThemeEngineOption disabledOption = new ThemeEngineOption("Disable ThemeEngine", "Disabled", mContext); // this is only here for the legacy ui, once that is removed the disabled setting will be in the preference normally so this would not be needed
+        disabledOption.setIcon(mContext.getResources().getDrawable(android.R.drawable.sym_def_app_icon)); // this is only here for the legacy ui, once that is removed the disabled setting will be in the preference normally so this would not be needed
+        mOptions.add(disabledOption); // this is only here for the legacy ui, once that is removed the disabled setting will be in the preference normally so this would not be needed
         String[] themeIds = mContext.getResources().getStringArray(R.array.themesConfig);
         String[] themeNames = mContext.getResources().getStringArray(R.array.themes);
 

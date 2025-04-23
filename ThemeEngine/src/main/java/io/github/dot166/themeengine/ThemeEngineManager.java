@@ -52,7 +52,7 @@ public class ThemeEngineManager implements CustomizationManager<ThemeEngineOptio
     public void apply(ThemeEngineOption option, @Nullable Callback callback) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(mActivtiy);
         String themeId = option.getThemeId();
-        if (Objects.equals(themeId, "Disabled")) {
+        if (Objects.equals(themeId, "Disabled")) { // this check is only here for the legacy ui, once that is removed the disabled setting will be in the preference normally so this would not be needed
             prefs.edit().putBoolean("pref_enableThemeEngine", false).apply();
         } else {
             prefs.edit().putString("pref_theme", themeId).apply();
