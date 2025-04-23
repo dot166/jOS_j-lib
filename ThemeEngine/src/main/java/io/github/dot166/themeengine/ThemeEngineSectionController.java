@@ -33,7 +33,7 @@ import java.util.List;
 
 /** A {@link CustomizationSectionController} for system Themes. */
 
-public abstract class ThemeEngineSectionController implements CustomizationSectionController<ThemeEngineSectionView> {
+public class ThemeEngineSectionController implements CustomizationSectionController<ThemeEngineSectionView> {
 
     private static final String TAG = "ThemeEngineSectionController";
 

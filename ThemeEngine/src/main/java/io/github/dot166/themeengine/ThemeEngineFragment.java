@@ -37,6 +37,7 @@ import com.android.customization.model.CustomizationManager.OptionsFetchedListen
 import com.android.customization.model.CustomizationOption;
 
 import io.github.dot166.themeengine.OptionSelectorController.CheckmarkStyle;
+
 import com.android.wallpaper.picker.AppbarFragment;
 import com.android.wallpaper.widget.BottomActionBar;
 
