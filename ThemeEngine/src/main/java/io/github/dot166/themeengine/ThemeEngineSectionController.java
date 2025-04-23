@@ -16,11 +16,13 @@
 package io.github.dot166.themeengine;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.android.customization.model.CustomizationManager.OptionsFetchedListener;
@@ -87,5 +89,28 @@ public abstract class ThemeEngineSectionController implements CustomizationSecti
                 .findAny()
                 // For development only, as there should always be a grid set.
                 .orElse(options.get(0));
+    }
+
+    @Override
+    public boolean shouldRetainInstanceWhenSwitchingTabs() {
+        return false;
+    }
+
+    @NonNull
+    @Override
+    public ThemeEngineSectionView createView(@NonNull Context context, @NonNull ViewCreationParams params) {
+        return createView(context);
+    }
+
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle savedInstanceState) {
+    }
+
+    @Override
+    public void release() {
+    }
+
+    @Override
+    public void onTransitionOut() {
     }
 }
