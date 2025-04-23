@@ -1,9 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <color name="color_accent_primary">#D9E2FF</color>
+    <color name="color_accent_primary_variant">#475D92</color>
+    <color name="color_surface">@color/settingslib_colorSurface</color>
     <color name="text_color_primary">@color/settingslib_text_color_primary</color>
     <color name="text_color_secondary">@color/settingslib_text_color_secondary</color>
     <color name="text_color_secondary_inverse">
         @color/settingslib_text_color_secondary_device_default
     </color>
+    <color name="system_on_surface">#1A1B20</color>
+    <color name="system_on_surface_variant">#40434B</color>
+
+    <!-- Material 3 colors -->
+    <color name="system_surface_container">#EEEDF4</color>
+    <color name="system_surface_container_highest">#E2E2E9</color>
 </resources>
