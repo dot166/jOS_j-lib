@@ -77,7 +77,7 @@ dependencies {
     api("androidx.activity:activity-compose:1.10.1")
     api("androidx.compose.ui:ui-android:1.7.8")
     api("androidx.compose.material3:material3-android:1.3.2")
-    api("androidx.compose.material:material-android:1.7.8")
+    api("androidx.compose.material:material-android:1.8.0")
     api("io.coil-kt:coil-compose:2.7.0")
     api("com.google.accompanist:accompanist-drawablepainter:0.37.2")
     api("com.mikepenz:aboutlibraries-core:12.0.0")
