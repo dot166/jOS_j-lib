@@ -4,6 +4,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <TextView
+        android:id="@+id/off_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
@@ -11,6 +12,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:textAlignment="center"
-        android:text="You have selected to disable ThemeEngine,\n Doing this will let each individual app handle theming for itself, \n So a preview is not supported as it would just reflect the theme in ThemePicker."/>
+        android:text="@string/te_disabled"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

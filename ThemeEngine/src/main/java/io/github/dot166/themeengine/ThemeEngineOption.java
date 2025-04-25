@@ -22,11 +22,13 @@ import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.PorterDuff.Mode;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.util.Log;
+import android.widget.TextView;
 
 import androidx.preference.PreferenceManager;
 
@@ -50,26 +52,20 @@ public class ThemeEngineOption implements CustomizationOption<ThemeEngineOption>
     private String mThemeId;
     private Context mContext;
 
-    public ThemeEngineOption(String title, String themeId, Context context) {
+    public ThemeEngineOption(String title, String themeId, Context context, Drawable icon) {
         mTitle = title;
         mThemeId = themeId;
         mContext = context;
+        mIcon = icon;
     }
 
     @Override
     public void bindThumbnailTile(View view) {
-        Resources res = view.getContext().getResources();
-        Drawable icon = new BitmapDrawable(res, BitmapFactory.decodeResource(res, io.github.dot166.jlib.R.mipmap.ic_themeengine));
         int resId = R.id.icon_section_tile;
         if (view.findViewById(R.id.option_icon) != null) {
             resId = R.id.option_icon;
-            if (mIcon != null) {
-                icon = mIcon;
-            } else {
-                Log.i("ThemeEngineOption", mTitle + " - no icon is set");
-            }
         }
-        ((ImageView) view.findViewById(resId)).setImageDrawable(icon);
+        ((ImageView) view.findViewById(resId)).setImageDrawable(mIcon);
         view.setContentDescription(mTitle);
     }
 
@@ -96,17 +92,20 @@ public class ThemeEngineOption implements CustomizationOption<ThemeEngineOption>
         ViewGroup cardBody = container.findViewById(R.id.theme_preview_card_body_container);
         cardBody.removeAllViews();
         int layout = R.layout.te_preview_jlib;
-        if (Objects.equals(getThemeId(), "Disabled")) {
-            layout = R.layout.te_preview_off;
-        } else if (Objects.equals(getThemeId(), "jLib")) {
-            layout = R.layout.te_preview_jlib;
-        } else if (Objects.equals(getThemeId(), "M3")) {
-            layout = R.layout.te_preview_m3;
+        switch (getThemeId()) {
+            case "Disabled" -> {
+                layout = R.layout.te_preview_off;
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        ((TextView) cardBody.findViewById(R.id.off_text)).setTextColor(cardBody.getContext().getTheme().obtainStyledAttributes(new int[]{android.R.attr.textColorPrimary}).getColor(0, cardBody.getContext().getResources().getColor(io.github.dot166.jlib.R.color.j_primary_text_holo_dark)));
+                    }
+                }, 1000);
+            }
+            case "jLib" -> layout = R.layout.te_preview_jlib;
+            case "M3" -> layout = R.layout.te_preview_m3;
         }
         LayoutInflater.from(mContext).inflate(layout, cardBody, true);
-    }
-
-    public void setIcon(Drawable previewIcon) {
-        mIcon = previewIcon;
     }
 }
