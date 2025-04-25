@@ -5,14 +5,14 @@ import android.content.SharedPreferences;
 
 import androidx.preference.PreferenceManager;
 
-public class jLibFeatureFlags {
+public class jLibConfig {
 
     public static boolean blink_enabled_default_value = true;
     public static int blink_speed_default_value = 500;
     public static boolean data_enabled_default_value = false;
     static SharedPreferences prefs;
 
-    private enum jLibFlags {
+    private enum jLibConfigValues {
         blink_enabled,
         blink_speed,
         data_enabled,
@@ -49,7 +49,7 @@ public class jLibFeatureFlags {
 
     public static void init_values(Context context) {
         prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        for(jLibFlags flag : jLibFlags.values()) {
+        for(jLibConfigValues flag : jLibConfigValues.values()) {
             switch (flag) {
                 case blink_enabled -> {
                     if (!prefs.contains("enable_blink")) {
