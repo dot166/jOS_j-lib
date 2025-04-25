@@ -18,7 +18,7 @@ public class jLIBCoreApp extends Application {
 
     public void onCreate() {
         super.onCreate();
-        jLibFeatureFlags.init_values(this);
+        jLibConfig.init_values(this);
     }
 
     private Activity mCurrentActivity = null;

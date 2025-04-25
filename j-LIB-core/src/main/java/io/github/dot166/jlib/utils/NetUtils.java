@@ -14,7 +14,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-import io.github.dot166.jlib.app.jLibFeatureFlags;
+import io.github.dot166.jlib.app.jLibConfig;
 
 public class NetUtils {
 
@@ -53,7 +53,7 @@ public class NetUtils {
 
         if (capabilities!= null) {
             if (capabilities.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR)) {
-                return jLibFeatureFlags.isDataEnabled();
+                return jLibConfig.isDataEnabled();
             } else if (capabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI)) {
                 return true;
             } else if (capabilities.hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET)) {

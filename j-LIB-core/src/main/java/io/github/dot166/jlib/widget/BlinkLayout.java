@@ -8,7 +8,7 @@ import android.util.AttributeSet;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 
-import io.github.dot166.jlib.app.jLibFeatureFlags;
+import io.github.dot166.jlib.app.jLibConfig;
 
 public class BlinkLayout extends ConstraintLayout {
     private static final int MESSAGE_BLINK = 0x42;
@@ -21,7 +21,7 @@ public class BlinkLayout extends ConstraintLayout {
         super(context, attrs);
         mHandler = new Handler(msg -> {
             if (msg.what == MESSAGE_BLINK) {
-                if (mBlink && jLibFeatureFlags.get_Blink_enabled()) {
+                if (mBlink && jLibConfig.get_Blink_enabled()) {
                     mBlinkState = !mBlinkState;
                     makeBlink();
                 }
@@ -35,7 +35,7 @@ public class BlinkLayout extends ConstraintLayout {
     private void makeBlink() {
         if (isInEditMode() == false) {
             Message message = mHandler.obtainMessage(MESSAGE_BLINK);
-            mHandler.sendMessageDelayed(message, jLibFeatureFlags.get_Blink_speed());
+            mHandler.sendMessageDelayed(message, jLibConfig.get_Blink_speed());
         }
     }
 
