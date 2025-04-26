@@ -8,7 +8,7 @@
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
     <application
-        tools:replace="android:icon,android:name"
+        tools:replace="android:icon,android:name,android:theme"
         android:name="io.github.dot166.themeengine.TEApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_themeengine"
