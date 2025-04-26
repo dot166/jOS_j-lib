@@ -16,11 +16,18 @@ android_app {
         "j.Lib",
         "ThemePickerApplicationLib",
         "io_github_dot166_themeengine_flags_lib",
+        "ThemePickerManifestLib",
     ],
 
     kotlincflags: ["-Xjvm-default=all"],
     aaptflags: ["--auto-add-overlay"],
     platform_apis: true,
-    additional_manifests: [":WallpaperPicker2_Manifest", ":ThemePicker_Manifest"],
     overrides: ["WallpaperPicker", "WallpaperPicker2", "ThemePicker"],
+}
+
+android_library {
+    name: "ThemePickerManifestLib",
+    sdk_version: "current",
+    additional_manifests: [":WallpaperPicker2_Manifest"],
+    manifest: ":ThemePicker_Manifest",
 }
