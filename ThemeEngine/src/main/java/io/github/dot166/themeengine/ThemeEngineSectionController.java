@@ -56,8 +56,8 @@ public class ThemeEngineSectionController implements CustomizationSectionControl
         ThemeEngineSectionView ThemeEngineSectionView = (ThemeEngineSectionView) LayoutInflater.from(context)
                 .inflate(R.layout.te_section_view, /* root= */ null);
 
-        TextView sectionDescription = ThemeEngineSectionView.findViewById(R.id.icon_section_description);
-        View sectionTile = ThemeEngineSectionView.findViewById(R.id.icon_section_tile);
+        TextView sectionDescription = ThemeEngineSectionView.findViewById(R.id.te_section_description);
+        View sectionTile = ThemeEngineSectionView.findViewById(R.id.te_section_tile);
 
         mThemeEngineOptionsManager.fetchOptions(new OptionsFetchedListener<ThemeEngineOption>() {
             @Override

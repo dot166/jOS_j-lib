@@ -22,4 +22,5 @@
     <string name="te_preview_content_description">Theme preview</string>
     <string name="te_legacy_warning">WARNING! This screen has been deprecated in favor of the new ThemePicker based UI, if you are the developer of this application please point ThemeEngine intents to the io.github.dot166.themeengine.CONFIG intent action. If you are not the developer, Please contact the developer of the application</string>
     <string name="te_disabled">You have selected to disable ThemeEngine,\n Doing this will let each individual app handle theming for itself, \n So a preview is not supported as it would just reflect the theme in ThemePicker.</string>
+    <string name="preview_name_te">Theme</string>
 </resources>
