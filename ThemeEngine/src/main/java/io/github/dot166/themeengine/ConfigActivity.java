@@ -1,9 +1,12 @@
 package io.github.dot166.themeengine;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 
+import androidx.annotation.NonNull;
+import androidx.preference.Preference;
 import androidx.preference.PreferenceManager;
 
 import java.util.Objects;
@@ -40,8 +43,24 @@ public class ConfigActivity extends jConfigActivity {
             super.onCreatePreferences(savedInstanceState, rootKey);
             if (!Flags.useNewConfigUi()) {
                 getPreferenceScreen().removePreference(Objects.requireNonNull(findPreference("te_legacy_warning")));
+            } else {
+                ((Preference)Objects.requireNonNull(findPreference("te_legacy_warning"))).setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+                    @Override
+                    public boolean onPreferenceClick(@NonNull Preference preference) {
+                        invokeModernUi();
+                        requireActivity().finish();
+                        return true;
+                    }
+                });
             }
             PreferenceManager.getDefaultSharedPreferences(requireContext()).registerOnSharedPreferenceChangeListener(this);
+        }
+        private void invokeModernUi() {
+            final Intent intent = new Intent();
+            intent.setClass(requireContext(), ThemeEngineActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED
+                    | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(intent);
         }
         @Override
         public int preferenceXML() {

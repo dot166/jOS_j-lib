@@ -1,5 +1,6 @@
 package io.github.dot166.themeengine;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
@@ -11,6 +12,7 @@ import com.android.wallpaper.widget.BottomActionBar;
 import com.android.wallpaper.widget.BottomActionBar.BottomActionBarHost;
 
 import io.github.dot166.jlib.app.jActivity;
+import io.github.dot166.themeengine.flags.Flags;
 
 /**
  *  Main Activity allowing containing view sections for the user to switch between the different
@@ -24,6 +26,10 @@ public class ThemeEngineActivity extends jActivity implements
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (!Flags.useNewConfigUi()) {
+            invokeLegacyUI();
+            finish();
+        }
 
         setContentView(R.layout.activity_theme_engine);
         mBottomActionBar = findViewById(R.id.bottom_actionbar);
@@ -34,6 +40,14 @@ public class ThemeEngineActivity extends jActivity implements
                     .replace(R.id.fragment_container, ThemeEngineFragment.newInstance(getString(R.string.app_name)))
                     .commitNow();
         }
+    }
+
+    private void invokeLegacyUI() {
+        final Intent intent = new Intent();
+        intent.setClass(this, ConfigActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED
+                | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
     }
 
     @Override
