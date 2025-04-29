@@ -16,7 +16,7 @@ buildscript {
             commandLine("cat", "ver")
         }.standardOutput.asText.get().trim())
         set("libMinSdk", 26)
-        set("libCompileSdk", 35)
+        set("libCompileSdk", 36)
     }
 }
 

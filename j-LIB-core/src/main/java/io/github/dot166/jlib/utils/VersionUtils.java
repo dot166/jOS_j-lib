@@ -6,53 +6,55 @@ import androidx.annotation.ChecksSdkIntAtLeast;
 
 public class VersionUtils {
 
-    @ChecksSdkIntAtLeast(api = Build.VERSION_CODES.O_MR1)
+    @ChecksSdkIntAtLeast(api = Build.VERSION_CODES_FULL.O_MR1)
     public static boolean isAtLeastO_1() {
-        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.O_MR1;
+        return Build.VERSION.SDK_INT_FULL >= Build.VERSION_CODES_FULL.O_MR1;
     }
 
-    @ChecksSdkIntAtLeast(api = Build.VERSION_CODES.P)
+    @ChecksSdkIntAtLeast(api = Build.VERSION_CODES_FULL.P)
     public static boolean isAtLeastP() {
-        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.P;
+        return Build.VERSION.SDK_INT_FULL >= Build.VERSION_CODES_FULL.P;
     }
 
-    @ChecksSdkIntAtLeast(api = Build.VERSION_CODES.Q)
+    @ChecksSdkIntAtLeast(api = Build.VERSION_CODES_FULL.Q)
     public static boolean isAtLeastQ() {
-        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q;
+        return Build.VERSION.SDK_INT_FULL >= Build.VERSION_CODES_FULL.Q;
     }
 
-    @ChecksSdkIntAtLeast(api = Build.VERSION_CODES.R)
+    @ChecksSdkIntAtLeast(api = Build.VERSION_CODES_FULL.R)
     public static boolean isAtLeastR() {
-        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.R;
+        return Build.VERSION.SDK_INT_FULL >= Build.VERSION_CODES_FULL.R;
     }
 
-    @ChecksSdkIntAtLeast(api = Build.VERSION_CODES.S)
+    @ChecksSdkIntAtLeast(api = Build.VERSION_CODES_FULL.S)
     public static boolean isAtLeastS() {
-        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.S;
+        return Build.VERSION.SDK_INT_FULL >= Build.VERSION_CODES_FULL.S;
     }
 
-    @ChecksSdkIntAtLeast(api = Build.VERSION_CODES.S_V2)
+    @ChecksSdkIntAtLeast(api = Build.VERSION_CODES_FULL.S_V2)
     public static boolean isAtLeastS_1() {
-        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.S_V2;
+        return Build.VERSION.SDK_INT_FULL >= Build.VERSION_CODES_FULL.S_V2;
     }
 
-    @ChecksSdkIntAtLeast(api = Build.VERSION_CODES.TIRAMISU)
+    @ChecksSdkIntAtLeast(api = Build.VERSION_CODES_FULL.TIRAMISU)
     public static boolean isAtLeastT() {
-        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU;
+        return Build.VERSION.SDK_INT_FULL >= Build.VERSION_CODES_FULL.TIRAMISU;
     }
 
-    @ChecksSdkIntAtLeast(api = Build.VERSION_CODES.UPSIDE_DOWN_CAKE)
+    @ChecksSdkIntAtLeast(api = Build.VERSION_CODES_FULL.UPSIDE_DOWN_CAKE)
     public static boolean isAtLeastU() {
-        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE;
+        return Build.VERSION.SDK_INT_FULL >= Build.VERSION_CODES_FULL.UPSIDE_DOWN_CAKE;
     }
 
-    @ChecksSdkIntAtLeast(api = Build.VERSION_CODES.VANILLA_ICE_CREAM)
+    @ChecksSdkIntAtLeast(api = Build.VERSION_CODES_FULL.VANILLA_ICE_CREAM)
     public static boolean isAtLeastV() {
-        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.VANILLA_ICE_CREAM;
+        return Build.VERSION.SDK_INT_FULL >= Build.VERSION_CODES_FULL.VANILLA_ICE_CREAM;
     }
 
-    // TODO: add check for Android Baklava once it has released
-    // TODO: use the new SDK_INT_FULL variable for sdk checks once Android Baklava releases
+    @ChecksSdkIntAtLeast(api = Build.VERSION_CODES_FULL.BAKLAVA)
+    public static boolean isAtLeastBaklava() {
+        return Build.VERSION.SDK_INT_FULL >= Build.VERSION_CODES_FULL.BAKLAVA;
+    }
 
     public static String getAndroidVersion() {
         if (isAtLeastT()) {
