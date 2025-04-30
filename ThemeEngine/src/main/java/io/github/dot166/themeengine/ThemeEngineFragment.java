@@ -18,6 +18,7 @@ package io.github.dot166.themeengine;
 import static android.widget.Toast.LENGTH_LONG;
 import static com.android.wallpaper.widget.BottomActionBar.BottomAction.APPLY_TEXT;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -34,6 +35,7 @@ import com.android.customization.model.CustomizationManager.Callback;
 import com.android.customization.model.CustomizationManager.OptionsFetchedListener;
 import com.android.customization.model.CustomizationOption;
 
+import io.github.dot166.jlib.LIBAboutActivity;
 import io.github.dot166.themeengine.OptionSelectorController.CheckmarkStyle;
 
 import com.android.wallpaper.picker.AppbarFragment;
@@ -107,6 +109,14 @@ public class ThemeEngineFragment extends AppbarFragment {
 
         mThemeEngineManager = ThemeEngineManager.getInstance(getActivity());
         setUpOptions(savedInstanceState);
+
+        view.findViewById(R.id.custom_toolbar_title).setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                startActivity(new Intent(getContext(), LIBAboutActivity.class));
+                return true;
+            }
+        });
 
         return view;
     }
