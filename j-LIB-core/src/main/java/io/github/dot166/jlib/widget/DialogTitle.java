@@ -18,25 +18,19 @@
 
 package io.github.dot166.jlib.widget;
 
-import static androidx.annotation.RestrictTo.Scope.LIBRARY;
-
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.util.Log;
 import android.text.Layout;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.annotation.RestrictTo;
 import androidx.appcompat.R;
 import androidx.appcompat.widget.AppCompatTextView;
 
 import java.util.Objects;
 
-import io.github.dot166.jlib.app.jActivity;
-import io.github.dot166.jlib.app.jLIBCoreApp;
 import io.github.dot166.jlib.themeengine.ThemeEngine;
 
 /**

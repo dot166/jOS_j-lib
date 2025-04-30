@@ -15,8 +15,6 @@
  */
 package io.github.dot166.themeengine;
 
-import static androidx.core.util.Preconditions.checkNotNull;
-
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Rect;

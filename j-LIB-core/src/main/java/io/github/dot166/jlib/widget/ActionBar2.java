@@ -19,7 +19,6 @@ import com.google.android.material.appbar.MaterialToolbar;
 
 import io.github.dot166.jlib.R;
 import io.github.dot166.jlib.internal.utils.ToolbarUtils;
-import io.github.dot166.jlib.utils.AppUtils;
 
 /**
  * {@code ActionBar2} is a {@link MaterialToolbar} that implements certain features and fixes.

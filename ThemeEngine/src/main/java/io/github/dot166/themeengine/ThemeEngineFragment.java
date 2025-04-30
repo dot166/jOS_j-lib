@@ -18,7 +18,6 @@ package io.github.dot166.themeengine;
 import static android.widget.Toast.LENGTH_LONG;
 import static com.android.wallpaper.widget.BottomActionBar.BottomAction.APPLY_TEXT;
 
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -29,7 +28,6 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.widget.ContentLoadingProgressBar;
-import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.customization.model.CustomizationManager.Callback;
@@ -42,7 +40,6 @@ import com.android.wallpaper.picker.AppbarFragment;
 import com.android.wallpaper.widget.BottomActionBar;
 
 import java.util.List;
-import java.util.Objects;
 
 /**
  * Fragment that contains the UI for selecting and applying a ThemeEngineOption.

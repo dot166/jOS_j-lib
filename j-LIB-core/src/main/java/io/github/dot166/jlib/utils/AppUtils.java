@@ -22,7 +22,6 @@ public class AppUtils {
             ResolveInfo resolveInfo = pm.resolveActivity(intent, 0);
 
             if (resolveInfo != null) {
-                resolveInfo.loadLabel(pm);
                 return resolveInfo.loadIcon(pm);
             } else {
                 return AppCompatResources.getDrawable(context, android.R.mipmap.sym_def_app_icon);
@@ -39,7 +38,6 @@ public class AppUtils {
             ResolveInfo resolveInfo = pm.resolveActivity(intent, 0);
 
             if (resolveInfo != null) {
-                resolveInfo.loadLabel(pm);
                 return resolveInfo.loadLabel(pm).toString();
             } else {
                 return "";

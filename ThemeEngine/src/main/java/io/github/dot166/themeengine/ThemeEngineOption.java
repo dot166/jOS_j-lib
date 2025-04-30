@@ -16,34 +16,18 @@
 package io.github.dot166.themeengine;
 
 import android.content.Context;
-import android.content.SharedPreferences;
-import android.content.res.Resources;
-import android.graphics.BitmapFactory;
-import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
-import android.graphics.PorterDuff.Mode;
 import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.util.Log;
 import android.widget.TextView;
-
-import androidx.preference.PreferenceManager;
-
-import com.android.wallpaper.util.ResourceUtils;
 
 import com.android.customization.model.CustomizationManager;
 import com.android.customization.model.CustomizationOption;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 import java.util.Objects;
-
-import io.github.dot166.jlib.widget.ActionBar2;
 
 public class ThemeEngineOption implements CustomizationOption<ThemeEngineOption> {
 

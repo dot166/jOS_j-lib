@@ -21,7 +21,6 @@ import static com.google.android.material.bottomsheet.BottomSheetBehavior.STATE_
 import android.app.Activity;
 import android.content.Context;
 import android.content.res.ColorStateList;
-import android.os.Build;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;

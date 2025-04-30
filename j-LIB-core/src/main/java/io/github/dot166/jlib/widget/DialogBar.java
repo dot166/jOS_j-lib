@@ -2,7 +2,6 @@ package io.github.dot166.jlib.widget;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -12,8 +11,6 @@ import com.google.android.material.R;
 
 import java.util.Objects;
 
-import io.github.dot166.jlib.app.jActivity;
-import io.github.dot166.jlib.app.jLIBCoreApp;
 import io.github.dot166.jlib.themeengine.ThemeEngine;
 
 /**
