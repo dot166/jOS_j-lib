@@ -2367,6 +2367,28 @@
             ]
         },
         {
+            "uniqueId": "androidx.swiperefreshlayout:swiperefreshlayout",
+            "funding": [
+                
+            ],
+            "developers": [
+                {
+                    "name": "The Android Open Source Project"
+                }
+            ],
+            "artifactVersion": "1.1.0",
+            "description": "The Support Library is a static library that you can add to your Android application in order to use APIs that are either not available for older platform versions or utility APIs that aren't a part of the framework APIs. Compatible on devices running API 14 or later.",
+            "scm": {
+                "connection": "scm:git:https://android.googlesource.com/platform/frameworks/support",
+                "url": "http://source.android.com"
+            },
+            "name": "Support Custom View",
+            "website": "https://developer.android.com/jetpack/androidx",
+            "licenses": [
+                "Apache-2.0"
+            ]
+        },
+        {
             "uniqueId": "androidx.tracing:tracing",
             "funding": [
                 
@@ -2555,7 +2577,7 @@
                     "name": "Google"
                 }
             ],
-            "artifactVersion": "0.37.2",
+            "artifactVersion": "0.37.3",
             "description": "Utilities for Jetpack Compose",
             "scm": {
                 "connection": "scm:git:git://github.com/google/accompanist.git",
