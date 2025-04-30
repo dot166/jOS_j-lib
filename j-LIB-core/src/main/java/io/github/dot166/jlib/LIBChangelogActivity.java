@@ -8,7 +8,9 @@ public class LIBChangelogActivity extends jWebActivity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        useWebPageTitleAsActivityTitle = false;
         setUri("https://github.com/dot166/jOS_j-lib/commits/v" + BuildConfig.LIBVersion);
+        configureWebView(true, true);
         super.onCreate(savedInstanceState);
     }
 }

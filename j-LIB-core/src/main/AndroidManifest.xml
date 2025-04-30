@@ -48,6 +48,8 @@
             android:label="@string/birdgame"
             android:launchMode="singleInstance"
             android:screenOrientation="locked" />
+        <activity android:name=".app.jWebActivity"
+            android:exported="false"/>
     </application>
 
 </manifest>

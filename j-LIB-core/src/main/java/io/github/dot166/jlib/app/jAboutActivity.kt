@@ -6,13 +6,11 @@ import android.content.Intent
 import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
 import android.graphics.drawable.Drawable
-import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.appcompat.widget.Toolbar
-import androidx.browser.customtabs.CustomTabsIntent
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
@@ -49,6 +47,7 @@ import io.github.dot166.jlib.R
 import io.github.dot166.jlib.themeengine.ThemeEngine.GetComposeTheme
 import io.github.dot166.jlib.utils.AppUtils
 import io.github.dot166.jlib.utils.ErrorUtils
+import io.github.dot166.jlib.web.jWebIntent
 
 open class jAboutActivity : jActivity() {
 
@@ -199,10 +198,10 @@ open class jAboutActivity : jActivity() {
                             label = { Text(stringResource(id = link.labelResId)) },
                             modifier = Modifier.weight(weight = 1f),
                             onClick = {
-                                val webpage = Uri.parse(link.url)
-                                val intent = CustomTabsIntent.Builder()
-                                    .build()
-                                intent.launchUrl(context, webpage)
+                                val intent = jWebIntent(context)
+                                intent.setUrl(link.url)
+                                intent.configureWebView(true, true)
+                                intent.launch()
                             }
                         )
                     }

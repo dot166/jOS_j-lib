@@ -16,12 +16,10 @@
 
 package io.github.dot166.jlib.internal.utils
 
-import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.ProgressBar
 import androidx.annotation.RestrictTo
-import androidx.browser.customtabs.CustomTabsIntent
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
@@ -47,13 +45,13 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
 import coil.compose.SubcomposeAsyncImage
 import io.github.dot166.jlib.R
+import io.github.dot166.jlib.web.jWebIntent
 
 @RestrictTo(RestrictTo.Scope.LIBRARY)
 @Composable
@@ -131,11 +129,11 @@ fun ContributorRow(name: String, description: String, photoUrl: String, url: Str
             .clickable(
                 enabled = true,
                 onClick = {
-                    val webpage = Uri.parse(url)
-                    val intent = CustomTabsIntent.Builder()
-                        .build()
-                    intent.launchUrl(context, webpage)
-                    }
+                    val intent = jWebIntent(context)
+                    intent.setUrl(url)
+                    intent.configureWebView(true, true)
+                    intent.launch()
+                }
             ),
         description = { Text(text = description) },
         startWidget = {

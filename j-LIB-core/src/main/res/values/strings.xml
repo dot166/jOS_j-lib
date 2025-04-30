@@ -40,4 +40,8 @@
     <string name="dialog_te_negative">Ignore</string>
     <string name="dialog_te_positive">Update</string>
     <string name="usage_of_mobile_data">Usage of Mobile Data</string>
+    <string name="download">Download</string>
+    <string name="do_you_want_to_save">"Do you want to save "</string>
+    <string name="yes">Yes</string>
+    <string name="cancel">Cancel</string>
 </resources>
