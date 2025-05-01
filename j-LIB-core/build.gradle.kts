@@ -80,7 +80,7 @@ dependencies {
     api("androidx.compose.material:material-android:1.8.0")
     api("io.coil-kt:coil-compose:2.7.0")
     api("com.google.accompanist:accompanist-drawablepainter:0.37.3")
-    api("com.mikepenz:aboutlibraries-core:12.0.1")
+    api("com.mikepenz:aboutlibraries-core:12.1.0")
     api("com.mikepenz:aboutlibraries-compose-m3:12.0.1")
     implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
 }
