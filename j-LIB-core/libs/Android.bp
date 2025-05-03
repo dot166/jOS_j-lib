@@ -36,7 +36,7 @@ java_library_static {
 
 android_library_import {
     name: "j-Lib_com.mikepenz_aboutlibraries-compose-core-android",
-    aars: ["com/mikepenz/aboutlibraries-compose-core-android/12.0.1/aboutlibraries-compose-release.aar"],
+    aars: ["com/mikepenz/aboutlibraries-compose-core-android/12.1.0/aboutlibraries-compose-release.aar"],
     sdk_version: "35",
     min_sdk_version: "26",
     apex_available: [
@@ -68,7 +68,7 @@ java_library_static {
 
 android_library_import {
     name: "j-Lib_com.mikepenz_aboutlibraries-compose-m3-android",
-    aars: ["com/mikepenz/aboutlibraries-compose-m3-android/12.0.1/aboutlibraries-compose-m3-release.aar"],
+    aars: ["com/mikepenz/aboutlibraries-compose-m3-android/12.1.0/aboutlibraries-compose-m3-release.aar"],
     sdk_version: "35",
     min_sdk_version: "26",
     apex_available: [
@@ -103,7 +103,7 @@ java_library_static {
 
 android_library_import {
     name: "j-Lib_com.mikepenz_aboutlibraries-core-android",
-    aars: ["com/mikepenz/aboutlibraries-core-android/12.0.1/aboutlibraries-core-release.aar"],
+    aars: ["com/mikepenz/aboutlibraries-core-android/12.1.0/aboutlibraries-core-release.aar"],
     sdk_version: "35",
     min_sdk_version: "26",
     apex_available: [
@@ -317,6 +317,7 @@ java_library_static {
         "j-Lib_org.jetbrains.compose.ui_ui",
         "j-Lib_org.jetbrains.compose.ui_ui-geometry",
         "j-Lib_org.jetbrains.compose.ui_ui-util",
+        "kotlin-stdlib",
     ],
 }
 
@@ -336,6 +337,7 @@ java_library_static {
         "j-Lib_org.jetbrains.compose.ui_ui",
         "j-Lib_org.jetbrains.compose.ui_ui-unit",
         "j-Lib_org.jetbrains.compose.ui_ui-util",
+        "kotlin-stdlib",
         "kotlinx-coroutines-core",
     ],
 }
@@ -350,7 +352,6 @@ java_library_static {
     ],
     static_libs: [
         "androidx.annotation_annotation",
-        "kotlin-stdlib",
     ],
 }
 
@@ -364,8 +365,6 @@ java_library_static {
     ],
     static_libs: [
         "androidx.collection_collection",
-        "j-Lib_org.jetbrains.compose.annotation-internal_annotation",
-        "j-Lib_org.jetbrains.kotlinx_atomicfu",
         "kotlin-stdlib",
     ],
 }
@@ -388,6 +387,7 @@ java_library_static {
         "j-Lib_org.jetbrains.compose.ui_ui",
         "j-Lib_org.jetbrains.compose.ui_ui-text",
         "j-Lib_org.jetbrains.compose.ui_ui-util",
+        "kotlin-stdlib",
     ],
 }
 
@@ -406,22 +406,7 @@ java_library_static {
         "j-Lib_org.jetbrains.compose.runtime_runtime",
         "j-Lib_org.jetbrains.compose.ui_ui",
         "j-Lib_org.jetbrains.compose.ui_ui-util",
-    ],
-}
-
-java_library_static {
-    name: "j-Lib_org.jetbrains.compose.material_material-icons-core",
-    sdk_version: "35",
-    min_sdk_version: "26",
-    apex_available: [
-        "//apex_available:platform",
-        "//apex_available:anyapex",
-    ],
-    static_libs: [
-        "androidx.compose.material_material-icons-core",
-        "j-Lib_org.jetbrains.compose.ui_ui",
-        "j-Lib_org.jetbrains.compose.ui_ui-graphics",
-        "j-Lib_org.jetbrains.compose.ui_ui-unit",
+        "kotlin-stdlib",
     ],
 }
 
@@ -440,6 +425,7 @@ java_library_static {
         "j-Lib_org.jetbrains.compose.foundation_foundation",
         "j-Lib_org.jetbrains.compose.runtime_runtime",
         "j-Lib_org.jetbrains.compose.ui_ui-util",
+        "kotlin-stdlib",
     ],
 }
 
@@ -458,12 +444,13 @@ java_library_static {
         "j-Lib_org.jetbrains.compose.collection-internal_collection",
         "j-Lib_org.jetbrains.compose.foundation_foundation",
         "j-Lib_org.jetbrains.compose.foundation_foundation-layout",
-        "j-Lib_org.jetbrains.compose.material_material-icons-core",
         "j-Lib_org.jetbrains.compose.material_material-ripple",
         "j-Lib_org.jetbrains.compose.runtime_runtime",
+        "j-Lib_org.jetbrains.compose.ui_ui-backhandler",
         "j-Lib_org.jetbrains.compose.ui_ui-graphics",
         "j-Lib_org.jetbrains.compose.ui_ui-text",
         "j-Lib_org.jetbrains.compose.ui_ui-util",
+        "kotlin-stdlib",
     ],
 }
 
@@ -477,8 +464,9 @@ java_library_static {
     ],
     static_libs: [
         "androidx.compose.runtime_runtime",
+        "j-Lib_org.jetbrains.compose.annotation-internal_annotation",
         "j-Lib_org.jetbrains.compose.collection-internal_collection",
-        "j-Lib_org.jetbrains.kotlinx_atomicfu",
+        "kotlin-stdlib",
         "kotlinx-coroutines-core",
     ],
 }
@@ -493,7 +481,9 @@ java_library_static {
     ],
     static_libs: [
         "androidx.compose.runtime_runtime-saveable",
+        "j-Lib_org.jetbrains.compose.collection-internal_collection",
         "j-Lib_org.jetbrains.compose.runtime_runtime",
+        "kotlin-stdlib",
     ],
 }
 
@@ -520,7 +510,40 @@ java_library_static {
         "j-Lib_org.jetbrains.compose.ui_ui-text",
         "j-Lib_org.jetbrains.compose.ui_ui-unit",
         "j-Lib_org.jetbrains.compose.ui_ui-util",
-        "j-Lib_org.jetbrains.kotlinx_atomicfu",
+        "kotlin-stdlib",
+        "kotlinx-coroutines-core",
+    ],
+}
+
+java_library_static {
+    name: "j-Lib_org.jetbrains.compose.ui_ui-backhandler",
+    sdk_version: "35",
+    min_sdk_version: "26",
+    apex_available: [
+        "//apex_available:platform",
+        "//apex_available:anyapex",
+    ],
+    static_libs: [
+        "j-Lib_org.jetbrains.compose.ui_ui-backhandler-android",
+    ],
+}
+
+android_library_import {
+    name: "j-Lib_org.jetbrains.compose.ui_ui-backhandler-android",
+    aars: ["org/jetbrains/compose/ui/ui-backhandler-android/1.8.0-rc01/ui-backhandler-release.aar"],
+    sdk_version: "35",
+    min_sdk_version: "26",
+    apex_available: [
+        "//apex_available:platform",
+        "//apex_available:anyapex",
+    ],
+    static_libs: [
+        "androidx.activity_activity-compose",
+        "j-Lib_org.jetbrains.androidx.lifecycle_lifecycle-runtime-compose",
+        "j-Lib_org.jetbrains.compose.annotation-internal_annotation",
+        "j-Lib_org.jetbrains.compose.runtime_runtime",
+        "j-Lib_org.jetbrains.compose.ui_ui-util",
+        "kotlin-stdlib",
         "kotlinx-coroutines-core",
     ],
 }
@@ -537,6 +560,7 @@ java_library_static {
         "androidx.compose.ui_ui-geometry",
         "j-Lib_org.jetbrains.compose.runtime_runtime",
         "j-Lib_org.jetbrains.compose.ui_ui-util",
+        "kotlin-stdlib",
     ],
 }
 
@@ -556,6 +580,7 @@ java_library_static {
         "j-Lib_org.jetbrains.compose.ui_ui-geometry",
         "j-Lib_org.jetbrains.compose.ui_ui-unit",
         "j-Lib_org.jetbrains.compose.ui_ui-util",
+        "kotlin-stdlib",
     ],
 }
 
@@ -570,13 +595,14 @@ java_library_static {
     static_libs: [
         "androidx.compose.ui_ui-text",
         "j-Lib_org.jetbrains.compose.annotation-internal_annotation",
+        "j-Lib_org.jetbrains.compose.collection-internal_collection",
         "j-Lib_org.jetbrains.compose.runtime_runtime",
         "j-Lib_org.jetbrains.compose.runtime_runtime-saveable",
         "j-Lib_org.jetbrains.compose.ui_ui-geometry",
         "j-Lib_org.jetbrains.compose.ui_ui-graphics",
         "j-Lib_org.jetbrains.compose.ui_ui-unit",
         "j-Lib_org.jetbrains.compose.ui_ui-util",
-        "j-Lib_org.jetbrains.kotlinx_atomicfu",
+        "kotlin-stdlib",
         "kotlinx-coroutines-core",
     ],
 }
@@ -609,6 +635,7 @@ java_library_static {
         "j-Lib_org.jetbrains.compose.runtime_runtime",
         "j-Lib_org.jetbrains.compose.ui_ui-geometry",
         "j-Lib_org.jetbrains.compose.ui_ui-util",
+        "kotlin-stdlib",
     ],
 }
 
@@ -622,32 +649,7 @@ java_library_static {
     ],
     static_libs: [
         "androidx.compose.ui_ui-util",
-    ],
-}
-
-java_library_static {
-    name: "j-Lib_org.jetbrains.kotlinx_atomicfu",
-    sdk_version: "35",
-    min_sdk_version: "26",
-    apex_available: [
-        "//apex_available:platform",
-        "//apex_available:anyapex",
-    ],
-    static_libs: [
-        "j-Lib_org.jetbrains.kotlinx_atomicfu-jvm",
-    ],
-}
-
-java_import {
-    name: "j-Lib_org.jetbrains.kotlinx_atomicfu-jvm",
-    jars: ["org/jetbrains/kotlinx/atomicfu-jvm/0.23.2/atomicfu-jvm-0.23.2.jar"],
-    sdk_version: "35",
-    min_sdk_version: "26",
-    apex_available: [
-        "//apex_available:platform",
-        "//apex_available:anyapex",
-    ],
-    static_libs: [
+        "j-Lib_org.jetbrains.compose.collection-internal_collection",
         "kotlin-stdlib",
     ],
 }

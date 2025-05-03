@@ -42,6 +42,7 @@ android_library {
         "j-Lib_com.mikepenz_aboutlibraries-core",
         "j-Lib_com.mikepenz_aboutlibraries-core-android",
         "j-Lib_io.coil-kt_coil-compose",
+        "j-Lib_org.jetbrains.compose.ui_ui-backhandler-android",
         "kotlin-stdlib",
     ] + [
         "io_github_dot166_jlib_flags_lib", // jLib config flags
