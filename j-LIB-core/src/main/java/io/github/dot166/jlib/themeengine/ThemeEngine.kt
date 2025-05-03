@@ -49,7 +49,7 @@ object ThemeEngine {
      */
     @JvmStatic
     fun getSystemTheme(context: Activity): Int {
-        var theme: String = getThemeFromThemeProvider(context)
+        val theme: String = getThemeFromThemeProvider(context)
         Log.i(TAG, theme)
         when (theme) {
             "jLib" -> {
@@ -194,13 +194,14 @@ object ThemeEngine {
             valid_themes.jLibTheme -> {
                 val isDark = !isThemeBoolean(context, LIGHT_CHECK_ATTRS, theme) // jLib Theme is dark only
                 val isExtendedFromJLib = isThemeBoolean(context, intArrayOf(R.attr.isJTheme), theme)
-                return isDark == true && isExtendedFromJLib == true
+                return isDark && isExtendedFromJLib
             }
             valid_themes.M3 -> {
                 val manager = context.getSystemService(Context.UI_MODE_SERVICE) as UiModeManager
-                val isDayNight = isThemeBoolean(context, LIGHT_CHECK_ATTRS, theme) == ((manager.nightMode == UiModeManager.MODE_NIGHT_YES) == false) // let android determine whether it is dark or light (m3 supports light and dark)
+                val isDayNight =
+                    isThemeBoolean(context, LIGHT_CHECK_ATTRS, theme) == (manager.nightMode != UiModeManager.MODE_NIGHT_YES) // let android determine whether it is dark or light (m3 supports light and dark)
                 val isExtendedFromM3 = isThemeBoolean(context, intArrayOf(com.google.android.material.R.attr.isMaterial3Theme), theme)
-                return isDayNight == true && isExtendedFromM3 == true
+                return isDayNight && isExtendedFromM3
             }
             else -> return false
         }
@@ -248,12 +249,12 @@ object ThemeEngine {
 
             if (allValues.containsKey("UpdateAvailable") || allValues.containsKey("isInSystem")) {
                 // update check logic
-                if (allValues.get("UpdateAvailable").toBoolean() == true) {
+                if (allValues.get("UpdateAvailable").toBoolean()) {
                     val builder = AlertDialog.Builder(context)
 
                     builder.setMessage(R.string.dialog_te_message)
                         .setTitle(R.string.text_te_label)
-                    if (allValues.get("isInSystem").toBoolean() == false) {
+                    if (!allValues.get("isInSystem").toBoolean()) {
                         builder.setPositiveButton(
                             R.string.dialog_te_positive,
                             object : DialogInterface.OnClickListener {

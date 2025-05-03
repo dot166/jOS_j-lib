@@ -19,7 +19,7 @@ import io.github.dot166.jlib.app.jLibConfig;
 public class NetUtils {
 
     public static String getDataRaw(String urlString, @NonNull Context context) {
-        if (isNetworkAvailable(context) == true) {
+        if (isNetworkAvailable(context)) {
             StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitNetwork().build();
             StrictMode.setThreadPolicy(policy);
             try {
