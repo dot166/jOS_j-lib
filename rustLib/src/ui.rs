@@ -11,9 +11,10 @@ pub fn supports_gui() -> bool {
         // We create the main window.
         let window = ApplicationWindow::builder()
             .application(app)
-            .default_width(320)
-            .default_height(200)
+            .default_width(100)
+            .default_height(100)
             .title("Test GUI Support")
+            .resizable(false)
             .build();
 
         // Show the window.

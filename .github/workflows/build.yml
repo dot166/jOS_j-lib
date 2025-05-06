@@ -92,10 +92,11 @@ jobs:
     - name: Build
       run: ./gradlew assembleRelease
 
-    - name: Build Rust
+    - name: Build and test Rust Library
       run: |
        cd rustLib
        cargo build --verbose
+       cargo test --package j_lib_rust --lib tests
 
     - name: Copy gradleResValues.xml
       run: cp ThemeEngine/build/generated/res/resValues/release/values/gradleResValues.xml ThemeEngine/res-aosp/values/gradleResValues.xml
