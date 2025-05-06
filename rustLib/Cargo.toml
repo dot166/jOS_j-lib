@@ -1,5 +1,5 @@
 [package]
-name = "jLib-Rust"
+name = "j_lib_rust"
 version = "0.1.0"
 edition = "2024"
 
