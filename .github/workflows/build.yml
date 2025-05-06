@@ -10,12 +10,16 @@ jobs:
       ORG_GRADLE_PROJECT_mavenCentralPassword: ${{ secrets.MAVEN_PASSWD }}
       ORG_GRADLE_PROJECT_signingInMemoryKey: ${{ secrets.GPG_KEY }}
       ORG_GRADLE_PROJECT_signingInMemoryKeyPassword: ${{ secrets.GPG_PASSWD }}
+      CARGO_TERM_COLOR: always
 
     steps:
     - name: Checkout repo
       uses: actions/checkout@v4
       with:
         fetch-depth: 0
+
+    - name: Install Deps
+      run: sudo apt install -y libgtk-4-1 libgtk-4-dev libadwaita-1-0 libadwaita-1-dev
 
     - name: Configure git
       run: |
@@ -87,6 +91,11 @@ jobs:
 
     - name: Build
       run: ./gradlew assembleRelease
+
+    - name: Build Rust
+      run: |
+       cd libRust
+       cargo build --verbose
 
     - name: Copy gradleResValues.xml
       run: cp ThemeEngine/build/generated/res/resValues/release/values/gradleResValues.xml ThemeEngine/res-aosp/values/gradleResValues.xml

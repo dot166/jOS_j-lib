@@ -1,6 +1,6 @@
 pub mod ui;
 pub mod android;
-pub mod fs;
+pub mod env_ext;
 
 #[cfg(test)]
 mod tests {
