@@ -94,7 +94,7 @@ jobs:
 
     - name: Build Rust
       run: |
-       cd libRust
+       cd rustLib
        cargo build --verbose
 
     - name: Copy gradleResValues.xml
