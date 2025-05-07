@@ -81,9 +81,9 @@ android {
 
 aboutLibraries {
     // Required to be set to true
-    registerAndroidTasks = true
-    configPath = "config"
-    prettyPrint = true
+    android.registerAndroidTasks = true
+    collect.configPath.set(File(rootProject.projectDir, "config"))
+    export.prettyPrint = true
 }
 
 dependencies {

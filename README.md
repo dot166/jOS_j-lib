@@ -10,9 +10,9 @@ to use jLib in an android app that is built using gradle add the following lines
 ```
 plugins {
     ...
-    id 'org.jetbrains.kotlin.android' version '2.1.10' apply false
-    id 'org.jetbrains.kotlin.plugin.compose' version '2.1.10' apply false
-    id 'com.mikepenz.aboutlibraries.plugin' version "11.6.2" apply false // j-LIB dependency
+    id 'org.jetbrains.kotlin.android' version '2.1.20' apply false
+    id 'org.jetbrains.kotlin.plugin.compose' version '2.1.20' apply false
+    id 'com.mikepenz.aboutlibraries.plugin' version "12.1.2" apply false // j-LIB dependency
 }
 ```
 
@@ -34,11 +34,11 @@ android {
 
 aboutLibraries {
     // Required to be set to true
-    registerAndroidTasks = true
+    android.registerAndroidTasks = true
 }
 
 dependencies {
-    implementation "io.github.dot166:j-Lib:4.0.3"
+    implementation "io.github.dot166:j-Lib:4.1.3"
 }
 ```
 
@@ -46,8 +46,8 @@ if you are including jLib in another android library that is built using gradle 
 ```
 plugins {
     ...
-    id 'org.jetbrains.kotlin.android' version '2.1.10' apply false
-    id 'org.jetbrains.kotlin.plugin.compose' version '2.1.10' apply false
+    id 'org.jetbrains.kotlin.android' version '2.1.20' apply false
+    id 'org.jetbrains.kotlin.plugin.compose' version '2.1.20' apply false
 }
 ```
 
@@ -67,7 +67,7 @@ android {
 }
 
 dependencies {
-    api "io.github.dot166:j-Lib:4.0.3"
+    api "io.github.dot166:j-Lib:4.1.3"
 }
 ```
 
