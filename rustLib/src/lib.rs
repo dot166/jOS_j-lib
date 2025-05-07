@@ -2,6 +2,7 @@ pub mod ui;
 pub mod android;
 pub mod env_ext;
 pub mod maths;
+mod io_ext;
 
 #[cfg(test)]
 mod tests {
