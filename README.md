@@ -90,6 +90,10 @@ sources for the ThemeEngine Application with AOSP Build Files
 
 sources for aosp features that normally be in a vendor or 'sdk' folder
 
+### rustLib/
+
+rust common library
+
 ## License
 
 see [LICENSE](LICENSE)
