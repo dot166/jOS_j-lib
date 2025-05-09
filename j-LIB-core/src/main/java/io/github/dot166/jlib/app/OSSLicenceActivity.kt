@@ -28,7 +28,7 @@ class OSSLicenceActivity : jActivity() {
         } else {
             Log.e("ActionBar2", "no actionbar found")
         }
-        var librariesBlock: (Context) -> Libs =
+        val librariesBlock: (Context) -> Libs =
             if (resources.getIdentifier("aboutlibraries", "raw", packageName) == 0) {
             { context ->
                 Libs.Builder().withJson(context, R.raw.aboutlibraries_jlib).build()

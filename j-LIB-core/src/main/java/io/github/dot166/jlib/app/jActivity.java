@@ -20,7 +20,6 @@ import io.github.dot166.jlib.utils.VersionUtils;
 
 public class jActivity extends AppCompatActivity {
     String currentTheme = null;
-    protected jLIBCoreApp mLIBApp = null;
 
     /**
      * Default constructor for jActivity. All Activities must have a default constructor
@@ -51,8 +50,6 @@ public class jActivity extends AppCompatActivity {
         currentTheme = getThemeFromThemeProvider(this);
         setTheme(ThemeEngine.getSystemTheme(this));
         super.onCreate(savedInstanceState);
-        mLIBApp = (jLIBCoreApp) this.getApplicationContext();
-        mLIBApp.setCurrentActivity(this);
 
         if (VersionUtils.isAtLeastV()) {
             // Fix A15 EdgeToEdge
@@ -74,30 +71,11 @@ public class jActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        mLIBApp.setCurrentActivity(this);
         if (!Objects.equals(currentTheme, getThemeFromThemeProvider(this))) {
             Intent intent = getIntent();
             finish();
             startActivity(intent);
         }
-    }
-
-    @Override
-    protected void onPause() {
-        clearReferences();
-        super.onPause();
-    }
-
-    @Override
-    protected void onDestroy() {
-        clearReferences();
-        super.onDestroy();
-    }
-
-    private void clearReferences(){
-        Activity currActivity = mLIBApp.getCurrentActivity();
-        if (this.equals(currActivity))
-            mLIBApp.setCurrentActivity(null);
     }
 }
 

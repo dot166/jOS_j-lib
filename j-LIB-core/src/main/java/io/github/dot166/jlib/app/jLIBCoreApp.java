@@ -20,14 +20,4 @@ public class jLIBCoreApp extends Application {
         super.onCreate();
         jLibConfig.init_values(this);
     }
-
-    private Activity mCurrentActivity = null;
-    public Activity getCurrentActivity(){
-        return mCurrentActivity;
-    }
-    public void setCurrentActivity(Activity currentActivity){
-        this.mCurrentActivity = currentActivity;
-        Log.i(TAG, String.valueOf(mCurrentActivity));
-        Log.i(TAG, String.valueOf(currentActivity));
-    }
 }

@@ -55,8 +55,8 @@ open class jAboutActivity : jActivity() {
         return Intent()
     }
 
-    open fun getActivityIcon(context: Context): Drawable {
-        return AppUtils.Icon.getActivityIcon(context)
+    open fun getAppIcon(context: Context): Drawable {
+        return AppUtils.Icon.getAppIcon(context)
     }
 
     open fun getAppLabel(context: Context): String {
@@ -153,7 +153,7 @@ open class jAboutActivity : jActivity() {
         ) {
             if (!showOnlyContributors(context)) {
                 Image(
-                    painter = rememberDrawablePainter(drawable = getActivityIcon(context)),
+                    painter = rememberDrawablePainter(drawable = getAppIcon(context)),
                     contentDescription = null,
                     modifier = Modifier
                         .size(72.dp)

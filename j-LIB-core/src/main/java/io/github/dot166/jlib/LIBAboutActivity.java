@@ -26,7 +26,7 @@ public class LIBAboutActivity extends jAboutActivity {
 
     @NonNull
     @Override
-    public Drawable getActivityIcon(@NonNull Context context) {
+    public Drawable getAppIcon(@NonNull Context context) {
         return Objects.requireNonNull(AppCompatResources.getDrawable(context, R.mipmap.ic_launcher_j));
     }
 
