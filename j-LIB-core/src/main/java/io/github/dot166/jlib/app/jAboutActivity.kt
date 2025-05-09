@@ -56,11 +56,11 @@ open class jAboutActivity : jActivity() {
     }
 
     open fun getAppIcon(context: Context): Drawable {
-        return AppUtils.Icon.getAppIcon(context)
+        return AppUtils.getAppIcon(context)
     }
 
     open fun getAppLabel(context: Context): String {
-        return AppUtils.Label.getAppLabel(context)
+        return AppUtils.getAppLabel(context)
     }
 
     interface Roles {

@@ -24,7 +24,7 @@ public class LIBTestActivity extends jActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu, menu);
-        menu.findItem(R.id.action_favorite).setIcon(AppUtils.Icon.getAppIcon(this));
+        menu.findItem(R.id.action_favorite).setIcon(AppUtils.getAppIcon(this));
         return true;
     }
 

@@ -8,21 +8,15 @@ import androidx.appcompat.content.res.AppCompatResources;
 
 public class AppUtils {
 
-    public static class Icon {
-
-        public static Drawable getAppIcon(Context context) {
-            ApplicationInfo applicationInfo = context.getApplicationInfo();
-            int iconId = applicationInfo.icon;
-            return iconId == 0 ? AppCompatResources.getDrawable(context, android.R.mipmap.sym_def_app_icon) : AppCompatResources.getDrawable(context, iconId);
-        }
+    public static Drawable getAppIcon(Context context) {
+        ApplicationInfo applicationInfo = context.getApplicationInfo();
+        int iconId = applicationInfo.icon;
+        return iconId == 0 ? AppCompatResources.getDrawable(context, android.R.mipmap.sym_def_app_icon) : AppCompatResources.getDrawable(context, iconId);
     }
 
-    public static class Label {
-
-        public static String getAppLabel(Context context) {
-            ApplicationInfo applicationInfo = context.getApplicationInfo();
-            int stringId = applicationInfo.labelRes;
-            return stringId == 0 ? applicationInfo.nonLocalizedLabel.toString() : context.getString(stringId);
-        }
+    public static String getAppLabel(Context context) {
+        ApplicationInfo applicationInfo = context.getApplicationInfo();
+        int stringId = applicationInfo.labelRes;
+        return stringId == 0 ? applicationInfo.nonLocalizedLabel.toString() : context.getString(stringId);
     }
 }
