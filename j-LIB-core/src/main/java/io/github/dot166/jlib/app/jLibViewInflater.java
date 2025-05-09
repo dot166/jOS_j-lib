@@ -33,10 +33,6 @@ public class jLibViewInflater extends MaterialComponentsViewInflater {
                 view = createSwitch(context, attrs);
                 verifyNotNull(view, name);
                 break;
-            case "Switch":
-                view = createSwitch(context, attrs);
-                verifyNotNull(view, name);
-                break;
             case "androidx.appcompat.widget.Toolbar":
                 view = createToolbar(context, attrs);
                 verifyNotNull(view, name);
