@@ -52,7 +52,6 @@ public class ThemeEngineOptionProvider {
     }
 
     private void loadOptions() {
-        mOptions.add(new ThemeEngineOption("Disable ThemeEngine", "Disabled", mContext, mContext.getResources().getDrawable(android.R.mipmap.sym_def_app_icon))); // this is only here for the legacy ui, once that is removed the disabled setting will be in the preference normally so this would not be needed
         String[] themeIds = mContext.getResources().getStringArray(R.array.themesConfig);
         String[] themeNames = mContext.getResources().getStringArray(R.array.themes);
 

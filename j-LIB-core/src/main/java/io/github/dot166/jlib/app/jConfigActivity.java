@@ -56,13 +56,6 @@ public class jConfigActivity extends jActivity {
      */
     public static class jLIBSettingsFragment extends PreferenceFragmentCompat {
 
-        /**
-         * @deprecated ThemeEngine no longer uses {@link jLIBSettingsFragment} for its main UI, only as a deprecated legacy UI
-         */
-        @Deprecated(since = "3.1.4", forRemoval = true)
-        public boolean isTEConfig() {
-            return false;
-        }
         public boolean hideLIB() {
             return false;
         }
@@ -116,9 +109,9 @@ public class jConfigActivity extends jActivity {
                         } catch (Exception e) {
                             ErrorUtils.handle(e, p.getContext());
                         }
-                        return !isTEConfig() && !hideLIB();
+                        return !hideLIB();
                     });
-                    return !isTEConfig() && !hideLIB();
+                    return !hideLIB();
                 case "LIBVer":
                     Log.i("Preference Logging", "LIBVer Found!!!!");
                     preference.setSummary(BuildConfig.LIBVersion);

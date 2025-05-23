@@ -55,11 +55,7 @@ public class ThemeProvider extends ContentProvider
         //access your shared preference or whatever else you're using here
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(Objects.requireNonNull(context));
 
-        if (prefs.getBoolean("pref_enableThemeEngine", true)) { // this check is only here for the legacy ui, once that is removed the disabled setting will be in the preference normally so this would not be needed
-            return prefs.getString("pref_theme", "jLib");
-        } else {
-            return "Disabled";
-        }
+        return prefs.getString("pref_theme", "jLib");
     }
 
     private Boolean checkForTEUpdate(@NonNull Context context) {

@@ -26,10 +26,6 @@ public class ThemeEngineActivity extends jActivity implements
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (!Flags.useNewConfigUi()) {
-            invokeLegacyUI();
-            finish();
-        }
 
         setContentView(R.layout.activity_theme_engine);
         mBottomActionBar = findViewById(R.id.bottom_actionbar);
@@ -40,14 +36,6 @@ public class ThemeEngineActivity extends jActivity implements
                     .replace(R.id.fragment_container, ThemeEngineFragment.newInstance(getString(R.string.app_name)))
                     .commitNow();
         }
-    }
-
-    private void invokeLegacyUI() {
-        final Intent intent = new Intent();
-        intent.setClass(this, ConfigActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED
-                | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        startActivity(intent);
     }
 
     @Override
