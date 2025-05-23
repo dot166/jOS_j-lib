@@ -1,11 +1,11 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 plugins {
-    id("org.jetbrains.kotlin.android") version "2.1.20" apply false
-    id("org.jetbrains.kotlin.plugin.compose") version "2.1.20" apply false
+    id("org.jetbrains.kotlin.android") version "2.1.21" apply false
+    id("org.jetbrains.kotlin.plugin.compose") version "2.1.21" apply false
     id("com.android.library") version "8.10.0" apply false
     id("com.android.application") version "8.10.0" apply false
     id("com.mikepenz.aboutlibraries.plugin") version "12.1.2" apply false
-    id("com.vanniktech.maven.publish") version "0.31.0" apply false
+    id("com.vanniktech.maven.publish") version "0.32.0" apply false
     id("io.github.dot166.aconfig") version "1.0.12" apply false
 }
 

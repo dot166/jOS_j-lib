@@ -10,8 +10,8 @@ to use jLib in an android app that is built using gradle add the following lines
 ```
 plugins {
     ...
-    id 'org.jetbrains.kotlin.android' version '2.1.20' apply false
-    id 'org.jetbrains.kotlin.plugin.compose' version '2.1.20' apply false
+    id 'org.jetbrains.kotlin.android' version '2.1.21' apply false
+    id 'org.jetbrains.kotlin.plugin.compose' version '2.1.21' apply false
     id 'com.mikepenz.aboutlibraries.plugin' version "12.1.2" apply false // j-LIB dependency
 }
 ```
@@ -46,8 +46,8 @@ if you are including jLib in another android library that is built using gradle 
 ```
 plugins {
     ...
-    id 'org.jetbrains.kotlin.android' version '2.1.20' apply false
-    id 'org.jetbrains.kotlin.plugin.compose' version '2.1.20' apply false
+    id 'org.jetbrains.kotlin.android' version '2.1.21' apply false
+    id 'org.jetbrains.kotlin.plugin.compose' version '2.1.21' apply false
 }
 ```
 
@@ -110,6 +110,8 @@ ToolbarUtils.java is adapted from [Material Components](https://github.com/mater
 
 seekbarpreference is adapted from [crDroid Android](https://github.com/crdroidandroid) and is licenced under Apache 2.0
 
-birdgame is adapted from [The Android Open Source Project](https://source.android.com/) and are licenced under Apache 2.0
+birdgame and other game components are adapted from [The Android Open Source Project](https://source.android.com/) and are licenced under Apache 2.0
 
 sensitive-pn is adapted from [LineageOS](https://github.com/LineageOS), see aosp/sensitive-pn/readme.md for more information
+
+ThemeEngineActivity and all code in the themepickerimpl folder is adapted from [The Android Open Source Project](https://source.android.com/) and are licenced under Apache 2.0
