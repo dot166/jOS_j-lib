@@ -22,11 +22,8 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-import java.util.Objects;
 
 import io.github.dot166.jlib.R;
-import io.github.dot166.jlib.widget.BirdGame;
-import io.github.dot166.jlib.widget.ObstacleGame;
 
 public class GameView extends FrameLayout {
 
@@ -457,7 +454,7 @@ public class GameView extends FrameLayout {
             mScoreField.setBackgroundResource(R.drawable.l_scorecard);
             mDroid.setVisibility(View.VISIBLE);
             mDroid.setX(mWidth / 2);
-            mDroid.setY(mHeight);
+            mDroid.setY(mHeight / 2);
         } else {
             mDroid.setVisibility(View.GONE);
         }
