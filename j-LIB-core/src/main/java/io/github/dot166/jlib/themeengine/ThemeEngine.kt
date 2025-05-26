@@ -28,11 +28,6 @@ object ThemeEngine {
     @JvmStatic
     public var tmpCurrentTheme: String = null.toString();
 
-    private enum class valid_themes {
-        jLibTheme,
-        M3,
-    }
-
     /**
      * Set the class that contains the theme values.
      * MUST BE SET IN THE onCreate() FUNCTION IN EITHER THE APPLICATION CLASS OR ALL OF THE EXPORTED ACTIVITIES
@@ -54,7 +49,7 @@ object ThemeEngine {
         when (theme) {
             "jLib" -> {
                 tmpCurrentTheme = null.toString()
-                if (themeClass != null && themeClass!!.jLibTheme() != 0 && isValidTheme(valid_themes.jLibTheme, context, themeClass!!.jLibTheme())
+                if (themeClass != null && themeClass!!.jLibTheme() != 0 && isValidTheme("jLib", context, themeClass!!.jLibTheme())
                 ) {
                     return themeClass!!.jLibTheme()
                 }
@@ -63,7 +58,7 @@ object ThemeEngine {
 
             "M3" -> {
                 tmpCurrentTheme = null.toString()
-                if (themeClass != null && themeClass!!.M3() != 0 && isValidTheme(valid_themes.M3, context, themeClass!!.M3())
+                if (themeClass != null && themeClass!!.M3() != 0 && isValidTheme("M3", context, themeClass!!.M3())
                 ) {
                     return themeClass!!.M3()
                 }
@@ -189,14 +184,14 @@ object ThemeEngine {
     }
 
     @SuppressLint("PrivateResource")
-    private fun isValidTheme(validTheme: valid_themes, context: Context, theme: Int): Boolean {
-        when (validTheme) {
-            valid_themes.jLibTheme -> {
+    private fun isValidTheme(themeName: String, context: Context, theme: Int): Boolean {
+        when (themeName) {
+            "jLib" -> {
                 val isDark = !isThemeBoolean(context, LIGHT_CHECK_ATTRS, theme) // jLib Theme is dark only
                 val isExtendedFromJLib = isThemeBoolean(context, intArrayOf(R.attr.isJTheme), theme)
                 return isDark && isExtendedFromJLib
             }
-            valid_themes.M3 -> {
+            "M3" -> {
                 val manager = context.getSystemService(Context.UI_MODE_SERVICE) as UiModeManager
                 val isDayNight =
                     isThemeBoolean(context, LIGHT_CHECK_ATTRS, theme) == (manager.nightMode != UiModeManager.MODE_NIGHT_YES) // let android determine whether it is dark or light (m3 supports light and dark)

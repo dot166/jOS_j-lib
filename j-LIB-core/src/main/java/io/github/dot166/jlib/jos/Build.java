@@ -12,7 +12,7 @@ public class Build {
         Date date = new Date(android.os.Build.TIME);
         String formattedDate = new SimpleDateFormat("yMMdd", Locale.UK).format(date) + "j";
         if (formattedDate.equals(android.os.Build.DISPLAY)) {
-            return VersionUtils.getAndroidVersion() + "-" + android.os.Build.DISPLAY;
+            return VersionUtils.getAndroidVersion() + "-" + android.os.Build.DISPLAY.replace("j", "");
         }
         return "0";
     }
