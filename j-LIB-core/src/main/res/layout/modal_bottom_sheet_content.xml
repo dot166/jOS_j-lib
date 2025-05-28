@@ -35,5 +35,15 @@
             android:contentDescription="@string/obstaclegame"
             android:layout_height="?minTouchTargetSize"
             app:layout_constraintTop_toBottomOf="@id/button2"/>
+
+
+        <io.github.dot166.jlib.widget.MenuButton
+            android:id="@+id/button4"
+            android:layout_width="match_parent"
+            android:text="@string/rss_feed"
+            android:icon="@drawable/outline_rss_feed_24"
+            android:contentDescription="@string/rss_feed"
+            android:layout_height="?minTouchTargetSize"
+            app:layout_constraintTop_toBottomOf="@id/button3"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
