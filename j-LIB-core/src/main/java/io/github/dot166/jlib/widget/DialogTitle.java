@@ -47,7 +47,7 @@ public class DialogTitle extends AppCompatTextView {
 
         if (Objects.equals(ThemeEngine.getTmpCurrentTheme(), "jLib")) {
             // sets text colour to the colour secondary attribute, if that fails it would set to
-            setTextColor(getContext().getTheme().obtainStyledAttributes(new int[]{com.google.android.material.R.attr.colorSecondary}).getColor(0, getResources().getColor(android.R.color.holo_blue_dark)));
+            setTextColor(getContext().getTheme().obtainStyledAttributes(new int[]{com.google.android.material.R.attr.colorSecondary}).getColor(0, getResources().getColor(android.R.color.holo_blue_dark, getContext().getTheme())));
         }
     }
 

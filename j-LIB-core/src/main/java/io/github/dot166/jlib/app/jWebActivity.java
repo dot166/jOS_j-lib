@@ -19,6 +19,8 @@ import android.view.View;
 import android.webkit.CookieManager;
 import android.webkit.SslErrorHandler;
 import android.webkit.URLUtil;
+import android.webkit.WebResourceError;
+import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
@@ -172,15 +174,17 @@ public class jWebActivity extends jActivity {
     public class myWebViewclient extends WebViewClient {
 
         @Override
-        public boolean shouldOverrideUrlLoading(WebView view, String url) {
+        public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
             webView.clearCache(true);
-            view.loadUrl(url);
+            view.loadUrl(request.getUrl().toString());
             return true;
         }
 
         @Override
-        public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
-            Toast.makeText(getApplicationContext(), "No internet connection", Toast.LENGTH_LONG).show();
+        public void onReceivedError(WebView view, WebResourceRequest request, WebResourceError error) {
+            if (request.isForMainFrame()) {
+                Toast.makeText(getApplicationContext(), error.getDescription().toString(), Toast.LENGTH_LONG).show();
+            }
         }
 
         @Override

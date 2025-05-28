@@ -253,7 +253,6 @@ public class GameView extends FrameLayout {
                 GradientDrawable.Orientation.BOTTOM_TOP,
                 SKIES[mTimeOfDay]
         );
-        sky.setDither(true);
         setBackground(sky);
 
         setScore(0);

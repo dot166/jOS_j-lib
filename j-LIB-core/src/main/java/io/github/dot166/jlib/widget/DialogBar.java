@@ -31,7 +31,7 @@ public class DialogBar extends MaterialDivider {
 
         if (Objects.equals(ThemeEngine.getTmpCurrentTheme(), "jLib")) {
             // sets top colour to the colour secondary attribute, if that fails it would set to the default secondary colour attribute for android 11 and older, this also force sets the size to 5dp
-            setDividerColor(getContext().getTheme().obtainStyledAttributes(new int[]{com.google.android.material.R.attr.colorSecondary}).getColor(0, getResources().getColor(android.R.color.holo_blue_dark)));
+            setDividerColor(getContext().getTheme().obtainStyledAttributes(new int[]{com.google.android.material.R.attr.colorSecondary}).getColor(0, getResources().getColor(android.R.color.holo_blue_dark, getContext().getTheme())));
             setDividerThickness(getResources().getDimensionPixelSize(io.github.dot166.jlib.R.dimen.dialog_bar_thickness));
         } else {
             setDividerThickness(0); // hides it
