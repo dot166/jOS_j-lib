@@ -1,6 +1,5 @@
 package io.github.dot166.themeengine;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
@@ -12,7 +11,6 @@ import com.android.wallpaper.widget.BottomActionBar;
 import com.android.wallpaper.widget.BottomActionBar.BottomActionBarHost;
 
 import io.github.dot166.jlib.app.jActivity;
-import io.github.dot166.themeengine.flags.Flags;
 
 /**
  *  Main Activity allowing containing view sections for the user to switch between the different

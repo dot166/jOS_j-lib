@@ -4,20 +4,12 @@ import static android.widget.Toast.LENGTH_LONG;
 
 import android.app.NotificationManager;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.os.Bundle;
-import android.os.StrictMode;
-import android.text.Html;
-import android.text.method.LinkMovementMethod;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.preference.PreferenceManager;
@@ -33,7 +25,6 @@ import java.util.Calendar;
 import io.github.dot166.jlib.R;
 import io.github.dot166.jlib.app.jActivity;
 import io.github.dot166.jlib.time.ReminderItem;
-import kotlin.jvm.internal.PackageReference;
 
 public class RSSActivity extends jActivity {
 

@@ -2,7 +2,6 @@ package io.github.dot166.jlib.app;
 
 import static io.github.dot166.jlib.themeengine.ThemeEngine.getThemeFromThemeProvider;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 

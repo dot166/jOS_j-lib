@@ -28,8 +28,6 @@ import androidx.preference.PreferenceManager;
 
 import com.android.customization.model.CustomizationManager;
 
-import java.util.Objects;
-
 public class ThemeEngineManager implements CustomizationManager<ThemeEngineOption> {
 
     private static ThemeEngineManager sThemeEngineOptionManager;

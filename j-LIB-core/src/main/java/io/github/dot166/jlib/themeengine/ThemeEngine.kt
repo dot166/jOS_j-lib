@@ -18,7 +18,6 @@ import androidx.compose.ui.graphics.Color
 import io.github.dot166.jlib.BuildConfig
 import io.github.dot166.jlib.R
 import io.github.dot166.jlib.app.jWebActivity
-import io.github.dot166.jlib.utils.NetUtils
 import io.github.dot166.jlib.web.jWebIntent
 
 object ThemeEngine {

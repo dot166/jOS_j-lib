@@ -1,8 +1,6 @@
 package io.github.dot166.jlib.app;
 
-import android.app.Activity;
 import android.app.Application;
-import android.util.Log;
 
 public class jLIBCoreApp extends Application {
     public static final String TAG = "jLIB";
