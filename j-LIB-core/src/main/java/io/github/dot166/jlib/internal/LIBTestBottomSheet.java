@@ -13,6 +13,7 @@ import androidx.annotation.RestrictTo;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
 import io.github.dot166.jlib.BirdGameActivity;
+import io.github.dot166.jlib.ObstacleGameActivity;
 import io.github.dot166.jlib.R;
 
 @RestrictTo(RestrictTo.Scope.LIBRARY)
@@ -33,6 +34,13 @@ public class LIBTestBottomSheet extends BottomSheetDialogFragment {
             public void onClick(View v) {
                 Log.i(TAG, "Starting BirdGame");
                 startActivity(new Intent(v.getContext(), BirdGameActivity.class));
+            }
+        });
+        view.findViewById(R.id.button3).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.i(TAG, "Starting ObstacleGame");
+                startActivity(new Intent(v.getContext(), ObstacleGameActivity.class));
             }
         });
         return view;

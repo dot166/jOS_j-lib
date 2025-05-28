@@ -50,6 +50,16 @@
             android:screenOrientation="locked" />
         <activity android:name=".app.jWebActivity"
             android:exported="false"/>
+        <!-- ObstacleGame -->
+        <activity
+            android:name=".ObstacleGameActivity"
+            android:excludeFromRecents="true"
+            android:exported="true"
+            android:hardwareAccelerated="true"
+            android:icon="@mipmap/ic_launcher_j"
+            android:label="@string/obstaclegame"
+            android:launchMode="singleInstance"
+            android:screenOrientation="locked" />
     </application>
 
 </manifest>

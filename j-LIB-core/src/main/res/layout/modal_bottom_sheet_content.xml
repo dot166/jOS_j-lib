@@ -25,5 +25,15 @@
         android:contentDescription="@string/birdgame"
         android:layout_height="?minTouchTargetSize"
         app:layout_constraintTop_toBottomOf="@id/button1"/>
+
+
+        <io.github.dot166.jlib.widget.MenuButton
+            android:id="@+id/button3"
+            android:layout_width="match_parent"
+            android:text="@string/obstaclegame"
+            android:icon="@drawable/outline_videogame_asset_24"
+            android:contentDescription="@string/obstaclegame"
+            android:layout_height="?minTouchTargetSize"
+            app:layout_constraintTop_toBottomOf="@id/button2"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
