@@ -8,6 +8,7 @@ import android.content.pm.PackageManager
 import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.util.Log
+import android.view.MenuItem
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.appcompat.widget.Toolbar
@@ -42,8 +43,8 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.google.accompanist.drawablepainter.rememberDrawablePainter
-import io.github.dot166.jlib.internal.utils.ContributorRow
 import io.github.dot166.jlib.R
+import io.github.dot166.jlib.internal.utils.ContributorRow
 import io.github.dot166.jlib.themeengine.ThemeEngine.GetComposeTheme
 import io.github.dot166.jlib.utils.AppUtils
 import io.github.dot166.jlib.utils.ErrorUtils
@@ -260,5 +261,18 @@ open class jAboutActivity : jActivity() {
             }
         }
         setSupportActionBar(findViewById<Toolbar?>(R.id.actionbar))
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        supportActionBar.setHomeActionContentDescription(androidx.appcompat.R.string.abc_action_bar_up_description)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            android.R.id.home -> {
+                onBackPressedDispatcher.onBackPressed()
+                return true
+            }
+
+            else -> return super.onOptionsItemSelected(item)
+        }
     }
 }
