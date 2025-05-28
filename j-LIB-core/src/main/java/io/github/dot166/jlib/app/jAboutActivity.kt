@@ -262,7 +262,7 @@ open class jAboutActivity : jActivity() {
         }
         setSupportActionBar(findViewById<Toolbar?>(R.id.actionbar))
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-        supportActionBar.setHomeActionContentDescription(androidx.appcompat.R.string.abc_action_bar_up_description)
+        supportActionBar!!.setHomeActionContentDescription(androidx.appcompat.R.string.abc_action_bar_up_description)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
