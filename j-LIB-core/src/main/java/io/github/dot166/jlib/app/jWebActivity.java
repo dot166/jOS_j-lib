@@ -15,6 +15,7 @@ import android.os.Environment;
 import android.os.Handler;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.view.MenuItem;
 import android.view.View;
 import android.webkit.CookieManager;
 import android.webkit.SslErrorHandler;
@@ -26,6 +27,7 @@ import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.browser.customtabs.CustomTabsIntent;
@@ -39,6 +41,8 @@ public class jWebActivity extends jActivity {
     WebView webView;
     ProgressBar progressBar;
     SwipeRefreshLayout swipeRefreshLayout;
+
+    OnBackPressedCallback callback;
 
     String uri;
     boolean js;
@@ -77,6 +81,7 @@ public class jWebActivity extends jActivity {
         if (useWebView) {
             setContentView(R.layout.jwebactivity);
             setSupportActionBar(findViewById(R.id.actionbar));
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true); // turn on the back button
 
             webView = findViewById(R.id.web);
             progressBar = findViewById(R.id.progress);
@@ -159,6 +164,17 @@ public class jWebActivity extends jActivity {
             swipeRefreshLayout.setColorSchemeColors(
                     obtainStyledAttributes(new int[]{com.google.android.material.R.attr.colorPrimary}).getColor(0, 0)
             );
+            callback = new OnBackPressedCallback(true /* enabled by default */) {
+                @Override
+                public void handleOnBackPressed() {
+                    // Handle the back button event.
+                    if (webView.canGoBack()) {
+                        webView.goBack();
+                    }
+                }
+            };
+            getOnBackPressedDispatcher().addCallback(this, callback);
+
         } else {
             Uri webpage = Uri.parse(uri);
             CustomTabsIntent intent = new CustomTabsIntent.Builder()
@@ -206,18 +222,18 @@ public class jWebActivity extends jActivity {
             if (useWebPageTitleAsActivityTitle) {
                 setTitle(webView.getTitle());
             }
+            callback.setEnabled(webView.canGoBack());
         }
     }
 
 
     @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-
-        if ((keyCode == KeyEvent.KEYCODE_BACK) && webView.canGoBack()) {
-            webView.goBack();
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            getOnBackPressedDispatcher().onBackPressed();
             return true;
         }
-        return super.onKeyDown(keyCode, event);
+        return super.onOptionsItemSelected(item);
     }
 
     private void configureFromIntent(@Nullable Bundle extras) {
