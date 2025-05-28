@@ -19,12 +19,17 @@ import io.github.dot166.jlib.app.jLibConfig;
 public class NetUtils {
 
     public static String getDataRaw(String urlString, @NonNull Context context) {
+        return getDataRaw(urlString, context, 2000);
+    }
+
+    public static String getDataRaw(String urlString, @NonNull Context context, int timeoutMs) {
         if (isNetworkAvailable(context)) {
             StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitNetwork().build();
             StrictMode.setThreadPolicy(policy);
             try {
                 URL url = new URL(urlString);
                 HttpURLConnection connection = ((HttpURLConnection) url.openConnection());
+                connection.setConnectTimeout(timeoutMs);
                 InputStream in_stream = connection.getInputStream();
                 return inputSteramToString(in_stream);
             } catch (Exception e) {

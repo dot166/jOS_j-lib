@@ -254,14 +254,8 @@ object ThemeEngine {
                             R.string.dialog_te_positive,
                             object : DialogInterface.OnClickListener {
                                 override fun onClick(dialog: DialogInterface?, which: Int) {
-                                    val url =
-                                        "https://github.com/dot166/jOS_j-lib/releases/tag/v" + NetUtils.getDataRaw(
-                                            "https://raw.githubusercontent.com/dot166/jOS_j-lib/refs/heads/main/ver",
-                                            context
-                                        )
-
                                     val intent = jWebIntent(context)
-                                    intent.setUrl(url)
+                                    intent.setUrl("https://github.com/dot166/jOS_j-lib/releases/latest")
                                     intent.configureWebView(true, true)
                                     intent.launch()
                                 }

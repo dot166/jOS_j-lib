@@ -61,7 +61,22 @@ public class ThemeProvider extends ContentProvider
     private Boolean checkForTEUpdate(@NonNull Context context) {
         String latest_ver = NetUtils.getDataRaw("https://raw.githubusercontent.com/dot166/jOS_j-lib/refs/heads/main/ver", context).replaceAll("\n", "");
         if (!latest_ver.isEmpty()) {
-            return !BuildConfig.LIBVersion.equals(latest_ver);
+            String[] te_ver_str = BuildConfig.LIBVersion.split("\\.");
+            String[] lib_ver_str = latest_ver.split("\\.");
+            int[] te_ver = new int[te_ver_str.length];
+            for (int i = 0; i < te_ver_str.length; i++) {
+                te_ver[i] = Integer.parseInt(te_ver_str[i]);
+            }
+            int[] lib_ver = new int[lib_ver_str.length];
+            for (int i = 0; i < lib_ver_str.length; i++) {
+                lib_ver[i] = Integer.parseInt(lib_ver_str[i]);
+            }
+
+            if (lib_ver[0] > te_ver[0]) { // major version (e.g. 4)
+                return true;
+            } else if (lib_ver[1] > te_ver[1]) { // minor version (e.g. 1)
+                return true;
+            } else return lib_ver[2] > te_ver[2]; // patch (or shame) version (e.g. 6)
         } else {
             Log.e(TAG, "Unable to check for update");
             return false;
