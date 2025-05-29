@@ -39,7 +39,11 @@ public class LIBTestActivity extends jActivity {
             }
             return true;
         } else if (itemId == R.id.action_favorite) {
-            startActivity(new Intent(this, LIBAboutActivity.class));
+            try {
+                startActivity(new Intent(this, LIBAboutActivity.class));
+            } catch (Exception e) {
+                ErrorUtils.handle(e, this);
+            }
             return true;
         }
         return super.onOptionsItemSelected(item);
