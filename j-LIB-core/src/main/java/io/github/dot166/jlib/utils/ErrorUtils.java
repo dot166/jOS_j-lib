@@ -34,7 +34,7 @@ public class ErrorUtils {
                         public void onClick(DialogInterface dialog, int id) {
                             AlertDialog.Builder builder2 = new AlertDialog.Builder(context);
 
-                            builder2.setMessage(e + Arrays.toString(e.getStackTrace()))
+                            builder2.setMessage(e + "\n" + Arrays.toString(e.getStackTrace()).replaceAll(", ", "\n"))
                                     .setTitle(R.string.dialog_fail_title)
                                     .setIcon(R.mipmap.icon_error)
                                     .setCancelable(false)
