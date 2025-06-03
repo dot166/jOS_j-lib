@@ -41,8 +41,6 @@ android_library {
         "j-Lib_com.mikepenz_aboutlibraries-compose-m3-android",
         "j-Lib_com.mikepenz_aboutlibraries-core",
         "j-Lib_com.mikepenz_aboutlibraries-core-android",
-        "j-Lib_com.prof18.rssparser_rssparser",
-        "j-Lib_com.prof18.rssparser_rssparser-android",
         "j-Lib_io.coil-kt_coil-compose",
         "j-Lib_org.jetbrains.compose.ui_ui-backhandler-android",
         "kotlin-stdlib",
