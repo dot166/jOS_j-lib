@@ -2802,52 +2802,6 @@
             ]
         },
         {
-            "uniqueId": "com.prof18.rssparser:rssparser",
-            "funding": [
-                
-            ],
-            "developers": [
-                {
-                    "name": "Marco Gomiero"
-                }
-            ],
-            "artifactVersion": "6.0.11",
-            "description": "A Kotlin Multiplatform library to parse RSS Feed",
-            "scm": {
-                "connection": "scm:git:github.com/prof18/RSS-Parser.git",
-                "url": "https://github.com/prof18/RSS-Parser/tree/master",
-                "developerConnection": "scm:git:ssh://github.com/prof18/RSS-Parser.git"
-            },
-            "name": "rssparser",
-            "website": "https://github.com/prof18/RSS-Parser.git",
-            "licenses": [
-                "Apache-2.0"
-            ]
-        },
-        {
-            "uniqueId": "com.prof18.rssparser:rssparser-android",
-            "funding": [
-                
-            ],
-            "developers": [
-                {
-                    "name": "Marco Gomiero"
-                }
-            ],
-            "artifactVersion": "6.0.11",
-            "description": "A Kotlin Multiplatform library to parse RSS Feed",
-            "scm": {
-                "connection": "scm:git:github.com/prof18/RSS-Parser.git",
-                "url": "https://github.com/prof18/RSS-Parser/tree/master",
-                "developerConnection": "scm:git:ssh://github.com/prof18/RSS-Parser.git"
-            },
-            "name": "rssparser",
-            "website": "https://github.com/prof18/RSS-Parser.git",
-            "licenses": [
-                "Apache-2.0"
-            ]
-        },
-        {
             "uniqueId": "com.squareup.okhttp3:okhttp",
             "funding": [
                 
@@ -3782,7 +3736,7 @@
                     "name": "JetBrains Team"
                 }
             ],
-            "artifactVersion": "1.10.2",
+            "artifactVersion": "1.8.1",
             "description": "Coroutines support libraries for Kotlin",
             "scm": {
                 "url": "https://github.com/Kotlin/kotlinx.coroutines"
@@ -3804,7 +3758,7 @@
                     "name": "JetBrains Team"
                 }
             ],
-            "artifactVersion": "1.10.2",
+            "artifactVersion": "1.8.1",
             "description": "Coroutines support libraries for Kotlin",
             "scm": {
                 "url": "https://github.com/Kotlin/kotlinx.coroutines"
@@ -3826,7 +3780,7 @@
                     "name": "JetBrains Team"
                 }
             ],
-            "artifactVersion": "1.10.2",
+            "artifactVersion": "1.8.1",
             "description": "Coroutines support libraries for Kotlin",
             "scm": {
                 "url": "https://github.com/Kotlin/kotlinx.coroutines"
@@ -3848,7 +3802,7 @@
                     "name": "JetBrains Team"
                 }
             ],
-            "artifactVersion": "1.10.2",
+            "artifactVersion": "1.8.1",
             "description": "Coroutines support libraries for Kotlin",
             "scm": {
                 "url": "https://github.com/Kotlin/kotlinx.coroutines"
