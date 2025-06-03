@@ -15,7 +15,6 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 import io.github.dot166.jlib.BirdGameActivity;
 import io.github.dot166.jlib.ObstacleGameActivity;
 import io.github.dot166.jlib.R;
-import io.github.dot166.jlib.rss.RSSActivity;
 
 @RestrictTo(RestrictTo.Scope.LIBRARY)
 public class LIBTestBottomSheet extends BottomSheetDialogFragment {
@@ -42,13 +41,6 @@ public class LIBTestBottomSheet extends BottomSheetDialogFragment {
             public void onClick(View v) {
                 Log.i(TAG, "Starting ObstacleGame");
                 startActivity(new Intent(v.getContext(), ObstacleGameActivity.class));
-            }
-        });
-        view.findViewById(R.id.button4).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Log.i(TAG, "Starting RSSActivity");
-                startActivity(new Intent(v.getContext(), RSSActivity.class));
             }
         });
         return view;

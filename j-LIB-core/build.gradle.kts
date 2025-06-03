@@ -83,7 +83,6 @@ dependencies {
     api("com.mikepenz:aboutlibraries-core:12.1.2")
     api("com.mikepenz:aboutlibraries-compose-m3:12.1.2")
     api("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
-    api("com.prof18.rssparser:rssparser:6.0.11")
 }
 
 mavenPublishing {
