@@ -36,6 +36,7 @@ import com.android.customization.model.CustomizationManager.OptionsFetchedListen
 import com.android.customization.model.CustomizationOption;
 
 import io.github.dot166.jlib.LIBAboutActivity;
+import io.github.dot166.jlib.utils.ErrorUtils;
 import io.github.dot166.themeengine.OptionSelectorController.CheckmarkStyle;
 
 import com.android.wallpaper.picker.AppbarFragment;
@@ -81,7 +82,9 @@ public class ThemeEngineFragment extends AppbarFragment {
             // Since we disabled it when clicked apply button.
             mBottomActionBar.enableActions();
             mBottomActionBar.hide();
-            //TODO: handle
+            if (throwable != null) {
+                ErrorUtils.handle(throwable, getContext());
+            }
         }
     };
 

@@ -21,7 +21,7 @@ apply {
 
 buildscript {
     repositories {
-        maven("https://raw.githubusercontent.com/dot166/gradle-generatebp/v1.21.2/.m2")
+        maven("https://raw.githubusercontent.com/dot166/gradle-generatebp/v1.23.1/.m2")
     }
 
     dependencies {

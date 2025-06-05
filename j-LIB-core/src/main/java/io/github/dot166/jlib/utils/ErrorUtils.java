@@ -18,10 +18,10 @@ public class ErrorUtils {
      * jLib Error Handler
      * WARNING!! When this is used this assumes that the error might be recoverable
      * do not use this when the error is not recoverable
-     * @param e Exception to attempt to handle
+     * @param e Throwable to attempt to handle
      * @param context Context to pass into the error handler
      */
-    public static void handle(Exception e, Context context) {
+    public static void handle(Throwable e, Context context) {
         e.printStackTrace();
         try {
             AlertDialog.Builder builder = new AlertDialog.Builder(context);
