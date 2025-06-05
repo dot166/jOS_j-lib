@@ -48,6 +48,13 @@
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
                 <action android:name="android.intent.action.USER_INITIALIZE" />
             </intent-filter>
+            <intent-filter>
+                <action android:name="android.telephony.action.SECRET_CODE" />
+                <!-- *#*#THEME#*#* -->
+                <data
+                    android:host="84363"
+                    android:scheme="android_secret_code" />
+            </intent-filter>
         </receiver>
 
         <provider

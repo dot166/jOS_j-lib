@@ -1,7 +1,8 @@
 /*
- * Copyright (C) 2024 ._______166
+ * Copyright (C) 2024 - 2025 ._______166
  */
 package io.github.dot166.themeengine;
+
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.BroadcastReceiver;
@@ -39,6 +40,8 @@ import android.util.Log;
  */
 public final class TEBroadcastReceiver extends BroadcastReceiver {
     private static final String TAG = TEBroadcastReceiver.class.getSimpleName();
+    private static final String THEME_SECRET_CODE = "84363";
+    private static boolean isThemeCode;
     private static boolean isL3;
 
     @SuppressLint("UnsafeProtectedBroadcastReceiver")
@@ -47,6 +50,12 @@ public final class TEBroadcastReceiver extends BroadcastReceiver {
         if (shouldHandleThisIntent(intent, context)) {
             if (isInSystemImage(context) && !isL3) {
                 disableActivity(context, LauncherActivity.class);
+                if (isThemeCode) {
+                    Intent i = new Intent(context, ThemeEngineActivity.class);
+                    i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+                    context.startActivity(i);
+                }
             } else {
                 if (!isL3) {
                     Log.i(TAG, "This package isn't in system image: " + context.getPackageName());
@@ -69,6 +78,11 @@ public final class TEBroadcastReceiver extends BroadcastReceiver {
         } else if ("com.android.launcher3.action.PARTNER_CUSTOMIZATION".equals(action)) {
             isL3 = true;
             Log.i(TAG, "Launcher3 Customization things");
+            return true;
+        } else if ("android.telephony.action.SECRET_CODE".equals(action)) {
+            if (intent.getData() == null || intent.getData().getHost() == null || !intent.getData().getHost().equals(THEME_SECRET_CODE)) return false;
+            isThemeCode = true;
+            Log.i(TAG, "Theme Code");
             return true;
         }
         return false;
