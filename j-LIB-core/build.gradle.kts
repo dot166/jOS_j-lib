@@ -66,7 +66,7 @@ android {
 }
 
 dependencies {
-    api("androidx.appcompat:appcompat:1.7.0")
+    api("androidx.appcompat:appcompat:1.7.1")
     api("androidx.constraintlayout:constraintlayout:2.2.1")
     api("androidx.recyclerview:recyclerview:1.4.0")
     //noinspection KtxExtensionAvailable
