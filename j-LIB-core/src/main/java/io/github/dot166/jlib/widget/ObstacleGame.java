@@ -133,9 +133,9 @@ public class ObstacleGame extends GameView {
             mLastObstacleTime = t;
             int obstacley;
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.VANILLA_ICE_CREAM) {
-                obstacley = new Random().nextInt((int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 262, getResources().getDisplayMetrics()), (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 287, getResources().getDisplayMetrics()));
+                obstacley = new Random().nextInt(PARAMS.OBSTACLE_GAP / 2, PARAMS.OBSTACLE_GAP);
             } else {
-                obstacley = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 275, getResources().getDisplayMetrics());
+                obstacley = PARAMS.OBSTACLE_GAP;
             }
 
             final int inset = (PARAMS.OBSTACLE_WIDTH - PARAMS.OBSTACLE_STEM_WIDTH) / 2;
@@ -159,7 +159,7 @@ public class ObstacleGame extends GameView {
 
             final int d2 = irand(0, 250);
             final Obstacle s2 = new Stem(getContext(),
-                    mHeight - obstacley - PARAMS.OBSTACLE_GAP - yinset,
+                    mHeight - (mHeight - obstacley) - yinset,
                     true);
             addView(s2, new LayoutParams(
                     PARAMS.OBSTACLE_STEM_WIDTH,
