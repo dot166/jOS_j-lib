@@ -160,14 +160,14 @@
                     "name": "The Android Open Source Project"
                 }
             ],
-            "artifactVersion": "1.7.0",
+            "artifactVersion": "1.7.1",
             "description": "Provides backwards-compatible implementations of UI-related Android SDK functionality, including dark mode and Material theming.",
             "scm": {
                 "connection": "scm:git:https://android.googlesource.com/platform/frameworks/support",
                 "url": "https://cs.android.com/androidx/platform/frameworks/support"
             },
             "name": "AppCompat",
-            "website": "https://developer.android.com/jetpack/androidx/releases/appcompat#1.7.0",
+            "website": "https://developer.android.com/jetpack/androidx/releases/appcompat#1.7.1",
             "licenses": [
                 "Apache-2.0"
             ],
@@ -185,14 +185,14 @@
                     "name": "The Android Open Source Project"
                 }
             ],
-            "artifactVersion": "1.7.0",
+            "artifactVersion": "1.7.1",
             "description": "Provides backward-compatible implementations of resource-related Android SDKfunctionality, including color state list theming.",
             "scm": {
                 "connection": "scm:git:https://android.googlesource.com/platform/frameworks/support",
                 "url": "https://cs.android.com/androidx/platform/frameworks/support"
             },
             "name": "AppCompat Resources",
-            "website": "https://developer.android.com/jetpack/androidx/releases/appcompat#1.7.0",
+            "website": "https://developer.android.com/jetpack/androidx/releases/appcompat#1.7.1",
             "licenses": [
                 "Apache-2.0"
             ],
