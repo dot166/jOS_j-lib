@@ -8,6 +8,7 @@ import android.content.DialogInterface
 import android.net.Uri
 import android.os.Handler
 import android.util.Log
+import android.view.View
 import androidx.appcompat.app.AlertDialog
 import androidx.compose.material3.ColorScheme
 import androidx.compose.material3.MaterialTheme
@@ -16,6 +17,7 @@ import androidx.compose.material3.Typography
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import io.github.dot166.jlib.BuildConfig
+import com.google.android.material.snackbar.Snackbar
 import io.github.dot166.jlib.R
 import io.github.dot166.jlib.app.jWebActivity
 import io.github.dot166.jlib.web.jWebIntent
@@ -74,36 +76,22 @@ object ThemeEngine {
             }
         }
         if (theme != "none") {
+            tmpCurrentTheme = null.toString()
             Log.i(TAG, "Unrecognised Theme '$theme'")
+            return R.style.j_Theme
         } else {
+            tmpCurrentTheme = null.toString()
             Log.e(TAG, "ThemeEngine is MISSING!!!!")
             if (isWebViewUsed(context)) {
-                val builder = AlertDialog.Builder(context)
-
-                builder.setMessage(R.string.theme_dialog_message)
-                    .setTitle(R.string.theme_dialog_title)
-                    .setCancelable(false)
-                    .setPositiveButton(
-                        R.string.theme_dialog_positive,
-                        object : DialogInterface.OnClickListener {
-                            override fun onClick(dialog: DialogInterface?, id: Int) {
                                 val url = "https://github.com/dot166/jOS_j-lib/releases/tag/v" + BuildConfig.LIBVersion
-                                val intent = jWebIntent(context)
-                                intent.setUrl(url)
-                                intent.configureWebView(true, true)
-                                intent.launch()
-                            }
-                        })
-                    .setNegativeButton(
-                        R.string.theme_dialog_negative,
-                        object : DialogInterface.OnClickListener {
-                            override fun onClick(dialog: DialogInterface?, id: Int) {
-                                Log.i(TAG, "IGNORING ThemeEngine ERROR")
-                            }
-                        })
-                //Creating dialog box
-                val alert = builder.create()
-                alert.show()
+                Snackbar.make(context.findViewById<View>(android.R.id.content), R.string.theme_snackbar, Snackbar.LENGTH_SHORT).setAction(R.string.theme_dialog_positive, object : View.OnClickListener {
+                    override fun onClick(v: View?) {
+                        val intent = jWebIntent(context)
+                        intent.setUrl(url)
+                        intent.configureWebView(true, true)
+                        intent.launch()
+                    }
+                }).show()
             }
         }
         tmpCurrentTheme = null.toString()
