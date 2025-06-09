@@ -30,8 +30,6 @@ buildscript {
     }
 }
 
-android.buildFeatures.buildConfig=true
-
 group = "io.github.dot166"
 version = Ver
 
@@ -43,10 +41,12 @@ android {
         minSdk = libMinSdk
 
         consumerProguardFiles("consumer-rules.pro")
-        buildConfigField("String", "LIBVersion", "\"$version\"")
     }
 
     buildTypes {
+        all {
+            resValue("string", "lib_ver", Ver)
+        }
         release {
             isMinifyEnabled = false
             proguardFiles(

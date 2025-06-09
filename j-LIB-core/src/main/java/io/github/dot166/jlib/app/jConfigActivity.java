@@ -22,10 +22,10 @@ import androidx.preference.PreferenceScreen;
 
 import java.util.Objects;
 
-import io.github.dot166.jlib.BuildConfig;
 import io.github.dot166.jlib.R;
 import io.github.dot166.jlib.utils.ErrorUtils;
 import io.github.dot166.jlib.LIBAboutActivity;
+import io.github.dot166.jlib.utils.VersionUtils;
 
 /**
  * jLib Settings activity.
@@ -114,7 +114,7 @@ public class jConfigActivity extends jActivity {
                     return !hideLIB();
                 case "LIBVer":
                     Log.i("Preference Logging", "LIBVer Found!!!!");
-                    preference.setSummary(BuildConfig.LIBVersion);
+                    preference.setSummary(VersionUtils.getLibVersion(preference.getContext()));
                     preference.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
                         @Override
                         public boolean onPreferenceClick(@NonNull Preference preference) {

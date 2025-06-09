@@ -54,12 +54,11 @@ android_library {
         // common code
         "src/main/java/**/*.kt",
         "src/main/java/**/*.java",
-        // buildconfig
-        "src-aosp/io/github/dot166/jlib/BuildConfig.java"
     ],
 
     resource_dirs: [
         "src/main/res",
+        "res-aosp",
     ],
     use_resource_processor: true,
 

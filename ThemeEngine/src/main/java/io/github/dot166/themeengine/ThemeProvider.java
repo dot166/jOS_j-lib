@@ -17,8 +17,8 @@ import androidx.preference.PreferenceManager;
 
 import java.util.Objects;
 
-import io.github.dot166.jlib.BuildConfig;
 import io.github.dot166.jlib.utils.NetUtils;
+import io.github.dot166.jlib.utils.VersionUtils;
 
 public class ThemeProvider extends ContentProvider
 {
@@ -61,7 +61,7 @@ public class ThemeProvider extends ContentProvider
     private Boolean checkForTEUpdate(@NonNull Context context) {
         String latest_ver = NetUtils.getDataRaw("https://raw.githubusercontent.com/dot166/jOS_j-lib/refs/heads/main/ver", context).replaceAll("\n", "");
         if (!latest_ver.isEmpty()) {
-            String[] te_ver_str = BuildConfig.LIBVersion.split("\\.");
+            String[] te_ver_str = VersionUtils.getLibVersion(context).split("\\.");
             String[] lib_ver_str = latest_ver.split("\\.");
             int[] te_ver = new int[te_ver_str.length];
             for (int i = 0; i < te_ver_str.length; i++) {

@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.Objects;
 
 import io.github.dot166.jlib.app.jAboutActivity;
+import io.github.dot166.jlib.utils.VersionUtils;
 
 public class LIBAboutActivity extends jAboutActivity {
 
@@ -36,7 +37,7 @@ public class LIBAboutActivity extends jAboutActivity {
     @NonNull
     @Override
     public String versionName(@NonNull Context context) {
-        return BuildConfig.LIBVersion;
+        return VersionUtils.getLibVersion(context);
     }
 
     @NonNull

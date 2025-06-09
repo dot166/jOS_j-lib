@@ -1,8 +1,11 @@
 package io.github.dot166.jlib.utils;
 
+import android.content.Context;
 import android.os.Build;
 
 import androidx.annotation.ChecksSdkIntAtLeast;
+
+import io.github.dot166.jlib.R;
 
 public class VersionUtils {
 
@@ -59,6 +62,10 @@ public class VersionUtils {
             return Build.VERSION.RELEASE_OR_PREVIEW_DISPLAY;
         }
         return Build.VERSION.RELEASE;
+    }
+
+    public static String getLibVersion(Context context) {
+        return context.getString(R.string.lib_ver);
     }
 }
 

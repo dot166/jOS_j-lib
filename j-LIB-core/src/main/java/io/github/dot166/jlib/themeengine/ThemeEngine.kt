@@ -16,10 +16,10 @@ import androidx.compose.material3.Shapes
 import androidx.compose.material3.Typography
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
-import io.github.dot166.jlib.BuildConfig
 import com.google.android.material.snackbar.Snackbar
 import io.github.dot166.jlib.R
 import io.github.dot166.jlib.app.jWebActivity
+import io.github.dot166.jlib.utils.VersionUtils
 import io.github.dot166.jlib.web.jWebIntent
 
 object ThemeEngine {
@@ -85,6 +85,7 @@ object ThemeEngine {
             if (isWebViewUsed(context)) {
                 Snackbar.make(context.findViewById<View>(android.R.id.content), R.string.theme_snackbar, Snackbar.LENGTH_SHORT).setAction(R.string.theme_dialog_positive, object : View.OnClickListener {
                     override fun onClick(v: View?) {
+                        val url = "https://github.com/dot166/jOS_j-lib/releases/tag/v" + VersionUtils.getLibVersion(context)
                         val intent = jWebIntent(context)
                         intent.setUrl(url)
                         intent.configureWebView(true, true)
