@@ -12,8 +12,11 @@ import androidx.preference.PreferenceManager;
 import com.prof18.rssparser.model.RssChannel;
 import com.prof18.rssparser.model.RssItem;
 
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 
 import io.github.dot166.jlib.R;
 import io.github.dot166.jlib.app.Notifier;
@@ -71,22 +74,24 @@ public class RSSNotifier extends Notifier {
 
     @Override
     public void showNotification() {
-        String rssUrl = PreferenceManager.getDefaultSharedPreferences(context).getString("rssUrl", "");
-        Log.i("RSS", rssUrl);
-        rssChannel = (new RSSViewModel()).fetchFeedWithoutViewModel(rssUrl, context);
-        if (Objects.equals(rssChannel.getItems().get(0).getDescription(), "Something failed and to keep the app running this is displayed")) { // should only trigger on error handler
-            Log.e("RSS", "cannot display notification as RSS reader is in fallback mode");
-            return;
-        }
-        int rssCount = 0;
-        List<RssItem> articles = rssChannel.getItems();
-        rssCount = articles.size(); // should be safe to do this, there is no way on earth that anyone has Integer.MAX_VALUE rss items (2^31 - 1)
-        Log.i("RSS", String.valueOf(rssCount));
+        String[] rssUrls = PreferenceManager.getDefaultSharedPreferences(context).getString("rssUrls", "").split(";");
+        Log.i("RSS", Arrays.toString(rssUrls));
+        for (String rssUrl : rssUrls) {
+            rssChannel = (new RSSViewModel()).fetchFeedWithoutViewModel(rssUrl, context);
+            if (Objects.equals(rssChannel.getItems().get(0).getDescription(), "Something failed and to keep the app running this is displayed")) { // should only trigger on error handler
+                Log.e("RSS", "cannot display notification as RSS reader is in fallback mode");
+                return;
+            }
+            int rssCount = 0;
+            List<RssItem> articles = rssChannel.getItems();
+            rssCount = articles.size(); // should be safe to do this, there is no way on earth that anyone has Integer.MAX_VALUE rss items (2^31 - 1)
+            Log.i("RSS", String.valueOf(rssCount));
 
-        int savedRssCount = PreferenceManager.getDefaultSharedPreferences(context).getInt("savedRssCount", 0);
-        if (savedRssCount < rssCount) {
-            super.showNotification();
-            PreferenceManager.getDefaultSharedPreferences(context).edit().putInt("savedRssCount", rssCount).apply(); // use shared prefs to not annoy user, just hope nobody has a preference with savedRssCount as the key and uses the rss feature
+            int savedRssCount = PreferenceManager.getDefaultSharedPreferences(context).getInt("savedRssCount" + rssUrl, 0);
+            if (savedRssCount < rssCount) {
+                super.showNotification();
+                PreferenceManager.getDefaultSharedPreferences(context).edit().putInt("savedRssCount" + rssUrl, rssCount).apply(); // use shared prefs to not annoy user, just hope nobody has a preference with savedRssCount as the key and uses the rss feature
+            }
         }
     }
 }

@@ -8,11 +8,13 @@ import android.util.Log;
 
 import androidx.preference.PreferenceManager;
 
+import java.util.HashSet;
+
 public class RSSNotifAlarmReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
         Log.i("RSS", "received");
-        if (context != null && PreferenceManager.getDefaultSharedPreferences(context).contains("rssUrl") && !PreferenceManager.getDefaultSharedPreferences(context).getString("rssUrl", "").isEmpty()) {
+        if (context != null && PreferenceManager.getDefaultSharedPreferences(context).contains("rssUrls") && !PreferenceManager.getDefaultSharedPreferences(context).getString("rssUrls", "").isEmpty() && !PreferenceManager.getDefaultSharedPreferences(context).getString("rssUrls", "").endsWith(";")) {
             Log.i("RSS", "notif");
             NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
             RSSNotifier rssNotifier = new RSSNotifier(notificationManager, context);
