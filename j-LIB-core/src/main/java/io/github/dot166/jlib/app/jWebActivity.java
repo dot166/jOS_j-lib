@@ -37,7 +37,7 @@ import io.github.dot166.jlib.R;
 
 public class jWebActivity extends jActivity {
 
-    WebView webView;
+    protected WebView webView;
     ProgressBar progressBar;
     SwipeRefreshLayout swipeRefreshLayout;
 

@@ -83,7 +83,6 @@ object ThemeEngine {
             tmpCurrentTheme = null.toString()
             Log.e(TAG, "ThemeEngine is MISSING!!!!")
             if (isWebViewUsed(context)) {
-                                val url = "https://github.com/dot166/jOS_j-lib/releases/tag/v" + BuildConfig.LIBVersion
                 Snackbar.make(context.findViewById<View>(android.R.id.content), R.string.theme_snackbar, Snackbar.LENGTH_SHORT).setAction(R.string.theme_dialog_positive, object : View.OnClickListener {
                     override fun onClick(v: View?) {
                         val intent = jWebIntent(context)
@@ -93,9 +92,8 @@ object ThemeEngine {
                     }
                 }).show()
             }
+            return 0 // let app handle it when ThemeEngine is missing
         }
-        tmpCurrentTheme = null.toString()
-        return R.style.j_Theme
     }
 
     @SuppressLint("Recycle")
