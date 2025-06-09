@@ -31,11 +31,11 @@ public class RSSFragment extends Fragment {
 
     private int mId;
 
-    RSSFragment() {
+    public RSSFragment() {
         new RSSFragment(-1);
     }
 
-    RSSFragment(int id) {
+    public RSSFragment(int id) {
         mId = id;
     }
 
