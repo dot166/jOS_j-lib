@@ -36,7 +36,7 @@ java_library_static {
 
 android_library_import {
     name: "j-Lib_com.mikepenz_aboutlibraries-compose-core-android",
-    aars: ["com/mikepenz/aboutlibraries-compose-core-android/12.1.2/aboutlibraries-compose-release.aar"],
+    aars: ["com/mikepenz/aboutlibraries-compose-core-android/12.2.1/aboutlibraries-compose-release.aar"],
     sdk_version: "35",
     min_sdk_version: "26",
     apex_available: [
@@ -68,7 +68,7 @@ java_library_static {
 
 android_library_import {
     name: "j-Lib_com.mikepenz_aboutlibraries-compose-m3-android",
-    aars: ["com/mikepenz/aboutlibraries-compose-m3-android/12.1.2/aboutlibraries-compose-m3-release.aar"],
+    aars: ["com/mikepenz/aboutlibraries-compose-m3-android/12.2.1/aboutlibraries-compose-m3-release.aar"],
     sdk_version: "35",
     min_sdk_version: "26",
     apex_available: [
@@ -103,7 +103,7 @@ java_library_static {
 
 android_library_import {
     name: "j-Lib_com.mikepenz_aboutlibraries-core-android",
-    aars: ["com/mikepenz/aboutlibraries-core-android/12.1.2/aboutlibraries-core-release.aar"],
+    aars: ["com/mikepenz/aboutlibraries-core-android/12.2.1/aboutlibraries-core-release.aar"],
     sdk_version: "35",
     min_sdk_version: "26",
     apex_available: [
@@ -530,7 +530,7 @@ java_library_static {
 
 android_library_import {
     name: "j-Lib_org.jetbrains.compose.ui_ui-backhandler-android",
-    aars: ["org/jetbrains/compose/ui/ui-backhandler-android/1.8.0/ui-backhandler-release.aar"],
+    aars: ["org/jetbrains/compose/ui/ui-backhandler-android/1.8.1/ui-backhandler-release.aar"],
     sdk_version: "35",
     min_sdk_version: "26",
     apex_available: [
@@ -669,7 +669,7 @@ java_library_static {
 
 java_import {
     name: "j-Lib_org.jetbrains.kotlinx_kotlinx-collections-immutable-jvm",
-    jars: ["org/jetbrains/kotlinx/kotlinx-collections-immutable-jvm/0.3.8/kotlinx-collections-immutable-jvm-0.3.8.jar"],
+    jars: ["org/jetbrains/kotlinx/kotlinx-collections-immutable-jvm/0.4.0/kotlinx-collections-immutable-jvm-0.4.0.jar"],
     sdk_version: "35",
     min_sdk_version: "26",
     apex_available: [
