@@ -46,4 +46,5 @@
     <string name="cancel">Cancel</string>
     <string name="obstaclegame">Obstacle Game</string>
     <string name="theme_snackbar">ThemeEngine is missing</string>
+    <string name="rss_feed">RSS Feed Activity</string>
 </resources>

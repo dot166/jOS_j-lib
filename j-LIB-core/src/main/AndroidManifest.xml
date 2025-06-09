@@ -60,6 +60,9 @@
             android:label="@string/obstaclegame"
             android:launchMode="singleInstance"
             android:screenOrientation="locked" />
+        <activity android:name=".rss.RSSActivity"
+            android:exported="true"/>
+        <receiver android:name=".rss.RSSNotifAlarmReceiver" />
     </application>
 
 </manifest>

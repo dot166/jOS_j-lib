@@ -33,4 +33,12 @@ public class jWebIntent {
         intent.putExtra("uri", url);
         mContext.startActivity(intent);
     }
+
+    public Intent getIntent() {
+        if (url == null) {
+            throw new IllegalArgumentException("url is not set!");
+        }
+        intent.putExtra("uri", url);
+        return intent;
+    }
 }
