@@ -32,7 +32,7 @@ public class RSSFragment extends Fragment {
     private int mId;
 
     RSSFragment() {
-        new RSSFragment(0);
+        new RSSFragment(-1);
     }
 
     RSSFragment(int id) {
@@ -97,7 +97,7 @@ public class RSSFragment extends Fragment {
             }
         });
 
-        if (mId == 0) {
+        if (mId == -1) {
             for (String url : rssUrls) {
                 viewModel.fetchFeed(url, getContext());
             }
