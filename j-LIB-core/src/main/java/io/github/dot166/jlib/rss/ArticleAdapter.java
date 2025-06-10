@@ -11,10 +11,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.prof18.rssparser.model.RssItem;
 
+import java.util.Arrays;
 import java.util.List;
 
 import io.github.dot166.jlib.R;
@@ -56,7 +58,11 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
 
         viewHolder.pubDate.setText(pubDateString);
 
-        viewHolder.category.setText(currentArticle.getDescription());
+        if (currentArticle.getCategories().isEmpty() || PreferenceManager.getDefaultSharedPreferences(viewHolder.category.getContext()).getBoolean("show_desc_by_default_in_rss", false)) {
+            viewHolder.category.setText(currentArticle.getDescription());
+        } else {
+            viewHolder.category.setText(Arrays.toString(currentArticle.getCategories().toArray()));
+        }
 
         viewHolder.itemView.setOnClickListener(view -> {
             if (currentArticle.getLink() != null && !currentArticle.getLink().isEmpty()) {
@@ -65,7 +71,7 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
                 webIntent.configureWebView(true, true);
                 webIntent.launch();
             } else {
-                Toast.makeText(view.getContext(), "RSS Reader is in fallback mode", LENGTH_SHORT).show();
+                Toast.makeText(view.getContext(), "no url available", LENGTH_SHORT).show();
             }
         });
     }
