@@ -34,6 +34,7 @@ public class RSSActivity extends jActivity {
         setContentView(R.layout.activity_rss);
         Toolbar toolbar = findViewById(R.id.actionbar);
         setSupportActionBar(toolbar);
+        getSupportFragmentManager().beginTransaction().add(R.id.fragment, new RSSFragment()).commit();
         Toast.makeText(this, String.valueOf(((NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE)).areNotificationsEnabled()), LENGTH_LONG).show();
         Calendar cal = Calendar.getInstance();
         cal.set(Calendar.HOUR_OF_DAY, 12);

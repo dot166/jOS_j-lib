@@ -11,8 +11,8 @@
         app:subtitleCentered="true"
         android:id="@+id/actionbar"/>
 
-    <androidx.fragment.app.FragmentContainerView
-        android:name="io.github.dot166.jlib.rss.RSSFragment"
+    <FrameLayout
+        android:id="@+id/fragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/actionbar" />

@@ -2,6 +2,8 @@ package io.github.dot166.jlib.rss;
 
 import static android.widget.Toast.LENGTH_SHORT;
 
+import static io.github.dot166.jlib.utils.DateUtils.convertFromCommonFormats;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,9 +15,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.prof18.rssparser.model.RssItem;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.time.OffsetDateTime;
 import java.util.List;
 
 import io.github.dot166.jlib.R;
@@ -50,11 +49,7 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
         String pubDateString = sourceDateString;
 
         if (sourceDateString != null) {
-            DateTimeFormatter inputFormatter = DateTimeFormatter.ISO_OFFSET_DATE_TIME;
-            OffsetDateTime offsetDateTime = OffsetDateTime.parse(sourceDateString, inputFormatter);
-            LocalDateTime localDateTime = offsetDateTime.toLocalDateTime();
-            DateTimeFormatter outputFormatter = DateTimeFormatter.ofPattern("E d-M-y");
-            pubDateString = localDateTime.format(outputFormatter);
+            pubDateString = convertFromCommonFormats(sourceDateString);
         }
 
         viewHolder.title.setText(currentArticle.getTitle());

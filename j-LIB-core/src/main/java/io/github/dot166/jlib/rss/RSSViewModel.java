@@ -28,7 +28,7 @@ public class RSSViewModel extends ViewModel {
         return articleListLive;
     }
 
-    private void setChannel(RssChannel channel) {
+    public void setChannel(RssChannel channel) {
         this.articleListLive.postValue(channel);
     }
 
