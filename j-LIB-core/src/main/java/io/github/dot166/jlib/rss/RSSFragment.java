@@ -88,7 +88,7 @@ public class RSSFragment extends Fragment {
             mAdapter.getArticleList().clear();
             mAdapter.notifyDataSetChanged();
             mSwipeRefreshLayout.setRefreshing(true);
-            if (mId == 0) {
+            if (mId == -1) {
                 for (String url : rssUrls) {
                     viewModel.fetchFeed(url, getContext());
                 }
