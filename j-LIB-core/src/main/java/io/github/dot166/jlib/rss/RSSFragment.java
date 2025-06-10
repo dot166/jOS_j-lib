@@ -26,6 +26,7 @@ import com.prof18.rssparser.model.RssItem;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Objects;
 
 import io.github.dot166.jlib.R;
 
@@ -96,6 +97,10 @@ public class RSSFragment extends Fragment {
                     RssChannel channel = viewModel.fetchFeedWithoutViewModel(url, getContext());
                     for (int i = 0; i < channel.getItems().toArray().length; i++) {
                         list.add(channel.getItems().get(i));
+                    }
+                    if (Objects.equals(channel.getItems().get(0).getDescription(), "Something failed and to keep the app running this is displayed")) { // should only trigger on error handler
+                        // stop parsing here, prevent feed being full of the same error
+                        break;
                     }
                 }
                 list.sort(new Comparator<RssItem>() {
