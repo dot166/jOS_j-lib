@@ -91,11 +91,22 @@ public class RSSFragment extends Fragment {
             mAdapter.notifyDataSetChanged();
             mSwipeRefreshLayout.setRefreshing(true);
             if (mId == 0) {
+                List<RssItem> list = new ArrayList<>();
                 for (String url : rssUrls) {
-                    viewModel.fetchFeed(url, getContext());
+                    RssChannel channel = viewModel.fetchFeedWithoutViewModel(url, getContext());
+                    for (int i = 0; i < channel.getItems().toArray().length; i++) {
+                        list.add(channel.getItems().get(i));
+                    }
                 }
+                list.sort(new Comparator<RssItem>() {
+                    @Override
+                    public int compare(RssItem o1, RssItem o2) {
+                        return Long.compare(convertDateToEpochSeconds(convertFromCommonFormats(o2.getPubDate())), convertDateToEpochSeconds(convertFromCommonFormats(o1.getPubDate())));
+                    }
+                });
+                viewModel.setChannel(new RssChannel("All Feeds", null, null, null, null, null, list, null, null));
             } else {
-                viewModel.fetchFeed(rssUrls[mId], getContext());
+                viewModel.fetchFeed(rssUrls[mId-1], getContext());
             }
         });
 
@@ -115,7 +126,7 @@ public class RSSFragment extends Fragment {
             });
             viewModel.setChannel(new RssChannel("All Feeds", null, null, null, null, null, list, null, null));
         } else {
-            viewModel.fetchFeed(rssUrls[mId], getContext());
+            viewModel.fetchFeed(rssUrls[mId-1], getContext());
         }
         return view;
     }
