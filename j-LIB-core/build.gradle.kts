@@ -84,6 +84,7 @@ dependencies {
     api("com.mikepenz:aboutlibraries-compose-m3:12.2.1")
     api("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
     api("com.prof18.rssparser:rssparser:6.0.11")
+    api("com.github.bumptech.glide:glide:4.16.0")
 }
 
 mavenPublishing {

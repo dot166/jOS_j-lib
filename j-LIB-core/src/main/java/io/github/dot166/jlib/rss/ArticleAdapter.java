@@ -4,9 +4,16 @@ import static android.widget.Toast.LENGTH_SHORT;
 
 import static io.github.dot166.jlib.utils.DateUtils.convertFromCommonFormats;
 
+import android.content.Context;
+import android.media.AudioAttributes;
+import android.media.AudioFocusRequest;
+import android.media.AudioManager;
+import android.media.MediaPlayer;
+import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.MediaController;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -16,10 +23,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.prof18.rssparser.model.RssItem;
 
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
 import io.github.dot166.jlib.R;
+import io.github.dot166.jlib.utils.ErrorUtils;
 import io.github.dot166.jlib.web.jWebIntent;
 
 public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHolder> {
@@ -65,7 +74,23 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
         }
 
         viewHolder.itemView.setOnClickListener(view -> {
-            if (currentArticle.getLink() != null && !currentArticle.getLink().isEmpty()) {
+            if (currentArticle.getRawEnclosure() != null && currentArticle.getRawEnclosure().getUrl() != null && !currentArticle.getRawEnclosure().getUrl().isEmpty()) {
+                if (currentArticle.getRawEnclosure().getType() != null && currentArticle.getRawEnclosure().getType().contains("audio")) {
+                    String drawUrl;
+                    if (currentArticle.getItunesItemData() != null && currentArticle.getItunesItemData().getImage() != null) {
+                        drawUrl = currentArticle.getItunesItemData().getImage();
+                    } else {
+                        drawUrl = "";
+                    }
+                    RSSAudioActivity.playAudioFromFeed(currentArticle.getRawEnclosure().getUrl(), view.getContext(), drawUrl);
+                } else {
+                    // do not know what to do with anything else so send it to webview
+                    jWebIntent webIntent = new jWebIntent(view.getContext());
+                    webIntent.setUrl(currentArticle.getRawEnclosure().getUrl());
+                    webIntent.configureWebView(true, true);
+                    webIntent.launch();
+                }
+            } else if (currentArticle.getLink() != null && !currentArticle.getLink().isEmpty()) {
                 jWebIntent webIntent = new jWebIntent(view.getContext());
                 webIntent.setUrl(currentArticle.getLink());
                 webIntent.configureWebView(true, true);
