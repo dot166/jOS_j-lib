@@ -8,6 +8,7 @@ import android.graphics.drawable.LayerDrawable;
 import android.media.AudioAttributes;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.SeekBar;
@@ -63,16 +64,23 @@ public class RSSAudioActivity extends jActivity {
                             .build()
             );
             mPlayer.setDataSource(url);
-            mPlayer.prepare();
-            mPlayer.start();
-            mProgress.post(mShowProgress);
+            mPlayer.setOnPreparedListener(mp -> {
+                mp.start();
+                mProgress.post(mShowProgress);
+            });
+
+            mPlayer.setOnErrorListener((mp, what, extra) -> {
+                ErrorUtils.handle(new Exception("Error: what=" + what + ", extra=" + extra), this);
+                return true; // true indicates we handled the error
+            });
+
+            mPlayer.prepareAsync();
         } catch (IOException e) {
             ErrorUtils.handle(e, this);
             finish();
         }
         mProgress.setMin(0);
         mProgress.setMax(1000);
-        setProgress();
         mProgress.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
