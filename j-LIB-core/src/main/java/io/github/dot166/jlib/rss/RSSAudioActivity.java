@@ -47,7 +47,6 @@ public class RSSAudioActivity extends jActivity {
     protected void onCreate(Bundle savedInstanceState) {
         String url = Objects.requireNonNull(getIntent().getExtras()).getString("uri");
         String drawUrl = Objects.requireNonNull(getIntent().getExtras()).getString("drawableUrl");
-        Log.i("url", Objects.requireNonNullElse(url, "null"));
         super.onCreate(savedInstanceState);
         setContentView(R.layout.media_player);
         if (drawUrl != null && !drawUrl.isEmpty()) {
@@ -78,6 +77,11 @@ public class RSSAudioActivity extends jActivity {
         mProgress.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                if (!fromUser) {
+                    // We're not interested in programmatically generated changes to
+                    // the progress bar's position.
+                    return;
+                }
                 long duration = mPlayer.getDuration();
                 long newposition = (duration * progress) / 1000L;
                 mPlayer.seekTo( (int) newposition);
