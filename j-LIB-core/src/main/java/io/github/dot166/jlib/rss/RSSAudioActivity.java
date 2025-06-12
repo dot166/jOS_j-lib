@@ -47,6 +47,7 @@ public class RSSAudioActivity extends jActivity {
     protected void onCreate(Bundle savedInstanceState) {
         String url = Objects.requireNonNull(getIntent().getExtras()).getString("uri");
         String drawUrl = Objects.requireNonNull(getIntent().getExtras()).getString("drawableUrl");
+        Log.i("url", Objects.requireNonNullElse(url, "null"));
         super.onCreate(savedInstanceState);
         setContentView(R.layout.media_player);
         if (drawUrl != null && !drawUrl.isEmpty()) {
@@ -64,23 +65,16 @@ public class RSSAudioActivity extends jActivity {
                             .build()
             );
             mPlayer.setDataSource(url);
-            mPlayer.setOnPreparedListener(mp -> {
-                mp.start();
-                mProgress.post(mShowProgress);
-            });
-
-            mPlayer.setOnErrorListener((mp, what, extra) -> {
-                ErrorUtils.handle(new Exception("Error: what=" + what + ", extra=" + extra), this);
-                return true; // true indicates we handled the error
-            });
-
-            mPlayer.prepareAsync();
+            mPlayer.prepare();
+            mPlayer.start();
+            mProgress.post(mShowProgress);
         } catch (IOException e) {
             ErrorUtils.handle(e, this);
             finish();
         }
         mProgress.setMin(0);
         mProgress.setMax(1000);
+        setProgress();
         mProgress.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
