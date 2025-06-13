@@ -123,12 +123,6 @@ public class jConfigActivity extends jActivity {
                         }
                     });
                     return !hideLIB();
-                case "enable_blink":
-                    Log.i("Preference Logging", "blink enable toggle");
-                    return !PreferenceManager.getDefaultSharedPreferences(preference.getContext()).getBoolean("is_blink_force_disabled", false) && !hideLIB();
-                case "blink_speed":
-                    Log.i("Preference Logging", "blink speed slider");
-                    return !PreferenceManager.getDefaultSharedPreferences(preference.getContext()).getBoolean("is_blink_force_disabled", false) && !hideLIB();
                 case "is_data_enabled":
                     Log.i("Preference Logging", "mobile data switch");
                     ConnectivityManager manager = (ConnectivityManager) preference.getContext().getSystemService(Context.CONNECTIVITY_SERVICE);

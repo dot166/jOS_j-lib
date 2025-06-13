@@ -36,15 +36,11 @@
             android:layout_height="wrap_content"
             android:text="@string/ok"
             tools:ignore="ButtonStyle" />
-        <io.github.dot166.jlib.widget.BlinkLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
         <Button
             android:id="@+id/button2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/jlib_changelog"
             tools:ignore="ButtonStyle" />
-        </io.github.dot166.jlib.widget.BlinkLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
