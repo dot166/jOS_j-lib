@@ -36,14 +36,15 @@
             app:layout_constraintStart_toStartOf="parent"
             android:text="@string/rewind" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/button6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            app:icon="@drawable/play_indicator"
             app:layout_constraintTop_toBottomOf="@id/seekBar"
             app:layout_constraintStart_toEndOf="@id/button5"
             app:layout_constraintEnd_toStartOf="@id/button7"
-            android:text="@string/play_pause" />
+            android:contentDescription="@string/play_pause" />
 
         <Button
             android:id="@+id/button7"

@@ -2,30 +2,20 @@ package io.github.dot166.jlib.rss;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.drawable.ColorDrawable;
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.LayerDrawable;
 import android.media.AudioAttributes;
 import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.SeekBar;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.target.CustomTarget;
-import com.bumptech.glide.request.transition.Transition;
 
 import java.io.IOException;
 import java.util.Objects;
 
 import io.github.dot166.jlib.R;
 import io.github.dot166.jlib.app.jActivity;
-import io.github.dot166.jlib.app.jWebActivity;
 import io.github.dot166.jlib.utils.ErrorUtils;
 
 public class RSSAudioActivity extends jActivity {
