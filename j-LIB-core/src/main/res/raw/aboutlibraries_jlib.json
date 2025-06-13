@@ -2163,174 +2163,6 @@
             ]
         },
         {
-            "uniqueId": "androidx.media3:media3-common",
-            "funding": [
-                
-            ],
-            "developers": [
-                {
-                    "name": "The Android Open Source Project"
-                }
-            ],
-            "artifactVersion": "1.7.1",
-            "description": "Media3 common module",
-            "scm": {
-                "connection": "scm:git:https://github.com/androidx/media.git",
-                "url": "https://github.com/androidx/media"
-            },
-            "name": "Media3 common module",
-            "licenses": [
-                "Apache-2.0"
-            ]
-        },
-        {
-            "uniqueId": "androidx.media3:media3-container",
-            "funding": [
-                
-            ],
-            "developers": [
-                {
-                    "name": "The Android Open Source Project"
-                }
-            ],
-            "artifactVersion": "1.7.1",
-            "description": "Media3 Container module",
-            "scm": {
-                "connection": "scm:git:https://github.com/androidx/media.git",
-                "url": "https://github.com/androidx/media"
-            },
-            "name": "Media3 Container module",
-            "licenses": [
-                "Apache-2.0"
-            ]
-        },
-        {
-            "uniqueId": "androidx.media3:media3-database",
-            "funding": [
-                
-            ],
-            "developers": [
-                {
-                    "name": "The Android Open Source Project"
-                }
-            ],
-            "artifactVersion": "1.7.1",
-            "description": "Media3 database module",
-            "scm": {
-                "connection": "scm:git:https://github.com/androidx/media.git",
-                "url": "https://github.com/androidx/media"
-            },
-            "name": "Media3 database module",
-            "licenses": [
-                "Apache-2.0"
-            ]
-        },
-        {
-            "uniqueId": "androidx.media3:media3-datasource",
-            "funding": [
-                
-            ],
-            "developers": [
-                {
-                    "name": "The Android Open Source Project"
-                }
-            ],
-            "artifactVersion": "1.7.1",
-            "description": "Media3 DataSource module",
-            "scm": {
-                "connection": "scm:git:https://github.com/androidx/media.git",
-                "url": "https://github.com/androidx/media"
-            },
-            "name": "Media3 DataSource module",
-            "licenses": [
-                "Apache-2.0"
-            ]
-        },
-        {
-            "uniqueId": "androidx.media3:media3-decoder",
-            "funding": [
-                
-            ],
-            "developers": [
-                {
-                    "name": "The Android Open Source Project"
-                }
-            ],
-            "artifactVersion": "1.7.1",
-            "description": "Media3 decoder module",
-            "scm": {
-                "connection": "scm:git:https://github.com/androidx/media.git",
-                "url": "https://github.com/androidx/media"
-            },
-            "name": "Media3 decoder module",
-            "licenses": [
-                "Apache-2.0"
-            ]
-        },
-        {
-            "uniqueId": "androidx.media3:media3-exoplayer",
-            "funding": [
-                
-            ],
-            "developers": [
-                {
-                    "name": "The Android Open Source Project"
-                }
-            ],
-            "artifactVersion": "1.7.1",
-            "description": "Media3 ExoPlayer module",
-            "scm": {
-                "connection": "scm:git:https://github.com/androidx/media.git",
-                "url": "https://github.com/androidx/media"
-            },
-            "name": "Media3 ExoPlayer module",
-            "licenses": [
-                "Apache-2.0"
-            ]
-        },
-        {
-            "uniqueId": "androidx.media3:media3-extractor",
-            "funding": [
-                
-            ],
-            "developers": [
-                {
-                    "name": "The Android Open Source Project"
-                }
-            ],
-            "artifactVersion": "1.7.1",
-            "description": "Media3 Extractor module",
-            "scm": {
-                "connection": "scm:git:https://github.com/androidx/media.git",
-                "url": "https://github.com/androidx/media"
-            },
-            "name": "Media3 Extractor module",
-            "licenses": [
-                "Apache-2.0"
-            ]
-        },
-        {
-            "uniqueId": "androidx.media3:media3-ui",
-            "funding": [
-                
-            ],
-            "developers": [
-                {
-                    "name": "The Android Open Source Project"
-                }
-            ],
-            "artifactVersion": "1.7.1",
-            "description": "Media3 UI module",
-            "scm": {
-                "connection": "scm:git:https://github.com/androidx/media.git",
-                "url": "https://github.com/androidx/media"
-            },
-            "name": "Media3 UI module",
-            "licenses": [
-                "Apache-2.0"
-            ]
-        },
-        {
             "uniqueId": "androidx.preference:preference",
             "funding": [
                 
@@ -2736,6 +2568,102 @@
             ]
         },
         {
+            "uniqueId": "com.github.bumptech.glide:annotations",
+            "funding": [
+                
+            ],
+            "developers": [
+                {
+                    "name": "Sam Judd"
+                }
+            ],
+            "artifactVersion": "4.16.0",
+            "description": "A set of annotations for configuring Glide.",
+            "scm": {
+                "connection": "scm:git@github.com:bumptech/glide.git",
+                "url": "https://github.com/bumptech/glide",
+                "developerConnection": "scm:git@github.com:bumptech/glide.git"
+            },
+            "name": "Glide Annotations",
+            "website": "https://github.com/bumptech/glide",
+            "licenses": [
+                "Apache-2.0",
+                "BSD-2-Clause"
+            ]
+        },
+        {
+            "uniqueId": "com.github.bumptech.glide:disklrucache",
+            "funding": [
+                
+            ],
+            "developers": [
+                {
+                    "name": "Sam Judd"
+                }
+            ],
+            "artifactVersion": "4.16.0",
+            "description": "A cache that uses a bounded amount of space on a filesystem. Based on Jake Wharton's tailored for Glide.",
+            "scm": {
+                "connection": "scm:git@github.com:bumptech/glide.git",
+                "url": "https://github.com/bumptech/glide",
+                "developerConnection": "scm:git@github.com:bumptech/glide.git"
+            },
+            "name": "Glide Disk LRU Cache Library",
+            "website": "https://github.com/bumptech/glide",
+            "licenses": [
+                "Apache-2.0",
+                "BSD-2-Clause"
+            ]
+        },
+        {
+            "uniqueId": "com.github.bumptech.glide:gifdecoder",
+            "funding": [
+                
+            ],
+            "developers": [
+                {
+                    "name": "Sam Judd"
+                }
+            ],
+            "artifactVersion": "4.16.0",
+            "description": "Implementation of GifDecoder that is more memory efficient to animate for Android devices.",
+            "scm": {
+                "connection": "scm:git@github.com:bumptech/glide.git",
+                "url": "https://github.com/bumptech/glide",
+                "developerConnection": "scm:git@github.com:bumptech/glide.git"
+            },
+            "name": "Glide GIF Decoder Library",
+            "website": "https://github.com/bumptech/glide",
+            "licenses": [
+                "Apache-2.0",
+                "BSD-2-Clause"
+            ]
+        },
+        {
+            "uniqueId": "com.github.bumptech.glide:glide",
+            "funding": [
+                
+            ],
+            "developers": [
+                {
+                    "name": "Sam Judd"
+                }
+            ],
+            "artifactVersion": "4.16.0",
+            "description": "A fast and efficient image loading library for Android focused on smooth scrolling.",
+            "scm": {
+                "connection": "scm:git@github.com:bumptech/glide.git",
+                "url": "https://github.com/bumptech/glide",
+                "developerConnection": "scm:git@github.com:bumptech/glide.git"
+            },
+            "name": "Glide",
+            "website": "https://github.com/bumptech/glide",
+            "licenses": [
+                "Apache-2.0",
+                "BSD-2-Clause"
+            ]
+        },
+        {
             "uniqueId": "com.google.accompanist:accompanist-drawablepainter",
             "funding": [
                 
@@ -2808,54 +2736,6 @@
             }
         },
         {
-            "uniqueId": "com.google.guava:failureaccess",
-            "funding": [
-                
-            ],
-            "developers": [
-                {
-                    "organisationUrl": "http://www.google.com",
-                    "name": "Kevin Bourrillion"
-                }
-            ],
-            "artifactVersion": "1.0.2",
-            "description": "Contains\n    com.google.common.util.concurrent.internal.InternalFutureFailureAccess and\n    InternalFutures. Most users will never need to use this artifact. Its\n    classes are conceptually a part of Guava, but they're in this separate\n    artifact so that Android libraries can use them without pulling in all of\n    Guava (just as they can use ListenableFuture by depending on the\n    listenablefuture artifact).",
-            "scm": {
-                "connection": "scm:git:https://github.com/google/guava.git/failureaccess",
-                "url": "https://github.com/google/guava/failureaccess",
-                "developerConnection": "scm:git:git@github.com:google/guava.git/failureaccess"
-            },
-            "name": "Guava InternalFutureFailureAccess and InternalFutures",
-            "website": "https://github.com/google/guava/failureaccess",
-            "licenses": [
-                "Apache-2.0"
-            ]
-        },
-        {
-            "uniqueId": "com.google.guava:guava",
-            "funding": [
-                
-            ],
-            "developers": [
-                {
-                    "organisationUrl": "http://www.google.com",
-                    "name": "Kevin Bourrillion"
-                }
-            ],
-            "artifactVersion": "33.3.1-android",
-            "description": "Guava is a suite of core and expanded libraries that include\n    utility classes, Google's collections, I/O classes, and\n    much more.",
-            "scm": {
-                "connection": "scm:git:https://github.com/google/guava.git/guava",
-                "url": "https://github.com/google/guava/guava",
-                "developerConnection": "scm:git:git@github.com:google/guava.git/guava"
-            },
-            "name": "Guava: Google Core Libraries for Java",
-            "website": "https://github.com/google/guava",
-            "licenses": [
-                "Apache-2.0"
-            ]
-        },
-        {
             "uniqueId": "com.google.guava:listenablefuture",
             "funding": [
                 
@@ -2866,8 +2746,8 @@
                     "name": "Kevin Bourrillion"
                 }
             ],
-            "artifactVersion": "9999.0-empty-to-avoid-conflict-with-guava",
-            "description": "An empty artifact that Guava depends on to signal that it is providing\n    ListenableFuture -- but is also available in a second \"version\" that\n    contains com.google.common.util.concurrent.ListenableFuture class, without\n    any other Guava classes. The idea is:\n\n    - If users want only ListenableFuture, they depend on listenablefuture-1.0.\n\n    - If users want all of Guava, they depend on guava, which, as of Guava\n    27.0, depends on\n    listenablefuture-9999.0-empty-to-avoid-conflict-with-guava. The 9999.0-...\n    version number is enough for some build systems (notably, Gradle) to select\n    that empty artifact over the \"real\" listenablefuture-1.0 -- avoiding a\n    conflict with the copy of ListenableFuture in guava itself. If users are\n    using an older version of Guava or a build system other than Gradle, they\n    may see class conflicts. If so, they can solve them by manually excluding\n    the listenablefuture artifact or manually forcing their build systems to\n    use 9999.0-....",
+            "artifactVersion": "1.0",
+            "description": "Contains Guava's com.google.common.util.concurrent.ListenableFuture class,\n    without any of its other classes -- but is also available in a second\n    \"version\" that omits the class to avoid conflicts with the copy in Guava\n    itself. The idea is:\n\n    - If users want only ListenableFuture, they depend on listenablefuture-1.0.\n\n    - If users want all of Guava, they depend on guava, which, as of Guava\n    27.0, depends on\n    listenablefuture-9999.0-empty-to-avoid-conflict-with-guava. The 9999.0-...\n    version number is enough for some build systems (notably, Gradle) to select\n    that empty artifact over the \"real\" listenablefuture-1.0 -- avoiding a\n    conflict with the copy of ListenableFuture in guava itself. If users are\n    using an older version of Guava or a build system other than Gradle, they\n    may see class conflicts. If so, they can solve them by manually excluding\n    the listenablefuture artifact or manually forcing their build systems to\n    use 9999.0-....",
             "scm": {
                 "connection": "scm:git:https://github.com/google/guava.git/listenablefuture",
                 "url": "https://github.com/google/guava/listenablefuture",
@@ -3234,7 +3114,7 @@
                     "name": "._______166"
                 }
             ],
-            "artifactVersion": "4.1.19",
+            "artifactVersion": "4.2.0",
             "description": "jLib - a common library that contains a custom actionbar based on material components Toolbar and some other things.",
             "scm": {
                 "connection": "scm:git:git://github.com/github.com/dot166/jOS_j-lib.git",
@@ -4241,6 +4121,14 @@
             "url": "https://spdx.org/licenses/Apache-2.0.html",
             "spdxId": "Apache-2.0",
             "name": "Apache License 2.0"
+        },
+        "BSD-2-Clause": {
+            "content": "Copyright (c) <<var;name=copyright;original= <year> <owner>;match=.+>> All rights reserved.\n\nRedistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:\n\n1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer. \n\n2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.\n\nTHIS SOFTWARE IS PROVIDED BY <<var;name=copyrightHolderAsIs;original=THE COPYRIGHT HOLDERS AND CONTRIBUTORS;match=.+>> \"AS IS\" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL <<var;name=copyrightHolderLiability;original=THE COPYRIGHT HOLDER OR CONTRIBUTORS;match=.+>> BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.",
+            "hash": "BSD-2-Clause",
+            "internalHash": "BSD-2-Clause",
+            "url": "https://spdx.org/licenses/BSD-2-Clause.html",
+            "spdxId": "BSD-2-Clause",
+            "name": "BSD 2-Clause \"Simplified\" License"
         },
         "MIT": {
             "content": "MIT License\n\nCopyright (c) <year> <copyright holders>\n\nPermission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the \"Software\"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.",
