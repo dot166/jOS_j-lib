@@ -121,6 +121,7 @@
         <item name="bottomNavigationStyle">@style/j.BottomNav</item>
         <item name="tabStyle">@style/j.tab</item>
         <item name="materialAlertDialogTheme">@style/ThemeOverlay.Material3.MaterialAlertDialog</item>
+        <item name="materialIconButtonFilledStyle">@style/j.Button.icon</item>
     </style>
     <!-- Theme.Material3.DynamicColors.Dark.NoActionBar overrides -->
     <style name="Platform.j.Theme" parent="Theme.Material3.DynamicColors.Dark.NoActionBar">
