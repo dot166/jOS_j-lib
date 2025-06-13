@@ -51,12 +51,16 @@
         <item name="android:textColor">?android:textColorPrimary</item>
     </style>
 
-    <style name="j.Button.icon" parent="Widget.Material3.Button.IconButton.Filled">
-        <item name="android:textColor">?android:textColorPrimary</item>
-        <item name="android:background">@android:drawable/btn_default_holo_dark</item>
-        <item name="background">@android:drawable/btn_default_holo_dark</item>
-        <item name="backgroundTint">@null</item>
-        <item name="iconTint">@null</item>
+    <style name="j.Button.icon">
+        <item name="android:minWidth">@dimen/m3_btn_icon_only_min_width</item>
+        <item name="android:paddingLeft">@dimen/m3_btn_icon_only_default_padding</item>
+        <item name="android:paddingRight">@dimen/m3_btn_icon_only_default_padding</item>
+        <item name="android:paddingTop">@dimen/m3_btn_icon_only_default_padding</item>
+        <item name="android:paddingBottom">@dimen/m3_btn_icon_only_default_padding</item>
+        <item name="android:insetLeft">@dimen/m3_btn_inset</item>
+        <item name="android:insetRight">@dimen/m3_btn_inset</item>
+        <item name="iconSize">@dimen/m3_btn_icon_only_default_size</item>
+        <item name="iconPadding">@dimen/m3_btn_icon_only_icon_padding</item>
     </style>
 
     <style name="j.tab" parent="Widget.Design.TabLayout">

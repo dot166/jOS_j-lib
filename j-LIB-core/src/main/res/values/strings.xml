@@ -47,8 +47,8 @@
     <string name="obstaclegame">Obstacle Game</string>
     <string name="theme_snackbar">ThemeEngine is missing</string>
     <string name="rss_feed">RSS Feed Activity</string>
-    <string name="fast_forward">Fast Forward</string>
+    <string name="fast_forward">+10s</string>
     <string name="play_pause">Play/Pause</string>
-    <string name="rewind">Rewind</string>
+    <string name="rewind">-10s</string>
     <string name="cover_art">cover art</string>
 </resources>
