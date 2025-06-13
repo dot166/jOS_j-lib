@@ -53,23 +53,10 @@ public class ActionBar2 extends MaterialToolbar {
 
     public ActionBar2(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(wrap(context, attrs, defStyleAttr, DEF_STYLE_RES), attrs, defStyleAttr);
-        // Ensure we are using the correctly themed context rather than the context that was passed in.
-        context = getContext();
-
-        final TypedArray a =
-                context.obtainStyledAttributes(attrs, R.styleable.ActionBar2, defStyleAttr, DEF_STYLE_RES);
-
-        //iconAsLogo = a.getBoolean(R.styleable.ActionBar2_iconAsLogo, false);
-        //subtitleCentered = a.getBoolean(R.styleable.ActionBar2_jsubtitleCentered, false);
-
-        a.recycle();
 
         if (isInEditMode()) {
-            setLogo(R.mipmap.ic_launcher_j);
             setTitle("PREVIEW OF LAYOUT");
         }
-
-        Log.i(TAG, "init complete!!");
     }
 
     @Override
