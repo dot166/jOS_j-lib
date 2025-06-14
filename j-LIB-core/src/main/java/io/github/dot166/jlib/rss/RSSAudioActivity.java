@@ -1,18 +1,23 @@
 package io.github.dot166.jlib.rss;
 
+import static io.github.dot166.jlib.utils.TimeUtils.convertMillisToHMS;
+
 import android.content.Context;
 import android.content.Intent;
 import android.media.AudioAttributes;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.SeekBar;
+import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 
 import java.io.IOException;
 import java.util.Objects;
+import java.util.concurrent.TimeUnit;
 
 import io.github.dot166.jlib.R;
 import io.github.dot166.jlib.app.jActivity;
@@ -37,8 +42,11 @@ public class RSSAudioActivity extends jActivity {
     protected void onCreate(Bundle savedInstanceState) {
         String url = Objects.requireNonNull(getIntent().getExtras()).getString("uri");
         String drawUrl = Objects.requireNonNull(getIntent().getExtras()).getString("drawableUrl");
+        String title = Objects.requireNonNull(getIntent().getExtras()).getString("title");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.media_player);
+        setTitle(title);
+        setSupportActionBar(findViewById(R.id.actionbar));
         if (drawUrl != null && !drawUrl.isEmpty()) {
             Glide.with(RSSAudioActivity.this)
                     .load(drawUrl)
@@ -67,13 +75,15 @@ public class RSSAudioActivity extends jActivity {
         mProgress.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                long duration = mPlayer.getDuration();
+                long newposition = (duration * progress) / 1000L;
+                String formattedTextString = convertMillisToHMS(newposition) + "/" + convertMillisToHMS(duration);
+                ((TextView)findViewById(R.id.text)).setText(formattedTextString);
                 if (!fromUser) {
                     // We're not interested in programmatically generated changes to
                     // the progress bar's position.
                     return;
                 }
-                long duration = mPlayer.getDuration();
-                long newposition = (duration * progress) / 1000L;
                 mPlayer.seekTo( (int) newposition);
             }
 

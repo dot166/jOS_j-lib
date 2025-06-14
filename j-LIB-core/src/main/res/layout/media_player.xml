@@ -5,34 +5,53 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <io.github.dot166.jlib.widget.ActionBar2
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        app:titleCentered="true"
+        app:subtitleCentered="true"
+        android:id="@+id/actionbar"/>
+
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/actionbar"
         android:contentDescription="@string/cover_art"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/layout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        style="@android:style/Widget.Holo"
         android:id="@+id/layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent">
 
+        <LinearLayout
+            android:id="@+id/seekBar_layout"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/text"/>
+
         <SeekBar
             android:id="@+id/seekBar"
-            app:layout_constraintTop_toTopOf="parent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
+
+        </LinearLayout>
 
         <Button
             android:id="@+id/button5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/seekBar"
+            app:layout_constraintTop_toBottomOf="@id/seekBar_layout"
             app:layout_constraintStart_toStartOf="parent"
             android:text="@string/rewind" />
 
@@ -42,7 +61,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:icon="@drawable/play_indicator"
-            app:layout_constraintTop_toBottomOf="@id/seekBar"
+            app:layout_constraintTop_toBottomOf="@id/seekBar_layout"
             app:layout_constraintStart_toEndOf="@id/button5"
             app:layout_constraintEnd_toStartOf="@id/button7"
             android:contentDescription="@string/play_pause" />
@@ -51,7 +70,7 @@
             android:id="@+id/button7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/seekBar"
+            app:layout_constraintTop_toBottomOf="@id/seekBar_layout"
             app:layout_constraintEnd_toEndOf="parent"
             android:text="@string/fast_forward" />
     </androidx.constraintlayout.widget.ConstraintLayout>
