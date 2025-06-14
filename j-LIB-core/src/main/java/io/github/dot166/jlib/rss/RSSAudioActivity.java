@@ -126,10 +126,11 @@ public class RSSAudioActivity extends jActivity {
         });
     }
 
-    public static void playAudioFromFeed(String url, Context context, String drawUrl) {
+    public static void playAudioFromFeed(String url, Context context, String drawUrl, String title) {
         Intent i = new Intent(context, RSSAudioActivity.class);
         i.putExtra("uri", url);
         i.putExtra("drawableUrl", drawUrl);
+        i.putExtra("title", title);
         context.startActivity(i);
     }
 

@@ -82,7 +82,7 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
                     } else {
                         drawUrl = "";
                     }
-                    RSSAudioActivity.playAudioFromFeed(currentArticle.getRawEnclosure().getUrl(), view.getContext(), drawUrl);
+                    RSSAudioActivity.playAudioFromFeed(currentArticle.getRawEnclosure().getUrl(), view.getContext(), drawUrl, currentArticle.getTitle());
                 } else {
                     // do not know what to do with anything else so send it to webview
                     jWebIntent webIntent = new jWebIntent(view.getContext());
