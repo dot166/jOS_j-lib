@@ -62,6 +62,7 @@ public class MediaPlayerActivity  extends jActivity {
         }
         mProgress = findViewById(R.id.seekBar);
         createPlayer(url);
+        findViewById(R.id.button6).setActivated(false);
         mProgress.setMin(0);
         mProgress.setMax(1000);
         setProgress();
@@ -98,20 +99,19 @@ public class MediaPlayerActivity  extends jActivity {
             @Override
             public void onClick(View v) {
                 if (mPlayer.isPlaying()) {
-                    findViewById(R.id.button6).setActivated(true);
                     if (isRadio()) {
                         mPlayer.stop();
                     } else {
                         mPlayer.pause();
                     }
                 } else {
-                    findViewById(R.id.button6).setActivated(false);
                     if (isRadio()) {
                         // yes we rebuild the player when it is a radio station being played
                         recreatePlayer(url);
                     } else {
                         mPlayer.start();
                     }
+                    findViewById(R.id.button6).setActivated(true);
                 }
             }
         });
