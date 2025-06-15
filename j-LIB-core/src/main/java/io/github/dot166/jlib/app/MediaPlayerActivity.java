@@ -104,6 +104,7 @@ public class MediaPlayerActivity  extends jActivity {
                     } else {
                         mPlayer.pause();
                     }
+                    findViewById(R.id.button6).setActivated(false);
                 } else {
                     if (isRadio()) {
                         // yes we rebuild the player when it is a radio station being played
