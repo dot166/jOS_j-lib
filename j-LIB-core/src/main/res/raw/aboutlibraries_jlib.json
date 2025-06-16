@@ -2163,6 +2163,199 @@
             ]
         },
         {
+            "uniqueId": "androidx.media3:media3-common",
+            "funding": [
+                
+            ],
+            "developers": [
+                {
+                    "name": "The Android Open Source Project"
+                }
+            ],
+            "artifactVersion": "1.7.1",
+            "description": "Media3 common module",
+            "scm": {
+                "connection": "scm:git:https://github.com/androidx/media.git",
+                "url": "https://github.com/androidx/media"
+            },
+            "name": "Media3 common module",
+            "licenses": [
+                "Apache-2.0"
+            ]
+        },
+        {
+            "uniqueId": "androidx.media3:media3-container",
+            "funding": [
+                
+            ],
+            "developers": [
+                {
+                    "name": "The Android Open Source Project"
+                }
+            ],
+            "artifactVersion": "1.7.1",
+            "description": "Media3 Container module",
+            "scm": {
+                "connection": "scm:git:https://github.com/androidx/media.git",
+                "url": "https://github.com/androidx/media"
+            },
+            "name": "Media3 Container module",
+            "licenses": [
+                "Apache-2.0"
+            ]
+        },
+        {
+            "uniqueId": "androidx.media3:media3-database",
+            "funding": [
+                
+            ],
+            "developers": [
+                {
+                    "name": "The Android Open Source Project"
+                }
+            ],
+            "artifactVersion": "1.7.1",
+            "description": "Media3 database module",
+            "scm": {
+                "connection": "scm:git:https://github.com/androidx/media.git",
+                "url": "https://github.com/androidx/media"
+            },
+            "name": "Media3 database module",
+            "licenses": [
+                "Apache-2.0"
+            ]
+        },
+        {
+            "uniqueId": "androidx.media3:media3-datasource",
+            "funding": [
+                
+            ],
+            "developers": [
+                {
+                    "name": "The Android Open Source Project"
+                }
+            ],
+            "artifactVersion": "1.7.1",
+            "description": "Media3 DataSource module",
+            "scm": {
+                "connection": "scm:git:https://github.com/androidx/media.git",
+                "url": "https://github.com/androidx/media"
+            },
+            "name": "Media3 DataSource module",
+            "licenses": [
+                "Apache-2.0"
+            ]
+        },
+        {
+            "uniqueId": "androidx.media3:media3-decoder",
+            "funding": [
+                
+            ],
+            "developers": [
+                {
+                    "name": "The Android Open Source Project"
+                }
+            ],
+            "artifactVersion": "1.7.1",
+            "description": "Media3 decoder module",
+            "scm": {
+                "connection": "scm:git:https://github.com/androidx/media.git",
+                "url": "https://github.com/androidx/media"
+            },
+            "name": "Media3 decoder module",
+            "licenses": [
+                "Apache-2.0"
+            ]
+        },
+        {
+            "uniqueId": "androidx.media3:media3-exoplayer",
+            "funding": [
+                
+            ],
+            "developers": [
+                {
+                    "name": "The Android Open Source Project"
+                }
+            ],
+            "artifactVersion": "1.7.1",
+            "description": "Media3 ExoPlayer module",
+            "scm": {
+                "connection": "scm:git:https://github.com/androidx/media.git",
+                "url": "https://github.com/androidx/media"
+            },
+            "name": "Media3 ExoPlayer module",
+            "licenses": [
+                "Apache-2.0"
+            ]
+        },
+        {
+            "uniqueId": "androidx.media3:media3-extractor",
+            "funding": [
+                
+            ],
+            "developers": [
+                {
+                    "name": "The Android Open Source Project"
+                }
+            ],
+            "artifactVersion": "1.7.1",
+            "description": "Media3 Extractor module",
+            "scm": {
+                "connection": "scm:git:https://github.com/androidx/media.git",
+                "url": "https://github.com/androidx/media"
+            },
+            "name": "Media3 Extractor module",
+            "licenses": [
+                "Apache-2.0"
+            ]
+        },
+        {
+            "uniqueId": "androidx.media3:media3-session",
+            "funding": [
+                
+            ],
+            "developers": [
+                {
+                    "name": "The Android Open Source Project"
+                }
+            ],
+            "artifactVersion": "1.7.1",
+            "description": "Media3 Session module",
+            "scm": {
+                "connection": "scm:git:https://github.com/androidx/media.git",
+                "url": "https://github.com/androidx/media"
+            },
+            "name": "Media3 Session module",
+            "licenses": [
+                "Apache-2.0"
+            ]
+        },
+        {
+            "uniqueId": "androidx.media:media",
+            "funding": [
+                
+            ],
+            "developers": [
+                {
+                    "name": "The Android Open Source Project"
+                }
+            ],
+            "artifactVersion": "1.7.0",
+            "description": "The Support Library is a static library that you can add to your Android application in order to use APIs that are either not available for older platform versions or utility APIs that aren't a part of the framework APIs. Compatible on devices running API 14 or later.",
+            "scm": {
+                "connection": "scm:git:https://android.googlesource.com/platform/frameworks/support",
+                "url": "https://cs.android.com/androidx/platform/frameworks/support"
+            },
+            "name": "Media",
+            "website": "https://developer.android.com/jetpack/androidx/releases/media#1.7.0",
+            "licenses": [
+                "Apache-2.0"
+            ],
+            "organization": {
+                "name": "The Android Open Source Project"
+            }
+        },
+        {
             "uniqueId": "androidx.preference:preference",
             "funding": [
                 
@@ -2736,6 +2929,54 @@
             }
         },
         {
+            "uniqueId": "com.google.guava:failureaccess",
+            "funding": [
+                
+            ],
+            "developers": [
+                {
+                    "organisationUrl": "http://www.google.com",
+                    "name": "Kevin Bourrillion"
+                }
+            ],
+            "artifactVersion": "1.0.2",
+            "description": "Contains\n    com.google.common.util.concurrent.internal.InternalFutureFailureAccess and\n    InternalFutures. Most users will never need to use this artifact. Its\n    classes are conceptually a part of Guava, but they're in this separate\n    artifact so that Android libraries can use them without pulling in all of\n    Guava (just as they can use ListenableFuture by depending on the\n    listenablefuture artifact).",
+            "scm": {
+                "connection": "scm:git:https://github.com/google/guava.git/failureaccess",
+                "url": "https://github.com/google/guava/failureaccess",
+                "developerConnection": "scm:git:git@github.com:google/guava.git/failureaccess"
+            },
+            "name": "Guava InternalFutureFailureAccess and InternalFutures",
+            "website": "https://github.com/google/guava/failureaccess",
+            "licenses": [
+                "Apache-2.0"
+            ]
+        },
+        {
+            "uniqueId": "com.google.guava:guava",
+            "funding": [
+                
+            ],
+            "developers": [
+                {
+                    "organisationUrl": "http://www.google.com",
+                    "name": "Kevin Bourrillion"
+                }
+            ],
+            "artifactVersion": "33.3.1-android",
+            "description": "Guava is a suite of core and expanded libraries that include\n    utility classes, Google's collections, I/O classes, and\n    much more.",
+            "scm": {
+                "connection": "scm:git:https://github.com/google/guava.git/guava",
+                "url": "https://github.com/google/guava/guava",
+                "developerConnection": "scm:git:git@github.com:google/guava.git/guava"
+            },
+            "name": "Guava: Google Core Libraries for Java",
+            "website": "https://github.com/google/guava",
+            "licenses": [
+                "Apache-2.0"
+            ]
+        },
+        {
             "uniqueId": "com.google.guava:listenablefuture",
             "funding": [
                 
@@ -2746,8 +2987,8 @@
                     "name": "Kevin Bourrillion"
                 }
             ],
-            "artifactVersion": "1.0",
-            "description": "Contains Guava's com.google.common.util.concurrent.ListenableFuture class,\n    without any of its other classes -- but is also available in a second\n    \"version\" that omits the class to avoid conflicts with the copy in Guava\n    itself. The idea is:\n\n    - If users want only ListenableFuture, they depend on listenablefuture-1.0.\n\n    - If users want all of Guava, they depend on guava, which, as of Guava\n    27.0, depends on\n    listenablefuture-9999.0-empty-to-avoid-conflict-with-guava. The 9999.0-...\n    version number is enough for some build systems (notably, Gradle) to select\n    that empty artifact over the \"real\" listenablefuture-1.0 -- avoiding a\n    conflict with the copy of ListenableFuture in guava itself. If users are\n    using an older version of Guava or a build system other than Gradle, they\n    may see class conflicts. If so, they can solve them by manually excluding\n    the listenablefuture artifact or manually forcing their build systems to\n    use 9999.0-....",
+            "artifactVersion": "9999.0-empty-to-avoid-conflict-with-guava",
+            "description": "An empty artifact that Guava depends on to signal that it is providing\n    ListenableFuture -- but is also available in a second \"version\" that\n    contains com.google.common.util.concurrent.ListenableFuture class, without\n    any other Guava classes. The idea is:\n\n    - If users want only ListenableFuture, they depend on listenablefuture-1.0.\n\n    - If users want all of Guava, they depend on guava, which, as of Guava\n    27.0, depends on\n    listenablefuture-9999.0-empty-to-avoid-conflict-with-guava. The 9999.0-...\n    version number is enough for some build systems (notably, Gradle) to select\n    that empty artifact over the \"real\" listenablefuture-1.0 -- avoiding a\n    conflict with the copy of ListenableFuture in guava itself. If users are\n    using an older version of Guava or a build system other than Gradle, they\n    may see class conflicts. If so, they can solve them by manually excluding\n    the listenablefuture artifact or manually forcing their build systems to\n    use 9999.0-....",
             "scm": {
                 "connection": "scm:git:https://github.com/google/guava.git/listenablefuture",
                 "url": "https://github.com/google/guava/listenablefuture",
