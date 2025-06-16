@@ -62,10 +62,18 @@
             android:screenOrientation="locked" />
         <activity android:name=".rss.RSSActivity"
             android:exported="true"/>
-        <activity android:name=".rss.RSSAudioActivity"
+        <activity android:name=".app.MediaPlayerActivity"
             android:exported="true" />
 
         <receiver android:name=".rss.RSSNotifAlarmReceiver" />
+        <service
+            android:name=".service.MediaPlayerService"
+            android:foregroundServiceType="mediaPlayback"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="androidx.media3.session.MediaSessionService"/>
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>

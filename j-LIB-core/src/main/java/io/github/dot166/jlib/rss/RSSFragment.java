@@ -50,7 +50,7 @@ public class RSSFragment extends Fragment {
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        String[] rssUrls = PreferenceManager.getDefaultSharedPreferences(requireContext()).getString("rssUrls", "").split(";");
+        String[] rssUrls = PreferenceManager.getDefaultSharedPreferences(requireContext()).getString("rssUrls", "https://podcasts.files.bbci.co.uk/p02pc9pj.rss").split(";");
         View view = inflater.inflate(R.layout.fragment_rss, container, false);
 
         viewModel = new ViewModelProvider(this).get(RSSViewModel.class);

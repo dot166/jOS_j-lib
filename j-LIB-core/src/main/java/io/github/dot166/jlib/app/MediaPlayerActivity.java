@@ -1,49 +1,58 @@
 package io.github.dot166.jlib.app;
 
 import static android.view.View.GONE;
-import static android.view.View.INVISIBLE;
+import static android.view.View.VISIBLE;
 import static io.github.dot166.jlib.utils.TimeUtils.convertMillisToHMS;
 
-import android.media.AudioAttributes;
-import android.media.MediaPlayer;
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
+import androidx.core.content.ContextCompat;
+import androidx.media3.common.MediaItem;
+import androidx.media3.session.MediaController;
+import androidx.media3.session.SessionToken;
 
-import java.io.IOException;
-import java.util.Calendar;
+import com.bumptech.glide.Glide;
+import com.google.common.util.concurrent.ListenableFuture;
+
 import java.util.Objects;
 
 import io.github.dot166.jlib.R;
+import io.github.dot166.jlib.service.MediaPlayerService;
 import io.github.dot166.jlib.utils.ErrorUtils;
 
 public class MediaPlayerActivity  extends jActivity {
 
-    MediaPlayer mPlayer;
+    MediaController mPlayer;
     SeekBar mProgress;
 
     private final Runnable mShowProgress = new Runnable() {
         @Override
         public void run() {
-            if (hideSeekBar()) {
-                ((TextView)findViewById(R.id.text)).setText(Calendar.getInstance().getTime().toString());
+            if (mPlayer == null) {
+                mProgress.post(mShowProgress);
                 return;
             }
-            int pos = setProgress();
-            if (mPlayer.isPlaying()) {
-                mProgress.postDelayed(mShowProgress, 1000 - (pos % 1000));
+            if (mPlayer.isCurrentMediaItemLive()) {
+                findViewById(R.id.button5).setVisibility(GONE);
+                findViewById(R.id.button7).setVisibility(GONE);
+                findViewById(R.id.seekBar_layout).setVisibility(GONE);
+            } else {
+                findViewById(R.id.button5).setVisibility(VISIBLE);
+                findViewById(R.id.button7).setVisibility(VISIBLE);
+                findViewById(R.id.seekBar_layout).setVisibility(VISIBLE);
             }
+            setProgress();
+            mProgress.post(mShowProgress);
         }
     };
-
-    protected boolean hideSeekBar() {
-        return isRadio();
-    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         String url = Objects.requireNonNull(getIntent().getExtras()).getString("uri");
@@ -55,21 +64,35 @@ public class MediaPlayerActivity  extends jActivity {
             setTitle(title);
         }
         setSupportActionBar(findViewById(R.id.actionbar));
+        startService(new Intent(this, MediaPlayerService.class));
+        SessionToken sessionToken =
+                new SessionToken(this, new ComponentName(this, MediaPlayerService.class));
+        ListenableFuture<MediaController> controllerFuture =
+                new MediaController.Builder(this, sessionToken).buildAsync();
+        controllerFuture.addListener(() -> {
+            try {
+                mPlayer = controllerFuture.get();
+                createPlayer(url, drawUrl);
+            } catch (Exception e) {
+                ErrorUtils.handle(e, this);
+                stopService(new Intent(this, MediaPlayerService.class));
+                finish();
+            }
+        }, ContextCompat.getMainExecutor(this));
         if (drawUrl != null && !drawUrl.isEmpty()) {
             Glide.with(this)
                     .load(drawUrl)
                     .into(((ImageView) findViewById(R.id.imageView)));
         }
         mProgress = findViewById(R.id.seekBar);
-        createPlayer(url);
-        findViewById(R.id.button6).setActivated(false);
+        findViewById(R.id.button6).setActivated(true);
         mProgress.setMin(0);
         mProgress.setMax(1000);
         setProgress();
         mProgress.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                if (hideSeekBar()) {
+                if (mPlayer.isCurrentMediaItemLive()) {
                     return;
                 }
                 long duration = mPlayer.getDuration();
@@ -99,19 +122,10 @@ public class MediaPlayerActivity  extends jActivity {
             @Override
             public void onClick(View v) {
                 if (mPlayer.isPlaying()) {
-                    if (isRadio()) {
-                        mPlayer.stop();
-                    } else {
-                        mPlayer.pause();
-                    }
+                    mPlayer.pause();
                     findViewById(R.id.button6).setActivated(false);
                 } else {
-                    if (isRadio()) {
-                        // yes we rebuild the player when it is a radio station being played
-                        recreatePlayer(url);
-                    } else {
-                        mPlayer.start();
-                    }
+                    mPlayer.play();
                     findViewById(R.id.button6).setActivated(true);
                 }
             }
@@ -132,56 +146,50 @@ public class MediaPlayerActivity  extends jActivity {
                 setProgress();
             }
         });
-
-        if (hideSeekBar()) {
-            findViewById(R.id.button5).setVisibility(GONE);
-            findViewById(R.id.button7).setVisibility(GONE);
-            findViewById(R.id.seekBar).setVisibility(INVISIBLE);
-        }
+        mProgress.post(mShowProgress);
     }
 
-    protected boolean isRadio() {
-        return false;
-    }
-
-    protected int setProgress() {
+    protected void setProgress() {
         if (mPlayer == null) {
-            return 0;
+            return;
         }
-        int position = mPlayer.getCurrentPosition();
-        int duration = mPlayer.getDuration();
+        long position = mPlayer.getCurrentPosition();
+        long duration = mPlayer.getDuration();
         if (mProgress != null) {
             if (duration > 0) {
                 // use long to avoid overflow
                 long pos = 1000L * position / duration;
-                mProgress.setProgress( (int) pos);
+                mProgress.setProgress((int) pos);
             }
         }
-
-        return position;
     }
 
-    protected void recreatePlayer(String url) {
-        mPlayer.release();
-        createPlayer(url);
-    }
-
-    protected void createPlayer(String url) {
+    protected void createPlayer(String url, String drawUrl) {
         try {
-            mPlayer = new MediaPlayer();
-            mPlayer.setAudioAttributes(
-                    new AudioAttributes.Builder()
-                            .setContentType(AudioAttributes.CONTENT_TYPE_MUSIC) // no idea what the content type would be so use music for now
-                            .setUsage(AudioAttributes.USAGE_MEDIA)
-                            .build()
-            );
-            mPlayer.setDataSource(url);
+            MediaItem.Builder mIBuilder = new MediaItem.Builder();
+            mIBuilder.setUri(url);
+            if (drawUrl != null && !drawUrl.isEmpty()) {
+                mIBuilder.setMediaMetadata(
+                        MediaItem.fromUri(url).mediaMetadata.buildUpon()
+                                .setArtworkUri(Uri.parse(drawUrl))
+                                .build()
+                );
+            }
+            MediaItem mediaItem = mIBuilder.build();
+            mPlayer.setMediaItem(mediaItem);
             mPlayer.prepare();
-            mPlayer.start();
-            mProgress.post(mShowProgress);
-        } catch (IOException e) {
+            mPlayer.play();
+        } catch (Exception e) {
             ErrorUtils.handle(e, this);
             finish();
         }
+    }
+
+    public static void playAudio(String url, Context context, String drawUrl, String title) {
+        Intent i = new Intent(context, MediaPlayerActivity.class);
+        i.putExtra("uri", url);
+        i.putExtra("drawableUrl", drawUrl);
+        i.putExtra("title", title);
+        context.startActivity(i);
     }
 }
