@@ -49,6 +49,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import io.github.dot166.jlib.utils.VersionUtils;
+
 /**
  * Simple controller for a RecyclerView-based widget to hold the options for each customization
  * section (eg, thumbnails for themes, clocks, grid sizes).
@@ -382,12 +384,12 @@ public class OptionSelectorController<T extends CustomizationOption<T>> {
 
             CharSequence cd = context.getString(id, title);
             if (labelView != null && !TextUtils.isEmpty(labelView.getText())) {
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+                if (VersionUtils.isAtLeastP()) {
                     labelView.setAccessibilityPaneTitle(cd);
                 }
                 labelView.setContentDescription(cd);
             } else if (tileView != null) {
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+                if (VersionUtils.isAtLeastP()) {
                     tileView.setAccessibilityPaneTitle(cd);
                 }
                 tileView.setContentDescription(cd);
@@ -396,12 +398,12 @@ public class OptionSelectorController<T extends CustomizationOption<T>> {
 
         public void resetContentDescription() {
             if (labelView != null && !TextUtils.isEmpty(labelView.getText())) {
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+                if (VersionUtils.isAtLeastP()) {
                     labelView.setAccessibilityPaneTitle(title);
                 }
                 labelView.setContentDescription(title);
             } else if (tileView != null) {
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+                if (VersionUtils.isAtLeastP()) {
                     tileView.setAccessibilityPaneTitle(title);
                 }
                 tileView.setContentDescription(title);

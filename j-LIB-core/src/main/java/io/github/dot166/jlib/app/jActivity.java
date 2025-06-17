@@ -61,7 +61,7 @@ public class jActivity extends AppCompatActivity {
 
         notificationPermissionLauncher = registerForActivityResult(new ActivityResultContracts.RequestPermission(), isGranted -> {
             if (!isGranted) {
-                if (Build.VERSION.SDK_INT >= 33) {
+                if (VersionUtils.isAtLeastT()) {
                     if (shouldShowRequestPermissionRationale(android.Manifest.permission.POST_NOTIFICATIONS)) {
                         showNotificationPermissionRationale();
                     } else {
@@ -116,7 +116,7 @@ public class jActivity extends AppCompatActivity {
                 .setTitle(R.string.notification_permission)
                 .setMessage(R.string.notif_dialog)
                 .setPositiveButton(R.string.yes, (dialog, which) -> {
-                    if (Build.VERSION.SDK_INT >= 33) {
+                    if (VersionUtils.isAtLeastT()) {
                         notificationPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS);
                     }
                 })
@@ -125,7 +125,7 @@ public class jActivity extends AppCompatActivity {
     }
 
     public void forceNotificationPermission() {
-        if (Build.VERSION.SDK_INT >= 33) {
+        if (VersionUtils.isAtLeastT()) {
             notificationPermissionLauncher.launch(android.Manifest.permission.POST_NOTIFICATIONS);
         }
     }

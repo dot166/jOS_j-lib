@@ -36,6 +36,7 @@ import io.github.dot166.jlib.game.GameObject;
 import io.github.dot166.jlib.game.GameView;
 import io.github.dot166.jlib.game.Obstacle;
 import io.github.dot166.jlib.game.Scenery;
+import io.github.dot166.jlib.utils.VersionUtils;
 
 public class ObstacleGame extends GameView {
     public static final String TAG = "jLib ObstacleGame";
@@ -132,7 +133,7 @@ public class ObstacleGame extends GameView {
         if (mPlaying && (t - mLastObstacleTime) > PARAMS.OBSTACLE_PERIOD) {
             mLastObstacleTime = t;
             int obstacley;
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.VANILLA_ICE_CREAM) {
+            if (VersionUtils.isAtLeastV()) {
                 obstacley = new Random().nextInt(PARAMS.OBSTACLE_GAP / 2, PARAMS.OBSTACLE_GAP);
             } else {
                 obstacley = PARAMS.OBSTACLE_GAP;
