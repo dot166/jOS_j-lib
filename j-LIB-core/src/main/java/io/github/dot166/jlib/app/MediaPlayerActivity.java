@@ -49,8 +49,22 @@ public class MediaPlayerActivity  extends jActivity {
                 findViewById(R.id.button7).setVisibility(VISIBLE);
                 findViewById(R.id.seekBar_layout).setVisibility(VISIBLE);
             }
+            findViewById(R.id.button6).setActivated(mPlayer.isPlaying());
             setProgress();
             mProgress.post(mShowProgress);
+        }
+    };
+
+    private final Runnable mTryLoadSavedArtwork = new Runnable() {
+        @Override
+        public void run() { // this is a separate task to prevent the artwork view from dying (being overridden multiple times)
+            if (mPlayer == null) {
+                mProgress.post(mTryLoadSavedArtwork);
+                return;
+            }
+            Glide.with(MediaPlayerActivity.this)
+                    .load(mPlayer.getMediaMetadata().artworkUri)
+                    .into(((ImageView) findViewById(R.id.imageView)));
         }
     };
     @Override
@@ -83,9 +97,10 @@ public class MediaPlayerActivity  extends jActivity {
             Glide.with(this)
                     .load(drawUrl)
                     .into(((ImageView) findViewById(R.id.imageView)));
+        } else {
+            mProgress.post(mTryLoadSavedArtwork);
         }
         mProgress = findViewById(R.id.seekBar);
-        findViewById(R.id.button6).setActivated(true);
         mProgress.setMin(0);
         mProgress.setMax(1000);
         setProgress();
@@ -123,10 +138,8 @@ public class MediaPlayerActivity  extends jActivity {
             public void onClick(View v) {
                 if (mPlayer.isPlaying()) {
                     mPlayer.pause();
-                    findViewById(R.id.button6).setActivated(false);
                 } else {
                     mPlayer.play();
-                    findViewById(R.id.button6).setActivated(true);
                 }
             }
         });
@@ -166,19 +179,29 @@ public class MediaPlayerActivity  extends jActivity {
 
     protected void createPlayer(String url, String drawUrl) {
         try {
-            MediaItem.Builder mIBuilder = new MediaItem.Builder();
-            mIBuilder.setUri(url);
-            if (drawUrl != null && !drawUrl.isEmpty()) {
-                mIBuilder.setMediaMetadata(
-                        MediaItem.fromUri(url).mediaMetadata.buildUpon()
-                                .setArtworkUri(Uri.parse(drawUrl))
-                                .build()
-                );
+            String urltest;
+            if (mPlayer.getCurrentMediaItem() != null && mPlayer.getCurrentMediaItem().localConfiguration != null) {
+                urltest = mPlayer.getCurrentMediaItem().localConfiguration.uri.toString();
+            } else if (Objects.equals(url, "")) {
+                urltest = ""; // force override because if this condition is true then the service is running and audio is loaded
+            } else {
+                urltest = ""; // force override because if the other conditions are false, most likely the service is not running
             }
-            MediaItem mediaItem = mIBuilder.build();
-            mPlayer.setMediaItem(mediaItem);
-            mPlayer.prepare();
-            mPlayer.play();
+            if (!urltest.equals(url)) {
+                MediaItem.Builder mIBuilder = new MediaItem.Builder();
+                mIBuilder.setUri(url);
+                if (drawUrl != null && !drawUrl.isEmpty()) {
+                    mIBuilder.setMediaMetadata(
+                            MediaItem.fromUri(url).mediaMetadata.buildUpon()
+                                    .setArtworkUri(Uri.parse(drawUrl))
+                                    .build()
+                    );
+                }
+                MediaItem mediaItem = mIBuilder.build();
+                mPlayer.setMediaItem(mediaItem);
+                mPlayer.prepare();
+                mPlayer.play();
+            }
         } catch (Exception e) {
             ErrorUtils.handle(e, this);
             finish();
