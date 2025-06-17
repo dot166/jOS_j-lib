@@ -98,6 +98,7 @@ public class DateUtils {
         // List of common input date formats you might encounter.
         // You can extend this list based on your specific needs.
         String[] commonInputFormats = {
+                "EEE, dd MMM yyyy HH:mm:ss Z",  // output (compatibility)
                 "yyyy-MM-dd'T'HH:mm:ssZ",       // ISO 8601 with Z for timezone (+0000 or +HHMM)
                 "yyyy-MM-dd'T'HH:mm:ssXXX",     // ISO 8601 with X for timezone (+00:00 or Z) (API 24+)
                 "yyyy-MM-dd HH:mm:ss Z",        // Common SQL/log format with timezone
@@ -105,7 +106,6 @@ public class DateUtils {
                 "MM/dd/yyyy HH:mm:ss",          // US common format
                 "dd-MM-yyyy HH:mm:ss",          // European common format
                 "yyyy/MM/dd HH:mm:ss",          // Alternative common format
-                "EEE, dd MMM yyyy HH:mm:ss Z"   // output (compatibility)
         };
 
         for (String pattern : commonInputFormats) {
