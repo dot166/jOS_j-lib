@@ -44,4 +44,8 @@
     <string name="play_pause">Play/Pause</string>
     <string name="rewind">-10s</string>
     <string name="cover_art">cover art</string>
+    <string name="notification_permission">Notification Permission</string>
+    <string name="no">No</string>
+    <string name="settings_notif_dialog">The Notification permission is required for this jLib component, Please allow notification permission from settings</string>
+    <string name="notif_dialog">The Notification permission is required for this jLib component, would you like to grant it</string>
 </resources>

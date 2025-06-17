@@ -2,11 +2,18 @@ package io.github.dot166.jlib.app;
 
 import static io.github.dot166.jlib.themeengine.ThemeEngine.getThemeFromThemeProvider;
 
+import android.Manifest;
 import android.content.Intent;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.provider.Settings;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.ContentView;
 import androidx.annotation.LayoutRes;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -14,11 +21,13 @@ import androidx.core.view.WindowInsetsCompat;
 
 import java.util.Objects;
 
+import io.github.dot166.jlib.R;
 import io.github.dot166.jlib.themeengine.ThemeEngine;
 import io.github.dot166.jlib.utils.VersionUtils;
 
 public class jActivity extends AppCompatActivity {
     String currentTheme = null;
+    private ActivityResultLauncher<String> notificationPermissionLauncher;
 
     /**
      * Default constructor for jActivity. All Activities must have a default constructor
@@ -50,6 +59,18 @@ public class jActivity extends AppCompatActivity {
         setTheme(ThemeEngine.getSystemTheme(this));
         super.onCreate(savedInstanceState);
 
+        notificationPermissionLauncher = registerForActivityResult(new ActivityResultContracts.RequestPermission(), isGranted -> {
+            if (!isGranted) {
+                if (Build.VERSION.SDK_INT >= 33) {
+                    if (shouldShowRequestPermissionRationale(android.Manifest.permission.POST_NOTIFICATIONS)) {
+                        showNotificationPermissionRationale();
+                    } else {
+                        showSettingDialog();
+                    }
+                }
+            }
+        });
+
         if (VersionUtils.isAtLeastV()) {
             // Fix A15 EdgeToEdge
             ViewCompat.setOnApplyWindowInsetsListener(findViewById(android.R.id.content), (v, windowInsets) -> {
@@ -74,6 +95,38 @@ public class jActivity extends AppCompatActivity {
             Intent intent = getIntent();
             finish();
             startActivity(intent);
+        }
+    }
+
+    private void showSettingDialog() {
+        new AlertDialog.Builder(this)
+                .setTitle(R.string.notification_permission)
+                .setMessage(R.string.settings_notif_dialog)
+                .setPositiveButton(R.string.ok, (dialog, which) -> {
+                    Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+                    intent.setData(Uri.parse("package:" + getPackageName()));
+                    startActivity(intent);
+                })
+                .setNegativeButton(R.string.cancel, null)
+                .show();
+    }
+
+    private void showNotificationPermissionRationale() {
+        new AlertDialog.Builder(this, com.google.android.material.R.style.MaterialAlertDialog_Material3)
+                .setTitle(R.string.notification_permission)
+                .setMessage(R.string.notif_dialog)
+                .setPositiveButton(R.string.yes, (dialog, which) -> {
+                    if (Build.VERSION.SDK_INT >= 33) {
+                        notificationPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS);
+                    }
+                })
+                .setNegativeButton(R.string.no, null)
+                .show();
+    }
+
+    public void forceNotificationPermission() {
+        if (Build.VERSION.SDK_INT >= 33) {
+            notificationPermissionLauncher.launch(android.Manifest.permission.POST_NOTIFICATIONS);
         }
     }
 }

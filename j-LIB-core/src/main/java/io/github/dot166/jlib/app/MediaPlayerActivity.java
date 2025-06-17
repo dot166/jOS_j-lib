@@ -7,13 +7,18 @@ import static io.github.dot166.jlib.utils.TimeUtils.convertMillisToHMS;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Build;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.appcompat.app.AlertDialog;
 import androidx.core.content.ContextCompat;
 import androidx.media3.common.MediaItem;
 import androidx.media3.session.MediaController;
@@ -73,6 +78,7 @@ public class MediaPlayerActivity  extends jActivity {
         String drawUrl = Objects.requireNonNull(getIntent().getExtras()).getString("drawableUrl");
         String title = Objects.requireNonNull(getIntent().getExtras()).getString("title");
         super.onCreate(savedInstanceState);
+        forceNotificationPermission();
         setContentView(R.layout.media_player);
         if (title != null && !title.isEmpty()) {
             setTitle(title);
