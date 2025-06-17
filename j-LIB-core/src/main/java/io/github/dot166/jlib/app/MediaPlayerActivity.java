@@ -99,6 +99,7 @@ public class MediaPlayerActivity  extends jActivity {
                 finish();
             }
         }, ContextCompat.getMainExecutor(this));
+        mProgress = findViewById(R.id.seekBar);
         if (drawUrl != null && !drawUrl.isEmpty()) {
             Glide.with(this)
                     .load(drawUrl)
@@ -106,7 +107,6 @@ public class MediaPlayerActivity  extends jActivity {
         } else {
             mProgress.post(mTryLoadSavedArtwork);
         }
-        mProgress = findViewById(R.id.seekBar);
         mProgress.setMin(0);
         mProgress.setMax(1000);
         setProgress();
