@@ -61,7 +61,7 @@ public class MediaPlayerActivity  extends jActivity {
                 findViewById(R.id.seekBar).setVisibility(GONE);
                 if (mPlayer.getCurrentMediaItem() != null) {
                     findViewById(R.id.text).setVisibility(VISIBLE);
-                    ((TextView) findViewById(R.id.text)).setText(convertMillisToHMS(System.currentTimeMillis() - mPlayer.getCurrentMediaItem().liveConfiguration.targetOffsetMs));
+                    ((TextView) findViewById(R.id.text)).setText(convertMillisToHMS(System.currentTimeMillis()));
                 } else {
                     findViewById(R.id.text).setVisibility(GONE);
                 }
