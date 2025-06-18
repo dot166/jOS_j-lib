@@ -7,20 +7,19 @@ import static io.github.dot166.jlib.utils.TimeUtils.convertMillisToHMS;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Build;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
-import androidx.appcompat.app.AlertDialog;
+import androidx.annotation.OptIn;
 import androidx.core.content.ContextCompat;
 import androidx.media3.common.MediaItem;
+import androidx.media3.common.Player;
+import androidx.media3.common.util.UnstableApi;
 import androidx.media3.session.MediaController;
 import androidx.media3.session.SessionToken;
 
@@ -38,25 +37,39 @@ public class MediaPlayerActivity  extends jActivity {
     MediaController mPlayer;
     SeekBar mProgress;
 
-    private final Runnable mShowProgress = new Runnable() {
+    private final Runnable updateThread = new Runnable() {
+        @OptIn(markerClass = UnstableApi.class)
         @Override
         public void run() {
             if (mPlayer == null) {
-                mProgress.post(mShowProgress);
+                mProgress.post(updateThread);
                 return;
+            }
+            ProgressBar progress = findViewById(R.id.progress);
+            if (mPlayer.getPlaybackState() == Player.STATE_BUFFERING) {
+                progress.setVisibility(VISIBLE);
+            } else {
+                progress.setVisibility(GONE);
             }
             if (mPlayer.isCurrentMediaItemLive()) {
                 findViewById(R.id.button5).setVisibility(GONE);
                 findViewById(R.id.button7).setVisibility(GONE);
-                findViewById(R.id.seekBar_layout).setVisibility(GONE);
+                findViewById(R.id.seekBar).setVisibility(GONE);
+                if (mPlayer.getCurrentMediaItem() != null) {
+                    findViewById(R.id.text).setVisibility(VISIBLE);
+                    ((TextView) findViewById(R.id.text)).setText(convertMillisToHMS(System.currentTimeMillis() - mPlayer.getCurrentMediaItem().liveConfiguration.targetOffsetMs));
+                } else {
+                    findViewById(R.id.text).setVisibility(GONE);
+                }
             } else {
                 findViewById(R.id.button5).setVisibility(VISIBLE);
                 findViewById(R.id.button7).setVisibility(VISIBLE);
-                findViewById(R.id.seekBar_layout).setVisibility(VISIBLE);
+                findViewById(R.id.seekBar).setVisibility(VISIBLE);
+                findViewById(R.id.text).setVisibility(VISIBLE);
             }
             findViewById(R.id.button6).setActivated(mPlayer.isPlaying());
             setProgress();
-            mProgress.post(mShowProgress);
+            mProgress.post(updateThread);
         }
     };
 
@@ -118,7 +131,7 @@ public class MediaPlayerActivity  extends jActivity {
                 }
                 long duration = mPlayer.getDuration();
                 long newposition = (duration * progress) / 1000L;
-                String formattedTextString = convertMillisToHMS(newposition) + "/" + convertMillisToHMS(duration);
+                String formattedTextString = convertMillisToHMS(newposition).replaceAll("^00:(00:)?", "") + "/" + convertMillisToHMS(duration).replaceAll("^00:(00:)?", "");
                 ((TextView)findViewById(R.id.text)).setText(formattedTextString);
                 if (!fromUser) {
                     // We're not interested in programmatically generated changes to
@@ -165,7 +178,7 @@ public class MediaPlayerActivity  extends jActivity {
                 setProgress();
             }
         });
-        mProgress.post(mShowProgress);
+        mProgress.post(updateThread);
     }
 
     protected void setProgress() {
