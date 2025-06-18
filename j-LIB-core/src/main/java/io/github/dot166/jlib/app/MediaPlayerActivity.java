@@ -37,6 +37,10 @@ public class MediaPlayerActivity  extends jActivity {
     MediaController mPlayer;
     SeekBar mProgress;
 
+    protected MediaPlayerService getService() {
+        return new MediaPlayerService();
+    }
+
     private final Runnable updateThread = new Runnable() {
         @OptIn(markerClass = UnstableApi.class)
         @Override
@@ -97,9 +101,9 @@ public class MediaPlayerActivity  extends jActivity {
             setTitle(title);
         }
         setSupportActionBar(findViewById(R.id.actionbar));
-        startService(new Intent(this, MediaPlayerService.class));
+        startService(new Intent(this, getService().getClass()));
         SessionToken sessionToken =
-                new SessionToken(this, new ComponentName(this, MediaPlayerService.class));
+                new SessionToken(this, new ComponentName(this, getService().getClass()));
         ListenableFuture<MediaController> controllerFuture =
                 new MediaController.Builder(this, sessionToken).buildAsync();
         controllerFuture.addListener(() -> {
@@ -108,7 +112,7 @@ public class MediaPlayerActivity  extends jActivity {
                 createPlayer(url, drawUrl);
             } catch (Exception e) {
                 ErrorUtils.handle(e, this);
-                stopService(new Intent(this, MediaPlayerService.class));
+                stopService(new Intent(this, getService().getClass()));
                 finish();
             }
         }, ContextCompat.getMainExecutor(this));
