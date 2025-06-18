@@ -131,7 +131,7 @@ public class MediaPlayerActivity  extends jActivity {
                 }
                 long duration = mPlayer.getDuration();
                 long newposition = (duration * progress) / 1000L;
-                String formattedTextString = convertMillisToHMS(newposition).replaceAll("^00:(00:)?", "") + "/" + convertMillisToHMS(duration).replaceAll("^00:(00:)?", "");
+                String formattedTextString = convertMillisToHMS(newposition).replaceAll("^00:", "") + "/" + convertMillisToHMS(duration).replaceAll("^00:", "");
                 ((TextView)findViewById(R.id.text)).setText(formattedTextString);
                 if (!fromUser) {
                     // We're not interested in programmatically generated changes to

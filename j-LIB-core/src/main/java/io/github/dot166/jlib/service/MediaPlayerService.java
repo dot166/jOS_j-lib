@@ -34,16 +34,12 @@ public class MediaPlayerService extends MediaSessionService {
             @Override
             public void onIsPlayingChanged(boolean isPlaying) {
                 Player.Listener.super.onIsPlayingChanged(isPlaying);
-                if (!mIsWorking) {
-                    mIsWorking = true;
-                    if (isPlaying) {
+                if (isPlaying) {
+                    if (!mIsWorking) {
+                        mIsWorking = true;
                         if (player.isCurrentMediaItemLive()) {
                             player.prepare();
                             player.play();
-                        }
-                    } else {
-                        if (player.isCurrentMediaItemLive()) {
-                            player.stop();
                         }
                     }
                     new Handler().postDelayed(new Runnable() {
