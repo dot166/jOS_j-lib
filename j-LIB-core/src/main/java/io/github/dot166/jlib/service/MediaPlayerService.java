@@ -20,7 +20,7 @@ import com.google.common.util.concurrent.Futures;
 import com.google.common.util.concurrent.ListenableFuture;
 
 public class MediaPlayerService extends MediaSessionService {
-    private MediaSession mediaSession = null;
+    protected MediaSession mediaSession = null;
     boolean mIsWorking = false;
     private static final SessionCommand KILL_SERVICE =
             new SessionCommand("ACTION_KILL", Bundle.EMPTY);
