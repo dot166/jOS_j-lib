@@ -97,9 +97,18 @@ public class MediaPlayerActivity  extends jActivity {
     };
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        String url = Objects.requireNonNull(getIntent().getExtras()).getString("uri");
-        String drawUrl = Objects.requireNonNull(getIntent().getExtras()).getString("drawableUrl");
-        String title = Objects.requireNonNull(getIntent().getExtras()).getString("title");
+        String url;
+        String drawUrl;
+        String title;
+        if (getIntent().getExtras() != null) {
+            url = getIntent().getExtras().getString("uri");
+            drawUrl = getIntent().getExtras().getString("drawableUrl");
+            title = getIntent().getExtras().getString("title");
+        } else {
+            url = "";
+            drawUrl = "";
+            title = "";
+        }
         super.onCreate(savedInstanceState);
         forceNotificationPermission();
         setContentView(R.layout.media_player);
