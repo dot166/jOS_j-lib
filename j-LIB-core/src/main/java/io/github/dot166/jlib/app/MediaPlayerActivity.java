@@ -18,6 +18,7 @@ import android.widget.TextView;
 import androidx.annotation.OptIn;
 import androidx.core.content.ContextCompat;
 import androidx.media3.common.MediaItem;
+import androidx.media3.common.MediaMetadata;
 import androidx.media3.common.Player;
 import androidx.media3.common.util.UnstableApi;
 import androidx.media3.session.MediaController;
@@ -218,13 +219,12 @@ public class MediaPlayerActivity  extends jActivity {
             if (!urltest.equals(url)) {
                 MediaItem.Builder mIBuilder = new MediaItem.Builder();
                 mIBuilder.setUri(url);
+                MediaMetadata.Builder metadata = MediaItem.fromUri(url).mediaMetadata.buildUpon();
                 if (drawUrl != null && !drawUrl.isEmpty()) {
-                    mIBuilder.setMediaMetadata(
-                            MediaItem.fromUri(url).mediaMetadata.buildUpon()
-                                    .setArtworkUri(Uri.parse(drawUrl))
-                                    .build()
-                    );
+                    metadata.setArtworkUri(Uri.parse(drawUrl));
                 }
+                addExtraMetadata(mIBuilder, metadata);
+                mIBuilder.setMediaMetadata(metadata.build());
                 MediaItem mediaItem = mIBuilder.build();
                 mPlayer.setMediaItem(mediaItem);
                 mPlayer.prepare();
@@ -242,5 +242,8 @@ public class MediaPlayerActivity  extends jActivity {
         i.putExtra("drawableUrl", drawUrl);
         i.putExtra("title", title);
         context.startActivity(i);
+    }
+
+    protected void addExtraMetadata(MediaItem.Builder mIdBuilder, MediaMetadata.Builder metadata) {
     }
 }

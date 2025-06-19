@@ -1,5 +1,7 @@
 package io.github.dot166.jlib.service;
 
+import android.app.PendingIntent;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
@@ -20,6 +22,8 @@ import com.google.common.util.concurrent.Futures;
 import com.google.common.util.concurrent.ListenableFuture;
 
 import io.github.dot166.jlib.R;
+import io.github.dot166.jlib.app.MediaPlayerActivity;
+import io.github.dot166.jlib.media.jMediaNotificationProvider;
 
 public class MediaPlayerService extends MediaSessionService {
     protected MediaSession mediaSession = null;
@@ -62,6 +66,8 @@ public class MediaPlayerService extends MediaSessionService {
                 .setCallback(new jLibCallback())
                 .setMediaButtonPreferences(ImmutableList.of(exitButton))
                 .build();
+        setMediaNotificationProvider(new jMediaNotificationProvider(this));
+        mediaSession.setSessionActivity(PendingIntent.getActivity(this, 1, new Intent(this, MediaPlayerActivity.class), PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE));
     }
 
     @Override
