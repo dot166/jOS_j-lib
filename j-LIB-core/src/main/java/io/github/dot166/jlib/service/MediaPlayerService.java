@@ -19,6 +19,8 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.util.concurrent.Futures;
 import com.google.common.util.concurrent.ListenableFuture;
 
+import io.github.dot166.jlib.R;
+
 public class MediaPlayerService extends MediaSessionService {
     protected MediaSession mediaSession = null;
     boolean mIsWorking = false;
@@ -53,7 +55,7 @@ public class MediaPlayerService extends MediaSessionService {
         });
         CommandButton exitButton =
                 new CommandButton.Builder(CommandButton.ICON_STOP)
-                        .setDisplayName("close media player")
+                        .setDisplayName(getString(R.string.close_media_player))
                         .setSessionCommand(KILL_SERVICE)
                         .build();
         mediaSession = new MediaSession.Builder(this, player)

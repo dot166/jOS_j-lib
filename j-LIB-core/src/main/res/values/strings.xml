@@ -48,4 +48,5 @@
     <string name="no">No</string>
     <string name="settings_notif_dialog">The Notification permission is required for this jLib component, Please allow notification permission from settings</string>
     <string name="notif_dialog">The Notification permission is required for this jLib component, would you like to grant it</string>
+    <string name="close_media_player">close media player</string>
 </resources>
