@@ -1,11 +1,13 @@
 package io.github.dot166.jlib.utils;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkCapabilities;
 import android.os.StrictMode;
 
 import androidx.annotation.NonNull;
+import androidx.preference.PreferenceManager;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -13,8 +15,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-
-import io.github.dot166.jlib.app.jLibConfig;
 
 public class NetUtils {
 
@@ -58,7 +58,7 @@ public class NetUtils {
 
         if (capabilities!= null) {
             if (capabilities.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR)) {
-                return jLibConfig.isDataEnabled();
+                return isDataEnabled(context);
             } else if (capabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI)) {
                 return true;
             } else if (capabilities.hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET)) {
@@ -66,5 +66,10 @@ public class NetUtils {
             }
         }
         return false;
+    }
+
+    public static boolean isDataEnabled(Context context) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        return prefs.getBoolean("is_data_enabled", false);
     }
 }

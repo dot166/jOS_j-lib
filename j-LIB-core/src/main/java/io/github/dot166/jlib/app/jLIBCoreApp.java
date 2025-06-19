@@ -16,6 +16,5 @@ public class jLIBCoreApp extends Application {
 
     public void onCreate() {
         super.onCreate();
-        jLibConfig.init_values(this);
     }
 }
