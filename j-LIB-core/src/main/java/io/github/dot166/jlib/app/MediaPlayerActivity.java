@@ -49,6 +49,11 @@ public class MediaPlayerActivity  extends jActivity {
                 mProgress.post(updateThread);
                 return;
             }
+            if (!mPlayer.isConnected()) {
+                // uh oh, service died
+                recreate(); // quick, rebuild UI to start service again.
+                return; // just in case
+            }
             ProgressBar progress = findViewById(R.id.progress);
             if (mPlayer.getPlaybackState() == Player.STATE_BUFFERING) {
                 progress.setVisibility(VISIBLE);
