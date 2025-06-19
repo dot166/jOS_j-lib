@@ -3010,7 +3010,7 @@
                     "name": "Mike Penz"
                 }
             ],
-            "artifactVersion": "12.2.1",
+            "artifactVersion": "12.2.3",
             "description": "AboutLibraries automatically detects all dependencies of a project and collects their information including the license. Optionally visualising it via the provided ui components.",
             "scm": {
                 "connection": "scm:git@github.com:mikepenz/AboutLibraries.git",
@@ -3033,7 +3033,7 @@
                     "name": "Mike Penz"
                 }
             ],
-            "artifactVersion": "12.2.1",
+            "artifactVersion": "12.2.3",
             "description": "AboutLibraries automatically detects all dependencies of a project and collects their information including the license. Optionally visualising it via the provided ui components.",
             "scm": {
                 "connection": "scm:git@github.com:mikepenz/AboutLibraries.git",
@@ -3056,7 +3056,7 @@
                     "name": "Mike Penz"
                 }
             ],
-            "artifactVersion": "12.2.1",
+            "artifactVersion": "12.2.3",
             "description": "AboutLibraries automatically detects all dependencies of a project and collects their information including the license. Optionally visualising it via the provided ui components.",
             "scm": {
                 "connection": "scm:git@github.com:mikepenz/AboutLibraries.git",
@@ -3079,7 +3079,7 @@
                     "name": "Mike Penz"
                 }
             ],
-            "artifactVersion": "12.2.1",
+            "artifactVersion": "12.2.3",
             "description": "AboutLibraries automatically detects all dependencies of a project and collects their information including the license. Optionally visualising it via the provided ui components.",
             "scm": {
                 "connection": "scm:git@github.com:mikepenz/AboutLibraries.git",
@@ -3102,7 +3102,7 @@
                     "name": "Mike Penz"
                 }
             ],
-            "artifactVersion": "12.2.1",
+            "artifactVersion": "12.2.3",
             "description": "AboutLibraries automatically detects all dependencies of a project and collects their information including the license. Optionally visualising it via the provided ui components.",
             "scm": {
                 "connection": "scm:git@github.com:mikepenz/AboutLibraries.git",
@@ -3125,7 +3125,7 @@
                     "name": "Mike Penz"
                 }
             ],
-            "artifactVersion": "12.2.1",
+            "artifactVersion": "12.2.3",
             "description": "AboutLibraries automatically detects all dependencies of a project and collects their information including the license. Optionally visualising it via the provided ui components.",
             "scm": {
                 "connection": "scm:git@github.com:mikepenz/AboutLibraries.git",
@@ -3355,7 +3355,7 @@
                     "name": "._______166"
                 }
             ],
-            "artifactVersion": "4.2.12",
+            "artifactVersion": "4.2.13",
             "description": "jLib - a common library that contains a custom actionbar based on material components Toolbar and some other things.",
             "scm": {
                 "connection": "scm:git:git://github.com/github.com/dot166/jOS_j-lib.git",
