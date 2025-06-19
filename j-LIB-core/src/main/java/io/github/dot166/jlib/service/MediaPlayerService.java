@@ -40,7 +40,7 @@ public class MediaPlayerService extends MediaSessionService {
                     if (!mIsWorking) {
                         mIsWorking = true;
                         if (player.isCurrentMediaItemLive()) {
-                            player.prepare();
+                            player.seekToDefaultPosition();
                             player.play();
                         }
                     }
