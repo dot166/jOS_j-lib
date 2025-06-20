@@ -26,7 +26,7 @@ import io.github.dot166.jlib.app.MediaPlayerActivity;
 import io.github.dot166.jlib.media.jMediaNotificationProvider;
 
 public class MediaPlayerService extends MediaSessionService {
-    protected MediaSession mediaSession = null;
+    public MediaSession mediaSession = null;
     boolean mIsWorking = false;
     private static final SessionCommand KILL_SERVICE =
             new SessionCommand("ACTION_KILL", Bundle.EMPTY);
