@@ -95,6 +95,19 @@ public class MediaPlayerActivity  extends jActivity {
                     .into(((ImageView) findViewById(R.id.imageView)));
         }
     };
+
+    private final Runnable mTryLoadSavedTitle = new Runnable() {
+        @Override
+        public void run() {
+            if (mPlayer == null) {
+                mProgress.post(mTryLoadSavedTitle);
+                return;
+            }
+            if (mPlayer.getMediaMetadata().station != null) {
+                setTitle(mPlayer.getMediaMetadata().station); // temporary until i can find a spare attribute TODO: Use a different attribute for the title
+            }
+        }
+    };
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         String url;
@@ -114,6 +127,8 @@ public class MediaPlayerActivity  extends jActivity {
         setContentView(R.layout.media_player);
         if (title != null && !title.isEmpty()) {
             setTitle(title);
+        } else {
+            mProgress.post(mTryLoadSavedTitle);
         }
         setSupportActionBar(findViewById(R.id.actionbar));
         startService(new Intent(this, getService().getClass()));
@@ -254,5 +269,11 @@ public class MediaPlayerActivity  extends jActivity {
     }
 
     protected void addExtraMetadata(MediaItem.Builder mIdBuilder, MediaMetadata.Builder metadata) {
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mProgress.post(updateThread);
     }
 }
