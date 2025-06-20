@@ -9,6 +9,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -38,6 +39,8 @@ public class MediaPlayerActivity  extends jActivity {
     MediaController mPlayer;
     SeekBar mProgress;
 
+    Handler mHandled = new Handler();
+
     protected MediaPlayerService getService() {
         return new MediaPlayerService();
     }
@@ -47,7 +50,7 @@ public class MediaPlayerActivity  extends jActivity {
         @Override
         public void run() {
             if (mPlayer == null) {
-                mProgress.post(updateThread);
+                mHandled.post(updateThread);
                 return;
             }
             if (!mPlayer.isConnected()) {
@@ -79,7 +82,7 @@ public class MediaPlayerActivity  extends jActivity {
             }
             findViewById(R.id.button6).setActivated(mPlayer.isPlaying());
             setProgress();
-            mProgress.post(updateThread);
+            mHandled.post(updateThread);
         }
     };
 
@@ -87,7 +90,7 @@ public class MediaPlayerActivity  extends jActivity {
         @Override
         public void run() { // this is a separate task to prevent the artwork view from dying (being overridden multiple times)
             if (mPlayer == null) {
-                mProgress.post(mTryLoadSavedArtwork);
+                mHandled.post(mTryLoadSavedArtwork);
                 return;
             }
             Glide.with(MediaPlayerActivity.this)
@@ -100,7 +103,7 @@ public class MediaPlayerActivity  extends jActivity {
         @Override
         public void run() {
             if (mPlayer == null) {
-                mProgress.post(mTryLoadSavedTitle);
+                mHandled.post(mTryLoadSavedTitle);
                 return;
             }
             if (mPlayer.getMediaMetadata().station != null) {
@@ -128,7 +131,7 @@ public class MediaPlayerActivity  extends jActivity {
         if (title != null && !title.isEmpty()) {
             setTitle(title);
         } else {
-            mProgress.post(mTryLoadSavedTitle);
+            mHandled.post(mTryLoadSavedTitle);
         }
         setSupportActionBar(findViewById(R.id.actionbar));
         startService(new Intent(this, getService().getClass()));
@@ -152,7 +155,7 @@ public class MediaPlayerActivity  extends jActivity {
                     .load(drawUrl)
                     .into(((ImageView) findViewById(R.id.imageView)));
         } else {
-            mProgress.post(mTryLoadSavedArtwork);
+            mHandled.post(mTryLoadSavedArtwork);
         }
         mProgress.setMin(0);
         mProgress.setMax(1000);
@@ -212,7 +215,7 @@ public class MediaPlayerActivity  extends jActivity {
                 setProgress();
             }
         });
-        mProgress.post(updateThread);
+        mHandled.post(updateThread);
     }
 
     protected void setProgress() {
@@ -274,6 +277,6 @@ public class MediaPlayerActivity  extends jActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        mProgress.post(updateThread);
+        mHandled.post(updateThread);
     }
 }

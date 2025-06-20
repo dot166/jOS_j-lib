@@ -31,6 +31,16 @@ public class MediaPlayerService extends MediaSessionService {
     private static final SessionCommand KILL_SERVICE =
             new SessionCommand("ACTION_KILL", Bundle.EMPTY);
 
+    private static MediaPlayerService instance;
+
+    public MediaPlayerService() {
+        instance = this;
+    }
+
+    public static MediaPlayerService getInstance() {
+        return instance;
+    }
+
     @OptIn(markerClass = UnstableApi.class)
     @Override
     public void onCreate() {
