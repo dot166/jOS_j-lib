@@ -218,10 +218,10 @@ public class MediaPlayerActivity  extends jActivity {
     protected void createPlayer(String url, String drawUrl) {
         try {
             String urltest;
-            if (mPlayer.getCurrentMediaItem() != null && mPlayer.getCurrentMediaItem().localConfiguration != null) {
-                urltest = mPlayer.getCurrentMediaItem().localConfiguration.uri.toString();
-            } else if (Objects.equals(url, "")) {
+            if (Objects.equals(url, "")) {
                 urltest = ""; // force override because if this condition is true then the service is running and audio is loaded
+            } else if (mPlayer.getCurrentMediaItem() != null && mPlayer.getCurrentMediaItem().localConfiguration != null) {
+                urltest = mPlayer.getCurrentMediaItem().localConfiguration.uri.toString();
             } else {
                 urltest = ""; // force override because if the other conditions are false, most likely the service is not running
             }
