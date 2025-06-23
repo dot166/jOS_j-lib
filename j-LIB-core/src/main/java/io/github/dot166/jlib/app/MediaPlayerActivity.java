@@ -82,6 +82,7 @@ public class MediaPlayerActivity  extends jActivity {
             }
             findViewById(R.id.button6).setActivated(mPlayer.isPlaying());
             setProgress();
+            ((TextView)findViewById(R.id.now_playing_title)).setText(mPlayer.getMediaMetadata().title);
             mHandled.post(updateThread);
         }
     };

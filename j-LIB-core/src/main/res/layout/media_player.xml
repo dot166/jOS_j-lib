@@ -44,11 +44,22 @@
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent">
 
+        <TextView
+            android:id="@+id/now_playing_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scrollHorizontally="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/seekBar_layout"/>
+
+
         <LinearLayout
             android:id="@+id/seekBar_layout"
             android:layout_width="match_parent"
             android:orientation="vertical"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/now_playing_title"
             android:layout_height="wrap_content">
             <TextView
                 android:layout_width="wrap_content"
