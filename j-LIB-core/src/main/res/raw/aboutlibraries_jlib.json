@@ -3355,7 +3355,7 @@
                     "name": "._______166"
                 }
             ],
-            "artifactVersion": "4.2.18",
+            "artifactVersion": "4.2.19",
             "description": "jLib - a common library that contains a custom actionbar based on material components Toolbar and some other things.",
             "scm": {
                 "connection": "scm:git:git://github.com/github.com/dot166/jOS_j-lib.git",
