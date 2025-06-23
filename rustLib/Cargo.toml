@@ -4,5 +4,5 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
-gtk4 = "0.9.6"
+gtk4 = "0.9.7"
 regex = "1.11.1"
