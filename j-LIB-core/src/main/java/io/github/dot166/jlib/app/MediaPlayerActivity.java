@@ -2,7 +2,6 @@ package io.github.dot166.jlib.app;
 
 import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
-import static io.github.dot166.jlib.utils.TimeUtils.convertMillisToHMS;
 
 import android.content.ComponentName;
 import android.content.Context;
@@ -21,6 +20,7 @@ import androidx.core.content.ContextCompat;
 import androidx.media3.common.MediaItem;
 import androidx.media3.common.MediaMetadata;
 import androidx.media3.common.Player;
+import androidx.media3.common.Timeline;
 import androidx.media3.common.util.UnstableApi;
 import androidx.media3.session.MediaController;
 import androidx.media3.session.SessionToken;
@@ -28,13 +28,16 @@ import androidx.media3.session.SessionToken;
 import com.bumptech.glide.Glide;
 import com.google.common.util.concurrent.ListenableFuture;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Locale;
 import java.util.Objects;
 
 import io.github.dot166.jlib.R;
 import io.github.dot166.jlib.service.MediaPlayerService;
 import io.github.dot166.jlib.utils.ErrorUtils;
 
-public class MediaPlayerActivity  extends jActivity {
+public class MediaPlayerActivity  extends jActivity { // TODO: Make this a fragment
 
     MediaController mPlayer;
     SeekBar mProgress;
@@ -70,7 +73,9 @@ public class MediaPlayerActivity  extends jActivity {
                 findViewById(R.id.seekBar).setVisibility(GONE);
                 if (mPlayer.getCurrentMediaItem() != null) {
                     findViewById(R.id.text).setVisibility(VISIBLE);
-                    ((TextView) findViewById(R.id.text)).setText(convertMillisToHMS(System.currentTimeMillis()));
+                    Calendar cal = Calendar.getInstance();
+                    cal.setTimeInMillis(mPlayer.getCurrentTimeline().getWindow(mPlayer.getCurrentMediaItemIndex(), new Timeline.Window()).windowStartTimeMs + mPlayer.getCurrentPosition());
+                    ((TextView) findViewById(R.id.text)).setText(new SimpleDateFormat("HH:mm:ss", Locale.ENGLISH).format(cal.getTime()));
                 } else {
                     findViewById(R.id.text).setVisibility(GONE);
                 }
@@ -169,7 +174,7 @@ public class MediaPlayerActivity  extends jActivity {
                 }
                 long duration = mPlayer.getDuration();
                 long newposition = (duration * progress) / 1000L;
-                String formattedTextString = convertMillisToHMS(newposition).replaceAll("^00:", "") + "/" + convertMillisToHMS(duration).replaceAll("^00:", "");
+                String formattedTextString = new SimpleDateFormat("HH:mm:ss", Locale.ENGLISH).format(newposition).replaceAll("^00:", "") + "/" + new SimpleDateFormat("HH:mm:ss", Locale.ENGLISH).format(duration).replaceAll("^00:", "");
                 ((TextView)findViewById(R.id.text)).setText(formattedTextString);
                 if (!fromUser) {
                     // We're not interested in programmatically generated changes to
