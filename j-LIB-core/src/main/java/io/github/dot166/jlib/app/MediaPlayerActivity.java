@@ -58,7 +58,13 @@ public class MediaPlayerActivity  extends jActivity { // TODO: Make this a fragm
             }
             if (!mPlayer.isConnected()) {
                 // uh oh, service died
-                recreate(); // quick, rebuild UI to start service again.
+                mProgress.setVisibility(VISIBLE);
+                mHandled.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        recreate(); // quick, rebuild UI to start service again.
+                    }
+                }, 2000);
                 return; // just in case
             }
             ProgressBar progress = findViewById(R.id.progress);
@@ -70,20 +76,11 @@ public class MediaPlayerActivity  extends jActivity { // TODO: Make this a fragm
             if (mPlayer.isCurrentMediaItemLive()) {
                 findViewById(R.id.button5).setVisibility(GONE);
                 findViewById(R.id.button7).setVisibility(GONE);
-                findViewById(R.id.seekBar).setVisibility(GONE);
-                if (mPlayer.getCurrentMediaItem() != null) {
-                    findViewById(R.id.text).setVisibility(VISIBLE);
-                    Calendar cal = Calendar.getInstance();
-                    cal.setTimeInMillis(mPlayer.getCurrentTimeline().getWindow(mPlayer.getCurrentMediaItemIndex(), new Timeline.Window()).windowStartTimeMs + mPlayer.getCurrentPosition());
-                    ((TextView) findViewById(R.id.text)).setText(new SimpleDateFormat("HH:mm:ss", Locale.ENGLISH).format(cal.getTime()));
-                } else {
-                    findViewById(R.id.text).setVisibility(GONE);
-                }
+                findViewById(R.id.seekBar_layout).setVisibility(GONE);
             } else {
                 findViewById(R.id.button5).setVisibility(VISIBLE);
                 findViewById(R.id.button7).setVisibility(VISIBLE);
-                findViewById(R.id.seekBar).setVisibility(VISIBLE);
-                findViewById(R.id.text).setVisibility(VISIBLE);
+                findViewById(R.id.seekBar_layout).setVisibility(VISIBLE);
             }
             findViewById(R.id.button6).setActivated(mPlayer.isPlaying());
             setProgress();
