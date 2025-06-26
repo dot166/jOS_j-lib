@@ -92,6 +92,10 @@ public class MediaPlayerActivity  extends jActivity {
                 mHandled.post(mTryLoadSavedArtwork);
                 return;
             }
+            if (mPlayer.getCurrentMediaItem() == null) { // probably no media item loaded
+                mHandled.post(mTryLoadSavedArtwork);
+                return;
+            }
             Glide.with(MediaPlayerActivity.this)
                     .load(mPlayer.getMediaMetadata().artworkUri)
                     .into(((ImageView) findViewById(R.id.imageView)));

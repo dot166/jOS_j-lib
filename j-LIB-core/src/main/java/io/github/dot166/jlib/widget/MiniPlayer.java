@@ -72,6 +72,10 @@ public class MiniPlayer extends FrameLayout {
                 mHandled.post(mTryLoadSavedArtwork);
                 return;
             }
+            if (mPlayer.getCurrentMediaItem() == null) { // probably no media item loaded, idiot (me) tried to load the url of an item that is not loaded and the entire app went down
+                mHandled.post(mTryLoadSavedArtwork);
+                return;
+            }
             Glide.with(MiniPlayer.this)
                     .load(mPlayer.getMediaMetadata().artworkUri)
                     .into(((ImageView) findViewById(R.id.imageView)));
