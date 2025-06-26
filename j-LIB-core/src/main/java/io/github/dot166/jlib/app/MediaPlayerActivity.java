@@ -34,19 +34,15 @@ import java.util.Locale;
 import java.util.Objects;
 
 import io.github.dot166.jlib.R;
+import io.github.dot166.jlib.media.PlayerCommon;
 import io.github.dot166.jlib.service.MediaPlayerService;
 import io.github.dot166.jlib.utils.ErrorUtils;
 
-public class MediaPlayerActivity  extends jActivity { // TODO: Make this a fragment
+public class MediaPlayerActivity  extends jActivity {
 
     MediaController mPlayer;
-    SeekBar mProgress;
 
     Handler mHandled = new Handler();
-
-    protected MediaPlayerService getService() {
-        return new MediaPlayerService();
-    }
 
     private final Runnable updateThread = new Runnable() {
         @OptIn(markerClass = UnstableApi.class)
@@ -56,9 +52,10 @@ public class MediaPlayerActivity  extends jActivity { // TODO: Make this a fragm
                 mHandled.post(updateThread);
                 return;
             }
+            ProgressBar progress = findViewById(R.id.progress);
             if (!mPlayer.isConnected()) {
                 // uh oh, service died
-                mProgress.setVisibility(VISIBLE);
+                progress.setVisibility(VISIBLE);
                 mHandled.postDelayed(new Runnable() {
                     @Override
                     public void run() {
@@ -67,7 +64,6 @@ public class MediaPlayerActivity  extends jActivity { // TODO: Make this a fragm
                 }, 2000);
                 return; // just in case
             }
-            ProgressBar progress = findViewById(R.id.progress);
             if (mPlayer.getPlaybackState() == Player.STATE_BUFFERING) {
                 progress.setVisibility(VISIBLE);
             } else {
@@ -83,7 +79,7 @@ public class MediaPlayerActivity  extends jActivity { // TODO: Make this a fragm
                 findViewById(R.id.seekBar_layout).setVisibility(VISIBLE);
             }
             findViewById(R.id.button6).setActivated(mPlayer.isPlaying());
-            setProgress();
+            PlayerCommon.setProgress(mPlayer, findViewById(R.id.seekBar));
             ((TextView)findViewById(R.id.now_playing_title)).setText(mPlayer.getMediaMetadata().title);
             mHandled.post(updateThread);
         }
@@ -110,7 +106,7 @@ public class MediaPlayerActivity  extends jActivity { // TODO: Make this a fragm
                 return;
             }
             if (mPlayer.getMediaMetadata().station != null) {
-                setTitle(mPlayer.getMediaMetadata().station); // temporary until i can find a spare attribute TODO: Use a different attribute for the title
+                setTitle(mPlayer.getMediaMetadata().station);
             }
         }
     };
@@ -137,9 +133,9 @@ public class MediaPlayerActivity  extends jActivity { // TODO: Make this a fragm
             mHandled.post(mTryLoadSavedTitle);
         }
         setSupportActionBar(findViewById(R.id.actionbar));
-        startService(new Intent(this, getService().getClass()));
+        startService(new Intent(this, ((jLIBCoreApp)getApplicationContext()).getMediaPlayerService().getClass()));
         SessionToken sessionToken =
-                new SessionToken(this, new ComponentName(this, getService().getClass()));
+                new SessionToken(this, new ComponentName(this, ((jLIBCoreApp)getApplicationContext()).getMediaPlayerService().getClass()));
         ListenableFuture<MediaController> controllerFuture =
                 new MediaController.Builder(this, sessionToken).buildAsync();
         controllerFuture.addListener(() -> {
@@ -148,11 +144,10 @@ public class MediaPlayerActivity  extends jActivity { // TODO: Make this a fragm
                 createPlayer(url, drawUrl);
             } catch (Exception e) {
                 ErrorUtils.handle(e, this);
-                stopService(new Intent(this, getService().getClass()));
+                stopService(new Intent(this, ((jLIBCoreApp)getApplicationContext()).getMediaPlayerService().getClass()));
                 finish();
             }
         }, ContextCompat.getMainExecutor(this));
-        mProgress = findViewById(R.id.seekBar);
         if (drawUrl != null && !drawUrl.isEmpty()) {
             Glide.with(this)
                     .load(drawUrl)
@@ -160,80 +155,8 @@ public class MediaPlayerActivity  extends jActivity { // TODO: Make this a fragm
         } else {
             mHandled.post(mTryLoadSavedArtwork);
         }
-        mProgress.setMin(0);
-        mProgress.setMax(1000);
-        setProgress();
-        mProgress.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-            @Override
-            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                if (mPlayer.isCurrentMediaItemLive()) {
-                    return;
-                }
-                long duration = mPlayer.getDuration();
-                long newposition = (duration * progress) / 1000L;
-                String formattedTextString = new SimpleDateFormat("HH:mm:ss", Locale.ENGLISH).format(newposition).replaceAll("^00:", "") + "/" + new SimpleDateFormat("HH:mm:ss", Locale.ENGLISH).format(duration).replaceAll("^00:", "");
-                ((TextView)findViewById(R.id.text)).setText(formattedTextString);
-                if (!fromUser) {
-                    // We're not interested in programmatically generated changes to
-                    // the progress bar's position.
-                    return;
-                }
-                mPlayer.seekTo( (int) newposition);
-            }
-
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-
-            }
-
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-
-            }
-        });
-
-        findViewById(R.id.button6).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (mPlayer.isPlaying()) {
-                    mPlayer.pause();
-                } else {
-                    mPlayer.play();
-                }
-            }
-        });
-
-        findViewById(R.id.button5).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mPlayer.seekTo(mPlayer.getCurrentPosition() - 10000);
-                setProgress();
-            }
-        });
-
-        findViewById(R.id.button7).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mPlayer.seekTo(mPlayer.getCurrentPosition() + 10000);
-                setProgress();
-            }
-        });
+        PlayerCommon.initControls(findViewById(android.R.id.content), mPlayer);
         mHandled.post(updateThread);
-    }
-
-    protected void setProgress() {
-        if (mPlayer == null) {
-            return;
-        }
-        long position = mPlayer.getCurrentPosition();
-        long duration = mPlayer.getDuration();
-        if (mProgress != null) {
-            if (duration > 0) {
-                // use long to avoid overflow
-                long pos = 1000L * position / duration;
-                mProgress.setProgress((int) pos);
-            }
-        }
     }
 
     protected void createPlayer(String url, String drawUrl) {
