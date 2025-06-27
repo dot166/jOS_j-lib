@@ -43,7 +43,7 @@ public class MiniPlayer extends FrameLayout {
                 mHandled.post(updateThread);
                 return;
             }
-            if (findViewById(R.id.imageView) == null) { // check if view is still there
+            if (findViewById(R.id.now_playing_logo) == null) { // check if view is still there
                 mHandled.post(updateThread);
                 return;
             }
@@ -59,11 +59,7 @@ public class MiniPlayer extends FrameLayout {
             findViewById(R.id.button6).setActivated(mPlayer.isPlaying());
             setProgress(findViewById(R.id.seekBar));
             ((TextView)findViewById(R.id.now_playing_title)).setText(mPlayer.getMediaMetadata().title);
-            if (mPlayer.isCurrentMediaItemLive()) {
-                ((TextView) findViewById(R.id.now_playing_subtitle)).setText(mPlayer.getMediaMetadata().station);
-            } else {
-                ((TextView) findViewById(R.id.now_playing_subtitle)).setText(mPlayer.getMediaMetadata().artist);
-            }
+            ((TextView) findViewById(R.id.now_playing_subtitle)).setText(mPlayer.isCurrentMediaItemLive() ? mPlayer.getMediaMetadata().station : mPlayer.getMediaMetadata().artist);
             mHandled.post(updateThread);
         }
     };
@@ -79,13 +75,13 @@ public class MiniPlayer extends FrameLayout {
                 mHandled.post(mTryLoadSavedArtwork);
                 return;
             }
-            if (findViewById(R.id.imageView) == null) { // check if view is still there
+            if (findViewById(R.id.now_playing_logo) == null) { // check if view is still there
                 mHandled.post(mTryLoadSavedArtwork);
                 return;
             }
             Glide.with(MiniPlayer.this)
                     .load(mPlayer.getMediaMetadata().artworkUri)
-                    .into(((ImageView) findViewById(R.id.imageView)));
+                    .into(((ImageView) findViewById(R.id.now_playing_logo)));
         }
     };
 
@@ -100,81 +96,91 @@ public class MiniPlayer extends FrameLayout {
     public MiniPlayer(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         LayoutInflater.from(context).inflate(R.layout.media_player_view, this, true);
-        context.startService(new Intent(context, ((jLIBCoreApp)context.getApplicationContext()).getMediaPlayerService().getClass()));
-        // begin player service initialisation
-        SessionToken sessionToken =
-                new SessionToken(context, new ComponentName(context, ((jLIBCoreApp)context.getApplicationContext()).getMediaPlayerService().getClass()));
-        ListenableFuture<MediaController> controllerFuture =
-                new MediaController.Builder(context, sessionToken).buildAsync();
-        controllerFuture.addListener(() -> {
-            try {
-                mPlayer = controllerFuture.get();
-            } catch (Exception e) {
-                ErrorUtils.handle(e, context);
-                context.stopService(new Intent(context, ((jLIBCoreApp)context.getApplicationContext()).getMediaPlayerService().getClass()));
-            }
-        }, ContextCompat.getMainExecutor(context));
-        mHandled.post(mTryLoadSavedArtwork);
-        SeekBar seekBarMain = findViewById(R.id.seekBar);
-        seekBarMain.setMin(0);
-        seekBarMain.setMax(1000);
-        setProgress(seekBarMain);
-        seekBarMain.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-            @Override
-            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                if (mPlayer.isCurrentMediaItemLive()) {
-                    return;
+        if (!isInEditMode()) {
+            context.startService(new Intent(context, ((jLIBCoreApp) context.getApplicationContext()).getMediaPlayerService().getClass()));
+            // begin player service initialisation
+            SessionToken sessionToken =
+                    new SessionToken(context, new ComponentName(context, ((jLIBCoreApp) context.getApplicationContext()).getMediaPlayerService().getClass()));
+            ListenableFuture<MediaController> controllerFuture =
+                    new MediaController.Builder(context, sessionToken).buildAsync();
+            controllerFuture.addListener(() -> {
+                try {
+                    mPlayer = controllerFuture.get();
+                } catch (Exception e) {
+                    ErrorUtils.handle(e, context);
+                    context.stopService(new Intent(context, ((jLIBCoreApp) context.getApplicationContext()).getMediaPlayerService().getClass()));
                 }
-                long duration = mPlayer.getDuration();
-                long newposition = (duration * progress) / 1000L;
-                String formattedTextString = new SimpleDateFormat("HH:mm:ss", Locale.ENGLISH).format(newposition).replaceAll("^00:", "") + "/" + new SimpleDateFormat("HH:mm:ss", Locale.ENGLISH).format(duration).replaceAll("^00:", "");
-                ((TextView)findViewById(R.id.text)).setText(formattedTextString);
-                if (!fromUser) {
-                    // We're not interested in programmatically generated changes to
-                    // the progress bar's position.
-                    return;
+            }, ContextCompat.getMainExecutor(context));
+            mHandled.post(mTryLoadSavedArtwork);
+            SeekBar seekBarMain = findViewById(R.id.seekBar);
+            seekBarMain.setMin(0);
+            seekBarMain.setMax(1000);
+            setProgress(seekBarMain);
+            seekBarMain.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+                @Override
+                public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                    if (mPlayer.isCurrentMediaItemLive()) {
+                        return;
+                    }
+                    long duration = mPlayer.getDuration();
+                    long newposition = (duration * progress) / 1000L;
+                    String formattedTextString = new SimpleDateFormat("HH:mm:ss", Locale.ENGLISH).format(newposition).replaceAll("^00:", "") + "/" + new SimpleDateFormat("HH:mm:ss", Locale.ENGLISH).format(duration).replaceAll("^00:", "");
+                    ((TextView) findViewById(R.id.text)).setText(formattedTextString);
+                    if (!fromUser) {
+                        // We're not interested in programmatically generated changes to
+                        // the progress bar's position.
+                        return;
+                    }
+                    mPlayer.seekTo((int) newposition);
                 }
-                mPlayer.seekTo( (int) newposition);
-            }
 
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
+                @Override
+                public void onStartTrackingTouch(SeekBar seekBar) {
 
-            }
-
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-
-            }
-        });
-
-        findViewById(R.id.button6).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (mPlayer.isPlaying()) {
-                    mPlayer.pause();
-                } else {
-                    mPlayer.play();
                 }
-            }
-        });
 
-        findViewById(R.id.button5).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mPlayer.seekTo(mPlayer.getCurrentPosition() - 10000);
-                setProgress(seekBarMain);
-            }
-        });
+                @Override
+                public void onStopTrackingTouch(SeekBar seekBar) {
 
-        findViewById(R.id.button7).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mPlayer.seekTo(mPlayer.getCurrentPosition() + 10000);
-                setProgress(seekBarMain);
-            }
-        });
-        mHandled.post(updateThread);
+                }
+            });
+
+            findViewById(R.id.button6).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (mPlayer.isPlaying()) {
+                        mPlayer.pause();
+                    } else {
+                        mPlayer.play();
+                    }
+                }
+            });
+
+            findViewById(R.id.button5).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    mPlayer.seekTo(mPlayer.getCurrentPosition() - 10000);
+                    setProgress(seekBarMain);
+                }
+            });
+
+            findViewById(R.id.button7).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    mPlayer.seekTo(mPlayer.getCurrentPosition() + 10000);
+                    setProgress(seekBarMain);
+                }
+            });
+            mHandled.post(updateThread);
+        } else {
+            ((ImageView)findViewById(R.id.now_playing_logo)).setImageResource(R.mipmap.ic_launcher_j);
+            SeekBar seekBarMain = findViewById(R.id.seekBar);
+            seekBarMain.setMin(0);
+            seekBarMain.setMax(100);
+            seekBarMain.setProgress(50);
+            ((TextView)findViewById(R.id.now_playing_title)).setText("PLACEHOLDER");
+            ((TextView) findViewById(R.id.now_playing_subtitle)).setText("PREVIEW MODE");
+        }
     }
 
     protected void setProgress(SeekBar progress) {

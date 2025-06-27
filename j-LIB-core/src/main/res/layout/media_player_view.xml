@@ -24,7 +24,7 @@
             android:layout_height="wrap_content"
             android:scrollHorizontally="true"
             tools:text="Song Title"
-            android:textAppearance="?textAppearanceTitleLarge" />
+            android:textAppearance="?textAppearanceTitleMedium" />
         <TextView
             android:id="@+id/now_playing_subtitle"
             android:layout_width="match_parent"
@@ -35,10 +35,10 @@
         <SeekBar
             android:id="@+id/seekBar"
             android:layout_width="match_parent"
-            android:layout_height="28dp" />
+            android:layout_height="wrap_content" />
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="48dp"
+            android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <Button
