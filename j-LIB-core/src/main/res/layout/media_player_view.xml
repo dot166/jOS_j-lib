@@ -9,7 +9,7 @@
     <ImageView
         android:id="@+id/now_playing_logo"
         android:layout_width="125dp"
-        android:layout_height="match_parent"
+        android:layout_height="125dp"
         tools:src="@mipmap/ic_launcher_j"
         android:contentDescription="@string/cover_art"/>
 
