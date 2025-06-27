@@ -20,7 +20,6 @@ import androidx.core.content.ContextCompat;
 import androidx.media3.common.MediaItem;
 import androidx.media3.common.MediaMetadata;
 import androidx.media3.common.Player;
-import androidx.media3.common.Timeline;
 import androidx.media3.common.util.UnstableApi;
 import androidx.media3.session.MediaController;
 import androidx.media3.session.SessionToken;
@@ -29,13 +28,10 @@ import com.bumptech.glide.Glide;
 import com.google.common.util.concurrent.ListenableFuture;
 
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Locale;
 import java.util.Objects;
 
 import io.github.dot166.jlib.R;
-import io.github.dot166.jlib.media.PlayerCommon;
-import io.github.dot166.jlib.service.MediaPlayerService;
 import io.github.dot166.jlib.utils.ErrorUtils;
 
 public class MediaPlayerActivity  extends jActivity {
@@ -79,7 +75,7 @@ public class MediaPlayerActivity  extends jActivity {
                 findViewById(R.id.seekBar_layout).setVisibility(VISIBLE);
             }
             findViewById(R.id.button6).setActivated(mPlayer.isPlaying());
-            PlayerCommon.setProgress(mPlayer, findViewById(R.id.seekBar));
+            setProgress(findViewById(R.id.seekBar));
             ((TextView)findViewById(R.id.now_playing_title)).setText(mPlayer.getMediaMetadata().title);
             mHandled.post(updateThread);
         }
@@ -159,8 +155,81 @@ public class MediaPlayerActivity  extends jActivity {
         } else {
             mHandled.post(mTryLoadSavedArtwork);
         }
-        PlayerCommon.initControls(findViewById(android.R.id.content), mPlayer);
+        SeekBar seekBarMain = findViewById(R.id.seekBar);
+        seekBarMain.setMin(0);
+        seekBarMain.setMax(1000);
+        setProgress(seekBarMain);
+        seekBarMain.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                if (mPlayer.isCurrentMediaItemLive()) {
+                    return;
+                }
+                long duration = mPlayer.getDuration();
+                long newposition = (duration * progress) / 1000L;
+                String formattedTextString = new SimpleDateFormat("HH:mm:ss", Locale.ENGLISH).format(newposition).replaceAll("^00:", "") + "/" + new SimpleDateFormat("HH:mm:ss", Locale.ENGLISH).format(duration).replaceAll("^00:", "");
+                ((TextView)findViewById(R.id.text)).setText(formattedTextString);
+                if (!fromUser) {
+                    // We're not interested in programmatically generated changes to
+                    // the progress bar's position.
+                    return;
+                }
+                mPlayer.seekTo( (int) newposition);
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+
+        findViewById(R.id.button6).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mPlayer.isPlaying()) {
+                    mPlayer.pause();
+                } else {
+                    mPlayer.play();
+                }
+            }
+        });
+
+        findViewById(R.id.button5).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mPlayer.seekTo(mPlayer.getCurrentPosition() - 10000);
+                setProgress(seekBarMain);
+            }
+        });
+
+        findViewById(R.id.button7).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mPlayer.seekTo(mPlayer.getCurrentPosition() + 10000);
+                setProgress(seekBarMain);
+            }
+        });
         mHandled.post(updateThread);
+    }
+
+    protected void setProgress(SeekBar progress) {
+        if (mPlayer == null) {
+            return;
+        }
+        long position = mPlayer.getCurrentPosition();
+        long duration = mPlayer.getDuration();
+        if (progress != null) {
+            if (duration > 0) {
+                // use long to avoid overflow
+                long pos = 1000L * position / duration;
+                progress.setProgress((int) pos);
+            }
+        }
     }
 
     protected void createPlayer(String url, String drawUrl) {

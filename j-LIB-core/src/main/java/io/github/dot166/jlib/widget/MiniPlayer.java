@@ -27,7 +27,6 @@ import java.util.Locale;
 
 import io.github.dot166.jlib.R;
 import io.github.dot166.jlib.app.jLIBCoreApp;
-import io.github.dot166.jlib.media.PlayerCommon;
 import io.github.dot166.jlib.utils.ErrorUtils;
 
 public class MiniPlayer extends FrameLayout {
@@ -58,7 +57,7 @@ public class MiniPlayer extends FrameLayout {
                 findViewById(R.id.seekBar).setVisibility(VISIBLE);
             }
             findViewById(R.id.button6).setActivated(mPlayer.isPlaying());
-            PlayerCommon.setProgress(mPlayer, findViewById(R.id.seekBar));
+            setProgress(findViewById(R.id.seekBar));
             ((TextView)findViewById(R.id.now_playing_title)).setText(mPlayer.getMediaMetadata().title);
             if (mPlayer.isCurrentMediaItemLive()) {
                 ((TextView) findViewById(R.id.now_playing_subtitle)).setText(mPlayer.getMediaMetadata().station);
@@ -116,7 +115,85 @@ public class MiniPlayer extends FrameLayout {
             }
         }, ContextCompat.getMainExecutor(context));
         mHandled.post(mTryLoadSavedArtwork);
-        PlayerCommon.initControls(this, mPlayer);
+        SeekBar seekBarMain = findViewById(R.id.seekBar);
+        seekBarMain.setMin(0);
+        seekBarMain.setMax(1000);
+        setProgress(seekBarMain);
+        seekBarMain.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                if (mPlayer.isCurrentMediaItemLive()) {
+                    return;
+                }
+                long duration = mPlayer.getDuration();
+                long newposition = (duration * progress) / 1000L;
+                String formattedTextString = new SimpleDateFormat("HH:mm:ss", Locale.ENGLISH).format(newposition).replaceAll("^00:", "") + "/" + new SimpleDateFormat("HH:mm:ss", Locale.ENGLISH).format(duration).replaceAll("^00:", "");
+                ((TextView)findViewById(R.id.text)).setText(formattedTextString);
+                if (!fromUser) {
+                    // We're not interested in programmatically generated changes to
+                    // the progress bar's position.
+                    return;
+                }
+                mPlayer.seekTo( (int) newposition);
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+
+        findViewById(R.id.button6).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mPlayer.isPlaying()) {
+                    mPlayer.pause();
+                } else {
+                    mPlayer.play();
+                }
+            }
+        });
+
+        findViewById(R.id.button5).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mPlayer.seekTo(mPlayer.getCurrentPosition() - 10000);
+                setProgress(seekBarMain);
+            }
+        });
+
+        findViewById(R.id.button7).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mPlayer.seekTo(mPlayer.getCurrentPosition() + 10000);
+                setProgress(seekBarMain);
+            }
+        });
+        mHandled.post(updateThread);
+    }
+
+    protected void setProgress(SeekBar progress) {
+        if (mPlayer == null) {
+            return;
+        }
+        long position = mPlayer.getCurrentPosition();
+        long duration = mPlayer.getDuration();
+        if (progress != null) {
+            if (duration > 0) {
+                // use long to avoid overflow
+                long pos = 1000L * position / duration;
+                progress.setProgress((int) pos);
+            }
+        }
+    }
+
+    public void onResumeHook() {
+        mHandled.post(mTryLoadSavedArtwork);
         mHandled.post(updateThread);
     }
 }
