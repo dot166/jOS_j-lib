@@ -44,6 +44,10 @@ public class MiniPlayer extends FrameLayout {
                 mHandled.post(updateThread);
                 return;
             }
+            if (findViewById(R.id.imageView) == null) { // check if view is still there
+                mHandled.post(updateThread);
+                return;
+            }
             if (mPlayer.isCurrentMediaItemLive()) {
                 findViewById(R.id.button5).setVisibility(GONE);
                 findViewById(R.id.button7).setVisibility(GONE);
@@ -73,6 +77,10 @@ public class MiniPlayer extends FrameLayout {
                 return;
             }
             if (mPlayer.getCurrentMediaItem() == null) { // probably no media item loaded, idiot (me) tried to load the url of an item that is not loaded and the entire app went down
+                mHandled.post(mTryLoadSavedArtwork);
+                return;
+            }
+            if (findViewById(R.id.imageView) == null) { // check if view is still there
                 mHandled.post(mTryLoadSavedArtwork);
                 return;
             }
