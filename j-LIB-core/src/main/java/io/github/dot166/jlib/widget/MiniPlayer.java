@@ -58,8 +58,14 @@ public class MiniPlayer extends FrameLayout {
             }
             findViewById(R.id.button6).setActivated(mPlayer.isPlaying());
             setProgress(findViewById(R.id.seekBar));
-            ((TextView)findViewById(R.id.now_playing_title)).setText(mPlayer.getMediaMetadata().title);
-            ((TextView) findViewById(R.id.now_playing_subtitle)).setText(mPlayer.isCurrentMediaItemLive() ? mPlayer.getMediaMetadata().station : mPlayer.getMediaMetadata().artist);
+            if (((TextView)findViewById(R.id.now_playing_title)).getText() != mPlayer.getMediaMetadata().title) {
+                ((TextView) findViewById(R.id.now_playing_title)).setText(mPlayer.getMediaMetadata().title);
+                ((TextView) findViewById(R.id.now_playing_title)).setSelected(true);
+            }
+            if (((TextView)findViewById(R.id.now_playing_subtitle)).getText() != (mPlayer.isCurrentMediaItemLive() ? mPlayer.getMediaMetadata().station : mPlayer.getMediaMetadata().artist)) {
+                ((TextView) findViewById(R.id.now_playing_subtitle)).setText(mPlayer.isCurrentMediaItemLive() ? mPlayer.getMediaMetadata().station : mPlayer.getMediaMetadata().artist);
+                ((TextView) findViewById(R.id.now_playing_subtitle)).setSelected(true);
+            }
             mHandled.post(updateThread);
         }
     };
@@ -178,8 +184,8 @@ public class MiniPlayer extends FrameLayout {
             seekBarMain.setMin(0);
             seekBarMain.setMax(100);
             seekBarMain.setProgress(50);
-            ((TextView)findViewById(R.id.now_playing_title)).setText("PLACEHOLDER");
-            ((TextView) findViewById(R.id.now_playing_subtitle)).setText("PREVIEW MODE");
+            ((TextView)findViewById(R.id.now_playing_title)).setText(R.string.placeholder);
+            ((TextView) findViewById(R.id.now_playing_subtitle)).setText(R.string.preview_mode);
         }
     }
 

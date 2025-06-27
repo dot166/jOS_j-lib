@@ -22,14 +22,24 @@
             android:id="@+id/now_playing_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:ellipsize="marquee"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:marqueeRepeatLimit="marquee_forever"
             android:scrollHorizontally="true"
+            android:singleLine="true"
             tools:text="Song Title"
             android:textAppearance="?textAppearanceTitleMedium" />
         <TextView
             android:id="@+id/now_playing_subtitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:ellipsize="marquee"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:marqueeRepeatLimit="marquee_forever"
             android:scrollHorizontally="true"
+            android:singleLine="true"
             tools:text="Radio Station or Artist Name"/>
 
         <SeekBar
