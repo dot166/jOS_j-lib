@@ -99,7 +99,7 @@ public class MiniPlayer extends FrameLayout {
 
     public MiniPlayer(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        View layout = LayoutInflater.from(context).inflate(R.layout.media_player_view, this, true);
+        LayoutInflater.from(context).inflate(R.layout.media_player_view, this, true);
         context.startService(new Intent(context, ((jLIBCoreApp)context.getApplicationContext()).getMediaPlayerService().getClass()));
         // begin player service initialisation
         SessionToken sessionToken =
