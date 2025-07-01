@@ -3010,7 +3010,7 @@
                     "name": "Mike Penz"
                 }
             ],
-            "artifactVersion": "12.2.3",
+            "artifactVersion": "12.2.4",
             "description": "AboutLibraries automatically detects all dependencies of a project and collects their information including the license. Optionally visualising it via the provided ui components.",
             "scm": {
                 "connection": "scm:git@github.com:mikepenz/AboutLibraries.git",
@@ -3033,7 +3033,7 @@
                     "name": "Mike Penz"
                 }
             ],
-            "artifactVersion": "12.2.3",
+            "artifactVersion": "12.2.4",
             "description": "AboutLibraries automatically detects all dependencies of a project and collects their information including the license. Optionally visualising it via the provided ui components.",
             "scm": {
                 "connection": "scm:git@github.com:mikepenz/AboutLibraries.git",
@@ -3056,7 +3056,7 @@
                     "name": "Mike Penz"
                 }
             ],
-            "artifactVersion": "12.2.3",
+            "artifactVersion": "12.2.4",
             "description": "AboutLibraries automatically detects all dependencies of a project and collects their information including the license. Optionally visualising it via the provided ui components.",
             "scm": {
                 "connection": "scm:git@github.com:mikepenz/AboutLibraries.git",
@@ -3079,7 +3079,7 @@
                     "name": "Mike Penz"
                 }
             ],
-            "artifactVersion": "12.2.3",
+            "artifactVersion": "12.2.4",
             "description": "AboutLibraries automatically detects all dependencies of a project and collects their information including the license. Optionally visualising it via the provided ui components.",
             "scm": {
                 "connection": "scm:git@github.com:mikepenz/AboutLibraries.git",
@@ -3102,7 +3102,7 @@
                     "name": "Mike Penz"
                 }
             ],
-            "artifactVersion": "12.2.3",
+            "artifactVersion": "12.2.4",
             "description": "AboutLibraries automatically detects all dependencies of a project and collects their information including the license. Optionally visualising it via the provided ui components.",
             "scm": {
                 "connection": "scm:git@github.com:mikepenz/AboutLibraries.git",
@@ -3125,7 +3125,7 @@
                     "name": "Mike Penz"
                 }
             ],
-            "artifactVersion": "12.2.3",
+            "artifactVersion": "12.2.4",
             "description": "AboutLibraries automatically detects all dependencies of a project and collects their information including the license. Optionally visualising it via the provided ui components.",
             "scm": {
                 "connection": "scm:git@github.com:mikepenz/AboutLibraries.git",
@@ -3979,7 +3979,7 @@
                     "name": "Kotlin Team"
                 }
             ],
-            "artifactVersion": "2.1.21",
+            "artifactVersion": "2.2.0",
             "description": "Kotlin Standard Library",
             "scm": {
                 "connection": "scm:git:https://github.com/JetBrains/kotlin.git",
@@ -4003,7 +4003,7 @@
                     "name": "Kotlin Team"
                 }
             ],
-            "artifactVersion": "2.1.21",
+            "artifactVersion": "2.2.0",
             "description": "Kotlin Common Standard Library (legacy, use kotlin-stdlib instead)",
             "scm": {
                 "connection": "scm:git:https://github.com/JetBrains/kotlin.git",
