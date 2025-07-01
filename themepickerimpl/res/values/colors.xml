@@ -7,6 +7,4 @@
     <color name="text_color_primary">?android:textColorPrimary</color>
     <color name="text_color_secondary">?android:textColorSecondary</color>
     <color name="text_color_secondary_inverse">?android:textColorSecondaryInverse</color>
-    <color name="system_on_surface">?colorOnSurface</color>
-    <color name="system_on_surface_variant">?colorOnSurfaceVariant</color>
 </resources>

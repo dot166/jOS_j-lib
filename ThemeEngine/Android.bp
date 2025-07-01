@@ -1,7 +1,6 @@
 android_app {
     name: "ThemeEngine",
     package_name: "io.github.dot166.themeengine",
-    defaults: ["ThemePicker_defaults_with_overrides"],
 
     resource_dirs: ["src/main/res"],
 
@@ -14,20 +13,9 @@ android_app {
 
     static_libs: [
         "j.Lib",
-        "ThemePickerApplicationLib",
         "io_github_dot166_themeengine_flags_lib",
-        "ThemePickerManifestLib",
     ],
 
     kotlincflags: ["-Xjvm-default=all"],
     aaptflags: ["--auto-add-overlay"],
-    platform_apis: true,
-    overrides: ["WallpaperPicker", "WallpaperPicker2", "ThemePicker"],
-}
-
-android_library {
-    name: "ThemePickerManifestLib",
-    sdk_version: "current",
-    additional_manifests: [":WallpaperPicker2_Manifest"],
-    manifest: ":ThemePicker_Manifest",
 }

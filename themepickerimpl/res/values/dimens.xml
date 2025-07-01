@@ -84,8 +84,6 @@
     <!-- The size of lock screen widget on the full screen. -->
 
     <!-- Common dimensions for option sections -->
-    <dimen name="section_horizontal_padding">24dp</dimen>
-    <dimen name="section_bottom_padding">16dp</dimen>
 
     <!-- For the wallpaper section -->
 
