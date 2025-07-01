@@ -80,9 +80,10 @@ dependencies {
     api("androidx.compose.material:material-android:1.8.3")
     api("io.coil-kt:coil-compose:2.7.0")
     api("com.google.accompanist:accompanist-drawablepainter:0.37.3")
-    api("com.mikepenz:aboutlibraries-core:12.2.3")
-    api("com.mikepenz:aboutlibraries-compose-m3:12.2.3")
+    api("com.mikepenz:aboutlibraries-core:12.2.4")
+    api("com.mikepenz:aboutlibraries-compose-m3:12.2.4")
     api("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
+    //noinspection NewerVersionAvailable
     api("com.prof18.rssparser:rssparser:6.0.11")
     api("com.github.bumptech.glide:glide:4.16.0")
     api("androidx.media3:media3-exoplayer:1.7.1")
