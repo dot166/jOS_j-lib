@@ -45,10 +45,7 @@ public class ThemeEngineOption implements CustomizationOption<ThemeEngineOption>
 
     @Override
     public void bindThumbnailTile(View view) {
-        int resId = R.id.te_section_tile;
-        if (view.findViewById(R.id.option_icon) != null) {
-            resId = R.id.option_icon;
-        }
+        int resId = R.id.option_icon;
         ((ImageView) view.findViewById(resId)).setImageDrawable(mIcon);
         view.setContentDescription(mTitle);
     }

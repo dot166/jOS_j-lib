@@ -127,6 +127,15 @@ jobs:
         git add .
         git commit -m "Publish dependencies for AOSP" || true
 
+    - name: Create AOSP Prebuilt APK
+      run: cp "ThemeEngine/build/outputs/apk/release/ThemeEngine-${{ env.VERSION }}-release.apk" ThemeEngine/ThemeEngine.apk
+
+    - name: Commit changes
+      if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && github.repository == 'dot166/jOS_j-Lib' }}
+      run: |
+        git add .
+        git commit -m "Create AOSP Prebuilt APK" || true
+
     - name: Push changes to repo
       uses: ad-m/github-push-action@master
       if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && github.repository == 'dot166/jOS_j-Lib' }}

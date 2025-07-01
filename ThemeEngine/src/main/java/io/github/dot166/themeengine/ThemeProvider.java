@@ -1,6 +1,5 @@
 package io.github.dot166.themeengine;
 
-import static io.github.dot166.themeengine.TEBroadcastReceiver.isInSystemImage;
 import static io.github.dot166.jlib.app.jLIBCoreApp.TAG;
 
 import android.content.ContentProvider;
@@ -43,10 +42,9 @@ public class ThemeProvider extends ContentProvider
     private Cursor getConfig()
     {
         //create a cursor from a predefined set of key/value pairs
-        MatrixCursor mc = new MatrixCursor(new String[] {"key","value"}, 3);
+        MatrixCursor mc = new MatrixCursor(new String[] {"key","value"}, 2);
         mc.addRow(new Object[] {"Theme", getTheme(getContext())});
         mc.addRow(new Object[] {"UpdateAvailable", checkForTEUpdate(Objects.requireNonNull(getContext()))});
-        mc.addRow(new Object[] {"isInSystem", isInSystemImage(Objects.requireNonNull(getContext()))});
         return mc;
     }
 

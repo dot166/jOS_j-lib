@@ -20,4 +20,6 @@ public class Build {
 
     /** A String utilized to distinguish jOS versions */
     public static final String jOS_RELEASE = getInternalRelease();
+    /** A String utilized to distinguish Major jOS versions (e.g. 15, 16) */
+    public static final boolean is_jOS = !jOS_RELEASE.equals("0");
 }

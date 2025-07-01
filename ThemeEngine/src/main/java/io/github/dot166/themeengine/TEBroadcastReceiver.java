@@ -50,16 +50,16 @@ public final class TEBroadcastReceiver extends BroadcastReceiver {
         if (shouldHandleThisIntent(intent, context)) {
             if (isInSystemImage(context) && !isL3) {
                 disableActivity(context, LauncherActivity.class);
-                if (isThemeCode) {
-                    Intent i = new Intent(context, ThemeEngineActivity.class);
-                    i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-
-                    context.startActivity(i);
-                }
             } else {
                 if (!isL3) {
                     Log.i(TAG, "This package isn't in system image: " + context.getPackageName());
                 }
+            }
+            if (isThemeCode) {
+                Intent i = new Intent(context, ThemeEngineActivity.class);
+                i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+                context.startActivity(i);
             }
             isL3 = false;
         }

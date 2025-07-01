@@ -19,6 +19,7 @@ import androidx.compose.ui.graphics.Color
 import com.google.android.material.snackbar.Snackbar
 import io.github.dot166.jlib.R
 import io.github.dot166.jlib.app.jWebActivity
+import io.github.dot166.jlib.jos.Build
 import io.github.dot166.jlib.utils.VersionUtils
 import io.github.dot166.jlib.web.jWebIntent
 
@@ -228,14 +229,14 @@ object ThemeEngine {
                 tmpCurrentTheme = "jLib"
             }
 
-            if (allValues.containsKey("UpdateAvailable") || allValues.containsKey("isInSystem")) {
+            if (allValues.containsKey("UpdateAvailable")) {
                 // update check logic
                 if (allValues.get("UpdateAvailable").toBoolean()) {
                     val builder = AlertDialog.Builder(context)
 
                     builder.setMessage(R.string.dialog_te_message)
                         .setTitle(R.string.text_te_label)
-                    if (!allValues.get("isInSystem").toBoolean()) {
+                    if (!Build.is_jOS || VersionUtils.isAtLeastBaklava()) { // ensures that ThemeEngine can be updated out of band (only non jOS and jOS Plasma (16) and above can do that)
                         builder.setPositiveButton(
                             R.string.dialog_te_positive,
                             object : DialogInterface.OnClickListener {
@@ -265,7 +266,7 @@ object ThemeEngine {
                     }, 2000)
                 }
             } else {
-                Log.e(TAG, "Update Check Values not found in cursor")
+                Log.e(TAG, "Update Check Value not found in cursor")
             }
 
             if (allValues.containsKey("Theme")) {
