@@ -229,44 +229,40 @@ object ThemeEngine {
                 tmpCurrentTheme = "jLib"
             }
 
-            if (allValues.containsKey("UpdateAvailable")) {
-                // update check logic
-                if (allValues.get("UpdateAvailable").toBoolean()) {
-                    val builder = AlertDialog.Builder(context)
+            if (allValues.containsKey("UpdateAvailable")) { // compat for old themeEngine
+                // legacy update check logic
+                val builder = AlertDialog.Builder(context)
 
-                    builder.setMessage(R.string.dialog_te_message)
-                        .setTitle(R.string.text_te_label)
-                    if (!Build.is_jOS || VersionUtils.isAtLeastBaklava()) { // ensures that ThemeEngine can be updated out of band (only non jOS and jOS Plasma (16) and above can do that)
-                        builder.setPositiveButton(
-                            R.string.dialog_te_positive,
-                            object : DialogInterface.OnClickListener {
-                                override fun onClick(dialog: DialogInterface?, which: Int) {
-                                    val intent = jWebIntent(context)
-                                    intent.setUrl("https://github.com/dot166/jOS_j-lib/releases/latest")
-                                    intent.configureWebView(true, true)
-                                    intent.launch()
-                                }
-                            })
-                    }
-                    builder.setNegativeButton(
-                        R.string.dialog_te_negative,
+                builder.setMessage(R.string.dialog_te_message)
+                    .setTitle(R.string.text_te_label)
+                if (!Build.is_jOS || VersionUtils.isAtLeastBaklava()) { // ensures that ThemeEngine can be updated out of band (only non jOS and jOS Plasma (16) and above can do that)
+                    builder.setPositiveButton(
+                        R.string.dialog_te_positive,
                         object : DialogInterface.OnClickListener {
-                            override fun onClick(dialog: DialogInterface, which: Int) {
-                                dialog.dismiss()
+                            override fun onClick(dialog: DialogInterface?, which: Int) {
+                                val intent = jWebIntent(context)
+                                intent.setUrl("https://github.com/dot166/jOS_j-lib/releases/latest")
+                                intent.configureWebView(true, true)
+                                intent.launch()
                             }
                         })
-
-                    val dialog = builder.create()
-                    dialog.show()
-                    val handler = Handler()
-                    handler.postDelayed(object : Runnable {
-                        override fun run() {
+                }
+                builder.setNegativeButton(
+                    R.string.dialog_te_negative,
+                    object : DialogInterface.OnClickListener {
+                        override fun onClick(dialog: DialogInterface, which: Int) {
                             dialog.dismiss()
                         }
-                    }, 2000)
-                }
-            } else {
-                Log.e(TAG, "Update Check Value not found in cursor")
+                    })
+
+                val dialog = builder.create()
+                dialog.show()
+                val handler = Handler()
+                handler.postDelayed(object : Runnable {
+                    override fun run() {
+                        dialog.dismiss()
+                   }
+                }, 2000)
             }
 
             if (allValues.containsKey("Theme")) {

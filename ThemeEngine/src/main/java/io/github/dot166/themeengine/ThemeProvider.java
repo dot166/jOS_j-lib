@@ -2,6 +2,7 @@ package io.github.dot166.themeengine;
 
 import static io.github.dot166.jlib.app.jLIBCoreApp.TAG;
 
+import android.app.NotificationManager;
 import android.content.ContentProvider;
 import android.content.ContentValues;
 import android.content.Context;
@@ -42,9 +43,13 @@ public class ThemeProvider extends ContentProvider
     private Cursor getConfig()
     {
         //create a cursor from a predefined set of key/value pairs
-        MatrixCursor mc = new MatrixCursor(new String[] {"key","value"}, 2);
+        MatrixCursor mc = new MatrixCursor(new String[] {"key","value"}, 1);
         mc.addRow(new Object[] {"Theme", getTheme(getContext())});
-        mc.addRow(new Object[] {"UpdateAvailable", checkForTEUpdate(Objects.requireNonNull(getContext()))});
+        if (checkForTEUpdate(Objects.requireNonNull(getContext()))) {
+            NotificationManager notificationManager = (NotificationManager) getContext().getSystemService(Context.NOTIFICATION_SERVICE);
+            TEUpdateNotifier teUpdateNotifier = new TEUpdateNotifier(notificationManager, getContext());
+            teUpdateNotifier.showNotification();
+        }
         return mc;
     }
 
