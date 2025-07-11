@@ -131,7 +131,7 @@ jobs:
       run: cp "ThemeEngine/build/outputs/apk/release/ThemeEngine-${{ env.VERSION }}-release.apk" ThemeEngine/ThemeEngine.apk
 
     - name: Commit changes
-      if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && github.repository == 'dot166/jOS_j-Lib' }}
+      if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && github.repository == 'dot166/jOS_j-Lib' && env.RELEASE == '1' }}
       run: |
         git add .
         git commit -m "Create AOSP Prebuilt APK" || true
