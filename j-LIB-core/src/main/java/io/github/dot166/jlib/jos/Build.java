@@ -49,6 +49,8 @@ public class Build {
 
     public static String jOS_CODENAME = getCodeNameInternal();
 
+    public static String jOS_RELEASE_WITH_CODENAME = jOS_RELEASE + " (" + jOS_CODENAME + ")";
+
     private static String getShortCodeNameInternal() {
         if (isNumber(jOS_CODENAME)) {
             // must have a number, just return it
