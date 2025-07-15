@@ -77,7 +77,7 @@ to use jLib in an AOSP Project add the module ```j.Lib``` to the static_libs sec
 
 if your app uses the [generateBp Plugin](https://github.com/lineage-next/gradle-generatebp) to automatically add the dependencies for AOSP builds from gradle build files (like jLib uses), you would need to use [my fork of generateBp](https://github.com/dot166/gradle-generatebp) due to jLib using ```j.Lib``` as the AOSP dependency name.
 
-to do that change the maven repo line to be ```dot166/gradle-generatebp``` and append ```.1``` to the end of the version number (or whatever the latest version of my fork is)
+to do that change the maven repo line to be ```dot166/gradle-generatebp``` and change the version number to ```1.25.1``` (or whatever the latest version of my fork is)
 
 
 ## folder structure
