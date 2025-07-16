@@ -19,6 +19,10 @@
     <array name="partner_wallpapers">
         <item>lock01</item>
         <item>nexus_chroma</item>
+        <item>abstract_orderofchaos</item>
+        <item>ascension_blaze</item>
+        <item>operation</item>
+        <item>urban_nightroad</item>
     </array>
     <string name="te_preview_content_description">Theme preview</string>
     <string name="te_disabled">You have selected to disable ThemeEngine,\n Doing this will let each individual app handle theming for itself, \n So a preview is not supported as it would just reflect the theme in ThemePicker.</string>
