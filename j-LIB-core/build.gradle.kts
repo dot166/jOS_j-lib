@@ -125,11 +125,7 @@ configure<GenerateBpPluginExtension> {
     targetSdk.set(libCompileSdk)
     availableInAOSP.set { module: Module ->
         when {
-            module.group.startsWith("org.jetbrains.compose") -> false
-            module.name.startsWith("atomicfu") -> false
-            module.name.startsWith("kotlinx") -> false
-            module.group.startsWith("org.jetbrains.androidx") -> false
-            module.group.startsWith("org.jetbrains") -> true
+            module.group.startsWith("org.jetbrains") -> false
             module.group == "com.google.accompanist" -> false
             module.group == "androidx.media3" -> false // media3 is not mapped in generateBp because it is only visible to android automotive and some test things, jLib (and apps that depend an it) are (most likely) not any of these
             module.group.startsWith("androidx") -> true
