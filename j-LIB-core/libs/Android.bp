@@ -212,8 +212,8 @@ android_library_import {
     ],
     static_libs: [
         "androidx.compose.ui_ui",
+        "j-Lib_org.jetbrains.kotlin_kotlin-stdlib",
         "j-Lib_org.jetbrains.kotlinx_kotlinx-coroutines-android",
-        "kotlin-stdlib",
     ],
 }
 
@@ -245,7 +245,7 @@ android_library_import {
         "j-Lib_org.jetbrains.compose.runtime_runtime",
         "j-Lib_org.jetbrains.compose.ui_ui",
         "j-Lib_org.jetbrains.compose.ui_ui-tooling-preview",
-        "kotlin-stdlib",
+        "j-Lib_org.jetbrains.kotlin_kotlin-stdlib",
     ],
 }
 
@@ -280,7 +280,7 @@ android_library_import {
         "j-Lib_org.jetbrains.compose.runtime_runtime",
         "j-Lib_org.jetbrains.compose.ui_ui",
         "j-Lib_org.jetbrains.compose.ui_ui-tooling-preview",
-        "kotlin-stdlib",
+        "j-Lib_org.jetbrains.kotlin_kotlin-stdlib",
     ],
 }
 
@@ -307,9 +307,9 @@ android_library_import {
         "//apex_available:anyapex",
     ],
     static_libs: [
+        "j-Lib_org.jetbrains.kotlin_kotlin-stdlib",
         "j-Lib_org.jetbrains.kotlinx_kotlinx-collections-immutable",
         "j-Lib_org.jetbrains.kotlinx_kotlinx-serialization-json",
-        "kotlin-stdlib",
     ],
 }
 
@@ -337,9 +337,9 @@ android_library_import {
     ],
     static_libs: [
         "j-Lib_com.squareup.okhttp3_okhttp",
+        "j-Lib_org.jetbrains.kotlin_kotlin-stdlib",
         "j-Lib_org.jetbrains.kotlinx_kotlinx-coroutines-android",
         "j-Lib_org.jetbrains.kotlinx_kotlinx-coroutines-core",
-        "kotlin-stdlib",
     ],
 }
 
@@ -354,7 +354,7 @@ java_import {
     ],
     static_libs: [
         "j-Lib_com.squareup.okio_okio",
-        "kotlin-stdlib-jdk8",
+        "j-Lib_org.jetbrains.kotlin_kotlin-stdlib-jdk8",
     ],
 }
 
@@ -381,7 +381,7 @@ java_import {
         "//apex_available:anyapex",
     ],
     static_libs: [
-        "kotlin-stdlib",
+        "j-Lib_org.jetbrains.kotlin_kotlin-stdlib",
     ],
 }
 
@@ -396,7 +396,7 @@ android_library_import {
     ],
     static_libs: [
         "j-Lib_io.coil-kt_coil-base",
-        "kotlin-stdlib",
+        "j-Lib_org.jetbrains.kotlin_kotlin-stdlib",
     ],
 }
 
@@ -419,8 +419,8 @@ android_library_import {
         "androidx.profileinstaller_profileinstaller",
         "j-Lib_com.squareup.okhttp3_okhttp",
         "j-Lib_com.squareup.okio_okio",
+        "j-Lib_org.jetbrains.kotlin_kotlin-stdlib",
         "j-Lib_org.jetbrains.kotlinx_kotlinx-coroutines-android",
-        "kotlin-stdlib",
     ],
 }
 
@@ -436,7 +436,7 @@ android_library_import {
     static_libs: [
         "j-Lib_io.coil-kt_coil",
         "j-Lib_io.coil-kt_coil-compose-base",
-        "kotlin-stdlib",
+        "j-Lib_org.jetbrains.kotlin_kotlin-stdlib",
     ],
 }
 
@@ -454,7 +454,20 @@ android_library_import {
         "androidx.core_core-ktx",
         "j-Lib_com.google.accompanist_accompanist-drawablepainter",
         "j-Lib_io.coil-kt_coil-base",
-        "kotlin-stdlib",
+        "j-Lib_org.jetbrains.kotlin_kotlin-stdlib",
+    ],
+}
+
+java_import {
+    name: "j-Lib_org.jetbrains_annotations",
+    jars: ["org/jetbrains/annotations/23.0.0/annotations-23.0.0.jar"],
+    sdk_version: "36",
+    min_sdk_version: "26",
+    apex_available: [
+        "//apex_available:platform",
+        "//apex_available:anyapex",
+    ],
+    static_libs: [
     ],
 }
 
@@ -469,8 +482,8 @@ java_library_static {
     static_libs: [
         "androidx.lifecycle_lifecycle-common",
         "j-Lib_org.jetbrains.compose.annotation-internal_annotation",
+        "j-Lib_org.jetbrains.kotlin_kotlin-stdlib",
         "j-Lib_org.jetbrains.kotlinx_kotlinx-coroutines-core",
-        "kotlin-stdlib",
     ],
 }
 
@@ -487,8 +500,8 @@ java_library_static {
         "androidx.lifecycle_lifecycle-runtime",
         "j-Lib_org.jetbrains.androidx.lifecycle_lifecycle-common",
         "j-Lib_org.jetbrains.compose.annotation-internal_annotation",
+        "j-Lib_org.jetbrains.kotlin_kotlin-stdlib",
         "j-Lib_org.jetbrains.kotlinx_kotlinx-coroutines-core",
-        "kotlin-stdlib",
     ],
 }
 
@@ -506,7 +519,7 @@ java_library_static {
         "j-Lib_org.jetbrains.androidx.lifecycle_lifecycle-runtime",
         "j-Lib_org.jetbrains.compose.annotation-internal_annotation",
         "j-Lib_org.jetbrains.compose.runtime_runtime",
-        "kotlin-stdlib",
+        "j-Lib_org.jetbrains.kotlin_kotlin-stdlib",
     ],
 }
 
@@ -521,8 +534,8 @@ java_library_static {
     static_libs: [
         "androidx.lifecycle_lifecycle-viewmodel",
         "j-Lib_org.jetbrains.compose.annotation-internal_annotation",
+        "j-Lib_org.jetbrains.kotlin_kotlin-stdlib",
         "j-Lib_org.jetbrains.kotlinx_kotlinx-coroutines-core",
-        "kotlin-stdlib",
     ],
 }
 
@@ -543,7 +556,7 @@ java_library_static {
         "j-Lib_org.jetbrains.compose.ui_ui",
         "j-Lib_org.jetbrains.compose.ui_ui-geometry",
         "j-Lib_org.jetbrains.compose.ui_ui-util",
-        "kotlin-stdlib",
+        "j-Lib_org.jetbrains.kotlin_kotlin-stdlib",
     ],
 }
 
@@ -563,8 +576,8 @@ java_library_static {
         "j-Lib_org.jetbrains.compose.ui_ui",
         "j-Lib_org.jetbrains.compose.ui_ui-unit",
         "j-Lib_org.jetbrains.compose.ui_ui-util",
+        "j-Lib_org.jetbrains.kotlin_kotlin-stdlib",
         "j-Lib_org.jetbrains.kotlinx_kotlinx-coroutines-core",
-        "kotlin-stdlib",
     ],
 }
 
@@ -591,7 +604,7 @@ java_library_static {
     ],
     static_libs: [
         "androidx.collection_collection",
-        "kotlin-stdlib",
+        "j-Lib_org.jetbrains.kotlin_kotlin-stdlib",
     ],
 }
 
@@ -613,7 +626,7 @@ java_library_static {
         "j-Lib_org.jetbrains.compose.ui_ui",
         "j-Lib_org.jetbrains.compose.ui_ui-text",
         "j-Lib_org.jetbrains.compose.ui_ui-util",
-        "kotlin-stdlib",
+        "j-Lib_org.jetbrains.kotlin_kotlin-stdlib",
     ],
 }
 
@@ -632,7 +645,7 @@ java_library_static {
         "j-Lib_org.jetbrains.compose.runtime_runtime",
         "j-Lib_org.jetbrains.compose.ui_ui",
         "j-Lib_org.jetbrains.compose.ui_ui-util",
-        "kotlin-stdlib",
+        "j-Lib_org.jetbrains.kotlin_kotlin-stdlib",
     ],
 }
 
@@ -651,7 +664,7 @@ java_library_static {
         "j-Lib_org.jetbrains.compose.foundation_foundation",
         "j-Lib_org.jetbrains.compose.runtime_runtime",
         "j-Lib_org.jetbrains.compose.ui_ui-util",
-        "kotlin-stdlib",
+        "j-Lib_org.jetbrains.kotlin_kotlin-stdlib",
     ],
 }
 
@@ -676,7 +689,7 @@ java_library_static {
         "j-Lib_org.jetbrains.compose.ui_ui-graphics",
         "j-Lib_org.jetbrains.compose.ui_ui-text",
         "j-Lib_org.jetbrains.compose.ui_ui-util",
-        "kotlin-stdlib",
+        "j-Lib_org.jetbrains.kotlin_kotlin-stdlib",
     ],
 }
 
@@ -692,8 +705,8 @@ java_library_static {
         "androidx.compose.runtime_runtime",
         "j-Lib_org.jetbrains.compose.annotation-internal_annotation",
         "j-Lib_org.jetbrains.compose.collection-internal_collection",
+        "j-Lib_org.jetbrains.kotlin_kotlin-stdlib",
         "j-Lib_org.jetbrains.kotlinx_kotlinx-coroutines-core",
-        "kotlin-stdlib",
     ],
 }
 
@@ -709,7 +722,7 @@ java_library_static {
         "androidx.compose.runtime_runtime-saveable",
         "j-Lib_org.jetbrains.compose.collection-internal_collection",
         "j-Lib_org.jetbrains.compose.runtime_runtime",
-        "kotlin-stdlib",
+        "j-Lib_org.jetbrains.kotlin_kotlin-stdlib",
     ],
 }
 
@@ -736,8 +749,8 @@ java_library_static {
         "j-Lib_org.jetbrains.compose.ui_ui-text",
         "j-Lib_org.jetbrains.compose.ui_ui-unit",
         "j-Lib_org.jetbrains.compose.ui_ui-util",
+        "j-Lib_org.jetbrains.kotlin_kotlin-stdlib",
         "j-Lib_org.jetbrains.kotlinx_kotlinx-coroutines-core",
-        "kotlin-stdlib",
     ],
 }
 
@@ -769,8 +782,8 @@ android_library_import {
         "j-Lib_org.jetbrains.compose.annotation-internal_annotation",
         "j-Lib_org.jetbrains.compose.runtime_runtime",
         "j-Lib_org.jetbrains.compose.ui_ui-util",
+        "j-Lib_org.jetbrains.kotlin_kotlin-stdlib",
         "j-Lib_org.jetbrains.kotlinx_kotlinx-coroutines-core",
-        "kotlin-stdlib",
     ],
 }
 
@@ -786,7 +799,7 @@ java_library_static {
         "androidx.compose.ui_ui-geometry",
         "j-Lib_org.jetbrains.compose.runtime_runtime",
         "j-Lib_org.jetbrains.compose.ui_ui-util",
-        "kotlin-stdlib",
+        "j-Lib_org.jetbrains.kotlin_kotlin-stdlib",
     ],
 }
 
@@ -806,7 +819,7 @@ java_library_static {
         "j-Lib_org.jetbrains.compose.ui_ui-geometry",
         "j-Lib_org.jetbrains.compose.ui_ui-unit",
         "j-Lib_org.jetbrains.compose.ui_ui-util",
-        "kotlin-stdlib",
+        "j-Lib_org.jetbrains.kotlin_kotlin-stdlib",
     ],
 }
 
@@ -828,8 +841,8 @@ java_library_static {
         "j-Lib_org.jetbrains.compose.ui_ui-graphics",
         "j-Lib_org.jetbrains.compose.ui_ui-unit",
         "j-Lib_org.jetbrains.compose.ui_ui-util",
+        "j-Lib_org.jetbrains.kotlin_kotlin-stdlib",
         "j-Lib_org.jetbrains.kotlinx_kotlinx-coroutines-core",
-        "kotlin-stdlib",
     ],
 }
 
@@ -861,7 +874,7 @@ java_library_static {
         "j-Lib_org.jetbrains.compose.runtime_runtime",
         "j-Lib_org.jetbrains.compose.ui_ui-geometry",
         "j-Lib_org.jetbrains.compose.ui_ui-util",
-        "kotlin-stdlib",
+        "j-Lib_org.jetbrains.kotlin_kotlin-stdlib",
     ],
 }
 
@@ -876,7 +889,62 @@ java_library_static {
     static_libs: [
         "androidx.compose.ui_ui-util",
         "j-Lib_org.jetbrains.compose.collection-internal_collection",
-        "kotlin-stdlib",
+        "j-Lib_org.jetbrains.kotlin_kotlin-stdlib",
+    ],
+}
+
+java_library_static {
+    name: "j-Lib_org.jetbrains.kotlin_kotlin-bom",
+    sdk_version: "36",
+    min_sdk_version: "26",
+    apex_available: [
+        "//apex_available:platform",
+        "//apex_available:anyapex",
+    ],
+    static_libs: [
+    ],
+}
+
+java_import {
+    name: "j-Lib_org.jetbrains.kotlin_kotlin-stdlib",
+    jars: ["org/jetbrains/kotlin/kotlin-stdlib/2.2.0/kotlin-stdlib-2.2.0.jar"],
+    sdk_version: "36",
+    min_sdk_version: "26",
+    apex_available: [
+        "//apex_available:platform",
+        "//apex_available:anyapex",
+    ],
+    static_libs: [
+        "j-Lib_org.jetbrains_annotations",
+    ],
+}
+
+java_import {
+    name: "j-Lib_org.jetbrains.kotlin_kotlin-stdlib-jdk7",
+    jars: ["org/jetbrains/kotlin/kotlin-stdlib-jdk7/1.8.22/kotlin-stdlib-jdk7-1.8.22.jar"],
+    sdk_version: "36",
+    min_sdk_version: "26",
+    apex_available: [
+        "//apex_available:platform",
+        "//apex_available:anyapex",
+    ],
+    static_libs: [
+        "j-Lib_org.jetbrains.kotlin_kotlin-stdlib",
+    ],
+}
+
+java_import {
+    name: "j-Lib_org.jetbrains.kotlin_kotlin-stdlib-jdk8",
+    jars: ["org/jetbrains/kotlin/kotlin-stdlib-jdk8/1.8.22/kotlin-stdlib-jdk8-1.8.22.jar"],
+    sdk_version: "36",
+    min_sdk_version: "26",
+    apex_available: [
+        "//apex_available:platform",
+        "//apex_available:anyapex",
+    ],
+    static_libs: [
+        "j-Lib_org.jetbrains.kotlin_kotlin-stdlib",
+        "j-Lib_org.jetbrains.kotlin_kotlin-stdlib-jdk7",
     ],
 }
 
@@ -903,7 +971,7 @@ java_import {
         "//apex_available:anyapex",
     ],
     static_libs: [
-        "kotlin-stdlib",
+        "j-Lib_org.jetbrains.kotlin_kotlin-stdlib",
     ],
 }
 
@@ -917,9 +985,9 @@ java_import {
         "//apex_available:anyapex",
     ],
     static_libs: [
+        "j-Lib_org.jetbrains.kotlin_kotlin-stdlib",
         "j-Lib_org.jetbrains.kotlinx_kotlinx-coroutines-bom",
         "j-Lib_org.jetbrains.kotlinx_kotlinx-coroutines-core",
-        "kotlin-stdlib",
     ],
 }
 
@@ -958,9 +1026,9 @@ java_import {
         "//apex_available:anyapex",
     ],
     static_libs: [
+        "j-Lib_org.jetbrains.kotlin_kotlin-stdlib",
         "j-Lib_org.jetbrains.kotlinx_kotlinx-coroutines-bom",
-        "kotlin-stdlib",
-        "org.jetbrains_annotations",
+        "j-Lib_org.jetbrains_annotations",
     ],
 }
 
@@ -999,8 +1067,8 @@ java_import {
         "//apex_available:anyapex",
     ],
     static_libs: [
+        "j-Lib_org.jetbrains.kotlin_kotlin-stdlib",
         "j-Lib_org.jetbrains.kotlinx_kotlinx-serialization-bom",
-        "kotlin-stdlib",
     ],
 }
 
@@ -1027,8 +1095,8 @@ java_import {
         "//apex_available:anyapex",
     ],
     static_libs: [
+        "j-Lib_org.jetbrains.kotlin_kotlin-stdlib",
         "j-Lib_org.jetbrains.kotlinx_kotlinx-serialization-bom",
         "j-Lib_org.jetbrains.kotlinx_kotlinx-serialization-core",
-        "kotlin-stdlib",
     ],
 }
