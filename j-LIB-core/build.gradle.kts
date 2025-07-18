@@ -127,7 +127,7 @@ configure<GenerateBpPluginExtension> {
         when {
             module.group.startsWith("org.jetbrains.compose") -> false
             module.name.startsWith("atomicfu") -> false
-            module.name.startsWith("kotlinx-collections-immutable") -> false
+            module.name.startsWith("kotlinx") -> false
             module.group.startsWith("org.jetbrains.androidx") -> false
             module.group.startsWith("org.jetbrains") -> true
             module.group == "com.google.accompanist" -> false
