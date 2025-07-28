@@ -62,6 +62,7 @@
         <!-- Tooltip attributes -->
         <item name="android:editTextBackground">@drawable/j_edit_text_holo_dark</item>
         <item name="android:actionOverflowButtonStyle">@android:style/Widget.Holo.ActionButton.Overflow</item>
+        <item name="android:windowShowWallpaper">true</item>
 
         <!-- AppCompat Attributes -->
         <item name="listChoiceIndicatorSingleAnimated">@drawable/btn_radio_holo_dark</item>
@@ -153,5 +154,10 @@
         <item name="colorOnBackground">#FFFFFF</item>
         <item name="colorOnError">#000000</item>
         <item name="colorOnSurface">#FFFFFF</item>
+    </style>
+
+    <style name="j.Theme.Classic">
+        <item name="android:windowBackground">@drawable/background_basic</item>
+        <item name="android:windowShowWallpaper">false</item>
     </style>
 </resources>

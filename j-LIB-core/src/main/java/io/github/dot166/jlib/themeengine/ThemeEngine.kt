@@ -26,6 +26,7 @@ import io.github.dot166.jlib.web.jWebIntent
 object ThemeEngine {
     var TAG: String = "jLib Theme Engine"
     var themeClass: values? = null
+    private val AERO_CHECK_ATTRS = intArrayOf(android.R.attr.windowShowWallpaper)
     private val LIGHT_CHECK_ATTRS = intArrayOf(androidx.appcompat.R.attr.isLightTheme)
     @JvmStatic
     public var tmpCurrentTheme: String = null.toString();
@@ -56,6 +57,15 @@ object ThemeEngine {
                     return themeClass!!.jLibTheme()
                 }
                 return R.style.j_Theme
+            }
+
+            "jLib-Classic" -> {
+                tmpCurrentTheme = null.toString()
+                if (themeClass != null && themeClass!!.jLibClassicTheme() != 0 && isValidTheme("jLib-Classic", context, themeClass!!.jLibClassicTheme())
+                ) {
+                    return themeClass!!.jLibClassicTheme()
+                }
+                return R.style.j_Theme_Classic
             }
 
             "M3" -> {
@@ -174,9 +184,16 @@ object ThemeEngine {
     private fun isValidTheme(themeName: String, context: Context, theme: Int): Boolean {
         when (themeName) {
             "jLib" -> {
+                val isTranslucent = !isThemeBoolean(context, AERO_CHECK_ATTRS, theme)
                 val isDark = !isThemeBoolean(context, LIGHT_CHECK_ATTRS, theme) // jLib Theme is dark only
                 val isExtendedFromJLib = isThemeBoolean(context, intArrayOf(R.attr.isJTheme), theme)
-                return isDark && isExtendedFromJLib
+                return isDark && isExtendedFromJLib && isTranslucent
+            }
+            "jLib-Classic" -> {
+                val isTranslucent = !isThemeBoolean(context, AERO_CHECK_ATTRS, theme)
+                val isDark = !isThemeBoolean(context, LIGHT_CHECK_ATTRS, theme) // jLib Theme is dark only
+                val isExtendedFromJLib = isThemeBoolean(context, intArrayOf(R.attr.isJTheme), theme)
+                return isDark && isExtendedFromJLib && !isTranslucent
             }
             "M3" -> {
                 val manager = context.getSystemService(Context.UI_MODE_SERVICE) as UiModeManager
@@ -214,7 +231,7 @@ object ThemeEngine {
         @SuppressLint("Recycle") val cursor = context.contentResolver.query(
             Uri.parse("content://io.github.dot166.themeengine.ThemeProvider/themes"),
             null,
-            null,
+            VersionUtils.getLibVersion(context), // pass jLib Version to ThemeEngine to allow ThemeEngine to determine appropriate fallbacks to new themes
             null,
             null
         )

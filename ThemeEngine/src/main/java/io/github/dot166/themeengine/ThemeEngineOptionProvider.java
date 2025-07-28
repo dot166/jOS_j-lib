@@ -38,7 +38,7 @@ public class ThemeEngineOptionProvider {
             switch (themeIds[i]) {
                 case "Disabled" ->
                         icons[i] = mContext.getResources().getDrawable(android.R.mipmap.sym_def_app_icon);
-                case "jLib" ->
+                case "jLib", "jLib-Classic" ->
                         icons[i] = mContext.getResources().getDrawable(io.github.dot166.jlib.R.mipmap.ic_launcher_j);
                 case "M3" ->
                         icons[i] = mContext.getResources().getDrawable(android.R.mipmap.sym_def_app_icon); // TODO: find an icon for M3

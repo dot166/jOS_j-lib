@@ -29,6 +29,8 @@ import com.android.customization.model.CustomizationOption;
 
 import java.util.Objects;
 
+import io.github.dot166.jlib.utils.VersionUtils;
+
 public class ThemeEngineOption implements CustomizationOption<ThemeEngineOption> {
 
     private Drawable mIcon;
@@ -52,7 +54,7 @@ public class ThemeEngineOption implements CustomizationOption<ThemeEngineOption>
 
     @Override
     public boolean isActive(CustomizationManager<ThemeEngineOption> manager) {
-        return Objects.equals(mThemeId, ThemeProvider.getTheme(mContext));
+        return Objects.equals(mThemeId, ThemeProvider.getTheme(mContext, VersionUtils.getLibVersion(mContext)));
     }
 
     @Override
@@ -85,6 +87,7 @@ public class ThemeEngineOption implements CustomizationOption<ThemeEngineOption>
                 }, 1000);
             }
             case "jLib" -> layout = R.layout.te_preview_jlib;
+            case "jLib-Classic" -> layout = R.layout.te_preview_jlibclassic;
             case "M3" -> layout = R.layout.te_preview_m3;
         }
         LayoutInflater.from(mContext).inflate(layout, cardBody, true);

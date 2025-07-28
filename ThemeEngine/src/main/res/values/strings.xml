@@ -5,11 +5,13 @@
     <string-array name="themes">
         <item>Disable ThemeEngine</item>
         <item>jLib Theme</item>
+        <item>jLib Theme - No Transparency</item>
         <item>Material You</item>
     </string-array>
     <string-array name="themesConfig" translatable="false">
         <item>Disabled</item>
         <item>jLib</item>
+        <item>jLib-Classic</item>
         <item>M3</item>
     </string-array>
 

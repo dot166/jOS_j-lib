@@ -8,6 +8,8 @@ import androidx.compose.runtime.Composable
 interface values {
     fun jLibTheme(): Int
 
+    fun jLibClassicTheme(): Int
+
     fun M3(): Int
 
     @Composable
