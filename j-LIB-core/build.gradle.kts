@@ -86,9 +86,9 @@ dependencies {
     //noinspection NewerVersionAvailable
     api("com.prof18.rssparser:rssparser:6.0.11")
     api("com.github.bumptech.glide:glide:4.16.0")
-    api("androidx.media3:media3-exoplayer:1.7.1")
-    api("androidx.media3:media3-common:1.7.1")
-    api("androidx.media3:media3-session:1.7.1")
+    api("androidx.media3:media3-exoplayer:1.8.0")
+    api("androidx.media3:media3-common:1.8.0")
+    api("androidx.media3:media3-session:1.8.0")
 }
 
 mavenPublishing {
