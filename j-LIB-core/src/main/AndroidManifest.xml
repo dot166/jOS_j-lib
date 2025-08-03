@@ -21,12 +21,6 @@
             android:icon="@mipmap/ic_launcher_j"
             android:label="@string/libplaceholder"
             android:exported="true" />
-        <!-- Changelog -->
-        <activity
-            android:name=".LIBChangelogActivity"
-            android:icon="@mipmap/ic_launcher_j"
-            android:label="@string/jlib_changelog"
-            android:exported="true" />
         <!-- LIB About Menu -->
         <activity
             android:name=".LIBAboutActivity"
@@ -49,8 +43,6 @@
             android:label="@string/birdgame"
             android:launchMode="singleInstance"
             android:screenOrientation="locked" />
-        <activity android:name=".app.jWebActivity"
-            android:exported="false"/>
         <!-- ObstacleGame -->
         <activity
             android:name=".ObstacleGameActivity"

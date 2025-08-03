@@ -167,7 +167,7 @@ public class MediaPlayerActivity  extends jActivity {
                 }
                 long duration = mPlayer.getDuration();
                 long newposition = (duration * progress) / 1000L;
-                String formattedTextString = new SimpleDateFormat("HH:mm:ss", Locale.ENGLISH).format(newposition).replaceAll("^00:", "") + "/" + new SimpleDateFormat("HH:mm:ss", Locale.ENGLISH).format(duration).replaceAll("^00:", "");
+                String formattedTextString = new SimpleDateFormat("HH:mm:ss", Locale.ENGLISH).format(newposition) + "/" + new SimpleDateFormat("HH:mm:ss", Locale.ENGLISH).format(duration);
                 ((TextView)findViewById(R.id.text)).setText(formattedTextString);
                 if (!fromUser) {
                     // We're not interested in programmatically generated changes to

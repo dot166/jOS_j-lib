@@ -35,6 +35,10 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import io.github.dot166.jlib.R;
 
+/**
+ * @deprecated please use {@link androidx.browser.customtabs.CustomTabsIntent} instead
+ */
+@Deprecated(forRemoval = true, since = "4.3.0")
 public class jWebActivity extends jActivity {
 
     protected WebView webView;

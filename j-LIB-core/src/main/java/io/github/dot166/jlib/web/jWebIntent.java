@@ -2,43 +2,55 @@ package io.github.dot166.jlib.web;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
+
+import androidx.browser.customtabs.CustomTabsIntent;
 
 import io.github.dot166.jlib.app.jWebActivity;
 
+/**
+ * this is just a deprecated alias to {@link androidx.browser.customtabs.CustomTabsIntent} now
+ * @deprecated please use {@link androidx.browser.customtabs.CustomTabsIntent} instead
+ */
+@Deprecated(forRemoval = true, since = "4.3.0")
 public class jWebIntent {
 
-    public Intent intent;
+    @Deprecated(forRemoval = true, since = "4.3.0")
+    public CustomTabsIntent intent;
+    @Deprecated(forRemoval = true, since = "4.3.0")
     private Context mContext;
-    String url;
+    @Deprecated(forRemoval = true, since = "4.3.0")
+    Uri url;
 
+    @Deprecated(forRemoval = true, since = "4.3.0")
     public jWebIntent(Context context) {
-        intent = new Intent(context, jWebActivity.class);
+        intent = new CustomTabsIntent.Builder().build();
         mContext = context;
     }
 
+    @Deprecated(forRemoval = true, since = "4.3.0")
     public void setUrl(String url) {
-        this.url = url;
+        this.url = Uri.parse(url);
     }
 
+    @Deprecated(forRemoval = true, since = "4.3.0")
     public void configureWebView(boolean js, boolean DOM) {
-        intent.putExtra("js", js);
-        intent.putExtra("DOM", DOM);
-        intent.putExtra("useWebView", true);
     }
 
+    @Deprecated(forRemoval = true, since = "4.3.0")
     public void launch() {
         if (url == null) {
             throw new IllegalArgumentException("url is not set!");
         }
-        intent.putExtra("uri", url);
-        mContext.startActivity(intent);
+        intent.launchUrl(mContext, url);
     }
 
+    @Deprecated(forRemoval = true, since = "4.3.0")
     public Intent getIntent() {
         if (url == null) {
             throw new IllegalArgumentException("url is not set!");
         }
-        intent.putExtra("uri", url);
-        return intent;
+        intent.intent.setData(url);
+        return intent.intent;
     }
 }

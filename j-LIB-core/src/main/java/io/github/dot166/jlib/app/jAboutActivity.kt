@@ -12,6 +12,7 @@ import android.view.MenuItem
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.appcompat.widget.Toolbar
+import androidx.browser.customtabs.CustomTabsIntent
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
@@ -42,13 +43,13 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import androidx.core.net.toUri
 import com.google.accompanist.drawablepainter.rememberDrawablePainter
 import io.github.dot166.jlib.R
 import io.github.dot166.jlib.internal.utils.ContributorRow
 import io.github.dot166.jlib.themeengine.ThemeEngine.GetComposeTheme
 import io.github.dot166.jlib.utils.AppUtils
 import io.github.dot166.jlib.utils.ErrorUtils
-import io.github.dot166.jlib.web.jWebIntent
 
 open class jAboutActivity : jActivity() {
 
@@ -164,6 +165,7 @@ open class jAboutActivity : jActivity() {
                 Text(
                     text = getAppLabel(context),
                     style = MaterialTheme.typography.titleLarge,
+                    color = MaterialTheme.colorScheme.onPrimaryContainer,
                 )
                 Text(
                     text = versionName(activity),
@@ -199,10 +201,10 @@ open class jAboutActivity : jActivity() {
                             label = { Text(stringResource(id = link.labelResId)) },
                             modifier = Modifier.weight(weight = 1f),
                             onClick = {
-                                val intent = jWebIntent(context)
-                                intent.setUrl(link.url)
-                                intent.configureWebView(true, true)
-                                intent.launch()
+                                val webpage = link.url.toUri()
+                                val intent = CustomTabsIntent.Builder()
+                                    .build()
+                                intent.launchUrl(context, webpage)
                             }
                         )
                     }
@@ -232,20 +234,18 @@ open class jAboutActivity : jActivity() {
 
     @Composable
     fun Contributors() {
-        Surface(
+        Column(
             modifier = Modifier
                 .padding(horizontal = 16.dp)
                 .border(1.0.dp, MaterialTheme.colorScheme.outline, RoundedCornerShape(12.dp))
         ) {
-            Column() {
-                product().forEach {
-                    ContributorRow(
-                        name = it.name,
-                        description = stringResource(it.role.descriptionResId()),
-                        url = it.socialUrl,
-                        photoUrl = it.photoUrl,
-                    )
-                }
+            product().forEach {
+                ContributorRow(
+                    name = it.name,
+                    description = stringResource(it.role.descriptionResId()),
+                    url = it.socialUrl,
+                    photoUrl = it.photoUrl,
+                )
             }
         }
     }
@@ -255,9 +255,7 @@ open class jAboutActivity : jActivity() {
         setContentView(R.layout.aboutactivity)
         findViewById<ComposeView>(R.id.my_composable)?.setContent {
             GetComposeTheme(context = this) {
-                Surface {
-                    About(this)
-                }
+                About(this)
             }
         }
         setSupportActionBar(findViewById<Toolbar?>(R.id.actionbar))

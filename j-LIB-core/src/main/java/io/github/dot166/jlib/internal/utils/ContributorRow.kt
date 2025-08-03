@@ -20,6 +20,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.widget.ProgressBar
 import androidx.annotation.RestrictTo
+import androidx.browser.customtabs.CustomTabsIntent
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
@@ -51,7 +52,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
 import coil.compose.SubcomposeAsyncImage
 import io.github.dot166.jlib.R
-import io.github.dot166.jlib.web.jWebIntent
+import androidx.core.net.toUri
 
 @RestrictTo(RestrictTo.Scope.LIBRARY)
 @Composable
@@ -129,10 +130,10 @@ fun ContributorRow(name: String, description: String, photoUrl: String, url: Str
             .clickable(
                 enabled = true,
                 onClick = {
-                    val intent = jWebIntent(context)
-                    intent.setUrl(url)
-                    intent.configureWebView(true, true)
-                    intent.launch()
+                    val webpage = url.toUri()
+                    val intent = CustomTabsIntent.Builder()
+                        .build()
+                    intent.launchUrl(context, webpage)
                 }
             ),
         description = { Text(text = description) },

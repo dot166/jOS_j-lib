@@ -28,7 +28,7 @@ public class RSSAlarmScheduler implements AlarmScheduler {
 
     @Override
     public void schedule(ReminderItem reminderItem) {
-        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, reminderItem.getTime(), AlarmManager.INTERVAL_DAY, createPendingIntent(reminderItem));
+        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, reminderItem.getTime(), AlarmManager.INTERVAL_HOUR, createPendingIntent(reminderItem));
     }
 
     @Override

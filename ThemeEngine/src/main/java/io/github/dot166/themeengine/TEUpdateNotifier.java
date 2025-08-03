@@ -4,8 +4,11 @@ import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.util.Log;
 
+import androidx.browser.customtabs.CustomTabsIntent;
 import androidx.core.app.NotificationCompat;
 import androidx.preference.PreferenceManager;
 
@@ -50,14 +53,16 @@ public class TEUpdateNotifier extends Notifier {
 
     @Override
     public Notification buildNotification() {
-        jWebIntent intent = new jWebIntent(context);
-        intent.setUrl("https://github.com/dot166/jOS_j-lib/releases/latest");
-        intent.configureWebView(true, true);
+        Uri webpage = Uri.parse("https://github.com/dot166/jOS_j-lib/releases/latest");
+        CustomTabsIntent intent = new CustomTabsIntent.Builder()
+                .build();
+        Intent intent2 = intent.intent;
+        intent2.setData(webpage);
         return new NotificationCompat.Builder(context, getNotificationChannelId())
                 .setContentTitle(getNotificationTitle())
                 .setContentText(getNotificationMessage())
                 .setSmallIcon(R.mipmap.ic_themeengine_monochrome)
-                .setContentIntent(PendingIntent.getActivity(context, 0, intent.getIntent(), PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE))
+                .setContentIntent(PendingIntent.getActivity(context, 0, intent2, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE))
                 .build();
     }
 

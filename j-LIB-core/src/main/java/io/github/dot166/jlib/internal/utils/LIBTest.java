@@ -5,16 +5,19 @@ import static io.github.dot166.jlib.jos.Build.jOS_RELEASE;
 
 import android.content.ComponentName;
 import android.content.Intent;
+import android.net.Uri;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.RestrictTo;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.browser.customtabs.CustomTabsIntent;
 
 import io.github.dot166.jlib.flags.Flags;
 import io.github.dot166.jlib.internal.LIBTestBottomSheet;
 import io.github.dot166.jlib.R;
+import io.github.dot166.jlib.utils.VersionUtils;
 
 @RestrictTo(RestrictTo.Scope.LIBRARY)
 public class LIBTest {
@@ -45,7 +48,10 @@ public class LIBTest {
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                context.startActivity(new Intent().setComponent(new ComponentName(context.getApplicationInfo().packageName, "io.github.dot166.jlib.LIBChangelogActivity")));
+                Uri webpage = Uri.parse("https://github.com/dot166/jOS_j-lib/commits/v" + VersionUtils.getLibVersion(v.getContext()));
+                CustomTabsIntent intent = new CustomTabsIntent.Builder()
+                        .build();
+                intent.launchUrl(v.getContext(), webpage);
             }
         });
     }

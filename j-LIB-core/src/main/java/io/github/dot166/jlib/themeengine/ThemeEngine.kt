@@ -10,18 +10,18 @@ import android.os.Handler
 import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AlertDialog
+import androidx.browser.customtabs.CustomTabsIntent
 import androidx.compose.material3.ColorScheme
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Shapes
 import androidx.compose.material3.Typography
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
+import androidx.core.net.toUri
 import com.google.android.material.snackbar.Snackbar
 import io.github.dot166.jlib.R
-import io.github.dot166.jlib.app.jWebActivity
 import io.github.dot166.jlib.jos.Build
 import io.github.dot166.jlib.utils.VersionUtils
-import io.github.dot166.jlib.web.jWebIntent
 
 object ThemeEngine {
     var TAG: String = "jLib Theme Engine"
@@ -93,17 +93,15 @@ object ThemeEngine {
         } else {
             tmpCurrentTheme = null.toString()
             Log.e(TAG, "ThemeEngine is MISSING!!!!")
-            if (isWebViewUsed(context)) {
-                Snackbar.make(context.findViewById<View>(android.R.id.content), R.string.theme_snackbar, Snackbar.LENGTH_SHORT).setAction(R.string.theme_dialog_positive, object : View.OnClickListener {
-                    override fun onClick(v: View?) {
-                        val url = "https://github.com/dot166/jOS_j-lib/releases/tag/v" + VersionUtils.getLibVersion(context)
-                        val intent = jWebIntent(context)
-                        intent.setUrl(url)
-                        intent.configureWebView(true, true)
-                        intent.launch()
-                    }
-                }).show()
-            }
+            Snackbar.make(context.findViewById<View>(android.R.id.content), R.string.theme_snackbar, Snackbar.LENGTH_SHORT).setAction(R.string.theme_dialog_positive, object : View.OnClickListener {
+                override fun onClick(v: View?) {
+                    val url = "https://github.com/dot166/jOS_j-lib/releases/tag/v" + VersionUtils.getLibVersion(context)
+                    val webpage = url.toUri()
+                    val intent = CustomTabsIntent.Builder()
+                        .build()
+                    intent.launchUrl(context, webpage)
+                }
+            }).show()
             return 0 // let app handle it when ThemeEngine is missing
         }
     }
@@ -257,10 +255,11 @@ object ThemeEngine {
                         R.string.dialog_te_positive,
                         object : DialogInterface.OnClickListener {
                             override fun onClick(dialog: DialogInterface?, which: Int) {
-                                val intent = jWebIntent(context)
-                                intent.setUrl("https://github.com/dot166/jOS_j-lib/releases/latest")
-                                intent.configureWebView(true, true)
-                                intent.launch()
+                                val url = "https://github.com/dot166/jOS_j-lib/releases/latest"
+                                val webpage = url.toUri()
+                                val intent = CustomTabsIntent.Builder()
+                                    .build()
+                                intent.launchUrl(context, webpage)
                             }
                         })
                 }
@@ -290,14 +289,6 @@ object ThemeEngine {
         }
         Log.e(TAG, "No Records Found")
         return "none"
-    }
-
-    private fun isWebViewUsed(context: Context): Boolean {
-        return if (context is jWebActivity) {
-            context.useWebView;
-        } else {
-            true; // return true normally because the activity would not exiting 2 seconds after startup
-        }
     }
 }
 

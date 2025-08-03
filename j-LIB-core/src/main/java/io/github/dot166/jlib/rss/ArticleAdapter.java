@@ -4,33 +4,25 @@ import static android.widget.Toast.LENGTH_SHORT;
 
 import static io.github.dot166.jlib.utils.DateUtils.convertFromCommonFormats;
 
-import android.content.Context;
-import android.media.AudioAttributes;
-import android.media.AudioFocusRequest;
-import android.media.AudioManager;
-import android.media.MediaPlayer;
-import android.os.Build;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.MediaController;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.browser.customtabs.CustomTabsIntent;
 import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.prof18.rssparser.model.RssItem;
 
-import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
 import io.github.dot166.jlib.R;
 import io.github.dot166.jlib.app.MediaPlayerActivity;
-import io.github.dot166.jlib.utils.ErrorUtils;
-import io.github.dot166.jlib.web.jWebIntent;
 
 public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHolder> {
 
@@ -86,16 +78,16 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
                     MediaPlayerActivity.playAudio(currentArticle.getRawEnclosure().getUrl(), view.getContext(), drawUrl, currentArticle.getTitle());
                 } else {
                     // do not know what to do with anything else so send it to webview
-                    jWebIntent webIntent = new jWebIntent(view.getContext());
-                    webIntent.setUrl(currentArticle.getRawEnclosure().getUrl());
-                    webIntent.configureWebView(true, true);
-                    webIntent.launch();
+                    Uri webpage = Uri.parse(currentArticle.getRawEnclosure().getUrl());
+                    CustomTabsIntent intent = new CustomTabsIntent.Builder()
+                            .build();
+                    intent.launchUrl(view.getContext(), webpage);
                 }
             } else if (currentArticle.getLink() != null && !currentArticle.getLink().isEmpty()) {
-                jWebIntent webIntent = new jWebIntent(view.getContext());
-                webIntent.setUrl(currentArticle.getLink());
-                webIntent.configureWebView(true, true);
-                webIntent.launch();
+                Uri webpage = Uri.parse(currentArticle.getLink());
+                CustomTabsIntent intent = new CustomTabsIntent.Builder()
+                        .build();
+                intent.launchUrl(view.getContext(), webpage);
             } else {
                 Toast.makeText(view.getContext(), "no url available", LENGTH_SHORT).show();
             }
