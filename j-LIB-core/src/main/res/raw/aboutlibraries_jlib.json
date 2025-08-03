@@ -276,14 +276,14 @@
                     "name": "The Android Open Source Project"
                 }
             ],
-            "artifactVersion": "1.8.0",
+            "artifactVersion": "1.9.0",
             "description": "Provides support for embedding Custom Tabs in an app.",
             "scm": {
                 "connection": "scm:git:https://android.googlesource.com/platform/frameworks/support",
                 "url": "https://cs.android.com/androidx/platform/frameworks/support"
             },
             "name": "Browser",
-            "website": "https://developer.android.com/jetpack/androidx/releases/browser#1.8.0",
+            "website": "https://developer.android.com/jetpack/androidx/releases/browser#1.9.0",
             "licenses": [
                 "Apache-2.0"
             ],
@@ -2172,7 +2172,7 @@
                     "name": "The Android Open Source Project"
                 }
             ],
-            "artifactVersion": "1.7.1",
+            "artifactVersion": "1.8.0",
             "description": "Media3 common module",
             "scm": {
                 "connection": "scm:git:https://github.com/androidx/media.git",
@@ -2193,7 +2193,7 @@
                     "name": "The Android Open Source Project"
                 }
             ],
-            "artifactVersion": "1.7.1",
+            "artifactVersion": "1.8.0",
             "description": "Media3 Container module",
             "scm": {
                 "connection": "scm:git:https://github.com/androidx/media.git",
@@ -2214,7 +2214,7 @@
                     "name": "The Android Open Source Project"
                 }
             ],
-            "artifactVersion": "1.7.1",
+            "artifactVersion": "1.8.0",
             "description": "Media3 database module",
             "scm": {
                 "connection": "scm:git:https://github.com/androidx/media.git",
@@ -2235,7 +2235,7 @@
                     "name": "The Android Open Source Project"
                 }
             ],
-            "artifactVersion": "1.7.1",
+            "artifactVersion": "1.8.0",
             "description": "Media3 DataSource module",
             "scm": {
                 "connection": "scm:git:https://github.com/androidx/media.git",
@@ -2256,7 +2256,7 @@
                     "name": "The Android Open Source Project"
                 }
             ],
-            "artifactVersion": "1.7.1",
+            "artifactVersion": "1.8.0",
             "description": "Media3 decoder module",
             "scm": {
                 "connection": "scm:git:https://github.com/androidx/media.git",
@@ -2277,7 +2277,7 @@
                     "name": "The Android Open Source Project"
                 }
             ],
-            "artifactVersion": "1.7.1",
+            "artifactVersion": "1.8.0",
             "description": "Media3 ExoPlayer module",
             "scm": {
                 "connection": "scm:git:https://github.com/androidx/media.git",
@@ -2298,7 +2298,7 @@
                     "name": "The Android Open Source Project"
                 }
             ],
-            "artifactVersion": "1.7.1",
+            "artifactVersion": "1.8.0",
             "description": "Media3 Extractor module",
             "scm": {
                 "connection": "scm:git:https://github.com/androidx/media.git",
@@ -2319,7 +2319,7 @@
                     "name": "The Android Open Source Project"
                 }
             ],
-            "artifactVersion": "1.7.1",
+            "artifactVersion": "1.8.0",
             "description": "Media3 Session module",
             "scm": {
                 "connection": "scm:git:https://github.com/androidx/media.git",
@@ -3355,7 +3355,7 @@
                     "name": "._______166"
                 }
             ],
-            "artifactVersion": "4.2.27",
+            "artifactVersion": "4.3.0",
             "description": "jLib - a common library that contains a custom actionbar based on material components Toolbar and some other things.",
             "scm": {
                 "connection": "scm:git:git://github.com/github.com/dot166/jOS_j-lib.git",
