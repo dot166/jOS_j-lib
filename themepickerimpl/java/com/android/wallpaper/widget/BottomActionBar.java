@@ -791,5 +791,25 @@ public class BottomActionBar extends FrameLayout {
             if (Objects.equals(array[i], value)) return i;
         }
         return -1;
+    }/**
+     * Checks that value is present as at least one of the elements of the array.
+     * @param array the array to check in
+     * @param value the value to check for
+     * @return true if the value is present in the array
+     */
+    public static boolean contains(@Nullable String[] array, String value) {
+        return indexOf(array, value) != -1;
+    }
+
+    /**
+     * Return first index of {@code value} in {@code array}, or {@code -1} if
+     * not found.
+     */
+    public static int indexOf(@Nullable String[] array, String value) {
+        if (array == null) return -1;
+        for (int i = 0; i < array.length; i++) {
+            if (Objects.equals(array[i], value)) return i;
+        }
+        return -1;
     }
 }

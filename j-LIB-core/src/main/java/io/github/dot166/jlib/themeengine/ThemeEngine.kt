@@ -250,7 +250,7 @@ object ThemeEngine {
 
                 builder.setMessage(R.string.dialog_te_message)
                     .setTitle(R.string.text_te_label)
-                if (!Build.is_jOS || VersionUtils.isAtLeastBaklava()) { // ensures that ThemeEngine can be updated out of band (only non jOS and jOS Plasma (16) and above can do that)
+                if (!Build.is_jOS) { // ensures that ThemeEngine can be updated out of band (only non jOS can do that)
                     builder.setPositiveButton(
                         R.string.dialog_te_positive,
                         object : DialogInterface.OnClickListener {

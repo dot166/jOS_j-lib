@@ -29,4 +29,5 @@
     <string name="te_preview_content_description">Theme preview</string>
     <string name="te_disabled">You have selected to disable ThemeEngine,\n Doing this will let each individual app handle theming for itself, \n So a preview is not supported as it would just reflect the theme in ThemePicker.</string>
     <string name="is_now_available">" is now available"</string>
+    <string name="your_device_was_bundled_with_themeengine_so_you_will_need_to_wait_for_an_os_update">Your device was bundled with ThemeEngine, so you will need to wait for an OS update</string>
 </resources>
