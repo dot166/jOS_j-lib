@@ -1,5 +1,5 @@
 pub mod ui;
-pub mod android;
+pub mod android_util;
 pub mod env_ext;
 pub mod maths;
 mod io_ext;
