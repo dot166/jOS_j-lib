@@ -54,37 +54,6 @@ jobs:
         java-version: 17
         cache: 'gradle'
 
-    - name: Build and test Rust Library (Desktop x86/x86_64)
-      run: |
-        cd rustLib
-        cargo update
-        cargo build --verbose
-        cargo test --package j_lib_rust --lib tests
-
-    - name: Install Android SDK
-      uses: android-actions/setup-android@v3
-
-    - name: Add Android targets
-      run: |
-        rustup target add aarch64-linux-android
-        rustup target add armv7-linux-androideabi
-        rustup target add x86_64-linux-android
-        rustup target add i686-linux-android
-
-    - name: Install cargo-ndk
-      run: cargo install cargo-ndk
-
-    - name: Build the Rust portions of jLib
-      run: |
-        cd rustLib
-        cargo ndk -t ${{ matrix.arch }} -o ../j-LIB-Core/src/main/jniLibs build --release
-
-    - name: Commit changes
-      if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && github.repository == 'dot166/jOS_j-Lib' }}
-      run: |
-        git add .
-        git commit -m "Update jLib Rust Core Prebuilds" || true
-
     - name: Check if Release build
       shell: sh
       run: |
@@ -118,6 +87,12 @@ jobs:
 
     - name: Build
       run: ./gradlew assembleRelease
+
+    - name: Build and test Rust Library
+      run: |
+       cd rustLib
+       cargo build --verbose
+       cargo test --package j_lib_rust --lib tests
 
     - name: Copy gradleResValues.xml
       run: cp j-LIB-core/build/generated/res/resValues/release/values/gradleResValues.xml j-LIB-core/res-aosp/values/gradleResValues.xml

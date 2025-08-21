@@ -96,7 +96,7 @@ sources for aosp features that normally be in a vendor or 'sdk' folder
 
 ### rustLib/
 
-rust common library (this is used in the Android version of jLib)
+rust common library
 
 ## License
 

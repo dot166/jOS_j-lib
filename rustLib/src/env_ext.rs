@@ -19,39 +19,3 @@ pub fn parse_env_from_output(output: Output) {
         }
     }
 }
-
-pub fn is_desktop() -> bool {
-    if env::consts::OS == "macos" {
-        true
-    } else if env::consts::OS == "windows" {
-        true
-    } else if env::consts::OS == "linux" {
-        true
-    } else {
-        false
-    }
-}
-
-pub fn is_linux() -> bool {
-    if env::consts::OS == "linux" {
-        true
-    } else {
-        false
-    }
-}
-
-pub fn is_mac() -> bool {
-    if env::consts::OS == "macos" {
-        true
-    } else {
-        false
-    }
-}
-
-pub fn is_windows() -> bool {
-    if env::consts::OS == "windows" {
-        true
-    } else {
-        false
-    }
-}
