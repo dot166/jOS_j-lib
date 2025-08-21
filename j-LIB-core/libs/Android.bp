@@ -907,7 +907,7 @@ java_library_static {
 
 java_import {
     name: "j-Lib_org.jetbrains.kotlin_kotlin-stdlib",
-    jars: ["org/jetbrains/kotlin/kotlin-stdlib/2.2.0/kotlin-stdlib-2.2.0.jar"],
+    jars: ["org/jetbrains/kotlin/kotlin-stdlib/2.2.10/kotlin-stdlib-2.2.10.jar"],
     sdk_version: "36",
     min_sdk_version: "26",
     apex_available: [
