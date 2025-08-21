@@ -17,12 +17,14 @@ import androidx.browser.customtabs.CustomTabsIntent;
 import io.github.dot166.jlib.flags.Flags;
 import io.github.dot166.jlib.internal.LIBTestBottomSheet;
 import io.github.dot166.jlib.R;
+import io.github.dot166.jlib.rusthelper.Test;
 import io.github.dot166.jlib.utils.VersionUtils;
 
 @RestrictTo(RestrictTo.Scope.LIBRARY)
 public class LIBTest {
 
     public static void Test(AppCompatActivity context) {
+        Test.rustIntegrationTest();
         if (context.getSupportActionBar() != null) {
             String str;
             if (Flags.testFlag()) {
