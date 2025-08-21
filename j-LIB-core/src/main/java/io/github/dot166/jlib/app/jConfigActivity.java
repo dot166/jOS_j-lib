@@ -125,13 +125,7 @@ public class jConfigActivity extends jActivity {
                     return !hideLIB();
                 case "is_data_enabled":
                     Log.i("Preference Logging", "mobile data switch");
-                    ConnectivityManager manager = (ConnectivityManager) preference.getContext().getSystemService(Context.CONNECTIVITY_SERVICE);
-                    NetworkCapabilities capabilities = manager.getNetworkCapabilities(manager.getActiveNetwork());
-                    if (capabilities != null) {
-                        return !capabilities.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR);
-                    } else {
-                        return true; // allways show if jLib cannot determine if the device supports it.
-                    }
+                    return true; // always show
             }
             return extraPrefs(preference);
         }
