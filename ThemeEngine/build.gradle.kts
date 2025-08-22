@@ -28,6 +28,7 @@ android {
             keyPassword = keystoreProperties["keyPassword"] as String
             storeFile = file(keystoreProperties["storeFile"] as String)
             storePassword = keystoreProperties["storePassword"] as String
+            enableV4Signing = true // fix out of band signing (i think)
         }
     }
     namespace = "io.github.dot166.themeengine"
