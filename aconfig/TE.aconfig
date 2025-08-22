@@ -1,9 +1,0 @@
-package: "io.github.dot166.themeengine.flags"
-container: "system_ext"
-
-flag {
-    name: "use_new_config_ui"
-    namespace: "jlib"
-    description: "declares whether to use the themepicker based ui for the themeengine settings"
-    bug: "<none>"
-}

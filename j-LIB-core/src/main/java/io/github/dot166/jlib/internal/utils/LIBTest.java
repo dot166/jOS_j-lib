@@ -14,7 +14,6 @@ import androidx.annotation.RestrictTo;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.browser.customtabs.CustomTabsIntent;
 
-import io.github.dot166.jlib.flags.Flags;
 import io.github.dot166.jlib.internal.LIBTestBottomSheet;
 import io.github.dot166.jlib.R;
 import io.github.dot166.jlib.utils.VersionUtils;
@@ -24,13 +23,7 @@ public class LIBTest {
 
     public static void Test(AppCompatActivity context) {
         if (context.getSupportActionBar() != null) {
-            String str;
-            if (Flags.testFlag()) {
-                str = "flag_flag";
-            } else {
-                str = "AAAA";
-            }
-            context.getSupportActionBar().setSubtitle(str);
+            context.getSupportActionBar().setSubtitle("flag_flag");
         }
         TextView text = context.findViewById(R.id.textView);
         Button button = context.findViewById(R.id.button);

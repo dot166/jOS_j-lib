@@ -12,7 +12,6 @@ plugins {
     id("org.jetbrains.kotlin.plugin.compose")
     `maven-publish`
     id("com.vanniktech.maven.publish")
-    id("io.github.dot166.aconfig")
 }
 
 apply {
@@ -133,10 +132,4 @@ configure<GenerateBpPluginExtension> {
             else -> false
         }
     }
-}
-
-aconfig {
-    textProtoRepo = "https://github.com/dot166/platform_build_release"
-    flagsPackage = "io.github.dot166.jlib.flags"
-    aconfigFiles = "../aconfig/jLib.aconfig"
 }
