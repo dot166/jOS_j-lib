@@ -1,21 +1,9 @@
-android_app {
+android_app_import {
     name: "ThemeEngine",
-    package_name: "io.github.dot166.themeengine",
+    product_specific: true,
 
-    resource_dirs: ["src/main/res"],
+    apk: "ThemeEngine.apk",
+    preprocessed: true,
 
-    srcs: [
-        "src/main/java/**/*.kt",
-        "src/main/java/**/*.java",
-    ],
-
-    manifest: "src/main/AndroidManifest.xml",
-
-    static_libs: [
-        "j.Lib",
-        "io_github_dot166_themeengine_flags_lib",
-    ],
-
-    kotlincflags: ["-Xjvm-default=all"],
-    aaptflags: ["--auto-add-overlay"],
+    optional_uses_libs: ["androidx.window.extensions", "androidx.window.sidecar"],
 }

@@ -36,8 +36,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".NotifierActivity"
-            android:exported="true" />
 
         <receiver android:name="io.github.dot166.themeengine.TEBroadcastReceiver"
             android:exported="true"

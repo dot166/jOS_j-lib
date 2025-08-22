@@ -60,7 +60,7 @@ public class TEUpdateNotifier extends Notifier {
                 .build();
         Intent intent2;
         if (isInSystemImage(context)) {
-            intent2 = new Intent(context, NotifierActivity.class);
+            intent2 = new Intent(Intent.CATEGORY_APP_MARKET).setPackage("app.grapheneos.apps"); // i cba changing the package name of the updater from upstream
         } else {
             intent2 = intent.intent;
             intent2.setData(webpage);
