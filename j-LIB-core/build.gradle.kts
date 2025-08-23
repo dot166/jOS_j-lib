@@ -2,7 +2,7 @@ import org.lineageos.generatebp.GenerateBpPlugin
 import org.lineageos.generatebp.GenerateBpPluginExtension
 import org.lineageos.generatebp.models.Module
 
-val Ver: String = rootProject.extra["libVersion"] as String;
+val Ver: Int = rootProject.extra["libVersion"] as Int;
 val libMinSdk: Int = rootProject.extra["libMinSdk"] as Int;
 val libCompileSdk: Int = rootProject.extra["libCompileSdk"] as Int;
 
@@ -44,7 +44,7 @@ android {
 
     buildTypes {
         all {
-            resValue("string", "lib_ver", Ver)
+            resValue("string", "lib_ver", Ver.toString())
         }
         release {
             isMinifyEnabled = false

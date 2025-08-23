@@ -66,8 +66,8 @@ public class VersionUtils {
         return Build.VERSION.RELEASE;
     }
 
-    public static String getLibVersion(Context context) {
-        return context.getString(R.string.lib_ver);
+    public static int getLibVersion(Context context) {
+        return Integer.parseInt(context.getString(R.string.lib_ver));
     }
 }
 

@@ -36,12 +36,29 @@ public class ThemeProvider extends ContentProvider
     public Cursor query(@NonNull Uri uri, String[] projection, String selection,
                         String[] selectionArgs, String sortOrder)
     {
+        if (selection == null) {
+            selection = "81"; // default to the last version to not send ThemeEngine its version number (81 is 4.2.7 in the new versioning system)
+        } else if (selection == "4.3.0") {
+            selection = "82";
+        } else if (selection == "4.3.1") {
+            selection = "83";
+        } else if (selection == "4.3.2") {
+            selection = "84";
+        } else if (selection == "4.3.3") {
+            selection = "85";
+        } else if (selection == "4.4.0") {
+            selection = "86";
+        } else if (selection == "4.4.1") {
+            selection = "86";
+        } else if (selection == "4.4.2") {
+            selection = "87";
+        }
         //never mind the details of the query; we always just want to
         //return the same set of data
-        return getConfig(selection);
+        return getConfig(Integer.parseInt(selection));
     }
 
-    private Cursor getConfig(String libVersion)
+    private Cursor getConfig(int libVersion)
     {
         //create a cursor from a predefined set of key/value pairs
         MatrixCursor mc = new MatrixCursor(new String[] {"key","value"}, 1);
@@ -54,7 +71,7 @@ public class ThemeProvider extends ContentProvider
         return mc;
     }
 
-    public static String getTheme(Context context, String libVersion)
+    public static String getTheme(Context context, int libVersion)
     {
         //access your shared preference or whatever else you're using here
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(Objects.requireNonNull(context));
@@ -62,19 +79,10 @@ public class ThemeProvider extends ContentProvider
         return ensureCompatibleTheme(prefs.getString("pref_theme", "jLib"), libVersion);
     }
 
-    private static String ensureCompatibleTheme(String themeFromPrefs, String libVersion) {
-        if (libVersion == null) {
-            libVersion = "4.2.27"; // default to the last version to not send ThemeEngine its version number
-        }
-
-        String[] libVersionArray = libVersion.split("\\.");
-        int[] lib_ver = new int[libVersionArray.length];
-        for (int i = 0; i < libVersionArray.length; i++) {
-            lib_ver[i] = Integer.parseInt(libVersionArray[i]);
-        }
-        Log.i(TAG, Arrays.toString(lib_ver));
+    private static String ensureCompatibleTheme(String themeFromPrefs, int libVersion) {
+        Log.i(TAG, String.valueOf(libVersion));
         String theme;
-        if (themeFromPrefs == "jLib-Classic" && !(lib_ver[0] >= 4 && lib_ver[1] >= 3 && lib_ver[2] >= 0)) {
+        if (themeFromPrefs == "jLib-Classic" && !(libVersion >= 82)) {
             theme = "jLib"; // Classic theme IS the main theme on 4.2.27 and older
         } else {
             theme = themeFromPrefs;
@@ -86,22 +94,7 @@ public class ThemeProvider extends ContentProvider
     private Boolean checkForTEUpdate(@NonNull Context context) {
         String latest_ver = NetUtils.getDataRaw("https://raw.githubusercontent.com/dot166/jOS_j-lib/refs/heads/main/ver", context).replaceAll("\n", "");
         if (!latest_ver.isEmpty()) {
-            String[] te_ver_str = VersionUtils.getLibVersion(context).split("\\.");
-            String[] lib_ver_str = latest_ver.split("\\.");
-            int[] te_ver = new int[te_ver_str.length];
-            for (int i = 0; i < te_ver_str.length; i++) {
-                te_ver[i] = Integer.parseInt(te_ver_str[i]);
-            }
-            int[] lib_ver = new int[lib_ver_str.length];
-            for (int i = 0; i < lib_ver_str.length; i++) {
-                lib_ver[i] = Integer.parseInt(lib_ver_str[i]);
-            }
-
-            if (lib_ver[0] > te_ver[0]) { // major version (e.g. 4)
-                return true;
-            } else if (lib_ver[1] > te_ver[1]) { // minor version (e.g. 1)
-                return true;
-            } else return lib_ver[2] > te_ver[2]; // patch (or shame) version (e.g. 6)
+            return Integer.parseInt(latest_ver) > VersionUtils.getLibVersion(context);
         } else {
             Log.e(TAG, "Unable to check for update");
             return false;

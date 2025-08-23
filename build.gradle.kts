@@ -11,9 +11,9 @@ plugins {
 buildscript {
     // Define versions in a single place
     extra.apply{
-        set("libVersion", providers.exec {
+        set("libVersion", Integer.parseInt(providers.exec {
             commandLine("cat", "ver")
-        }.standardOutput.asText.get().trim())
+        }.standardOutput.asText.get().trim()))
         set("libMinSdk", 26)
         set("libCompileSdk", 36)
     }

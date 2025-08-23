@@ -2,7 +2,7 @@ import com.android.build.gradle.internal.api.ApkVariantOutputImpl
 import java.util.Properties
 import java.io.FileInputStream
 
-val Ver: String = rootProject.extra["libVersion"] as String;
+val Ver: Int = rootProject.extra["libVersion"] as Int;
 val libMinSdk: Int = rootProject.extra["libMinSdk"] as Int;
 val libCompileSdk: Int = rootProject.extra["libCompileSdk"] as Int;
 
@@ -37,12 +37,14 @@ android {
         applicationId = "io.github.dot166.themeengine"
         minSdk = libMinSdk
         targetSdk = libCompileSdk
+        versionCode = Ver
+        versionName = Ver.toString()
     }
 
     applicationVariants.configureEach {
         outputs.configureEach {
             (this as? ApkVariantOutputImpl)?.outputFileName =
-                "ThemeEngine-v$Ver-${buildType.name}.apk"
+                "ThemeEngine-$Ver-${buildType.name}.apk"
         }
     }
 
