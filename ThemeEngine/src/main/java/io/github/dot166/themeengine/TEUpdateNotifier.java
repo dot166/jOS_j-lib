@@ -59,12 +59,12 @@ public class TEUpdateNotifier extends Notifier {
         CustomTabsIntent intent = new CustomTabsIntent.Builder()
                 .build();
         Intent intent2;
-        if (isInSystemImage(context)) {
-            intent2 = new Intent(Intent.CATEGORY_APP_MARKET).setPackage("app.grapheneos.apps"); // i cba changing the package name of the updater from upstream
-        } else {
-            intent2 = intent.intent;
-            intent2.setData(webpage);
-        }
+        //if (isInSystemImage(context)) {
+            intent2 = new Intent().setPackage("app.grapheneos.apps").addCategory(Intent.CATEGORY_APP_MARKET); // i cba changing the package name of the updater from upstream
+        //} else {
+            //intent2 = intent.intent;
+            //intent2.setData(webpage);
+        //}
         return new NotificationCompat.Builder(context, getNotificationChannelId())
                 .setContentTitle(getNotificationTitle())
                 .setContentText(getNotificationMessage())

@@ -124,10 +124,10 @@ jobs:
     - name: send to repo
       if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && github.repository == 'dot166/jOS_j-Lib' && env.RELEASE == '1' }}
       run: |
-        mkdir -p artifacts/io.github.dot166.themeengine/${{ env.VERSION }}
+        mkdir -p artifacts/apps/packages/io.github.dot166.themeengine/${{ env.VERSION }}
         echo "channel = \"stable"\" > artifacts/io.github.dot166.themeengine/${{ env.VERSION }}/props.toml
-        cp ThemeEngine/build/outputs/apk/release/ThemeEngine-${{ env.VERSION }}-release.apk artifacts/io.github.dot166.themeengine/${{ env.VERSION }}/base.apk
-        cp ThemeEngine/build/outputs/apk/release/ThemeEngine-${{ env.VERSION }}-release.apk.idsig artifacts/io.github.dot166.themeengine/${{ env.VERSION }}/base.apk.idsig
+        cp ThemeEngine/build/outputs/apk/release/ThemeEngine-${{ env.VERSION }}-release.apk artifacts/apps/packages/io.github.dot166.themeengine/${{ env.VERSION }}/base.apk
+        cp ThemeEngine/build/outputs/apk/release/ThemeEngine-${{ env.VERSION }}-release.apk.idsig artifacts/apps/packages/io.github.dot166.themeengine/${{ env.VERSION }}/base.apk.idsig
         git clone https://x-access-token:${{ secrets.GH_TOKEN }}@github.com/dot166/apks.git apks
         cp -r artifacts/* apks/
         cd apks
