@@ -88,6 +88,7 @@ dependencies {
     api("androidx.media3:media3-exoplayer:1.8.0")
     api("androidx.media3:media3-common:1.8.0")
     api("androidx.media3:media3-session:1.8.0")
+    api("androidx.media3:media3-exoplayer-dash:1.8.0")
 }
 
 mavenPublishing {
