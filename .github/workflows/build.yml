@@ -65,9 +65,8 @@ jobs:
     - name: fix version in json
       if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && github.repository == 'dot166/jOS_j-Lib' && env.RELEASE == '1' }}
       run:  |
-        gitTag="$(git describe --tags --abbrev=0)"
-        gitTag="${gitTag:1}"
-        sed -ri 's/'"$gitTag"'/'"$(cat ver)"'/g' config/libraries/lib_jLib.json
+        cp .github/lib_jLib.json config/libraries/lib_jLib.json
+        sed -ri 's/'"template"'/'"$(cat ver)"'/g' config/libraries/lib_jLib.json
 
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
