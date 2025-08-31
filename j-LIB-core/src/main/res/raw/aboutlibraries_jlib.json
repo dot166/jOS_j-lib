@@ -2289,6 +2289,27 @@
             ]
         },
         {
+            "uniqueId": "androidx.media3:media3-exoplayer-dash",
+            "funding": [
+                
+            ],
+            "developers": [
+                {
+                    "name": "The Android Open Source Project"
+                }
+            ],
+            "artifactVersion": "1.8.0",
+            "description": "Media3 ExoPlayer DASH module",
+            "scm": {
+                "connection": "scm:git:https://github.com/androidx/media.git",
+                "url": "https://github.com/androidx/media"
+            },
+            "name": "Media3 ExoPlayer DASH module",
+            "licenses": [
+                "Apache-2.0"
+            ]
+        },
+        {
             "uniqueId": "androidx.media3:media3-extractor",
             "funding": [
                 
@@ -3355,7 +3376,7 @@
                     "name": "._______166"
                 }
             ],
-            "artifactVersion": "89",
+            "artifactVersion": "890",
             "description": "jLib - a common library that contains a custom actionbar based on material components Toolbar and some other things.",
             "scm": {
                 "connection": "scm:git:git://github.com/github.com/dot166/jOS_j-lib.git",
