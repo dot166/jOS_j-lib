@@ -38,6 +38,7 @@ android_library {
         "androidx.preference_preference",
         "androidx.recyclerview_recyclerview",
         "androidx.swiperefreshlayout_swiperefreshlayout",
+        "j-Lib_com.caverock_androidsvg",
         "j-Lib_com.github.bumptech.glide_glide",
         "j-Lib_com.google.accompanist_accompanist-drawablepainter",
         "com.google.android.material_material",
