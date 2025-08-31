@@ -33,6 +33,7 @@ android_library {
         "androidx.lifecycle_lifecycle-runtime-ktx",
         "j-Lib_androidx.media3_media3-common",
         "j-Lib_androidx.media3_media3-exoplayer",
+        "j-Lib_androidx.media3_media3-exoplayer-dash",
         "j-Lib_androidx.media3_media3-session",
         "androidx.preference_preference",
         "androidx.recyclerview_recyclerview",
