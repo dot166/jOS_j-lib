@@ -45,7 +45,7 @@ class RSSViewModel : ViewModel() {
             } catch (e: Exception) {
                 val list = ArrayList<RssItem?>()
                 list.add(RssItem(null, "Error Handler", null, null, null,
-                    e.message, e.message + e.stackTrace.contentToString(), null, null, null, null, null,
+                    e.message, e.message + e.stackTrace.contentToString().replace(", ", "\n"), null, null, null, null, null,
                     emptyList(), null, null, null, null))
                 channel = RssChannel("Error Handler", null, null, null, null, null,
                     list as List<RssItem>, null, null)
@@ -65,7 +65,7 @@ class RSSViewModel : ViewModel() {
                     } catch (e: Exception) {
                         val list = ArrayList<RssItem?>()
                         list.add(RssItem(null, "Error Handler", null, null, null,
-                            e.message, e.message + e.stackTrace.contentToString(), null, null, null, null, null,
+                            e.message, e.message + e.stackTrace.contentToString().replace(", ", "\n"), null, null, null, null, null,
                             emptyList(), null, null, null, null))
                         channel = RssChannel("Error Handler", null, null, null, null, null,
                             list as List<RssItem>, null, null)

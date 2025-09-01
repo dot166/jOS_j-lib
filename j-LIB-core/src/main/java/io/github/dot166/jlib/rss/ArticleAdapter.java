@@ -94,9 +94,9 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
             } else if (currentArticle.getContent() != null && !currentArticle.getContent().isEmpty()) {
                 AlertDialog.Builder builder2 = new AlertDialog.Builder(view.getContext());
 
-                builder2.setMessage(currentArticle.getContent().replaceAll(", ", "\n"))
-                        .setTitle(R.string.dialog_fail_title)
-                        .setIcon(R.mipmap.icon_error)
+                builder2.setMessage(currentArticle.getContent())
+                        .setTitle("Rss Content")
+                        .setIcon(R.drawable.outline_rss_feed_24)
                         .setCancelable(false)
                         .setNeutralButton(R.string.ok, new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
