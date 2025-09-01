@@ -81,7 +81,7 @@ class RSSNotifier(notificationManager: NotificationManager?, private val context
                 try {
                     rssChannel = parser.getRssChannel(rssUrls[i]!!)
                 } catch (e: Exception) {
-                    ErrorUtils.handle(e, context)
+                    e.printStackTrace()
                     return@future
                 }
                 val articles: List<RssItem?> = rssChannel!!.items

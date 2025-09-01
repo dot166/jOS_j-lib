@@ -4,6 +4,7 @@ import static android.widget.Toast.LENGTH_SHORT;
 
 import static io.github.dot166.jlib.utils.DateUtils.convertFromCommonFormats;
 
+import android.content.DialogInterface;
 import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,12 +13,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.browser.customtabs.CustomTabsIntent;
 import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.prof18.rssparser.model.RssItem;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -88,6 +91,21 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
                 CustomTabsIntent intent = new CustomTabsIntent.Builder()
                         .build();
                 intent.launchUrl(view.getContext(), webpage);
+            } else if (currentArticle.getContent() != null && !currentArticle.getContent().isEmpty()) {
+                AlertDialog.Builder builder2 = new AlertDialog.Builder(view.getContext());
+
+                builder2.setMessage(currentArticle.getContent().replaceAll(", ", "\n"))
+                        .setTitle(R.string.dialog_fail_title)
+                        .setIcon(R.mipmap.icon_error)
+                        .setCancelable(false)
+                        .setNeutralButton(R.string.ok, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.dismiss();
+                            }
+                        });
+                //Creating dialog box
+                AlertDialog alert = builder2.create();
+                alert.show();
             } else {
                 Toast.makeText(view.getContext(), "no url available", LENGTH_SHORT).show();
             }

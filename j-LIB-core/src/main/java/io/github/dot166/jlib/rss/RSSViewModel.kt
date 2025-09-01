@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.prof18.rssparser.RssParserBuilder
 import com.prof18.rssparser.model.RssChannel
+import com.prof18.rssparser.model.RssItem
 import io.github.dot166.jlib.utils.DateUtils.convertDateToEpochSeconds
 import io.github.dot166.jlib.utils.DateUtils.convertFromCommonFormats
 import kotlinx.coroutines.Dispatchers
@@ -38,7 +39,17 @@ class RSSViewModel : ViewModel() {
     fun fetchFeed(urlString: String, context: Context?) {
         viewModelScope.launch(Dispatchers.IO) {
             val parser = RssParserBuilder().build()
-            val channel = parser.getRssChannel(urlString)
+            var channel: RssChannel
+            try {
+                channel = parser.getRssChannel(urlString)
+            } catch (e: Exception) {
+                val list = ArrayList<RssItem?>()
+                list.add(RssItem(null, "Error Handler", null, null, null,
+                    e.message, e.message + e.stackTrace.contentToString(), null, null, null, null, null,
+                    emptyList(), null, null, null, null))
+                channel = RssChannel("Error Handler", null, null, null, null, null,
+                    list as List<RssItem>, null, null)
+            }
             this@RSSViewModel.channel.postValue(channel)
         }
     }
@@ -47,7 +58,20 @@ class RSSViewModel : ViewModel() {
         viewModelScope.launch(Dispatchers.IO) {
             val parser = RssParserBuilder().build()
             val deferredChannels = urls.map { url ->
-                async { parser.getRssChannel(url) }
+                async {
+                    var channel: RssChannel
+                    try {
+                        channel = parser.getRssChannel(url)
+                    } catch (e: Exception) {
+                        val list = ArrayList<RssItem?>()
+                        list.add(RssItem(null, "Error Handler", null, null, null,
+                            e.message, e.message + e.stackTrace.contentToString(), null, null, null, null, null,
+                            emptyList(), null, null, null, null))
+                        channel = RssChannel("Error Handler", null, null, null, null, null,
+                            list as List<RssItem>, null, null)
+                    }
+                    channel
+                }
             }
             val channels = deferredChannels.awaitAll()
             val allItems = channels.flatMap { it.items }
