@@ -36,8 +36,8 @@ class OSSLicenceActivity : jActivity() {
     @Composable
     fun LibrariesList() {
         if (resources.getIdentifier("aboutlibraries", "raw", packageName) == 0) {
-            //val libraries by rememberLibraries(R.raw.aboutlibraries_jlib)
-            //LibrariesContainer(libraries, Modifier.fillMaxSize())
+            val libraries by rememberLibraries(R.raw.aboutlibraries_jlib)
+            LibrariesContainer(libraries, Modifier.fillMaxSize())
         } else {
             val libraries by rememberLibraries(resources.getIdentifier("aboutlibraries", "raw", packageName))
             LibrariesContainer(libraries, Modifier.fillMaxSize())

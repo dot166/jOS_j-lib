@@ -123,9 +123,6 @@ public class jConfigActivity extends jActivity {
                         }
                     });
                     return !hideLIB();
-                case "is_data_enabled":
-                    Log.i("Preference Logging", "mobile data switch");
-                    return true; // always show
             }
             return extraPrefs(preference);
         }

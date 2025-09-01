@@ -1,8 +1,5 @@
 package io.github.dot166.jlib.rss;
 
-import static io.github.dot166.jlib.utils.DateUtils.convertDateToEpochSeconds;
-import static io.github.dot166.jlib.utils.DateUtils.convertFromCommonFormats;
-
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,13 +17,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.google.android.material.snackbar.Snackbar;
-import com.prof18.rssparser.model.RssChannel;
-import com.prof18.rssparser.model.RssItem;
-
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Objects;
 
 import io.github.dot166.jlib.R;
 import io.github.dot166.jlib.app.jActivity;
@@ -95,45 +85,16 @@ public class RSSFragment extends Fragment {
             mAdapter.getArticleList().clear();
             mAdapter.notifyDataSetChanged();
             mSwipeRefreshLayout.setRefreshing(true);
+            progressBar.setVisibility(View.VISIBLE);
             if (mId == 0) {
-                List<RssItem> list = new ArrayList<>();
-                for (String url : rssUrls) {
-                    RssChannel channel = viewModel.fetchFeedWithoutViewModel(url, getContext());
-                    for (int i = 0; i < channel.getItems().toArray().length; i++) {
-                        list.add(channel.getItems().get(i));
-                    }
-                    if (Objects.equals(channel.getItems().get(0).getDescription(), "Something failed and to keep the app running this is displayed")) { // should only trigger on error handler
-                        // stop parsing here, prevent feed being full of the same error
-                        break;
-                    }
-                }
-                list.sort(new Comparator<RssItem>() {
-                    @Override
-                    public int compare(RssItem o1, RssItem o2) {
-                        return Long.compare(convertDateToEpochSeconds(convertFromCommonFormats(o2.getPubDate())), convertDateToEpochSeconds(convertFromCommonFormats(o1.getPubDate())));
-                    }
-                });
-                viewModel.setChannel(new RssChannel("All Feeds", null, null, null, null, null, list, null, null));
+                viewModel.loadAllFeedsConcurrently(rssUrls);
             } else {
                 viewModel.fetchFeed(rssUrls[mId-1], getContext());
             }
         });
 
         if (mId == 0) {
-            List<RssItem> list = new ArrayList<>();
-            for (String url : rssUrls) {
-                RssChannel channel = viewModel.fetchFeedWithoutViewModel(url, getContext());
-                for (int i = 0; i < channel.getItems().toArray().length; i++) {
-                    list.add(channel.getItems().get(i));
-                }
-            }
-            list.sort(new Comparator<RssItem>() {
-                @Override
-                public int compare(RssItem o1, RssItem o2) {
-                    return Long.compare(convertDateToEpochSeconds(convertFromCommonFormats(o2.getPubDate())), convertDateToEpochSeconds(convertFromCommonFormats(o1.getPubDate())));
-                }
-            });
-            viewModel.setChannel(new RssChannel("All Feeds", null, null, null, null, null, list, null, null));
+            viewModel.loadAllFeedsConcurrently(rssUrls);
         } else {
             viewModel.fetchFeed(rssUrls[mId-1], getContext());
         }
