@@ -64,7 +64,6 @@ android_library {
 
     resource_dirs: [
         "src/main/res",
-        "res-aosp",
     ],
     use_resource_processor: true,
 

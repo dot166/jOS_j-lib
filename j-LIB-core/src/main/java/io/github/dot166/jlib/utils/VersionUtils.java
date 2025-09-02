@@ -5,7 +5,7 @@ import android.os.Build;
 
 import androidx.annotation.ChecksSdkIntAtLeast;
 
-import io.github.dot166.jlib.R;
+import io.github.dot166.jlib.internal.utils.LibVer;
 
 public class VersionUtils {
 
@@ -66,8 +66,8 @@ public class VersionUtils {
         return Build.VERSION.RELEASE;
     }
 
-    public static int getLibVersion(Context context) {
-        return Integer.parseInt(context.getString(R.string.lib_ver));
+    public static int getLibVersion() {
+        return LibVer.VER;
     }
 }
 

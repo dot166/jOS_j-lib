@@ -94,7 +94,7 @@ public class ThemeProvider extends ContentProvider
     private Boolean checkForTEUpdate(@NonNull Context context) {
         String latest_ver = NetUtils.getDataRaw("https://raw.githubusercontent.com/dot166/jOS_j-lib/refs/heads/main/ver", context).replaceAll("\n", "");
         if (!latest_ver.isEmpty()) {
-            return Integer.parseInt(latest_ver) > VersionUtils.getLibVersion(context);
+            return Integer.parseInt(latest_ver) > VersionUtils.getLibVersion();
         } else {
             Log.e(TAG, "Unable to check for update");
             return false;

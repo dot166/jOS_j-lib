@@ -54,7 +54,7 @@ public class ThemeEngineOption implements CustomizationOption<ThemeEngineOption>
 
     @Override
     public boolean isActive(CustomizationManager<ThemeEngineOption> manager) {
-        return Objects.equals(mThemeId, ThemeProvider.getTheme(mContext, VersionUtils.getLibVersion(mContext)));
+        return Objects.equals(mThemeId, ThemeProvider.getTheme(mContext, VersionUtils.getLibVersion()));
     }
 
     @Override

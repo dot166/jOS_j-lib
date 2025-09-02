@@ -41,7 +41,7 @@ public class LIBTest {
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Uri webpage = Uri.parse("https://github.com/dot166/jOS_j-lib/commits/" + VersionUtils.getLibVersion(v.getContext()));
+                Uri webpage = Uri.parse("https://github.com/dot166/jOS_j-lib/commits/" + VersionUtils.getLibVersion());
                 CustomTabsIntent intent = new CustomTabsIntent.Builder()
                         .build();
                 intent.launchUrl(v.getContext(), webpage);

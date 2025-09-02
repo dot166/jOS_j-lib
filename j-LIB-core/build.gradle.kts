@@ -43,9 +43,6 @@ android {
     }
 
     buildTypes {
-        all {
-            resValue("string", "lib_ver", Ver.toString())
-        }
         release {
             isMinifyEnabled = false
             proguardFiles(

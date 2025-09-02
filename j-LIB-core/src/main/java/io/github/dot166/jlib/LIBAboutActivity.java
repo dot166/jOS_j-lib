@@ -37,7 +37,7 @@ public class LIBAboutActivity extends jAboutActivity {
     @NonNull
     @Override
     public String versionName(@NonNull Context context) {
-        return String.valueOf(VersionUtils.getLibVersion(context));
+        return String.valueOf(VersionUtils.getLibVersion());
     }
 
     @NonNull
