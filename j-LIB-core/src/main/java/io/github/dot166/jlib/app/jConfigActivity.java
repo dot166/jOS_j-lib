@@ -114,7 +114,7 @@ public class jConfigActivity extends jActivity {
                     return !hideLIB();
                 case "LIBVer":
                     Log.i("Preference Logging", "LIBVer Found!!!!");
-                    preference.setSummary(VersionUtils.getLibVersion());
+                    preference.setSummary(String.valueOf(VersionUtils.getLibVersion()));
                     preference.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
                         @Override
                         public boolean onPreferenceClick(@NonNull Preference preference) {

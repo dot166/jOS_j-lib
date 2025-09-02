@@ -123,6 +123,7 @@
         <item name="tabStyle">@style/j.tab</item>
         <item name="materialAlertDialogTheme">@style/ThemeOverlay.Material3.MaterialAlertDialog</item>
         <item name="materialIconButtonFilledStyle">@style/j.Button.icon</item>
+        <item name="cardViewStyle">@style/j.card</item>
     </style>
     <!-- Theme.Material3.DynamicColors.Dark.NoActionBar overrides -->
     <style name="Platform.j.Theme" parent="Theme.Material3.DynamicColors.Dark.NoActionBar">
@@ -159,5 +160,6 @@
     <style name="j.Theme.Classic">
         <item name="android:windowBackground">@drawable/background_basic</item>
         <item name="android:windowShowWallpaper">false</item>
+        <item name="cardViewStyle">@style/CardView</item>
     </style>
 </resources>

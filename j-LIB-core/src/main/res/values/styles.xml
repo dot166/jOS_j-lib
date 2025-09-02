@@ -144,4 +144,9 @@
         <item name="android:indeterminateTint">?colorSecondary</item>
         <item name="android:thumbTint">?colorSecondary</item>
     </style>
+
+    <style name="j.card" parent="CardView">
+        <item name="cardCornerRadius">10dp</item>
+        <item name="cardBackgroundColor">#50000000</item>
+    </style>
 </resources>
