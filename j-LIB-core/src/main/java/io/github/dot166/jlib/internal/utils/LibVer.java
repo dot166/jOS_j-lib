@@ -5,5 +5,5 @@ import androidx.annotation.RestrictTo;
 @RestrictTo(RestrictTo.Scope.LIBRARY)
 public class LibVer {
 
-    public static final int VER = 97;
+    public static final int VER = 98;
 }
