@@ -26,6 +26,11 @@ jobs:
     - name: Generate wallpaper thumbnails
       run: |
         cd ThemeEngine
+        cd gen-variants
+        cargo update
+        cargo build --release --verbose
+        cp target/release/gen-wallpaper-thumbs ../gen-wallpaper-thumbs
+        cd ..
         ./gen-wallpaper-thumbs
         cd ..
 
@@ -92,6 +97,7 @@ jobs:
     - name: Build and test Rust Library
       run: |
        cd rustLib
+       cargo update
        cargo build --verbose
        cargo test --package j_lib_rust --lib tests
 
