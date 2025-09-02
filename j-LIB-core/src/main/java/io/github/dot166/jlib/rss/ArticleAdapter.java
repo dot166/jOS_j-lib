@@ -107,7 +107,7 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
                 AlertDialog alert = builder2.create();
                 alert.show();
             } else {
-                Toast.makeText(view.getContext(), "no url available", LENGTH_SHORT).show();
+                Toast.makeText(view.getContext(), "no content or url available", LENGTH_SHORT).show();
             }
         });
     }
