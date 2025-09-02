@@ -15,12 +15,14 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class RSSViewModel extends ViewModel {
 
     private MutableLiveData<RssChannel> articleListLive = null;
-
     private MutableLiveData<String> snackbar = new MutableLiveData<>();
+    private final ExecutorService executor = Executors.newSingleThreadExecutor();
 
     public MutableLiveData<RssChannel> getChannel() {
         if (articleListLive == null) {
@@ -41,9 +43,11 @@ public class RSSViewModel extends ViewModel {
         snackbar.setValue(null);
     }
 
-    public void fetchFeed(String urlString) {
-        RssChannel channel = fetchFeedWithoutViewModel(urlString);
-        setChannel(channel);
+    public void fetchFeedAsync(String url) {
+        executor.execute(() -> {
+            RssChannel result = fetchFeedWithoutViewModel(url);
+            setChannel(result);
+        });
     }
 
     public RssChannel fetchFeedWithoutViewModel(String urlString) {
@@ -58,5 +62,18 @@ public class RSSViewModel extends ViewModel {
             return new RssChannel("Error Handler", null, null, null, null, null,
                     list, null, null);
         }
+    }
+
+    public void fetchAllFeedsAsync(String[] urls) {
+        executor.execute(() -> {
+            RssChannel result = RSSFeedAggregator.buildAllFeeds(urls, this);
+            setChannel(result);
+        });
+    }
+
+    @Override
+    protected void onCleared() {
+        super.onCleared();
+        executor.shutdownNow();
     }
 }

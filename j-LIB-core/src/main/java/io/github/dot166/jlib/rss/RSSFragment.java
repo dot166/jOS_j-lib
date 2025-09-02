@@ -25,9 +25,7 @@ import com.prof18.rssparser.model.RssItem;
 
 import java.util.ArrayList;
 import java.util.Comparator;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 
 import io.github.dot166.jlib.R;
@@ -58,15 +56,14 @@ public class RSSFragment extends Fragment {
         }
         String[] rssUrls = PreferenceManager.getDefaultSharedPreferences(requireContext()).getString("rssUrls", "").split(";");
         View view = inflater.inflate(R.layout.fragment_rss, container, false);
-
         viewModel = new ViewModelProvider(this).get(RSSViewModel.class);
 
         progressBar = view.findViewById(R.id.progress);
-
         mRecyclerView = view.findViewById(R.id.recycler_view);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
         mRecyclerView.setHasFixedSize(true);
+        progressBar.setVisibility(View.VISIBLE);
 
         viewModel.getChannel().observe(getViewLifecycleOwner(), channel -> {
             if (channel != null) {
@@ -94,52 +91,23 @@ public class RSSFragment extends Fragment {
         );
         mSwipeRefreshLayout.canChildScrollUp();
         mSwipeRefreshLayout.setOnRefreshListener(() -> {
-            mAdapter.getArticleList().clear();
-            mAdapter.notifyDataSetChanged();
+            if (mAdapter != null) {
+                mAdapter.getArticleList().clear();
+                mAdapter.notifyDataSetChanged();
+            }
             mSwipeRefreshLayout.setRefreshing(true);
+            progressBar.setVisibility(View.VISIBLE);
             if (mId == 0) {
-                List<RssItem> list = new ArrayList<>();
-                for (String url : rssUrls) {
-                    RssChannel channel = viewModel.fetchFeedWithoutViewModel(url);
-                    for (int i = 0; i < channel.getItems().toArray().length; i++) {
-                        list.add(channel.getItems().get(i));
-                    }
-                    if (Objects.equals(channel.getItems().get(0).getTitle(), "Error Handler") && (Objects.equals(channel.getItems().get(0).getSourceName(), "jLib"))) { // should only trigger on error handler
-                        // stop parsing here, prevent feed being full of the same error
-                        break;
-                    }
-                }
-                Map<RssItem, Long> epochCache = new HashMap<>();
-                for (RssItem item : list) {
-                    epochCache.put(item, convertDateToEpochSeconds(convertFromCommonFormats(item.getPubDate())));
-                }
-                list.sort(Comparator.comparingLong(epochCache::get).reversed());
-                viewModel.setChannel(new RssChannel("All Feeds", null, null, null, null, null, list, null, null));
+                viewModel.fetchAllFeedsAsync(rssUrls);
             } else {
-                viewModel.fetchFeed(rssUrls[mId-1]);
+                viewModel.fetchFeedAsync(rssUrls[mId-1]);
             }
         });
 
         if (mId == 0) {
-            List<RssItem> list = new ArrayList<>();
-            for (String url : rssUrls) {
-                RssChannel channel = viewModel.fetchFeedWithoutViewModel(url);
-                for (int i = 0; i < channel.getItems().toArray().length; i++) {
-                    list.add(channel.getItems().get(i));
-                }
-                if (Objects.equals(channel.getItems().get(0).getTitle(), "Error Handler") && (Objects.equals(channel.getItems().get(0).getSourceName(), "jLib"))) { // should only trigger on error handler
-                    // stop parsing here, prevent feed being full of the same error
-                    break;
-                }
-            }
-            Map<RssItem, Long> epochCache = new HashMap<>();
-            for (RssItem item : list) {
-                epochCache.put(item, convertDateToEpochSeconds(convertFromCommonFormats(item.getPubDate())));
-            }
-            list.sort(Comparator.comparingLong(epochCache::get).reversed());
-            viewModel.setChannel(new RssChannel("All Feeds", null, null, null, null, null, list, null, null));
+            viewModel.fetchAllFeedsAsync(rssUrls);
         } else {
-            viewModel.fetchFeed(rssUrls[mId-1]);
+            viewModel.fetchFeedAsync(rssUrls[mId-1]);
         }
         return view;
     }
