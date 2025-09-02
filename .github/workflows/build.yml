@@ -39,6 +39,19 @@ jobs:
       run: |
         git add .
         git commit -m "Update Wallpaper Thumbnails" || true
+
+    - name: Build and test Rust Library
+      run: |
+        cd rustLib
+        cargo update
+        cargo build --verbose
+        cargo test --package j_lib_rust --lib tests
+
+    - name: Commit changes
+      if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && github.repository == 'dot166/jOS_j-Lib' }}
+      run: |
+        git add .
+        git commit -m "Update Rust Library stuff" || true
     
     - name: Update Helpline List
       run: |
@@ -93,13 +106,6 @@ jobs:
 
     - name: Build
       run: ./gradlew assembleRelease
-
-    - name: Build and test Rust Library
-      run: |
-       cd rustLib
-       cargo update
-       cargo build --verbose
-       cargo test --package j_lib_rust --lib tests
 
     - name: Publish to Maven Central
       if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && github.repository == 'dot166/jOS_j-Lib' && env.RELEASE == '1' }}
