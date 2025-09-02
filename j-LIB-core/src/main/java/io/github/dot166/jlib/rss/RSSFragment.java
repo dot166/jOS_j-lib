@@ -64,8 +64,13 @@ public class RSSFragment extends Fragment {
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
         mRecyclerView.setHasFixedSize(true);
         progressBar.setVisibility(View.VISIBLE);
-
-        viewModel.getChannel().observe(getViewLifecycleOwner(), channel -> {
+        String feedKey;
+        if (mId == 0) {
+            feedKey = "ALL";
+        } else {
+            feedKey = rssUrls[mId - 1];
+        }
+        viewModel.getChannel(feedKey).observe(getViewLifecycleOwner(), channel -> {
             if (channel != null) {
                 if (channel.getTitle() != null) {
                     requireActivity().setTitle(channel.getTitle());

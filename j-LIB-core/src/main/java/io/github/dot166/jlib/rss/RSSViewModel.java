@@ -15,24 +15,23 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class RSSViewModel extends ViewModel {
 
-    private MutableLiveData<RssChannel> articleListLive = null;
-    private MutableLiveData<String> snackbar = new MutableLiveData<>();
-    private final ExecutorService executor = Executors.newSingleThreadExecutor();
+    private final Map<String, MutableLiveData<RssChannel>> channelMap = new ConcurrentHashMap<>();
+    private final MutableLiveData<String> snackbar = new MutableLiveData<>();
+    private final ExecutorService executor = Executors.newFixedThreadPool(4);
 
-    public MutableLiveData<RssChannel> getChannel() {
-        if (articleListLive == null) {
-            articleListLive = new MutableLiveData<>();
-        }
-        return articleListLive;
+    public LiveData<RssChannel> getChannel(String url) {
+        return channelMap.computeIfAbsent(url, u -> new MutableLiveData<>());
     }
 
-    public void setChannel(RssChannel channel) {
-        this.articleListLive.postValue(channel);
+    private void setChannel(String url, RssChannel channel) {
+        channelMap.computeIfAbsent(url, u -> new MutableLiveData<>()).postValue(channel);
     }
 
     public LiveData<String> getSnackbar() {
@@ -46,7 +45,7 @@ public class RSSViewModel extends ViewModel {
     public void fetchFeedAsync(String url) {
         executor.execute(() -> {
             RssChannel result = fetchFeedWithoutViewModel(url);
-            setChannel(result);
+            setChannel(url, result);
         });
     }
 
@@ -66,8 +65,16 @@ public class RSSViewModel extends ViewModel {
 
     public void fetchAllFeedsAsync(String[] urls) {
         executor.execute(() -> {
-            RssChannel result = RSSFeedAggregator.buildAllFeeds(urls, this);
-            setChannel(result);
+            List<RssChannel> channels = new ArrayList<>();
+
+            for (String url : urls) {
+                RssChannel result = fetchFeedWithoutViewModel(url);
+                channels.add(result);
+                setChannel(url, result);
+            }
+
+            RssChannel aggregated = RSSFeedAggregator.buildAllFeeds(urls, this);
+            setChannel("ALL", aggregated);
         });
     }
 
