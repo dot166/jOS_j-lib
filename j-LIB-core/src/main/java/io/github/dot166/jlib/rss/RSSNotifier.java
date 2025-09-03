@@ -60,6 +60,7 @@ public class RSSNotifier extends Notifier {
                 .setContentTitle(getNotificationTitle())
                 .setContentText(getNotificationMessage())
                 .setSmallIcon(R.drawable.outline_rss_feed_24)
+                .setAutoCancel(true) // dismiss on click
                 .setContentIntent(PendingIntent.getActivity(context, 0, intent2, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE))
                 .build();
     }
