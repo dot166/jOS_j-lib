@@ -67,7 +67,7 @@ dependencies {
     api("androidx.recyclerview:recyclerview:1.4.0")
     //noinspection KtxExtensionAvailable
     api("androidx.preference:preference:1.2.1")
-    api("com.google.android.material:material:1.12.0")
+    api("com.google.android.material:material:1.13.0")
     api("androidx.core:core-ktx:1.16.0")
     api("androidx.browser:browser:1.9.0")
     api("androidx.activity:activity-compose:1.10.1")
