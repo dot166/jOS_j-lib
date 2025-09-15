@@ -1,5 +1,7 @@
 package io.github.dot166.jlib.rss;
 
+import static io.github.dot166.jlib.registry.RegistryHelper.getFromRegistry;
+
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -16,11 +18,14 @@ import com.prof18.rssparser.model.RssChannel;
 import com.prof18.rssparser.model.RssItem;
 
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Objects;
 
 import io.github.dot166.jlib.R;
 import io.github.dot166.jlib.app.Notifier;
+import io.github.dot166.jlib.registry.RegistryHelper;
+import io.github.dot166.jlib.time.ReminderItem;
 
 public class RSSNotifier extends Notifier {
     private final Context context;
@@ -77,12 +82,16 @@ public class RSSNotifier extends Notifier {
 
     @Override
     public void showNotification() {
-        String[] rssUrls = PreferenceManager.getDefaultSharedPreferences(context).getString("rssUrls", "").split(";");
+        List<RegistryHelper.Object> feeds = getFromRegistry(context);
+        String[] rssUrls = new String[feeds.size()];
+        for (int i = 0; i < feeds.size(); i++) {
+            rssUrls[i] = feeds.get(i).getUrl();
+        }
         Log.i("RSS", Arrays.toString(rssUrls));
         for (int i = 0; i < rssUrls.length; i++) {
             notificationId = i;
             rssChannel = (new RSSViewModel()).fetchFeedWithoutViewModel(rssUrls[i]);
-            if (Objects.equals(rssChannel.getItems().get(0).getDescription(), "Something failed and to keep the app running this is displayed")) { // should only trigger on error handler
+            if (Objects.equals(rssChannel.getDescription(), "Something failed and to keep this jLib app running this is displayed, {EXCLUDE FROM NOTIFIER}")) { // should only trigger on error handler
                 Log.e("RSS", "cannot display notification as RSS reader is in fallback mode");
                 return;
             }
@@ -93,6 +102,13 @@ public class RSSNotifier extends Notifier {
                 super.showNotification();
                 PreferenceManager.getDefaultSharedPreferences(context).edit().putString("lastRssUrl-" + rssUrls[i], articles.get(0).getLink()).apply(); // use shared prefs to not annoy user, just hope nobody has a preference with savedRssCount as the key and uses the rss feature
             }
+            Calendar cal = Calendar.getInstance();
+            cal.set(Calendar.HOUR_OF_DAY, cal.get(Calendar.HOUR_OF_DAY) + 1);
+            cal.set(Calendar.MINUTE, 0);
+            cal.set(Calendar.SECOND, 0);
+            cal.set(Calendar.MILLISECOND, 0);
+            ReminderItem reminderItem = new ReminderItem(cal.getTimeInMillis(), 1);
+            new RSSAlarmScheduler(context).schedule(reminderItem);
         }
     }
 }

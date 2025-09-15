@@ -67,24 +67,22 @@ dependencies {
     api("androidx.recyclerview:recyclerview:1.4.0")
     //noinspection KtxExtensionAvailable
     api("androidx.preference:preference:1.2.1")
-    api("com.google.android.material:material:1.12.0")
-    api("androidx.core:core-ktx:1.16.0")
+    api("com.google.android.material:material:1.13.0")
+    api("androidx.core:core-ktx:1.17.0")
     api("androidx.browser:browser:1.9.0")
-    api("androidx.activity:activity-compose:1.10.1")
-    api("androidx.compose.ui:ui-android:1.8.3")
+    api("androidx.activity:activity-compose:1.11.0")
+    api("androidx.compose.ui:ui-android:1.9.1")
     api("androidx.compose.material3:material3-android:1.3.2")
-    api("androidx.compose.material:material-android:1.8.3")
+    api("androidx.compose.material:material-android:1.9.1")
     api("io.coil-kt:coil-compose:2.7.0")
     api("com.google.accompanist:accompanist-drawablepainter:0.37.3")
     api("com.mikepenz:aboutlibraries-core:12.2.4")
     api("com.mikepenz:aboutlibraries-compose-m3:12.2.4")
     api("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
-    //noinspection NewerVersionAvailable
-    api("com.prof18.rssparser:rssparser:6.0.11")
-    api("com.github.bumptech.glide:glide:4.16.0")
+    api("com.prof18.rssparser:rssparser:6.0.12")
+    api("com.github.bumptech.glide:glide:5.0.5")
     api("com.caverock:androidsvg:1.4")
-    annotationProcessor("com.github.bumptech.glide:compiler:4.16.0")
-    //kapt("com.github.bumptech.glide:compiler:4.16.0")
+    annotationProcessor("com.github.bumptech.glide:compiler:5.0.5")
     api("androidx.media3:media3-exoplayer:1.8.0")
     api("androidx.media3:media3-common:1.8.0")
     api("androidx.media3:media3-session:1.8.0")
@@ -123,14 +121,5 @@ mavenPublishing {
 configure<GenerateBpPluginExtension> {
     minSdk.set(libMinSdk)
     targetSdk.set(libCompileSdk)
-    availableInAOSP.set { module: Module ->
-        when {
-            module.group.startsWith("org.jetbrains") -> false
-            module.group == "com.google.accompanist" -> false
-            module.group == "androidx.media3" -> false // media3 is not mapped in generateBp because it is only visible to android automotive and some test things, jLib (and apps that depend an it) are (most likely) not any of these
-	    module.group.startsWith("androidx") -> true
-            module.group.startsWith("com.google") -> true
-            else -> false
-        }
-    }
+    availableInAOSP.set { _: Module -> false }
 }

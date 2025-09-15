@@ -58,7 +58,7 @@ public class RSSViewModel extends ViewModel {
             list.add(new RssItem(null, "Error Handler", null, null, null,
                     e.getMessage(), e.getMessage() + Arrays.toString(e.getStackTrace()).replace(", ", "\n"), null, null, null, "jLib", null,
                     Collections.emptyList(), null, null, null, null));
-            return new RssChannel("Error Handler", null, null, null, null, null,
+            return new RssChannel("Error Handler", null, "Something failed and to keep this jLib app running this is displayed, {EXCLUDE FROM NOTIFIER}", null, null, null,
                     list, null, null);
         }
     }

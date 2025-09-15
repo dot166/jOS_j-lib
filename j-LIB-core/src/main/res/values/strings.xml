@@ -48,4 +48,10 @@
     <string name="close_media_player">close media player</string>
     <string name="placeholder">PLACEHOLDER</string>
     <string name="preview_mode">PREVIEW MODE</string>
+    <string name="import_registry_from_storage">Import registry from storage</string>
+    <string name="export_registry_to_storage">Export registry to storage</string>
+    <string name="edit_station_registry">Edit Registry</string>
+    <string name="add_new_station_to_registry">Add new record to registry</string>
+    <string name="station_url_input">Url Input</string>
+    <string name="save_to_registry">Save to registry</string>
 </resources>

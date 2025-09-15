@@ -14,7 +14,7 @@ public class RSSNotifAlarmReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
         Log.i("RSS", "received");
-        if (context != null && PreferenceManager.getDefaultSharedPreferences(context).contains("rssUrls") && !PreferenceManager.getDefaultSharedPreferences(context).getString("rssUrls", "").isEmpty() && !PreferenceManager.getDefaultSharedPreferences(context).getString("rssUrls", "").endsWith(";")) {
+        if (context != null) {
             Log.i("RSS", "notif");
             NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
             RSSNotifier rssNotifier = new RSSNotifier(notificationManager, context);

@@ -1,13 +1,15 @@
 package io.github.dot166.jlib.rss;
 
-import static io.github.dot166.jlib.utils.DateUtils.convertDateToEpochSeconds;
-import static io.github.dot166.jlib.utils.DateUtils.convertFromCommonFormats;
+import static android.widget.Toast.LENGTH_LONG;
+import static io.github.dot166.jlib.registry.RegistryHelper.getFromRegistry;
+import static io.github.dot166.jlib.registry.XmlHelper.writeXmlToFile;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -20,16 +22,15 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.google.android.material.snackbar.Snackbar;
-import com.prof18.rssparser.model.RssChannel;
-import com.prof18.rssparser.model.RssItem;
 
 import java.util.ArrayList;
-import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
-import java.util.Objects;
+import java.util.Map;
 
 import io.github.dot166.jlib.R;
 import io.github.dot166.jlib.app.jActivity;
+import io.github.dot166.jlib.registry.RegistryHelper;
 
 public class RSSFragment extends Fragment {
 
@@ -54,7 +55,23 @@ public class RSSFragment extends Fragment {
         if (getActivity() instanceof jActivity) {
             ((jActivity)getActivity()).forceNotificationPermission();
         }
-        String[] rssUrls = PreferenceManager.getDefaultSharedPreferences(requireContext()).getString("rssUrls", "").split(";");
+        if (!PreferenceManager.getDefaultSharedPreferences(requireContext()).getString("rssUrls", "").isBlank()) {
+            List<RegistryHelper.Object> stationsToMigrate = new ArrayList<>();
+            String[] rssUrlsToMigrate = PreferenceManager.getDefaultSharedPreferences(requireContext()).getString("rssUrls", "").split(";");
+            for (String rssUrlToMigrate : rssUrlsToMigrate) {
+                Map<String, String> url = new HashMap<>();
+                url.put("objectUrl", rssUrlToMigrate);
+                stationsToMigrate.add(new RegistryHelper.Object(url));
+            }
+            writeXmlToFile(requireContext(), "Registry.xml", stationsToMigrate);
+            PreferenceManager.getDefaultSharedPreferences(requireContext()).edit().remove("rssUrls").apply();
+            Toast.makeText(requireContext(), "Migration Complete", LENGTH_LONG).show();
+        }
+        List<RegistryHelper.Object> feeds = getFromRegistry(requireContext());
+        String[] rssUrls = new String[feeds.size()];
+        for (int i = 0; i < feeds.size(); i++) {
+            rssUrls[i] = feeds.get(i).getUrl();
+        }
         View view = inflater.inflate(R.layout.fragment_rss, container, false);
         viewModel = new ViewModelProvider(this).get(RSSViewModel.class);
 
@@ -92,7 +109,7 @@ public class RSSFragment extends Fragment {
 
         mSwipeRefreshLayout = view.findViewById(R.id.swipe_layout);
         mSwipeRefreshLayout.setColorSchemeColors(
-                requireContext().obtainStyledAttributes(new int[]{com.google.android.material.R.attr.colorPrimary}).getColor(0, 0)
+                requireContext().obtainStyledAttributes(new int[]{androidx.appcompat.R.attr.colorPrimary}).getColor(0, 0)
         );
         mSwipeRefreshLayout.canChildScrollUp();
         mSwipeRefreshLayout.setOnRefreshListener(() -> {

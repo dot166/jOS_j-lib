@@ -109,7 +109,7 @@ object ThemeEngine {
     @SuppressLint("Recycle")
     private fun getColourScheme(context: Context): ColorScheme {
         return ColorScheme(
-            primary = Color(context.obtainStyledAttributes(intArrayOf(com.google.android.material.R.attr.colorPrimary)).getColor(0, 0)),
+            primary = Color(context.obtainStyledAttributes(intArrayOf(androidx.appcompat.R.attr.colorPrimary)).getColor(0, 0)),
             onPrimary= Color(context.obtainStyledAttributes(intArrayOf(com.google.android.material.R.attr.colorOnPrimary)).getColor(0, 0)),
             primaryContainer = Color(context.obtainStyledAttributes(intArrayOf(com.google.android.material.R.attr.colorPrimaryContainer)).getColor(0, 0)),
             onPrimaryContainer = Color(context.obtainStyledAttributes(intArrayOf(com.google.android.material.R.attr.colorOnPrimaryContainer)).getColor(0, 0)),
@@ -128,10 +128,10 @@ object ThemeEngine {
             onSurface = Color(context.obtainStyledAttributes(intArrayOf(com.google.android.material.R.attr.colorOnSurface)).getColor(0, 0)),
             surfaceVariant = Color(context.obtainStyledAttributes(intArrayOf(com.google.android.material.R.attr.colorSurfaceVariant)).getColor(0, 0)),
             onSurfaceVariant = Color(context.obtainStyledAttributes(intArrayOf(com.google.android.material.R.attr.colorOnSurfaceVariant)).getColor(0, 0)),
-            surfaceTint = Color(context.obtainStyledAttributes(intArrayOf(com.google.android.material.R.attr.colorPrimary)).getColor(0, 0)),
+            surfaceTint = Color(context.obtainStyledAttributes(intArrayOf(androidx.appcompat.R.attr.colorPrimary)).getColor(0, 0)),
             inverseSurface = Color(context.obtainStyledAttributes(intArrayOf(com.google.android.material.R.attr.colorSurfaceInverse)).getColor(0, 0)),
             inverseOnSurface = Color(context.obtainStyledAttributes(intArrayOf(com.google.android.material.R.attr.colorOnSurfaceInverse)).getColor(0, 0)),
-            error = Color(context.obtainStyledAttributes(intArrayOf(com.google.android.material.R.attr.colorError)).getColor(0, 0)),
+            error = Color(context.obtainStyledAttributes(intArrayOf(androidx.appcompat.R.attr.colorError)).getColor(0, 0)),
             onError = Color(context.obtainStyledAttributes(intArrayOf(com.google.android.material.R.attr.colorOnError)).getColor(0, 0)),
             errorContainer = Color(context.obtainStyledAttributes(intArrayOf(com.google.android.material.R.attr.colorErrorContainer)).getColor(0, 0)),
             onErrorContainer = Color(context.obtainStyledAttributes(intArrayOf(com.google.android.material.R.attr.colorOnErrorContainer)).getColor(0, 0)),

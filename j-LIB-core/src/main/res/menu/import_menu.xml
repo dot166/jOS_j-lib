@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="@string/import_registry_from_storage" android:id="@+id/import_xml" />
+
+    <item android:title="@string/export_registry_to_storage" android:id="@+id/export_xml" />
+</menu>
