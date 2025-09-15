@@ -81,9 +81,9 @@ dependencies {
     api("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
     //noinspection NewerVersionAvailable
     api("com.prof18.rssparser:rssparser:6.0.11")
-    api("com.github.bumptech.glide:glide:4.16.0")
+    api("com.github.bumptech.glide:glide:5.0.5")
     api("com.caverock:androidsvg:1.4")
-    annotationProcessor("com.github.bumptech.glide:compiler:4.16.0")
+    annotationProcessor("com.github.bumptech.glide:compiler:5.0.5")
     //kapt("com.github.bumptech.glide:compiler:4.16.0")
     api("androidx.media3:media3-exoplayer:1.8.0")
     api("androidx.media3:media3-common:1.8.0")
