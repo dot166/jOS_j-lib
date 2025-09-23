@@ -2337,7 +2337,7 @@ java_library_static {
 
 android_library_import {
     name: "j-Lib_com.prof18.rssparser_rssparser-android",
-    aars: ["com/prof18/rssparser/rssparser-android/6.0.12/rssparser-release.aar"],
+    aars: ["com/prof18/rssparser/rssparser-android/6.1.0/rssparser-release.aar"],
     sdk_version: "36",
     min_sdk_version: "26",
     apex_available: [
@@ -2916,7 +2916,7 @@ java_library_static {
 
 java_import {
     name: "j-Lib_org.jetbrains.kotlin_kotlin-stdlib",
-    jars: ["org/jetbrains/kotlin/kotlin-stdlib/2.2.10/kotlin-stdlib-2.2.10.jar"],
+    jars: ["org/jetbrains/kotlin/kotlin-stdlib/2.2.20/kotlin-stdlib-2.2.20.jar"],
     sdk_version: "36",
     min_sdk_version: "26",
     apex_available: [
