@@ -110,6 +110,38 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
                 Toast.makeText(view.getContext(), "no content or url available", LENGTH_SHORT).show();
             }
         });
+
+        viewHolder.itemView.setOnLongClickListener(view -> {
+            if (currentArticle.getRawEnclosure() != null && currentArticle.getRawEnclosure().getUrl() != null && !currentArticle.getRawEnclosure().getUrl().isEmpty()) {
+                Uri webpage = Uri.parse(currentArticle.getRawEnclosure().getUrl());
+                CustomTabsIntent intent = new CustomTabsIntent.Builder()
+                        .build();
+                intent.launchUrl(view.getContext(), webpage);
+            } else if (currentArticle.getLink() != null && !currentArticle.getLink().isEmpty()) {
+                Uri webpage = Uri.parse(currentArticle.getLink());
+                CustomTabsIntent intent = new CustomTabsIntent.Builder()
+                        .build();
+                intent.launchUrl(view.getContext(), webpage);
+            } else if (currentArticle.getContent() != null && !currentArticle.getContent().isEmpty()) {
+                AlertDialog.Builder builder2 = new AlertDialog.Builder(view.getContext());
+
+                builder2.setMessage(currentArticle.getContent())
+                        .setTitle("Rss Content")
+                        .setIcon(R.drawable.outline_rss_feed_24)
+                        .setCancelable(false)
+                        .setNeutralButton(R.string.ok, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.dismiss();
+                            }
+                        });
+                //Creating dialog box
+                AlertDialog alert = builder2.create();
+                alert.show();
+            } else {
+                Toast.makeText(view.getContext(), "no content or url available", LENGTH_SHORT).show();
+            }
+            return false;
+        });
     }
 
     @Override

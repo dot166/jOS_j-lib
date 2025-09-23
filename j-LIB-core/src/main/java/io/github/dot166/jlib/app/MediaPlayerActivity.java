@@ -141,7 +141,7 @@ public class MediaPlayerActivity  extends jActivity {
         controllerFuture.addListener(() -> {
             try {
                 mPlayer = controllerFuture.get();
-                createPlayer(url, drawUrl);
+                createPlayer(url, drawUrl, title);
             } catch (Exception e) {
                 ErrorUtils.handle(e, this);
                 stopService(new Intent(this, ((jLIBCoreApp)getApplicationContext()).getMediaPlayerService().getClass()));
@@ -232,7 +232,7 @@ public class MediaPlayerActivity  extends jActivity {
         }
     }
 
-    protected void createPlayer(String url, String drawUrl) {
+    protected void createPlayer(String url, String drawUrl, String title) {
         try {
             String urltest;
             if (Objects.equals(url, "")) {
@@ -249,6 +249,10 @@ public class MediaPlayerActivity  extends jActivity {
                 if (drawUrl != null && !drawUrl.isEmpty()) {
                     metadata.setArtworkUri(Uri.parse(drawUrl));
                 }
+                if (title == null || title.isEmpty()) {
+                    title = (String) MediaItem.fromUri(url).mediaMetadata.title; // if title is not passed into create function, use embedded title
+                }
+                metadata.setTitle(title);
                 addExtraMetadata(mIBuilder, metadata);
                 mIBuilder.setMediaMetadata(metadata.build());
                 MediaItem mediaItem = mIBuilder.build();

@@ -79,7 +79,7 @@ dependencies {
     api("com.mikepenz:aboutlibraries-core:12.2.4")
     api("com.mikepenz:aboutlibraries-compose-m3:12.2.4")
     api("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
-    api("com.prof18.rssparser:rssparser:6.0.12")
+    api("com.prof18.rssparser:rssparser:6.1.0")
     api("com.github.bumptech.glide:glide:5.0.5")
     api("com.caverock:androidsvg:1.4")
     annotationProcessor("com.github.bumptech.glide:compiler:5.0.5")
