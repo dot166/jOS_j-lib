@@ -3,12 +3,6 @@
     <androidx.preference.PreferenceCategory android:title="@string/jlib" android:key="lib_category">
 
 	    <Preference
-            android:key="ThemeEngine"
-            android:title="@string/theme_settings"
-            android:icon="@mipmap/ic_themeengine"
-            android:summary="@string/global_theme_settings"/>
-
-        <Preference
             android:key="LIBVer"
             android:icon="@android:mipmap/sym_def_app_icon"
             android:title="@string/jlib_version"/>

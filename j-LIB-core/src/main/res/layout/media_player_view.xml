@@ -8,8 +8,8 @@
 
     <ImageView
         android:id="@+id/now_playing_logo"
-        android:layout_width="125dp"
-        android:layout_height="125dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         tools:src="@mipmap/ic_launcher_j"
         android:contentDescription="@string/cover_art"/>
 
@@ -42,7 +42,7 @@
             android:singleLine="true"
             tools:text="Radio Station or Artist Name"/>
 
-        <SeekBar
+        <com.google.android.material.slider.Slider
             android:id="@+id/seekBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />

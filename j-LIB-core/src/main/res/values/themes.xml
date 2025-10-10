@@ -1,165 +1,30 @@
 <resources>
     <!-- Base System theme. -->
-    <style name="j.Theme" parent="Platform.j.Theme">
-        <item name="isJTheme">true</item>
+    <style name="j.Theme" parent="Theme.Material3.DynamicColors.Dark.NoActionBar">
         <item name="viewInflaterClass">io.github.dot166.jlib.app.jLibViewInflater</item>
-        <item name="android:colorBackground">#00000000</item> <!-- fixes bug in compose -->
-        <item name="android:textAppearance">@android:style/TextAppearance.Holo</item>
-        <item name="android:textAppearanceInverse">@android:style/TextAppearance.Holo.Inverse</item>
-
-        <item name="android:textAppearanceLarge">@android:style/TextAppearance.Holo.Large</item>
-        <item name="android:textAppearanceMedium">@android:style/TextAppearance.Holo.Medium</item>
-        <item name="android:textAppearanceSmall">@android:style/TextAppearance.Holo.Small</item>
-
-        <item name="android:panelBackground">@drawable/menu_hardkey_panel_holo_dark</item>
-        <item name="android:windowBackground">@drawable/background</item>
-        <item name="android:windowBackgroundFallback">?android:attr/colorBackground</item>
-        <item name="android:listChoiceIndicatorSingle">@drawable/btn_radio_holo_dark</item>
-        <item name="android:listChoiceIndicatorMultiple">@drawable/btn_check_holo_dark</item>
-        <item name="android:listDivider">@drawable/list_divider_holo_dark</item>
-        <item name="android:selectableItemBackground">@drawable/item_background_holo_dark</item>
         <item name="android:selectableItemBackgroundBorderless">?android:attr/selectableItemBackground</item>
-        <item name="android:actionBarPopupTheme">@null</item>
-        <item name="android:colorBackgroundFloating">#ff000000</item>
         <!-- Used by MediaRouter -->
-        <item name="android:borderlessButtonStyle">@style/j.Switch</item>
-        <item name="android:homeAsUpIndicator">@drawable/j_ic_ab_back_holo_dark</item>
-        <item name="android:dividerVertical">@drawable/list_divider_holo_dark</item>
-        <item name="android:dividerHorizontal">@drawable/list_divider_holo_dark</item>
-        <!-- Action Bar Styles -->
-        <item name="android:actionBarSize">@dimen/j_action_bar_default_height</item>
-        <!-- Spinner styles -->
-        <item name="android:spinnerStyle">@android:style/Widget.Holo.Spinner</item>
-        <!-- Popup Menu styles -->
-        <item name="android:popupMenuStyle">@android:style/Widget.Holo.PopupMenu</item>
-        <!-- Toolbar styles -->
-        <item name="android:toolbarStyle">@style/j.ActionBar</item>
-        <item name="android:editTextStyle">@android:style/Widget.Holo.EditText</item>
-        <!-- Color palette -->
-        <item name="android:switchStyle">@style/j.Switch</item>
-        <item name="android:progressBarStyle">@style/j.Progress</item>
-        <item name="android:progressBarStyleHorizontal">@style/j.Progress.Horizontal</item>
-        <item name="android:progressBarStyleSmall">@style/j.Progress.Small</item>
-        <item name="android:progressBarStyleSmallTitle">@style/j.Progress.Small.Title</item>
-        <item name="android:progressBarStyleLarge">@style/j.Progress.Large</item>
-        <item name="android:progressBarStyleInverse">@style/j.Progress</item>
-        <item name="android:progressBarStyleSmallInverse">@style/j.Progress.Small</item>
-        <item name="android:progressBarStyleLargeInverse">@style/j.Progress.Large</item>
-        <item name="android:seekBarStyle">@style/j.SeekBar</item>
+        <item name="android:borderlessButtonStyle">@style/Widget.Material3.Button</item>
         <!-- Button styles -->
-        <item name="android:buttonStyle">@style/j.Button</item>
-        <item name="android:buttonStyleSmall">@style/j.Button</item>
-        <item name="android:buttonBarStyle">@android:style/Holo.ButtonBar</item>
+        <item name="android:buttonStyle">@style/Widget.Material3.Button</item>
+        <item name="android:buttonStyleSmall">@style/Widget.Material3.Button</item>
         <item name="android:buttonBarButtonStyle">?attr/borderlessButtonStyle</item>
         <item name="android:buttonBarPositiveButtonStyle">?buttonBarButtonStyle</item>
         <item name="android:buttonBarNegativeButtonStyle">?buttonBarButtonStyle</item>
         <item name="android:buttonBarNeutralButtonStyle">?buttonBarButtonStyle</item>
-        <!-- Dialog attributes -->
-        <item name="android:dialogTheme">@style/ThemeOverlay.j.Dialog</item>
-        <item name="android:dialogPreferredPadding">16dp</item>
-        <item name="android:alertDialogTheme">@style/ThemeOverlay.j.Dialog.Alert.Framework</item>
-        <item name="android:alertDialogStyle">@style/AlertDialog.AppCompat</item>
-        <!-- Tooltip attributes -->
-        <item name="android:editTextBackground">@drawable/j_edit_text_holo_dark</item>
-        <item name="android:actionOverflowButtonStyle">@android:style/Widget.Holo.ActionButton.Overflow</item>
-        <item name="android:windowShowWallpaper">true</item>
 
         <!-- AppCompat Attributes -->
-        <item name="listChoiceIndicatorSingleAnimated">@drawable/btn_radio_holo_dark</item>
-        <item name="listChoiceIndicatorMultipleAnimated">@drawable/btn_check_holo_dark</item>
-        <item name="actionBarPopupTheme">@null</item>
-        <item name="colorBackgroundFloating">#ff000000</item>
-        <!-- Used by MediaRouter -->
-        <item name="isLightTheme">false</item>
-        <item name="selectableItemBackground">@drawable/item_background_holo_dark</item>
-        <item name="selectableItemBackgroundBorderless">?attr/selectableItemBackground</item>
-        <item name="borderlessButtonStyle">@style/j.Button</item>
-        <item name="homeAsUpIndicator">@drawable/j_ic_ab_back_holo_dark</item>
-        <item name="dividerVertical">@drawable/list_divider_holo_dark</item>
-        <item name="dividerHorizontal">@drawable/list_divider_holo_dark</item>
-        <!-- Action Bar Styles -->
-        <item name="actionBarSize">@dimen/j_action_bar_default_height</item>
-        <!-- Panel attributes -->
-        <item name="panelBackground">@drawable/menu_hardkey_panel_holo_dark</item>
-        <!-- Spinner styles -->
-        <item name="spinnerStyle">@android:style/Widget.Holo.Spinner</item>
-        <!-- Popup Menu styles -->
-        <item name="popupMenuStyle">@android:style/Widget.Holo.PopupMenu</item>
-        <!-- Toolbar styles -->
-        <item name="toolbarStyle">@style/j.ActionBar</item>
-        <item name="editTextStyle">@android:style/Widget.Holo.EditText</item>
-        <!-- Color palette -->
-        <item name="controlBackground">?android:selectableItemBackgroundBorderless</item>
-        <item name="switchStyle">@style/j.Switch</item>
-        <item name="progressBarStyle">@style/j.Progress</item>
-        <item name="seekBarStyle">@style/j.SeekBar</item>
+        <item name="borderlessButtonStyle">@style/Widget.Material3.Button</item>
         <!-- Button styles -->
-        <item name="buttonStyle">@style/j.Button</item>
-        <item name="imageButtonStyle">@android:style/Widget.Holo.ImageButton</item>
-        <item name="buttonBarStyle">@android:style/Holo.ButtonBar</item>
+        <item name="buttonStyle">@style/Widget.Material3.Button</item>
+        <item name="buttonBarStyle">@style/Widget.Material3.Button</item>
         <item name="buttonBarButtonStyle">?attr/borderlessButtonStyle</item>
         <item name="buttonBarPositiveButtonStyle">?buttonBarButtonStyle</item>
         <item name="buttonBarNegativeButtonStyle">?buttonBarButtonStyle</item>
         <item name="buttonBarNeutralButtonStyle">?buttonBarButtonStyle</item>
-        <!-- Dialog attributes -->
-        <item name="dialogTheme">@style/ThemeOverlay.j.Dialog</item>
-        <item name="dialogPreferredPadding">16dp</item>
-        <item name="alertDialogTheme">@style/ThemeOverlay.j.Dialog.Alert</item>
-        <item name="alertDialogStyle">@style/AlertDialog.AppCompat</item>
-        <!-- Tooltip attributes -->
-        <item name="actionOverflowButtonStyle">@android:style/Widget.Holo.ActionButton.Overflow</item>
-        <item name="editTextBackground">@drawable/j_edit_text_holo_dark</item>
-
-        <!-- Material Design Attributes -->
-        <item name="scrimBackground">@color/scrimBackground</item>
-        <item name="popupMenuBackground">@drawable/menu_panel_holo_dark</item>
 
         <!-- MaterialComponents Widget styles -->
         <item name="materialButtonStyle">?buttonStyle</item>
         <item name="materialButtonOutlinedStyle">?buttonStyle</item>
-
-        <!-- Framework, AppCompat, or Design Widget styles -->
-        <item name="bottomNavigationStyle">@style/j.BottomNav</item>
-        <item name="tabStyle">@style/j.tab</item>
-        <item name="materialAlertDialogTheme">@style/ThemeOverlay.Material3.MaterialAlertDialog</item>
-        <item name="materialIconButtonFilledStyle">@style/j.Button.icon</item>
-        <item name="cardViewStyle">@style/j.card</item>
-    </style>
-    <!-- Theme.Material3.DynamicColors.Dark.NoActionBar overrides -->
-    <style name="Platform.j.Theme" parent="Theme.Material3.DynamicColors.Dark.NoActionBar">
-        <!-- Android Red Velvet Cake (11) and older do not support dynamic colours -->
-        <item name="android:textColorPrimary">@color/j_primary_text_holo_dark</item>
-        <item name="android:textColorSecondary">@color/j_secondary_text_holo_dark</item>
-        <item name="android:textColorTertiary">@color/j_tertiary_text_holo_dark</item>
-        <item name="android:textColorPrimaryInverse">@color/j_primary_text_holo_light</item>
-        <item name="android:textColorSecondaryInverse">@color/j_secondary_text_holo_light</item>
-        <item name="android:textColorTertiaryInverse">@color/j_tertiary_text_holo_light</item>
-        <item name="android:textColorPrimaryDisableOnly">@color/j_primary_text_disable_only_holo_dark</item>
-        <item name="android:textColorPrimaryInverseDisableOnly">@color/j_primary_text_disable_only_holo_light</item>
-        <item name="android:textColorHint">#808080</item>
-        <item name="android:textColorHintInverse">#808080</item>
-        <item name="android:textColorHighlight">#6633B5E5</item>
-        <item name="android:textColorHighlightInverse">#6633B5E5</item>
-        <item name="android:textColorAlertDialogListItem">@color/j_primary_text_holo_dark</item>
-        <item name="colorPrimaryDark">@android:color/black</item>
-        <item name="colorPrimary">#0077aa</item>
-        <item name="colorControlNormal">#CCCCCC</item>
-        <item name="colorControlActivated">@android:color/holo_blue_light</item>
-        <item name="colorControlHighlight">#59F0F0F0</item>
-        <item name="colorButtonNormal">#BD292F34</item>
-        <item name="colorError">@android:color/holo_red_dark</item>
-        <item name="colorSecondary">@android:color/holo_blue_dark</item>
-        <item name="colorSurface">#121212</item>
-        <item name="colorOnPrimary">#000000</item>
-        <item name="colorOnSecondary">#000000</item>
-        <item name="colorOnBackground">#FFFFFF</item>
-        <item name="colorOnError">#000000</item>
-        <item name="colorOnSurface">#FFFFFF</item>
-    </style>
-
-    <style name="j.Theme.Classic">
-        <item name="android:windowBackground">@drawable/background_basic</item>
-        <item name="android:windowShowWallpaper">false</item>
-        <item name="cardViewStyle">@style/CardView</item>
     </style>
 </resources>

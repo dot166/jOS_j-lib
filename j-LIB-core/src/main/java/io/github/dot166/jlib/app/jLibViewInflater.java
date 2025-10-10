@@ -9,7 +9,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.widget.SwitchCompat;
 import androidx.appcompat.widget.Toolbar;
 
-import com.google.android.material.switchmaterial.SwitchMaterial;
+import com.google.android.material.materialswitch.MaterialSwitch;
 import com.google.android.material.theme.MaterialComponentsViewInflater;
 
 import org.jetbrains.annotations.Contract;
@@ -25,7 +25,7 @@ public class jLibViewInflater extends MaterialComponentsViewInflater {
 
         // We need to 'inject' our Views in place of the standard framework versions and appcompat versions and materialcomponents versions
         switch (name) {
-            case "com.google.android.material.materialswitch.MaterialSwitch": // does not theme properly so replace with the older one
+            case "com.google.android.material.switchmaterial.SwitchMaterial":
                 view = createSwitch(context, attrs);
                 verifyNotNull(view, name);
                 break;
@@ -56,7 +56,7 @@ public class jLibViewInflater extends MaterialComponentsViewInflater {
     @NonNull
     @Contract("_, _ -> new")
     protected SwitchCompat createSwitch(Context context, AttributeSet attrs) {
-        return new SwitchMaterial(context, attrs);
+        return new MaterialSwitch(context, attrs);
     }
 
     private void verifyNotNull(View view, String name) {

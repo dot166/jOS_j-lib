@@ -19,8 +19,6 @@
     <string name="dialog_stacktrace">Show Stack Trace</string>
     <string name="exit_test_menu">Exit test menu</string>
     <string name="menu_action_icon">Menu Action Icon</string>
-    <string name="theme_settings">Theme Settings</string>
-    <string name="global_theme_settings">Theme Engine Settings</string>
     <string name="about_jlib">About jLib</string>
     <string name="birdgame">BirdGame</string>
     <!-- Custom seekbar -->

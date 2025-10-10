@@ -4,7 +4,6 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
-import androidx.appcompat.widget.Toolbar
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -13,7 +12,7 @@ import androidx.compose.ui.platform.ComposeView
 import com.mikepenz.aboutlibraries.ui.compose.android.rememberLibraries
 import com.mikepenz.aboutlibraries.ui.compose.m3.LibrariesContainer
 import io.github.dot166.jlib.R
-import io.github.dot166.jlib.themeengine.ThemeEngine.GetComposeTheme
+import io.github.dot166.jlib.utils.ThemeUtils.jLibComposeTheme
 
 class OSSLicenceActivity : jActivity() {
     @SuppressLint("DiscouragedApi")
@@ -27,7 +26,7 @@ class OSSLicenceActivity : jActivity() {
             Log.e("ActionBar2", "no actionbar found")
         }
         findViewById<ComposeView>(R.id.my_composable)?.setContent {
-            GetComposeTheme(context = this) {
+            jLibComposeTheme(this){
                 LibrariesList()
             }
         }

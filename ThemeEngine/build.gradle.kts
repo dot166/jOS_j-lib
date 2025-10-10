@@ -37,8 +37,8 @@ android {
         applicationId = "io.github.dot166.themeengine"
         minSdk = libMinSdk
         targetSdk = libCompileSdk
-        versionCode = Ver
-        versionName = Ver.toString()
+        versionCode = 101
+        versionName = 101.toString()
     }
 
     applicationVariants.configureEach {
@@ -53,17 +53,6 @@ android {
             isMinifyEnabled = false
             signingConfig = signingConfigs.getByName("release")
             setProguardFiles(listOf(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"))
-        }
-    }
-
-    sourceSets {
-        named("main") {
-            java {
-                srcDir(rootProject.projectDir.absolutePath + "/themepickerimpl/java")
-            }
-            res {
-                srcDir(rootProject.projectDir.absolutePath + "/themepickerimpl/res")
-            }
         }
     }
 

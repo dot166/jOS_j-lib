@@ -3,55 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="io.github.dot166.themeengine">
 
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_themeengine"
         android:label="@string/app_name"
         android:theme="@style/j.Theme"
         android:supportsRtl="true">
-
-        <activity
-            android:name="io.github.dot166.themeengine.ThemeEngineActivity"
-            android:exported="true"
-            android:label="@string/app_name"
-            tools:ignore="RedundantLabel">
-            <intent-filter>
-                <action android:name="io.github.dot166.themeengine.CONFIG" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-
-        <activity android:name="io.github.dot166.themeengine.LauncherActivity"
-            android:exported="true"
-            android:label="@string/app_name"
-            android:icon="@mipmap/ic_themeengine"
-            tools:ignore="RedundantLabel">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-
-        <receiver android:name="io.github.dot166.themeengine.TEBroadcastReceiver"
-            android:exported="true"
-            tools:ignore="ExportedReceiver">
-            <intent-filter>
-                <action android:name="com.android.launcher3.action.PARTNER_CUSTOMIZATION" /> <!-- Launcher3 Customisation thing for jOS -->
-                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
-                <action android:name="android.intent.action.BOOT_COMPLETED" />
-                <action android:name="android.intent.action.USER_INITIALIZE" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="android.telephony.action.SECRET_CODE" />
-                <!-- *#*#THEME#*#* -->
-                <data
-                    android:host="84363"
-                    android:scheme="android_secret_code" />
-            </intent-filter>
-        </receiver>
 
         <provider
             android:name="io.github.dot166.themeengine.ThemeProvider"

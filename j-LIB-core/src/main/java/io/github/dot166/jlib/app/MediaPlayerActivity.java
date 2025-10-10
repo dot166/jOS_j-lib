@@ -11,10 +11,9 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
-import android.widget.SeekBar;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.OptIn;
 import androidx.core.content.ContextCompat;
 import androidx.media3.common.MediaItem;
@@ -25,6 +24,8 @@ import androidx.media3.session.MediaController;
 import androidx.media3.session.SessionToken;
 
 import com.bumptech.glide.Glide;
+import com.google.android.material.progressindicator.CircularProgressIndicator;
+import com.google.android.material.slider.Slider;
 import com.google.common.util.concurrent.ListenableFuture;
 
 import java.text.SimpleDateFormat;
@@ -48,7 +49,7 @@ public class MediaPlayerActivity  extends jActivity {
                 mHandled.post(updateThread);
                 return;
             }
-            ProgressBar progress = findViewById(R.id.progress);
+            CircularProgressIndicator progress = findViewById(R.id.progress);
             if (!mPlayer.isConnected()) {
                 // uh oh, service died
                 progress.setVisibility(VISIBLE);
@@ -155,18 +156,18 @@ public class MediaPlayerActivity  extends jActivity {
         } else {
             mHandled.post(mTryLoadSavedArtwork);
         }
-        SeekBar seekBarMain = findViewById(R.id.seekBar);
-        seekBarMain.setMin(0);
-        seekBarMain.setMax(1000);
+        Slider seekBarMain = findViewById(R.id.seekBar);
+        seekBarMain.setValueFrom(0);
+        seekBarMain.setValueTo(1000);
         setProgress(seekBarMain);
-        seekBarMain.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+        seekBarMain.addOnChangeListener(new Slider.OnChangeListener() {
             @Override
-            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+            public void onValueChange(@NonNull Slider seekBar, float progress, boolean fromUser) {
                 if (mPlayer.isCurrentMediaItemLive()) {
                     return;
                 }
                 long duration = mPlayer.getDuration();
-                long newposition = (duration * progress) / 1000L;
+                long newposition = (long) ((duration * progress) / 1000L);
                 String formattedTextString = new SimpleDateFormat("HH:mm:ss", Locale.ENGLISH).format(newposition) + "/" + new SimpleDateFormat("HH:mm:ss", Locale.ENGLISH).format(duration);
                 ((TextView)findViewById(R.id.text)).setText(formattedTextString);
                 if (!fromUser) {
@@ -175,16 +176,6 @@ public class MediaPlayerActivity  extends jActivity {
                     return;
                 }
                 mPlayer.seekTo( (int) newposition);
-            }
-
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-
-            }
-
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-
             }
         });
 
@@ -217,7 +208,7 @@ public class MediaPlayerActivity  extends jActivity {
         mHandled.post(updateThread);
     }
 
-    protected void setProgress(SeekBar progress) {
+    protected void setProgress(Slider progress) {
         if (mPlayer == null) {
             return;
         }
@@ -227,7 +218,7 @@ public class MediaPlayerActivity  extends jActivity {
             if (duration > 0) {
                 // use long to avoid overflow
                 long pos = 1000L * position / duration;
-                progress.setProgress((int) pos);
+                progress.setValue((int) pos);
             }
         }
     }

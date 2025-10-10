@@ -71,9 +71,9 @@ dependencies {
     api("androidx.core:core-ktx:1.17.0")
     api("androidx.browser:browser:1.9.0")
     api("androidx.activity:activity-compose:1.11.0")
-    api("androidx.compose.ui:ui-android:1.9.1")
-    api("androidx.compose.material3:material3-android:1.3.2")
-    api("androidx.compose.material:material-android:1.9.1")
+    api("androidx.compose.ui:ui-android:1.9.3")
+    api("androidx.compose.material3:material3-android:1.4.0")
+    api("androidx.compose.material:material-android:1.9.3")
     api("io.coil-kt:coil-compose:2.7.0")
     api("com.google.accompanist:accompanist-drawablepainter:0.37.3")
     api("com.mikepenz:aboutlibraries-core:12.2.4")
@@ -94,7 +94,7 @@ mavenPublishing {
 
     pom {
         name = "j Common Library"
-        description = "jLib - a common library that contains a custom actionbar based on material components Toolbar and some other things."
+        description = "jLib - an android code library"
         inceptionYear = "2024"
         url = "https://github.com/dot166/jOS_j-lib"
         licenses {

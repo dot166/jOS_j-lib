@@ -23,18 +23,21 @@ import io.github.dot166.jlib.R
 import io.github.dot166.jlib.jos.Build
 import io.github.dot166.jlib.utils.VersionUtils
 
+@Deprecated("ThemeEngine is no longer maintained, please use ThemeUtils.jLibComposeTheme() for compose and please use 8com.google.android.material.R.style.Theme_Material3_DynamicColors_DayNight (or descendant) for legacy views", ReplaceWith("ThemeUtils"), DeprecationLevel.WARNING)
 object ThemeEngine {
     var TAG: String = "jLib Theme Engine"
     var themeClass: values? = null
     private val AERO_CHECK_ATTRS = intArrayOf(android.R.attr.windowShowWallpaper)
     private val LIGHT_CHECK_ATTRS = intArrayOf(androidx.appcompat.R.attr.isLightTheme)
     @JvmStatic
+    @Deprecated("ThemeEngine is no longer maintained", level= DeprecationLevel.WARNING)
     public var tmpCurrentTheme: String = null.toString();
 
     /**
      * Set the class that contains the theme values.
      * MUST BE SET IN THE onCreate() FUNCTION IN EITHER THE APPLICATION CLASS OR ALL OF THE EXPORTED ACTIVITIES
      */
+    @Deprecated("ThemeEngine is no longer maintained", ReplaceWith("ThemeUtils"), DeprecationLevel.ERROR)
     fun setCustomThemeClass(customThemeClass: values?) {
         themeClass = customThemeClass
     }
@@ -46,6 +49,7 @@ object ThemeEngine {
      * @return theme, will return 0 if ThemeEngine is disabled
      */
     @JvmStatic
+    @Deprecated("ThemeEngine is no longer maintained", level = DeprecationLevel.ERROR)
     fun getSystemTheme(context: Activity): Int {
         val theme: String = getThemeFromThemeProvider(context)
         Log.i(TAG, theme)
@@ -65,7 +69,7 @@ object ThemeEngine {
                 ) {
                     return themeClass!!.jLibClassicTheme()
                 }
-                return R.style.j_Theme_Classic
+                return R.style.j_Theme
             }
 
             "M3" -> {
@@ -172,6 +176,7 @@ object ThemeEngine {
      */
     @Composable
     @JvmStatic
+    @Deprecated("ThemeEngine is no longer maintained", ReplaceWith("ThemeUtils.jLibComposeTheme"), DeprecationLevel.ERROR)
     fun GetComposeTheme(context: Context,
                         content: @Composable () -> Unit) {
         MaterialTheme(colorScheme = getColourScheme(context), shapes = getShapes(context), typography = getTypography(context), content = content)
@@ -182,16 +187,14 @@ object ThemeEngine {
     private fun isValidTheme(themeName: String, context: Context, theme: Int): Boolean {
         when (themeName) {
             "jLib" -> {
-                val isTranslucent = !isThemeBoolean(context, AERO_CHECK_ATTRS, theme)
                 val isDark = !isThemeBoolean(context, LIGHT_CHECK_ATTRS, theme) // jLib Theme is dark only
                 val isExtendedFromJLib = isThemeBoolean(context, intArrayOf(R.attr.isJTheme), theme)
-                return isDark && isExtendedFromJLib && isTranslucent
+                return isDark && isExtendedFromJLib
             }
             "jLib-Classic" -> {
-                val isTranslucent = !isThemeBoolean(context, AERO_CHECK_ATTRS, theme)
                 val isDark = !isThemeBoolean(context, LIGHT_CHECK_ATTRS, theme) // jLib Theme is dark only
                 val isExtendedFromJLib = isThemeBoolean(context, intArrayOf(R.attr.isJTheme), theme)
-                return isDark && isExtendedFromJLib && !isTranslucent
+                return isDark && isExtendedFromJLib
             }
             "M3" -> {
                 val manager = context.getSystemService(Context.UI_MODE_SERVICE) as UiModeManager
@@ -220,6 +223,7 @@ object ThemeEngine {
 
     @JvmStatic
     @SuppressLint("Range")
+    @Deprecated("ThemeEngine is no longer maintained", level= DeprecationLevel.WARNING)
     fun getThemeFromThemeProvider(context: Activity): String {
         // get from ThemeProvider
 

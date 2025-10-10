@@ -1,11 +1,8 @@
 package io.github.dot166.jlib.app;
 
-import static io.github.dot166.jlib.themeengine.ThemeEngine.getThemeFromThemeProvider;
-
 import android.Manifest;
 import android.content.Intent;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
 
@@ -19,13 +16,11 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import java.util.Objects;
-
 import io.github.dot166.jlib.R;
-import io.github.dot166.jlib.themeengine.ThemeEngine;
 import io.github.dot166.jlib.utils.VersionUtils;
 
 public class jActivity extends AppCompatActivity {
+    @Deprecated
     String currentTheme = null;
     private ActivityResultLauncher<String> notificationPermissionLauncher;
 
@@ -55,8 +50,6 @@ public class jActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        currentTheme = getThemeFromThemeProvider(this);
-        setTheme(ThemeEngine.getSystemTheme(this));
         super.onCreate(savedInstanceState);
 
         notificationPermissionLauncher = registerForActivityResult(new ActivityResultContracts.RequestPermission(), isGranted -> {
@@ -85,16 +78,6 @@ public class jActivity extends AppCompatActivity {
                 // passed down to descendant views.
                 return WindowInsetsCompat.CONSUMED;
             });
-        }
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        if (!Objects.equals(currentTheme, getThemeFromThemeProvider(this))) {
-            Intent intent = getIntent();
-            finish();
-            startActivity(intent);
         }
     }
 

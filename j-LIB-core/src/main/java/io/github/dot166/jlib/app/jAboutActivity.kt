@@ -31,7 +31,6 @@ import androidx.compose.material3.AssistChip
 import androidx.compose.material3.Button
 import androidx.compose.material3.LocalContentColor
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -47,9 +46,9 @@ import androidx.core.net.toUri
 import com.google.accompanist.drawablepainter.rememberDrawablePainter
 import io.github.dot166.jlib.R
 import io.github.dot166.jlib.internal.utils.ContributorRow
-import io.github.dot166.jlib.themeengine.ThemeEngine.GetComposeTheme
 import io.github.dot166.jlib.utils.AppUtils
 import io.github.dot166.jlib.utils.ErrorUtils
+import io.github.dot166.jlib.utils.ThemeUtils.jLibComposeTheme
 
 open class jAboutActivity : jActivity() {
 
@@ -254,7 +253,7 @@ open class jAboutActivity : jActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.aboutactivity)
         findViewById<ComposeView>(R.id.my_composable)?.setContent {
-            GetComposeTheme(context = this) {
+            jLibComposeTheme(context = this) {
                 About(this)
             }
         }

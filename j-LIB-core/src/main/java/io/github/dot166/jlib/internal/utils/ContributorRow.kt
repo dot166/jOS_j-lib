@@ -16,9 +16,6 @@
 
 package io.github.dot166.jlib.internal.utils
 
-import android.view.LayoutInflater
-import android.view.View
-import android.widget.ProgressBar
 import androidx.annotation.RestrictTo
 import androidx.browser.customtabs.CustomTabsIntent
 import androidx.compose.foundation.background
@@ -35,6 +32,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 //noinspection UsingMaterialAndMaterial3Libraries
 import androidx.compose.material.ContentAlpha
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.LocalContentColor
 import androidx.compose.material3.LocalTextStyle
 import androidx.compose.material3.MaterialTheme
@@ -49,9 +47,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.viewinterop.AndroidView
 import coil.compose.SubcomposeAsyncImage
-import io.github.dot166.jlib.R
 import androidx.core.net.toUri
 
 @RestrictTo(RestrictTo.Scope.LIBRARY)
@@ -146,18 +142,7 @@ fun ContributorRow(name: String, description: String, photoUrl: String, url: Str
                     .size(32.dp)
                     .background(MaterialTheme.colorScheme.surfaceColorAtElevation(3.dp)),
                 loading = {
-                    AndroidView(
-                        factory = { context ->
-                            val view = LayoutInflater.from(context).inflate(R.layout.progress_bar, null, false)
-                            val progressBar = view.findViewById<ProgressBar>(R.id.progressBar)
-
-                            // do whatever you want...
-                            view // return the view
-                        },
-                        update = { view: View ->
-                            // Update the view
-                        }
-                    )
+                    CircularProgressIndicator()
                 }
             )
         },

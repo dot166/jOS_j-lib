@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.OptIn;
 import androidx.core.content.ContextCompat;
@@ -20,6 +21,7 @@ import androidx.media3.session.MediaController;
 import androidx.media3.session.SessionToken;
 
 import com.bumptech.glide.Glide;
+import com.google.android.material.slider.Slider;
 import com.google.common.util.concurrent.ListenableFuture;
 
 import java.text.SimpleDateFormat;
@@ -118,18 +120,18 @@ public class MiniPlayer extends FrameLayout {
                 }
             }, ContextCompat.getMainExecutor(context));
             mHandled.post(mTryLoadSavedArtwork);
-            SeekBar seekBarMain = findViewById(R.id.seekBar);
-            seekBarMain.setMin(0);
-            seekBarMain.setMax(1000);
+            Slider seekBarMain = findViewById(R.id.seekBar);
+            seekBarMain.setValueFrom(0);
+            seekBarMain.setValueTo(1000);
             setProgress(seekBarMain);
-            seekBarMain.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            seekBarMain.addOnChangeListener(new Slider.OnChangeListener() {
                 @Override
-                public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                public void onValueChange(@NonNull Slider slider, float progress, boolean fromUser) {
                     if (mPlayer.isCurrentMediaItemLive()) {
                         return;
                     }
                     long duration = mPlayer.getDuration();
-                    long newposition = (duration * progress) / 1000L;
+                    long newposition = (long) ((duration * progress) / 1000L);
                     String formattedTextString = new SimpleDateFormat("HH:mm:ss", Locale.ENGLISH).format(newposition).replaceAll("^00:", "") + "/" + new SimpleDateFormat("HH:mm:ss", Locale.ENGLISH).format(duration).replaceAll("^00:", "");
                     ((TextView) findViewById(R.id.text)).setText(formattedTextString);
                     if (!fromUser) {
@@ -138,16 +140,6 @@ public class MiniPlayer extends FrameLayout {
                         return;
                     }
                     mPlayer.seekTo((int) newposition);
-                }
-
-                @Override
-                public void onStartTrackingTouch(SeekBar seekBar) {
-
-                }
-
-                @Override
-                public void onStopTrackingTouch(SeekBar seekBar) {
-
                 }
             });
 
@@ -180,16 +172,16 @@ public class MiniPlayer extends FrameLayout {
             mHandled.post(updateThread);
         } else {
             ((ImageView)findViewById(R.id.now_playing_logo)).setImageResource(R.mipmap.ic_launcher_j);
-            SeekBar seekBarMain = findViewById(R.id.seekBar);
-            seekBarMain.setMin(0);
-            seekBarMain.setMax(100);
-            seekBarMain.setProgress(50);
+            Slider seekBarMain = findViewById(R.id.seekBar);
+            seekBarMain.setValueFrom(0);
+            seekBarMain.setValueTo(100);
+            seekBarMain.setValue(50);
             ((TextView)findViewById(R.id.now_playing_title)).setText(R.string.placeholder);
             ((TextView) findViewById(R.id.now_playing_subtitle)).setText(R.string.preview_mode);
         }
     }
 
-    protected void setProgress(SeekBar progress) {
+    protected void setProgress(Slider progress) {
         if (mPlayer == null) {
             return;
         }
@@ -199,7 +191,7 @@ public class MiniPlayer extends FrameLayout {
             if (duration > 0) {
                 // use long to avoid overflow
                 long pos = 1000L * position / duration;
-                progress.setProgress((int) pos);
+                progress.setValue((int) pos);
             }
         }
     }

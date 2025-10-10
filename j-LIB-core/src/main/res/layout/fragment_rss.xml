@@ -17,13 +17,12 @@
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 
-    <ProgressBar
+    <com.google.android.material.progressindicator.CircularProgressIndicator
         android:id="@+id/progress"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        style="?android:attr/progressBarStyle"
         />
 
 </RelativeLayout>

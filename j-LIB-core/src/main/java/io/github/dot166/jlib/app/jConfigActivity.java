@@ -1,12 +1,7 @@
 package io.github.dot166.jlib.app;
 
-import static io.github.dot166.jlib.themeengine.ThemeEngine.getThemeFromThemeProvider;
-
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
-import android.net.ConnectivityManager;
-import android.net.NetworkCapabilities;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -17,7 +12,6 @@ import androidx.core.view.WindowCompat;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceCategory;
 import androidx.preference.PreferenceFragmentCompat;
-import androidx.preference.PreferenceManager;
 import androidx.preference.PreferenceScreen;
 
 import java.util.Objects;
@@ -100,18 +94,6 @@ public class jConfigActivity extends jActivity {
         protected boolean configPreference(Preference preference) {
             Log.i("Preference Logging", preference.getKey());
             switch (preference.getKey()) {
-                case "ThemeEngine":
-                    Log.i("Preference Logging", "ThemeEngine Found!!!!");
-                    preference.setOnPreferenceClickListener(p -> {
-                        Intent intent = new Intent("io.github.dot166.themeengine.CONFIG");
-                        try {
-                            startActivity(intent);
-                        } catch (Exception e) {
-                            ErrorUtils.handle(e, p.getContext());
-                        }
-                        return !hideLIB();
-                    });
-                    return !hideLIB();
                 case "LIBVer":
                     Log.i("Preference Logging", "LIBVer Found!!!!");
                     preference.setSummary(String.valueOf(VersionUtils.getLibVersion()));
@@ -147,15 +129,6 @@ public class jConfigActivity extends jActivity {
 
             // Overriding Text Direction in the Androidx preference library to support RTL
             view.setTextDirection(View.TEXT_DIRECTION_LOCALE);
-        }
-
-        @Override
-        public void onResume() {
-            super.onResume();
-
-            if (!Objects.equals(((jActivity) requireActivity()).currentTheme, getThemeFromThemeProvider(requireActivity()))) {
-                recreateActivityNow();
-            }
         }
 
         protected void recreateActivityNow() {

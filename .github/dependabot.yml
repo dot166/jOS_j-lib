@@ -17,7 +17,3 @@ updates:
     directory: "/rustLib/" # Location of package manifests
     schedule:
       interval: "daily"
-  - package-ecosystem: "cargo" # See documentation for possible values
-    directory: "/ThemeEngine/gen-variants/" # Location of package manifests
-    schedule:
-      interval: "daily"
