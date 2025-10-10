@@ -15,6 +15,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:minHeight="?android:attr/listPreferredItemHeightSmall"
     android:gravity="center_vertical"
     android:paddingStart="?android:attr/listPreferredItemPaddingStart"
@@ -61,9 +62,10 @@
                 android:textColor="?android:attr/textColorSecondary"
                 android:maxLines="1"
                 android:ellipsize="end" />
-            <ImageView
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/reset"
-                android:src="@drawable/ic_custom_seekbar_reset"
+                style="?materialIconButtonFilledStyle"
+                app:icon="@drawable/ic_custom_seekbar_reset"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
@@ -76,22 +78,24 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/value_frame"
             android:layout_alignStart="@android:id/title" >
-            <ImageView
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/minus"
-                android:src="@drawable/ic_custom_seekbar_minus"
+                style="?materialIconButtonFilledStyle"
+                app:icon="@drawable/ic_custom_seekbar_minus"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_centerVertical="true" />
-            <ImageView
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/plus"
-                android:src="@drawable/ic_custom_seekbar_plus"
+                style="?materialIconButtonFilledStyle"
+                app:icon="@drawable/ic_custom_seekbar_plus"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true" />
             <LinearLayout
-                android:id="@+id/seekbar"
+                android:id="@+id/slider"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"

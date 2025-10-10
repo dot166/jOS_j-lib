@@ -106,8 +106,6 @@ ContributorRow.kt, modifierIf.kt and most of the about menu code is adapted from
 
 Some of the preference and theme related files are adapted from [The Android Open Source Project](https://source.android.com/) and are licenced under Apache 2.0
 
-seekbarpreference is adapted from [crDroid Android](https://github.com/crdroidandroid) and is licenced under Apache 2.0
-
 birdgame and other game components are adapted from [The Android Open Source Project](https://source.android.com/) and are licenced under Apache 2.0
 
 sensitive-pn is adapted from [LineageOS](https://github.com/LineageOS), see aosp/sensitive-pn/readme.md for more information
