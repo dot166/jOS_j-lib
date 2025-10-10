@@ -1,30 +1,23 @@
 <resources>
     <!-- Base System theme. -->
-    <style name="j.Theme" parent="Theme.Material3.DynamicColors.Dark.NoActionBar">
+    <style name="j.Theme" parent="Theme.Material3Expressive.DayNight.NoActionBar">
         <item name="viewInflaterClass">io.github.dot166.jlib.app.jLibViewInflater</item>
         <item name="android:selectableItemBackgroundBorderless">?android:attr/selectableItemBackground</item>
         <!-- Used by MediaRouter -->
-        <item name="android:borderlessButtonStyle">@style/Widget.Material3.Button</item>
+        <item name="android:borderlessButtonStyle">?android:buttonStyle</item>
         <!-- Button styles -->
-        <item name="android:buttonStyle">@style/Widget.Material3.Button</item>
-        <item name="android:buttonStyleSmall">@style/Widget.Material3.Button</item>
         <item name="android:buttonBarButtonStyle">?attr/borderlessButtonStyle</item>
         <item name="android:buttonBarPositiveButtonStyle">?buttonBarButtonStyle</item>
         <item name="android:buttonBarNegativeButtonStyle">?buttonBarButtonStyle</item>
         <item name="android:buttonBarNeutralButtonStyle">?buttonBarButtonStyle</item>
 
         <!-- AppCompat Attributes -->
-        <item name="borderlessButtonStyle">@style/Widget.Material3.Button</item>
+        <item name="borderlessButtonStyle">?materialButtonStyle</item>
         <!-- Button styles -->
-        <item name="buttonStyle">@style/Widget.Material3.Button</item>
-        <item name="buttonBarStyle">@style/Widget.Material3.Button</item>
+        <item name="buttonStyle">?materialButtonStyle</item>
         <item name="buttonBarButtonStyle">?attr/borderlessButtonStyle</item>
         <item name="buttonBarPositiveButtonStyle">?buttonBarButtonStyle</item>
         <item name="buttonBarNegativeButtonStyle">?buttonBarButtonStyle</item>
         <item name="buttonBarNeutralButtonStyle">?buttonBarButtonStyle</item>
-
-        <!-- MaterialComponents Widget styles -->
-        <item name="materialButtonStyle">?buttonStyle</item>
-        <item name="materialButtonOutlinedStyle">?buttonStyle</item>
     </style>
 </resources>

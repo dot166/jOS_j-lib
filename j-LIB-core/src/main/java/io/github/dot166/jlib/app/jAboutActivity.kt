@@ -164,7 +164,7 @@ open class jAboutActivity : jActivity() {
                 Text(
                     text = getAppLabel(context),
                     style = MaterialTheme.typography.titleLarge,
-                    color = MaterialTheme.colorScheme.onPrimaryContainer,
+                    color = MaterialTheme.colorScheme.onSurface,
                 )
                 Text(
                     text = versionName(activity),

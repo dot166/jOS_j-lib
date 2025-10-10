@@ -22,10 +22,10 @@
     <string name="about_jlib">About jLib</string>
     <string name="birdgame">BirdGame</string>
     <!-- Custom seekbar -->
-    <string name="custom_seekbar_jLib_value">Value: <xliff:g id="v">%s</xliff:g></string>
-    <string name="custom_seekbar_jLib_default_value">by default</string>
-    <string name="custom_seekbar_jLib_default_value_to_set">Default value: <xliff:g id="v">%s</xliff:g>\nLong tap to set</string>
-    <string name="custom_seekbar_jLib_default_value_is_set">Default value is set</string>
+    <string name="slider_value">Value: <xliff:g id="v">%s</xliff:g></string>
+    <string name="slider_default_value">by default</string>
+    <string name="slider_default_value_to_set">Default value: <xliff:g id="v">%s</xliff:g>\nLong tap to set</string>
+    <string name="slider_default_value_is_set">Default value is set</string>
     <string name="text_te_label">ThemeEngine is out of date</string>
     <string name="dialog_te_message">The version of ThemeEngine that is installed on your device is now out of date, please update it (if ThemeEngine was included with your OS then wait for an OS update)</string>
     <string name="dialog_te_negative">Ignore</string>

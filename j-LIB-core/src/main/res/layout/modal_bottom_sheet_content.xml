@@ -8,40 +8,40 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
     
-    <io.github.dot166.jlib.widget.MenuButton
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/button1"
         android:layout_width="match_parent"
         android:text="@string/exit_test_menu"
-        android:icon="@drawable/baseline_exit_to_app_24"
+        app:icon="@drawable/baseline_exit_to_app_24"
         android:contentDescription="@string/exit_test_menu"
         android:layout_height="?minTouchTargetSize"
         app:layout_constraintBottom_toTopOf="@id/button2"/>
 
-    <io.github.dot166.jlib.widget.MenuButton
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/button2"
         android:layout_width="match_parent"
         android:text="@string/birdgame"
-        android:icon="@drawable/outline_videogame_asset_24"
+        app:icon="@drawable/outline_videogame_asset_24"
         android:contentDescription="@string/birdgame"
         android:layout_height="?minTouchTargetSize"
         app:layout_constraintTop_toBottomOf="@id/button1"/>
 
 
-        <io.github.dot166.jlib.widget.MenuButton
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/button3"
             android:layout_width="match_parent"
             android:text="@string/obstaclegame"
-            android:icon="@drawable/outline_videogame_asset_24"
+            app:icon="@drawable/outline_videogame_asset_24"
             android:contentDescription="@string/obstaclegame"
             android:layout_height="?minTouchTargetSize"
             app:layout_constraintTop_toBottomOf="@id/button2"/>
 
 
-        <io.github.dot166.jlib.widget.MenuButton
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/button4"
             android:layout_width="match_parent"
             android:text="@string/rss_feed"
-            android:icon="@drawable/outline_rss_feed_24"
+            app:icon="@drawable/outline_rss_feed_24"
             android:contentDescription="@string/rss_feed"
             android:layout_height="?minTouchTargetSize"
             app:layout_constraintTop_toBottomOf="@id/button3"/>

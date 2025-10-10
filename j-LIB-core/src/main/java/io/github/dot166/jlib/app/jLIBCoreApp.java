@@ -2,6 +2,8 @@ package io.github.dot166.jlib.app;
 
 import android.app.Application;
 
+import com.google.android.material.color.DynamicColors;
+
 import io.github.dot166.jlib.service.MediaPlayerService;
 
 public class jLIBCoreApp extends Application {
@@ -18,6 +20,7 @@ public class jLIBCoreApp extends Application {
 
     public void onCreate() {
         super.onCreate();
+        DynamicColors.applyToActivitiesIfAvailable(this);
     }
 
     public MediaPlayerService getMediaPlayerService() {

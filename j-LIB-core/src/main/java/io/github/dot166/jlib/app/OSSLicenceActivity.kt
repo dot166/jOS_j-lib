@@ -9,6 +9,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.ComposeView
+import com.mikepenz.aboutlibraries.ui.compose.android.produceLibraries
 import com.mikepenz.aboutlibraries.ui.compose.android.rememberLibraries
 import com.mikepenz.aboutlibraries.ui.compose.m3.LibrariesContainer
 import io.github.dot166.jlib.R
@@ -35,10 +36,10 @@ class OSSLicenceActivity : jActivity() {
     @Composable
     fun LibrariesList() {
         if (resources.getIdentifier("aboutlibraries", "raw", packageName) == 0) {
-            val libraries by rememberLibraries(R.raw.aboutlibraries_jlib)
+            val libraries by produceLibraries(R.raw.aboutlibraries_jlib)
             LibrariesContainer(libraries, Modifier.fillMaxSize())
         } else {
-            val libraries by rememberLibraries(resources.getIdentifier("aboutlibraries", "raw", packageName))
+            val libraries by produceLibraries(resources.getIdentifier("aboutlibraries", "raw", packageName))
             LibrariesContainer(libraries, Modifier.fillMaxSize())
         }
     }
