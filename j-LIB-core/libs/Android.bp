@@ -296,7 +296,7 @@ java_library_static {
 
 android_library_import {
     name: "j-Lib_androidx.compose.animation_animation-android",
-    aars: ["androidx/compose/animation/animation-android/1.8.2/animation-release.aar"],
+    aars: ["androidx/compose/animation/animation-android/1.9.0/animation.aar"],
     sdk_version: "36",
     min_sdk_version: "26",
     apex_available: [
@@ -333,7 +333,7 @@ java_library_static {
 
 android_library_import {
     name: "j-Lib_androidx.compose.animation_animation-core-android",
-    aars: ["androidx/compose/animation/animation-core-android/1.8.2/animation-core-release.aar"],
+    aars: ["androidx/compose/animation/animation-core-android/1.9.0/animation-core.aar"],
     sdk_version: "36",
     min_sdk_version: "26",
     apex_available: [
@@ -368,7 +368,7 @@ java_library_static {
 
 android_library_import {
     name: "j-Lib_androidx.compose.foundation_foundation-android",
-    aars: ["androidx/compose/foundation/foundation-android/1.8.2/foundation-release.aar"],
+    aars: ["androidx/compose/foundation/foundation-android/1.9.0/foundation-release.aar"],
     sdk_version: "36",
     min_sdk_version: "26",
     apex_available: [
@@ -406,7 +406,7 @@ java_library_static {
 
 android_library_import {
     name: "j-Lib_androidx.compose.foundation_foundation-layout-android",
-    aars: ["androidx/compose/foundation/foundation-layout-android/1.8.2/foundation-layout-release.aar"],
+    aars: ["androidx/compose/foundation/foundation-layout-android/1.9.0/foundation-layout.aar"],
     sdk_version: "36",
     min_sdk_version: "26",
     apex_available: [
@@ -2115,7 +2115,7 @@ android_library_import {
 
 android_library_import {
     name: "j-Lib_com.google.android.material_material",
-    aars: ["com/google/android/material/material/1.13.0/material-1.13.0.aar"],
+    aars: ["com/google/android/material/material/1.14.0-alpha05/material-1.14.0-alpha05.aar"],
     sdk_version: "36",
     min_sdk_version: "26",
     apex_available: [
@@ -2214,7 +2214,7 @@ java_library_static {
 
 android_library_import {
     name: "j-Lib_com.mikepenz_aboutlibraries-compose-core-android",
-    aars: ["com/mikepenz/aboutlibraries-compose-core-android/12.2.4/aboutlibraries-compose-release.aar"],
+    aars: ["com/mikepenz/aboutlibraries-compose-core-android/13.0.0/aboutlibraries-compose-release.aar"],
     sdk_version: "36",
     min_sdk_version: "26",
     apex_available: [
@@ -2246,7 +2246,7 @@ java_library_static {
 
 android_library_import {
     name: "j-Lib_com.mikepenz_aboutlibraries-compose-m3-android",
-    aars: ["com/mikepenz/aboutlibraries-compose-m3-android/12.2.4/aboutlibraries-compose-m3-release.aar"],
+    aars: ["com/mikepenz/aboutlibraries-compose-m3-android/13.0.0/aboutlibraries-compose-m3-release.aar"],
     sdk_version: "36",
     min_sdk_version: "26",
     apex_available: [
@@ -2281,7 +2281,7 @@ java_library_static {
 
 android_library_import {
     name: "j-Lib_com.mikepenz_aboutlibraries-core-android",
-    aars: ["com/mikepenz/aboutlibraries-core-android/12.2.4/aboutlibraries-core-release.aar"],
+    aars: ["com/mikepenz/aboutlibraries-core-android/13.0.0/aboutlibraries-core-release.aar"],
     sdk_version: "36",
     min_sdk_version: "26",
     apex_available: [
@@ -2463,9 +2463,6 @@ java_library_static {
     ],
     static_libs: [
         "j-Lib_androidx.lifecycle_lifecycle-common",
-        "j-Lib_org.jetbrains.compose.annotation-internal_annotation",
-        "j-Lib_org.jetbrains.kotlin_kotlin-stdlib",
-        "j-Lib_org.jetbrains.kotlinx_kotlinx-coroutines-core",
     ],
 }
 
@@ -2478,12 +2475,7 @@ java_library_static {
         "//apex_available:anyapex",
     ],
     static_libs: [
-        "j-Lib_androidx.arch.core_core-common",
         "j-Lib_androidx.lifecycle_lifecycle-runtime",
-        "j-Lib_org.jetbrains.androidx.lifecycle_lifecycle-common",
-        "j-Lib_org.jetbrains.compose.annotation-internal_annotation",
-        "j-Lib_org.jetbrains.kotlin_kotlin-stdlib",
-        "j-Lib_org.jetbrains.kotlinx_kotlinx-coroutines-core",
     ],
 }
 
@@ -2515,9 +2507,47 @@ java_library_static {
     ],
     static_libs: [
         "j-Lib_androidx.lifecycle_lifecycle-viewmodel",
-        "j-Lib_org.jetbrains.compose.annotation-internal_annotation",
-        "j-Lib_org.jetbrains.kotlin_kotlin-stdlib",
-        "j-Lib_org.jetbrains.kotlinx_kotlinx-coroutines-core",
+    ],
+}
+
+java_library_static {
+    name: "j-Lib_org.jetbrains.androidx.lifecycle_lifecycle-viewmodel-savedstate",
+    sdk_version: "36",
+    min_sdk_version: "26",
+    apex_available: [
+        "//apex_available:platform",
+        "//apex_available:anyapex",
+    ],
+    static_libs: [
+        "j-Lib_androidx.lifecycle_lifecycle-viewmodel-savedstate",
+    ],
+}
+
+java_library_static {
+    name: "j-Lib_org.jetbrains.androidx.savedstate_savedstate",
+    sdk_version: "36",
+    min_sdk_version: "26",
+    apex_available: [
+        "//apex_available:platform",
+        "//apex_available:anyapex",
+    ],
+    static_libs: [
+        "j-Lib_androidx.savedstate_savedstate",
+    ],
+}
+
+java_library_static {
+    name: "j-Lib_org.jetbrains.androidx.savedstate_savedstate-compose",
+    sdk_version: "36",
+    min_sdk_version: "26",
+    apex_available: [
+        "//apex_available:platform",
+        "//apex_available:anyapex",
+    ],
+    static_libs: [
+        "j-Lib_androidx.savedstate_savedstate-compose",
+        "j-Lib_org.jetbrains.androidx.savedstate_savedstate",
+        "j-Lib_org.jetbrains.compose.runtime_runtime",
     ],
 }
 
@@ -2586,7 +2616,6 @@ java_library_static {
     ],
     static_libs: [
         "j-Lib_androidx.collection_collection",
-        "j-Lib_org.jetbrains.kotlin_kotlin-stdlib",
     ],
 }
 
@@ -2685,10 +2714,6 @@ java_library_static {
     ],
     static_libs: [
         "j-Lib_androidx.compose.runtime_runtime",
-        "j-Lib_org.jetbrains.compose.annotation-internal_annotation",
-        "j-Lib_org.jetbrains.compose.collection-internal_collection",
-        "j-Lib_org.jetbrains.kotlin_kotlin-stdlib",
-        "j-Lib_org.jetbrains.kotlinx_kotlinx-coroutines-core",
     ],
 }
 
@@ -2702,6 +2727,8 @@ java_library_static {
     ],
     static_libs: [
         "j-Lib_androidx.compose.runtime_runtime-saveable",
+        "j-Lib_org.jetbrains.androidx.lifecycle_lifecycle-runtime-compose",
+        "j-Lib_org.jetbrains.androidx.savedstate_savedstate-compose",
         "j-Lib_org.jetbrains.compose.collection-internal_collection",
         "j-Lib_org.jetbrains.compose.runtime_runtime",
         "j-Lib_org.jetbrains.kotlin_kotlin-stdlib",
@@ -2722,6 +2749,7 @@ java_library_static {
         "j-Lib_org.jetbrains.androidx.lifecycle_lifecycle-runtime",
         "j-Lib_org.jetbrains.androidx.lifecycle_lifecycle-runtime-compose",
         "j-Lib_org.jetbrains.androidx.lifecycle_lifecycle-viewmodel",
+        "j-Lib_org.jetbrains.androidx.lifecycle_lifecycle-viewmodel-savedstate",
         "j-Lib_org.jetbrains.compose.annotation-internal_annotation",
         "j-Lib_org.jetbrains.compose.collection-internal_collection",
         "j-Lib_org.jetbrains.compose.runtime_runtime",
@@ -2751,7 +2779,7 @@ java_library_static {
 
 android_library_import {
     name: "j-Lib_org.jetbrains.compose.ui_ui-backhandler-android",
-    aars: ["org/jetbrains/compose/ui/ui-backhandler-android/1.8.1/ui-backhandler-release.aar"],
+    aars: ["org/jetbrains/compose/ui/ui-backhandler-android/1.8.2/ui-backhandler-release.aar"],
     sdk_version: "36",
     min_sdk_version: "26",
     apex_available: [
@@ -3054,7 +3082,7 @@ java_library_static {
 
 java_import {
     name: "j-Lib_org.jetbrains.kotlinx_kotlinx-serialization-core-jvm",
-    jars: ["org/jetbrains/kotlinx/kotlinx-serialization-core-jvm/1.8.1/kotlinx-serialization-core-jvm-1.8.1.jar"],
+    jars: ["org/jetbrains/kotlinx/kotlinx-serialization-core-jvm/1.9.0/kotlinx-serialization-core-jvm-1.9.0.jar"],
     sdk_version: "36",
     min_sdk_version: "26",
     apex_available: [
@@ -3082,7 +3110,7 @@ java_library_static {
 
 java_import {
     name: "j-Lib_org.jetbrains.kotlinx_kotlinx-serialization-json-jvm",
-    jars: ["org/jetbrains/kotlinx/kotlinx-serialization-json-jvm/1.8.1/kotlinx-serialization-json-jvm-1.8.1.jar"],
+    jars: ["org/jetbrains/kotlinx/kotlinx-serialization-json-jvm/1.9.0/kotlinx-serialization-json-jvm-1.9.0.jar"],
     sdk_version: "36",
     min_sdk_version: "26",
     apex_available: [
