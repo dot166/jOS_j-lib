@@ -3,13 +3,14 @@ package io.github.dot166.jlib.widget;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.LayerDrawable;
 import android.os.Handler;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.SeekBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -76,10 +77,8 @@ public class MiniPlayer extends FrameLayout {
         @Override
         public void run() { // this is a separate task to prevent the artwork view from dying (being overridden multiple times)
             if (mPlayer == null) {
-                mHandled.post(mTryLoadSavedArtwork);
-                return;
-            }
-            if (mPlayer.getCurrentMediaItem() == null) { // probably no media item loaded, idiot (me) tried to load the url of an item that is not loaded and the entire app went down
+                Drawable[] dr = new Drawable[0];
+                ((ImageView) findViewById(R.id.now_playing_logo)).setImageDrawable(new LayerDrawable(dr));
                 mHandled.post(mTryLoadSavedArtwork);
                 return;
             }
@@ -132,7 +131,7 @@ public class MiniPlayer extends FrameLayout {
                     }
                     long duration = mPlayer.getDuration();
                     long newposition = (long) ((duration * progress) / 1000L);
-                    String formattedTextString = new SimpleDateFormat("HH:mm:ss", Locale.ENGLISH).format(newposition).replaceAll("^00:", "") + "/" + new SimpleDateFormat("HH:mm:ss", Locale.ENGLISH).format(duration).replaceAll("^00:", "");
+                    String formattedTextString = new SimpleDateFormat("HH:mm:ss", Locale.ENGLISH).format(newposition) + "/" + new SimpleDateFormat("HH:mm:ss", Locale.ENGLISH).format(duration);
                     ((TextView) findViewById(R.id.text)).setText(formattedTextString);
                     if (!fromUser) {
                         // We're not interested in programmatically generated changes to
@@ -143,7 +142,7 @@ public class MiniPlayer extends FrameLayout {
                 }
             });
 
-            findViewById(R.id.button6).setOnClickListener(new View.OnClickListener() {
+            findViewById(R.id.button6).setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     if (mPlayer.isPlaying()) {
@@ -154,7 +153,7 @@ public class MiniPlayer extends FrameLayout {
                 }
             });
 
-            findViewById(R.id.button5).setOnClickListener(new View.OnClickListener() {
+            findViewById(R.id.button5).setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     mPlayer.seekTo(mPlayer.getCurrentPosition() - 10000);
@@ -162,7 +161,7 @@ public class MiniPlayer extends FrameLayout {
                 }
             });
 
-            findViewById(R.id.button7).setOnClickListener(new View.OnClickListener() {
+            findViewById(R.id.button7).setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     mPlayer.seekTo(mPlayer.getCurrentPosition() + 10000);
