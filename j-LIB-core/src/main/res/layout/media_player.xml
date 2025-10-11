@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <io.github.dot166.jlib.widget.ActionBar2
+    <com.google.android.material.appbar.MaterialToolbar
         app:layout_constraintTop_toTopOf="parent"
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"

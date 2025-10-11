@@ -21,7 +21,7 @@
     android:orientation="vertical"
     android:fitsSystemWindows="true">
 
-    <io.github.dot166.jlib.widget.ActionBar2
+    <com.google.android.material.appbar.MaterialToolbar
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
         android:id="@+id/actionbar"/>
