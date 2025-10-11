@@ -9,12 +9,11 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.widget.SwitchCompat;
 import androidx.appcompat.widget.Toolbar;
 
+import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.materialswitch.MaterialSwitch;
 import com.google.android.material.theme.MaterialComponentsViewInflater;
 
 import org.jetbrains.annotations.Contract;
-
-import io.github.dot166.jlib.widget.ActionBar2;
 
 public class jLibViewInflater extends MaterialComponentsViewInflater {
 
@@ -37,10 +36,6 @@ public class jLibViewInflater extends MaterialComponentsViewInflater {
                 view = createToolbar(context, attrs);
                 verifyNotNull(view, name);
                 break;
-            case "com.google.android.material.appbar.MaterialToolbar":
-                view = createToolbar(context, attrs);
-                verifyNotNull(view, name);
-                break;
             default:
                 return super.createView(context, name, attrs);
         }
@@ -50,7 +45,7 @@ public class jLibViewInflater extends MaterialComponentsViewInflater {
     @NonNull
     @Contract("_, _ -> new")
     protected Toolbar createToolbar(Context context, AttributeSet attrs) {
-        return new ActionBar2(context, attrs);
+        return new MaterialToolbar(context, attrs);
     }
 
     @NonNull
