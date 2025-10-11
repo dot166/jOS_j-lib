@@ -5,7 +5,7 @@ import android.content.DialogInterface;
 import android.util.Log;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AlertDialog;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import java.util.Arrays;
 
@@ -24,7 +24,7 @@ public class ErrorUtils {
     public static void handle(Throwable e, Context context) {
         e.printStackTrace();
         try {
-            AlertDialog.Builder builder = new AlertDialog.Builder(context);
+            MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(context);
 
             builder.setMessage(R.string.dialog_fail_message)
                     .setTitle(R.string.dialog_fail_title)
@@ -32,7 +32,7 @@ public class ErrorUtils {
                     .setCancelable(false)
                     .setPositiveButton(R.string.dialog_stacktrace, new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
-                            AlertDialog.Builder builder2 = new AlertDialog.Builder(context);
+                            MaterialAlertDialogBuilder builder2 = new MaterialAlertDialogBuilder(context);
 
                             builder2.setMessage(e + "\n" + Arrays.toString(e.getStackTrace()).replaceAll(", ", "\n"))
                                     .setTitle(R.string.dialog_fail_title)
@@ -44,8 +44,7 @@ public class ErrorUtils {
                                         }
                                     });
                             //Creating dialog box
-                            AlertDialog alert = builder2.create();
-                            alert.show();
+                            builder2.show();
                         }
                     });
             builder.setNegativeButton(R.string.dialog_ignore, new DialogInterface.OnClickListener() {
@@ -54,8 +53,7 @@ public class ErrorUtils {
                 }
             });
             //Creating dialog box
-            AlertDialog alert = builder.create();
-            alert.show();
+            builder.show();
         } catch (Exception de1) {
             Log.e(TAG, "Error handler Broke!!");
             de1.printStackTrace();

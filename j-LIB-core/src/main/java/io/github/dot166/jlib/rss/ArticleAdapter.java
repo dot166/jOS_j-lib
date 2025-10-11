@@ -13,11 +13,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.browser.customtabs.CustomTabsIntent;
 import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.prof18.rssparser.model.RssItem;
 
 import java.util.ArrayList;
@@ -92,7 +92,7 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
                         .build();
                 intent.launchUrl(view.getContext(), webpage);
             } else if (currentArticle.getContent() != null && !currentArticle.getContent().isEmpty()) {
-                AlertDialog.Builder builder2 = new AlertDialog.Builder(view.getContext());
+                MaterialAlertDialogBuilder builder2 = new MaterialAlertDialogBuilder(view.getContext());
 
                 builder2.setMessage(currentArticle.getContent())
                         .setTitle("Rss Content")
@@ -104,8 +104,7 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
                             }
                         });
                 //Creating dialog box
-                AlertDialog alert = builder2.create();
-                alert.show();
+                builder2.show();
             } else {
                 Toast.makeText(view.getContext(), "no content or url available", LENGTH_SHORT).show();
             }
@@ -123,7 +122,7 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
                         .build();
                 intent.launchUrl(view.getContext(), webpage);
             } else if (currentArticle.getContent() != null && !currentArticle.getContent().isEmpty()) {
-                AlertDialog.Builder builder2 = new AlertDialog.Builder(view.getContext());
+                MaterialAlertDialogBuilder builder2 = new MaterialAlertDialogBuilder(view.getContext());
 
                 builder2.setMessage(currentArticle.getContent())
                         .setTitle("Rss Content")
@@ -135,8 +134,7 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
                             }
                         });
                 //Creating dialog box
-                AlertDialog alert = builder2.create();
-                alert.show();
+                builder2.show();
             } else {
                 Toast.makeText(view.getContext(), "no content or url available", LENGTH_SHORT).show();
             }

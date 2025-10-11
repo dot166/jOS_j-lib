@@ -10,11 +10,12 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.ContentView;
 import androidx.annotation.LayoutRes;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import io.github.dot166.jlib.R;
 import io.github.dot166.jlib.utils.VersionUtils;
@@ -82,7 +83,7 @@ public class jActivity extends AppCompatActivity {
     }
 
     private void showSettingDialog() {
-        new AlertDialog.Builder(this)
+        new MaterialAlertDialogBuilder(this)
                 .setTitle(R.string.notification_permission)
                 .setMessage(R.string.settings_notif_dialog)
                 .setPositiveButton(R.string.ok, (dialog, which) -> {
@@ -95,7 +96,7 @@ public class jActivity extends AppCompatActivity {
     }
 
     private void showNotificationPermissionRationale() {
-        new AlertDialog.Builder(this, com.google.android.material.R.style.MaterialAlertDialog_Material3)
+        new MaterialAlertDialogBuilder(this)
                 .setTitle(R.string.notification_permission)
                 .setMessage(R.string.notif_dialog)
                 .setPositiveButton(R.string.yes, (dialog, which) -> {
