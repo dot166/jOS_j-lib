@@ -664,6 +664,81 @@
             }
         },
         {
+            "uniqueId": "androidx.compose.material:material-icons-core",
+            "funding": [
+                
+            ],
+            "developers": [
+                {
+                    "name": "The Android Open Source Project"
+                }
+            ],
+            "artifactVersion": "1.7.8",
+            "description": "Compose Material Design core icons. This module contains the most commonly used set of Material icons.",
+            "scm": {
+                "connection": "scm:git:https://android.googlesource.com/platform/frameworks/support",
+                "url": "https://cs.android.com/androidx/platform/frameworks/support"
+            },
+            "name": "Compose Material Icons Core",
+            "website": "https://developer.android.com/jetpack/androidx/releases/compose-material#1.7.8",
+            "licenses": [
+                "Apache-2.0"
+            ],
+            "organization": {
+                "name": "The Android Open Source Project"
+            }
+        },
+        {
+            "uniqueId": "androidx.compose.material:material-icons-core-android",
+            "funding": [
+                
+            ],
+            "developers": [
+                {
+                    "name": "The Android Open Source Project"
+                }
+            ],
+            "artifactVersion": "1.7.8",
+            "description": "Compose Material Design core icons. This module contains the most commonly used set of Material icons.",
+            "scm": {
+                "connection": "scm:git:https://android.googlesource.com/platform/frameworks/support",
+                "url": "https://cs.android.com/androidx/platform/frameworks/support"
+            },
+            "name": "Compose Material Icons Core",
+            "website": "https://developer.android.com/jetpack/androidx/releases/compose-material#1.7.8",
+            "licenses": [
+                "Apache-2.0"
+            ],
+            "organization": {
+                "name": "The Android Open Source Project"
+            }
+        },
+        {
+            "uniqueId": "androidx.compose.material:material-icons-extended-android",
+            "funding": [
+                
+            ],
+            "developers": [
+                {
+                    "name": "The Android Open Source Project"
+                }
+            ],
+            "artifactVersion": "1.7.8",
+            "description": "Compose Material Design extended icons. This module contains all Material icons. It is a very large dependency and should not be included directly.",
+            "scm": {
+                "connection": "scm:git:https://android.googlesource.com/platform/frameworks/support",
+                "url": "https://cs.android.com/androidx/platform/frameworks/support"
+            },
+            "name": "Compose Material Icons Extended",
+            "website": "https://developer.android.com/jetpack/androidx/releases/compose-material#1.7.8",
+            "licenses": [
+                "Apache-2.0"
+            ],
+            "organization": {
+                "name": "The Android Open Source Project"
+            }
+        },
+        {
             "uniqueId": "androidx.compose.material:material-ripple",
             "funding": [
                 
@@ -1549,14 +1624,14 @@
                     "name": "The Android Open Source Project"
                 }
             ],
-            "artifactVersion": "1.3.7",
+            "artifactVersion": "1.3.6",
             "description": "Android Support ExifInterface",
             "scm": {
                 "connection": "scm:git:https://android.googlesource.com/platform/frameworks/support",
                 "url": "https://cs.android.com/androidx/platform/frameworks/support"
             },
             "name": "Support ExifInterface",
-            "website": "https://developer.android.com/jetpack/androidx/releases/exifinterface#1.3.7",
+            "website": "https://developer.android.com/jetpack/androidx/releases/exifinterface#1.3.6",
             "licenses": [
                 "Apache-2.0"
             ]
@@ -2972,29 +3047,6 @@
             ]
         },
         {
-            "uniqueId": "com.google.accompanist:accompanist-drawablepainter",
-            "funding": [
-                
-            ],
-            "developers": [
-                {
-                    "name": "Google"
-                }
-            ],
-            "artifactVersion": "0.37.3",
-            "description": "Utilities for Jetpack Compose",
-            "scm": {
-                "connection": "scm:git:git://github.com/google/accompanist.git",
-                "url": "https://github.com/google/accompanist/",
-                "developerConnection": "scm:git:git://github.com/google/accompanist.git"
-            },
-            "name": "Accompanist Drawable Painter library",
-            "website": "https://github.com/google/accompanist/",
-            "licenses": [
-                "Apache-2.0"
-            ]
-        },
-        {
             "uniqueId": "com.google.android.material:material",
             "funding": [
                 
@@ -3355,7 +3407,7 @@
                     "name": "Square, Inc."
                 }
             ],
-            "artifactVersion": "3.9.0",
+            "artifactVersion": "3.6.0",
             "description": "A modern I/O library for Android, Java, and Kotlin Multiplatform.",
             "scm": {
                 "connection": "scm:git:git://github.com/square/okio.git",
@@ -3378,7 +3430,7 @@
                     "name": "Square, Inc."
                 }
             ],
-            "artifactVersion": "3.9.0",
+            "artifactVersion": "3.6.0",
             "description": "A modern I/O library for Android, Java, and Kotlin Multiplatform.",
             "scm": {
                 "connection": "scm:git:git://github.com/square/okio.git",
@@ -3387,98 +3439,6 @@
             },
             "name": "okio",
             "website": "https://github.com/square/okio/",
-            "licenses": [
-                "Apache-2.0"
-            ]
-        },
-        {
-            "uniqueId": "io.coil-kt:coil",
-            "funding": [
-                
-            ],
-            "developers": [
-                {
-                    "name": "Coil Contributors"
-                }
-            ],
-            "artifactVersion": "2.7.0",
-            "description": "An image loading library for Android backed by Kotlin Coroutines.",
-            "scm": {
-                "connection": "scm:git:git://github.com/coil-kt/coil.git",
-                "url": "https://github.com/coil-kt/coil",
-                "developerConnection": "scm:git:ssh://git@github.com/coil-kt/coil.git"
-            },
-            "name": "coil",
-            "website": "https://github.com/coil-kt/coil",
-            "licenses": [
-                "Apache-2.0"
-            ]
-        },
-        {
-            "uniqueId": "io.coil-kt:coil-base",
-            "funding": [
-                
-            ],
-            "developers": [
-                {
-                    "name": "Coil Contributors"
-                }
-            ],
-            "artifactVersion": "2.7.0",
-            "description": "An image loading library for Android backed by Kotlin Coroutines.",
-            "scm": {
-                "connection": "scm:git:git://github.com/coil-kt/coil.git",
-                "url": "https://github.com/coil-kt/coil",
-                "developerConnection": "scm:git:ssh://git@github.com/coil-kt/coil.git"
-            },
-            "name": "coil-base",
-            "website": "https://github.com/coil-kt/coil",
-            "licenses": [
-                "Apache-2.0"
-            ]
-        },
-        {
-            "uniqueId": "io.coil-kt:coil-compose",
-            "funding": [
-                
-            ],
-            "developers": [
-                {
-                    "name": "Coil Contributors"
-                }
-            ],
-            "artifactVersion": "2.7.0",
-            "description": "An image loading library for Android backed by Kotlin Coroutines.",
-            "scm": {
-                "connection": "scm:git:git://github.com/coil-kt/coil.git",
-                "url": "https://github.com/coil-kt/coil",
-                "developerConnection": "scm:git:ssh://git@github.com/coil-kt/coil.git"
-            },
-            "name": "coil-compose",
-            "website": "https://github.com/coil-kt/coil",
-            "licenses": [
-                "Apache-2.0"
-            ]
-        },
-        {
-            "uniqueId": "io.coil-kt:coil-compose-base",
-            "funding": [
-                
-            ],
-            "developers": [
-                {
-                    "name": "Coil Contributors"
-                }
-            ],
-            "artifactVersion": "2.7.0",
-            "description": "An image loading library for Android backed by Kotlin Coroutines.",
-            "scm": {
-                "connection": "scm:git:git://github.com/coil-kt/coil.git",
-                "url": "https://github.com/coil-kt/coil",
-                "developerConnection": "scm:git:ssh://git@github.com/coil-kt/coil.git"
-            },
-            "name": "coil-compose-base",
-            "website": "https://github.com/coil-kt/coil",
             "licenses": [
                 "Apache-2.0"
             ]
@@ -4237,7 +4197,7 @@
                     "name": "Kotlin Team"
                 }
             ],
-            "artifactVersion": "1.8.22",
+            "artifactVersion": "1.9.10",
             "description": "Kotlin Standard Library JDK 7 extension",
             "scm": {
                 "connection": "scm:git:https://github.com/JetBrains/kotlin.git",
@@ -4261,7 +4221,7 @@
                     "name": "Kotlin Team"
                 }
             ],
-            "artifactVersion": "1.8.22",
+            "artifactVersion": "1.9.10",
             "description": "Kotlin Standard Library JDK 8 extension",
             "scm": {
                 "connection": "scm:git:https://github.com/JetBrains/kotlin.git",
