@@ -2,33 +2,57 @@ package io.github.dot166.jlib.app
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.util.Log
 import android.view.MenuItem
+import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.ComposeView
 import com.mikepenz.aboutlibraries.ui.compose.android.produceLibraries
-import com.mikepenz.aboutlibraries.ui.compose.android.rememberLibraries
 import com.mikepenz.aboutlibraries.ui.compose.m3.LibrariesContainer
 import io.github.dot166.jlib.R
 import io.github.dot166.jlib.utils.ThemeUtils.jLibComposeTheme
 
 class OSSLicenceActivity : jActivity() {
+    @OptIn(ExperimentalMaterial3Api::class)
     @SuppressLint("DiscouragedApi")
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.ossactivity)
-        setSupportActionBar(findViewById(R.id.actionbar))
-        if (supportActionBar != null) {
-            supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-        } else {
-            Log.e("ActionBar2", "no actionbar found")
-        }
-        findViewById<ComposeView>(R.id.my_composable)?.setContent {
-            jLibComposeTheme(this){
-                LibrariesList()
+        setContent {
+            jLibComposeTheme(context = this) {
+                Scaffold(
+                    topBar = {
+                        TopAppBar({
+                            Text(title.toString()) },
+                            navigationIcon = {
+                                IconButton(
+                                    onClick = {
+                                        onBackPressedDispatcher.onBackPressed()
+                                    }
+                                ) {
+                                    Icon(Icons.AutoMirrored.Filled.ArrowBack,
+                                        "backIcon"
+                                    )
+                                }
+                            }
+                        )
+                    },
+                    content = { contentPadding ->
+                        Surface(Modifier.padding(top = contentPadding.calculateTopPadding())) {
+                            LibrariesList()
+                        }
+                    }
+                )
             }
         }
     }
