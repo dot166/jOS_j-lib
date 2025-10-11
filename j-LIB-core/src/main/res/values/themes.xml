@@ -19,5 +19,6 @@
         <item name="buttonBarPositiveButtonStyle">?buttonBarButtonStyle</item>
         <item name="buttonBarNegativeButtonStyle">?buttonBarButtonStyle</item>
         <item name="buttonBarNeutralButtonStyle">?buttonBarButtonStyle</item>
+        <item name="cardViewStyle">?materialCardViewStyle</item>
     </style>
 </resources>

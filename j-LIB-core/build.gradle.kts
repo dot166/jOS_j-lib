@@ -74,8 +74,6 @@ dependencies {
     api("androidx.compose.ui:ui-android:1.9.3")
     api("androidx.compose.material3:material3-android:1.4.0")
     api("androidx.compose.material:material-android:1.9.3")
-    api("io.coil-kt:coil-compose:2.7.0")
-    api("com.google.accompanist:accompanist-drawablepainter:0.37.3")
     api("com.mikepenz:aboutlibraries-core:13.0.0")
     api("com.mikepenz:aboutlibraries-compose-m3:13.0.0")
     api("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")

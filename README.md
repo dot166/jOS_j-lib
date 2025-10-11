@@ -102,8 +102,6 @@ see [LICENSE](LICENSE)
 
 ### NOTICE: There is code in jLib that are from other projects, Those files are licenced under the licence from their respective projects, the files, projects and licences are listed below.
 
-ContributorRow.kt, modifierIf.kt and most of the about menu code is adapted from [Lawnchair Launcher](https://github.com/LawnchairLauncher/lawnchair) and is licenced under Apache 2.0
-
 Some of the preference and theme related files are adapted from [The Android Open Source Project](https://source.android.com/) and are licenced under Apache 2.0
 
 birdgame and other game components are adapted from [The Android Open Source Project](https://source.android.com/) and are licenced under Apache 2.0
