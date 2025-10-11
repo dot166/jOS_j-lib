@@ -87,6 +87,7 @@ dependencies {
     api("androidx.media3:media3-common:1.8.0")
     api("androidx.media3:media3-session:1.8.0")
     api("androidx.media3:media3-exoplayer-dash:1.8.0")
+    api("androidx.compose.material:material-icons-extended-android:1.7.8")
 }
 
 mavenPublishing {
