@@ -37,8 +37,8 @@ android {
         applicationId = "io.github.dot166.themeengine"
         minSdk = libMinSdk
         targetSdk = libCompileSdk
-        versionCode = 101
-        versionName = 101.toString()
+        versionCode = Integer.MAX_VALUE
+        versionName = Integer.MAX_VALUE.toString()
     }
 
     applicationVariants.configureEach {
