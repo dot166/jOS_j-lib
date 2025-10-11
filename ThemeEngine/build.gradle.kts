@@ -10,6 +10,7 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("com.mikepenz.aboutlibraries.plugin")
+    id("com.mikepenz.aboutlibraries.plugin.android")
 }
 
 val keystorePropertiesFile = rootProject.file("keystore.properties")
@@ -68,8 +69,6 @@ android {
 }
 
 aboutLibraries {
-    // Required to be set to true
-    android.registerAndroidTasks = true
     collect.configPath.set(File(rootProject.projectDir, "config"))
     export.prettyPrint = true
 }

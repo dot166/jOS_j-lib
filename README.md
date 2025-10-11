@@ -8,9 +8,8 @@ to use jLib in an android app that is built using gradle add the following lines
 ```
 plugins {
     ...
-    id 'org.jetbrains.kotlin.android' version '2.1.21' apply false
-    id 'org.jetbrains.kotlin.plugin.compose' version '2.1.21' apply false
-    id 'com.mikepenz.aboutlibraries.plugin' version "12.2.3" apply false // j-LIB dependency
+    id 'com.mikepenz.aboutlibraries.plugin' version "13.0.0" apply false // j-LIB dependency
+    id 'com.mikepenz.aboutlibraries.plugin.android' version "13.0.0" apply false // j-LIB dependency
 }
 ```
 
@@ -18,54 +17,20 @@ then add the following lines to your apps build.gradle
 ```
 plugins {
     ...
-    id 'org.jetbrains.kotlin.android'
-    id 'org.jetbrains.kotlin.plugin.compose'
     id 'com.mikepenz.aboutlibraries.plugin' // j-LIB dependency
-}
-
-android {
-    ...
-    buildFeatures {
-        compose = true
-    }
-}
-
-aboutLibraries {
-    // Required to be set to true
-    android.registerAndroidTasks = true
+    id 'com.mikepenz.aboutlibraries.plugin.android' // j-LIB dependency
 }
 
 dependencies {
-    implementation "io.github.dot166:j-Lib:4.2.13"
+    implementation "io.github.dot166:j-Lib:100"
 }
 ```
 
-if you are including jLib in another android library that is built using gradle add the following lines to your project root build.gradle
+if you are including jLib in another android library that is built using gradle add the following lines to your libraries build.gradle
 ```
-plugins {
-    ...
-    id 'org.jetbrains.kotlin.android' version '2.1.21' apply false
-    id 'org.jetbrains.kotlin.plugin.compose' version '2.1.21' apply false
-}
-```
-
-then add the following lines to your libraries build.gradle
-```
-plugins {
-    ...
-    id 'org.jetbrains.kotlin.android'
-    id 'org.jetbrains.kotlin.plugin.compose'
-}
-
-android {
-    ...
-    buildFeatures {
-        compose = true
-    }
-}
 
 dependencies {
-    api "io.github.dot166:j-Lib:4.2.13"
+    api "io.github.dot166:j-Lib:100"
 }
 ```
 
