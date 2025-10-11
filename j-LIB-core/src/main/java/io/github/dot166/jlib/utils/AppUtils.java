@@ -11,7 +11,7 @@ public class AppUtils {
     public static Drawable getAppIcon(Context context) {
         ApplicationInfo applicationInfo = context.getApplicationInfo();
         int iconId = applicationInfo.icon;
-        return iconId == 0 ? AppCompatResources.getDrawable(context, android.R.mipmap.sym_def_app_icon) : AppCompatResources.getDrawable(context, iconId);
+        return iconId == 0 ? AppCompatResources.getDrawable(context, android.R.drawable.sym_def_app_icon) : AppCompatResources.getDrawable(context, iconId);
     }
 
     public static String getAppLabel(Context context) {
