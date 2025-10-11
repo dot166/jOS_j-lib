@@ -456,6 +456,48 @@ android_library_import {
 }
 
 java_library_static {
+    name: "j-Lib_androidx.compose.material_material-icons-core",
+    sdk_version: "36",
+    min_sdk_version: "26",
+    apex_available: [
+        "//apex_available:platform",
+        "//apex_available:anyapex",
+    ],
+    static_libs: [
+        "j-Lib_androidx.compose.material_material-icons-core-android",
+    ],
+}
+
+android_library_import {
+    name: "j-Lib_androidx.compose.material_material-icons-core-android",
+    aars: ["androidx/compose/material/material-icons-core-android/1.7.8/material-icons-core-release.aar"],
+    sdk_version: "36",
+    min_sdk_version: "26",
+    apex_available: [
+        "//apex_available:platform",
+        "//apex_available:anyapex",
+    ],
+    static_libs: [
+        "j-Lib_androidx.compose.ui_ui",
+        "j-Lib_org.jetbrains.kotlin_kotlin-stdlib",
+    ],
+}
+
+android_library_import {
+    name: "j-Lib_androidx.compose.material_material-icons-extended-android",
+    aars: ["androidx/compose/material/material-icons-extended-android/1.7.8/material-icons-extended-release.aar"],
+    sdk_version: "36",
+    min_sdk_version: "26",
+    apex_available: [
+        "//apex_available:platform",
+        "//apex_available:anyapex",
+    ],
+    static_libs: [
+        "j-Lib_androidx.compose.material_material-icons-core",
+    ],
+}
+
+java_library_static {
     name: "j-Lib_androidx.compose.material_material-ripple",
     sdk_version: "36",
     min_sdk_version: "26",
@@ -1096,7 +1138,7 @@ android_library_import {
 
 android_library_import {
     name: "j-Lib_androidx.exifinterface_exifinterface",
-    aars: ["androidx/exifinterface/exifinterface/1.3.7/exifinterface-1.3.7.aar"],
+    aars: ["androidx/exifinterface/exifinterface/1.3.6/exifinterface-1.3.6.aar"],
     sdk_version: "36",
     min_sdk_version: "26",
     apex_available: [
@@ -2098,22 +2140,6 @@ android_library_import {
 }
 
 android_library_import {
-    name: "j-Lib_com.google.accompanist_accompanist-drawablepainter",
-    aars: ["com/google/accompanist/accompanist-drawablepainter/0.37.3/accompanist-drawablepainter-0.37.3.aar"],
-    sdk_version: "36",
-    min_sdk_version: "26",
-    apex_available: [
-        "//apex_available:platform",
-        "//apex_available:anyapex",
-    ],
-    static_libs: [
-        "j-Lib_androidx.compose.ui_ui",
-        "j-Lib_org.jetbrains.kotlin_kotlin-stdlib",
-        "j-Lib_org.jetbrains.kotlinx_kotlinx-coroutines-android",
-    ],
-}
-
-android_library_import {
     name: "j-Lib_com.google.android.material_material",
     aars: ["com/google/android/material/material/1.14.0-alpha05/material-1.14.0-alpha05.aar"],
     sdk_version: "36",
@@ -2355,7 +2381,7 @@ java_library_static {
 
 java_import {
     name: "j-Lib_com.squareup.okio_okio-jvm",
-    jars: ["com/squareup/okio/okio-jvm/3.9.0/okio-jvm-3.9.0.jar"],
+    jars: ["com/squareup/okio/okio-jvm/3.6.0/okio-jvm-3.6.0.jar"],
     sdk_version: "36",
     min_sdk_version: "26",
     apex_available: [
@@ -2363,80 +2389,7 @@ java_import {
         "//apex_available:anyapex",
     ],
     static_libs: [
-        "j-Lib_org.jetbrains.kotlin_kotlin-stdlib",
-    ],
-}
-
-android_library_import {
-    name: "j-Lib_io.coil-kt_coil",
-    aars: ["io/coil-kt/coil/2.7.0/coil-2.7.0.aar"],
-    sdk_version: "36",
-    min_sdk_version: "26",
-    apex_available: [
-        "//apex_available:platform",
-        "//apex_available:anyapex",
-    ],
-    static_libs: [
-        "j-Lib_io.coil-kt_coil-base",
-        "j-Lib_org.jetbrains.kotlin_kotlin-stdlib",
-    ],
-}
-
-android_library_import {
-    name: "j-Lib_io.coil-kt_coil-base",
-    aars: ["io/coil-kt/coil-base/2.7.0/coil-base-2.7.0.aar"],
-    sdk_version: "36",
-    min_sdk_version: "26",
-    apex_available: [
-        "//apex_available:platform",
-        "//apex_available:anyapex",
-    ],
-    static_libs: [
-        "j-Lib_androidx.annotation_annotation",
-        "j-Lib_androidx.appcompat_appcompat-resources",
-        "j-Lib_androidx.collection_collection",
-        "j-Lib_androidx.core_core-ktx",
-        "j-Lib_androidx.exifinterface_exifinterface",
-        "j-Lib_androidx.lifecycle_lifecycle-runtime",
-        "j-Lib_androidx.profileinstaller_profileinstaller",
-        "j-Lib_com.squareup.okhttp3_okhttp",
-        "j-Lib_com.squareup.okio_okio",
-        "j-Lib_org.jetbrains.kotlin_kotlin-stdlib",
-        "j-Lib_org.jetbrains.kotlinx_kotlinx-coroutines-android",
-    ],
-}
-
-android_library_import {
-    name: "j-Lib_io.coil-kt_coil-compose",
-    aars: ["io/coil-kt/coil-compose/2.7.0/coil-compose-2.7.0.aar"],
-    sdk_version: "36",
-    min_sdk_version: "26",
-    apex_available: [
-        "//apex_available:platform",
-        "//apex_available:anyapex",
-    ],
-    static_libs: [
-        "j-Lib_io.coil-kt_coil",
-        "j-Lib_io.coil-kt_coil-compose-base",
-        "j-Lib_org.jetbrains.kotlin_kotlin-stdlib",
-    ],
-}
-
-android_library_import {
-    name: "j-Lib_io.coil-kt_coil-compose-base",
-    aars: ["io/coil-kt/coil-compose-base/2.7.0/coil-compose-base-2.7.0.aar"],
-    sdk_version: "36",
-    min_sdk_version: "26",
-    apex_available: [
-        "//apex_available:platform",
-        "//apex_available:anyapex",
-    ],
-    static_libs: [
-        "j-Lib_androidx.compose.foundation_foundation",
-        "j-Lib_androidx.core_core-ktx",
-        "j-Lib_com.google.accompanist_accompanist-drawablepainter",
-        "j-Lib_io.coil-kt_coil-base",
-        "j-Lib_org.jetbrains.kotlin_kotlin-stdlib",
+        "j-Lib_org.jetbrains.kotlin_kotlin-stdlib-jdk8",
     ],
 }
 
@@ -2944,7 +2897,7 @@ java_library_static {
 
 java_import {
     name: "j-Lib_org.jetbrains.kotlin_kotlin-stdlib-jdk7",
-    jars: ["org/jetbrains/kotlin/kotlin-stdlib-jdk7/1.8.22/kotlin-stdlib-jdk7-1.8.22.jar"],
+    jars: ["org/jetbrains/kotlin/kotlin-stdlib-jdk7/1.9.10/kotlin-stdlib-jdk7-1.9.10.jar"],
     sdk_version: "36",
     min_sdk_version: "26",
     apex_available: [
@@ -2958,7 +2911,7 @@ java_import {
 
 java_import {
     name: "j-Lib_org.jetbrains.kotlin_kotlin-stdlib-jdk8",
-    jars: ["org/jetbrains/kotlin/kotlin-stdlib-jdk8/1.8.22/kotlin-stdlib-jdk8-1.8.22.jar"],
+    jars: ["org/jetbrains/kotlin/kotlin-stdlib-jdk8/1.9.10/kotlin-stdlib-jdk8-1.9.10.jar"],
     sdk_version: "36",
     min_sdk_version: "26",
     apex_available: [
