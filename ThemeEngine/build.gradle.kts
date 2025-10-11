@@ -3,12 +3,9 @@ import java.util.Properties
 import java.io.FileInputStream
 
 val Ver: Int = rootProject.extra["libVersion"] as Int;
-val libMinSdk: Int = rootProject.extra["libMinSdk"] as Int;
-val libCompileSdk: Int = rootProject.extra["libCompileSdk"] as Int;
 
 plugins {
     id("com.android.application")
-    id("org.jetbrains.kotlin.android")
     id("com.mikepenz.aboutlibraries.plugin")
     id("com.mikepenz.aboutlibraries.plugin.android")
 }
@@ -32,12 +29,13 @@ android {
         }
     }
     namespace = "io.github.dot166.themeengine"
-    compileSdk = libCompileSdk
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "io.github.dot166.themeengine"
-        minSdk = libMinSdk
-        targetSdk = libCompileSdk
+        minSdk = 26
+        //noinspection ExpiredTargetSdkVersion
+        targetSdk = 26
         versionCode = Integer.MAX_VALUE
         versionName = Integer.MAX_VALUE.toString()
     }
@@ -57,15 +55,10 @@ android {
         }
     }
 
-    aaptOptions.additionalParameters.add("--auto-add-overlay")
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
     }
-    kotlinOptions {
-        jvmTarget = "17"
-    }
-    buildFeatures.resValues = true
 }
 
 aboutLibraries {
