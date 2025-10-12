@@ -23,12 +23,12 @@ public class RSSAlarmScheduler implements AlarmScheduler {
     public PendingIntent createPendingIntent(ReminderItem reminderItem) {
         Intent intent = new Intent(context, RSSNotifAlarmReceiver.class);
 
-        return PendingIntent.getBroadcast(context, reminderItem.getId(), intent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
+        return PendingIntent.getBroadcast(context, reminderItem.id, intent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
     }
 
     @Override
     public void schedule(ReminderItem reminderItem) {
-        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, reminderItem.getTime(), AlarmManager.INTERVAL_HOUR, createPendingIntent(reminderItem));
+        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, reminderItem.time, AlarmManager.INTERVAL_HOUR, createPendingIntent(reminderItem));
     }
 
     @Override
