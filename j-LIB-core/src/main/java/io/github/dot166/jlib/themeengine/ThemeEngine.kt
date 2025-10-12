@@ -99,7 +99,7 @@ object ThemeEngine {
             Log.e(TAG, "ThemeEngine is MISSING!!!!")
             Snackbar.make(context.findViewById<View>(android.R.id.content), R.string.theme_snackbar, Snackbar.LENGTH_SHORT).setAction(R.string.theme_dialog_positive, object : View.OnClickListener {
                 override fun onClick(v: View?) {
-                    val url = "https://github.com/dot166/jOS_j-lib/releases/tag/" + VersionUtils.getLibVersion()
+                    val url = "https://github.com/dot166/jOS_j-lib/releases/tag/" + VersionUtils.libVersion
                     val webpage = url.toUri()
                     val intent = CustomTabsIntent.Builder()
                         .build()
@@ -233,7 +233,7 @@ object ThemeEngine {
         @SuppressLint("Recycle") val cursor = context.contentResolver.query(
             Uri.parse("content://io.github.dot166.themeengine.ThemeProvider/themes"),
             null,
-            VersionUtils.getLibVersion().toString(), // pass jLib Version to ThemeEngine to allow ThemeEngine to determine appropriate fallbacks to new themes
+            VersionUtils.libVersion.toString(), // pass jLib Version to ThemeEngine to allow ThemeEngine to determine appropriate fallbacks to new themes
             null,
             null
         )

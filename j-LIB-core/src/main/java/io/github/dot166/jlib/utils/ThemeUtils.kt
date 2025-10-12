@@ -25,7 +25,7 @@ object ThemeUtils {
         val nightModeFlags: Int =
             context.resources.configuration.uiMode and
                     Configuration.UI_MODE_NIGHT_MASK
-        if (VersionUtils.isAtLeastS()) {
+        if (VersionUtils.isAtLeastS) {
             when (nightModeFlags) {
                 Configuration.UI_MODE_NIGHT_YES -> return dynamicDarkColorScheme(context)
                 Configuration.UI_MODE_NIGHT_NO -> return dynamicLightColorScheme(context)

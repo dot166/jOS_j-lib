@@ -15,7 +15,7 @@ object Build {
             val formattedDate =
                 SimpleDateFormat("yMMdd", Locale.UK).format(date) + "j"
             if (formattedDate == Build.DISPLAY) {
-                return VersionUtils.getAndroidVersion() + "-" + Build.DISPLAY.replace(
+                return VersionUtils.androidVersion + "-" + Build.DISPLAY.replace(
                     "j",
                     ""
                 )
