@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import io.github.dot166.jlib.R;
 
+@Deprecated
 public class MenuButton extends LinearLayout {
 
     public MenuButton(Context context) {
