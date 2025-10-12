@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
-import android.view.View;
+import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
 import androidx.core.view.WindowCompat;
@@ -17,7 +17,6 @@ import androidx.preference.PreferenceScreen;
 import java.util.Objects;
 
 import io.github.dot166.jlib.R;
-import io.github.dot166.jlib.utils.ErrorUtils;
 import io.github.dot166.jlib.LIBAboutActivity;
 import io.github.dot166.jlib.utils.VersionUtils;
 
@@ -26,7 +25,7 @@ import io.github.dot166.jlib.utils.VersionUtils;
  */
 public class jConfigActivity extends jActivity {
 
-    public jLIBSettingsFragment preferenceFragment() {
+    public PreferenceFragmentCompat preferenceFragment() {
         return new jLIBSettingsFragment();
     }
 
@@ -35,6 +34,8 @@ public class jConfigActivity extends jActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.settings_activity);
         setSupportActionBar(findViewById(R.id.actionbar));
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeActionContentDescription(androidx.appcompat.R.string.abc_action_bar_up_description);
 
         WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
 
@@ -44,19 +45,35 @@ public class jConfigActivity extends jActivity {
         }
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                getOnBackPressedDispatcher().onBackPressed();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
 
     /**
      * This fragment shows the preferences.
+     * @deprecated please use {@link PreferenceFragmentCompat} instead
      */
+    @Deprecated
     public static class jLIBSettingsFragment extends PreferenceFragmentCompat {
 
+        @Deprecated
         public boolean hideLIB() {
             return false;
         }
+        @Deprecated
         public int preferenceXML() {
             return R.xml.launcher_preferences;
         }
 
+        @Deprecated
         @Override
         public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
             setPreferencesFromResource(preferenceXML(), rootKey);
@@ -91,7 +108,8 @@ public class jConfigActivity extends jActivity {
          * Initializes a preference. This is called for every preference. Returning false here
          * will remove that preference from the list.
          */
-        protected boolean configPreference(Preference preference) {
+        @Deprecated
+        private boolean configPreference(Preference preference) {
             Log.i("Preference Logging", preference.getKey());
             switch (preference.getKey()) {
                 case "LIBVer":
@@ -109,28 +127,12 @@ public class jConfigActivity extends jActivity {
             return extraPrefs(preference);
         }
 
+        @Deprecated
         protected boolean extraPrefs(Preference preference) {
             return true;
         }
 
-        @Override
-        public void onViewCreated(View view, Bundle savedInstanceState) {
-            super.onViewCreated(view, savedInstanceState);
-            View listView = getListView();
-            final int bottomPadding = listView.getPaddingBottom();
-            listView.setOnApplyWindowInsetsListener((v, insets) -> {
-                v.setPadding(
-                        v.getPaddingLeft(),
-                        v.getPaddingTop(),
-                        v.getPaddingRight(),
-                        bottomPadding + insets.getSystemWindowInsetBottom());
-                return insets.consumeSystemWindowInsets();
-            });
-
-            // Overriding Text Direction in the Androidx preference library to support RTL
-            view.setTextDirection(View.TEXT_DIRECTION_LOCALE);
-        }
-
+        @Deprecated
         protected void recreateActivityNow() {
             Activity activity = getActivity();
             if (activity != null) {
