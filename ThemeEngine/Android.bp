@@ -1,0 +1,9 @@
+android_app_import {
+    name: "ThemeEngine",
+    product_specific: true,
+
+    apk: "ThemeEngine.apk",
+    preprocessed: true,
+
+    optional_uses_libs: ["androidx.window.extensions", "androidx.window.sidecar"],
+}
