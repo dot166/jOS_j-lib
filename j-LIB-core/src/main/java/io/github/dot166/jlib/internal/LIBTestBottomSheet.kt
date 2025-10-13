@@ -21,7 +21,7 @@ class LIBTestBottomSheet : BottomSheetDialogFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val view = inflater.inflate(R.layout.modal_bottom_sheet_content, container, false)
+        val view = inflater.inflate(R.layout.lib_test_bottom_sheet_content, container, false)
         view.findViewById<View?>(R.id.button1)?.setOnClickListener { v ->
             Toast.makeText(v.context, "Exiting...", Toast.LENGTH_SHORT).show()
             requireActivity().finish()
