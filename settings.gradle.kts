@@ -15,4 +15,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "j-Lib"
 include(":j-LIB-core")
-include(":ThemeEngine")
+include(":lib-example")

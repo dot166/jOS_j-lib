@@ -82,10 +82,10 @@ jobs:
         base64 -d b.txt > keystore.properties
 
     - name: Generate aboutlibraries.json
-      run: ./gradlew ThemeEngine:exportLibraryDefinitions -PaboutLibraries.exportPath=build/jLib/aboutlibs
+      run: ./gradlew lib-example:exportLibraryDefinitions -PaboutLibraries.exportPath=build/jLib/aboutlibs
 
     - name: Copy aboutlibraries.json
-      run: cp ThemeEngine/build/jLib/aboutlibs/aboutlibraries.json j-LIB-core/src/main/res/raw/aboutlibraries_jlib.json
+      run: cp lib-example/build/jLib/aboutlibs/aboutlibraries.json j-LIB-core/src/main/res/raw/aboutlibraries_jlib.json
 
     - name: Build
       run: ./gradlew assembleRelease
@@ -114,15 +114,6 @@ jobs:
         git add .
         git commit -m "Publish dependencies for AOSP" || true
 
-    - name: Create AOSP Prebuilt APK
-      run: cp "ThemeEngine/build/outputs/apk/release/ThemeEngine-${{ env.VERSION }}-release.apk" ThemeEngine/ThemeEngine.apk
-
-    - name: Commit changes
-      if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && github.repository == 'dot166/jOS_j-Lib' && env.RELEASE == '1' }}
-      run: |
-        git add .
-        git commit -m "Create AOSP Prebuilt APK" || true
-
     - name: Push changes to repo
       uses: ad-m/github-push-action@master
       if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && github.repository == 'dot166/jOS_j-Lib' }}
@@ -136,4 +127,3 @@ jobs:
         tag_name: ${{ env.VERSION }}
         make_latest: true
         generate_release_notes: true
-        files: "ThemeEngine/ThemeEngine.apk"

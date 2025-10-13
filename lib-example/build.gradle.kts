@@ -1,8 +1,9 @@
-import com.android.build.gradle.internal.api.ApkVariantOutputImpl
 import java.util.Properties
 import java.io.FileInputStream
 
-val Ver: Int = rootProject.extra["libVersion"] as Int;
+val ver: Int = rootProject.extra["libVersion"] as Int;
+val libMinSdk: Int = rootProject.extra["libMinSdk"] as Int;
+val libCompileSdk: Int = rootProject.extra["libCompileSdk"] as Int;
 
 plugins {
     id("com.android.application")
@@ -28,23 +29,15 @@ android {
             enableV4Signing = true // fix out of band signing (i think)
         }
     }
-    namespace = "io.github.dot166.themeengine"
-    compileSdk = 36
+    namespace = "io.github.dot166.libexample"
+    compileSdk = libCompileSdk
 
     defaultConfig {
-        applicationId = "io.github.dot166.themeengine"
-        minSdk = 26
-        //noinspection ExpiredTargetSdkVersion
-        targetSdk = 26
-        versionCode = Integer.MAX_VALUE
-        versionName = Integer.MAX_VALUE.toString()
-    }
-
-    applicationVariants.configureEach {
-        outputs.configureEach {
-            (this as? ApkVariantOutputImpl)?.outputFileName =
-                "ThemeEngine-$Ver-${buildType.name}.apk"
-        }
+        applicationId = "io.github.dot166.libexample"
+        minSdk = libMinSdk
+        targetSdk = libCompileSdk
+        versionCode = ver
+        versionName = ver.toString()
     }
 
     buildTypes {
@@ -67,5 +60,5 @@ aboutLibraries {
 }
 
 dependencies {
-    implementation(project(":j-LIB-core")) // implementation("io.github.dot166:j-Lib:+")
+    implementation(project(":j-LIB-core")) // implementation "io.github.dot166:j-Lib:+"
 }

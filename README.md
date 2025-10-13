@@ -22,7 +22,7 @@ plugins {
 }
 
 dependencies {
-    implementation "io.github.dot166:j-Lib:100"
+    implementation "io.github.dot166:j-Lib:103"
 }
 ```
 
@@ -30,7 +30,7 @@ if you are including jLib in another android library that is built using gradle 
 ```
 
 dependencies {
-    api "io.github.dot166:j-Lib:100"
+    api "io.github.dot166:j-Lib:103"
 }
 ```
 
@@ -49,9 +49,13 @@ to do that change the maven repo line to be ```dot166/gradle-generatebp``` and c
 
 gradle library (main code) with AOSP Build Files
 
-### ThemeEngine/
+### lib-example/
 
-sources for the ThemeEngine Stub, for compatibility with an old feature that is no longer used or maintained
+example app
+
+### ThemeEngineStub/
+
+Stub apk for the old ThemeEngine feature (with AOSP build files)
 
 ### aosp/
 
