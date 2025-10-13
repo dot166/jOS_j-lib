@@ -1,4 +1,4 @@
-package io.github.dot166.jlib.internal.utils;
+package io.github.dot166.jlib.internal;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;

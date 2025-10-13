@@ -29,7 +29,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import io.github.dot166.jlib.R;
-import io.github.dot166.jlib.internal.utils.ContributorRow;
+import io.github.dot166.jlib.internal.ContributorRow;
 import io.github.dot166.jlib.utils.AppUtils;
 import io.github.dot166.jlib.utils.ErrorUtils;
 
