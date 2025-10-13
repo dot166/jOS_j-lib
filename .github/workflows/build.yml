@@ -63,13 +63,13 @@ jobs:
         RELEASE=0 && git show-ref --tags --verify --quiet "refs/tags/$VERSION" || RELEASE=1
           echo "RELEASE=$RELEASE" >> $GITHUB_ENV
 
-    - name: fix version in json and java
+    - name: fix version in files
       if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && github.repository == 'dot166/jOS_j-Lib' && env.RELEASE == '1' }}
       run:  |
         cp .github/lib_jLib.json config/libraries/lib_jLib.json
         sed -ri 's/'"template"'/'"$(cat ver)"'/g' config/libraries/lib_jLib.json
-        cp .github/LibVer.java j-LIB-core/src/main/java/io/github/dot166/jlib/internal/utils/LibVer.java
-        sed -ri 's/'"template"'/'"$(cat ver)"'/g' j-LIB-core/src/main/java/io/github/dot166/jlib/internal/utils/LibVer.java
+        cp .github/LibVer.kt j-LIB-core/src/main/java/io/github/dot166/jlib/internal/utils/LibVer.kt
+        sed -ri 's/'"template"'/'"$(cat ver)"'/g' j-LIB-core/src/main/java/io/github/dot166/jlib/internal/utils/LibVer.kt
 
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
