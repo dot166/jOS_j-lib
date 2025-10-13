@@ -20,5 +20,6 @@
         <item name="buttonBarNegativeButtonStyle">?buttonBarButtonStyle</item>
         <item name="buttonBarNeutralButtonStyle">?buttonBarButtonStyle</item>
         <item name="cardViewStyle">?materialCardViewStyle</item>
+        <item name="sliderStyle">@style/j.slider</item>
     </style>
 </resources>
