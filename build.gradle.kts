@@ -5,7 +5,7 @@ plugins {
     id("com.android.library") version "8.13.0" apply false
     id("com.android.application") version "8.13.0" apply false
     id("com.mikepenz.aboutlibraries.plugin") version "13.0.0" apply false
-    id("com.mikepenz.aboutlibraries.plugin.android") version "13.0.0" apply false
+    id("com.mikepenz.aboutlibraries.plugin.android") version "13.1.0" apply false
     id("com.vanniktech.maven.publish") version "0.34.0" apply false
 }
 
