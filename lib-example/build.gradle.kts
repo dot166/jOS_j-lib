@@ -11,24 +11,7 @@ plugins {
     id("com.mikepenz.aboutlibraries.plugin.android")
 }
 
-val keystorePropertiesFile = rootProject.file("keystore.properties")
-
-// Initialize a new Properties() object called keystoreProperties.
-val keystoreProperties = Properties()
-
-// Load your keystore.properties file into the keystoreProperties object.
-keystoreProperties.load(FileInputStream(keystorePropertiesFile))
-
 android {
-    signingConfigs {
-        create("release") {
-            keyAlias = keystoreProperties["keyAlias"] as String
-            keyPassword = keystoreProperties["keyPassword"] as String
-            storeFile = file(keystoreProperties["storeFile"] as String)
-            storePassword = keystoreProperties["storePassword"] as String
-            enableV4Signing = true // fix out of band signing (i think)
-        }
-    }
     namespace = "io.github.dot166.libexample"
     compileSdk = libCompileSdk
 
@@ -43,7 +26,6 @@ android {
     buildTypes {
         named("release") {
             isMinifyEnabled = false
-            signingConfig = signingConfigs.getByName("release")
             setProguardFiles(listOf(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"))
         }
     }
