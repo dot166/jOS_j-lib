@@ -21,8 +21,6 @@ import io.github.dot166.jlib.R;
 import io.github.dot166.jlib.utils.VersionUtils;
 
 public class jActivity extends AppCompatActivity {
-    @Deprecated
-    String currentTheme = null;
     private ActivityResultLauncher<String> notificationPermissionLauncher;
 
     /**
