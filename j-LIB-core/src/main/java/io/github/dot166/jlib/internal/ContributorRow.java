@@ -11,7 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.browser.customtabs.CustomTabsIntent;
-import androidx.cardview.widget.CardView;
+import com.google.android.material.card.MaterialCardView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.DataSource;
@@ -22,7 +22,7 @@ import com.google.android.material.progressindicator.CircularProgressIndicator;
 
 import io.github.dot166.jlib.R;
 
-public class ContributorRow extends CardView {
+public class ContributorRow extends MaterialCardView {
     TextView mNameView;
     TextView mDescriptionView;
     String mUrl;
@@ -34,7 +34,7 @@ public class ContributorRow extends CardView {
     }
 
     public ContributorRow(@NonNull Context context, @Nullable AttributeSet attrs) {
-        this(context, attrs, androidx.cardview.R.attr.cardViewStyle);
+        this(context, attrs, com.google.android.material.R.attr.materialCardViewStyle);
     }
 
     public ContributorRow(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
