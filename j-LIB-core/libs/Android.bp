@@ -2240,7 +2240,7 @@ java_library_static {
 
 android_library_import {
     name: "j-Lib_com.mikepenz_aboutlibraries-compose-core-android",
-    aars: ["com/mikepenz/aboutlibraries-compose-core-android/13.0.0/aboutlibraries-compose-release.aar"],
+    aars: ["com/mikepenz/aboutlibraries-compose-core-android/13.1.0/aboutlibraries-compose-release.aar"],
     sdk_version: "36",
     min_sdk_version: "26",
     apex_available: [
@@ -2272,7 +2272,7 @@ java_library_static {
 
 android_library_import {
     name: "j-Lib_com.mikepenz_aboutlibraries-compose-m3-android",
-    aars: ["com/mikepenz/aboutlibraries-compose-m3-android/13.0.0/aboutlibraries-compose-m3-release.aar"],
+    aars: ["com/mikepenz/aboutlibraries-compose-m3-android/13.1.0/aboutlibraries-compose-m3-release.aar"],
     sdk_version: "36",
     min_sdk_version: "26",
     apex_available: [
@@ -2307,7 +2307,7 @@ java_library_static {
 
 android_library_import {
     name: "j-Lib_com.mikepenz_aboutlibraries-core-android",
-    aars: ["com/mikepenz/aboutlibraries-core-android/13.0.0/aboutlibraries-core-release.aar"],
+    aars: ["com/mikepenz/aboutlibraries-core-android/13.1.0/aboutlibraries-core-release.aar"],
     sdk_version: "36",
     min_sdk_version: "26",
     apex_available: [
