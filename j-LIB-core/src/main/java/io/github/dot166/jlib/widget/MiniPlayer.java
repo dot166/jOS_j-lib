@@ -76,13 +76,13 @@ public class MiniPlayer extends FrameLayout {
     private final Runnable mTryLoadSavedArtwork = new Runnable() {
         @Override
         public void run() { // this is a separate task to prevent the artwork view from dying (being overridden multiple times)
-            if (mPlayer == null) {
-                Drawable[] dr = new Drawable[0];
-                ((ImageView) findViewById(R.id.now_playing_logo)).setImageDrawable(new LayerDrawable(dr));
+            if (findViewById(R.id.now_playing_logo) == null) { // check if view is still there
                 mHandled.post(mTryLoadSavedArtwork);
                 return;
             }
-            if (findViewById(R.id.now_playing_logo) == null) { // check if view is still there
+            if (mPlayer == null) {
+                Drawable[] dr = new Drawable[0];
+                ((ImageView) findViewById(R.id.now_playing_logo)).setImageDrawable(new LayerDrawable(dr));
                 mHandled.post(mTryLoadSavedArtwork);
                 return;
             }
@@ -170,7 +170,7 @@ public class MiniPlayer extends FrameLayout {
             });
             mHandled.post(updateThread);
         } else {
-            ((ImageView)findViewById(R.id.now_playing_logo)).setImageResource(R.mipmap.ic_launcher_j);
+            ((ImageView)findViewById(R.id.now_playing_logo)).setImageResource(R.mipmap.ic_app_background);
             Slider seekBarMain = findViewById(R.id.seekBar);
             seekBarMain.setValueFrom(0);
             seekBarMain.setValueTo(100);

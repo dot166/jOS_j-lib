@@ -19,7 +19,7 @@
             app:shapeAppearanceOverlay="@style/roundedImageViewRounded"
             android:layout_width="match_parent"
             android:id="@+id/imageView"
-            tools:src="@mipmap/ic_launcher_j"
+            tools:src="@mipmap/ic_app_background"
             android:layout_height="match_parent"/>
         <com.google.android.material.progressindicator.CircularProgressIndicator
             android:layout_width="match_parent"

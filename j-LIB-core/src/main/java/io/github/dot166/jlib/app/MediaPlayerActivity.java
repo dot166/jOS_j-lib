@@ -85,11 +85,11 @@ public class MediaPlayerActivity  extends jActivity {
     private final Runnable mTryLoadSavedArtwork = new Runnable() {
         @Override
         public void run() { // this is a separate task to prevent the artwork view from dying (being overridden multiple times)
-            if (mPlayer == null) {
+            if (mPlayer.getCurrentMediaItem() == null) { // probably no media item loaded
                 mHandled.post(mTryLoadSavedArtwork);
                 return;
             }
-            if (mPlayer.getCurrentMediaItem() == null) { // probably no media item loaded
+            if (mPlayer == null) {
                 mHandled.post(mTryLoadSavedArtwork);
                 return;
             }

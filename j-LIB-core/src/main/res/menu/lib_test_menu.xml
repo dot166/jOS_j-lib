@@ -4,7 +4,7 @@
     <!-- "Mark Favorite", must appear as action button if possible. -->
     <item
         android:id="@+id/action_favorite"
-        android:icon="@mipmap/ic_launcher_j"
+        android:icon="@mipmap/ic_app_background"
         android:title="@string/about"
         app:showAsAction="ifRoom"/>
 
