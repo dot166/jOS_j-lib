@@ -4,5 +4,5 @@ import androidx.annotation.RestrictTo
 
 @RestrictTo(RestrictTo.Scope.LIBRARY)
 object LibVer {
-    const val VER: Int = template
+    const val VER: String = "template"
 }

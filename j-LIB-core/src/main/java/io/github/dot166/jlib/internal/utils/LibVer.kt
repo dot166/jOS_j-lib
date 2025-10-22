@@ -4,5 +4,5 @@ import androidx.annotation.RestrictTo
 
 @RestrictTo(RestrictTo.Scope.LIBRARY)
 object LibVer {
-    const val VER: Int = 102
+    const val VER: String = "102"
 }

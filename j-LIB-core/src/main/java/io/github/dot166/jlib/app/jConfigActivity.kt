@@ -56,7 +56,7 @@ class jConfigActivity : jActivity() {
             val libPref = Preference(requireContext())
             libPref.setIcon(R.mipmap.ic_launcher_j)
             libPref.setTitle(io.github.dot166.jlib.R.string.jlib_version)
-            libPref.setSummary(libVersion.toString())
+            libPref.setSummary(libVersion)
             libPref.onPreferenceClickListener =
                 Preference.OnPreferenceClickListener { preference: Preference? ->
                     startActivity(Intent(preference!!.context, LIBAboutActivity::class.java))

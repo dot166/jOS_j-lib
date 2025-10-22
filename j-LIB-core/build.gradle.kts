@@ -2,7 +2,7 @@ import org.lineageos.generatebp.GenerateBpPlugin
 import org.lineageos.generatebp.GenerateBpPluginExtension
 import org.lineageos.generatebp.models.Module
 
-val Ver: Int = rootProject.extra["libVersion"] as Int;
+val Ver: String = rootProject.extra["libVersion"] as String;
 val libMinSdk: Int = rootProject.extra["libMinSdk"] as Int;
 val libCompileSdk: Int = rootProject.extra["libCompileSdk"] as Int;
 

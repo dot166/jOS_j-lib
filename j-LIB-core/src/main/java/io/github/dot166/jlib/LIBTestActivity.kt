@@ -34,7 +34,7 @@ class LIBTestActivity : jActivity() {
             )
         }
         button2.setOnClickListener { v ->
-            val webpage = ("https://github.com/dot166/jOS_j-lib/commits/$libVersion").toUri()
+            val webpage = ("https://github.com/dot166/jOS_j-lib/commits/v$libVersion").toUri()
             val intent = CustomTabsIntent.Builder()
                 .build()
             intent.launchUrl(v.context, webpage)

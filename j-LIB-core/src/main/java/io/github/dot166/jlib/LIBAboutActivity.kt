@@ -27,7 +27,7 @@ class LIBAboutActivity : jAboutActivity() {
     }
 
     override fun versionName(context: Context): String {
-        return libVersion.toString()
+        return libVersion
     }
 
     override fun product(): List<Contributor> {

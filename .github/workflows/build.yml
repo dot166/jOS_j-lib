@@ -58,7 +58,7 @@ jobs:
     - name: Check if Release build
       shell: sh
       run: |
-        VERSION=$(cat ver)
+        VERSION=v$(cat ver)
           echo "VERSION=$VERSION" >> $GITHUB_ENV
         RELEASE=0 && git show-ref --tags --verify --quiet "refs/tags/$VERSION" || RELEASE=1
           echo "RELEASE=$RELEASE" >> $GITHUB_ENV

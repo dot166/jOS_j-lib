@@ -57,7 +57,7 @@ object VersionUtils {
         }
 
     @JvmStatic
-    val libVersion: Int
+    val libVersion: String
         get() = LibVer.VER
 }
 

@@ -1,9 +1,14 @@
 import java.util.Properties
 import java.io.FileInputStream
 
-val ver: Int = rootProject.extra["libVersion"] as Int;
+val ver: String = rootProject.extra["libVersion"] as String;
 val libMinSdk: Int = rootProject.extra["libMinSdk"] as Int;
 val libCompileSdk: Int = rootProject.extra["libCompileSdk"] as Int;
+val verCode: Int = (((ver.split("\\.".toRegex()).dropLastWhile { it.isEmpty() }
+    .toTypedArray()[0].toInt() * 1000) + ver.split("\\.".toRegex())
+    .dropLastWhile { it.isEmpty() }
+    .toTypedArray()[1].toInt()) * 1000) + ver.split("\\.".toRegex())
+    .dropLastWhile { it.isEmpty() }.toTypedArray()[2].toInt()
 
 plugins {
     id("com.android.application")
@@ -19,8 +24,8 @@ android {
         applicationId = "io.github.dot166.libexample"
         minSdk = libMinSdk
         targetSdk = libCompileSdk
-        versionCode = ver
-        versionName = ver.toString()
+        versionCode = verCode
+        versionName = ver
     }
 
     buildTypes {
