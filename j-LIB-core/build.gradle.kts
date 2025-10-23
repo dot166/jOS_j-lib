@@ -71,7 +71,7 @@ dependencies {
     api("androidx.core:core-ktx:1.17.0")
     api("androidx.browser:browser:1.9.0")
     api("androidx.activity:activity-compose:1.11.0")
-    api("androidx.compose.ui:ui-android:1.9.3")
+    api("androidx.compose.ui:ui-android:1.9.4")
     api("androidx.compose.material3:material3-android:1.4.0")
     api("androidx.compose.material:material-android:1.9.3")
     api("com.mikepenz:aboutlibraries-core:13.1.0")
