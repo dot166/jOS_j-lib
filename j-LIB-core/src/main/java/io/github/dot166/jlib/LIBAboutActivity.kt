@@ -17,7 +17,7 @@ class LIBAboutActivity : jAboutActivity() {
         return Objects.requireNonNull<Drawable>(
             AppCompatResources.getDrawable(
                 context,
-                R.mipmap.ic_app_background
+                R.mipmap.ic_launcher_j
             )
         )
     }

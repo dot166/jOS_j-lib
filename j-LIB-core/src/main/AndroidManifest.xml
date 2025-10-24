@@ -13,19 +13,19 @@
         <!-- Test Activity -->
         <activity
             android:name=".LIBTestActivity"
-            android:icon="@mipmap/ic_app_background"
+            android:icon="@mipmap/ic_launcher_j"
             android:label="@string/libplaceholder"
             android:exported="true" />
         <!-- LIB About Menu -->
         <activity
             android:name=".LIBAboutActivity"
-            android:icon="@mipmap/ic_app_background"
+            android:icon="@mipmap/ic_launcher_j"
             android:label="@string/about_jlib"
             android:exported="true"/>
         <!-- OpenSource Licence Activity -->
         <activity
             android:name=".app.OSSLicenceActivity"
-            android:icon="@mipmap/ic_app_background"
+            android:icon="@mipmap/ic_launcher_j"
             android:label="@string/licences"
             android:exported="false" />
         <!-- BirdGame -->
@@ -34,7 +34,7 @@
             android:excludeFromRecents="true"
             android:exported="true"
             android:hardwareAccelerated="true"
-            android:icon="@mipmap/ic_app_background"
+            android:icon="@mipmap/ic_launcher_j"
             android:label="@string/birdgame"
             android:launchMode="singleInstance"
             android:screenOrientation="locked" />
@@ -44,18 +44,18 @@
             android:excludeFromRecents="true"
             android:exported="true"
             android:hardwareAccelerated="true"
-            android:icon="@mipmap/ic_app_background"
+            android:icon="@mipmap/ic_launcher_j"
             android:label="@string/obstaclegame"
             android:launchMode="singleInstance"
             android:screenOrientation="locked" />
         <activity android:name=".rss.RSSActivity"
-            android:icon="@mipmap/ic_app_background"
+            android:icon="@mipmap/ic_launcher_j"
             android:exported="true"/>
         <activity android:name=".app.MediaPlayerActivity"
-            android:icon="@mipmap/ic_app_background"
+            android:icon="@mipmap/ic_launcher_j"
             android:exported="true" />
         <activity android:name=".registry.RegistryEditActivity"
-            android:icon="@mipmap/ic_app_background"
+            android:icon="@mipmap/ic_launcher_j"
             android:exported="true" />
 
         <receiver android:name=".rss.RSSNotifAlarmReceiver" />

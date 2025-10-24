@@ -4,10 +4,12 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
+import androidx.annotation.RestrictTo
 import androidx.core.view.WindowCompat
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import io.github.dot166.jlib.LIBAboutActivity
+import io.github.dot166.jlib.R
 import io.github.dot166.jlib.utils.VersionUtils.libVersion
 
 /**
@@ -15,24 +17,7 @@ import io.github.dot166.jlib.utils.VersionUtils.libVersion
  */
 class jConfigActivity : jActivity() {
     fun preferenceFragment(): PreferenceFragmentCompat {
-        return object : PreferenceFragmentCompat() {
-            override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
-                val screen = preferenceScreen
-                val disclaimer = Preference(requireContext())
-                disclaimer.title = "This is an example preference screen, please override the preferenceFragment() function to use your own preference fragment"
-                screen.addPreference(disclaimer)
-                val libPref = Preference(requireContext())
-                libPref.setIcon(android.R.drawable.sym_def_app_icon)
-                libPref.setTitle(io.github.dot166.jlib.R.string.jlib_version)
-                libPref.setSummary(libVersion.toString())
-                libPref.onPreferenceClickListener =
-                    Preference.OnPreferenceClickListener { preference: Preference? ->
-                        startActivity(Intent(preference!!.context, LIBAboutActivity::class.java))
-                        true
-                    }
-                screen.addPreference(libPref)
-            }
-        }
+        return ExamplePrefFragment()
     }
 
     @SuppressLint("PrivateResource")
@@ -58,5 +43,26 @@ class jConfigActivity : jActivity() {
             return true
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    @RestrictTo(RestrictTo.Scope.LIBRARY)
+    class ExamplePrefFragment: PreferenceFragmentCompat() {
+        override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
+            setPreferencesFromResource(R.xml.jlib_example_preference_screen, rootKey)
+            val screen = preferenceScreen
+            val disclaimer = Preference(requireContext())
+            disclaimer.title = "This is an example preference screen, please override the preferenceFragment() function to use your own preference fragment"
+            screen.addPreference(disclaimer)
+            val libPref = Preference(requireContext())
+            libPref.setIcon(R.mipmap.ic_launcher_j)
+            libPref.setTitle(io.github.dot166.jlib.R.string.jlib_version)
+            libPref.setSummary(libVersion.toString())
+            libPref.onPreferenceClickListener =
+                Preference.OnPreferenceClickListener { preference: Preference? ->
+                    startActivity(Intent(preference!!.context, LIBAboutActivity::class.java))
+                    true
+                }
+            screen.addPreference(libPref)
+        }
     }
 }

@@ -170,7 +170,7 @@ public class MiniPlayer extends FrameLayout {
             });
             mHandled.post(updateThread);
         } else {
-            ((ImageView)findViewById(R.id.now_playing_logo)).setImageResource(R.mipmap.ic_app_background);
+            ((ImageView)findViewById(R.id.now_playing_logo)).setImageResource(R.mipmap.ic_launcher_j);
             Slider seekBarMain = findViewById(R.id.seekBar);
             seekBarMain.setValueFrom(0);
             seekBarMain.setValueTo(100);
