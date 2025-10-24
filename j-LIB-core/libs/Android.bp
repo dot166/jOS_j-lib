@@ -427,34 +427,6 @@ android_library_import {
     ],
 }
 
-android_library_import {
-    name: "j-Lib_androidx.compose.material_material-android",
-    aars: ["androidx/compose/material/material-android/1.9.3/material.aar"],
-    sdk_version: "36",
-    min_sdk_version: "26",
-    apex_available: [
-        "//apex_available:platform",
-        "//apex_available:anyapex",
-    ],
-    static_libs: [
-        "j-Lib_androidx.annotation_annotation",
-        "j-Lib_androidx.annotation_annotation-experimental",
-        "j-Lib_androidx.compose.animation_animation",
-        "j-Lib_androidx.compose.animation_animation-core",
-        "j-Lib_androidx.compose.foundation_foundation",
-        "j-Lib_androidx.compose.foundation_foundation-layout",
-        "j-Lib_androidx.compose.material_material-ripple",
-        "j-Lib_androidx.compose.runtime_runtime",
-        "j-Lib_androidx.compose.ui_ui",
-        "j-Lib_androidx.compose.ui_ui-text",
-        "j-Lib_androidx.compose.ui_ui-util",
-        "j-Lib_androidx.lifecycle_lifecycle-runtime",
-        "j-Lib_androidx.lifecycle_lifecycle-viewmodel",
-        "j-Lib_androidx.savedstate_savedstate",
-        "j-Lib_org.jetbrains.kotlin_kotlin-stdlib",
-    ],
-}
-
 java_library_static {
     name: "j-Lib_androidx.compose.material_material-icons-core",
     sdk_version: "36",
@@ -584,7 +556,7 @@ java_library_static {
 
 android_library_import {
     name: "j-Lib_androidx.compose.runtime_runtime-android",
-    aars: ["androidx/compose/runtime/runtime-android/1.9.3/runtime.aar"],
+    aars: ["androidx/compose/runtime/runtime-android/1.9.4/runtime.aar"],
     sdk_version: "36",
     min_sdk_version: "26",
     apex_available: [
@@ -616,7 +588,7 @@ java_library_static {
 
 android_library_import {
     name: "j-Lib_androidx.compose.runtime_runtime-annotation-android",
-    aars: ["androidx/compose/runtime/runtime-annotation-android/1.9.3/runtime-annotation.aar"],
+    aars: ["androidx/compose/runtime/runtime-annotation-android/1.9.4/runtime-annotation.aar"],
     sdk_version: "36",
     min_sdk_version: "26",
     apex_available: [
@@ -643,7 +615,7 @@ java_library_static {
 
 android_library_import {
     name: "j-Lib_androidx.compose.runtime_runtime-saveable-android",
-    aars: ["androidx/compose/runtime/runtime-saveable-android/1.9.3/runtime-saveable.aar"],
+    aars: ["androidx/compose/runtime/runtime-saveable-android/1.9.4/runtime-saveable.aar"],
     sdk_version: "36",
     min_sdk_version: "26",
     apex_available: [
@@ -675,7 +647,7 @@ java_library_static {
 
 android_library_import {
     name: "j-Lib_androidx.compose.ui_ui-android",
-    aars: ["androidx/compose/ui/ui-android/1.9.3/ui-release.aar"],
+    aars: ["androidx/compose/ui/ui-android/1.9.4/ui-release.aar"],
     sdk_version: "36",
     min_sdk_version: "26",
     apex_available: [
@@ -726,7 +698,7 @@ java_library_static {
 
 android_library_import {
     name: "j-Lib_androidx.compose.ui_ui-geometry-android",
-    aars: ["androidx/compose/ui/ui-geometry-android/1.9.3/ui-geometry.aar"],
+    aars: ["androidx/compose/ui/ui-geometry-android/1.9.4/ui-geometry.aar"],
     sdk_version: "36",
     min_sdk_version: "26",
     apex_available: [
@@ -756,7 +728,7 @@ java_library_static {
 
 android_library_import {
     name: "j-Lib_androidx.compose.ui_ui-graphics-android",
-    aars: ["androidx/compose/ui/ui-graphics-android/1.9.3/ui-graphics-release.aar"],
+    aars: ["androidx/compose/ui/ui-graphics-android/1.9.4/ui-graphics-release.aar"],
     sdk_version: "36",
     min_sdk_version: "26",
     apex_available: [
@@ -791,7 +763,7 @@ java_library_static {
 
 android_library_import {
     name: "j-Lib_androidx.compose.ui_ui-text-android",
-    aars: ["androidx/compose/ui/ui-text-android/1.9.3/ui-text.aar"],
+    aars: ["androidx/compose/ui/ui-text-android/1.9.4/ui-text.aar"],
     sdk_version: "36",
     min_sdk_version: "26",
     apex_available: [
@@ -829,7 +801,7 @@ java_library_static {
 
 android_library_import {
     name: "j-Lib_androidx.compose.ui_ui-tooling-preview-android",
-    aars: ["androidx/compose/ui/ui-tooling-preview-android/1.9.3/ui-tooling-preview.aar"],
+    aars: ["androidx/compose/ui/ui-tooling-preview-android/1.9.4/ui-tooling-preview.aar"],
     sdk_version: "36",
     min_sdk_version: "26",
     apex_available: [
@@ -857,7 +829,7 @@ java_library_static {
 
 android_library_import {
     name: "j-Lib_androidx.compose.ui_ui-unit-android",
-    aars: ["androidx/compose/ui/ui-unit-android/1.9.3/ui-unit.aar"],
+    aars: ["androidx/compose/ui/ui-unit-android/1.9.4/ui-unit.aar"],
     sdk_version: "36",
     min_sdk_version: "26",
     apex_available: [
@@ -891,7 +863,7 @@ java_library_static {
 
 android_library_import {
     name: "j-Lib_androidx.compose.ui_ui-util-android",
-    aars: ["androidx/compose/ui/ui-util-android/1.9.3/ui-util.aar"],
+    aars: ["androidx/compose/ui/ui-util-android/1.9.4/ui-util.aar"],
     sdk_version: "36",
     min_sdk_version: "26",
     apex_available: [
@@ -1041,7 +1013,7 @@ android_library_import {
 
 android_library_import {
     name: "j-Lib_androidx.customview_customview",
-    aars: ["androidx/customview/customview/1.1.0/customview-1.1.0.aar"],
+    aars: ["androidx/customview/customview/1.2.0/customview-1.2.0.aar"],
     sdk_version: "36",
     min_sdk_version: "26",
     apex_available: [
@@ -1052,6 +1024,7 @@ android_library_import {
         "j-Lib_androidx.annotation_annotation",
         "j-Lib_androidx.collection_collection",
         "j-Lib_androidx.core_core",
+        "j-Lib_org.jspecify_jspecify",
     ],
 }
 
@@ -1759,6 +1732,23 @@ android_library_import {
 }
 
 android_library_import {
+    name: "j-Lib_androidx.preference_preference-ktx",
+    aars: ["androidx/preference/preference-ktx/1.2.1/preference-ktx-1.2.1.aar"],
+    sdk_version: "36",
+    min_sdk_version: "26",
+    apex_available: [
+        "//apex_available:platform",
+        "//apex_available:anyapex",
+    ],
+    static_libs: [
+        "j-Lib_androidx.core_core-ktx",
+        "j-Lib_androidx.fragment_fragment-ktx",
+        "j-Lib_androidx.preference_preference",
+        "j-Lib_org.jetbrains.kotlin_kotlin-stdlib",
+    ],
+}
+
+android_library_import {
     name: "j-Lib_androidx.profileinstaller_profileinstaller",
     aars: ["androidx/profileinstaller/profileinstaller/1.4.0/profileinstaller-1.4.0.aar"],
     sdk_version: "36",
@@ -2141,7 +2131,7 @@ android_library_import {
 
 android_library_import {
     name: "j-Lib_com.google.android.material_material",
-    aars: ["com/google/android/material/material/1.14.0-alpha05/material-1.14.0-alpha05.aar"],
+    aars: ["com/google/android/material/material/1.14.0-alpha06/material-1.14.0-alpha06.aar"],
     sdk_version: "36",
     min_sdk_version: "26",
     apex_available: [
@@ -2157,6 +2147,7 @@ android_library_import {
         "j-Lib_androidx.constraintlayout_constraintlayout",
         "j-Lib_androidx.coordinatorlayout_coordinatorlayout",
         "j-Lib_androidx.core_core",
+        "j-Lib_androidx.customview_customview",
         "j-Lib_androidx.drawerlayout_drawerlayout",
         "j-Lib_androidx.dynamicanimation_dynamicanimation",
         "j-Lib_androidx.fragment_fragment",
@@ -2870,7 +2861,7 @@ java_library_static {
 
 java_import {
     name: "j-Lib_org.jetbrains.kotlin_kotlin-stdlib",
-    jars: ["org/jetbrains/kotlin/kotlin-stdlib/2.2.20/kotlin-stdlib-2.2.20.jar"],
+    jars: ["org/jetbrains/kotlin/kotlin-stdlib/2.2.21/kotlin-stdlib-2.2.21.jar"],
     sdk_version: "36",
     min_sdk_version: "26",
     apex_available: [
