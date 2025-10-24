@@ -14,24 +14,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+package io.github.dot166.jlib
 
-package io.github.dot166.jlib;
+import android.os.Bundle
+import android.util.Log
+import io.github.dot166.jlib.app.jActivity
+import io.github.dot166.jlib.widget.BirdGame
 
-import android.os.Bundle;
-import android.util.Log;
-import android.widget.TextView;
-
-import io.github.dot166.jlib.app.jActivity;
-import io.github.dot166.jlib.widget.BirdGame;
-
-public class BirdGameActivity extends jActivity {
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.birdgame);
-        BirdGame world = (BirdGame) findViewById(R.id.world);
-        world.setScoreField((TextView) findViewById(R.id.score));
-        world.setSplash(findViewById(R.id.welcome));
-        Log.v(BirdGame.TAG, "focus: " + world.requestFocus());
+class BirdGameActivity : jActivity() {
+    public override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.birdgame)
+        val world = findViewById<BirdGame>(R.id.world)
+        world.setScoreField(findViewById(R.id.score))
+        world.setSplash(findViewById(R.id.welcome))
+        Log.v(BirdGame.TAG, "focus: " + world.requestFocus())
     }
 }

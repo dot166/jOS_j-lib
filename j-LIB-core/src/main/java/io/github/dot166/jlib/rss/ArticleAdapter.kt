@@ -15,15 +15,15 @@ import io.github.dot166.jlib.app.MediaPlayerActivity
 import io.github.dot166.jlib.utils.DateUtils.convertFromCommonFormats
 import androidx.core.net.toUri
 
-class ArticleAdapter(val articleList: MutableList<RssItem>?) :
-    RecyclerView.Adapter<ArticleAdapter.ViewHolder?>() {
+class ArticleAdapter(val articleList: MutableList<RssItem>) :
+    RecyclerView.Adapter<ArticleAdapter.ViewHolder>() {
     override fun onCreateViewHolder(viewGroup: ViewGroup, i: Int): ViewHolder {
         val v = LayoutInflater.from(viewGroup.context).inflate(R.layout.row, viewGroup, false)
         return ViewHolder(v)
     }
 
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
-        val currentArticle = articleList!![position]
+        val currentArticle = articleList[position]
 
         val sourceDateString = currentArticle.pubDate
 
@@ -131,7 +131,7 @@ class ArticleAdapter(val articleList: MutableList<RssItem>?) :
     }
 
     override fun getItemCount(): Int {
-        return if (this.articleList == null) 0 else articleList.size
+        return articleList.size
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
