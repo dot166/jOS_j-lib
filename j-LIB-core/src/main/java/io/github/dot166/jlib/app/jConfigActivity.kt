@@ -16,7 +16,7 @@ import io.github.dot166.jlib.utils.VersionUtils.libVersion
  * jLib Settings activity.
  */
 open class jConfigActivity : jActivity() {
-    fun preferenceFragment(): PreferenceFragmentCompat {
+    open fun preferenceFragment(): PreferenceFragmentCompat {
         return ExamplePrefFragment()
     }
 
