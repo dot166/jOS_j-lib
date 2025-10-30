@@ -53,10 +53,6 @@ gradle library (main code) with AOSP Build Files
 
 example app
 
-### ThemeEngineStub/
-
-Stub apk for the old ThemeEngine feature (with AOSP build files)
-
 ### aosp/
 
 sources for aosp features that normally be in a vendor or 'sdk' folder

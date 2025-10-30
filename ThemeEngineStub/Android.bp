@@ -1,9 +1,0 @@
-android_app_import {
-    name: "ThemeEngineStub",
-    product_specific: true,
-
-    apk: "Stub.apk",
-    preprocessed: true,
-
-    optional_uses_libs: ["androidx.window.extensions", "androidx.window.sidecar"],
-}
