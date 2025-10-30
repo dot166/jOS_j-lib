@@ -22,4 +22,14 @@
         <item name="cardViewStyle">?materialCardViewStyle</item>
         <item name="sliderStyle">@style/j.slider</item>
     </style>
+
+    <style name="j.Theme.PlatLogo">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:windowShowWallpaper">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="windowNoTitle">true</item>
+    </style>
 </resources>
