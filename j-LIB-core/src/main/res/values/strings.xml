@@ -6,7 +6,6 @@
     <string name="libplaceholder">LIB Test</string>
     <string name="ok">OK</string>
     <string name="jlib_changelog">jLIB Changelog</string>
-    <string name="theme_dialog_positive">Install</string>
     <string name="about">About</string>
     <string name="maintainer">Maintainer</string>
     <string name="contributor">Contributor</string>
@@ -18,7 +17,6 @@
     <string name="dialog_ignore">Ignore</string>
     <string name="dialog_stacktrace">Show Stack Trace</string>
     <string name="exit_test_menu">Exit test menu</string>
-    <string name="menu_action_icon">Menu Action Icon</string>
     <string name="about_jlib">About jLib</string>
     <string name="birdgame">BirdGame</string>
     <!-- Custom seekbar -->
@@ -26,14 +24,9 @@
     <string name="slider_default_value">by default</string>
     <string name="slider_default_value_to_set">Default value: <xliff:g id="v">%s</xliff:g>\nLong tap to set</string>
     <string name="slider_default_value_is_set">Default value is set</string>
-    <string name="text_te_label">ThemeEngine is out of date</string>
-    <string name="dialog_te_message">The version of ThemeEngine that is installed on your device is now out of date, please update it (if ThemeEngine was included with your OS then wait for an OS update)</string>
-    <string name="dialog_te_negative">Ignore</string>
-    <string name="dialog_te_positive">Update</string>
     <string name="yes">Yes</string>
     <string name="cancel">Cancel</string>
     <string name="obstaclegame">Obstacle Game</string>
-    <string name="theme_snackbar">ThemeEngine is missing</string>
     <string name="rss_feed">RSS Feed Activity</string>
     <string name="fast_forward">+10s</string>
     <string name="play_pause">Play/Pause</string>
