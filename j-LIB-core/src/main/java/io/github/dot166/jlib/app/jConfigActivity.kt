@@ -48,8 +48,7 @@ open class jConfigActivity : jActivity() {
     @RestrictTo(RestrictTo.Scope.LIBRARY)
     class ExamplePrefFragment: PreferenceFragmentCompat() {
         override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
-            setPreferencesFromResource(R.xml.jlib_example_preference_screen, rootKey)
-            val screen = preferenceScreen
+            val screen = preferenceManager.createPreferenceScreen(requireContext())
             val disclaimer = Preference(requireContext())
             disclaimer.title = "This is an example preference screen, please override the preferenceFragment() function to use your own preference fragment"
             screen.addPreference(disclaimer)
@@ -63,6 +62,7 @@ open class jConfigActivity : jActivity() {
                     true
                 }
             screen.addPreference(libPref)
+            preferenceScreen = screen
         }
     }
 }
