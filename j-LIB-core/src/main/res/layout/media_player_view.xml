@@ -51,13 +51,15 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/button5"
+                style="?materialIconButtonFilledStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                app:icon="@drawable/media3_icon_skip_back_10"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                android:text="@string/rewind" />
+                android:contentDescription="@string/rewind" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/button6"
@@ -70,13 +72,15 @@
                 app:layout_constraintEnd_toStartOf="@id/button7"
                 android:contentDescription="@string/play_pause" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/button7"
+                style="?materialIconButtonFilledStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                app:icon="@drawable/media3_icon_skip_forward_10"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:text="@string/fast_forward" />
+                android:contentDescription="@string/fast_forward" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>
 
