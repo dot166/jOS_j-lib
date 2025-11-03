@@ -466,6 +466,7 @@ android_library_import {
     ],
     static_libs: [
         "j-Lib_androidx.compose.material_material-icons-core",
+        "j-Lib_org.jetbrains.kotlin_kotlin-stdlib",
     ],
 }
 
@@ -1704,9 +1705,9 @@ android_library_import {
     static_libs: [
         "j-Lib_androidx.collection_collection",
         "j-Lib_androidx.core_core",
+        "j-Lib_androidx.media_media",
         "j-Lib_androidx.media3_media3-common",
         "j-Lib_androidx.media3_media3-datasource",
-        "j-Lib_androidx.media_media",
     ],
 }
 
@@ -2847,18 +2848,6 @@ java_library_static {
     ],
 }
 
-java_library_static {
-    name: "j-Lib_org.jetbrains.kotlin_kotlin-bom",
-    sdk_version: "36",
-    min_sdk_version: "26",
-    apex_available: [
-        "//apex_available:platform",
-        "//apex_available:anyapex",
-    ],
-    static_libs: [
-    ],
-}
-
 java_import {
     name: "j-Lib_org.jetbrains.kotlin_kotlin-stdlib",
     jars: ["org/jetbrains/kotlin/kotlin-stdlib/2.2.21/kotlin-stdlib-2.2.21.jar"],
@@ -2870,19 +2859,6 @@ java_import {
     ],
     static_libs: [
         "j-Lib_org.jetbrains_annotations",
-    ],
-}
-
-java_library_static {
-    name: "j-Lib_org.jetbrains.kotlin_kotlin-stdlib-common",
-    sdk_version: "36",
-    min_sdk_version: "26",
-    apex_available: [
-        "//apex_available:platform",
-        "//apex_available:anyapex",
-    ],
-    static_libs: [
-        "j-Lib_org.jetbrains.kotlin_kotlin-stdlib",
     ],
 }
 
@@ -2993,9 +2969,9 @@ java_import {
         "//apex_available:anyapex",
     ],
     static_libs: [
+        "j-Lib_org.jetbrains_annotations",
         "j-Lib_org.jetbrains.kotlin_kotlin-stdlib",
         "j-Lib_org.jetbrains.kotlinx_kotlinx-coroutines-bom",
-        "j-Lib_org.jetbrains_annotations",
     ],
 }
 
