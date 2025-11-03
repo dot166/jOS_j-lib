@@ -36,7 +36,7 @@
         android:paddingBottom="16dp"
         app:layout_constraintStart_toEndOf="@id/imageLayout"
         app:layout_constraintTop_toTopOf="parent">
-        <TextView
+        <com.google.android.material.textview.MaterialTextView
             android:layout_width="wrap_content"
             android:id="@+id/name"
             android:layout_height="wrap_content"
@@ -45,7 +45,7 @@
             android:textAppearance="?textAppearanceBodyLarge"
             android:textColor="?colorOnBackground"
             tools:text="Hello World!"/>
-        <TextView
+        <com.google.android.material.textview.MaterialTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/description"

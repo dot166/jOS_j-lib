@@ -3,7 +3,6 @@ package io.github.dot166.jlib.rss
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import android.widget.Toast
 import androidx.browser.customtabs.CustomTabsIntent
 import androidx.preference.PreferenceManager
@@ -14,6 +13,7 @@ import io.github.dot166.jlib.R
 import io.github.dot166.jlib.app.MediaPlayerActivity
 import io.github.dot166.jlib.utils.DateUtils.convertFromCommonFormats
 import androidx.core.net.toUri
+import com.google.android.material.textview.MaterialTextView
 
 class ArticleAdapter(val articleList: MutableList<RssItem>) :
     RecyclerView.Adapter<ArticleAdapter.ViewHolder>() {
@@ -135,8 +135,8 @@ class ArticleAdapter(val articleList: MutableList<RssItem>) :
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var title: TextView = itemView.findViewById(R.id.title)
-        var pubDate: TextView = itemView.findViewById(R.id.pubDate)
-        var category: TextView = itemView.findViewById(R.id.categories)
+        var title: MaterialTextView = itemView.findViewById(R.id.title)
+        var pubDate: MaterialTextView = itemView.findViewById(R.id.pubDate)
+        var category: MaterialTextView = itemView.findViewById(R.id.categories)
     }
 }

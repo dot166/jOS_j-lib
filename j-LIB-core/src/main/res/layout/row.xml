@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         >
 
-        <TextView
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/title"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -29,7 +29,7 @@
             tools:text="This is simple a fake title"
             />
 
-        <TextView
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/pubDate"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -43,7 +43,7 @@
             tools:text="15 December 2018"
             />
 
-        <TextView
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/categories"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

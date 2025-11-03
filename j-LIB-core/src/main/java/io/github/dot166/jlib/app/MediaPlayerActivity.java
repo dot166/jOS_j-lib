@@ -10,11 +10,10 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.OptIn;
+import androidx.appcompat.widget.AppCompatImageView;
 import androidx.core.content.ContextCompat;
 import androidx.media3.common.MediaItem;
 import androidx.media3.common.MediaMetadata;
@@ -26,6 +25,7 @@ import androidx.media3.session.SessionToken;
 import com.bumptech.glide.Glide;
 import com.google.android.material.progressindicator.CircularProgressIndicator;
 import com.google.android.material.slider.Slider;
+import com.google.android.material.textview.MaterialTextView;
 import com.google.common.util.concurrent.ListenableFuture;
 
 import java.text.SimpleDateFormat;
@@ -77,7 +77,7 @@ public class MediaPlayerActivity  extends jActivity {
             }
             findViewById(R.id.button6).setActivated(mPlayer.isPlaying());
             setProgress(findViewById(R.id.seekBar));
-            ((TextView)findViewById(R.id.now_playing_title)).setText(mPlayer.getMediaMetadata().title);
+            ((MaterialTextView)findViewById(R.id.now_playing_title)).setText(mPlayer.getMediaMetadata().title);
             mHandled.post(updateThread);
         }
     };
@@ -95,7 +95,7 @@ public class MediaPlayerActivity  extends jActivity {
             }
             Glide.with(MediaPlayerActivity.this)
                     .load(mPlayer.getMediaMetadata().artworkUri)
-                    .into(((ImageView) findViewById(R.id.imageView)));
+                    .into(((AppCompatImageView) findViewById(R.id.imageView)));
         }
     };
 
@@ -152,7 +152,7 @@ public class MediaPlayerActivity  extends jActivity {
         if (drawUrl != null && !drawUrl.isEmpty()) {
             Glide.with(this)
                     .load(drawUrl)
-                    .into(((ImageView) findViewById(R.id.imageView)));
+                    .into(((AppCompatImageView) findViewById(R.id.imageView)));
         } else {
             mHandled.post(mTryLoadSavedArtwork);
         }
@@ -169,7 +169,7 @@ public class MediaPlayerActivity  extends jActivity {
                 long duration = mPlayer.getDuration();
                 long newposition = (long) ((duration * progress) / 1000L);
                 String formattedTextString = new SimpleDateFormat("HH:mm:ss", Locale.ENGLISH).format(newposition) + "/" + new SimpleDateFormat("HH:mm:ss", Locale.ENGLISH).format(duration);
-                ((TextView)findViewById(R.id.text)).setText(formattedTextString);
+                ((MaterialTextView)findViewById(R.id.text)).setText(formattedTextString);
                 if (!fromUser) {
                     // We're not interested in programmatically generated changes to
                     // the progress bar's position.

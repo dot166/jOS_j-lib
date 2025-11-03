@@ -11,8 +11,9 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.appcompat.widget.AppCompatEditText;
 
 import com.google.android.material.tabs.TabLayout;
 
@@ -43,9 +44,9 @@ public class RegistryEditActivity extends jActivity {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 RegistryHelper.Object station = (RegistryHelper.Object) tab.getTag();
-                ((EditText)findViewById(R.id.name_input)).setText(station.getName());
-                ((EditText)findViewById(R.id.url_input)).setText(station.getUrl());
-                ((EditText)findViewById(R.id.logo_url_input)).setText(station.getLogoUrl());
+                ((AppCompatEditText)findViewById(R.id.name_input)).setText(station.getName());
+                ((AppCompatEditText)findViewById(R.id.url_input)).setText(station.getUrl());
+                ((AppCompatEditText)findViewById(R.id.logo_url_input)).setText(station.getLogoUrl());
             }
 
             @Override
@@ -63,16 +64,16 @@ public class RegistryEditActivity extends jActivity {
             public void onClick(View v) {
                 TabLayout.Tab tab = tabLayout.getTabAt(tabLayout.getSelectedTabPosition());
                 HashMap<String, String> attrs = new HashMap<>();
-                attrs.put("objectName", ((EditText)findViewById(R.id.name_input)).getText().toString());
-                attrs.put("objectUrl", ((EditText)findViewById(R.id.url_input)).getText().toString());
-                attrs.put("objectLogoUrl", ((EditText)findViewById(R.id.logo_url_input)).getText().toString());
+                attrs.put("objectName", ((AppCompatEditText)findViewById(R.id.name_input)).getText().toString());
+                attrs.put("objectUrl", ((AppCompatEditText)findViewById(R.id.url_input)).getText().toString());
+                attrs.put("objectLogoUrl", ((AppCompatEditText)findViewById(R.id.logo_url_input)).getText().toString());
                 if (tab.getTag() != null) {
-                    if (stations.contains(tab.getTag()) && ((EditText)findViewById(R.id.url_input)).getText().toString().isEmpty()) {
+                    if (stations.contains(tab.getTag()) && ((AppCompatEditText)findViewById(R.id.url_input)).getText().toString().isEmpty()) {
                         stations.remove(tab.getTag());
                         writeXmlToFile(v.getContext(), "Registry.xml", stations);
                         rebuildTabs(tabLayout);
                         return;
-                    } else if (stations.contains(tab.getTag()) && !((EditText)findViewById(R.id.url_input)).getText().toString().isEmpty()) {
+                    } else if (stations.contains(tab.getTag()) && !((AppCompatEditText)findViewById(R.id.url_input)).getText().toString().isEmpty()) {
                         RegistryHelper.Object station = (RegistryHelper.Object) tab.getTag();
                         station.updateAttributes(attrs);
                         stations.remove(tab.getTag());

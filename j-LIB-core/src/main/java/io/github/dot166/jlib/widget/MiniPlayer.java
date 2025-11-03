@@ -10,12 +10,11 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.OptIn;
+import androidx.appcompat.widget.AppCompatImageView;
 import androidx.core.content.ContextCompat;
 import androidx.media3.common.util.UnstableApi;
 import androidx.media3.session.MediaController;
@@ -23,6 +22,7 @@ import androidx.media3.session.SessionToken;
 
 import com.bumptech.glide.Glide;
 import com.google.android.material.slider.Slider;
+import com.google.android.material.textview.MaterialTextView;
 import com.google.common.util.concurrent.ListenableFuture;
 
 import java.text.SimpleDateFormat;
@@ -61,13 +61,13 @@ public class MiniPlayer extends FrameLayout {
             }
             findViewById(R.id.button6).setActivated(mPlayer.isPlaying());
             setProgress(findViewById(R.id.seekBar));
-            if (((TextView)findViewById(R.id.now_playing_title)).getText() != mPlayer.getMediaMetadata().title) {
-                ((TextView) findViewById(R.id.now_playing_title)).setText(mPlayer.getMediaMetadata().title);
-                ((TextView) findViewById(R.id.now_playing_title)).setSelected(true);
+            if (((MaterialTextView)findViewById(R.id.now_playing_title)).getText() != mPlayer.getMediaMetadata().title) {
+                ((MaterialTextView) findViewById(R.id.now_playing_title)).setText(mPlayer.getMediaMetadata().title);
+                ((MaterialTextView) findViewById(R.id.now_playing_title)).setSelected(true);
             }
-            if (((TextView)findViewById(R.id.now_playing_subtitle)).getText() != (mPlayer.isCurrentMediaItemLive() ? mPlayer.getMediaMetadata().station : mPlayer.getMediaMetadata().artist)) {
-                ((TextView) findViewById(R.id.now_playing_subtitle)).setText(mPlayer.isCurrentMediaItemLive() ? mPlayer.getMediaMetadata().station : mPlayer.getMediaMetadata().artist);
-                ((TextView) findViewById(R.id.now_playing_subtitle)).setSelected(true);
+            if (((MaterialTextView)findViewById(R.id.now_playing_subtitle)).getText() != (mPlayer.isCurrentMediaItemLive() ? mPlayer.getMediaMetadata().station : mPlayer.getMediaMetadata().artist)) {
+                ((MaterialTextView) findViewById(R.id.now_playing_subtitle)).setText(mPlayer.isCurrentMediaItemLive() ? mPlayer.getMediaMetadata().station : mPlayer.getMediaMetadata().artist);
+                ((MaterialTextView) findViewById(R.id.now_playing_subtitle)).setSelected(true);
             }
             mHandled.post(updateThread);
         }
@@ -82,13 +82,13 @@ public class MiniPlayer extends FrameLayout {
             }
             if (mPlayer == null) {
                 Drawable[] dr = new Drawable[0];
-                ((ImageView) findViewById(R.id.now_playing_logo)).setImageDrawable(new LayerDrawable(dr));
+                ((AppCompatImageView) findViewById(R.id.now_playing_logo)).setImageDrawable(new LayerDrawable(dr));
                 mHandled.post(mTryLoadSavedArtwork);
                 return;
             }
             Glide.with(MiniPlayer.this)
                     .load(mPlayer.getMediaMetadata().artworkUri)
-                    .into(((ImageView) findViewById(R.id.now_playing_logo)));
+                    .into(((AppCompatImageView) findViewById(R.id.now_playing_logo)));
         }
     };
 
@@ -132,7 +132,7 @@ public class MiniPlayer extends FrameLayout {
                     long duration = mPlayer.getDuration();
                     long newposition = (long) ((duration * progress) / 1000L);
                     String formattedTextString = new SimpleDateFormat("HH:mm:ss", Locale.ENGLISH).format(newposition) + "/" + new SimpleDateFormat("HH:mm:ss", Locale.ENGLISH).format(duration);
-                    ((TextView) findViewById(R.id.text)).setText(formattedTextString);
+                    ((MaterialTextView) findViewById(R.id.text)).setText(formattedTextString);
                     if (!fromUser) {
                         // We're not interested in programmatically generated changes to
                         // the progress bar's position.
@@ -170,13 +170,13 @@ public class MiniPlayer extends FrameLayout {
             });
             mHandled.post(updateThread);
         } else {
-            ((ImageView)findViewById(R.id.now_playing_logo)).setImageResource(R.mipmap.ic_launcher_j);
+            ((AppCompatImageView)findViewById(R.id.now_playing_logo)).setImageResource(R.mipmap.ic_launcher_j);
             Slider seekBarMain = findViewById(R.id.seekBar);
             seekBarMain.setValueFrom(0);
             seekBarMain.setValueTo(100);
             seekBarMain.setValue(50);
-            ((TextView)findViewById(R.id.now_playing_title)).setText(R.string.placeholder);
-            ((TextView) findViewById(R.id.now_playing_subtitle)).setText(R.string.preview_mode);
+            ((MaterialTextView)findViewById(R.id.now_playing_title)).setText(R.string.placeholder);
+            ((MaterialTextView) findViewById(R.id.now_playing_subtitle)).setText(R.string.preview_mode);
         }
     }
 

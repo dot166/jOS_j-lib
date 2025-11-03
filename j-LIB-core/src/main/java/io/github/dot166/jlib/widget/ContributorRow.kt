@@ -1,13 +1,13 @@
-package io.github.dot166.jlib.internal
+package io.github.dot166.jlib.widget
 
 import android.content.Context
 import android.graphics.drawable.Drawable
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
-import android.widget.ImageView
-import android.widget.TextView
+import androidx.appcompat.widget.AppCompatImageView
 import androidx.browser.customtabs.CustomTabsIntent
+import androidx.core.net.toUri
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
@@ -16,25 +16,25 @@ import com.bumptech.glide.request.target.Target
 import com.google.android.material.R
 import com.google.android.material.card.MaterialCardView
 import com.google.android.material.progressindicator.CircularProgressIndicator
-import androidx.core.net.toUri
+import com.google.android.material.textview.MaterialTextView
 
 class ContributorRow @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = R.attr.materialCardViewStyle
 ) : MaterialCardView(context, attrs, defStyleAttr) {
-    var mNameView: TextView
-    var mDescriptionView: TextView
+    var mNameView: MaterialTextView
+    var mDescriptionView: MaterialTextView
     var mUrl: String? = null
-    var mPhotoView: ImageView
+    var mPhotoView: AppCompatImageView
     var mLoadingSpinner: CircularProgressIndicator
 
     init {
         LayoutInflater.from(context)
             .inflate(io.github.dot166.jlib.R.layout.contributor_row, this, true)
-        mNameView = findViewById<TextView>(io.github.dot166.jlib.R.id.name)
-        mDescriptionView = findViewById<TextView>(io.github.dot166.jlib.R.id.description)
-        mPhotoView = findViewById<ImageView>(io.github.dot166.jlib.R.id.imageView)
+        mNameView = findViewById<MaterialTextView>(io.github.dot166.jlib.R.id.name)
+        mDescriptionView = findViewById<MaterialTextView>(io.github.dot166.jlib.R.id.description)
+        mPhotoView = findViewById<AppCompatImageView>(io.github.dot166.jlib.R.id.imageView)
         mLoadingSpinner =
             findViewById<CircularProgressIndicator>(io.github.dot166.jlib.R.id.progress)
         setOnClickListener { v: View? ->

@@ -19,7 +19,8 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.FrameLayout;
-import android.widget.TextView;
+
+import com.google.android.material.textview.MaterialTextView;
 
 import java.util.ArrayList;
 
@@ -117,7 +118,7 @@ public class GameView extends FrameLayout {
     protected boolean mAnimating, mPlaying;
     protected boolean mFrozen; // after death, a short backoff
 
-    protected TextView mScoreField;
+    protected MaterialTextView mScoreField;
     protected Player mDroid;
     protected float t, dt;
     public static final float DEBUG_SPEED_MULTIPLIER = 1f; // 0.1f;
@@ -157,7 +158,7 @@ public class GameView extends FrameLayout {
         return mHeight;
     }
 
-    public void setScoreField(TextView tv) {
+    public void setScoreField(MaterialTextView tv) {
         mScoreField = tv;
         setScore(mScore);
         if (tv != null) {

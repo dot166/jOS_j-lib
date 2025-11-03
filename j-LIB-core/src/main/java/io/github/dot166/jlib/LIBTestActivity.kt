@@ -4,10 +4,10 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.Button
-import android.widget.TextView
 import androidx.browser.customtabs.CustomTabsIntent
 import androidx.core.net.toUri
+import com.google.android.material.button.MaterialButton
+import com.google.android.material.textview.MaterialTextView
 import io.github.dot166.jlib.app.jActivity
 import io.github.dot166.jlib.internal.LIBTestBottomSheet
 import io.github.dot166.jlib.jos.Build.jOS_RELEASE
@@ -22,9 +22,9 @@ class LIBTestActivity : jActivity() {
         setContentView(R.layout.libplaceholder)
         setSupportActionBar(findViewById(R.id.actionbar))
         supportActionBar!!.subtitle = "flag_flag"
-        val text = findViewById<TextView>(R.id.textView)
-        val button = findViewById<Button>(R.id.button)
-        val button2 = findViewById<Button>(R.id.button2)
+        val text = findViewById<MaterialTextView>(R.id.textView)
+        val button = findViewById<MaterialButton>(R.id.button)
+        val button2 = findViewById<MaterialButton>(R.id.button2)
         val all = "Android: $androidVersion jOS: $jOS_RELEASE"
         text.text = all
         button.setOnClickListener {

@@ -10,19 +10,19 @@ import android.util.Log
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.ImageView
 import android.widget.LinearLayout
-import android.widget.TextView
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.appcompat.content.res.AppCompatResources
+import androidx.appcompat.widget.AppCompatImageView
 import androidx.browser.customtabs.CustomTabsIntent
 import androidx.core.net.toUri
+import com.google.android.material.button.MaterialButton
 import com.google.android.material.chip.Chip
 import com.google.android.material.color.MaterialColors
+import com.google.android.material.textview.MaterialTextView
 import io.github.dot166.jlib.R
-import io.github.dot166.jlib.internal.ContributorRow
+import io.github.dot166.jlib.widget.ContributorRow
 import io.github.dot166.jlib.utils.AppUtils
 import io.github.dot166.jlib.utils.ErrorUtils.handle
 
@@ -67,10 +67,6 @@ open class jAboutActivity : jActivity() {
         @field:StringRes val labelResId: Int,
         val url: String?
     )
-
-    fun showOnlyContributors(): Boolean {
-        return false
-    }
 
     open fun product(): List<Contributor> {
         return defaultProduct
@@ -122,71 +118,66 @@ open class jAboutActivity : jActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.aboutactivity)
-        val context: Context = this
 
-        if (!showOnlyContributors()) {
-            (findViewById<View?>(R.id.app_icon) as ImageView).setImageDrawable(getAppIcon(context))
-            (findViewById<View?>(R.id.app_name) as TextView).text = getAppLabel(context)
-            val versionView = findViewById<TextView>(R.id.app_version)
-            versionView.text = versionName(this)
-            versionView.setOnLongClickListener {
-                try {
-                    startActivity(versionIntent(context))
-                } catch (_: Exception) {
-                    Log.i("LibTest", "Test Activity Disabled")
-                    Log.i(
-                        "GLaDOS",
-                        "you have completed all available tests, you will now receive cake"
-                    )
-                }
-                true
-            }
-
-            val linkContainer = findViewById<LinearLayout>(R.id.link_container)
-            linkContainer.removeAllViews()
-            for (link in links()) {
-                val button = Chip(context)
-                button.chipIcon = AppCompatResources.getDrawable(context, link.iconResId)
-                button.text = context.getString(link.labelResId)
-                button.chipIconTint = ColorStateList.valueOf(
-                    MaterialColors.getColor(
-                        button,
-                        com.google.android.material.R.attr.colorOnSurface
-                    )
+        (findViewById<View?>(R.id.app_icon) as AppCompatImageView).setImageDrawable(getAppIcon(this))
+        (findViewById<View?>(R.id.app_name) as MaterialTextView).text = getAppLabel(this)
+        val versionView = findViewById<MaterialTextView>(R.id.app_version)
+        versionView.text = versionName(this)
+        versionView.setOnLongClickListener {
+            try {
+                startActivity(versionIntent(this))
+            } catch (_: Exception) {
+                Log.i("LibTest", "Test Activity Disabled")
+                Log.i(
+                    "GLaDOS",
+                    "you have completed all available tests, you will now receive cake"
                 )
-                val params = LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f)
-                params.setMarginStart(4)
-                params.setMarginEnd(4)
-                button.setLayoutParams(params)
-                button.setOnClickListener {
-                    if (link.url != null) {
-                        val webpage = link.url.toUri()
-                        val intent = CustomTabsIntent.Builder().build()
-                        intent.launchUrl(context, webpage)
-                    }
-                }
-                linkContainer.addView(button)
             }
+            true
+        }
+
+        val linkContainer = findViewById<LinearLayout>(R.id.link_container)
+        linkContainer.removeAllViews()
+        for (link in links()) {
+            val button = Chip(this)
+            button.chipIcon = AppCompatResources.getDrawable(this, link.iconResId)
+            button.text = getString(link.labelResId)
+            button.chipIconTint = ColorStateList.valueOf(
+                MaterialColors.getColor(
+                    button,
+                    com.google.android.material.R.attr.colorOnSurface
+                )
+            )
+            val params = LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f)
+            params.setMarginStart(4)
+            params.setMarginEnd(4)
+            button.setLayoutParams(params)
+            button.setOnClickListener {
+                if (link.url != null) {
+                    val webpage = link.url.toUri()
+                    val intent = CustomTabsIntent.Builder().build()
+                    intent.launchUrl(this, webpage)
+                }
+            }
+            linkContainer.addView(button)
         }
 
         val contributorsContainer = findViewById<LinearLayout>(R.id.contributors_container)
         for (contributor in product()) {
-            val row = ContributorRow(context)
+            val row = ContributorRow(this)
             row.setName(contributor.name)
-            row.setDescription(context.getString(contributor.role!!.descriptionResId()))
+            row.setDescription(getString(contributor.role!!.descriptionResId()))
             row.setUrl(contributor.socialUrl)
             row.setPhotoUrl(contributor.photoUrl)
             contributorsContainer.addView(row)
         }
 
-        if (!showOnlyContributors()) {
-            val licencesButton = findViewById<Button>(R.id.licences_button)
-            licencesButton.setOnClickListener {
-                try {
-                    startActivity(Intent(context, OSSLicenceActivity::class.java))
-                } catch (e: Exception) {
-                    handle(e, context)
-                }
+        val licencesButton = findViewById<MaterialButton>(R.id.licences_button)
+        licencesButton.setOnClickListener {
+            try {
+                startActivity(Intent(this, OSSLicenceActivity::class.java))
+            } catch (e: Exception) {
+                handle(e, this)
             }
         }
         setSupportActionBar(findViewById(R.id.actionbar))

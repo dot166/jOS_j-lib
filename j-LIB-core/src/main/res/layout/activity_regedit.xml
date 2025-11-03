@@ -22,28 +22,28 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
-        <EditText
+        <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/name_input"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:autofillHints=""
             android:inputType="text"
             tools:ignore="LabelFor" />
-        <EditText
+        <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/url_input"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:autofillHints=""
             android:inputType="textUri"
             tools:ignore="LabelFor" />
-        <EditText
+        <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/logo_url_input"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:autofillHints=""
             android:inputType="textUri"
             tools:ignore="LabelFor" />
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/save_button"
             android:layout_width="match_parent"
             android:text="@string/save_to_registry"

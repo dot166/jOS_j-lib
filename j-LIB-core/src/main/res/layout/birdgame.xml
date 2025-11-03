@@ -25,7 +25,7 @@
         android:id="@+id/world"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
         android:id="@+id/score"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -40,7 +40,7 @@
         android:paddingBottom="8dp"
         android:background="@drawable/l_scorecard"
         />
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
         android:id="@+id/welcome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

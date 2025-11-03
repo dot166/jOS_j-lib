@@ -34,7 +34,7 @@
                 android:layout_marginTop="8dp" />
 
             <!-- App Name -->
-            <TextView
+            <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/app_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -44,7 +44,7 @@
                 android:textColor="?android:textColorPrimary" />
 
             <!-- Version -->
-            <TextView
+            <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/app_version"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -75,7 +75,7 @@
                 android:padding="8dp" />
 
             <!-- Licenses Button -->
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/licences_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

@@ -5,13 +5,13 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.core.content.res.TypedArrayUtils
 import androidx.preference.Preference
 import androidx.preference.PreferenceViewHolder
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.slider.Slider
 import com.google.android.material.snackbar.Snackbar
+import com.google.android.material.textview.MaterialTextView
 import io.github.dot166.jlib.R
 import io.github.dot166.jlib.utils.ErrorUtils.handle
 import java.text.MessageFormat
@@ -33,7 +33,7 @@ open class SliderPreference @JvmOverloads constructor(
 
     protected var mValue: Int = 0
 
-    protected var mValueTextView: TextView? = null
+    protected var mValueTextView: MaterialTextView? = null
     protected var mResetImageButton: MaterialButton? = null
     protected var mMinusImageButton: MaterialButton? = null
     protected var mPlusImageButton: MaterialButton? = null
@@ -111,7 +111,7 @@ open class SliderPreference @JvmOverloads constructor(
         mSlider!!.value = getSeekValue(mValue).toFloat()
         mSlider!!.setEnabled(isEnabled)
 
-        mValueTextView = holder.findViewById(R.id.value) as TextView?
+        mValueTextView = holder.findViewById(R.id.value) as MaterialTextView?
         mResetImageButton = holder.findViewById(R.id.reset) as MaterialButton?
         mMinusImageButton = holder.findViewById(R.id.minus) as MaterialButton?
         mPlusImageButton = holder.findViewById(R.id.plus) as MaterialButton?
