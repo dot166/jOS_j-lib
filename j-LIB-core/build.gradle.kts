@@ -7,11 +7,11 @@ val libMinSdk: Int = rootProject.extra["libMinSdk"] as Int;
 val libCompileSdk: Int = rootProject.extra["libCompileSdk"] as Int;
 
 plugins {
-    id("com.android.library")
-    id("org.jetbrains.kotlin.android")
-    id("org.jetbrains.kotlin.plugin.compose")
+    alias(libs.plugins.android.library)
+    alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.kotlin.compose)
     `maven-publish`
-    id("com.vanniktech.maven.publish")
+    alias(libs.plugins.maven.publish)
 }
 
 apply {
@@ -62,27 +62,27 @@ android {
 }
 
 dependencies {
-    api("androidx.appcompat:appcompat:1.7.1")
-    api("androidx.constraintlayout:constraintlayout:2.2.1")
-    api("androidx.recyclerview:recyclerview:1.4.0")
-    api("androidx.preference:preference-ktx:1.2.1")
-    api("com.google.android.material:material:1.14.0-alpha06")
-    api("androidx.core:core-ktx:1.17.0")
-    api("androidx.browser:browser:1.9.0")
-    api("androidx.activity:activity-compose:1.11.0")
-    api("androidx.compose.ui:ui-android:1.9.4")
-    api("androidx.compose.material3:material3-android:1.4.0")
-    api("com.mikepenz:aboutlibraries-core:13.1.0")
-    api("com.mikepenz:aboutlibraries-compose-m3:13.1.0")
-    api("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
-    api("com.prof18.rssparser:rssparser:6.1.1")
-    api("com.github.bumptech.glide:glide:5.0.5")
-    api("com.caverock:androidsvg:1.4")
-    annotationProcessor("com.github.bumptech.glide:compiler:5.0.5")
-    api("androidx.media3:media3-exoplayer:1.8.0")
-    api("androidx.media3:media3-common:1.8.0")
-    api("androidx.media3:media3-session:1.8.0")
-    api("androidx.media3:media3-exoplayer-dash:1.8.0")
+    api(libs.androidx.appcompat)
+    api(libs.androidx.constraintlayout)
+    api(libs.androidx.recyclerview)
+    api(libs.androidx.preference.ktx)
+    api(libs.material)
+    api(libs.androidx.core.ktx)
+    api(libs.androidx.browser)
+    api(libs.androidx.activity.compose)
+    api(libs.androidx.ui.android)
+    api(libs.androidx.material3.android)
+    api(libs.aboutlibraries.core)
+    api(libs.aboutlibraries.compose.m3)
+    api(libs.androidx.swiperefreshlayout)
+    api(libs.rssparser)
+    api(libs.glide)
+    api(libs.androidsvg)
+    annotationProcessor(libs.compiler)
+    api(libs.androidx.media3.exoplayer)
+    api(libs.androidx.media3.common)
+    api(libs.androidx.media3.session)
+    api(libs.androidx.media3.exoplayer.dash)
 }
 
 mavenPublishing {

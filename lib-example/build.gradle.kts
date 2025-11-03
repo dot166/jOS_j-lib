@@ -11,9 +11,9 @@ val verCode: Int = (((ver.split("\\.".toRegex()).dropLastWhile { it.isEmpty() }
     .dropLastWhile { it.isEmpty() }.toTypedArray()[2].toInt()
 
 plugins {
-    id("com.android.application")
-    id("com.mikepenz.aboutlibraries.plugin")
-    id("com.mikepenz.aboutlibraries.plugin.android")
+    alias(libs.plugins.android.application)
+    alias(libs.plugins.aboutlibraries.plugin)
+    alias(libs.plugins.aboutlibraries.android)
 }
 
 android {
