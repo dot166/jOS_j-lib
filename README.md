@@ -22,7 +22,7 @@ plugins {
 }
 
 dependencies {
-    implementation "io.github.dot166:j-Lib:v104.0.1"
+    implementation "io.github.dot166:j-Lib:v104.0.3"
 }
 ```
 
@@ -30,7 +30,7 @@ if you are including jLib in another android library that is built using gradle 
 ```
 
 dependencies {
-    api "io.github.dot166:j-Lib:v104.0.1"
+    api "io.github.dot166:j-Lib:v104.0.3"
 }
 ```
 
