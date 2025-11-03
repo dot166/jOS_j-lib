@@ -2546,7 +2546,7 @@
                     "name": "Marco Gomiero"
                 }
             ],
-            "artifactVersion": "6.1.0",
+            "artifactVersion": "6.1.1",
             "description": "A Kotlin Multiplatform library to parse RSS Feed",
             "scm": {
                 "connection": "scm:git:github.com/prof18/RSS-Parser.git",
