@@ -2327,7 +2327,7 @@ java_library_static {
 
 android_library_import {
     name: "j-Lib_com.prof18.rssparser_rssparser-android",
-    aars: ["com/prof18/rssparser/rssparser-android/6.1.0/rssparser-release.aar"],
+    aars: ["com/prof18/rssparser/rssparser-android/6.1.1/rssparser-release.aar"],
     sdk_version: "36",
     min_sdk_version: "26",
     apex_available: [
