@@ -464,56 +464,6 @@
             }
         },
         {
-            "uniqueId": "androidx.compose.material:material-icons-core",
-            "funding": [
-                
-            ],
-            "developers": [
-                {
-                    "name": "The Android Open Source Project"
-                }
-            ],
-            "artifactVersion": "1.7.8",
-            "description": "Compose Material Design core icons. This module contains the most commonly used set of Material icons.",
-            "scm": {
-                "connection": "scm:git:https://android.googlesource.com/platform/frameworks/support",
-                "url": "https://cs.android.com/androidx/platform/frameworks/support"
-            },
-            "name": "Compose Material Icons Core",
-            "website": "https://developer.android.com/jetpack/androidx/releases/compose-material#1.7.8",
-            "licenses": [
-                "Apache-2.0"
-            ],
-            "organization": {
-                "name": "The Android Open Source Project"
-            }
-        },
-        {
-            "uniqueId": "androidx.compose.material:material-icons-extended-android",
-            "funding": [
-                
-            ],
-            "developers": [
-                {
-                    "name": "The Android Open Source Project"
-                }
-            ],
-            "artifactVersion": "1.7.8",
-            "description": "Compose Material Design extended icons. This module contains all Material icons. It is a very large dependency and should not be included directly.",
-            "scm": {
-                "connection": "scm:git:https://android.googlesource.com/platform/frameworks/support",
-                "url": "https://cs.android.com/androidx/platform/frameworks/support"
-            },
-            "name": "Compose Material Icons Extended",
-            "website": "https://developer.android.com/jetpack/androidx/releases/compose-material#1.7.8",
-            "licenses": [
-                "Apache-2.0"
-            ],
-            "organization": {
-                "name": "The Android Open Source Project"
-            }
-        },
-        {
             "uniqueId": "androidx.compose.material:material-ripple",
             "funding": [
                 
