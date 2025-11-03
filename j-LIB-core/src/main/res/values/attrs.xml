@@ -1,14 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <declare-styleable name="MenuButton">
-        <attr name="android:text" />
-        <attr name="android:icon" />
-        <attr name="tint" />
-    </declare-styleable>
-
-    <declare-styleable name="ThemeEngine">
-        <attr name="isJTheme" format="boolean" />
-    </declare-styleable>
     <!-- Base attributes available to SliderPreference. -->
     <declare-styleable name="jLibSliderPreference">
         <attr name="interval" format="integer" />
