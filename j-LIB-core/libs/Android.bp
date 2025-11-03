@@ -428,49 +428,6 @@ android_library_import {
 }
 
 java_library_static {
-    name: "j-Lib_androidx.compose.material_material-icons-core",
-    sdk_version: "36",
-    min_sdk_version: "26",
-    apex_available: [
-        "//apex_available:platform",
-        "//apex_available:anyapex",
-    ],
-    static_libs: [
-        "j-Lib_androidx.compose.material_material-icons-core-android",
-    ],
-}
-
-android_library_import {
-    name: "j-Lib_androidx.compose.material_material-icons-core-android",
-    aars: ["androidx/compose/material/material-icons-core-android/1.7.8/material-icons-core-release.aar"],
-    sdk_version: "36",
-    min_sdk_version: "26",
-    apex_available: [
-        "//apex_available:platform",
-        "//apex_available:anyapex",
-    ],
-    static_libs: [
-        "j-Lib_androidx.compose.ui_ui",
-        "j-Lib_org.jetbrains.kotlin_kotlin-stdlib",
-    ],
-}
-
-android_library_import {
-    name: "j-Lib_androidx.compose.material_material-icons-extended-android",
-    aars: ["androidx/compose/material/material-icons-extended-android/1.7.8/material-icons-extended-release.aar"],
-    sdk_version: "36",
-    min_sdk_version: "26",
-    apex_available: [
-        "//apex_available:platform",
-        "//apex_available:anyapex",
-    ],
-    static_libs: [
-        "j-Lib_androidx.compose.material_material-icons-core",
-        "j-Lib_org.jetbrains.kotlin_kotlin-stdlib",
-    ],
-}
-
-java_library_static {
     name: "j-Lib_androidx.compose.material_material-ripple",
     sdk_version: "36",
     min_sdk_version: "26",

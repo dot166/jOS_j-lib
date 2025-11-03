@@ -13,8 +13,6 @@ android_library {
         "j-Lib_androidx.compose.animation_animation-core-android",
         "j-Lib_androidx.compose.foundation_foundation-android",
         "j-Lib_androidx.compose.foundation_foundation-layout-android",
-        "j-Lib_androidx.compose.material_material-icons-core-android",
-        "j-Lib_androidx.compose.material_material-icons-extended-android",
         "j-Lib_androidx.compose.material_material-ripple-android",
         "j-Lib_androidx.compose.material3_material3-android",
         "j-Lib_androidx.compose.runtime_runtime-android",
