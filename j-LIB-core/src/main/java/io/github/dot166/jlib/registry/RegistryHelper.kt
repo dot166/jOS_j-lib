@@ -9,23 +9,35 @@ object RegistryHelper {
     }
 
     class Object(attributes: MutableMap<String, String>) {
-        var name: String?
+        lateinit var name: String
             private set
-        var url: String?
+        lateinit var url: String
             private set
-        var logoUrl: String?
+        lateinit var logoUrl: String
             private set
 
         init {
-            this.name = attributes["objectName"]
-            this.url = attributes["objectUrl"]
-            this.logoUrl = attributes["objectLogoUrl"]
+            if (attributes["objectName"] != null) {
+                this.name = attributes["objectName"]!!
+            }
+            if (attributes["objectUrl"] != null) {
+                this.url = attributes["objectUrl"]!!
+            }
+            if (attributes["objectLogoUrl"] != null) {
+                this.logoUrl = attributes["objectLogoUrl"]!!
+            }
         }
 
         fun updateAttributes(attributes: MutableMap<String, String>) {
-            this.name = attributes["objectName"]
-            this.url = attributes["objectUrl"]
-            this.logoUrl = attributes["objectLogoUrl"]
+            if (attributes["objectName"] != null) {
+                this.name = attributes["objectName"]!!
+            }
+            if (attributes["objectUrl"] != null) {
+                this.url = attributes["objectUrl"]!!
+            }
+            if (attributes["objectLogoUrl"] != null) {
+                this.logoUrl = attributes["objectLogoUrl"]!!
+            }
         }
     }
 }
