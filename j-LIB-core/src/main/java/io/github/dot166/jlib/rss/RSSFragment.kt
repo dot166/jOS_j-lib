@@ -56,12 +56,12 @@ class RSSFragment : Fragment {
         ) {
             val stationsToMigrate: MutableList<RegistryHelper.Object> =
                 ArrayList()
-            val rssUrlsToMigrate: Array<String?> =
+            val rssUrlsToMigrate: Array<String> =
                 PreferenceManager.getDefaultSharedPreferences(requireContext())
                     .getString("rssUrls", "")!!.split(";".toRegex()).dropLastWhile { it.isEmpty() }
                     .toTypedArray()
             for (rssUrlToMigrate in rssUrlsToMigrate) {
-                val url: MutableMap<String?, String?> = HashMap()
+                val url: MutableMap<String, String> = HashMap()
                 url.put("objectUrl", rssUrlToMigrate)
                 stationsToMigrate.add(RegistryHelper.Object(url))
             }
@@ -74,7 +74,7 @@ class RSSFragment : Fragment {
         val feeds = RegistryHelper.getFromRegistry(requireContext())
         val rssUrls = arrayOfNulls<String>(feeds.size)
         for (i in feeds.indices) {
-            rssUrls[i] = feeds[i]!!.url
+            rssUrls[i] = feeds[i].url
         }
         val view = inflater.inflate(R.layout.fragment_rss, container, false)
         viewModel = ViewModelProvider(this)[RSSViewModel::class.java]
