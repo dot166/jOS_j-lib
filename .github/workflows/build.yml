@@ -39,7 +39,7 @@ jobs:
     - name: Update Helpline List
       run: |
         cd aosp/sensitive-pn/etc
-        curl -O https://raw.githubusercontent.com/LineageOS/android_vendor_lineage/refs/heads/lineage-22.2/prebuilt/common/etc/sensitive_pn.xml
+        curl -O https://raw.githubusercontent.com/LineageOS/android_vendor_lineage/refs/heads/lineage-23.0/prebuilt/common/etc/sensitive_pn.xml
         cd ../../..
 
     - name: Commit changes
