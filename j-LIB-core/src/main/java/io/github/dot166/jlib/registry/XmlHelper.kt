@@ -63,8 +63,8 @@ object XmlHelper {
         context: Context,
         fileName: String?,
         uri: Uri? = null
-    ): MutableList<RegistryHelper.Object?> {
-        val stationList: MutableList<RegistryHelper.Object?> = ArrayList()
+    ): MutableList<RegistryHelper.Object> {
+        val stationList: MutableList<RegistryHelper.Object> = ArrayList()
         try {
             // Open the XML file
             val fis: InputStream? = if (uri != null) {
@@ -83,16 +83,16 @@ object XmlHelper {
             val strAar: Array<String?> =
                 str.split(";".toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()
             for (i in strAar.indices) {
-                val attributes: MutableMap<String?, String?> = HashMap()
+                val attributes: MutableMap<String, String> = HashMap()
                 val attrs: Array<String?> =
                     strAar[i]!!.replace("<object# ", "").replace("></object>", "")
                         .replace("# ", "#").split("#".toRegex()).dropLastWhile { it.isEmpty() }
                         .toTypedArray()
                 for (j in attrs.indices) {
-                    val keyValuePair: Array<String?> =
+                    val keyValuePair: Array<String> =
                         attrs[j]!!.split("=".toRegex()).dropLastWhile { it.isEmpty() }
                             .toTypedArray()
-                    val value: String? = if (keyValuePair.size == 1) {
+                    val value: String = if (keyValuePair.size == 1) {
                         "" // must be empty
                     } else {
                         keyValuePair[1]
