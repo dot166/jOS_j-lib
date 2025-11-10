@@ -83,6 +83,7 @@ dependencies {
     api(libs.androidx.media3.common)
     api(libs.androidx.media3.session)
     api(libs.androidx.media3.exoplayer.dash)
+    api(libs.androidx.gridlayout)
 }
 
 mavenPublishing {
