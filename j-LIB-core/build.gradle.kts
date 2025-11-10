@@ -9,7 +9,6 @@ val libCompileSdk: Int = rootProject.extra["libCompileSdk"] as Int;
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
-    alias(libs.plugins.kotlin.compose)
     `maven-publish`
     alias(libs.plugins.maven.publish)
 }
@@ -58,31 +57,18 @@ android {
     kotlinOptions {
         jvmTarget = "17"
     }
-    buildFeatures { compose = true }
 }
 
 dependencies {
-    api(libs.androidx.appcompat)
-    api(libs.androidx.constraintlayout)
-    api(libs.androidx.recyclerview)
     api(libs.androidx.preference.ktx)
     api(libs.material)
-    api(libs.androidx.core.ktx)
     api(libs.androidx.browser)
-    api(libs.androidx.activity.compose)
-    api(libs.androidx.ui.android)
-    api(libs.androidx.material3.android)
-    api(libs.aboutlibraries.core)
-    api(libs.aboutlibraries.compose.m3)
     api(libs.androidx.swiperefreshlayout)
     api(libs.rssparser)
     api(libs.glide)
-    api(libs.androidsvg)
     annotationProcessor(libs.compiler)
     api(libs.androidx.media3.exoplayer)
-    api(libs.androidx.media3.common)
     api(libs.androidx.media3.session)
-    api(libs.androidx.media3.exoplayer.dash)
     api(libs.androidx.gridlayout)
 }
 

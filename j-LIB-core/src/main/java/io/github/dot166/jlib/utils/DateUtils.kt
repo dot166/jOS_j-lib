@@ -2,32 +2,10 @@ package io.github.dot166.jlib.utils
 
 import android.icu.text.SimpleDateFormat
 import android.icu.util.TimeZone
-import io.github.dot166.jlib.time.jDate
 import java.text.ParseException
-import java.time.Month
 import java.util.Locale
 
 object DateUtils {
-    /**
-     * Parses a date string in the format "dd-MM-yyyy" and creates a jDate object.
-     *
-     * @param date The date string to be parsed.
-     * @return A jDate object representing the parsed date.
-     */
-    fun convertToDateFromString(date: String): jDate {
-        val dateSplit: Array<String?> =
-            date.replace(" .*".toRegex(), "").split("/".toRegex()).dropLastWhile { it.isEmpty() }
-                .toTypedArray()
-        val year = if (dateSplit.size > 2) DateUtils.parseIntOrDefault(dateSplit[2]!!, 0) else 0
-        val month = if (dateSplit.size > 1) DateUtils.parseIntOrDefault(dateSplit[1]!!, 0) else 0
-        val day = if (dateSplit.isNotEmpty()) DateUtils.parseIntOrDefault(dateSplit[0]!!, 0) else 0
-
-        return jDate(
-            year,
-            Month.of(month),
-            day
-        )
-    }
 
     private fun parseIntOrDefault(value: String, defaultValue: Int): Int {
         return try {

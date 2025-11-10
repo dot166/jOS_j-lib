@@ -39,9 +39,7 @@ object XmlHelper {
             for (i in stations.indices) {
                 val station = stations[i]
                 serializer.startTag("", "object")
-                serializer.attribute("", "objectName", station.name)
                 serializer.attribute("", "objectUrl", station.url)
-                serializer.attribute("", "objectLogoUrl", station.logoUrl)
                 serializer.endTag("", "object")
             }
 

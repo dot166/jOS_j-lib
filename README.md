@@ -4,25 +4,10 @@
 
 ## how to use it?
 
-to use jLib in an android app that is built using gradle add the following lines to your project root build.gradle
+to use jLib in an android app that is built using gradle add the following lines to your apps build.gradle
 ```
-plugins {
-    ...
-    id 'com.mikepenz.aboutlibraries.plugin' version "13.1.0" apply false // j-LIB dependency
-    id 'com.mikepenz.aboutlibraries.plugin.android' version "13.1.0" apply false // j-LIB dependency
-}
-```
-
-then add the following lines to your apps build.gradle
-```
-plugins {
-    ...
-    id 'com.mikepenz.aboutlibraries.plugin' // j-LIB dependency
-    id 'com.mikepenz.aboutlibraries.plugin.android' // j-LIB dependency
-}
-
 dependencies {
-    implementation "io.github.dot166:j-Lib:v104.0.3"
+    implementation "io.github.dot166:j-Lib:v104.0.7"
 }
 ```
 
@@ -30,7 +15,7 @@ if you are including jLib in another android library that is built using gradle 
 ```
 
 dependencies {
-    api "io.github.dot166:j-Lib:v104.0.3"
+    api "io.github.dot166:j-Lib:v104.0.7"
 }
 ```
 
@@ -66,9 +51,5 @@ rust common library
 see [LICENSE](LICENSE)
 
 ### NOTICE: There is code in jLib that are from other projects, Those files are licenced under the licence from their respective projects, the files, projects and licences are listed below.
-
-Some of the preference and theme related files are adapted from [The Android Open Source Project](https://source.android.com/) and are licenced under Apache 2.0
-
-birdgame and other game components are adapted from [The Android Open Source Project](https://source.android.com/) and are licenced under Apache 2.0
 
 sensitive-pn is adapted from [LineageOS](https://github.com/LineageOS), see aosp/sensitive-pn/readme.md for more information

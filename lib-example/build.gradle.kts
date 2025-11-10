@@ -12,8 +12,6 @@ val verCode: Int = (((ver.split("\\.".toRegex()).dropLastWhile { it.isEmpty() }
 
 plugins {
     alias(libs.plugins.android.application)
-    alias(libs.plugins.aboutlibraries.plugin)
-    alias(libs.plugins.aboutlibraries.android)
 }
 
 android {
@@ -39,11 +37,6 @@ android {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
     }
-}
-
-aboutLibraries {
-    collect.configPath.set(File(rootProject.projectDir, "config"))
-    export.prettyPrint = true
 }
 
 dependencies {

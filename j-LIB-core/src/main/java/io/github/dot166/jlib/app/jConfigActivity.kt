@@ -8,7 +8,6 @@ import androidx.annotation.RestrictTo
 import androidx.core.view.WindowCompat
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
-import io.github.dot166.jlib.LIBAboutActivity
 import io.github.dot166.jlib.R
 import io.github.dot166.jlib.utils.VersionUtils.libVersion
 
@@ -56,11 +55,6 @@ open class jConfigActivity : jActivity() {
             libPref.setIcon(R.mipmap.ic_launcher_j)
             libPref.setTitle(io.github.dot166.jlib.R.string.jlib_version)
             libPref.setSummary(libVersion)
-            libPref.onPreferenceClickListener =
-                Preference.OnPreferenceClickListener { preference: Preference? ->
-                    startActivity(Intent(preference!!.context, LIBAboutActivity::class.java))
-                    true
-                }
             screen.addPreference(libPref)
             preferenceScreen = screen
         }

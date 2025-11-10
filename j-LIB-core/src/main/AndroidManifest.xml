@@ -28,29 +28,6 @@
             android:icon="@mipmap/ic_launcher_j"
             android:label="@string/licences"
             android:exported="false" />
-        <!-- BirdGame -->
-        <activity
-            android:name=".BirdGameActivity"
-            android:excludeFromRecents="true"
-            android:exported="true"
-            android:hardwareAccelerated="true"
-            android:icon="@mipmap/ic_launcher_j"
-            android:label="@string/birdgame"
-            android:launchMode="singleInstance"
-            android:screenOrientation="locked" />
-        <!-- ObstacleGame -->
-        <activity
-            android:name=".ObstacleGameActivity"
-            android:excludeFromRecents="true"
-            android:exported="true"
-            android:hardwareAccelerated="true"
-            android:icon="@mipmap/ic_launcher_j"
-            android:label="@string/obstaclegame"
-            android:launchMode="singleInstance"
-            android:screenOrientation="locked" />
-        <activity android:name=".rss.RSSActivity"
-            android:icon="@mipmap/ic_launcher_j"
-            android:exported="true"/>
         <activity android:name=".app.MediaPlayerActivity"
             android:icon="@mipmap/ic_launcher_j"
             android:exported="true" />

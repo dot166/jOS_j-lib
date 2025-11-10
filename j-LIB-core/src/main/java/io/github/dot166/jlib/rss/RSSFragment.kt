@@ -62,7 +62,7 @@ class RSSFragment : Fragment {
                     .toTypedArray()
             for (rssUrlToMigrate in rssUrlsToMigrate) {
                 val url: MutableMap<String, String> = HashMap()
-                url.put("objectUrl", rssUrlToMigrate)
+                url["objectUrl"] = rssUrlToMigrate
                 stationsToMigrate.add(RegistryHelper.Object(url))
             }
             writeXmlToFile(requireContext(), "Registry.xml", stationsToMigrate)

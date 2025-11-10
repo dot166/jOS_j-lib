@@ -17,28 +17,5 @@
 */
 -->
 <resources>
-    <dimen name="l_obstacle_spacing">380dp</dimen>
-    <dimen name="l_translation_per_sec">100dp</dimen>
-    <dimen name="l_boost_dv">550dp</dimen>
-    <dimen name="l_player_hit_size">40dp</dimen>
-    <dimen name="l_player_size">40dp</dimen>
-    <dimen name="l_obstacle_width">90dp</dimen>
-    <dimen name="l_obstacle_gap">170dp</dimen>
-    <dimen name="l_obstacle_height_min">40dp</dimen>
-    <dimen name="l_building_width_min">20dp</dimen>
-    <dimen name="l_building_width_max">250dp</dimen>
-    <dimen name="l_building_height_min">20dp</dimen>
-    <dimen name="l_cloud_size_min">10dp</dimen>
-    <dimen name="l_cloud_size_max">100dp</dimen>
-    <dimen name="l_sun_size">45dp</dimen>
     <!--    <dimen name="l_moon_size">30dp</dimen>-->
-    <dimen name="l_star_size_min">3dp</dimen>
-    <dimen name="l_star_size_max">5dp</dimen>
-    <dimen name="l_G">30dp</dimen>
-    <dimen name="l_max_v">1000dp</dimen>
-    <dimen name="l_scenery_z">6dp</dimen>
-    <dimen name="l_obstacle_z">18dp</dimen>
-    <dimen name="l_player_z">18dp</dimen>
-    <dimen name="l_player_z_boost">20dp</dimen>
-    <dimen name="l_hud_z">35dp</dimen>
 </resources>

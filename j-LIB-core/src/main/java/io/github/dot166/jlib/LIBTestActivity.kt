@@ -1,17 +1,12 @@
 package io.github.dot166.jlib
 
-import android.content.Intent
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
+import android.widget.Toast
 import androidx.browser.customtabs.CustomTabsIntent
 import androidx.core.net.toUri
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textview.MaterialTextView
 import io.github.dot166.jlib.app.jActivity
-import io.github.dot166.jlib.internal.LIBTestBottomSheet
-import io.github.dot166.jlib.utils.AppUtils.getAppIcon
-import io.github.dot166.jlib.utils.ErrorUtils.handle
 import io.github.dot166.jlib.utils.VersionUtils.androidVersion
 import io.github.dot166.jlib.utils.VersionUtils.libVersion
 
@@ -26,11 +21,9 @@ class LIBTestActivity : jActivity() {
         val button2 = findViewById<MaterialButton>(R.id.button2)
         val all = "Android: $androidVersion Lib: $libVersion"
         text.text = all
-        button.setOnClickListener {
-            LIBTestBottomSheet().show(
-                supportFragmentManager,
-                LIBTestBottomSheet.TAG
-            )
+        button.setOnClickListener { v ->
+            Toast.makeText(v.context, "Exiting...", Toast.LENGTH_SHORT).show()
+            finish()
         }
         button2.setOnClickListener { v ->
             val webpage = ("https://github.com/dot166/jOS_j-lib/commits/v$libVersion").toUri()
@@ -38,37 +31,6 @@ class LIBTestActivity : jActivity() {
                 .build()
             intent.launchUrl(v.context, webpage)
         }
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        val inflater = menuInflater
-        inflater.inflate(R.menu.lib_test_menu, menu)
-        menu.findItem(R.id.action_favorite).icon = getAppIcon(this)
-        return true
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        val itemId = item.itemId
-        if (itemId == R.id.action_settings) {
-            try {
-                startActivity(
-                    Intent(Intent.ACTION_APPLICATION_PREFERENCES).setPackage(
-                        packageName
-                    )
-                )
-            } catch (e: Exception) {
-                handle(e, this)
-            }
-            return true
-        } else if (itemId == R.id.action_favorite) {
-            try {
-                startActivity(Intent(this, LIBAboutActivity::class.java))
-            } catch (e: Exception) {
-                handle(e, this)
-            }
-            return true
-        }
-        return super.onOptionsItemSelected(item)
     }
 }
 
