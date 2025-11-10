@@ -28,6 +28,7 @@ android_library {
         "j-Lib_androidx.constraintlayout_constraintlayout",
         "j-Lib_androidx.core_core-ktx",
         "j-Lib_androidx.graphics_graphics-shapes-android",
+        "j-Lib_androidx.gridlayout_gridlayout",
         "j-Lib_androidx.lifecycle_lifecycle-runtime-android",
         "j-Lib_androidx.lifecycle_lifecycle-runtime-compose-android",
         "j-Lib_androidx.lifecycle_lifecycle-runtime-ktx-android",

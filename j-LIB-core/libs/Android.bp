@@ -1177,6 +1177,22 @@ android_library_import {
 }
 
 android_library_import {
+    name: "j-Lib_androidx.gridlayout_gridlayout",
+    aars: ["androidx/gridlayout/gridlayout/1.1.0/gridlayout-1.1.0.aar"],
+    sdk_version: "36",
+    min_sdk_version: "26",
+    apex_available: [
+        "//apex_available:platform",
+        "//apex_available:anyapex",
+    ],
+    static_libs: [
+        "j-Lib_androidx.annotation_annotation",
+        "j-Lib_androidx.core_core",
+        "j-Lib_org.jspecify_jspecify",
+    ],
+}
+
+android_library_import {
     name: "j-Lib_androidx.interpolator_interpolator",
     aars: ["androidx/interpolator/interpolator/1.0.0/interpolator-1.0.0.aar"],
     sdk_version: "36",
