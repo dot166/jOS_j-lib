@@ -10,7 +10,6 @@ import com.google.android.material.button.MaterialButton
 import com.google.android.material.textview.MaterialTextView
 import io.github.dot166.jlib.app.jActivity
 import io.github.dot166.jlib.internal.LIBTestBottomSheet
-import io.github.dot166.jlib.jos.Build.jOS_RELEASE
 import io.github.dot166.jlib.utils.AppUtils.getAppIcon
 import io.github.dot166.jlib.utils.ErrorUtils.handle
 import io.github.dot166.jlib.utils.VersionUtils.androidVersion
@@ -25,7 +24,7 @@ class LIBTestActivity : jActivity() {
         val text = findViewById<MaterialTextView>(R.id.textView)
         val button = findViewById<MaterialButton>(R.id.button)
         val button2 = findViewById<MaterialButton>(R.id.button2)
-        val all = "Android: $androidVersion jOS: $jOS_RELEASE"
+        val all = "Android: $androidVersion Lib: $libVersion"
         text.text = all
         button.setOnClickListener {
             LIBTestBottomSheet().show(
