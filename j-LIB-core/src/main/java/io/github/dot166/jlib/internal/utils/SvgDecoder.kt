@@ -4,7 +4,6 @@ import com.bumptech.glide.load.Options
 import com.bumptech.glide.load.ResourceDecoder
 import com.bumptech.glide.load.engine.Resource
 import com.bumptech.glide.load.resource.SimpleResource
-import com.bumptech.glide.request.target.Target
 import com.caverock.androidsvg.SVG
 import com.caverock.androidsvg.SVGParseException
 import java.io.IOException

@@ -78,7 +78,7 @@ open class SliderPreference @JvmOverloads constructor(
     override fun onDependencyChanged(dependency: Preference, disableDependent: Boolean) {
         super.onDependencyChanged(dependency, disableDependent)
         shouldDisableView = true
-        if (mSlider != null) mSlider!!.setEnabled(!disableDependent)
+        if (mSlider != null) mSlider!!.isEnabled = !disableDependent
         if (mResetImageButton != null) mResetImageButton!!.setEnabled(!disableDependent)
         if (mPlusImageButton != null) mPlusImageButton!!.setEnabled(!disableDependent)
         if (mMinusImageButton != null) mMinusImageButton!!.setEnabled(!disableDependent)
@@ -106,10 +106,10 @@ open class SliderPreference @JvmOverloads constructor(
             handle(ex, context)
         }
 
-        mSlider!!.setValueTo(getSeekValue(mMaxValue).toFloat())
-        mSlider!!.setValueFrom(getSeekValue(mMinValue).toFloat())
+        mSlider!!.valueTo = getSeekValue(mMaxValue).toFloat()
+        mSlider!!.valueFrom = getSeekValue(mMinValue).toFloat()
         mSlider!!.value = getSeekValue(mValue).toFloat()
-        mSlider!!.setEnabled(isEnabled)
+        mSlider!!.isEnabled = isEnabled
 
         mValueTextView = holder.findViewById(R.id.value) as MaterialTextView?
         mResetImageButton = holder.findViewById(R.id.reset) as MaterialButton?

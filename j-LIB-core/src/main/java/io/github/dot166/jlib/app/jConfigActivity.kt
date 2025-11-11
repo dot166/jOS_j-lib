@@ -1,7 +1,6 @@
 package io.github.dot166.jlib.app
 
 import android.annotation.SuppressLint
-import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.annotation.RestrictTo
@@ -22,8 +21,8 @@ open class jConfigActivity : jActivity() {
     @SuppressLint("PrivateResource")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(io.github.dot166.jlib.R.layout.settings_activity)
-        setSupportActionBar(findViewById(io.github.dot166.jlib.R.id.actionbar))
+        setContentView(R.layout.settings_activity)
+        setSupportActionBar(findViewById(R.id.actionbar))
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         supportActionBar!!.setHomeActionContentDescription(androidx.appcompat.R.string.abc_action_bar_up_description)
 
@@ -32,7 +31,7 @@ open class jConfigActivity : jActivity() {
         if (savedInstanceState == null) {
             // Display the fragment as the main content.
             supportFragmentManager.beginTransaction()
-                .replace(io.github.dot166.jlib.R.id.content_frame, preferenceFragment()).commit()
+                .replace(R.id.content_frame, preferenceFragment()).commit()
         }
     }
 
@@ -53,7 +52,7 @@ open class jConfigActivity : jActivity() {
             screen.addPreference(disclaimer)
             val libPref = Preference(requireContext())
             libPref.setIcon(R.mipmap.ic_launcher_j)
-            libPref.setTitle(io.github.dot166.jlib.R.string.jlib_version)
+            libPref.setTitle(R.string.jlib_version)
             libPref.setSummary(libVersion)
             screen.addPreference(libPref)
             preferenceScreen = screen
