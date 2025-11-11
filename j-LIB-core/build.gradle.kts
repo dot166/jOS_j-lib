@@ -70,6 +70,7 @@ dependencies {
     api(libs.androidx.swiperefreshlayout)
     api(libs.rssparser)
     api(libs.glide)
+    api(libs.androidsvg)
     annotationProcessor(libs.compiler)
     api(libs.androidx.media3.exoplayer)
     api(libs.androidx.media3.common)
