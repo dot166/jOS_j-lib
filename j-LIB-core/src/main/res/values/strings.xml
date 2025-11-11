@@ -29,6 +29,8 @@
     <string name="export_registry_to_storage">Export registry to storage</string>
     <string name="edit_station_registry">Edit Registry</string>
     <string name="add_new_station_to_registry">Add new record to registry</string>
-    <string name="station_url_input">Url Input</string>
+    <string name="station_url_input">URL</string>
     <string name="save_to_registry">Save to registry</string>
+    <string name="object_name_input">Object Name</string>
+    <string name="logo_url_input">Logo URL</string>
 </resources>

@@ -23,11 +23,27 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
         <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/name_input"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:autofillHints=""
+            android:hint="@string/object_name_input"
+            android:inputType="text"
+            tools:ignore="LabelFor" />
+        <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/url_input"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:autofillHints=""
             android:hint="@string/station_url_input"
+            android:inputType="textUri"
+            tools:ignore="LabelFor" />
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/logo_url_input"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:autofillHints=""
+            android:hint="@string/logo_url_input"
             android:inputType="textUri"
             tools:ignore="LabelFor" />
         <com.google.android.material.button.MaterialButton

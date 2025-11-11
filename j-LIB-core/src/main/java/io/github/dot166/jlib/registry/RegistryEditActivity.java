@@ -44,7 +44,9 @@ public class RegistryEditActivity extends jActivity {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 RegistryHelper.Object station = (RegistryHelper.Object) tab.getTag();
+                ((AppCompatEditText)findViewById(R.id.name_input)).setText(station.getName());
                 ((AppCompatEditText)findViewById(R.id.url_input)).setText(station.getUrl());
+                ((AppCompatEditText)findViewById(R.id.logo_url_input)).setText(station.getLogoUrl());
             }
 
             @Override
@@ -62,7 +64,9 @@ public class RegistryEditActivity extends jActivity {
             public void onClick(View v) {
                 TabLayout.Tab tab = tabLayout.getTabAt(tabLayout.getSelectedTabPosition());
                 HashMap<String, String> attrs = new HashMap<>();
+                attrs.put("objectName", ((AppCompatEditText)findViewById(R.id.name_input)).getText().toString());
                 attrs.put("objectUrl", ((AppCompatEditText)findViewById(R.id.url_input)).getText().toString());
+                attrs.put("objectLogoUrl", ((AppCompatEditText)findViewById(R.id.logo_url_input)).getText().toString());
                 if (tab.getTag() != null) {
                     if (stations.contains(tab.getTag()) && ((AppCompatEditText)findViewById(R.id.url_input)).getText().toString().isEmpty()) {
                         stations.remove(tab.getTag());
@@ -103,7 +107,7 @@ public class RegistryEditActivity extends jActivity {
             TabLayout.Tab tab = tabLayout.newTab();
             RegistryHelper.Object station = stations.get(i);
             tab.setTag(station);
-            tab.setText(String.valueOf(i));
+            tab.setText(station.getName());
             tabLayout.addTab(tab);
         }
     }

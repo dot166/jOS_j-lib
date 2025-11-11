@@ -60,14 +60,20 @@ android {
 }
 
 dependencies {
+    api(libs.androidx.appcompat)
+    api(libs.androidx.constraintlayout)
+    api(libs.androidx.recyclerview)
     api(libs.androidx.preference.ktx)
     api(libs.material)
+    api(libs.androidx.core.ktx)
     api(libs.androidx.browser)
     api(libs.androidx.swiperefreshlayout)
     api(libs.rssparser)
     api(libs.glide)
     annotationProcessor(libs.compiler)
     api(libs.androidx.media3.exoplayer)
+    api(libs.androidx.media3.common)
+    api(libs.androidx.media3.exoplayer.dash)
     api(libs.androidx.media3.session)
     api(libs.androidx.gridlayout)
 }

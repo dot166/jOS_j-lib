@@ -39,7 +39,9 @@ object XmlHelper {
             for (i in stations.indices) {
                 val station = stations[i]
                 serializer.startTag("", "object")
+                serializer.attribute("", "objectName", station.name)
                 serializer.attribute("", "objectUrl", station.url)
+                serializer.attribute("", "objectLogoUrl", station.logoUrl)
                 serializer.endTag("", "object")
             }
 
@@ -95,7 +97,7 @@ object XmlHelper {
                     } else {
                         keyValuePair[1]
                     }
-                    attributes.put(keyValuePair[0], value)
+                    attributes[keyValuePair[0]] = value
                 }
                 stationList.add(RegistryHelper.Object(attributes))
             }

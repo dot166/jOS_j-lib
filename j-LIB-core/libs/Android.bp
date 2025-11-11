@@ -90,7 +90,7 @@ java_import {
 
 android_library_import {
     name: "j-Lib_androidx.appcompat_appcompat",
-    aars: ["androidx/appcompat/appcompat/1.7.0/appcompat-1.7.0.aar"],
+    aars: ["androidx/appcompat/appcompat/1.7.1/appcompat-1.7.1.aar"],
     sdk_version: "36",
     min_sdk_version: "26",
     apex_available: [
@@ -120,7 +120,7 @@ android_library_import {
 
 android_library_import {
     name: "j-Lib_androidx.appcompat_appcompat-resources",
-    aars: ["androidx/appcompat/appcompat-resources/1.7.0/appcompat-resources-1.7.0.aar"],
+    aars: ["androidx/appcompat/appcompat-resources/1.7.1/appcompat-resources-1.7.1.aar"],
     sdk_version: "36",
     min_sdk_version: "26",
     apex_available: [
@@ -308,7 +308,7 @@ android_library_import {
 
 android_library_import {
     name: "j-Lib_androidx.core_core",
-    aars: ["androidx/core/core/1.16.0/core-1.16.0.aar"],
+    aars: ["androidx/core/core/1.17.0/core-1.17.0.aar"],
     sdk_version: "36",
     min_sdk_version: "26",
     apex_available: [
@@ -322,17 +322,20 @@ android_library_import {
         "j-Lib_androidx.concurrent_concurrent-futures",
         "j-Lib_androidx.core_core-viewtree",
         "j-Lib_androidx.interpolator_interpolator",
+        "j-Lib_androidx.lifecycle_lifecycle-common",
         "j-Lib_androidx.lifecycle_lifecycle-runtime",
         "j-Lib_androidx.tracing_tracing",
         "j-Lib_androidx.versionedparcelable_versionedparcelable",
+        "j-Lib_com.google.guava_listenablefuture",
         "j-Lib_org.jetbrains.kotlin_kotlin-stdlib",
+        "j-Lib_org.jetbrains.kotlinx_kotlinx-coroutines-core",
         "j-Lib_org.jspecify_jspecify",
     ],
 }
 
 android_library_import {
     name: "j-Lib_androidx.core_core-ktx",
-    aars: ["androidx/core/core-ktx/1.16.0/core-ktx-1.16.0.aar"],
+    aars: ["androidx/core/core-ktx/1.17.0/core-ktx-1.17.0.aar"],
     sdk_version: "36",
     min_sdk_version: "26",
     apex_available: [
@@ -388,6 +391,21 @@ android_library_import {
         "j-Lib_androidx.collection_collection",
         "j-Lib_androidx.core_core",
         "j-Lib_org.jspecify_jspecify",
+    ],
+}
+
+android_library_import {
+    name: "j-Lib_androidx.customview_customview-poolingcontainer",
+    aars: ["androidx/customview/customview-poolingcontainer/1.0.0/customview-poolingcontainer-1.0.0.aar"],
+    sdk_version: "36",
+    min_sdk_version: "26",
+    apex_available: [
+        "//apex_available:platform",
+        "//apex_available:anyapex",
+    ],
+    static_libs: [
+        "j-Lib_androidx.core_core-ktx",
+        "j-Lib_org.jetbrains.kotlin_kotlin-stdlib",
     ],
 }
 
@@ -884,6 +902,21 @@ android_library_import {
 }
 
 android_library_import {
+    name: "j-Lib_androidx.media3_media3-exoplayer-dash",
+    aars: ["androidx/media3/media3-exoplayer-dash/1.8.0/media3-exoplayer-dash-1.8.0.aar"],
+    sdk_version: "36",
+    min_sdk_version: "26",
+    apex_available: [
+        "//apex_available:platform",
+        "//apex_available:anyapex",
+    ],
+    static_libs: [
+        "j-Lib_androidx.annotation_annotation",
+        "j-Lib_androidx.media3_media3-exoplayer",
+    ],
+}
+
+android_library_import {
     name: "j-Lib_androidx.media3_media3-extractor",
     aars: ["androidx/media3/media3-extractor/1.8.0/media3-extractor-1.8.0.aar"],
     sdk_version: "36",
@@ -975,7 +1008,7 @@ android_library_import {
 
 android_library_import {
     name: "j-Lib_androidx.recyclerview_recyclerview",
-    aars: ["androidx/recyclerview/recyclerview/1.2.1/recyclerview-1.2.1.aar"],
+    aars: ["androidx/recyclerview/recyclerview/1.4.0/recyclerview-1.4.0.aar"],
     sdk_version: "36",
     min_sdk_version: "26",
     apex_available: [
@@ -987,6 +1020,8 @@ android_library_import {
         "j-Lib_androidx.collection_collection",
         "j-Lib_androidx.core_core",
         "j-Lib_androidx.customview_customview",
+        "j-Lib_androidx.customview_customview-poolingcontainer",
+        "j-Lib_androidx.profileinstaller_profileinstaller",
     ],
 }
 
@@ -1181,7 +1216,7 @@ android_library_import {
 
 android_library_import {
     name: "j-Lib_androidx.viewpager2_viewpager2",
-    aars: ["androidx/viewpager2/viewpager2/1.0.0/viewpager2-1.0.0.aar"],
+    aars: ["androidx/viewpager2/viewpager2/1.1.0-beta02/viewpager2-1.1.0-beta02.aar"],
     sdk_version: "36",
     min_sdk_version: "26",
     apex_available: [
@@ -1190,6 +1225,7 @@ android_library_import {
     ],
     static_libs: [
         "j-Lib_androidx.annotation_annotation",
+        "j-Lib_androidx.annotation_annotation-experimental",
         "j-Lib_androidx.collection_collection",
         "j-Lib_androidx.core_core",
         "j-Lib_androidx.fragment_fragment",

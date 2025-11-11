@@ -6,12 +6,18 @@ android_library {
     name: "j.Lib",
     static_libs: [
         // DO NOT EDIT THIS SECTION MANUALLY
+        "j-Lib_androidx.appcompat_appcompat",
         "j-Lib_androidx.browser_browser",
+        "j-Lib_androidx.constraintlayout_constraintlayout",
+        "j-Lib_androidx.core_core-ktx",
         "j-Lib_androidx.graphics_graphics-shapes-android",
         "j-Lib_androidx.gridlayout_gridlayout",
+        "j-Lib_androidx.media3_media3-common",
         "j-Lib_androidx.media3_media3-exoplayer",
+        "j-Lib_androidx.media3_media3-exoplayer-dash",
         "j-Lib_androidx.media3_media3-session",
         "j-Lib_androidx.preference_preference-ktx",
+        "j-Lib_androidx.recyclerview_recyclerview",
         "j-Lib_androidx.swiperefreshlayout_swiperefreshlayout",
         "j-Lib_com.github.bumptech.glide_glide",
         "j-Lib_com.google.android.material_material",
