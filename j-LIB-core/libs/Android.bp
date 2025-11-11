@@ -1252,6 +1252,19 @@ android_library_import {
 }
 
 java_import {
+    name: "j-Lib_com.caverock_androidsvg",
+    jars: ["com/caverock/androidsvg/1.4/androidsvg-1.4.jar"],
+    sdk_version: "36",
+    min_sdk_version: "26",
+    apex_available: [
+        "//apex_available:platform",
+        "//apex_available:anyapex",
+    ],
+    static_libs: [
+    ],
+}
+
+java_import {
     name: "j-Lib_com.github.bumptech.glide_annotations",
     jars: ["com/github/bumptech/glide/annotations/5.0.5/annotations-5.0.5.jar"],
     sdk_version: "36",
