@@ -83,11 +83,13 @@ object XmlHelper {
             val strAar: Array<String?> =
                 str.split(";".toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()
             for (i in strAar.indices) {
-                val attributes: MutableMap<String, String> = HashMap()
                 val attrs: Array<String?> =
                     strAar[i]!!.replace("<object# ", "").replace("></object>", "")
                         .replace("# ", "#").split("#".toRegex()).dropLastWhile { it.isEmpty() }
                         .toTypedArray()
+                var name: String = ""
+                var url: String = ""
+                var logoUrl: String = ""
                 for (j in attrs.indices) {
                     val keyValuePair: Array<String> =
                         attrs[j]!!.split("=".toRegex()).dropLastWhile { it.isEmpty() }
@@ -97,9 +99,15 @@ object XmlHelper {
                     } else {
                         keyValuePair[1]
                     }
-                    attributes[keyValuePair[0]] = value
+                    if (keyValuePair[0] == "objectName") {
+                        name = value
+                    } else if (keyValuePair[0] == "objectUrl") {
+                        url = value
+                    } else if (keyValuePair[0] == "objectLogoUrl") {
+                        logoUrl = value
+                    }
                 }
-                stationList.add(RegistryHelper.Object(attributes))
+                stationList.add(RegistryHelper.Object(name, url, logoUrl))
             }
         } catch (e: Exception) {
             handle(e, context)

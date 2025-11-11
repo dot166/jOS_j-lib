@@ -57,11 +57,11 @@ open class RegistryEditActivity : jActivity() {
             override fun onClick(v: View) {
                 val tab = tabLayout.getTabAt(tabLayout.selectedTabPosition)
                 val attrs = HashMap<String, String>()
-                attrs["objectName"] = findViewById<AppCompatEditText>(R.id.name_input).getText()
+                val name: String = findViewById<AppCompatEditText>(R.id.name_input).getText()
                     .toString()
-                attrs["objectUrl"] = findViewById<AppCompatEditText>(R.id.url_input).getText()
+                val url: String = findViewById<AppCompatEditText>(R.id.url_input).getText()
                     .toString()
-                attrs["objectLogoUrl"] = findViewById<AppCompatEditText>(R.id.logo_url_input).getText()
+                val logoUrl = findViewById<AppCompatEditText>(R.id.logo_url_input).getText()
                     .toString()
                 if (tab!!.tag != null) {
                     if (stations!!.contains(tab.tag) && findViewById<AppCompatEditText>(R.id.url_input).getText()
@@ -75,7 +75,7 @@ open class RegistryEditActivity : jActivity() {
                             .toString().isEmpty()
                     ) {
                         val station = tab.tag as RegistryHelper.Object?
-                        station!!.updateAttributes(attrs)
+                        station!!.updateAttributes(name, url, logoUrl)
                         stations!!.remove(tab.tag)
                         stations!!.add(station)
                         writeXmlToFile(v.context, "Registry.xml", stations!!)
@@ -83,7 +83,7 @@ open class RegistryEditActivity : jActivity() {
                         return
                     }
                 }
-                val station = RegistryHelper.Object(attrs)
+                val station = RegistryHelper.Object(name, url, logoUrl)
                 stations!!.add(station)
                 writeXmlToFile(v.context, "Registry.xml", stations!!)
                 rebuildTabs(tabLayout)
@@ -99,7 +99,7 @@ open class RegistryEditActivity : jActivity() {
     protected fun buildTabs(tabLayout: TabLayout) {
         val newTab = tabLayout.newTab()
         newTab.setText(R.string.add_new_station_to_registry)
-        newTab.tag = RegistryHelper.Object(HashMap())
+        newTab.tag = RegistryHelper.Object("", "", "")
         tabLayout.addTab(newTab)
         newTab.select()
         stations = readXmlFromFile(this, "Registry.xml")

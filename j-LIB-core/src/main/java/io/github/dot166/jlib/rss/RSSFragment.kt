@@ -51,26 +51,6 @@ class RSSFragment : Fragment {
         if (activity is jActivity) {
             (activity as jActivity).forceNotificationPermission()
         }
-        if (!PreferenceManager.getDefaultSharedPreferences(requireContext())
-                .getString("rssUrls", "")!!.isBlank()
-        ) {
-            val stationsToMigrate: MutableList<RegistryHelper.Object> =
-                ArrayList()
-            val rssUrlsToMigrate: Array<String> =
-                PreferenceManager.getDefaultSharedPreferences(requireContext())
-                    .getString("rssUrls", "")!!.split(";".toRegex()).dropLastWhile { it.isEmpty() }
-                    .toTypedArray()
-            for (rssUrlToMigrate in rssUrlsToMigrate) {
-                val url: MutableMap<String, String> = HashMap()
-                url["objectUrl"] = rssUrlToMigrate
-                stationsToMigrate.add(RegistryHelper.Object(url))
-            }
-            writeXmlToFile(requireContext(), "Registry.xml", stationsToMigrate)
-            PreferenceManager.getDefaultSharedPreferences(requireContext()).edit {
-                remove("rssUrls")
-            }
-            Toast.makeText(requireContext(), "Migration Complete", Toast.LENGTH_LONG).show()
-        }
         val feeds = RegistryHelper.getFromRegistry(requireContext())
         val rssUrls = arrayOfNulls<String>(feeds.size)
         for (i in feeds.indices) {

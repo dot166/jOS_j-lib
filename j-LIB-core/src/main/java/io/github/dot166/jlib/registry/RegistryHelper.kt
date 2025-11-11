@@ -8,36 +8,11 @@ object RegistryHelper {
         return readXmlFromFile(context, "Registry.xml")
     }
 
-    class Object(attributes: MutableMap<String, String>) {
-        lateinit var name: String
-            private set
-        lateinit var url: String
-            private set
-        lateinit var logoUrl: String
-            private set
-
-        init {
-            if (attributes["objectName"] != null) {
-                this.name = attributes["objectName"]!!
-            }
-            if (attributes["objectUrl"] != null) {
-                this.url = attributes["objectUrl"]!!
-            }
-            if (attributes["objectLogoUrl"] != null) {
-                this.logoUrl = attributes["objectLogoUrl"]!!
-            }
-        }
-
-        fun updateAttributes(attributes: MutableMap<String, String>) {
-            if (attributes["objectName"] != null) {
-                this.name = attributes["objectName"]!!
-            }
-            if (attributes["objectUrl"] != null) {
-                this.url = attributes["objectUrl"]!!
-            }
-            if (attributes["objectLogoUrl"] != null) {
-                this.logoUrl = attributes["objectLogoUrl"]!!
-            }
+    class Object(var name: String, var url: String, var logoUrl: String) {
+        fun updateAttributes(name: String, url: String, logoUrl: String) {
+            this.name = name
+            this.url = url
+            this.logoUrl = logoUrl
         }
     }
 }
