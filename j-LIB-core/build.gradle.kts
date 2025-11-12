@@ -62,20 +62,10 @@ android {
 dependencies {
     api(libs.androidx.appcompat)
     api(libs.androidx.constraintlayout)
-    api(libs.androidx.recyclerview)
     api(libs.androidx.preference.ktx)
     api(libs.material)
     api(libs.androidx.core.ktx)
     api(libs.androidx.browser)
-    api(libs.androidx.swiperefreshlayout)
-    api(libs.rssparser)
-    api(libs.glide)
-    api(libs.androidsvg)
-    annotationProcessor(libs.compiler)
-    api(libs.androidx.media3.exoplayer)
-    api(libs.androidx.media3.common)
-    api(libs.androidx.media3.exoplayer.dash)
-    api(libs.androidx.media3.session)
     api(libs.androidx.gridlayout)
 }
 
@@ -111,5 +101,5 @@ mavenPublishing {
 configure<GenerateBpPluginExtension> {
     minSdk.set(libMinSdk)
     targetSdk.set(libCompileSdk)
-    availableInAOSP.set { _: Module -> false }
+    availableInAOSP.set { module: Module -> true }
 }

@@ -1,36 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="jlib_version">jLIB Version</string>
     <string name="libplaceholder">LIB Test</string>
     <string name="ok">OK</string>
     <string name="jlib_changelog">jLIB Changelog</string>
-    <string name="licences">Acknowledgements</string>
     <string name="dialog_fail_title">Well… It crashed!</string>
     <string name="dialog_fail_message">how did that happen??</string>
     <string name="dialog_ignore">Ignore</string>
     <string name="dialog_stacktrace">Show Stack Trace</string>
-    <string name="about_jlib">About jLib</string>
     <!-- Custom seekbar -->
     <string name="slider_value">Value: <xliff:g id="v">%s</xliff:g></string>
     <string name="slider_default_value">by default</string>
     <string name="slider_default_value_to_set">Default value: <xliff:g id="v">%s</xliff:g>\nLong tap to set</string>
-    <string name="yes">Yes</string>
-    <string name="cancel">Cancel</string>
-    <string name="fast_forward">+10s</string>
-    <string name="play_pause">Play/Pause</string>
-    <string name="rewind">-10s</string>
-    <string name="cover_art">cover art</string>
-    <string name="notification_permission">Notification Permission</string>
-    <string name="no">No</string>
-    <string name="settings_notif_dialog">The Notification permission is required for this jLib component, Please allow notification permission from settings</string>
-    <string name="notif_dialog">The Notification permission is required for this jLib component, would you like to grant it</string>
-    <string name="close_media_player">close media player</string>
-    <string name="import_registry_from_storage">Import registry from storage</string>
-    <string name="export_registry_to_storage">Export registry to storage</string>
-    <string name="edit_station_registry">Edit Registry</string>
-    <string name="add_new_station_to_registry">Add new record to registry</string>
-    <string name="station_url_input">URL</string>
-    <string name="save_to_registry">Save to registry</string>
-    <string name="object_name_input">Object Name</string>
-    <string name="logo_url_input">Logo URL</string>
 </resources>
