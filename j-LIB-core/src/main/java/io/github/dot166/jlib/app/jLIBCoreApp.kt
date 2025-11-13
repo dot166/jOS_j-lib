@@ -1,0 +1,18 @@
+package io.github.dot166.jlib.app
+
+import android.app.Application
+import com.google.android.material.color.DynamicColors
+
+class jLIBCoreApp : Application() {
+    override fun onCreate() {
+        super.onCreate()
+        DynamicColors.applyToActivitiesIfAvailable(this)
+        INSTANCE = this
+    }
+
+    companion object {
+        const val TAG: String = "jLIB"
+        lateinit var INSTANCE: jLIBCoreApp
+            private set
+    }
+}
