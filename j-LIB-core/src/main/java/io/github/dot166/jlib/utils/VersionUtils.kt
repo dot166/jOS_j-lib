@@ -5,13 +5,6 @@ import androidx.annotation.ChecksSdkIntAtLeast
 import io.github.dot166.jlib.internal.utils.LibVer
 
 object VersionUtils {
-    @get:ChecksSdkIntAtLeast(api = Build.VERSION_CODES_FULL.O_MR1)
-    val isAtLeastO_1: Boolean
-        get() = Build.VERSION.SDK_INT_FULL >= Build.VERSION_CODES_FULL.O_MR1
-
-    @get:ChecksSdkIntAtLeast(api = Build.VERSION_CODES_FULL.P)
-    val isAtLeastP: Boolean
-        get() = Build.VERSION.SDK_INT_FULL >= Build.VERSION_CODES_FULL.P
 
     @get:ChecksSdkIntAtLeast(api = Build.VERSION_CODES_FULL.Q)
     val isAtLeastQ: Boolean

@@ -1,6 +1,4 @@
-# jLib - a common library that (most of) my android apps use
-
-## jLib will work ONLY ON ANDROID OREO (8) AND LATER!! because there is less devices that use Android NOUGAT (7) or older and apps are now dropping support for those versions
+# jLib
 
 ## how to use it?
 

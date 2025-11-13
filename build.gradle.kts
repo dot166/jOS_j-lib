@@ -12,7 +12,7 @@ buildscript {
         set("libVersion", providers.exec {
             commandLine("cat", "ver")
         }.standardOutput.asText.get().trim())
-        set("libMinSdk", 26)
+        set("libMinSdk", 28)
         set("libCompileSdk", 36)
     }
 }

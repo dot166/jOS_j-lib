@@ -101,5 +101,5 @@ mavenPublishing {
 configure<GenerateBpPluginExtension> {
     minSdk.set(libMinSdk)
     targetSdk.set(libCompileSdk)
-    availableInAOSP.set { module: Module -> true }
+    availableInAOSP.set { _: Module -> true }
 }
