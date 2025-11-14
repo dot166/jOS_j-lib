@@ -62,7 +62,7 @@ android {
 dependencies {
     api(libs.androidx.appcompat)
     api(libs.androidx.constraintlayout)
-    api(libs.androidx.preference.ktx)
+    api(libs.androidx.preference)
     api(libs.material)
     api(libs.androidx.core.ktx)
     api(libs.androidx.browser)
