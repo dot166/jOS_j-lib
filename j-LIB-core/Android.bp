@@ -13,7 +13,7 @@ android_library {
         "androidx.graphics_graphics-shapes",
         "androidx.gridlayout_gridlayout",
         "androidx.preference_preference",
-        "j-Lib_com.google.android.material_material",
+        "com.google.android.material_material",
         "kotlin-stdlib",
     ],
 
