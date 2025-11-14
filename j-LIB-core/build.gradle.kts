@@ -101,10 +101,5 @@ mavenPublishing {
 configure<GenerateBpPluginExtension> {
     minSdk.set(libMinSdk)
     targetSdk.set(libCompileSdk)
-    availableInAOSP.set { module: Module ->
-        when {
-            module.group == "com.google.android.material" -> false
-            else -> true
-        }
-    }
+    availableInAOSP.set { _: Module -> true}
 }
