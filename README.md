@@ -40,10 +40,6 @@ example app
 
 sources for aosp features that normally be in a vendor or 'sdk' folder
 
-### rustLib/
-
-rust common library
-
 ## License
 
 see [LICENSE](LICENSE)
