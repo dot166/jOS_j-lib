@@ -10,7 +10,6 @@ jobs:
       ORG_GRADLE_PROJECT_mavenCentralPassword: ${{ secrets.MAVEN_PASSWD }}
       ORG_GRADLE_PROJECT_signingInMemoryKey: ${{ secrets.GPG_KEY }}
       ORG_GRADLE_PROJECT_signingInMemoryKeyPassword: ${{ secrets.GPG_PASSWD }}
-      CARGO_TERM_COLOR: always
 
     steps:
     - name: Checkout repo
@@ -22,19 +21,6 @@ jobs:
       run: |
         git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
         git config --global user.name "github-actions[bot]"
-
-    - name: Build and test Rust Library
-      run: |
-        cd rustLib
-        cargo update
-        cargo build --verbose
-        cargo test --package j_lib_rust --lib tests
-
-    - name: Commit changes
-      if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && github.repository == 'dot166/jOS_j-Lib' }}
-      run: |
-        git add .
-        git commit -m "Update Rust Library stuff" || true
     
     - name: Update Helpline List
       run: |
