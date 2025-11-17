@@ -8,8 +8,4 @@
     <string name="dialog_fail_message">how did that happen??</string>
     <string name="dialog_ignore">Ignore</string>
     <string name="dialog_stacktrace">Show Stack Trace</string>
-    <!-- Custom seekbar -->
-    <string name="slider_value">Value: <xliff:g id="v">%s</xliff:g></string>
-    <string name="slider_default_value">by default</string>
-    <string name="slider_default_value_to_set">Default value: <xliff:g id="v">%s</xliff:g>\nLong tap to set</string>
 </resources>
