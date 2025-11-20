@@ -6,7 +6,7 @@ constraintlayout = "2.2.1"
 coreKtx = "1.17.0"
 gridlayout = "1.1.0"
 kotlin = "2.2.21"
-material = "1.14.0-alpha06"
+material = "1.14.0-alpha07"
 maven = "0.35.0"
 preference = "1.2.1"
 
