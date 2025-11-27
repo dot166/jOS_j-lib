@@ -81,7 +81,7 @@ jobs:
       if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && github.repository == 'dot166/jOS_j-Lib' }}
       run: |
         git add .
-        git commit -m "Update gradle generated files for AOSP" || true
+        git commit -m "Update generated files" || true
 
     - name: add Dependencies to AOSP
       run: ./gradlew generateBp
@@ -90,7 +90,7 @@ jobs:
       if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && github.repository == 'dot166/jOS_j-Lib' }}
       run: |
         git add .
-        git commit -m "Publish dependencies for AOSP" || true
+        git commit -m "update AOSP build files" || true
 
     - name: Push changes to repo
       uses: ad-m/github-push-action@master
