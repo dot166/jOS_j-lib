@@ -67,6 +67,7 @@ dependencies {
     api(libs.androidx.core.ktx)
     api(libs.androidx.browser)
     api(libs.androidx.gridlayout)
+    //api(files("$projectDir/SettingsLib.aar")) // GrapheneOS/AOSP SettingsLib, needed for M3E in settings menu
 }
 
 mavenPublishing {
