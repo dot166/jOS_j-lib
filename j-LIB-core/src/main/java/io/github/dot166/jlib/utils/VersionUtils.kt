@@ -6,10 +6,6 @@ import io.github.dot166.jlib.internal.utils.LibVer
 
 object VersionUtils {
 
-    @get:ChecksSdkIntAtLeast(api = Build.VERSION_CODES_FULL.R)
-    val isAtLeastR: Boolean
-        get() = Build.VERSION.SDK_INT_FULL >= Build.VERSION_CODES_FULL.R
-
     @get:ChecksSdkIntAtLeast(api = Build.VERSION_CODES_FULL.S)
     val isAtLeastS: Boolean
         get() = Build.VERSION.SDK_INT_FULL >= Build.VERSION_CODES_FULL.S
