@@ -1,10 +1,13 @@
 package io.github.dot166.jlib.app
 
 import android.os.Bundle
+import android.view.View
 import androidx.annotation.ContentView
 import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
-import com.android.settingslib.collapsingtoolbar.EdgeToEdgeUtils
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import io.github.dot166.jlib.utils.VersionUtils.isAtLeastV
 
 open class jActivity : AppCompatActivity {
 
@@ -30,8 +33,24 @@ open class jActivity : AppCompatActivity {
     constructor(@LayoutRes contentLayoutId: Int) : super(contentLayoutId)
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        EdgeToEdgeUtils.enable(this)
         super.onCreate(savedInstanceState)
+
+        if (isAtLeastV) {
+            // Fix A15 EdgeToEdge
+            ViewCompat.setOnApplyWindowInsetsListener(
+                findViewById(android.R.id.content)
+            ) { v: View?, windowInsets: WindowInsetsCompat? ->
+                val insets = windowInsets!!.getInsets(
+                    (WindowInsetsCompat.Type.systemBars() or WindowInsetsCompat.Type.ime()
+                            or WindowInsetsCompat.Type.displayCutout())
+                )
+                val statusBarHeight = window.decorView.getRootWindowInsets()
+                    .getInsets(WindowInsetsCompat.Type.statusBars()).top
+                // Apply the insets paddings to the view.
+                v!!.setPadding(insets.left, statusBarHeight, insets.right, insets.bottom)
+                WindowInsetsCompat.CONSUMED
+            }
+        }
     }
 }
 
