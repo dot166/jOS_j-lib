@@ -5,7 +5,6 @@
 android_library {
     name: "j.Lib",
     static_libs: [
-        // DO NOT EDIT THIS SECTION MANUALLY
         "androidx.appcompat_appcompat",
         "androidx.browser_browser",
         "androidx-constraintlayout_constraintlayout",
@@ -15,7 +14,6 @@ android_library {
         "androidx.preference_preference",
         "com.google.android.material_material",
         "kotlin-stdlib",
-    ] + [
         "SettingsLibBarChartPreference",
         "SettingsLibCategory",
         "SettingsLibCollapsingToolbarBaseActivity",
