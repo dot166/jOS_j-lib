@@ -33,6 +33,11 @@ jobs:
       run: |
         git add .
         git commit -m "Update Helpline List" || true
+
+    - name: clone SettingsLib
+      run: |
+        cd ..
+        git clone https://github.com/dot166/platform_frameworks_base
     
     - name: Setup JDK 17
       uses: actions/setup-java@v5
