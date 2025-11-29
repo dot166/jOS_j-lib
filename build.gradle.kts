@@ -25,7 +25,7 @@ subprojects {
         configure<com.vanniktech.maven.publish.MavenPublishBaseExtension> {
             configure(com.vanniktech.maven.publish.AndroidSingleVariantLibrary(
                 variant = "release",
-                sourcesJar = true,
+                sourcesJar = false,
                 publishJavadocJar = false,
             ))
         }
