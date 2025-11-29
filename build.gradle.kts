@@ -21,4 +21,13 @@ subprojects {
     tasks.matching { it.name.contains("javadoc", ignoreCase = true) }.configureEach {
         enabled = false
     }
+    plugins.withId("com.vanniktech.maven.publish") {
+        configure<com.vanniktech.maven.publish.MavenPublishBaseExtension> {
+            configure(com.vanniktech.maven.publish.AndroidSingleVariantLibrary(
+                variant = "release",
+                sourcesJar = true,
+                publishJavadocJar = false,
+            ))
+        }
+    }
 }
