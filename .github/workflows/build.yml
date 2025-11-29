@@ -79,9 +79,7 @@ jobs:
 
     - name: Publish to Maven Central
       if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && github.repository == 'dot166/jOS_j-Lib' && env.RELEASE == '1' }}
-      run: |
-        ./gradlew j-Lib-core:publishAndReleaseToMavenCentral --no-configuration-cache
-        ./gradlew --stop
+      run: ./gradlew publishAndReleaseToMavenCentral --no-configuration-cache
 
     - name: Remove temp files
       run: rm -rf a.txt b.txt
