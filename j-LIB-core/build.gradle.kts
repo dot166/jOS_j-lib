@@ -5,7 +5,6 @@ val libCompileSdk: Int = rootProject.extra["libCompileSdk"] as Int
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
-    `maven-publish`
     alias(libs.plugins.maven.publish)
 }
 
@@ -73,9 +72,9 @@ mavenPublishing {
             }
         }
         scm {
-            url = "https://github.com/github.com/dot166/jOS_j-lib"
-            connection = "scm:git:git://github.com/github.com/dot166/jOS_j-lib.git"
-            developerConnection = "scm:git:ssh://git@github.com/github.com/dot166/jOS_j-lib.git"
+            url = "https://github.com/dot166/jOS_j-lib"
+            connection = "scm:git:git://github.com/dot166/jOS_j-lib.git"
+            developerConnection = "scm:git:ssh://git@github.com/dot166/jOS_j-lib.git"
         }
     }
 }
