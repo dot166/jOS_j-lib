@@ -17,3 +17,8 @@ buildscript {
     }
 }
 
+subprojects {
+    tasks.matching { it.name.contains("javadoc", ignoreCase = true) }.configureEach {
+        enabled = false
+    }
+}
