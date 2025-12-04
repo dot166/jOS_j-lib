@@ -14,10 +14,10 @@ android_library {
         "androidx.preference_preference",
         "com.google.android.material_material",
         "kotlin-stdlib",
-        "SettingsLibBarChartPreference",
-        "SettingsLibCategory",
+        "SettingsLibButtonPreference",
         "SettingsLibCollapsingToolbarBaseActivity",
         "SettingsLibPreference",
+        "SettingsLibSettingsSpinner",
         "SettingsLibSliderPreference",
     ],
 

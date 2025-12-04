@@ -47,7 +47,12 @@ dependencies {
     api(libs.androidx.core.ktx)
     api(libs.androidx.browser)
     api(libs.androidx.gridlayout)
-    api(project(":settingslib")) // GrapheneOS/AOSP SettingsLib, only the preference modules, needed for M3E in settings menu
+    // GrapheneOS/AOSP SettingsLib, only the preference modules, needed for M3E in settings menu
+    api(project(":settingslib:ButtonPreference"))
+    api(project(":settingslib:CollapsingToolbarBaseActivity"))
+    api(project(":settingslib:Preference"))
+    api(project(":settingslib:SettingsSpinner"))
+    api(project(":settingslib:SliderPreference"))
 }
 
 mavenPublishing {
