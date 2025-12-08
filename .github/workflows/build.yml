@@ -90,15 +90,6 @@ jobs:
         git add .
         git commit -m "Update generated files" || true
 
-    - name: add Dependencies to AOSP
-      run: ./gradlew generateBp
-
-    - name: Commit changes
-      if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && github.repository == 'dot166/jOS_j-Lib' }}
-      run: |
-        git add .
-        git commit -m "update AOSP build files" || true
-
     - name: Push changes to repo
       uses: ad-m/github-push-action@master
       if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && github.repository == 'dot166/jOS_j-Lib' }}
