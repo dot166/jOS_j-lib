@@ -18,7 +18,7 @@ abstract class jConfigActivity : CollapsingToolbarBaseActivity() {
         if (savedInstanceState == null) {
             // Display the fragment as the main content.
             supportFragmentManager.beginTransaction()
-                .replace(R.id.content_frame, preferenceFragment()).commit()
+                .replace(R.id.content_frame, preferenceFragment()).addToBackStack(null).commit()
         }
     }
 }
