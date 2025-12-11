@@ -2,9 +2,12 @@
 agp = "8.13.2"
 appcompat = "1.7.1"
 browser = "1.9.0"
+collectionKtx = "1.5.0"
 constraintlayout = "2.2.1"
 coreKtx = "1.17.0"
+fragment = "1.8.9"
 gridlayout = "1.1.0"
+guava = "33.5.0-android"
 kotlin = "2.2.21"
 material = "1.14.0-alpha07"
 maven = "0.35.0"
@@ -19,8 +22,11 @@ maven-publish = { id = "com.vanniktech.maven.publish", version.ref = "maven" }
 [libraries]
 androidx-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "appcompat" }
 androidx-browser = { module = "androidx.browser:browser", version.ref = "browser" }
+androidx-collection-ktx = { module = "androidx.collection:collection-ktx", version.ref = "collectionKtx" }
 androidx-constraintlayout = { module = "androidx.constraintlayout:constraintlayout", version.ref = "constraintlayout" }
 androidx-core-ktx = { module = "androidx.core:core-ktx", version.ref = "coreKtx" }
+androidx-fragment = { module = "androidx.fragment:fragment", version.ref = "fragment" }
 androidx-gridlayout = { module = "androidx.gridlayout:gridlayout", version.ref = "gridlayout" }
 androidx-preference = { module = "androidx.preference:preference", version.ref = "preference" }
+guava = { module = "com.google.guava:guava", version.ref = "guava" }
 material = { module = "com.google.android.material:material", version.ref = "material" }
