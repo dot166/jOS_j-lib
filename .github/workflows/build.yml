@@ -73,16 +73,10 @@ jobs:
         base64 -d a.txt > key.jks
         echo "${{ secrets.KEYSTORE_PROPS }}" > b.txt
         base64 -d b.txt > keystore.properties
+        rm -rf a.txt b.txt
 
     - name: Build
       run: ./gradlew assembleRelease
-
-    - name: Publish to Maven Central
-      if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && github.repository == 'dot166/jOS_j-Lib' && env.RELEASE == '1' }}
-      run: ./gradlew publishAndReleaseToMavenCentral --no-configuration-cache
-
-    - name: Remove temp files
-      run: rm -rf a.txt b.txt
 
     - name: Commit changes
       if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && github.repository == 'dot166/jOS_j-Lib' }}
@@ -103,3 +97,7 @@ jobs:
         tag_name: ${{ env.VERSION }}
         make_latest: true
         generate_release_notes: true
+
+    - name: Publish to Maven Central
+      if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && github.repository == 'dot166/jOS_j-Lib' && env.RELEASE == '1' }}
+      run: ./gradlew publishAndReleaseToMavenCentral --no-configuration-cache
