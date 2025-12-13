@@ -6,14 +6,17 @@ import io.github.dot166.jlib.internal.utils.LibVer
 
 object VersionUtils {
 
+    @JvmStatic
     @get:ChecksSdkIntAtLeast(api = Build.VERSION_CODES_FULL.R)
     val isAtLeastR: Boolean
         get() = Build.VERSION.SDK_INT_FULL >= Build.VERSION_CODES_FULL.R
 
+    @JvmStatic
     @get:ChecksSdkIntAtLeast(api = Build.VERSION_CODES_FULL.S)
     val isAtLeastS: Boolean
         get() = Build.VERSION.SDK_INT_FULL >= Build.VERSION_CODES_FULL.S
 
+    @JvmStatic
     @get:ChecksSdkIntAtLeast(api = Build.VERSION_CODES_FULL.S_V2)
     val isAtLeastS_1: Boolean
         get() = Build.VERSION.SDK_INT_FULL >= Build.VERSION_CODES_FULL.S_V2
@@ -23,6 +26,7 @@ object VersionUtils {
     val isAtLeastT: Boolean
         get() = Build.VERSION.SDK_INT_FULL >= Build.VERSION_CODES_FULL.TIRAMISU
 
+    @JvmStatic
     @get:ChecksSdkIntAtLeast(api = Build.VERSION_CODES_FULL.UPSIDE_DOWN_CAKE)
     val isAtLeastU: Boolean
         get() = Build.VERSION.SDK_INT_FULL >= Build.VERSION_CODES_FULL.UPSIDE_DOWN_CAKE
@@ -32,6 +36,7 @@ object VersionUtils {
     val isAtLeastV: Boolean
         get() = Build.VERSION.SDK_INT_FULL >= Build.VERSION_CODES_FULL.VANILLA_ICE_CREAM
 
+    @JvmStatic
     @get:ChecksSdkIntAtLeast(api = Build.VERSION_CODES_FULL.BAKLAVA)
     val isAtLeastBaklava: Boolean
         get() = Build.VERSION.SDK_INT_FULL >= Build.VERSION_CODES_FULL.BAKLAVA
