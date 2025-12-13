@@ -4,7 +4,6 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import com.android.settingslib.collapsingtoolbar.CollapsingToolbarBaseActivity
 import com.android.settingslib.preference.PreferenceFragment
-import io.github.dot166.jlib.R
 
 /**
  * jLib Settings activity.
@@ -18,7 +17,7 @@ abstract class jConfigActivity : CollapsingToolbarBaseActivity() {
         if (savedInstanceState == null) {
             // Display the fragment as the main content.
             supportFragmentManager.beginTransaction()
-                .replace(R.id.content_frame, preferenceFragment()).addToBackStack(null).commit()
+                .replace(com.android.settingslib.collapsingtoolbar.R.id.content_frame, preferenceFragment()).addToBackStack(null).commit()
         }
     }
 }
