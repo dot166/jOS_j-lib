@@ -7,12 +7,5 @@ open class jLIBCoreApp : Application() {
     override fun onCreate() {
         super.onCreate()
         DynamicColors.applyToActivitiesIfAvailable(this)
-        INSTANCE = this
-    }
-
-    companion object {
-        const val TAG: String = "jLIB"
-        lateinit var INSTANCE: jLIBCoreApp
-            private set
     }
 }
