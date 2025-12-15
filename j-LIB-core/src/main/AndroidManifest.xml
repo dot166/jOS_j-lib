@@ -3,13 +3,15 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     package="io.github.dot166.jlib">
 
-    <application android:name=".app.jLIBCoreApp">
+    <uses-sdk android:minSdkVersion="29" />
+
+    <application>
         <!-- Test Activity -->
         <activity
             android:name=".LIBTestActivity"
             android:icon="@android:drawable/sym_def_app_icon"
             android:label="@string/libplaceholder"
-            android:theme="@style/j.Theme"
+            android:theme="@style/Theme.Material3.DayNight.NoActionBar"
             android:exported="true" />
     </application>
 

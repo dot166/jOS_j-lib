@@ -5,6 +5,7 @@ import androidx.annotation.ContentView
 import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
 import com.android.settingslib.collapsingtoolbar.EdgeToEdgeUtils
+import com.google.android.material.color.DynamicColors
 
 open class jActivity : AppCompatActivity {
 
@@ -31,6 +32,7 @@ open class jActivity : AppCompatActivity {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         EdgeToEdgeUtils.enable(this)
+        DynamicColors.applyToActivityIfAvailable(this)
         super.onCreate(savedInstanceState)
     }
 }
