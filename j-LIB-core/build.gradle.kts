@@ -51,7 +51,6 @@ dependencies {
     api(libs.material)
     api(libs.androidx.core.ktx)
     api(libs.androidx.browser)
-    api(libs.androidx.gridlayout)
     // GrapheneOS/AOSP SettingsLib, only the needed preference modules, needed for M3E in settings menu, among other things
     api(project(":settingslib:BannerMessagePreference"))
     api(project(":settingslib:BarChartPreference"))
