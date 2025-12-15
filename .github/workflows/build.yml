@@ -61,8 +61,8 @@ jobs:
     - name: fix version in files
       if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && github.repository == 'dot166/jOS_j-Lib' && env.RELEASE == '1' }}
       run:  |
-        cp .github/LibVer.kt j-LIB-core/src/main/java/io/github/dot166/jlib/internal/utils/LibVer.kt
-        sed -ri 's/'"template"'/'"$(cat ver)"'/g' j-LIB-core/src/main/java/io/github/dot166/jlib/internal/utils/LibVer.kt
+        cp .github/LibInfo.kt j-LIB-core/src/main/java/io/github/dot166/jlib/LibInfo.kt
+        sed -ri 's/'"template"'/'"$(cat ver)"'/g' j-LIB-core/src/main/java/io/github/dot166/jlib/LibInfo.kt
 
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
