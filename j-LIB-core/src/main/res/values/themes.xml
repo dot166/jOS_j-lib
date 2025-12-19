@@ -1,3 +1,0 @@
-<resources>
-    <style name="j.Theme" parent="Theme.Material3.DayNight.NoActionBar"/><!-- DEPRECATED -->
-</resources>
