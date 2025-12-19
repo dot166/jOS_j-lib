@@ -9,24 +9,8 @@ import com.google.android.material.color.DynamicColors
 
 open class jActivity : AppCompatActivity {
 
-    /**
-     * Default constructor for jActivity. All Activities must have a default constructor
-     * for API 27 and lower devices or when using the default
-     * [android.app.AppComponentFactory].
-     */
     constructor() : super()
 
-    /**
-     * Alternate constructor that can be used to provide a default layout
-     * that will be inflated as part of `super.onCreate(savedInstanceState)`.
-     *
-     *
-     * This should generally be called from your constructor that takes no parameters,
-     * as is required for API 27 and lower or when using the default
-     * [android.app.AppComponentFactory].
-     *
-     * @see .jActivity
-     */
     @ContentView
     constructor(@LayoutRes contentLayoutId: Int) : super(contentLayoutId)
 
