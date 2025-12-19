@@ -63,7 +63,7 @@ object ErrorUtils {
                         .show()
                 }
                 .setNegativeButton(
-                    R.string.dialog_ignore
+                    R.string.ok
                 ) { _, _ ->
                     Log.i("jLib Error Handler", "IGNORING ERROR")
                     action()
