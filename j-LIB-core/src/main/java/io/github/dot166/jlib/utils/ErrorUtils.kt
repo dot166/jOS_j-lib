@@ -14,24 +14,25 @@ object ErrorUtils {
      * @param e Throwable to attempt to handle
      * @param context Context to pass into the error handler
      * @param action The action to be ran once the dialog has been dismissed
+     * @param message String the message to display in the dialog, use getString() if your message is a resource
      */
-    fun handle(e: Throwable, context: Context, action: () -> Unit) {
-        val message = StringBuilder()
-        message.append(
+    fun handle(e: Throwable, context: Context, message: String, action: () -> Unit) {
+        val errorMessage = StringBuilder()
+        errorMessage.append(
             e.toString() + "\n" + e.stackTrace.contentToString()
                 .replace(", ".toRegex(), "\n")
                 .replace("\\[".toRegex(), "")
                 .replace("]".toRegex(), "")
         )
         if (e.cause != null) {
-            message.append(
+            errorMessage.append(
                 "\n\nCaused by: " + e.cause!!.toString() + "\n" + e.cause!!.stackTrace.contentToString()
                     .replace(", ".toRegex(), "\n")
                     .replace("\\[".toRegex(), "")
                     .replace("]".toRegex(), "")
             )
             if (e.cause!!.cause != null) {
-                message.append(
+                errorMessage.append(
                     "\n\nCaused by: " + e.cause!!.cause!!.toString() + "\n" + e.cause!!.cause!!.stackTrace.contentToString()
                         .replace(", ".toRegex(), "\n")
                         .replace("\\[".toRegex(), "")
@@ -39,10 +40,13 @@ object ErrorUtils {
                 ) // only show 2 causes as i don't want to overwhelm the dialog
             }
         }
-        Log.e("jLib Error Handler", message.toString())
+        Log.e("jLib Error Handler", errorMessage.toString())
         try {
+            val content: String = message.ifEmpty {
+                context.getString(R.string.default_dialog_fail_message)
+            }
             SettingsLibAlertDialogBuilder(context)
-                .setMessage(R.string.dialog_fail_message)
+                .setMessage(content)
                 .setTitle(R.string.dialog_fail_title)
                 .setIcon(context.packageManager.getApplicationIcon(context.packageName))
                 .setCancelable(false)
@@ -50,11 +54,11 @@ object ErrorUtils {
                     R.string.dialog_stacktrace
                 ) { _, _ ->
                     SettingsLibAlertDialogBuilder(context)
-                        .setMessage(message.toString())
+                        .setMessage(errorMessage.toString())
                         .setTitle(R.string.dialog_fail_title)
                         .setIcon(context.packageManager.getApplicationIcon(context.packageName))
                         .setCancelable(false)
-                        .setNeutralButton(
+                        .setNegativeButton(
                             R.string.ok
                         ) { dialog, _ ->
                             dialog.dismiss()
@@ -87,9 +91,10 @@ object ErrorUtils {
      * support functions as a parameter like kotlin can
      * @param e Throwable to attempt to handle
      * @param context Context to pass into the error handler
+     * @param message String the message to display in the dialog, use getString() if your message is a resource
      */
     @JvmStatic
-    fun handle(e: Throwable, context: Context) {
-        handle(e, context) {}
+    fun handle(e: Throwable, context: Context, message: String) {
+        handle(e, context, message) {}
     }
 }

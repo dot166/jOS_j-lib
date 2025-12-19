@@ -3,6 +3,6 @@
     <string name="libplaceholder">LIB Test</string>
     <string name="ok">OK</string>
     <string name="dialog_fail_title">Well… It crashed!</string>
-    <string name="dialog_fail_message">how did that happen??</string>
+    <string name="default_dialog_fail_message">how did that happen??</string>
     <string name="dialog_stacktrace">Show Stack Trace</string>
 </resources>
