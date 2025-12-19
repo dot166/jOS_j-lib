@@ -58,10 +58,6 @@ open class ContextThemeBubble(base: Context) : ContextWrapper(base) {
         return theme
     }
 
-    fun getThemeResId(): Int {
-        return themeResId
-    }
-
     override fun getSystemService(name: String): Any? {
         if (LAYOUT_INFLATER_SERVICE == name) {
             if (inflater == null) {
