@@ -59,7 +59,7 @@ object ErrorUtils {
                         .setIcon(context.packageManager.getApplicationIcon(context.packageName))
                         .setCancelable(false)
                         .setNegativeButton(
-                            R.string.ok
+                            android.R.string.ok
                         ) { dialog, _ ->
                             dialog.dismiss()
                             action()
@@ -67,7 +67,7 @@ object ErrorUtils {
                         .show()
                 }
                 .setNegativeButton(
-                    R.string.ok
+                    android.R.string.ok
                 ) { _, _ ->
                     Log.i("jLib Error Handler", "IGNORING ERROR")
                     action()

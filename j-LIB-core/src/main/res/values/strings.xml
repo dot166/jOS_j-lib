@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="libplaceholder">LIB Test</string>
-    <string name="ok">OK</string>
     <string name="dialog_fail_title">Well… It crashed!</string>
     <string name="default_dialog_fail_message">how did that happen??</string>
     <string name="dialog_stacktrace">Show Stack Trace</string>
