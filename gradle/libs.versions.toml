@@ -11,7 +11,7 @@ guava = "33.5.0-android"
 kotlin = "2.2.21"
 material = "1.14.0-alpha08"
 maven = "0.35.0"
-mpandroidchart = "v3.1.0-alpha"
+mpandroidchart = "v3.1.0"
 preference = "1.2.1"
 
 [plugins]
