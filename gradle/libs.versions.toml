@@ -10,7 +10,7 @@ fragment = "1.8.9"
 guava = "33.5.0-android"
 material = "1.14.0-alpha08"
 maven = "0.36.0"
-mpandroidchart = "3.1.0"
+mpandroidchart = "v3.1.0"
 preference = "1.2.1"
 
 [plugins]
