@@ -1,5 +1,5 @@
 //
-// Copyright (C) 2024 ._______166
+// Copyright (C) 2024-2026 ._______166
 //
 
 android_library {
@@ -20,6 +20,7 @@ android_library {
         "SettingsLibSelectorWithWidgetPreference",
         "SettingsLibSettingsSpinner",
         "SettingsLibSliderPreference",
+        "MPAndroidChart",
     ],
 
     manifest: "src/main/AndroidManifest.xml",

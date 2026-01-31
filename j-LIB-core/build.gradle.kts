@@ -60,6 +60,7 @@ dependencies {
     api(project(":settingslib:SelectorWithWidgetPreference"))
     api(project(":settingslib:SettingsSpinner"))
     api(project(":settingslib:SliderPreference"))
+    api(libs.mpandroidchart) // external/MPAndroidChart
 }
 
 mavenPublishing {
