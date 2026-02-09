@@ -13,13 +13,13 @@ import io.github.dot166.jlib.R
 
 class BarChartPreference2 @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null) :
     Preference(context, attrs) {
-    private var values: MutableList<Float?> = ArrayList()
+    private var values: MutableList<Long?> = ArrayList()
 
     init {
         layoutResource = R.layout.bar_chart_preference2
     }
 
-    fun setValues(values: MutableList<Float?>) {
+    fun setValues(values: MutableList<Long?>) {
         this.values = values
         notifyChanged()
     }
@@ -57,7 +57,7 @@ class BarChartPreference2 @JvmOverloads constructor(context: Context, attrs: Att
 
         val entries = ArrayList<BarEntry?>(7)
         for (i in values.indices) {
-            entries.add(BarEntry(i.toFloat(), values[i]!!))
+            entries.add(BarEntry(i.toFloat(), (values[i]!! / 60000f).toFloat()))
         }
 
         val dataSet = BarDataSet(entries, "")

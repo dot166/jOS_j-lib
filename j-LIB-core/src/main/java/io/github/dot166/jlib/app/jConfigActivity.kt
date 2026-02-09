@@ -34,7 +34,7 @@ abstract class jConfigActivity : CollapsingToolbarBaseActivity(), PreferenceFrag
         )
         fragment.setArguments(args)
         supportFragmentManager.beginTransaction()
-            .add(com.android.settingslib.collapsingtoolbar.R.id.content_frame, fragment).addToBackStack(null).commit()
+            .replace(com.android.settingslib.collapsingtoolbar.R.id.content_frame, fragment).addToBackStack(null).commit()
         return true
     }
 }
