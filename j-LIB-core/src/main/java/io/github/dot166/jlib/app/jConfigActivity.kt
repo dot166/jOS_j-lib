@@ -33,7 +33,7 @@ abstract class jConfigActivity : CollapsingToolbarBaseActivity(), PreferenceFrag
             classLoader, pref.fragment!!
         )
         fragment.setArguments(args)
-        supportFragmentManager.beginTransaction()
+        supportFragmentManager.beginTransaction().setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right, android.R.anim.slide_in_left, android.R.anim.slide_out_right)
             .replace(com.android.settingslib.collapsingtoolbar.R.id.content_frame, fragment).addToBackStack(null).commit()
         return true
     }
