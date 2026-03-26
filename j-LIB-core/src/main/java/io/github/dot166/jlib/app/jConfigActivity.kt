@@ -20,7 +20,7 @@ abstract class jConfigActivity : CollapsingToolbarBaseActivity(), PreferenceFrag
         if (savedInstanceState == null) {
             // Display the fragment as the main content.
             supportFragmentManager.beginTransaction()
-                .replace(com.android.settingslib.collapsingtoolbar.R.id.content_frame, preferenceFragment()).commit()
+                .replace(com.android.settingslib.collapsingtoolbar.R.id.content_frame, preferenceFragment()).addToBackStack(null).commit()
         }
     }
 
