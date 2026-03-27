@@ -5,7 +5,7 @@
 to use jLib in an android app that is built using gradle add the following lines to your apps build.gradle
 ```
 dependencies {
-    implementation "io.github.dot166:j-Lib:v104.0.7"
+    implementation "io.github.dot166:j-Lib:v104.2.25"
 }
 ```
 
@@ -13,7 +13,7 @@ if you are including jLib in another android library that is built using gradle 
 ```
 
 dependencies {
-    api "io.github.dot166:j-Lib:v104.0.7"
+    api "io.github.dot166:j-Lib:v104.2.25"
 }
 ```
 
@@ -36,14 +36,6 @@ gradle library (main code) with AOSP Build Files
 
 example app
 
-### aosp/
-
-sources for aosp features that normally be in a vendor or 'sdk' folder
-
 ## License
 
 see [LICENSE](LICENSE)
-
-### NOTICE: There is code in jLib that are from other projects, Those files are licenced under the licence from their respective projects, the files, projects and licences are listed below.
-
-sensitive-pn is adapted from [LineageOS](https://github.com/LineageOS), see aosp/sensitive-pn/readme.md for more information
