@@ -17,11 +17,11 @@ abstract class jConfigActivity : CollapsingToolbarBaseActivity(), PreferenceFrag
     @SuppressLint("PrivateResource")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        if (savedInstanceState == null) {
-            // Display the fragment as the main content.
-            supportFragmentManager.beginTransaction()
-                .replace(com.android.settingslib.collapsingtoolbar.R.id.content_frame, preferenceFragment()).addToBackStack(null).commit()
-        }
+        supportFragmentManager.beginTransaction()
+            .replace(
+                com.android.settingslib.collapsingtoolbar.R.id.content_frame,
+                preferenceFragment()
+            ).addToBackStack(null).commit()
     }
 
     override fun onPreferenceStartFragment(
@@ -33,8 +33,14 @@ abstract class jConfigActivity : CollapsingToolbarBaseActivity(), PreferenceFrag
             classLoader, pref.fragment!!
         )
         fragment.setArguments(args)
-        supportFragmentManager.beginTransaction().setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right, android.R.anim.slide_in_left, android.R.anim.slide_out_right)
-            .replace(com.android.settingslib.collapsingtoolbar.R.id.content_frame, fragment).addToBackStack(null).commit()
+        supportFragmentManager.beginTransaction().setCustomAnimations(
+            android.R.anim.slide_in_left,
+            android.R.anim.slide_out_right,
+            android.R.anim.slide_in_left,
+            android.R.anim.slide_out_right
+        )
+            .replace(com.android.settingslib.collapsingtoolbar.R.id.content_frame, fragment)
+            .addToBackStack(null).commit()
         return true
     }
 }

@@ -3,6 +3,8 @@ package io.github.dot166.libexample
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
+import androidx.preference.Preference
+import androidx.preference.SwitchPreferenceCompat
 import com.android.settingslib.preference.PreferenceFragment
 import com.android.settingslib.widget.SettingsSpinnerAdapter
 import com.android.settingslib.widget.SettingsSpinnerPreference2
@@ -13,6 +15,15 @@ class PrefActivity: jConfigActivity() {
         return PrefFragment()
     }
 
+    class TestPrefFrag: PreferenceFragment() {
+        override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
+            preferenceScreen = preferenceManager.createPreferenceScreen(requireContext())
+            val pref = SwitchPreferenceCompat(requireContext())
+            pref.title = "testPref_useless"
+            preferenceScreen.addPreference(pref)
+        }
+    }
+
     class PrefFragment: PreferenceFragment() {
         override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
             preferenceScreen = preferenceManager.createPreferenceScreen(requireContext())
@@ -21,6 +32,11 @@ class PrefActivity: jConfigActivity() {
         override fun onResume() {
             super.onResume()
             preferenceScreen.removeAll()
+
+            val pref = Preference(requireContext())
+            pref.title = "testFrag"
+            pref.fragment = TestPrefFrag::class.java.name
+            preferenceScreen.addPreference(pref)
 
             for (i in 0 until 24) {
                 val ctx = requireContext()
