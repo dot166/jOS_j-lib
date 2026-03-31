@@ -16,7 +16,7 @@ object ErrorUtils {
      * @param action The action to be ran once the dialog has been dismissed
      * @param message String the message to display in the dialog, use getString() if your message is a resource
      */
-    fun handle(e: Throwable, context: Context, message: String, action: () -> Unit) {
+    fun handle(e: Throwable, context: Context, message: String = "", action: () -> Unit) {
         val errorMessage = StringBuilder()
         errorMessage.append(
             e.toString() + "\n" + e.stackTrace.contentToString()
@@ -94,7 +94,7 @@ object ErrorUtils {
      * @param message String the message to display in the dialog, use getString() if your message is a resource
      */
     @JvmStatic
-    fun handle(e: Throwable, context: Context, message: String) {
+    fun handle(e: Throwable, context: Context, message: String = "") {
         handle(e, context, message) {}
     }
 }
