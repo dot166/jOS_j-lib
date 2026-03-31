@@ -54,6 +54,7 @@ dependencies {
     api(project(":settingslib:BannerMessagePreference"))
     api(project(":settingslib:BarChartPreference"))
     api(project(":settingslib:ButtonPreference"))
+    api(project(":settingslib:CardPreference"))
     api(project(":settingslib:Category"))
     api(project(":settingslib:CollapsingToolbarBaseActivity"))
     api(project(":settingslib:Preference"))

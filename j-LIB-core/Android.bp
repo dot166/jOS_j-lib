@@ -14,6 +14,7 @@ android_library {
         "SettingsLibBannerMessagePreference",
         "SettingsLibBarChartPreference",
         "SettingsLibButtonPreference",
+        "SettingsLibCardPreference",
         "SettingsLibCategory",
         "SettingsLibCollapsingToolbarBaseActivity",
         "SettingsLibPreference",

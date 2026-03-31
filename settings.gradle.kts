@@ -27,6 +27,7 @@ project(":settingslib").projectDir = File(rootProject.projectDir, "../platform_f
 include(":settingslib:BannerMessagePreference")
 include(":settingslib:BarChartPreference")
 include(":settingslib:ButtonPreference")
+include(":settingslib:CardPreference")
 include(":settingslib:Category")
 include(":settingslib:CollapsingToolbarBaseActivity")
 include(":settingslib:DataStore")
