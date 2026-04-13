@@ -80,7 +80,7 @@ jobs:
         branch: ${{ github.ref }}
     
     - name: Upload to new Release
-      uses: softprops/action-gh-release@v2
+      uses: softprops/action-gh-release@v3
       if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && github.repository == 'dot166/jOS_j-Lib' && env.RELEASE == '1' }}
       with:
         tag_name: ${{ env.VERSION }}
