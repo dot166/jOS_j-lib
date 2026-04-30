@@ -11,12 +11,16 @@ guava = "33.5.0-android"
 material = "1.14.0-alpha09"
 maven = "0.36.0"
 preference = "1.2.1"
+material3Android = "1.4.0"
+compose = "2.3.21"
+ui = "1.11.0"
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 android-library = { id = "com.android.library", version.ref = "agp" }
 maven-publish = { id = "com.vanniktech.maven.publish", version.ref = "maven" }
 aconfig = { id = "io.github.dot166.aconfig", version.ref = "aconfig" }
+compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "compose" }
 
 [libraries]
 androidx-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "appcompat" }
@@ -28,3 +32,5 @@ androidx-fragment = { module = "androidx.fragment:fragment", version.ref = "frag
 androidx-preference = { module = "androidx.preference:preference", version.ref = "preference" }
 guava = { module = "com.google.guava:guava", version.ref = "guava" }
 material = { module = "com.google.android.material:material", version.ref = "material" }
+androidx-material3-android = { module = "androidx.compose.material3:material3-android", version.ref = "material3Android" }
+androidx-ui = { group = "androidx.compose.ui", name = "ui", version.ref = "ui" }

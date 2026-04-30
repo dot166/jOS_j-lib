@@ -7,6 +7,7 @@ val libCompileSdk: Int = rootProject.extra["libCompileSdk"] as Int
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.maven.publish)
+    alias(libs.plugins.compose)
 }
 
 group = "io.github.dot166"
@@ -35,6 +36,7 @@ android {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
     }
+    buildFeatures { compose = true }
 }
 
 kotlin {
@@ -61,6 +63,8 @@ dependencies {
     api(project(":settingslib:SelectorWithWidgetPreference"))
     api(project(":settingslib:SettingsSpinner"))
     api(project(":settingslib:SliderPreference"))
+    api(libs.androidx.material3.android)
+    api(libs.androidx.ui)
 }
 
 mavenPublishing {

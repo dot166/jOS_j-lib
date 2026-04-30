@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     package="io.github.dot166.jlib">
 
-    <uses-sdk android:minSdkVersion="29" />
+    <uses-sdk android:minSdkVersion="31" />
 
     <application>
         <!-- Test Activity -->

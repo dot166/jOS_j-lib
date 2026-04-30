@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.android.application) apply false
     alias(libs.plugins.maven.publish) apply false
     alias(libs.plugins.aconfig) apply false
+    alias(libs.plugins.compose) apply false
 }
 
 buildscript {
@@ -12,7 +13,7 @@ buildscript {
         set("libVersion", providers.exec {
             commandLine("cat", "ver")
         }.standardOutput.asText.get().trim())
-        set("libMinSdk", 29)
+        set("libMinSdk", 31)
         set("libCompileSdk", 36)
     }
 }
