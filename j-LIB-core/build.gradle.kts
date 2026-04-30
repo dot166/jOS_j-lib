@@ -52,19 +52,9 @@ dependencies {
     api(libs.material)
     api(libs.androidx.core.ktx)
     api(libs.androidx.browser)
-    // GrapheneOS/AOSP SettingsLib, only the needed preference modules, needed for M3E in settings menu, among other things
-    api(project(":settingslib:BannerMessagePreference"))
-    api(project(":settingslib:BarChartPreference"))
-    api(project(":settingslib:ButtonPreference"))
-    api(project(":settingslib:CardPreference"))
-    api(project(":settingslib:Category"))
-    api(project(":settingslib:CollapsingToolbarBaseActivity"))
-    api(project(":settingslib:Preference"))
-    api(project(":settingslib:SelectorWithWidgetPreference"))
-    api(project(":settingslib:SettingsSpinner"))
-    api(project(":settingslib:SliderPreference"))
     api(libs.androidx.material3.android)
     api(libs.androidx.ui)
+    api(project(":settingslib")) // GrapheneOS/AOSP SettingsLib
 }
 
 mavenPublishing {
