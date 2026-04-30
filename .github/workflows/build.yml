@@ -67,6 +67,10 @@ jobs:
     - name: Build
       run: ./gradlew assembleRelease
 
+    - name: Publish to Maven Central
+      if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && github.repository == 'dot166/jOS_j-Lib' && env.RELEASE == '1' }}
+      run: ./gradlew publishAndReleaseToMavenCentral --no-configuration-cache
+
     - name: Commit changes
       if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && github.repository == 'dot166/jOS_j-Lib' }}
       run: |
@@ -86,7 +90,3 @@ jobs:
         tag_name: ${{ env.VERSION }}
         make_latest: true
         generate_release_notes: true
-
-    - name: Publish to Maven Central
-      if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && github.repository == 'dot166/jOS_j-Lib' && env.RELEASE == '1' }}
-      run: ./gradlew publishAndReleaseToMavenCentral --no-configuration-cache
