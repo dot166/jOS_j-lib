@@ -4,4 +4,5 @@
     <string name="dialog_fail_title">Well… It crashed!</string>
     <string name="default_dialog_fail_message">how did that happen??</string>
     <string name="dialog_stacktrace">Show Stack Trace</string>
+    <string name="deprecated">DEPRECATED!</string>
 </resources>
