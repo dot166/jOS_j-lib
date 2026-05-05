@@ -7,10 +7,12 @@ collectionKtx = "1.6.0"
 constraintlayout = "2.2.1"
 coreKtx = "1.18.0"
 fragment = "1.8.9"
+gson = "2.14.0"
 guava = "33.6.0-android"
 material = "1.14.0-rc01"
 maven = "0.36.0"
 preference = "1.2.1"
+rssparser = "6.1.5"
 material3Android = "1.4.0"
 compose = "2.3.21"
 ui = "1.11.0"
@@ -30,7 +32,9 @@ androidx-constraintlayout = { module = "androidx.constraintlayout:constraintlayo
 androidx-core-ktx = { module = "androidx.core:core-ktx", version.ref = "coreKtx" }
 androidx-fragment = { module = "androidx.fragment:fragment", version.ref = "fragment" }
 androidx-preference = { module = "androidx.preference:preference", version.ref = "preference" }
+gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
 guava = { module = "com.google.guava:guava", version.ref = "guava" }
 material = { module = "com.google.android.material:material", version.ref = "material" }
+rssparser = { module = "com.prof18.rssparser:rssparser", version.ref = "rssparser"}
 androidx-material3-android = { module = "androidx.compose.material3:material3-android", version.ref = "material3Android" }
 androidx-ui = { group = "androidx.compose.ui", name = "ui", version.ref = "ui" }

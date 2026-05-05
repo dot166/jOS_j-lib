@@ -54,6 +54,8 @@ dependencies {
     api(libs.androidx.browser)
     api(libs.androidx.material3.android)
     api(libs.androidx.ui)
+    api(libs.rssparser)
+    api(libs.gson)
     api(project(":settingslib")) // GrapheneOS/AOSP SettingsLib
 }
 
