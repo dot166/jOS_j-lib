@@ -12,7 +12,7 @@ rssparser = "6.1.5"
 material3Android = "1.4.0"
 compose = "2.3.21"
 ui = "1.11.0"
-settingsLib = "136.1.+"
+settingsLib = "136.1.202605060829"
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
