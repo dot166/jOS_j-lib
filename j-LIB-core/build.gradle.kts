@@ -87,3 +87,14 @@ mavenPublishing {
         }
     }
 }
+publishing {
+    publications {
+        withType<MavenPublication> {
+            versionMapping {
+                allVariants {
+                    fromResolutionResult()
+                }
+            }
+        }
+    }
+}
