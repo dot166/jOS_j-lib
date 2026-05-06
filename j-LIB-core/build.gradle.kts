@@ -56,7 +56,7 @@ dependencies {
     api(libs.androidx.ui)
     api(libs.rssparser)
     api(libs.gson)
-    api(project(":settingslib")) // GrapheneOS/AOSP SettingsLib
+    api(libs.settingsLib) // GrapheneOS/AOSP SettingsLib
 }
 
 mavenPublishing {
