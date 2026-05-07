@@ -4,7 +4,7 @@ import android.app.Application
 import com.android.settingslib.datastore.BackupRestoreStorageManager
 import com.google.android.material.color.DynamicColors
 
-class RestorableSettingsApplication: Application() {
+open class RestorableSettingsApplication: Application() {
     override fun onCreate() {
         super.onCreate()
         DynamicColors.applyToActivitiesIfAvailable(this)
