@@ -1,6 +1,7 @@
 val ver: String = rootProject.extra["libVersion"] as String
 val libMinSdk: Int = rootProject.extra["libMinSdk"] as Int
-val libCompileSdk: Int = rootProject.extra["libCompileSdk"] as Int
+val libCompileSdkMajor: Int = rootProject.extra["libCompileSdkMajor"] as Int
+val libCompileSdkMinor: Int = rootProject.extra["libCompileSdkMinor"] as Int
 val verCode: Int = (((ver.split("\\.".toRegex()).dropLastWhile { it.isEmpty() }
     .toTypedArray()[0].toInt() * 1000) + ver.split("\\.".toRegex())
     .dropLastWhile { it.isEmpty() }
@@ -13,12 +14,16 @@ plugins {
 
 android {
     namespace = "io.github.dot166.libexample"
-    compileSdk = libCompileSdk
+    compileSdk {
+        version = release(libCompileSdkMajor) {
+            minorApiLevel = libCompileSdkMinor
+        }
+    }
 
     defaultConfig {
         applicationId = "io.github.dot166.libexample"
         minSdk = libMinSdk
-        targetSdk = libCompileSdk
+        targetSdk = libCompileSdkMajor
         versionCode = verCode
         versionName = ver
     }

@@ -4,7 +4,8 @@ import org.lineageos.generatebp.models.Module
 
 val Ver: String = rootProject.extra["libVersion"] as String
 val libMinSdk: Int = rootProject.extra["libMinSdk"] as Int
-val libCompileSdk: Int = rootProject.extra["libCompileSdk"] as Int
+val libCompileSdkMajor: Int = rootProject.extra["libCompileSdkMajor"] as Int
+val libCompileSdkMinor: Int = rootProject.extra["libCompileSdkMinor"] as Int
 
 plugins {
     alias(libs.plugins.android.library)
@@ -18,7 +19,11 @@ version = Ver
 
 android {
     namespace = "io.github.dot166.jlib"
-    compileSdk = libCompileSdk
+    compileSdk {
+        version = release(libCompileSdkMajor) {
+            minorApiLevel = libCompileSdkMinor
+        }
+    }
 
     defaultConfig {
         minSdk = libMinSdk
