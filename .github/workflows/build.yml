@@ -56,7 +56,7 @@ jobs:
         rm -rf a.txt b.txt
 
     - name: Build
-      run: ./gradlew assembleRelease
+      run: ./gradlew assembleRelease && ./gradlew generateBp
 
     - name: Publish to Maven Central
       if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && github.repository == 'dot166/jOS_j-Lib' && env.RELEASE == '1' }}

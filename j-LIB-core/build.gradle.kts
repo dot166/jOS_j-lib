@@ -1,4 +1,6 @@
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import org.lineageos.generatebp.GenerateBpPluginExtension
+import org.lineageos.generatebp.models.Module
 
 val Ver: String = rootProject.extra["libVersion"] as String
 val libMinSdk: Int = rootProject.extra["libMinSdk"] as Int
@@ -8,6 +10,7 @@ plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.maven.publish)
     alias(libs.plugins.compose)
+    alias(libs.plugins.lineageos.generatebp)
 }
 
 group = "io.github.dot166"
@@ -70,7 +73,7 @@ mavenPublishing {
         licenses {
             license {
                 name.set("MIT License")
-                url.set("https://choosealicense.com/licenses/mit/")
+                url.set("https://opensource.org/licenses/MIT/")
             }
         }
         developers {
@@ -84,6 +87,22 @@ mavenPublishing {
             url = "https://github.com/dot166/jOS_j-lib"
             connection = "scm:git:git://github.com/dot166/jOS_j-lib.git"
             developerConnection = "scm:git:ssh://git@github.com/dot166/jOS_j-lib.git"
+        }
+    }
+}
+
+configure<GenerateBpPluginExtension> {
+    targetSdk.set(android.compileSdk!!)
+    minSdk.set(android.defaultConfig.minSdk!!)
+    versionCode.set(android.compileSdk!!)
+    versionName.set(android.compileSdk!!.toString())
+    availableInAOSP.set { module: Module ->
+        when {
+            module.group.startsWith("androidx") -> true
+            module.group.startsWith("org.jetbrains") -> true
+            module.group.startsWith("io.github.dot166") -> true
+            module.group.startsWith("com.google") -> true
+            else -> false
         }
     }
 }

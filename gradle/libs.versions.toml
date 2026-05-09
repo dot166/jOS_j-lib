@@ -13,12 +13,14 @@ material3Android = "1.4.0"
 compose = "2.3.21"
 ui = "1.11.0"
 settingsLib = "136.1.202605060829"
+generateBp = "+"
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 android-library = { id = "com.android.library", version.ref = "agp" }
 maven-publish = { id = "com.vanniktech.maven.publish", version.ref = "maven" }
 compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "compose" }
+lineageos-generatebp = { id = "org.lineageos.generatebp", version.ref = "generateBp" }
 
 [libraries]
 androidx-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "appcompat" }

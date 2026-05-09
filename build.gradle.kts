@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.android.application) apply false
     alias(libs.plugins.maven.publish) apply false
     alias(libs.plugins.compose) apply false
+    alias(libs.plugins.lineageos.generatebp) apply false
 }
 
 buildscript {

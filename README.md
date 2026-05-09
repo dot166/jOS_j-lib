@@ -16,6 +16,16 @@ dependencies {
 }
 ```
 
+to use jLib in an AOSP Project add the module ```j-Lib``` to the static_libs section of your Android.bp file
+
+### generateBp
+
+if your app uses the [generateBp Plugin](https://github.com/lineage-next/gradle-generatebp) to automatically add the dependencies for AOSP builds
+from Gradle build files (like jLib uses), you would need to use [my fork of generateBp](https://github.com/dot166/gradle-generatebp)
+due to jLib using ```j-Lib``` as the AOSP dependency name (and SettingsLib being used).
+
+to do that change the maven repo line to be ```dot166/gradle-generatebp```
+
 ### a note on versioning
 
 you might notice that the versioning of both this and [SettingsLib](https://github.com/dot166/platform_frameworks_base/tree/16-qpr2/packages/SettingsLib) is a mess.
@@ -34,12 +44,11 @@ so, starting with jLib 105, I will try to use semver again, with SettingsLib 136
 its major version will be the AOSP SDK version that its sources match add 100 (because maven is doing its job, example, Android 16 - 36 - 136), the minor version will match AOSPs minor version,
 and the patch version will be the build time in the following format ```yyyyMMddHHmm```.
 
-
 ## folder structure
 
 ### j-LIB-core/
 
-Gradle library (main code)
+Gradle library (main code) with AOSP Build Files
 
 ### lib-example/
 
