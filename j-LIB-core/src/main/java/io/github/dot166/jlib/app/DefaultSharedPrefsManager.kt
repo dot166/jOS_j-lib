@@ -33,7 +33,7 @@ class DefaultSharedPrefsManager() {
                 override fun getFloat(key: String, defValue: Float): Float = prefs.getFloat(key, defValue)
 
                 override fun putLong(key: String, value: Long) = prefs.edit().putLong(key, value).apply()
-                override fun getLong(key: String?, defValue: Long): Long = prefs.getLong(key, defValue)
+                override fun getLong(key: String, defValue: Long): Long = prefs.getLong(key, defValue)
             }
         }
 
