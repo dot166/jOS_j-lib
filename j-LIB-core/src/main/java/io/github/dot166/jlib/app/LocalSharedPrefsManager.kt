@@ -47,7 +47,7 @@ class LocalSharedPrefsManager(private val mContext: Context) {
             .serializeNulls()
             .create()
         val b = gson.fromJson(getDataStore(mContext).getString("RssUrls", ""), object : TypeToken<MutableCollection<RSSFeed>>() {})
-        return b.toMutableList()
+        return b?.toMutableList() ?: mutableListOf()
     }
 
     fun getExcludedRssFeeds(): MutableList<String> {
@@ -56,7 +56,7 @@ class LocalSharedPrefsManager(private val mContext: Context) {
             .serializeNulls()
             .create()
         val b = gson.fromJson(getDataStore(mContext).getString("ExcludedRssUrls", ""), object : TypeToken<MutableCollection<String>>() {})
-        return b.toMutableList()
+        return b?.toMutableList() ?: mutableListOf()
     }
 
     fun migrateToLocalSharedPrefs() {
