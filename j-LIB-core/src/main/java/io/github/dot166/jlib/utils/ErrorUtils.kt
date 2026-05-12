@@ -10,13 +10,15 @@ object ErrorUtils {
 
     /**
      * jLib Error Handler
-     * if the app cannot recover from the error, set action to activity.finishAffinity() or activity.finish()
-     * @param e Throwable to attempt to handle
-     * @param context Context to pass into the error handler
-     * @param action The action to be ran once the dialog has been dismissed
-     * @param message String the message to display in the dialog, use getString() if your message is a resource
+     * if the app cannot recover from the error, set action to [android.app.Activity.finishAffinity] or [android.app.Activity.finish]
+     * @param e [Throwable] to attempt to handle
+     * @param context [Context] to pass into the error handler
+     * @param message [String] the message to display in the dialog, use [Context.getString] if your message is a resource
+     * @param action The action to be run once the dialog has been dismissed
      */
-    fun handle(e: Throwable, context: Context, message: String = "", action: () -> Unit) {
+    @JvmOverloads
+    @JvmStatic
+    fun handle(e: Throwable, context: Context, message: String = "", action: () -> Unit = {}) {
         val errorMessage = StringBuilder()
         errorMessage.append(
             e.toString() + "\n" + e.stackTrace.contentToString()
@@ -37,7 +39,7 @@ object ErrorUtils {
                         .replace(", ".toRegex(), "\n")
                         .replace("\\[".toRegex(), "")
                         .replace("]".toRegex(), "")
-                ) // only show 2 causes as i don't want to overwhelm the dialog
+                ) // only show 2 causes as I don't want to overwhelm the dialog
             }
         }
         Log.e("jLib Error Handler", errorMessage.toString())
@@ -83,18 +85,5 @@ object ErrorUtils {
             ).show()
             action()
         }
-    }
-
-    /**
-     * jLib Error Handler
-     * this is a compatibility function for java that sets action to nothing, as java doesn't
-     * support functions as a parameter like kotlin can
-     * @param e Throwable to attempt to handle
-     * @param context Context to pass into the error handler
-     * @param message String the message to display in the dialog, use getString() if your message is a resource
-     */
-    @JvmStatic
-    fun handle(e: Throwable, context: Context, message: String = "") {
-        handle(e, context, message) {}
     }
 }
