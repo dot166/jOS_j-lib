@@ -1,6 +1,9 @@
 package io.github.dot166.jlib.app
 
+import android.app.ActivityOptions
+import android.content.Intent
 import android.os.Bundle
+import android.view.Display
 import androidx.annotation.ContentView
 import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
@@ -18,6 +21,18 @@ open class jActivity : AppCompatActivity {
         EdgeToEdgeUtils.enable(this)
         DynamicColors.applyToActivityIfAvailable(this)
         super.onCreate(savedInstanceState)
+    }
+
+    override fun startActivity(intent: Intent) {
+        val options = ActivityOptions.makeBasic()
+        options.setLaunchDisplayId(Display.DEFAULT_DISPLAY) // Forces it to the main screen
+        startActivity(intent, options.toBundle())
+    }
+
+    override fun startActivityForResult(intent: Intent, requestCode: Int) {
+        val options = ActivityOptions.makeBasic()
+        options.setLaunchDisplayId(Display.DEFAULT_DISPLAY) // Forces it to the main screen
+        startActivityForResult(intent, requestCode, options.toBundle())
     }
 }
 
