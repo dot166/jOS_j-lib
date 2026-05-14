@@ -109,3 +109,16 @@ java_import {
         "kotlin-stdlib",
     ],
 }
+
+java_import {
+    name: "j-Lib_eu.geekplace.iesp_iesp-jar",
+    jars: ["eu/geekplace/iesp/iesp-jar/0.0.2/iesp-jar-0.0.2.jar"],
+    sdk_version: "36",
+    min_sdk_version: "31",
+    apex_available: [
+        "//apex_available:platform",
+        "//apex_available:anyapex",
+    ],
+    static_libs: [
+    ],
+}
