@@ -6,7 +6,6 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.material3.Card
 import androidx.compose.material3.FilledTonalButton
 import androidx.compose.material3.OutlinedButton
@@ -27,7 +26,7 @@ fun SettingsLibComposeDialog(
     neutralContent: (@Composable () -> Unit)? = null,
     onNegativePress: () -> Unit = onDismissRequest,
     negativeContent: (@Composable () -> Unit)? = null,
-    properties: DialogProperties,
+    properties: DialogProperties = DialogProperties(),
     content: @Composable () -> Unit,
 ) {
     SettingsLibComposeTheme {
@@ -35,7 +34,6 @@ fun SettingsLibComposeDialog(
             Card(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .wrapContentHeight()
                     .padding(16.dp),
             ) {
                 Column(
