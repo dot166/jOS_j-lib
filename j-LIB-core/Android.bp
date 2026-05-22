@@ -34,7 +34,7 @@ android_library {
         "androidx.preference_preference",
         "androidx.savedstate_savedstate",
         "androidx.savedstate_savedstate-compose",
-        "com.google.accompanist_accompanist-drawablepainter",
+        "j-Lib_com.google.accompanist_accompanist-drawablepainter",
         "com.google.android.material_material",
         "gson",
         "j-Lib_com.prof18.rssparser_rssparser",
