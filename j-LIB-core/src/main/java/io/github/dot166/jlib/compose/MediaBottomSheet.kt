@@ -55,15 +55,9 @@ fun MediaBottomSheet(viewModel: MediaViewModel, context: Context) {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
-        var art: Any? = viewModel.mediaMetadata.artworkData
-        if (art == null) {
-            art = viewModel.mediaMetadata.artworkUri
-            if (art == null) {
-                // fuck it, fallback
-                art =
-                    "${ContentResolver.SCHEME_ANDROID_RESOURCE}://${LocalContext.current.packageName}/${R.drawable.def_art}".toUri()
-            }
-        }
+        val art = viewModel.mediaMetadata.artworkData
+            ?: viewModel.mediaMetadata.artworkUri
+            ?: R.drawable.def_art
         AsyncImage(
             model = art,
             contentDescription = stringResource(R.string.cover_art),
