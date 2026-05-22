@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="m3_sys_color_dynamic_secondary">@color/m3_sys_color_dynamic_light_secondary</color>
+    <color name="m3_sys_color_dynamic_on_background">@color/m3_sys_color_dynamic_light_on_background</color>
+</resources>

@@ -5,4 +5,13 @@
     <string name="default_dialog_fail_message">how did that happen??</string>
     <string name="dialog_stacktrace">Show Stack Trace</string>
     <string name="deprecated">DEPRECATED!</string>
+    <string name="cover_art">Cover Art</string>
+    <string name="unknown">Unknown</string>
+    <string name="rewind">rewind</string>
+    <string name="fast_forward">fast forward</string>
+    <string name="play_pause">Play/Pause</string>
+    <string name="skip_next">next</string>
+    <string name="skip_previous">previous</string>
+    <string name="shuffle">shuffle</string>
+    <string name="repeat">repeat</string>
 </resources>

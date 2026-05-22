@@ -65,6 +65,9 @@ dependencies {
     api(libs.rssparser)
     api(libs.gson)
     api(libs.iesp.jar)
+    api(libs.androidx.media3.session)
+    api(libs.coil.compose)
+    api(libs.accompanist.drawablepainter)
     api(libs.settingsLib) // GrapheneOS/AOSP SettingsLib
 }
 
