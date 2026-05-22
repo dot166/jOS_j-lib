@@ -122,3 +122,76 @@ java_import {
     static_libs: [
     ],
 }
+
+android_library_import {
+    name: "j-Lib_io.coil-kt_coil",
+    aars: ["io/coil-kt/coil/2.7.0/coil-2.7.0.aar"],
+    sdk_version: "36",
+    min_sdk_version: "31",
+    apex_available: [
+        "//apex_available:platform",
+        "//apex_available:anyapex",
+    ],
+    static_libs: [
+        "j-Lib_io.coil-kt_coil-base",
+        "kotlin-stdlib",
+    ],
+}
+
+android_library_import {
+    name: "j-Lib_io.coil-kt_coil-base",
+    aars: ["io/coil-kt/coil-base/2.7.0/coil-base-2.7.0.aar"],
+    sdk_version: "36",
+    min_sdk_version: "31",
+    apex_available: [
+        "//apex_available:platform",
+        "//apex_available:anyapex",
+    ],
+    static_libs: [
+        "androidx.annotation_annotation",
+        "androidx.appcompat_appcompat-resources",
+        "androidx.collection_collection",
+        "androidx.core_core-ktx",
+        "androidx.exifinterface_exifinterface",
+        "androidx.lifecycle_lifecycle-runtime",
+        "androidx.profileinstaller_profileinstaller",
+        "j-Lib_com.squareup.okhttp3_okhttp",
+        "j-Lib_com.squareup.okio_okio",
+        "kotlin-stdlib",
+        "kotlinx-coroutines-android",
+    ],
+}
+
+android_library_import {
+    name: "j-Lib_io.coil-kt_coil-compose",
+    aars: ["io/coil-kt/coil-compose/2.7.0/coil-compose-2.7.0.aar"],
+    sdk_version: "36",
+    min_sdk_version: "31",
+    apex_available: [
+        "//apex_available:platform",
+        "//apex_available:anyapex",
+    ],
+    static_libs: [
+        "j-Lib_io.coil-kt_coil",
+        "j-Lib_io.coil-kt_coil-compose-base",
+        "kotlin-stdlib",
+    ],
+}
+
+android_library_import {
+    name: "j-Lib_io.coil-kt_coil-compose-base",
+    aars: ["io/coil-kt/coil-compose-base/2.7.0/coil-compose-base-2.7.0.aar"],
+    sdk_version: "36",
+    min_sdk_version: "31",
+    apex_available: [
+        "//apex_available:platform",
+        "//apex_available:anyapex",
+    ],
+    static_libs: [
+        "androidx.compose.foundation_foundation",
+        "androidx.core_core-ktx",
+        "com.google.accompanist_accompanist-drawablepainter",
+        "j-Lib_io.coil-kt_coil-base",
+        "kotlin-stdlib",
+    ],
+}
