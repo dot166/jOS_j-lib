@@ -108,6 +108,7 @@ configure<GenerateBpPluginExtension> {
     availableInAOSP.set { module: Module ->
         when {
             module.name == "accompanist-drawablepainter" -> false
+            module.group.startsWith("androidx.media3") -> false
             module.group.startsWith("androidx") -> true
             module.group.startsWith("org.jetbrains") -> true
             module.group.startsWith("io.github.dot166") -> true
