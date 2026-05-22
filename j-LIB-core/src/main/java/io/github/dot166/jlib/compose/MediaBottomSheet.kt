@@ -1,12 +1,12 @@
 package io.github.dot166.jlib.compose
 
-import android.content.ContentResolver
 import android.content.Context
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.compose.foundation.background
 import androidx.compose.foundation.basicMarquee
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -14,6 +14,10 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.material3.BottomSheetDefaults
+import androidx.compose.material3.BottomSheetScaffold
+import androidx.compose.material3.BottomSheetScaffoldState
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FilledIconButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -21,18 +25,24 @@ import androidx.compose.material3.IconButtonDefaults
 import androidx.compose.material3.IconToggleButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Slider
+import androidx.compose.material3.SnackbarHost
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
+import androidx.compose.material3.contentColorFor
+import androidx.compose.material3.rememberBottomSheetScaffoldState
 import androidx.compose.material3.surfaceColorAtElevation
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import androidx.core.net.toUri
 import androidx.media3.common.Player
 import coil.compose.AsyncImage
 import com.google.accompanist.drawablepainter.rememberDrawablePainter
@@ -234,4 +244,45 @@ fun MediaBottomSheet(viewModel: MediaViewModel, context: Context) {
             }
         }
     }
+}
+
+@Composable
+@ExperimentalMaterial3Api
+fun MediaBottomSheetScaffold(
+    viewModel: MediaViewModel,
+    context: Context,
+    modifier: Modifier = Modifier,
+    scaffoldState: BottomSheetScaffoldState = rememberBottomSheetScaffoldState(),
+    sheetMaxWidth: Dp = BottomSheetDefaults.SheetMaxWidth,
+    sheetShape: Shape = BottomSheetDefaults.ExpandedShape,
+    sheetContainerColor: Color = BottomSheetDefaults.ContainerColor,
+    sheetContentColor: Color = contentColorFor(sheetContainerColor),
+    sheetTonalElevation: Dp = 0.dp,
+    sheetShadowElevation: Dp = BottomSheetDefaults.Elevation,
+    sheetSwipeEnabled: Boolean = true,
+    topBar: @Composable (() -> Unit)? = null,
+    snackbarHost: @Composable (SnackbarHostState) -> Unit = { SnackbarHost(it) },
+    containerColor: Color = MaterialTheme.colorScheme.surface,
+    contentColor: Color = contentColorFor(containerColor),
+    content: @Composable (PaddingValues) -> Unit,
+) {
+    BottomSheetScaffold(
+        sheetContent = { MediaBottomSheet(viewModel, context) },
+        modifier = modifier,
+        scaffoldState = scaffoldState,
+        sheetPeekHeight = BottomSheetDefaults.SheetPeekHeight,
+        sheetMaxWidth = sheetMaxWidth,
+        sheetShape = sheetShape,
+        sheetContainerColor = sheetContainerColor,
+        sheetContentColor = sheetContentColor,
+        sheetTonalElevation = sheetTonalElevation,
+        sheetShadowElevation = sheetShadowElevation,
+        sheetDragHandle = { BottomSheetDefaults.DragHandle() },
+        sheetSwipeEnabled = sheetSwipeEnabled,
+        topBar = topBar,
+        snackbarHost = snackbarHost,
+        containerColor = containerColor,
+        contentColor = contentColor,
+        content = content
+    )
 }
