@@ -14,6 +14,7 @@ import com.android.settingslib.preference.PreferenceFragment
 /**
  * jLib Settings activity.
  */
+//TODO: Androidx Preference is in maintenance mode as android is now compose first, once AOSP 37 drops, work on migrating this to whatever compose thing SettingsLib uses
 abstract class jConfigActivity : CollapsingToolbarBaseActivity(), PreferenceFragmentCompat.OnPreferenceStartFragmentCallback {
     abstract fun preferenceFragment(): PreferenceFragment
 

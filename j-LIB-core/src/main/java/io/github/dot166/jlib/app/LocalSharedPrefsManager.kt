@@ -20,6 +20,7 @@ import io.github.dot166.jlib.RssFilter
  * different backup implementation if they want
  * @param mContext The context
  */
+//TODO: Androidx Preference is in maintenance mode as android is now compose first, once AOSP 37 drops, work on migrating this to whatever compose thing SettingsLib uses
 class LocalSharedPrefsManager(private val mContext: Context) {
     internal val logTag = "BackupRestoreStorage"
 
