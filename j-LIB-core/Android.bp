@@ -6,6 +6,7 @@ android_library {
     name: "j-Lib",
     static_libs: [
         // DO NOT EDIT THIS SECTION MANUALLY
+        "androidx.activity_activity-compose",
         "androidx.appcompat_appcompat",
         "androidx.browser_browser",
         "androidx.compose.animation_animation",
@@ -25,12 +26,15 @@ android_library {
         "androidx.compose.ui_ui-util",
         "androidx-constraintlayout_constraintlayout",
         "androidx.core_core-ktx",
+        "androidx.fragment_fragment-compose",
         "androidx.graphics_graphics-shapes",
         "androidx.lifecycle_lifecycle-runtime",
         "androidx.lifecycle_lifecycle-runtime-compose",
         "androidx.lifecycle_lifecycle-runtime-ktx",
         "androidx.lifecycle_lifecycle-viewmodel-savedstate",
         "j-Lib_androidx.media3_media3-session",
+        "androidx.navigationevent_navigationevent",
+        "androidx.navigationevent_navigationevent-compose",
         "androidx.preference_preference",
         "androidx.savedstate_savedstate",
         "androidx.savedstate_savedstate-compose",
