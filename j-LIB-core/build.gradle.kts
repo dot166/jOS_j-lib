@@ -68,6 +68,8 @@ dependencies {
     api(libs.androidx.media3.session)
     api(libs.coil.compose)
     api(libs.accompanist.drawablepainter)
+    api(libs.androidx.fragment.compose)
+    api(libs.androidx.activity.compose)
     api(libs.settingsLib) // GrapheneOS/AOSP SettingsLib
 }
 

@@ -1,5 +1,6 @@
 package io.github.dot166.libexample
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -79,6 +80,10 @@ class PrefActivity: jConfigActivity() {
             preferenceScreen = preferenceManager.createPreferenceScreen(requireContext())
             val pref = SwitchPreferenceCompat(requireContext())
             pref.title = "testPref_useless"
+            pref.onPreferenceClickListener = Preference.OnPreferenceClickListener { p0 ->
+                startActivity(Intent(p0.context, NewPrefActivity::class.java))
+                true
+            }
             preferenceScreen.addPreference(pref)
         }
 
@@ -106,7 +111,7 @@ class PrefActivity: jConfigActivity() {
                 appItemPref.icon = packageManager.getApplicationIcon(ctx.packageName)
                 val adapter = SettingsSpinnerAdapter<String>(ctx)
                 adapter.addAll(
-                    mutableListOf<String>(
+                    mutableListOf(
                         "Allowed",
                         "Blocked",
                         "5m",

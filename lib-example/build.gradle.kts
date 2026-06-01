@@ -10,6 +10,7 @@ val verCode: Int = (((ver.split("\\.".toRegex()).dropLastWhile { it.isEmpty() }
 
 plugins {
     alias(libs.plugins.android.application)
+    alias(libs.plugins.compose)
 }
 
 android {
@@ -39,6 +40,7 @@ android {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
     }
+    buildFeatures { compose = true }
 }
 
 dependencies {
