@@ -70,6 +70,8 @@ dependencies {
     api(libs.accompanist.drawablepainter)
     api(libs.androidx.fragment.compose)
     api(libs.androidx.activity.compose)
+    implementation(libs.androidx.ui.tooling.preview)
+    debugImplementation(libs.androidx.ui.tooling)
     api(libs.settingsLib) // GrapheneOS/AOSP SettingsLib
 }
 
