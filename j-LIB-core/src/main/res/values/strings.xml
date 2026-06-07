@@ -15,4 +15,6 @@
     <string name="shuffle">shuffle</string>
     <string name="repeat">repeat</string>
     <string name="jlib">jLib</string>
+    <string name="default_impl">Default IMPL</string>
+    <string name="you_forgot_to_set_the_correct_implementation_of_spaenvironment_this_is_the_default_one_for_testing_jlib_preference_objects">You forgot to set the correct implementation of SpaEnvironment, this is the default one for testing jLib Preference objects</string>
 </resources>

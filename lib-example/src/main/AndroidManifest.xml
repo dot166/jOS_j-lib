@@ -16,7 +16,7 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name="io.github.dot166.libexample.PrefActivity"
+        <activity android:name="io.github.dot166.jlib.app.PreferenceMainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.APPLICATION_PREFERENCES"/>
@@ -24,7 +24,6 @@
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
-        <activity android:name="io.github.dot166.libexample.NewPrefActivity" />
     </application>
 
 </manifest>

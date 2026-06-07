@@ -19,6 +19,7 @@ import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
 import com.android.settingslib.spa.framework.theme.SettingsTheme
 
+@Deprecated("please replace with the 'rememberAlertDialogPresenter' SettingsLibSPA function")
 @Composable
 fun SettingsLibComposeDialog(
     onDismissRequest: () -> Unit,
@@ -32,9 +33,6 @@ fun SettingsLibComposeDialog(
     content: @Composable () -> Unit,
 ) {
     SettingsTheme {
-
-    }
-    SettingsLibComposeTheme {
         Dialog(onDismissRequest, properties) {
             Card(
                 modifier = Modifier

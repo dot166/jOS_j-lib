@@ -17,6 +17,8 @@
             android:taskAffinity=""
             android:launchMode="singleInstance"
             android:exported="true" />
+        <activity android:name=".app.PreferenceMainActivity"
+            android:exported="true" />
     </application>
 
 </manifest>

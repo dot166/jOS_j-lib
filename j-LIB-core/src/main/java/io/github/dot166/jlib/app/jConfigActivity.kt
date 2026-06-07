@@ -9,14 +9,14 @@ import androidx.fragment.app.Fragment
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import com.android.settingslib.collapsingtoolbar.CollapsingToolbarBaseActivity
-import com.android.settingslib.preference.PreferenceFragment
+import com.android.settingslib.widget.SettingsBasePreferenceFragment
 
 /**
  * jLib Settings activity.
  */
 //TODO: Androidx Preference is in maintenance mode as android is now compose first, once AOSP 37 drops, work on migrating this to whatever compose thing SettingsLib uses
 abstract class jConfigActivity : CollapsingToolbarBaseActivity(), PreferenceFragmentCompat.OnPreferenceStartFragmentCallback {
-    abstract fun preferenceFragment(): PreferenceFragment
+    abstract fun preferenceFragment(): SettingsBasePreferenceFragment
 
     @SuppressLint("PrivateResource")
     override fun onCreate(savedInstanceState: Bundle?) {
