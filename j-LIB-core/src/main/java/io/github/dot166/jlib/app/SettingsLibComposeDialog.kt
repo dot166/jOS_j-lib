@@ -17,6 +17,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
+import com.android.settingslib.spa.framework.theme.SettingsTheme
 
 @Composable
 fun SettingsLibComposeDialog(
@@ -30,6 +31,9 @@ fun SettingsLibComposeDialog(
     properties: DialogProperties = DialogProperties(),
     content: @Composable () -> Unit,
 ) {
+    SettingsTheme {
+
+    }
     SettingsLibComposeTheme {
         Dialog(onDismissRequest, properties) {
             Card(
