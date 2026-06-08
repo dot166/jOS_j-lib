@@ -14,14 +14,12 @@ rssparser = "6.1.5"
 material3Android = "1.4.0-alpha17"
 compose = "2.4.0"
 ui = "1.10.0-alpha01"
-settingsLib = "136.1.202606082050"
+settingsLib = "136.1.202606082221"
 generateBp = "+"
 media3 = "1.10.1"
 accompanistDrawablepainter = "0.37.3"
 coilCompose = "2.7.0"
 fragmentCompose = "1.8.9"
-uiToolingPreview = "1.11.2"
-uiTooling = "1.11.2"
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
@@ -47,6 +45,5 @@ androidx-ui = { group = "androidx.compose.ui", name = "ui", version.ref = "ui" }
 androidx-media3-session = { module = "androidx.media3:media3-session", version.ref = "media3" }
 coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coilCompose" }
 accompanist-drawablepainter = { module = "com.google.accompanist:accompanist-drawablepainter", version.ref = "accompanistDrawablepainter" }
-androidx-fragment-compose = { group = "androidx.fragment", name = "fragment-compose", version.ref = "fragmentCompose" }
-androidx-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview", version.ref = "uiToolingPreview" }
-androidx-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling", version.ref = "uiTooling" }
+androidx-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview", version.ref = "ui" }
+androidx-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling", version.ref = "ui" }

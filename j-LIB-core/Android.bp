@@ -19,7 +19,6 @@ android_library {
         "androidx.compose.material3_material3",
         "androidx.compose.runtime_runtime",
         "androidx.compose.runtime_runtime-annotation",
-        "androidx.compose.runtime_runtime-retain",
         "androidx.compose.runtime_runtime-saveable",
         "androidx.compose.ui_ui",
         "androidx.compose.ui_ui-geometry",
