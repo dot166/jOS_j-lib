@@ -57,7 +57,7 @@ android_library {
         "kotlin-stdlib",
         "SettingsLibCollapsingToolbarBaseActivity",
         "SettingsLibSettingsTheme",
-        "SettingsLibSpa",
+        "io.github.dot166_SpaLib",
         "SettingsLibDataStore",
         "SettingsLibColor",
     ],
