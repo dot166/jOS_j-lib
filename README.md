@@ -40,7 +40,7 @@ so I swapped to some weird cross between semver and [pride versioning](https://p
 
 SettingsLib started at 104.2.1 because it initially matched the jLib version, because it was initially only a dependency of jLib, but, that makes no sense to anyone else.
 
-so, starting with jLib 105, I will try to use semver again, with SettingsLib 136, it will sort of use semver,
+so, starting with jLib 104.3, I will try to use semver again, with SettingsLib 136, it will sort of use semver,
 its major version will be the AOSP SDK version that its sources match add 100 (because maven is doing its job, example, Android 16 - 36 - 136), the minor version will match AOSPs minor version,
 and the patch version will be the build time in the following format ```yyyyMMddHHmm```.
 
