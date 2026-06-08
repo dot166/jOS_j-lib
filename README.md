@@ -5,14 +5,14 @@
 to use jLib in an android app that is built using Gradle add the following lines to your apps build.gradle
 ```
 dependencies {
-    implementation "io.github.dot166:j-Lib:v104.2.26"
+    implementation "io.github.dot166:j-Lib:v104.3.1"
 }
 ```
 
 if you are including jLib in another android library that is built using Gradle add the following lines to your libraries build.gradle
 ```
 dependencies {
-    api "io.github.dot166:j-Lib:v104.2.26"
+    api "io.github.dot166:j-Lib:v104.3.1"
 }
 ```
 
