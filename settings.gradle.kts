@@ -23,3 +23,4 @@ dependencyResolutionManagement {
 rootProject.name = "j-Lib"
 include(":j-LIB-core")
 include(":lib-example")
+include(":spafix")
