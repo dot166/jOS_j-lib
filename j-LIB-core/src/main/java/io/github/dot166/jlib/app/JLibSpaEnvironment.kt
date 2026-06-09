@@ -10,7 +10,7 @@ import com.android.settingslib.widget.theme.flags.Flags
 abstract class JLibSpaEnvironment(context: Context) : SpaEnvironment(context) {
     override val logger = InfoLogger()
 
-    override val browseActivityClass = PreferenceMainActivity::class.java
+    override val browseActivityClass: Class<out PreferenceMainActivity> = PreferenceMainActivity::class.java
 
     //override val searchProviderAuthorities = "com.android.spa.gallery.search.provider"
 
