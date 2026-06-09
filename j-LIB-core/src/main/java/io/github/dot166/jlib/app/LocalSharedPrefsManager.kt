@@ -5,8 +5,6 @@ import android.content.SharedPreferences
 import android.util.Log
 import androidx.annotation.VisibleForTesting
 import androidx.core.content.edit
-import androidx.preference.PreferenceDataStore
-import androidx.preference.PreferenceManager
 import com.android.settingslib.datastore.SharedPreferencesStorage
 import com.google.gson.GsonBuilder
 import com.google.gson.reflect.TypeToken
@@ -29,7 +27,7 @@ class LocalSharedPrefsManager(private val mContext: Context) {
             .serializeNulls()
             .create()
         val json = gson.toJson(list)
-        getDataStore(mContext).putString("ExcludedRssUrls", json)
+        getSharedPreferencesStorage(mContext).setString("ExcludedRssUrls", json)
     }
 
     fun saveRssFeeds(list: MutableList<RSSFeed>) {
@@ -38,7 +36,7 @@ class LocalSharedPrefsManager(private val mContext: Context) {
             .serializeNulls()
             .create()
         val json = gson.toJson(list)
-        getDataStore(mContext).putString("RssUrls", json)
+        getSharedPreferencesStorage(mContext).setString("RssUrls", json)
     }
 
     fun getRssFeeds(): MutableList<RSSFeed> {
@@ -46,7 +44,7 @@ class LocalSharedPrefsManager(private val mContext: Context) {
             .setExclusionStrategies(RssFilter())
             .serializeNulls()
             .create()
-        val b = gson.fromJson(getDataStore(mContext).getString("RssUrls", ""), object : TypeToken<MutableCollection<RSSFeed>>() {})
+        val b = gson.fromJson(getSharedPreferencesStorage(mContext).getString("RssUrls")?:"", object : TypeToken<MutableCollection<RSSFeed>>() {})
         return b?.toMutableList() ?: mutableListOf()
     }
 
@@ -55,13 +53,13 @@ class LocalSharedPrefsManager(private val mContext: Context) {
             .setExclusionStrategies(RssFilter())
             .serializeNulls()
             .create()
-        val b = gson.fromJson(getDataStore(mContext).getString("ExcludedRssUrls", ""), object : TypeToken<MutableCollection<String>>() {})
+        val b = gson.fromJson(getSharedPreferencesStorage(mContext).getString("ExcludedRssUrls")?:"", object : TypeToken<MutableCollection<String>>() {})
         return b?.toMutableList() ?: mutableListOf()
     }
 
     fun migrateToLocalSharedPrefs() {
-        val newPrefs = getSharedPreferences(mContext)
-        val oldPrefs = PreferenceManager.getDefaultSharedPreferences(mContext)
+        val newPrefs = getSharedPreferencesStorage(mContext).sharedPreferences
+        val oldPrefs = DefaultSharedPrefsManager.getSharedPreferencesStorage(mContext).sharedPreferences
         val keys = listOf("RssUrls", "ExcludedRssUrls")
         val migratedKeys = newPrefs.getString("migratedKeys", "")!!.split(";")
         val oldEntries = oldPrefs.all.filterKeys { it in keys }.filterKeys { it !in migratedKeys }
@@ -99,7 +97,7 @@ class LocalSharedPrefsManager(private val mContext: Context) {
                 val list = (value as String).split(";")
                 val feedList = mutableListOf<RSSFeed>()
                 for (urlString in list) {
-                    var excludeList = PreferenceManager.getDefaultSharedPreferences(mContext)
+                    var excludeList = DefaultSharedPrefsManager.getSharedPreferencesStorage(mContext).sharedPreferences
                         .getString("ExcludedRssUrls", "")!!.split(";")
                     if (excludeList.isEmpty()) {
                         // assume already migrated, if the list was empty or nonexistent it is technically already migrated if migration for exclude wasn't completed yet
@@ -171,37 +169,9 @@ class LocalSharedPrefsManager(private val mContext: Context) {
     companion object {
         const val LOCAL_PREFS: String = "_jLib_main_prefs"
 
-        fun getDataStore(context: Context): PreferenceDataStore {
-            return object : PreferenceDataStore() {
-                private val prefs = getSharedPreferences(context)
-
-                override fun putString(key: String, value: String?) = prefs.edit().putString(key, value).apply()
-                override fun getString(key: String, defValue: String?): String? = prefs.getString(key, defValue)
-
-                override fun putBoolean(key: String, value: Boolean) = prefs.edit().putBoolean(key, value).apply()
-                override fun getBoolean(key: String, defValue: Boolean): Boolean = prefs.getBoolean(key, defValue)
-
-                override fun putInt(key: String, value: Int) = prefs.edit().putInt(key, value).apply()
-                override fun getInt(key: String, defValue: Int): Int = prefs.getInt(key, defValue)
-
-                override fun putStringSet(key: String, values: Set<String?>?) = prefs.edit().putStringSet(key, values).apply()
-                override fun getStringSet(key: String, defValues: Set<String?>?): Set<String?>? = prefs.getStringSet(key, defValues)
-
-                override fun putFloat(key: String, value: Float) = prefs.edit().putFloat(key, value).apply()
-                override fun getFloat(key: String, defValue: Float): Float = prefs.getFloat(key, defValue)
-
-                override fun putLong(key: String, value: Long) = prefs.edit().putLong(key, value).apply()
-                override fun getLong(key: String, defValue: Long): Long = prefs.getLong(key, defValue)
-            }
-        }
-
         /** Returns the underlying [SharedPreferences] storage.  */
         fun getSharedPreferencesStorage(context: Context): SharedPreferencesStorage {
             return SharedPreferencesStorage(context, context.packageName + LOCAL_PREFS, Context.MODE_PRIVATE)
-        }
-
-        private fun getSharedPreferences(context: Context): SharedPreferences {
-            return context.getSharedPreferences(context.packageName + LOCAL_PREFS, Context.MODE_PRIVATE)
         }
     }
 }
