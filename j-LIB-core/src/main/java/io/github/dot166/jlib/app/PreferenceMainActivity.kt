@@ -5,7 +5,7 @@ import android.content.Intent
 import android.view.Display
 import com.android.settingslib.spa.framework.BrowseActivity
 
-class PreferenceMainActivity: BrowseActivity() {
+open class PreferenceMainActivity: BrowseActivity() {
     override fun startActivity(intent: Intent) {
         val options = ActivityOptions.makeBasic()
         options.setLaunchDisplayId(Display.DEFAULT_DISPLAY) // Forces it to the main screen
