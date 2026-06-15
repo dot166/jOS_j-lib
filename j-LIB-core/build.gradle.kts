@@ -66,7 +66,9 @@ dependencies {
     api(libs.gson)
     api(libs.iesp.jar)
     api(libs.androidx.media3.session)
-    api(libs.coil.compose)
+    api(libs.coil.compose) {
+        exclude("org.jetbrains.compose.ui")
+    }
     api(libs.accompanist.drawablepainter)
     api(libs.androidx.activity.compose)
     implementation(libs.androidx.ui.tooling.preview)
