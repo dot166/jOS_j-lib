@@ -9,7 +9,6 @@ import com.android.settingslib.datastore.SharedPreferencesStorage
 import com.google.gson.GsonBuilder
 import com.google.gson.reflect.TypeToken
 import io.github.dot166.jlib.RSSFeed
-import io.github.dot166.jlib.RssFilter
 
 
 /**
@@ -23,7 +22,6 @@ class LocalSharedPrefsManager(private val mContext: Context) {
 
     fun saveExcludedRssFeeds(list: MutableList<String>) {
         val gson = GsonBuilder()
-            .setExclusionStrategies(RssFilter())
             .serializeNulls()
             .create()
         val json = gson.toJson(list)
@@ -32,7 +30,6 @@ class LocalSharedPrefsManager(private val mContext: Context) {
 
     fun saveRssFeeds(list: MutableList<RSSFeed>) {
         val gson = GsonBuilder()
-            .setExclusionStrategies(RssFilter())
             .serializeNulls()
             .create()
         val json = gson.toJson(list)
@@ -41,7 +38,6 @@ class LocalSharedPrefsManager(private val mContext: Context) {
 
     fun getRssFeeds(): MutableList<RSSFeed> {
         val gson = GsonBuilder()
-            .setExclusionStrategies(RssFilter())
             .serializeNulls()
             .create()
         val b = gson.fromJson(getSharedPreferencesStorage(mContext).getString("RssUrls")?:"", object : TypeToken<MutableCollection<RSSFeed>>() {})
@@ -50,7 +46,6 @@ class LocalSharedPrefsManager(private val mContext: Context) {
 
     fun getExcludedRssFeeds(): MutableList<String> {
         val gson = GsonBuilder()
-            .setExclusionStrategies(RssFilter())
             .serializeNulls()
             .create()
         val b = gson.fromJson(getSharedPreferencesStorage(mContext).getString("ExcludedRssUrls")?:"", object : TypeToken<MutableCollection<String>>() {})
@@ -91,7 +86,6 @@ class LocalSharedPrefsManager(private val mContext: Context) {
             if (key == "RssUrls") {
                 Log.v(logTag, "[${mContext.packageName + LOCAL_PREFS}] $operation $key=$value")
                 val gson = GsonBuilder()
-                    .setExclusionStrategies(RssFilter())
                     .serializeNulls()
                     .create()
                 val list = (value as String).split(";")
@@ -114,7 +108,6 @@ class LocalSharedPrefsManager(private val mContext: Context) {
             } else if (key == "ExcludedRssUrls") {
                 Log.v(logTag, "[${mContext.packageName + LOCAL_PREFS}] $operation $key=$value")
                 val gson = GsonBuilder()
-                    .setExclusionStrategies(RssFilter())
                     .serializeNulls()
                     .create()
                 val list = (value as String).split(";")
