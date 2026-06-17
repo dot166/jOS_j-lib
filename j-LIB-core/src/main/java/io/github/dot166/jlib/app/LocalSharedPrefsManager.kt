@@ -20,14 +20,6 @@ import io.github.dot166.jlib.RSSFeed
 class LocalSharedPrefsManager(private val mContext: Context) {
     internal val logTag = "BackupRestoreStorage"
 
-    fun saveExcludedRssFeeds(list: MutableList<String>) {
-        val gson = GsonBuilder()
-            .serializeNulls()
-            .create()
-        val json = gson.toJson(list)
-        getSharedPreferencesStorage(mContext).setString("ExcludedRssUrls", json)
-    }
-
     fun saveRssFeeds(list: MutableList<RSSFeed>) {
         val gson = GsonBuilder()
             .serializeNulls()
@@ -41,14 +33,6 @@ class LocalSharedPrefsManager(private val mContext: Context) {
             .serializeNulls()
             .create()
         val b = gson.fromJson(getSharedPreferencesStorage(mContext).getString("RssUrls")?:"", object : TypeToken<MutableCollection<RSSFeed>>() {})
-        return b?.toMutableList() ?: mutableListOf()
-    }
-
-    fun getExcludedRssFeeds(): MutableList<String> {
-        val gson = GsonBuilder()
-            .serializeNulls()
-            .create()
-        val b = gson.fromJson(getSharedPreferencesStorage(mContext).getString("ExcludedRssUrls")?:"", object : TypeToken<MutableCollection<String>>() {})
         return b?.toMutableList() ?: mutableListOf()
     }
 
