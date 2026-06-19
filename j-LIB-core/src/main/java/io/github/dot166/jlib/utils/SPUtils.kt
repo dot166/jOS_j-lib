@@ -1,9 +1,9 @@
 package io.github.dot166.jlib.utils
 
 import android.content.Context
-import android.content.Intent
-import android.content.SharedPreferences
+import android.net.Uri
 import android.widget.Toast
+import com.android.settingslib.datastore.SharedPreferencesStorage
 import eu.geekplace.iesp.ImportExportSharedPreferences.exportToFile
 import eu.geekplace.iesp.ImportExportSharedPreferences.importFromFile
 import io.github.dot166.jlib.utils.FileUtils.getFileFromContentUri
@@ -12,25 +12,19 @@ import java.io.FileInputStream
 
 
 object SPUtils {
-    fun importSharedPrefsFromSAF(data: Intent?, ctx: Context, sp: SharedPreferences) {
-        if (data == null) {
-            return
+    fun importSharedPrefsFromSAF(fileUri: Uri?, ctx: Context, sp: SharedPreferencesStorage) {
+        if (fileUri != null) {
+            val file = getFileFromContentUri(ctx, fileUri)
+            importFromFile(sp.sharedPreferences, file)
+            file!!.delete()
         }
-        val fileUri = data.data ?: return
-        val file = getFileFromContentUri(ctx, fileUri)
-        importFromFile(sp, file)
-        file!!.delete()
     }
 
-    fun exportSharedPrefsToSAF(data: Intent?, ctx: Context, sp: SharedPreferences, doNotExport: Set<String>?) {
-        if (data == null) {
-            return
-        }
-        val fileUri = data.data
+    fun exportSharedPrefsToSAF(fileUri: Uri?, ctx: Context, sp: SharedPreferencesStorage, doNotExport: Set<String>?) {
         if (fileUri != null) {
             try {
                 val tempFile = File(ctx.filesDir, "temp_export.xml")
-                exportToFile(sp, tempFile, doNotExport)
+                exportToFile(sp.sharedPreferences, tempFile, doNotExport)
 
                 FileInputStream(tempFile).use { `in` ->
                     ctx.contentResolver.openOutputStream(fileUri).use { out ->
