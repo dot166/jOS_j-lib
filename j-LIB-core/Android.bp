@@ -55,10 +55,10 @@ android_library {
         "j-Lib_io.coil-kt_coil-compose",
         "kotlin-stdlib",
         "SettingsLibCollapsingToolbarBaseActivity",
+        "SettingsLibColor",
+        "SettingsLibDataStore",
         "SettingsLibSettingsTheme",
         "SpaLib",
-        "SettingsLibDataStore",
-        "SettingsLibColor",
     ],
 
     manifest: "src/main/AndroidManifest.xml",
