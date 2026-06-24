@@ -8,7 +8,7 @@
 android_library_import {
     name: "j-Lib_androidx.media3_media3-common",
     aars: ["androidx/media3/media3-common/1.10.1/media3-common-1.10.1.aar"],
-    sdk_version: "36",
+    sdk_version: "37",
     min_sdk_version: "31",
     apex_available: [
         "//apex_available:platform",
@@ -24,7 +24,7 @@ android_library_import {
 android_library_import {
     name: "j-Lib_androidx.media3_media3-database",
     aars: ["androidx/media3/media3-database/1.10.1/media3-database-1.10.1.aar"],
-    sdk_version: "36",
+    sdk_version: "37",
     min_sdk_version: "31",
     apex_available: [
         "//apex_available:platform",
@@ -39,7 +39,7 @@ android_library_import {
 android_library_import {
     name: "j-Lib_androidx.media3_media3-datasource",
     aars: ["androidx/media3/media3-datasource/1.10.1/media3-datasource-1.10.1.aar"],
-    sdk_version: "36",
+    sdk_version: "37",
     min_sdk_version: "31",
     apex_available: [
         "//apex_available:platform",
@@ -56,7 +56,7 @@ android_library_import {
 android_library_import {
     name: "j-Lib_androidx.media3_media3-session",
     aars: ["androidx/media3/media3-session/1.10.1/media3-session-1.10.1.aar"],
-    sdk_version: "36",
+    sdk_version: "37",
     min_sdk_version: "31",
     apex_available: [
         "//apex_available:platform",
@@ -76,7 +76,7 @@ android_library_import {
 android_library_import {
     name: "j-Lib_com.google.accompanist_accompanist-drawablepainter",
     aars: ["com/google/accompanist/accompanist-drawablepainter/0.37.3/accompanist-drawablepainter-0.37.3.aar"],
-    sdk_version: "36",
+    sdk_version: "37",
     min_sdk_version: "31",
     apex_available: [
         "//apex_available:platform",
@@ -91,7 +91,7 @@ android_library_import {
 
 java_library_static {
     name: "j-Lib_com.prof18.rssparser_rssparser",
-    sdk_version: "36",
+    sdk_version: "37",
     min_sdk_version: "31",
     apex_available: [
         "//apex_available:platform",
@@ -105,7 +105,7 @@ java_library_static {
 android_library_import {
     name: "j-Lib_com.prof18.rssparser_rssparser-android",
     aars: ["com/prof18/rssparser/rssparser-android/6.1.5/rssparser.aar"],
-    sdk_version: "36",
+    sdk_version: "37",
     min_sdk_version: "31",
     apex_available: [
         "//apex_available:platform",
@@ -122,7 +122,7 @@ android_library_import {
 
 java_library_static {
     name: "j-Lib_com.squareup.okhttp3_okhttp",
-    sdk_version: "36",
+    sdk_version: "37",
     min_sdk_version: "31",
     apex_available: [
         "//apex_available:platform",
@@ -136,7 +136,7 @@ java_library_static {
 android_library_import {
     name: "j-Lib_com.squareup.okhttp3_okhttp-android",
     aars: ["com/squareup/okhttp3/okhttp-android/5.3.2/okhttp-release.aar"],
-    sdk_version: "36",
+    sdk_version: "37",
     min_sdk_version: "31",
     apex_available: [
         "//apex_available:platform",
@@ -153,7 +153,7 @@ android_library_import {
 java_import {
     name: "j-Lib_com.squareup.okhttp3_okhttp-coroutines",
     jars: ["com/squareup/okhttp3/okhttp-coroutines/5.3.2/okhttp-coroutines-5.3.2.jar"],
-    sdk_version: "36",
+    sdk_version: "37",
     min_sdk_version: "31",
     apex_available: [
         "//apex_available:platform",
@@ -169,7 +169,7 @@ java_import {
 
 java_library_static {
     name: "j-Lib_com.squareup.okio_okio",
-    sdk_version: "36",
+    sdk_version: "37",
     min_sdk_version: "31",
     apex_available: [
         "//apex_available:platform",
@@ -183,7 +183,7 @@ java_library_static {
 java_import {
     name: "j-Lib_com.squareup.okio_okio-jvm",
     jars: ["com/squareup/okio/okio-jvm/3.16.4/okio-jvm-3.16.4.jar"],
-    sdk_version: "36",
+    sdk_version: "37",
     min_sdk_version: "31",
     apex_available: [
         "//apex_available:platform",
@@ -197,7 +197,7 @@ java_import {
 java_import {
     name: "j-Lib_eu.geekplace.iesp_iesp-jar",
     jars: ["eu/geekplace/iesp/iesp-jar/0.0.2/iesp-jar-0.0.2.jar"],
-    sdk_version: "36",
+    sdk_version: "37",
     min_sdk_version: "31",
     apex_available: [
         "//apex_available:platform",
@@ -210,7 +210,7 @@ java_import {
 android_library_import {
     name: "j-Lib_io.coil-kt_coil",
     aars: ["io/coil-kt/coil/2.7.0/coil-2.7.0.aar"],
-    sdk_version: "36",
+    sdk_version: "37",
     min_sdk_version: "31",
     apex_available: [
         "//apex_available:platform",
@@ -225,7 +225,7 @@ android_library_import {
 android_library_import {
     name: "j-Lib_io.coil-kt_coil-base",
     aars: ["io/coil-kt/coil-base/2.7.0/coil-base-2.7.0.aar"],
-    sdk_version: "36",
+    sdk_version: "37",
     min_sdk_version: "31",
     apex_available: [
         "//apex_available:platform",
@@ -249,7 +249,7 @@ android_library_import {
 android_library_import {
     name: "j-Lib_io.coil-kt_coil-compose",
     aars: ["io/coil-kt/coil-compose/2.7.0/coil-compose-2.7.0.aar"],
-    sdk_version: "36",
+    sdk_version: "37",
     min_sdk_version: "31",
     apex_available: [
         "//apex_available:platform",
@@ -265,7 +265,7 @@ android_library_import {
 android_library_import {
     name: "j-Lib_io.coil-kt_coil-compose-base",
     aars: ["io/coil-kt/coil-compose-base/2.7.0/coil-compose-base-2.7.0.aar"],
-    sdk_version: "36",
+    sdk_version: "37",
     min_sdk_version: "31",
     apex_available: [
         "//apex_available:platform",

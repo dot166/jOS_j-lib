@@ -1,3 +1,3 @@
 package io.github.dot166.jlib
 
-const val version: String = "104.3.9"
+const val version: String = "104.4.0"
