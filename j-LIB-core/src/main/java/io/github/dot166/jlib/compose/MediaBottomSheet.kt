@@ -172,8 +172,8 @@ fun MediaBottomSheet(viewModel: MediaViewModel, context: Context) {
             }
         } else {
             Row(verticalAlignment = Alignment.CenterVertically) {
-                val isRepeatActive = (controller?.repeatMode ?: Player.REPEAT_MODE_OFF) != Player.REPEAT_MODE_OFF
-                val repeatIconRes = when (controller?.repeatMode ?: Player.REPEAT_MODE_OFF) {
+                val isRepeatActive = viewModel.repeat != Player.REPEAT_MODE_OFF
+                val repeatIconRes = when (viewModel.repeat) {
                     Player.REPEAT_MODE_OFF -> androidx.media3.session.R.drawable.media3_icon_repeat_off
                     Player.REPEAT_MODE_ALL -> androidx.media3.session.R.drawable.media3_icon_repeat_all
                     Player.REPEAT_MODE_ONE -> androidx.media3.session.R.drawable.media3_icon_repeat_one
@@ -221,14 +221,14 @@ fun MediaBottomSheet(viewModel: MediaViewModel, context: Context) {
                 }
 
                 val shuffleIconRes =
-                    if (controller?.shuffleModeEnabled ?: false) {
+                    if (viewModel.shuffle) {
                         androidx.media3.session.R.drawable.media3_icon_shuffle_on
                     } else {
                         androidx.media3.session.R.drawable.media3_icon_shuffle_off
                     }
 
                 IconToggleButton(
-                    checked = controller?.shuffleModeEnabled ?: false,
+                    checked = viewModel.shuffle,
                     onCheckedChange = { viewModel.toggleShuffleMode() },
                     colors = IconButtonDefaults.iconToggleButtonColors(
                         checkedContentColor = MaterialTheme.colorScheme.primary,

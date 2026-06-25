@@ -10,6 +10,8 @@ interface MediaViewModel {
     var currentPosition: Long
     var duration: Long
     var isPlaying: Boolean
+    var shuffle: Boolean
+    var repeat: Int
     var mediaMetadata: MediaMetadata
     fun toggleRepeatMode()
     fun toggleShuffleMode()
