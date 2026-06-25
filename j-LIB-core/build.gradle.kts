@@ -73,6 +73,8 @@ dependencies {
     api(libs.androidx.activity.compose)
     implementation(libs.androidx.ui.tooling.preview)
     debugImplementation(libs.androidx.ui.tooling)
+    api(libs.androidx.glance.appwidget)
+    api(libs.androidx.glance.material3)
     api(libs.settingsLib) // GrapheneOS/AOSP SettingsLib
 }
 

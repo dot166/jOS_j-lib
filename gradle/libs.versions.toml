@@ -5,6 +5,7 @@ appcompat = "1.7.1"
 browser = "1.10.0"
 constraintlayout = "2.2.1"
 coreKtx = "1.19.0"
+glanceAppwidget = "1.1.1"
 gson = "2.14.0"
 iespJar = "0.0.2"
 material = "1.14.0"
@@ -33,6 +34,8 @@ androidx-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "a
 androidx-browser = { module = "androidx.browser:browser", version.ref = "browser" }
 androidx-constraintlayout = { module = "androidx.constraintlayout:constraintlayout", version.ref = "constraintlayout" }
 androidx-core-ktx = { module = "androidx.core:core-ktx", version.ref = "coreKtx" }
+androidx-glance-appwidget = { module = "androidx.glance:glance-appwidget", version.ref = "glanceAppwidget" }
+androidx-glance-material3 = { module = "androidx.glance:glance-material3", version.ref = "glanceAppwidget" }
 androidx-preference = { module = "androidx.preference:preference", version.ref = "preference" }
 gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
 iesp-jar = { module = "eu.geekplace.iesp:iesp-jar", version.ref = "iespJar" }
