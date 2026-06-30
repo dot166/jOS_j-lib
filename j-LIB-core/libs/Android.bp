@@ -104,7 +104,7 @@ java_library_static {
 
 android_library_import {
     name: "j-Lib_com.prof18.rssparser_rssparser-android",
-    aars: ["com/prof18/rssparser/rssparser-android/6.1.5/rssparser.aar"],
+    aars: ["com/prof18/rssparser/rssparser-android/6.1.6/rssparser.aar"],
     sdk_version: "37",
     min_sdk_version: "31",
     apex_available: [
@@ -135,7 +135,7 @@ java_library_static {
 
 android_library_import {
     name: "j-Lib_com.squareup.okhttp3_okhttp-android",
-    aars: ["com/squareup/okhttp3/okhttp-android/5.3.2/okhttp-release.aar"],
+    aars: ["com/squareup/okhttp3/okhttp-android/5.4.0/okhttp.aar"],
     sdk_version: "37",
     min_sdk_version: "31",
     apex_available: [
@@ -152,7 +152,7 @@ android_library_import {
 
 java_import {
     name: "j-Lib_com.squareup.okhttp3_okhttp-coroutines",
-    jars: ["com/squareup/okhttp3/okhttp-coroutines/5.3.2/okhttp-coroutines-5.3.2.jar"],
+    jars: ["com/squareup/okhttp3/okhttp-coroutines/5.4.0/okhttp-coroutines-5.4.0.jar"],
     sdk_version: "37",
     min_sdk_version: "31",
     apex_available: [
@@ -182,7 +182,7 @@ java_library_static {
 
 java_import {
     name: "j-Lib_com.squareup.okio_okio-jvm",
-    jars: ["com/squareup/okio/okio-jvm/3.16.4/okio-jvm-3.16.4.jar"],
+    jars: ["com/squareup/okio/okio-jvm/3.17.0/okio-jvm-3.17.0.jar"],
     sdk_version: "37",
     min_sdk_version: "31",
     apex_available: [
