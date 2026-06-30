@@ -30,7 +30,9 @@ fun GlanceAsyncImage(model: Any?, contentDescription: String?, modifier: GlanceM
                     .build()
             )
             bitmapState = (result.drawable as? android.graphics.drawable.BitmapDrawable)?.bitmap
-        } catch (e: Exception) {}
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
     }
 
     if (bitmapState != null) {
