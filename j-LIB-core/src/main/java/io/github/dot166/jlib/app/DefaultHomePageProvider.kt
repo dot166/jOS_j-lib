@@ -15,6 +15,7 @@ import com.android.settingslib.spa.framework.theme.SettingsTheme
 import com.android.settingslib.spa.widget.banner.BannerModel
 import com.android.settingslib.spa.widget.banner.SettingsBanner
 import com.android.settingslib.spa.widget.scaffold.HomeScaffold
+import com.android.settingslib.spa.widget.ui.Category
 import io.github.dot166.jlib.R
 
 object DefaultHomePageProvider : SettingsPageProvider {
@@ -29,11 +30,13 @@ object DefaultHomePageProvider : SettingsPageProvider {
     override fun Page(arguments: Bundle?) {
         val title = remember { getTitle(arguments) }
         HomeScaffold(title) {
-            val model = BannerModel(
-                title = stringResource(R.string.default_impl),
-                text = stringResource(R.string.you_forgot_to_set_the_correct_implementation_of_spaenvironment_this_is_the_default_one_for_testing_jlib_preference_objects)
-            )
-            SettingsBanner(model)
+            Category() {
+                val model = BannerModel(
+                    title = stringResource(R.string.default_impl),
+                    text = stringResource(R.string.you_forgot_to_set_the_correct_implementation_of_spaenvironment_this_is_the_default_one_for_testing_jlib_preference_objects)
+                )
+                SettingsBanner(model)
+            }
 //            Category {
 //                PreferenceMainPageProvider.Entry()
 //                RestrictedSwitchPreferencePageProvider.Entry()
