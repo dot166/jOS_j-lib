@@ -17,7 +17,7 @@
             android:taskAffinity=""
             android:launchMode="singleInstance"
             android:exported="true" />
-        <activity android:name=".app.PreferenceMainActivity"
+        <activity android:name="com.android.settingslib.spa.framework.BrowseActivity"
             android:exported="true" />
     </application>
 

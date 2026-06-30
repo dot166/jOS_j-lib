@@ -1,6 +1,7 @@
 package io.github.dot166.jlib.app
 
 import android.content.Context
+import com.android.settingslib.spa.framework.BrowseActivity
 import com.android.settingslib.spa.framework.common.SettingsPageProviderRepository
 import com.android.settingslib.spa.framework.common.SpaEnvironment
 import com.android.settingslib.spa.framework.common.createSettingsPage
@@ -10,7 +11,7 @@ import com.android.settingslib.widget.theme.flags.Flags
 abstract class JLibSpaEnvironment(context: Context) : SpaEnvironment(context) {
     override val logger = InfoLogger()
 
-    override val browseActivityClass: Class<out PreferenceMainActivity> = PreferenceMainActivity::class.java
+    override val browseActivityClass: Class<out BrowseActivity> = BrowseActivity::class.java
 
     //override val searchProviderAuthorities = "com.android.spa.gallery.search.provider"
 

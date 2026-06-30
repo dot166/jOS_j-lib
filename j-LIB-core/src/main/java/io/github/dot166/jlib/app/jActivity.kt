@@ -22,17 +22,5 @@ open class jActivity : AppCompatActivity {
         DynamicColors.applyToActivityIfAvailable(this)
         super.onCreate(savedInstanceState)
     }
-
-    override fun startActivity(intent: Intent) {
-        val options = ActivityOptions.makeBasic()
-        options.setLaunchDisplayId(Display.DEFAULT_DISPLAY) // Forces it to the main screen
-        startActivity(intent, options.toBundle())
-    }
-
-    override fun startActivityForResult(intent: Intent, requestCode: Int) {
-        val options = ActivityOptions.makeBasic()
-        options.setLaunchDisplayId(Display.DEFAULT_DISPLAY) // Forces it to the main screen
-        startActivityForResult(intent, requestCode, options.toBundle())
-    }
 }
 
