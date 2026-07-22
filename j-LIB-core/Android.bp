@@ -53,6 +53,7 @@ android_library {
         "j-Lib_com.squareup.okhttp3_okhttp-android",
         "j-Lib_eu.geekplace.iesp_iesp-jar",
         "j-Lib_io.coil-kt_coil-compose",
+        "io.github.dot166_LibLauncher3",
         "kotlin-stdlib",
         "SettingsLibCollapsingToolbarBaseActivity",
         "SettingsLibColor",
