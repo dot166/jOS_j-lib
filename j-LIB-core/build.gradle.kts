@@ -74,6 +74,7 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     debugImplementation(libs.androidx.ui.tooling)
     api(libs.settingsLib) // GrapheneOS/AOSP SettingsLib
+    api(libs.liblauncher3)
 }
 
 mavenPublishing {

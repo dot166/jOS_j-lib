@@ -7,6 +7,7 @@ constraintlayout = "2.2.1"
 coreKtx = "1.19.0"
 gson = "2.14.0"
 iespJar = "0.0.2"
+liblauncher3 = "1.1.0"
 material = "1.14.0"
 maven = "0.37.0"
 preference = "1.2.1"
@@ -36,6 +37,7 @@ androidx-core-ktx = { module = "androidx.core:core-ktx", version.ref = "coreKtx"
 androidx-preference = { module = "androidx.preference:preference", version.ref = "preference" }
 gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
 iesp-jar = { module = "eu.geekplace.iesp:iesp-jar", version.ref = "iespJar" }
+liblauncher3 = { module = "io.github.dot166:LibLauncher3", version.ref = "liblauncher3" }
 material = { module = "com.google.android.material:material", version.ref = "material" }
 rssparser = { module = "com.prof18.rssparser:rssparser", version.ref = "rssparser"}
 settingsLib = { module = "io.github.dot166:SettingsLib", version.ref = "settingsLib"}
