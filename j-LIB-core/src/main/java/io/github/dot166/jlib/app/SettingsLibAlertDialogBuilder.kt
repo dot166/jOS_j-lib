@@ -1,7 +1,7 @@
 package io.github.dot166.jlib.app
 
+import android.app.AlertDialog
 import android.content.Context
-import androidx.appcompat.app.AlertDialog
 import io.github.dot166.jlib.view.ContextThemeBubble
 
 /**

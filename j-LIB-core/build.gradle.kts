@@ -12,6 +12,7 @@ plugins {
     alias(libs.plugins.maven.publish)
     alias(libs.plugins.compose)
     alias(libs.plugins.lineageos.generatebp)
+    alias(libs.plugins.ksp)
 }
 
 group = "io.github.dot166"
@@ -54,27 +55,17 @@ kotlin {
 }
 
 dependencies {
-    api(libs.androidx.appcompat)
-    api(libs.androidx.constraintlayout)
-    api(libs.androidx.preference)
-    api(libs.material)
     api(libs.androidx.core.ktx)
-    api(libs.androidx.browser)
     api(libs.androidx.material3.android)
     api(libs.androidx.ui)
-    api(libs.rssparser)
     api(libs.gson)
-    api(libs.iesp.jar)
-    api(libs.androidx.media3.session)
-    api(libs.coil.compose) {
-        exclude("org.jetbrains.compose.ui")
-    }
-    api(libs.accompanist.drawablepainter)
     api(libs.androidx.activity.compose)
     implementation(libs.androidx.ui.tooling.preview)
     debugImplementation(libs.androidx.ui.tooling)
     api(libs.settingsLib) // GrapheneOS/AOSP SettingsLib
     api(libs.liblauncher3)
+    api(libs.dagger)
+    ksp(libs.dagger.compiler)
 }
 
 mavenPublishing {

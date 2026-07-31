@@ -8,23 +8,12 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.LayoutInflater.Factory2
 import android.view.View
-import androidx.appcompat.app.AppCompatViewInflater
-import com.android.settingslib.widget.SettingsThemeHelper.isExpressiveTheme
-import com.android.settingslib.widget.theme.R
 
-open class ContextThemeBubble(base: Context) : ContextWrapper(base) {
-    var themeResId: Int = 0
+open class ContextThemeBubble(base: Context, val initialThemeResId: Int) : ContextWrapper(base) {
+    var themeResId: Int = initialThemeResId
         private set
     private var theme: Theme? = null
     private var inflater: LayoutInflater? = null
-
-    init {
-        themeResId = if (isExpressiveTheme(base)) {
-            R.style.Theme_SubSettingsBase_Expressive
-        } else {
-            R.style.Theme_SubSettingsBase
-        }
-    }
 
     fun clearTheme() {
         if (theme != null) {
@@ -32,6 +21,11 @@ open class ContextThemeBubble(base: Context) : ContextWrapper(base) {
         } else {
             Log.i(javaClass.simpleName, "Theme has already been cleared")
         }
+    }
+
+    fun resetTheme() {
+        clearTheme()
+        themeResId = initialThemeResId
     }
 
     override fun setTheme(resid: Int) {
@@ -44,14 +38,6 @@ open class ContextThemeBubble(base: Context) : ContextWrapper(base) {
     override fun getTheme(): Theme? {
         if (theme != null) {
             return theme
-        }
-
-        if (themeResId == 0) {
-            themeResId = if (isExpressiveTheme(this)) {
-                R.style.Theme_SubSettingsBase_Expressive
-            } else {
-                R.style.Theme_SubSettingsBase
-            }
         }
         initializeTheme()
 
@@ -84,12 +70,7 @@ open class ContextThemeBubble(base: Context) : ContextWrapper(base) {
             context: Context,
             attrs: AttributeSet
         ): View? {
-            return AppCompatViewInflater().createView(
-                parent, name, context, attrs, false,
-                false,
-                true,
-                false
-            )
+            return null // force default inflater
         }
 
         override fun onCreateView(name: String, context: Context, attrs: AttributeSet): View? {

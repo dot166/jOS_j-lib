@@ -5,6 +5,7 @@ plugins {
     alias(libs.plugins.maven.publish) apply false
     alias(libs.plugins.compose) apply false
     alias(libs.plugins.lineageos.generatebp) apply false
+    alias(libs.plugins.ksp) apply false
 }
 
 buildscript {

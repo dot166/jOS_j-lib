@@ -1,26 +1,17 @@
 package io.github.dot166.jlib.app
 
-import android.app.ActivityOptions
-import android.content.Intent
-import android.os.Bundle
-import android.view.Display
 import androidx.annotation.ContentView
 import androidx.annotation.LayoutRes
-import androidx.appcompat.app.AppCompatActivity
-import com.android.settingslib.collapsingtoolbar.EdgeToEdgeUtils
-import com.google.android.material.color.DynamicColors
 
-open class jActivity : AppCompatActivity {
-
+@Deprecated(
+    message = "Renamed to CoreActivity",
+    replaceWith = ReplaceWith("CoreActivity"),
+    level = DeprecationLevel.ERROR
+)
+open class jActivity : CoreActivity {
     constructor() : super()
 
     @ContentView
     constructor(@LayoutRes contentLayoutId: Int) : super(contentLayoutId)
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        EdgeToEdgeUtils.enable(this)
-        DynamicColors.applyToActivityIfAvailable(this)
-        super.onCreate(savedInstanceState)
-    }
 }
 
