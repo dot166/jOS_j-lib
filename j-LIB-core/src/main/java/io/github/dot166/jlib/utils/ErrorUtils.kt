@@ -5,7 +5,6 @@ import android.content.Context
 import android.util.Log
 import android.widget.Toast
 import io.github.dot166.jlib.R
-import io.github.dot166.jlib.app.SettingsLibAlertDialogBuilder
 
 object ErrorUtils {
 

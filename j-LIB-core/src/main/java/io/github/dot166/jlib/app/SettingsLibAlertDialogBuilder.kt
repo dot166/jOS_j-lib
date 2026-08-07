@@ -13,5 +13,5 @@ import io.github.dot166.jlib.view.ContextThemeBubble
  * or jLib implementation of [AlertDialog].
  */
 class SettingsLibAlertDialogBuilder(context: Context) : AlertDialog.Builder(
-    ContextThemeBubble(context)
+    ContextThemeBubble(context, android.R.style.Theme_DeviceDefault_Settings)
 )
