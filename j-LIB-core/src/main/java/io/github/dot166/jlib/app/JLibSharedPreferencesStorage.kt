@@ -11,6 +11,7 @@ import com.google.gson.reflect.TypeToken
 
 private fun defaultVerbose() = Build.TYPE == "eng"
 
+@Deprecated("No Longer Supported")
 open class JLibSharedPreferencesStorage : SharedPreferencesStorage {
     protected val LOG_TAG = "BackupRestoreStorage"
 

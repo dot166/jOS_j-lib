@@ -16,6 +16,7 @@ import androidx.compose.ui.res.stringResource
 import com.android.settingslib.spa.framework.theme.SettingsTheme
 import io.github.dot166.jlib.app.CoreActivity
 import io.github.dot166.jlib.compose.ErrorDialog
+import io.github.dot166.jlib.compose.JLibAppTheme
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
@@ -26,7 +27,7 @@ class LIBTestActivity : CoreActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            SettingsTheme {
+            JLibAppTheme {
                 var error by remember { mutableStateOf<Throwable?>(null) }
                 Box(contentAlignment = Alignment.Center, modifier = Modifier.fillMaxSize()) {
                     Text(stringResource(R.string.idiot))

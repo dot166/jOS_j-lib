@@ -45,12 +45,25 @@ android {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
     }
-    buildFeatures { compose = true }
+    buildFeatures {
+        buildConfig = true
+        compose = true
+    }
 }
 
 kotlin {
     compilerOptions {
         jvmTarget = JvmTarget.fromTarget("17")
+        freeCompilerArgs.set(
+            listOf(
+                "-opt-in=kotlin.contracts.ExperimentalContracts",
+//                "-jvm-default=enable",
+//                "-Xwhen-guards",
+//                "-Xexplicit-backing-fields",
+//                "-Xcontext-parameters",
+//                "-XXLanguage:+LocalTypeAliases",
+            )
+        )
     }
 }
 
@@ -66,6 +79,11 @@ dependencies {
     api(libs.liblauncher3)
     api(libs.dagger)
     ksp(libs.dagger.compiler)
+    api(libs.patrickgold.jetpref.datastore.model)
+    ksp(libs.patrickgold.jetpref.datastore.model.processor)
+    api(libs.patrickgold.jetpref.datastore.ui)
+    api(libs.patrickgold.jetpref.material.ui)
+    api(libs.material.kolor)
 }
 
 mavenPublishing {

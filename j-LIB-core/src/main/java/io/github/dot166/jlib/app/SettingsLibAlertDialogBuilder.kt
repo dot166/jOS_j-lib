@@ -12,6 +12,7 @@ import io.github.dot166.jlib.view.ContextThemeBubble
  * The type of dialog returned is still an [AlertDialog]; there is no specific SettingsLib
  * or jLib implementation of [AlertDialog].
  */
+@Deprecated("No Longer Supported")
 class SettingsLibAlertDialogBuilder(context: Context) : AlertDialog.Builder(
     ContextThemeBubble(context, android.R.style.Theme_DeviceDefault_Settings)
 )

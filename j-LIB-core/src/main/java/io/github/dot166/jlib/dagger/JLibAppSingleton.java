@@ -25,6 +25,7 @@ import javax.inject.Scope;
 /**
  * Scope annotation for singleton items within the JLibAppComponent.
  */
+@Deprecated
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
 @Scope

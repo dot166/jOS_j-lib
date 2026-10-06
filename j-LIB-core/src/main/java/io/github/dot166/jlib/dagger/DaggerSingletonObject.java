@@ -25,6 +25,7 @@ import java.util.function.Function;
  * We should delete this class at the end and use @Inject to get dagger provided singletons.
  */
 
+@Deprecated
 public class DaggerSingletonObject<T> {
     private final Function<JLibAppComponent, T> mFunction;
 

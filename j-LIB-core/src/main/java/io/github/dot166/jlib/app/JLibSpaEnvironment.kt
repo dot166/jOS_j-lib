@@ -8,6 +8,7 @@ import com.android.settingslib.spa.framework.common.createSettingsPage
 import com.android.settingslib.widget.theme.flags.Flags
 
 
+@Deprecated("No Longer Supported")
 abstract class JLibSpaEnvironment(context: Context) : SpaEnvironment(context) {
     override val logger = InfoLogger()
 

@@ -15,6 +15,7 @@ import javax.inject.Inject
 /**
  * Manages jLib [SharedPreferences] through [Preference] instances.
  */
+@Deprecated("No Longer Supported")
 @JLibAppSingleton
 open class JLibPrefs
 @Inject

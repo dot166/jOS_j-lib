@@ -21,6 +21,7 @@ import com.android.settingslib.spa.widget.scaffold.HomeScaffold
 import com.android.settingslib.spa.widget.ui.Category
 import io.github.dot166.jlib.R
 
+@Deprecated("No Longer Supported")
 object DefaultHomePageProvider : SettingsPageProvider {
     override val name = "jLib Preference2"
     override val displayName = "Home"

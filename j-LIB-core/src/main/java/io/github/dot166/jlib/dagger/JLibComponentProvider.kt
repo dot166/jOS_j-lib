@@ -26,6 +26,7 @@ import io.github.dot166.jlib.app.RestorableSettingsApplication
  * If the context doesn't provide JLibAppComponent by default, it creates a new one and
  * associate it with that context
  */
+@Deprecated("No Longer Supported")
 object JLibComponentProvider {
 
     @JvmStatic

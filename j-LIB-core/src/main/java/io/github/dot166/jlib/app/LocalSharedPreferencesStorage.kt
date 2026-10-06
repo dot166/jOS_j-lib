@@ -7,6 +7,7 @@ import androidx.core.content.edit
 import com.google.gson.reflect.TypeToken
 import io.github.dot166.jlib.RSSFeed
 
+@Deprecated("No Longer Supported")
 class LocalSharedPreferencesStorage(context: Context): JLibSharedPreferencesStorage(
     context = context,
     name = context.packageName + LOCAL_PREFS,

@@ -25,6 +25,7 @@ import javax.inject.Qualifier;
 /**
  * Qualifier for jLib application context.
  */
+@Deprecated
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
 @Qualifier

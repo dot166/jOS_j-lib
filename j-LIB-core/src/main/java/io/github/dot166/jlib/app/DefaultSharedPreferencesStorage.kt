@@ -2,6 +2,7 @@ package io.github.dot166.jlib.app
 
 import android.content.Context
 
+@Deprecated("No Longer Supported")
 class DefaultSharedPreferencesStorage(context: Context): JLibSharedPreferencesStorage(
     context = context,
     name = getDefaultSharedPreferencesName(context),

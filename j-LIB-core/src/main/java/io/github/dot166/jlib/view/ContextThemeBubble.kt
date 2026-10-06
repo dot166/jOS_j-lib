@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.LayoutInflater.Factory2
 import android.view.View
 
+@Deprecated("No Longer Supported")
 open class ContextThemeBubble(base: Context, val initialThemeResId: Int) : ContextWrapper(base) {
     var themeResId: Int = initialThemeResId
         private set

@@ -17,5 +17,6 @@ package io.github.dot166.jlib.dagger
 
 import dagger.Module
 
+@Deprecated("No Longer Supported")
 @Module
 class JLibAppModule

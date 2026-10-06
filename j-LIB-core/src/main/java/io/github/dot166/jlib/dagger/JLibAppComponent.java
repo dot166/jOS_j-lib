@@ -26,6 +26,7 @@ import dagger.Component;
 /**
  * Root component for Dagger injection for jLib AOSP.
  */
+@Deprecated
 @JLibAppSingleton
 @Component(modules = JLibAppModule.class)
 public interface JLibAppComponent {

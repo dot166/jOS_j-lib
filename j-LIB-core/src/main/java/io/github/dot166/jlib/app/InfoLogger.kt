@@ -6,6 +6,7 @@ import com.android.settingslib.spa.framework.common.LogCategory
 import com.android.settingslib.spa.framework.common.LogEvent
 import com.android.settingslib.spa.framework.common.SpaLogger
 
+@Deprecated("No Longer Supported")
 class InfoLogger : SpaLogger {
     override fun message(tag: String, msg: String, category: LogCategory) {
         Log.i("SpaMsg-$category", "[$tag] $msg")

@@ -17,6 +17,8 @@ dependencyResolutionManagement {
                 includeGroup("com.github.PhilJay")
             }
         }
+        maven("https://central.sonatype.com/repository/maven-snapshots/")
+        mavenLocal()
     }
 }
 
