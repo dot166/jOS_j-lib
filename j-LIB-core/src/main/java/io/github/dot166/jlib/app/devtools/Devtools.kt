@@ -20,14 +20,10 @@ import android.app.ActivityManager
 import android.content.Context
 import android.os.Build
 import android.os.Debug
-import dev.patrickgold.florisboard.BuildConfig
-import dev.patrickgold.florisboard.lib.util.TimeUtils
-import dev.patrickgold.florisboard.lib.util.UnitUtils
-import io.github.dot166.jlib.R
 import java.io.BufferedReader
 import java.io.IOException
 import java.io.InputStreamReader
-import java.util.Locale
+import java.util.*
 
 @Suppress("MemberVisibilityCanBePrivate")
 object Devtools {
@@ -89,16 +85,21 @@ object Devtools {
     }
 
     fun generateAppInfoLog(context: Context, withTitle: Boolean = true): String {
+        val packageInfo = context.packageManager.getPackageInfo(context.packageName, 0)
         return buildString {
             if (withTitle) appendLine("======= APP INFO =======")
-            append("Package             : ").appendLine(BuildConfig.APPLICATION_ID)
-            append("Name                : ").appendLine(context.resources.getString(R.string.floris_app_name))
-            append("Version             : ").appendLine("${BuildConfig.VERSION_NAME} (${BuildConfig.VERSION_CODE})")
-            append("Build type          : ").appendLine(BuildConfig.BUILD_TYPE)
-            append("Build commit hash   : ").appendLine(BuildConfig.BUILD_COMMIT_HASH)
+            append("Package             : ").appendLine(packageInfo.packageName)
+            append("Name                : ").appendLine(getAppLabel(context))
+            append("Version             : ").appendLine("${packageInfo.versionName ?: packageInfo.longVersionCode} (${packageInfo.longVersionCode})")
+            //append("Build type          : ").appendLine(BuildConfig.BUILD_TYPE)
             append("Java heap memory    : ").appendLine(getAppJavaHeapMemoryUsage())
             append("Native heap memory  : ").appendLine(getAppNativeHeapMemoryUsage())
         }
+    }
+
+    fun getAppLabel(context: Context): String {
+        val stringId = context.applicationInfo.labelRes
+        return if (stringId == 0) context.applicationInfo.nonLocalizedLabel.toString() else context.getString(stringId)
     }
 
     fun generateLogcatDump(withTitle: Boolean = true): String {

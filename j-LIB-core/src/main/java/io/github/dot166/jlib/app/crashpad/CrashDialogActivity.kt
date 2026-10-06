@@ -3,6 +3,7 @@ package io.github.dot166.jlib.app.crashpad
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Intent
+import android.content.res.Configuration
 import android.net.Uri
 import android.os.Bundle
 import android.widget.Toast
@@ -13,17 +14,22 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import dev.patrickgold.florisboard.BuildConfig
+import androidx.navigation.compose.rememberNavController
 import io.github.dot166.jlib.R
+import io.github.dot166.jlib.app.LocalNavController
 import io.github.dot166.jlib.app.devtools.Devtools
-import io.github.dot166.jlib.app.devtools.LogTopic
-import io.github.dot166.jlib.app.devtools.flogWarning
+import io.github.dot166.jlib.app.devtools.LogTopics
+import io.github.dot166.jlib.app.devtools.logWarning
 import io.github.dot166.jlib.compose.JLibAppTheme
-import org.florisboard.lib.android.stringRes
+import io.github.dot166.jlib.compose.JLibScreen
+import io.github.dot166.jlib.compose.conditional
+import io.github.dot166.jlib.version
 
 class CrashDialogActivity : ComponentActivity() {
 
@@ -34,32 +40,10 @@ class CrashDialogActivity : ComponentActivity() {
 
         val errorReport = buildString {
             appendLine("#### Environment information")
+            val packageInfo = packageManager.getPackageInfo(packageName, 0)
 
-            val versionName = buildString {
-                append("[")
-                append(BuildConfig.VERSION_NAME)
-                append("](")
-
-                if (BuildConfig.DEBUG) {
-                    append(
-                        stringRes(
-                            R.string.florisboard__commit_by_hash_url,
-                            "hash" to BuildConfig.BUILD_COMMIT_HASH,
-                        )
-                    )
-                } else {
-                    append(
-                        stringRes(
-                            R.string.florisboard__changelog_url,
-                            "version" to BuildConfig.VERSION_NAME,
-                        )
-                    )
-                }
-
-                append(")")
-            }
-
-            appendLine("- jLib $versionName (${BuildConfig.VERSION_CODE})")
+            appendLine("- ${getAppLabel()} [${packageInfo.versionName ?: packageInfo.longVersionCode}] (${packageInfo.longVersionCode})")
+            appendLine("- jLib [${version}]")
             appendLine("- Device: ${Devtools.getDeviceName()}")
             appendLine("- Android: ${Devtools.getAndroidVersion()}")
             appendLine()
@@ -82,7 +66,7 @@ class CrashDialogActivity : ComponentActivity() {
                     appendLine()
                 }
             } else {
-                flogWarning(LogTopic.CRASH_UTILITY) {
+                logWarning(LogTopics.CRASH_UTILITY) {
                     "Stacktrace file list is empty."
                 }
             }
@@ -96,27 +80,48 @@ class CrashDialogActivity : ComponentActivity() {
 
         setContent {
             JLibAppTheme {
-                CrashDialogScreen(
-                    errorReport = errorReport,
-                    reportInstructions = reportInstructions,
-                    onCopyToClipboard = {
-                        copyToClipboard(errorReport)
-                    },
-                    onOpenBugReport = {
-                        val browserIntent = Intent(
-                            Intent.ACTION_VIEW,
-                            Uri.parse(
-                                getString(R.string.florisboard__issue_tracker_url)
-                            ),
-                        )
-                        startActivity(browserIntent)
-                    },
-                    onClose = {
-                        finish()
-                    },
-                )
+                Surface(color = MaterialTheme.colorScheme.background) {
+                    CompositionLocalProvider(
+                        LocalNavController provides rememberNavController(),
+                    ) {
+                        Column(
+                            modifier = Modifier
+                                //.statusBarsPadding()
+                                .navigationBarsPadding()
+                                .conditional(LocalConfiguration.current.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+                                    displayCutoutPadding()
+                                }
+                                .imePadding(),
+                        ) {
+                            CrashDialogScreen(
+                                errorReport = errorReport,
+                                reportInstructions = reportInstructions,
+                                onCopyToClipboard = {
+                                    copyToClipboard(errorReport)
+                                },
+                                onOpenBugReport = {
+//                              val browserIntent = Intent(
+//                                Intent.ACTION_VIEW,
+//                                Uri.parse(
+//                                    getString(R.string.florisboard__issue_tracker_url)
+//                                ),
+//                              )
+//                              startActivity(browserIntent)
+                                },
+                                onClose = {
+                                    finish()
+                                },
+                            )
+                        }
+                    }
+                }
             }
         }
+    }
+
+    fun getAppLabel(): String {
+        val stringId = applicationInfo.labelRes
+        return if (stringId == 0) applicationInfo.nonLocalizedLabel.toString() else getString(stringId)
     }
 
     private fun copyToClipboard(errorReport: String) {
@@ -168,12 +173,9 @@ private fun CrashDialogScreen(
     onOpenBugReport: () -> Unit,
     onClose: () -> Unit,
 ) {
-    Scaffold(
-        topBar = {
-            TopAppBar(
-                title = {},
-            )
-        },
+    JLibScreen(
+        title = stringResource(R.string.crash_dialog__title),
+        navigationIconVisible = false,
         bottomBar = {
             Column(
                 modifier = Modifier.fillMaxWidth(),
@@ -249,13 +251,14 @@ private fun CrashDialogScreen(
                     .padding(8.dp),
             )
 
-            Divider(
+            HorizontalDivider(
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(
                         top = 8.dp,
                         bottom = 8.dp,
                     ),
+                thickness = DividerDefaults.Thickness,
                 color = Color.DarkGray,
             )
 

@@ -25,9 +25,9 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Process
 import android.util.Log
-import io.github.dot166.jlib.app.devtools.LogTopic
-import io.github.dot166.jlib.app.devtools.flogError
-import io.github.dot166.jlib.app.devtools.flogInfo
+import io.github.dot166.jlib.app.devtools.LogTopics
+import io.github.dot166.jlib.app.devtools.logError
+import io.github.dot166.jlib.app.devtools.logInfo
 import java.lang.ref.WeakReference
 import kotlin.system.exitProcess
 
@@ -63,14 +63,14 @@ abstract class CrashUtility private constructor() {
          */
         fun install(context: Context?): Boolean {
             if (context == null) {
-                flogError(LogTopic.CRASH_UTILITY) {
+                logError(LogTopics.CRASH_UTILITY) {
                     "Can't install crash handler with a null Context object, doing nothing!"
                 }
                 return false
             }
             val oldHandler = Thread.getDefaultUncaughtExceptionHandler()
             if (oldHandler is UncaughtExceptionHandler) {
-                flogInfo(LogTopic.CRASH_UTILITY) {
+                logInfo(LogTopics.CRASH_UTILITY) {
                     "Crash handler is already installed, doing nothing!"
                 }
             } else {
@@ -84,16 +84,16 @@ abstract class CrashUtility private constructor() {
                                 context.getUstDir(),
                             )
                         )
-                        flogInfo(LogTopic.CRASH_UTILITY) {
+                        logInfo(LogTopics.CRASH_UTILITY) {
                             "Successfully installed crash handler for this application!"
                         }
                     } catch (e: SecurityException) {
-                        flogError(LogTopic.CRASH_UTILITY) {
+                        logError(LogTopics.CRASH_UTILITY) {
                             "Failed to install crash handler, probably due to missing runtime permission 'setDefaultUncaughtExceptionHandler':\n$e"
                         }
                         return false
                     } catch (e: Exception) {
-                        flogError(LogTopic.CRASH_UTILITY) {
+                        logError(LogTopics.CRASH_UTILITY) {
                             "Failed to install crash handler due to an unspecified error:\n$e"
                         }
                         return false
@@ -127,16 +127,16 @@ abstract class CrashUtility private constructor() {
 //                            )
 //                            notificationManager.createNotificationChannel(notificationChannel)
 //                        }
-//                        flogInfo(LogTopic.CRASH_UTILITY) {
+//                        logInfo(LogTopics.CRASH_UTILITY) {
 //                            "Successfully created crash handler notification channel!"
 //                        }
                     } catch (e: Exception) {
-                        flogError(LogTopic.CRASH_UTILITY) {
+                        logError(LogTopics.CRASH_UTILITY) {
                             "Failed to create crash handler notification channel due to an unspecified error:\n$e"
                         }
                     }
                 } else {
-                    flogError(LogTopic.CRASH_UTILITY) {
+                    logError(LogTopics.CRASH_UTILITY) {
                         "Can't install crash handler with a null Application object, doing nothing!"
                     }
                     return false
@@ -176,7 +176,7 @@ abstract class CrashUtility private constructor() {
                 (ustDir.listFiles { pathname ->
                     pathname.name.endsWith(".$UNHANDLED_STACKTRACE_FILE_EXT")
                 })?.forEach { file ->
-                    flogInfo(LogTopic.CRASH_UTILITY) {
+                    logInfo(LogTopics.CRASH_UTILITY) {
                         "Reading unhandled stacktrace: ${file.name}"
                     }
                     retList.add(Stacktrace(file.name, readFile(file)))
@@ -361,7 +361,7 @@ abstract class CrashUtility private constructor() {
         private val ustDir: FsDir,
     ) : Thread.UncaughtExceptionHandler {
         override fun uncaughtException(thread: Thread, throwable: Throwable) {
-            flogInfo(LogTopic.CRASH_UTILITY) {
+            logInfo(LogTopics.CRASH_UTILITY) {
                 "Detected application crash, executing custom crash handler."
             }
             val timestamp = System.currentTimeMillis()
@@ -392,7 +392,7 @@ abstract class CrashUtility private constructor() {
 
                         lastActivity.startActivity(intent)
                     } catch (e: Exception) {
-                        flogError(LogTopic.CRASH_UTILITY) {
+                        logError(LogTopics.CRASH_UTILITY) {
                             "Failed to open crash dialog directly:\n$e"
                         }
                     }

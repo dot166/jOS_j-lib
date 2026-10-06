@@ -2,8 +2,16 @@ package io.github.dot166.jlib.app
 
 import android.content.Context
 import android.content.SharedPreferences
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.platform.LocalConfiguration
 import com.android.settingslib.datastore.SharedPreferencesStorage
-import io.github.dot166.jlib.app.LocalSharedPreferencesStorage
+import dev.patrickgold.jetpref.datastore.annotations.Preferences
+import dev.patrickgold.jetpref.datastore.jetprefDataStoreOf
+import dev.patrickgold.jetpref.datastore.model.PreferenceData
+import dev.patrickgold.jetpref.datastore.model.PreferenceMigrationEntry
+import dev.patrickgold.jetpref.datastore.model.PreferenceModel
+import io.github.dot166.jlib.app.JLibPrefs.Companion.defaultPref
+import io.github.dot166.jlib.app.JLibPrefs.Companion.jLibPref
 import io.github.dot166.jlib.dagger.ApplicationContext
 import io.github.dot166.jlib.dagger.DaggerSingletonObject
 import io.github.dot166.jlib.dagger.JLibAppComponent
@@ -23,6 +31,7 @@ constructor(@ApplicationContext private val encryptedContext: Context) {
 
     private val flows = mutableMapOf<Preference<*>, MutableStateFlow<*>>()
 
+    @Deprecated("No Longer Supported")
     @Suppress("UNCHECKED_CAST")
     fun <T> flow(preference: Preference<T>): StateFlow<T> {
         return flows.getOrPut(preference) {
@@ -30,6 +39,7 @@ constructor(@ApplicationContext private val encryptedContext: Context) {
         } as MutableStateFlow<T>
     }
 
+    @Deprecated("No Longer Supported")
     protected open fun <T> getSharedPrefs(preference: Preference<T>): SharedPreferencesStorage =
         preference.run {
             when (storageKey) {
@@ -48,6 +58,7 @@ constructor(@ApplicationContext private val encryptedContext: Context) {
      * prepareToPutValue(itemsToValues) for every distinct `SharedPreferences` file present in the
      * provided preference configurations.
      */
+    @Deprecated("No Longer Supported")
     @Suppress("UNCHECKED_CAST")
     fun <T> put(preference: Preference<T>, value: T) {
         getSharedPrefs(preference).setValue(preference.sharedPrefKey, preference.type as Class<T & Any>, value)
@@ -58,6 +69,7 @@ constructor(@ApplicationContext private val encryptedContext: Context) {
      * Checks if all the provided [Preference] have values stored in their corresponding
      * `SharedPreferences` files.
      */
+    @Deprecated("No Longer Supported")
     fun <T> has(vararg preferences: Preference<T>): Boolean {
         preferences
             .groupBy { getSharedPrefs(it) }
@@ -69,15 +81,20 @@ constructor(@ApplicationContext private val encryptedContext: Context) {
 
     companion object {
 
+        @Deprecated("No Longer Supported")
         @JvmField val INSTANCE = DaggerSingletonObject(JLibAppComponent::getJLibPrefs)
 
+        @Deprecated("No Longer Supported")
         @JvmStatic fun get(context: Context): JLibPrefs = INSTANCE.get(context)
 
         // prefs go here...
 
+        @Deprecated("No Longer Supported")
         val test = defaultPref<String?>("aaaaa", null)
+        @Deprecated("No Longer Supported")
         val testBool = jLibPref("test", false)
 
+        @Deprecated("No Longer Supported")
         @JvmStatic
         inline fun <reified T> defaultPref(
             sharedPrefKey: String,
@@ -90,6 +107,7 @@ constructor(@ApplicationContext private val encryptedContext: Context) {
                 type = T::class.java
             )
 
+        @Deprecated("No Longer Supported")
         @JvmStatic
         inline fun <reified T> jLibPref(
             sharedPrefKey: String,
@@ -104,13 +122,42 @@ constructor(@ApplicationContext private val encryptedContext: Context) {
     }
 }
 
+@Deprecated("No Longer Supported")
 data class Preference<T>(
     val sharedPrefKey: String,
     val defaultValue: T,
     val storageKey: String,
     val type: Class<out T>,
 ) {
+    @Deprecated("No Longer Supported")
     fun flow(c: Context): StateFlow<T> = JLibPrefs.get(c).flow(this)
+    @Deprecated("No Longer Supported")
     fun put(c: Context, value: T) = JLibPrefs.get(c).put(this, value)
 }
 
+val jLibPreferenceStore = jetprefDataStoreOf(JLibPreferenceModel::class)
+
+@Preferences
+abstract class JLibPreferenceModel : PreferenceModel() {
+    companion object {
+        const val NAME = "jLib-prefs"
+    }
+
+    val internal = Internal()
+    inner class Internal {
+    }
+
+    val tests = Tests()
+    inner class Tests {
+        val test = string("aaaaa", "null")
+        val testBool = boolean("test", false)
+    }
+
+    override fun migrate(entry: PreferenceMigrationEntry): PreferenceMigrationEntry {
+        return when (entry.key) {
+
+            // Default: keep entry
+            else -> entry.keepAsIs()
+        }
+    }
+}

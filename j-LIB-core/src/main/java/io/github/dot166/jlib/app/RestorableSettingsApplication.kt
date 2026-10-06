@@ -5,17 +5,16 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
-import android.content.res.Configuration
 import android.os.Handler
-import android.util.Log
 import androidx.core.os.UserManagerCompat
 import com.android.settingslib.datastore.BackupRestoreStorageManager
 import com.android.settingslib.spa.framework.common.SpaEnvironmentFactory
 import dev.patrickgold.jetpref.datastore.runtime.initAndroid
 import io.github.dot166.jlib.app.crashpad.CrashUtility
-import io.github.dot166.jlib.app.devtools.Flog
-import io.github.dot166.jlib.app.devtools.LogTopic
-import io.github.dot166.jlib.app.devtools.flogError
+import io.github.dot166.jlib.app.devtools.Log
+import io.github.dot166.jlib.app.devtools.LogTopics
+import io.github.dot166.jlib.app.devtools.logError
+import io.github.dot166.jlib.app.devtools.logInfo
 import io.github.dot166.jlib.dagger.DaggerJLibAppComponent
 import io.github.dot166.jlib.dagger.JLibAppComponent
 import kotlinx.coroutines.CoroutineScope
@@ -63,12 +62,10 @@ open class RestorableSettingsApplication: Application() {
         jLibSharedPreferencesStorage.migrateToLocalSharedPrefs()
         setSpaEnvironment(JLibSpaEnvironmentStub(this))
         try {
-            Flog.install(
-                context = this,
-                isFloggingEnabled = BuildConfig.DEBUG,
-                flogTopics = LogTopic.ALL,
-                flogLevels = Flog.LEVEL_ALL,
-                flogOutputs = Flog.OUTPUT_CONSOLE,
+            Log.install(
+                isFloggingEnabled = true,
+                logTopics = LogTopics.ALL,
+                logLevels = Log.LEVEL_ALL,
             )
             CrashUtility.install(this)
 
@@ -87,10 +84,10 @@ open class RestorableSettingsApplication: Application() {
     fun init() {
         scope.launch {
             val result = jLibPreferenceStore.initAndroid(
-                context = this@FlorisApplication,
-                datastoreName = FlorisPreferenceModel.NAME,
+                context = this@RestorableSettingsApplication,
+                datastoreName = JLibPreferenceModel.NAME,
             )
-            Log.i("PREFS", result.toString())
+            logInfo { "PREFS $result" }
         }
     }
 
@@ -101,7 +98,7 @@ open class RestorableSettingsApplication: Application() {
                 try {
                     unregisterReceiver(this)
                 } catch (e: Exception) {
-                    flogError { e.toString() }
+                    logError { e.toString() }
                 }
                 mainHandler.post {
                     init()
@@ -119,6 +116,7 @@ open class RestorableSettingsApplication: Application() {
             .build()
     }
 
+    @Deprecated("No Longer Supported")
     fun setSpaEnvironment(env: JLibSpaEnvironment) {
         SpaEnvironmentFactory.reset(env)
     }

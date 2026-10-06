@@ -5,6 +5,12 @@ import androidx.activity.ComponentActivity
 import androidx.activity.enableEdgeToEdge
 import androidx.annotation.ContentView
 import androidx.annotation.LayoutRes
+import androidx.compose.runtime.staticCompositionLocalOf
+import androidx.navigation.NavController
+
+val LocalNavController = staticCompositionLocalOf<NavController> {
+    error("LocalNavController not initialized")
+}
 
 open class CoreActivity : ComponentActivity {
 
