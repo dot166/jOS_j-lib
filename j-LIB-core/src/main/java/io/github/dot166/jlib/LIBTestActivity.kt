@@ -8,9 +8,8 @@ import androidx.compose.foundation.layout.displayCutoutPadding
 import androidx.compose.foundation.layout.imePadding
 import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Language
-import androidx.compose.material.icons.outlined.Palette
-import androidx.compose.material3.ExperimentalMaterial3ExpressiveApi
+import androidx.compose.material.icons.filled.ToggleOn
+import androidx.compose.material.icons.outlined.BugReport
 import androidx.compose.material3.ListItemDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -37,7 +36,6 @@ import kotlinx.coroutines.launch
 
 class LIBTestActivity : CoreActivity() {
     private val scope = CoroutineScope(SupervisorJob() + Dispatchers.Default)
-    @OptIn(ExperimentalMaterial3ExpressiveApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val prefs by jLibPreferenceStore
@@ -76,13 +74,14 @@ class LIBTestActivity : CoreActivity() {
                                         SwitchPreference(
                                             pref = prefs.tests.testBool,
                                             shapes = ListItemDefaults.segmentedShapes(0, count),
-                                            icon = Icons.Default.Language,
+                                            icon = Icons.Default.ToggleOn,
                                             title = testTitle,
                                         )
                                         Preference(
                                             shapes = ListItemDefaults.segmentedShapes(1, count),
-                                            icon = Icons.Outlined.Palette,
+                                            icon = Icons.Outlined.BugReport,
                                             title = stringResource(R.string.devtools__test_crash_report__label),
+                                            summary = stringResource(R.string.devtools__test_crash_report__summary),
                                             onClick = {
                                                 throw Exception(
                                                     "GLaDOS: you have completed all available tests, you will now receive cake",

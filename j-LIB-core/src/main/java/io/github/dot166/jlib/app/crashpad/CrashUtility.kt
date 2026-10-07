@@ -39,13 +39,11 @@ import kotlin.system.exitProcess
  *  https://github.com/Ereza/CustomActivityOnCrash (licensed under Apache 2.0)
  *  https://github.com/Ereza/CustomActivityOnCrash/blob/master/library/src/main/java/cat/ereza/customactivityoncrash/CustomActivityOnCrash.java
  */
+// This is originally from florisboard, its license should be preserved
 abstract class CrashUtility private constructor() {
     companion object {
         private const val SHARED_PREFS_FILE = "crash_utility"
         private const val SHARED_PREFS_LAST_CRASH_TIMESTAMP = "last_crash_timestamp"
-
-//        private const val NOTIFICATION_CHANNEL_ID = "${BuildConfig.LIBRARY_PACKAGE_NAME}.app.crashpad"
-//        private const val NOTIFICATION_ID = 0xFBAD0100
 
         private const val UNHANDLED_STACKTRACES_DIR_NAME = "unhandled_stacktraces"
         private const val UNHANDLED_STACKTRACE_FILE_EXT = "stacktrace"
@@ -117,24 +115,6 @@ abstract class CrashUtility private constructor() {
                         ) {}
                         override fun onActivityDestroyed(activity: Activity) {}
                     })
-                    try {
-//                        val notificationManager = context.getSystemService(Context.NOTIFICATION_SERVICE)
-//                        if (notificationManager != null && notificationManager is NotificationManager) {
-//                            val notificationChannel = NotificationChannel(
-//                                NOTIFICATION_CHANNEL_ID,
-//                                context.resources.getString(R.string.crash_notification_channel__title),
-//                                NotificationManager.IMPORTANCE_HIGH
-//                            )
-//                            notificationManager.createNotificationChannel(notificationChannel)
-//                        }
-//                        logInfo(LogTopics.CRASH_UTILITY) {
-//                            "Successfully created crash handler notification channel!"
-//                        }
-                    } catch (e: Exception) {
-                        logError(LogTopics.CRASH_UTILITY) {
-                            "Failed to create crash handler notification channel due to an unspecified error:\n$e"
-                        }
-                    }
                 } else {
                     logError(LogTopics.CRASH_UTILITY) {
                         "Can't install crash handler with a null Application object, doing nothing!"
@@ -247,67 +227,6 @@ abstract class CrashUtility private constructor() {
             return this.getUstDir().subFile("$timestamp.$UNHANDLED_STACKTRACE_FILE_EXT")
         }
 
-//        /**
-//         * Push a notification which opens [CrashDialogActivity] with given parameters.
-//         *
-//         * @param context The current package context. If null is supplied, this function does
-//         *  nothing.
-//         * @param id The ID of the notification.
-//         * @param title The title of the notification.
-//         * @param body The body of the notification.
-//         */
-//        private fun pushNotification(context: Context?, id: Int, title: String, body: String) {
-//            context ?: return
-//            val notificationManager = context.getSystemService(Context.NOTIFICATION_SERVICE)
-//            if (notificationManager != null && notificationManager is NotificationManager) {
-//                val notificationBuilder = Notification.Builder(context.applicationContext, NOTIFICATION_CHANNEL_ID)
-//                val crashDialogIntent = Intent(context, CrashDialogActivity::class.java)
-//                val notification = notificationBuilder.run {
-//                    setContentTitle(title)
-//                    style = Notification.BigTextStyle().bigText(body)
-//                    setContentText(body)
-//                    setSmallIcon(R.drawable.stat_notify_error)
-//                    setContentIntent(PendingIntent.getActivity(context, 0, crashDialogIntent, PendingIntent.FLAG_IMMUTABLE)).setAutoCancel(
-//                        true
-//                    )
-//                    build()
-//                }
-//                notificationManager.notify(id, notification)
-//            }
-//        }
-//
-//        /**
-//         * Push a notification configured for a single crash.
-//         *
-//         * @param context The current package context. If null is supplied, this function does
-//         *  nothing.
-//         */
-//        private fun pushCrashOnceNotification(context: Context?) {
-//            context ?: return
-//            pushNotification(
-//                context,
-//                NOTIFICATION_ID.toInt(),
-//                context.resources.getString(R.string.crash_once_notification__title),
-//                context.resources.getString(R.string.crash_once_notification__body)
-//            )
-//        }
-//
-//        /**
-//         * Push a notification configured for multiple crashes.
-//         *
-//         * @param context The current package context. If null is supplied, this function does
-//         *  nothing.
-//         */
-//        private fun pushCrashMultipleNotification(context: Context?) {
-//            context ?: return
-//            pushNotification(
-//                context,
-//                NOTIFICATION_ID.toInt(),
-//                context.resources.getString(R.string.crash_multiple_notification__title),
-//                context.resources.getString(R.string.crash_multiple_notification__body)
-//            )
-//        }
-
         /**
          * Reads a given [file] and returns its content.
          *
@@ -396,19 +315,14 @@ abstract class CrashUtility private constructor() {
                             "Failed to open crash dialog directly:\n$e"
                         }
                     }
-//                } else {
-//                    // No usable Activity — fall back to notification.
-//                    if (timestamp - lastTimestamp < 5000) {
-//                        pushCrashMultipleNotification(application)
-//                    } else {
-//                        pushCrashOnceNotification(application)
-//                    }
                 }
             }
             if (lastActivity != null) {
-                //oldHandler.get()?.uncaughtException(thread, throwable)
                 lastActivity.finish()
                 lastActivityCreated.clear()
+            } else {
+                // just crash the app normally if it cannot handle it
+                oldHandler.get()?.uncaughtException(thread, throwable)
             }
             Process.killProcess(Process.myPid())
             exitProcess(10)

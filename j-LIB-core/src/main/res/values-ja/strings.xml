@@ -1,4 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="idiot">バカ</string>
+    <string name="crash_dialog__title" comment="Title of crash dialog. The %s placeholder is the name of the app.">%sエラーレポート</string>
+    <string name="crash_dialog__description" comment="Description of crash dialog. The %s placeholder is the name of the app.">ご不便をおかけして申し訳ありませんが、予期しないエラーにより%sがクラッシュしました。</string>
+    <string name="crash_dialog__report_instructions" comment="Issue tracker report instructions for the crash dialog. The %s placeholder is the name of the app.">このエラーを報告する場合、まず課題トラッカーでクラッシュがまだ報告されていないか確認してください。\n報告されていない場合は、生成されたクラッシュログをコピーして新しい課題を開き、最後に生成されたクラッシュログを貼り付けてください。これにより、%sをより良く、より安定させるのに役立ちます。ご協力ありがとうございます！</string>
+    <string name="crash_dialog__copy_to_clipboard" comment="Label of Copy to clipboard button in crash dialog">システムクリップボードにコピー</string>
+    <string name="crash_dialog__copy_to_clipboard_success" comment="Label of Copy to clipboard success message in crash dialog">システムクリップボードにコピーしました</string>
+    <string name="crash_dialog__copy_to_clipboard_failure" comment="Label of Copy to clipboard failure message in crash dialog">システムクリップボードにコピーできません：クリップボードマネージャーのインスタンスが見つかりません</string>
+    <string name="crash_dialog__open_issue_tracker" comment="Label of Open issue tracker button in crash dialog">課題トラッカーを開く</string>
+    <string name="crash_dialog__close" comment="Label of Close button in crash dialog">閉じる</string>
+    <string name="devtools__test_crash_report__label" comment="Label of Test Crash Report in Devtools">クラッシュレポート画面をテスト</string>
+    <string name="devtools__test_crash_report__summary" comment="Summary of Test Crash Report in Devtools">意図的にクラッシュを発生させるデバッグアクション</string>
 </resources>

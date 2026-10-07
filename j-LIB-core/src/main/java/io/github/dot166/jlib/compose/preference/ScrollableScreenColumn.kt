@@ -27,6 +27,7 @@ import io.github.dot166.jlib.compose.ScreenHorizontalPadding
 import io.github.dot166.jlib.compose.SegmentedListColumnVerticalPadding
 import io.github.dot166.jlib.compose.florisVerticalScroll
 
+// This is originally from florisboard, its license should be preserved
 @Composable
 fun ScrollableScreenColumn(
     contentPadding: PaddingValues,

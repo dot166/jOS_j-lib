@@ -53,7 +53,7 @@ inline fun logError(topic: LogTopic = Log.TOPIC_OTHER, block: () -> String = { "
     contract {
         callsInPlace(block, InvocationKind.AT_MOST_ONCE)
     }
-    if (Log.checkShouldFlog(topic, Log.LEVEL_ERROR)) {
+    if (Log.checkShouldLog(topic, Log.LEVEL_ERROR)) {
         log(Log.LEVEL_ERROR, block())
     }
 }
@@ -82,7 +82,7 @@ inline fun logWarning(topic: LogTopic = Log.TOPIC_OTHER, block: () -> String = {
     contract {
         callsInPlace(block, InvocationKind.AT_MOST_ONCE)
     }
-    if (Log.checkShouldFlog(topic, Log.LEVEL_WARNING)) {
+    if (Log.checkShouldLog(topic, Log.LEVEL_WARNING)) {
         log(Log.LEVEL_WARNING, block())
     }
 }
@@ -111,7 +111,7 @@ inline fun logInfo(topic: LogTopic = Log.TOPIC_OTHER, block: () -> String = { ""
     contract {
         callsInPlace(block, InvocationKind.AT_MOST_ONCE)
     }
-    if (Log.checkShouldFlog(topic, Log.LEVEL_INFO)) {
+    if (Log.checkShouldLog(topic, Log.LEVEL_INFO)) {
         log(Log.LEVEL_INFO, block())
     }
 }
@@ -140,7 +140,7 @@ inline fun logDebug(topic: LogTopic = Log.TOPIC_OTHER, block: () -> String = { "
     contract {
         callsInPlace(block, InvocationKind.AT_MOST_ONCE)
     }
-    if (Log.checkShouldFlog(topic, Log.LEVEL_DEBUG)) {
+    if (Log.checkShouldLog(topic, Log.LEVEL_DEBUG)) {
         log(Log.LEVEL_DEBUG, block())
     }
 }
@@ -171,6 +171,7 @@ private infix fun UInt.isSet(flag: UInt): Boolean {
  * Timber is licensed under the Apache 2.0 license, see the repo here:
  *  https://github.com/JakeWharton/timber
  */
+// This is originally from florisboard, its license should be preserved
 @Suppress("MemberVisibilityCanBePrivate")
 object Log {
     const val TOPIC_NONE: LogTopic =               UInt.MIN_VALUE
@@ -225,7 +226,7 @@ object Log {
      *
      * @return True if a log message should be evaluated, false otherwise.
      */
-    fun checkShouldFlog(topic: LogTopic, level: LogLevel): Boolean {
+    fun checkShouldLog(topic: LogTopic, level: LogLevel): Boolean {
         return isFloggingEnabled && (logTopics isSet topic) && (logLevels isSet level)
     }
 

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- for some reason, android still demands a legacy XML theme, even if your app uses compose,
+         so here is an impl of device default that has no action bar, to satisfy androids weirdness -->
+    <style name="Theme.DeviceDefault.DayNight.NoActionBar" parent="android:Theme.DeviceDefault.DayNight">
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+</resources>

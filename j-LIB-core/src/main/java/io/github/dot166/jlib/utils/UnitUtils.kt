@@ -14,10 +14,11 @@
  * limitations under the License.
  */
 
-package io.github.dot166.jlib.app.devtools
+package io.github.dot166.jlib.utils
 
 import android.annotation.SuppressLint
 
+// This is originally from florisboard, its license should be preserved
 object UnitUtils {
     private const val KiB = (1024).toFloat()
     private const val MiB = (1024 * 1024).toFloat()

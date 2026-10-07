@@ -14,14 +14,15 @@
  * limitations under the License.
  */
 
-package io.github.dot166.jlib.app.devtools
+package io.github.dot166.jlib.utils
 
 import android.icu.text.SimpleDateFormat
 import dev.patrickgold.jetpref.datastore.model.LocalTime
 import java.time.Instant
 import java.time.format.DateTimeFormatter
-import java.util.*
+import java.util.Locale
 
+// This is originally from florisboard, its license should be preserved
 object TimeUtils {
     private val ISO_INSTANT = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ", Locale.ENGLISH)
 

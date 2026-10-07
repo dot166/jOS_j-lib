@@ -1,5 +1,6 @@
 package io.github.dot166.jlib.app.crashpad
 
+// This is originally from florisboard, its license should be preserved
 /**
  * Public typealias for [java.io.File]. As a file object can either be a file
  * or a directory, this typealias allows you to be more verbose on what you

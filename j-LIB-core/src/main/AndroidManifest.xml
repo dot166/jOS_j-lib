@@ -5,14 +5,13 @@
 
     <uses-sdk android:minSdkVersion="31" />
 
-    <application android:name=".app.RestorableSettingsApplication"
-        android:backupAgent=".app.SettingsBackupHelper">
+    <application android:name=".app.CoreApplication">
         <!-- Test Activity -->
         <activity
             android:name=".LIBTestActivity"
             android:icon="@android:drawable/sym_def_app_icon"
             android:label="@string/libplaceholder"
-            android:theme="@style/Theme.Material3.DayNight.NoActionBar"
+            android:theme="@style/Theme.DeviceDefault.DayNight.NoActionBar"
             android:excludeFromRecents="true"
             android:taskAffinity=""
             android:launchMode="singleInstance"

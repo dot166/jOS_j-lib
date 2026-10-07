@@ -22,6 +22,7 @@ import com.materialkolor.dynamicColorScheme
 import com.materialkolor.dynamiccolor.ColorSpec
 import com.materialkolor.scheme.DynamicScheme
 
+// This is originally from florisboard, its license should be preserved
 @Composable
 fun JLibAppTheme(
     content: @Composable () -> Unit,
@@ -50,6 +51,7 @@ fun JLibAppTheme(
     )
 }
 
+// This is originally from florisboard, its license should be preserved
 val Typography = Typography(
     bodyLarge = TextStyle(
         fontFamily = FontFamily.Default,
@@ -58,6 +60,7 @@ val Typography = Typography(
     )
 )
 
+// This is originally from florisboard, its license should be preserved
 fun neutralDynamicColorScheme(
     primary: Color,
     isDark: Boolean,
@@ -90,6 +93,7 @@ fun neutralDynamicColorScheme(
         modifyColorScheme = modifyColorScheme,
     )
 
+// This is originally from florisboard, its license should be preserved
 @Composable
 fun getSystemAccent(): Color {
     val context = LocalContext.current

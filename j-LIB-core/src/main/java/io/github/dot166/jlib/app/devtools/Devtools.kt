@@ -16,15 +16,19 @@
 
 package io.github.dot166.jlib.app.devtools
 
+import android.annotation.SuppressLint
 import android.app.ActivityManager
 import android.content.Context
 import android.os.Build
 import android.os.Debug
+import io.github.dot166.jlib.utils.TimeUtils
+import io.github.dot166.jlib.utils.UnitUtils
 import java.io.BufferedReader
 import java.io.IOException
 import java.io.InputStreamReader
-import java.util.*
+import java.util.Locale
 
+// This is originally from florisboard, its license should be preserved
 @Suppress("MemberVisibilityCanBePrivate")
 object Devtools {
     fun generateDebugLog(context: Context, includeLogcat: Boolean = false): String {
@@ -139,15 +143,29 @@ object Devtools {
     }
 
     fun getAndroidVersion(includeOemBuildId: Boolean = false): String {
-        val fields = Build.VERSION_CODES::class.java.fields
-        val codeName = fields.firstOrNull { it.getInt(Build.VERSION_CODES::class) == Build.VERSION.SDK_INT }?.name
-            ?: return "Unknown"
+        val codeName = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.BAKLAVA) {
+            val fields = Build.VERSION_CODES_FULL::class.java.fields
+            val codeName = fields.firstOrNull { it.getInt(Build.VERSION_CODES_FULL::class) == Build.VERSION.SDK_INT_FULL }?.name
+                ?: return "Unknown"
+            codeName
+        } else {
+            val fields = Build.VERSION_CODES::class.java.fields
+            val codeName = fields.firstOrNull { it.getInt(Build.VERSION_CODES::class) == Build.VERSION.SDK_INT }?.name
+                ?: return "Unknown"
+            codeName
+        }
         return buildString {
             append(Build.VERSION.RELEASE)
             append(" (cn=")
             append(codeName)
             append(" sdk=")
-            append(Build.VERSION.SDK_INT)
+            append(
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.BAKLAVA) {
+                    Build.VERSION.SDK_INT_FULL
+                } else {
+                    Build.VERSION.SDK_INT
+                }
+            )
             append(")")
             if (includeOemBuildId) {
                 append(" [")
@@ -157,6 +175,7 @@ object Devtools {
         }
     }
 
+    @SuppressLint("DefaultLocale")
     fun getSystemMemoryUsage(context: Context): String {
         return buildString {
             try {
@@ -180,6 +199,7 @@ object Devtools {
         }
     }
 
+    @SuppressLint("DefaultLocale")
     fun getAppJavaHeapMemoryUsage(): String {
         return buildString {
             try {
@@ -201,6 +221,7 @@ object Devtools {
         }
     }
 
+    @SuppressLint("DefaultLocale")
     fun getAppNativeHeapMemoryUsage(): String {
         return buildString {
             try {

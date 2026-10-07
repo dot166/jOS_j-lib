@@ -2,7 +2,7 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.lineageos.generatebp.GenerateBpPluginExtension
 import org.lineageos.generatebp.models.Module
 
-val Ver: String = rootProject.extra["libVersion"] as String
+val ver: String = rootProject.extra["libVersion"] as String
 val libMinSdk: Int = rootProject.extra["libMinSdk"] as Int
 val libCompileSdkMajor: Int = rootProject.extra["libCompileSdkMajor"] as Int
 val libCompileSdkMinor: Int = rootProject.extra["libCompileSdkMinor"] as Int
@@ -16,7 +16,7 @@ plugins {
 }
 
 group = "io.github.dot166"
-version = Ver
+version = ver
 
 android {
     namespace = "io.github.dot166.jlib"
@@ -73,12 +73,11 @@ dependencies {
     api(libs.androidx.ui)
     api(libs.gson)
     api(libs.androidx.activity.compose)
+    api(libs.androidx.material.icons)
     implementation(libs.androidx.ui.tooling.preview)
+    implementation(libs.androidx.navigation.compose)
     debugImplementation(libs.androidx.ui.tooling)
-    api(libs.settingsLib) // GrapheneOS/AOSP SettingsLib
     api(libs.liblauncher3)
-    api(libs.dagger)
-    ksp(libs.dagger.compiler)
     api(libs.patrickgold.jetpref.datastore.model)
     ksp(libs.patrickgold.jetpref.datastore.model.processor)
     api(libs.patrickgold.jetpref.datastore.ui)

@@ -2,17 +2,28 @@ package io.github.dot166.jlib.app.crashpad
 
 import android.content.ClipData
 import android.content.ClipboardManager
-import android.content.Intent
 import android.content.res.Configuration
-import android.net.Uri
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.displayCutoutPadding
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.imePadding
+import androidx.compose.foundation.layout.navigationBarsPadding
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material3.*
+import androidx.compose.material3.Button
+import androidx.compose.material3.DividerDefaults
+import androidx.compose.material3.HorizontalDivider
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Modifier
@@ -31,6 +42,7 @@ import io.github.dot166.jlib.compose.JLibScreen
 import io.github.dot166.jlib.compose.conditional
 import io.github.dot166.jlib.version
 
+// This is originally from florisboard, its license should be preserved
 class CrashDialogActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -72,10 +84,22 @@ class CrashDialogActivity : ComponentActivity() {
             }
         }
 
+        val reportTitle = getString(
+            R.string.crash_dialog__title
+        ).format(
+            getAppLabel()
+        )
+
+        val reportDescription = getString(
+            R.string.crash_dialog__description
+        ).format(
+            getAppLabel()
+        )
+
         val reportInstructions = getString(
             R.string.crash_dialog__report_instructions
         ).format(
-            getString(R.string.crash_dialog__bug_report_template)
+            getAppLabel()
         )
 
         setContent {
@@ -100,17 +124,20 @@ class CrashDialogActivity : ComponentActivity() {
                                     copyToClipboard(errorReport)
                                 },
                                 onOpenBugReport = {
-//                              val browserIntent = Intent(
-//                                Intent.ACTION_VIEW,
-//                                Uri.parse(
-//                                    getString(R.string.florisboard__issue_tracker_url)
-//                                ),
-//                              )
-//                              startActivity(browserIntent)
+                                    // TODO: somehow figure out how to let upstream apps funnel their issue tracker into crashpad
+//                                    val browserIntent = Intent(
+//                                      Intent.ACTION_VIEW,
+//                                      Uri.parse(
+//                                          getString(R.string.florisboard__issue_tracker_url)
+//                                      ),
+//                                    )
+//                                    startActivity(browserIntent)
                                 },
                                 onClose = {
                                     finish()
                                 },
+                                reportTitle = reportTitle,
+                                reportDescription = reportDescription,
                             )
                         }
                     }
@@ -172,9 +199,11 @@ private fun CrashDialogScreen(
     onCopyToClipboard: () -> Unit,
     onOpenBugReport: () -> Unit,
     onClose: () -> Unit,
+    reportTitle: String,
+    reportDescription: String,
 ) {
     JLibScreen(
-        title = stringResource(R.string.crash_dialog__title),
+        title = reportTitle,
         navigationIconVisible = false,
         bottomBar = {
             Column(
@@ -236,9 +265,7 @@ private fun CrashDialogScreen(
                 .verticalScroll(rememberScrollState()),
         ) {
             Text(
-                text = stringResource(
-                    R.string.crash_dialog__description
-                ),
+                text = reportDescription,
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(8.dp),

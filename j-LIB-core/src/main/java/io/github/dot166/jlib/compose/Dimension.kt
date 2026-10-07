@@ -18,6 +18,8 @@ package io.github.dot166.jlib.compose
 
 import androidx.compose.ui.unit.dp
 
+// This is originally from florisboard, its license should be preserved
 val SegmentedListColumnVerticalPadding = 8.dp
 
+// This is originally from florisboard, its license should be preserved
 val ScreenHorizontalPadding = 16.dp

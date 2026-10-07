@@ -20,7 +20,6 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.ExperimentalMaterial3ExpressiveApi
 import androidx.compose.material3.ListItemDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -28,6 +27,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import io.github.dot166.jlib.compose.SegmentedListColumnVerticalPadding
 
+// This is originally from florisboard, its license should be preserved
 @Composable
 fun SegmentedListTitle(
     title: String,
@@ -42,7 +42,7 @@ fun SegmentedListTitle(
     )
 }
 
-@OptIn(ExperimentalMaterial3ExpressiveApi::class)
+// This is originally from florisboard, its license should be preserved
 @Composable
 fun SegmentedListColumn(
     modifier: Modifier = Modifier,

@@ -22,7 +22,6 @@ import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material3.ExperimentalMaterial3ExpressiveApi
 import androidx.compose.material3.FilledTonalIconButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButtonDefaults
@@ -34,29 +33,24 @@ import androidx.compose.material3.TopAppBarColors
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.TopAppBarScrollBehavior
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.SideEffect
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
-import dev.patrickgold.jetpref.datastore.ui.PreferenceUiContent
-import io.github.dot166.jlib.app.JLibPreferenceModel
 import io.github.dot166.jlib.app.LocalNavController
 
-typealias FlorisScreenActions = @Composable RowScope.() -> Unit
-typealias FlorisScreenBottomBar = @Composable () -> Unit
-typealias FlorisScreenContent = PreferenceUiContent<JLibPreferenceModel>
-typealias FlorisScreenFab = @Composable () -> Unit
-typealias FlorisScreenNavigationIcon = @Composable () -> Unit
+typealias JLibScreenActions = @Composable RowScope.() -> Unit
+typealias JLibScreenBottomBar = @Composable () -> Unit
+typealias JLibScreenFab = @Composable () -> Unit
 
 @Composable
 fun JLibScreen(
     title: String,
     navigationIconVisible: Boolean = true,
-    actions: FlorisScreenActions = {},
-    bottomBar: FlorisScreenBottomBar = {},
-    fab: FlorisScreenFab = {},
+    actions: JLibScreenActions = {},
+    bottomBar: JLibScreenBottomBar = {},
+    fab: JLibScreenFab = {},
     navigationIcon: ImageVector = Icons.AutoMirrored.Filled.ArrowBack,
     content: @Composable (PaddingValues) -> Unit,
 ) {
@@ -87,7 +81,6 @@ fun JLibScreen(
     )
 }
 
-@OptIn(ExperimentalMaterial3ExpressiveApi::class)
 @Composable
 fun JLibAppBar(
     title: String,

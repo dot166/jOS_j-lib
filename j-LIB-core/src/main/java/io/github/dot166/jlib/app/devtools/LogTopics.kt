@@ -23,6 +23,7 @@ package io.github.dot166.jlib.app.devtools
  * add a new topic here, just make sure it is a 2^n value and does not
  * exceed the maximum value of [LogTopic].
  */
+// This is originally from florisboard, its license should be preserved
 @Suppress("MemberVisibilityCanBePrivate", "Unused")
 object LogTopics {
     const val NONE: LogTopic =                 Log.TOPIC_NONE

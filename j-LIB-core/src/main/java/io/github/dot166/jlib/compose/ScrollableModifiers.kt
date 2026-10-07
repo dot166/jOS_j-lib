@@ -37,10 +37,13 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.delay
 
+// This is originally from florisboard, its license should be preserved
 private val DefaultScrollbarSize = 4.dp
+// This is originally from florisboard, its license should be preserved
 // IgnoreInVeryFastOut (basically)
 private val ScrollbarAnimationEasing = CubicBezierEasing(1f, 0f, 0.82f, -0.13f)
 
+// This is originally from florisboard, its license should be preserved
 fun Modifier.florisVerticalScroll(
     state: ScrollState? = null,
     showScrollbar: Boolean = true,
@@ -54,6 +57,7 @@ fun Modifier.florisVerticalScroll(
     }
 }
 
+// This is originally from florisboard, its license should be preserved
 fun Modifier.florisScrollbar(
     state: ScrollState,
     scrollbarSize: Dp = DefaultScrollbarSize,
