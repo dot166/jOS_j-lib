@@ -16,7 +16,7 @@
             android:taskAffinity=""
             android:launchMode="singleInstance"
             android:exported="true" />
-        <activity android:name=".app.crashpad.CrashDialogActivity"/>
+        <activity android:name=".app.crashpad.CrashPadActivity"/>
     </application>
 
 </manifest>

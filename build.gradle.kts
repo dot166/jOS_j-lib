@@ -16,6 +16,6 @@ buildscript {
         }.standardOutput.asText.get().trim())
         set("libMinSdk", 31)
         set("libCompileSdkMajor", 37)
-        set("libCompileSdkMinor", 0)
+        set("libCompileSdkMinor", 1)
     }
 }

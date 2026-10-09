@@ -21,6 +21,7 @@ import android.app.ActivityManager
 import android.content.Context
 import android.os.Build
 import android.os.Debug
+import io.github.dot166.jlib.jLibVersion
 import io.github.dot166.jlib.utils.TimeUtils
 import io.github.dot166.jlib.utils.UnitUtils
 import java.io.BufferedReader
@@ -95,6 +96,7 @@ object Devtools {
             append("Package             : ").appendLine(packageInfo.packageName)
             append("Name                : ").appendLine(getAppLabel(context))
             append("Version             : ").appendLine("${packageInfo.versionName ?: packageInfo.longVersionCode} (${packageInfo.longVersionCode})")
+            append("JLibVersion         : ").appendLine(jLibVersion)
             //append("Build type          : ").appendLine(BuildConfig.BUILD_TYPE)
             append("Java heap memory    : ").appendLine(getAppJavaHeapMemoryUsage())
             append("Native heap memory  : ").appendLine(getAppNativeHeapMemoryUsage())
@@ -143,29 +145,15 @@ object Devtools {
     }
 
     fun getAndroidVersion(includeOemBuildId: Boolean = false): String {
-        val codeName = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.BAKLAVA) {
-            val fields = Build.VERSION_CODES_FULL::class.java.fields
-            val codeName = fields.firstOrNull { it.getInt(Build.VERSION_CODES_FULL::class) == Build.VERSION.SDK_INT_FULL }?.name
-                ?: return "Unknown"
-            codeName
-        } else {
-            val fields = Build.VERSION_CODES::class.java.fields
-            val codeName = fields.firstOrNull { it.getInt(Build.VERSION_CODES::class) == Build.VERSION.SDK_INT }?.name
-                ?: return "Unknown"
-            codeName
-        }
+        val fields = Build.VERSION_CODES::class.java.fields
+        val codeName = fields.firstOrNull { it.getInt(Build.VERSION_CODES::class) == Build.VERSION.SDK_INT }?.name
+            ?: return "Unknown"
         return buildString {
             append(Build.VERSION.RELEASE)
             append(" (cn=")
             append(codeName)
             append(" sdk=")
-            append(
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.BAKLAVA) {
-                    Build.VERSION.SDK_INT_FULL
-                } else {
-                    Build.VERSION.SDK_INT
-                }
-            )
+            append(Build.VERSION.SDK_INT)
             append(")")
             if (includeOemBuildId) {
                 append(" [")

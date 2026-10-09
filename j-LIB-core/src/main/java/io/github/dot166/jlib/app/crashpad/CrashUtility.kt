@@ -101,7 +101,7 @@ abstract class CrashUtility private constructor() {
                             activity: Activity,
                             savedInstanceState: Bundle?,
                         ) {
-                            if (activity !is CrashDialogActivity) {
+                            if (activity !is CrashPadActivity) {
                                 lastActivityCreated = WeakReference(activity)
                             }
                         }
@@ -302,7 +302,7 @@ abstract class CrashUtility private constructor() {
                 setLastCrashTimestamp(application, timestamp)
                 if (lastActivity != null) {
                     try {
-                        val intent = Intent(lastActivity, CrashDialogActivity::class.java).apply {
+                        val intent = Intent(lastActivity, CrashPadActivity::class.java).apply {
                             addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
                             addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP)
                             addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)

@@ -82,7 +82,6 @@ dependencies {
     ksp(libs.patrickgold.jetpref.datastore.model.processor)
     api(libs.patrickgold.jetpref.datastore.ui)
     api(libs.patrickgold.jetpref.material.ui)
-    api(libs.material.kolor)
 }
 
 mavenPublishing {

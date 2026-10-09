@@ -27,6 +27,7 @@ android {
         targetSdk = libCompileSdkMajor
         versionCode = verCode
         versionName = ver
+        //buildConfigField("String", "JLIB_BUG_TRACKER_URL", "\"https://github.com/dot166/jOS_j-Lib/issues\"")
     }
 
     buildTypes {
@@ -40,7 +41,10 @@ android {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
     }
-    buildFeatures { compose = true }
+    buildFeatures {
+        //buildConfig = true
+        compose = true
+    }
 }
 
 dependencies {

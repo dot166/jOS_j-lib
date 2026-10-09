@@ -5,34 +5,47 @@ import android.content.ClipboardManager
 import android.content.res.Configuration
 import android.os.Bundle
 import android.widget.Toast
-import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.calculateEndPadding
+import androidx.compose.foundation.layout.calculateStartPadding
 import androidx.compose.foundation.layout.displayCutoutPadding
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.imePadding
 import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.BugReport
+import androidx.compose.material.icons.filled.Close
+import androidx.compose.material.icons.filled.ContentCopy
 import androidx.compose.material3.Button
 import androidx.compose.material3.DividerDefaults
 import androidx.compose.material3.HorizontalDivider
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalConfiguration
+import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.compose.rememberNavController
 import io.github.dot166.jlib.R
+import io.github.dot166.jlib.app.CoreActivity
 import io.github.dot166.jlib.app.LocalNavController
 import io.github.dot166.jlib.app.devtools.Devtools
 import io.github.dot166.jlib.app.devtools.LogTopics
@@ -40,10 +53,12 @@ import io.github.dot166.jlib.app.devtools.logWarning
 import io.github.dot166.jlib.compose.JLibAppTheme
 import io.github.dot166.jlib.compose.JLibScreen
 import io.github.dot166.jlib.compose.conditional
-import io.github.dot166.jlib.version
+import io.github.dot166.jlib.compose.florisScrollbar
+import io.github.dot166.jlib.compose.florisVerticalScroll
+import io.github.dot166.jlib.jLibVersion
 
 // This is originally from florisboard, its license should be preserved
-class CrashDialogActivity : ComponentActivity() {
+class CrashPadActivity : CoreActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,7 +70,7 @@ class CrashDialogActivity : ComponentActivity() {
             val packageInfo = packageManager.getPackageInfo(packageName, 0)
 
             appendLine("- ${getAppLabel()} [${packageInfo.versionName ?: packageInfo.longVersionCode}] (${packageInfo.longVersionCode})")
-            appendLine("- jLib [${version}]")
+            appendLine("- jLib [${jLibVersion}]")
             appendLine("- Device: ${Devtools.getDeviceName()}")
             appendLine("- Android: ${Devtools.getAndroidVersion()}")
             appendLine()
@@ -65,7 +80,7 @@ class CrashDialogActivity : ComponentActivity() {
             appendCollapsibleSection(
                 summary = "Detailed info (Debug log header)",
                 details = Devtools.generateDebugLog(
-                    this@CrashDialogActivity,
+                    this@CrashPadActivity,
                     includeLogcat = false,
                 ),
             )
@@ -104,42 +119,40 @@ class CrashDialogActivity : ComponentActivity() {
 
         setContent {
             JLibAppTheme {
-                Surface(color = MaterialTheme.colorScheme.background) {
-                    CompositionLocalProvider(
-                        LocalNavController provides rememberNavController(),
+                CompositionLocalProvider(
+                    LocalNavController provides rememberNavController(),
+                ) {
+                    Column(
+                        modifier = Modifier
+                            //.statusBarsPadding()
+                            .navigationBarsPadding()
+                            .conditional(LocalConfiguration.current.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+                                displayCutoutPadding()
+                            }
+                            .imePadding(),
                     ) {
-                        Column(
-                            modifier = Modifier
-                                //.statusBarsPadding()
-                                .navigationBarsPadding()
-                                .conditional(LocalConfiguration.current.orientation == Configuration.ORIENTATION_LANDSCAPE) {
-                                    displayCutoutPadding()
-                                }
-                                .imePadding(),
-                        ) {
-                            CrashDialogScreen(
-                                errorReport = errorReport,
-                                reportInstructions = reportInstructions,
-                                onCopyToClipboard = {
-                                    copyToClipboard(errorReport)
-                                },
-                                onOpenBugReport = {
-                                    // TODO: somehow figure out how to let upstream apps funnel their issue tracker into crashpad
-//                                    val browserIntent = Intent(
-//                                      Intent.ACTION_VIEW,
-//                                      Uri.parse(
-//                                          getString(R.string.florisboard__issue_tracker_url)
-//                                      ),
-//                                    )
-//                                    startActivity(browserIntent)
-                                },
-                                onClose = {
-                                    finish()
-                                },
-                                reportTitle = reportTitle,
-                                reportDescription = reportDescription,
-                            )
-                        }
+                        CrashDialogScreen(
+                            errorReport = errorReport,
+                            reportInstructions = reportInstructions,
+                            onCopyToClipboard = {
+                                copyToClipboard(errorReport)
+                            },
+                            onOpenBugReport = {
+                                // TODO: somehow figure out how to let upstream apps funnel their issue tracker into crashpad
+//                                val browserIntent = Intent(
+//                                    Intent.ACTION_VIEW,
+//                                    Uri.parse(
+//                                        getString(R.string.florisboard__issue_tracker_url)
+//                                    ),
+//                                )
+//                                startActivity(browserIntent)
+                            },
+                            onClose = {
+                                finish()
+                            },
+                            reportTitle = reportTitle,
+                            reportDescription = reportDescription,
+                        )
                     }
                 }
             }
@@ -206,52 +219,65 @@ private fun CrashDialogScreen(
         title = reportTitle,
         navigationIconVisible = false,
         bottomBar = {
-            Column(
-                modifier = Modifier.fillMaxWidth(),
+            Surface(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 12.dp, vertical = 8.dp),
+                shape = RoundedCornerShape(20.dp),
+                color = MaterialTheme.colorScheme.surface.copy(alpha = 0.5f),
+                shadowElevation = 6.dp,
             ) {
-                Row(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(2.dp),
-                    horizontalArrangement = Arrangement.Start,
+                Column(
+                    modifier = Modifier.fillMaxWidth(),
                 ) {
-                    Button(
-                        onClick = onCopyToClipboard,
-                        modifier = Modifier.padding(2.dp),
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(2.dp),
+                        horizontalArrangement = Arrangement.SpaceEvenly,
                     ) {
-                        Text(
-                            text = stringResource(
-                                R.string.crash_dialog__copy_to_clipboard
+                        OutlinedButton(
+                            onClick = onClose,
+                            modifier = Modifier.padding(2.dp),
+                        ) {
+                            Icon(Icons.Default.Close, null)
+                            Text(
+                                text = stringResource(
+                                    R.string.crash_dialog__close
+                                )
                             )
-                        )
+                        }
+
+                        Button(
+                            onClick = onOpenBugReport,
+                            modifier = Modifier.padding(2.dp),
+                        ) {
+                            Icon(Icons.Default.BugReport, null)
+                            Text(
+                                text = stringResource(
+                                    R.string.crash_dialog__open_issue_tracker
+                                )
+                            )
+                        }
                     }
 
-                    Button(
-                        onClick = onOpenBugReport,
-                        modifier = Modifier.padding(2.dp),
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(2.dp),
+                        horizontalArrangement = Arrangement.SpaceEvenly,
                     ) {
-                        Text(
-                            text = stringResource(
-                                R.string.crash_dialog__open_issue_tracker
+                        TextButton(
+                            onClick = onCopyToClipboard,
+                            modifier = Modifier.padding(2.dp),
+                        ) {
+                            Icon(Icons.Default.ContentCopy, null)
+                            Text(
+                                text = stringResource(
+                                    R.string.crash_dialog__copy_to_clipboard
+                                )
                             )
-                        )
-                    }
-                }
-
-                Row(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(2.dp),
-                ) {
-                    Button(
-                        onClick = onClose,
-                        modifier = Modifier.padding(2.dp),
-                    ) {
-                        Text(
-                            text = stringResource(
-                                R.string.crash_dialog__close
-                            )
-                        )
+                        }
                     }
                 }
             }
@@ -261,9 +287,14 @@ private fun CrashDialogScreen(
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(innerPadding)
-                .verticalScroll(rememberScrollState()),
+                .padding(
+                    start = innerPadding.calculateStartPadding(LocalLayoutDirection.current),
+                    end = innerPadding.calculateEndPadding(LocalLayoutDirection.current),
+                )
+                .florisVerticalScroll(),
         ) {
+            Spacer(modifier = Modifier.height(innerPadding.calculateTopPadding()))
+
             Text(
                 text = reportDescription,
                 modifier = Modifier
@@ -295,6 +326,8 @@ private fun CrashDialogScreen(
                     .fillMaxWidth()
                     .padding(8.dp),
             )
+
+            Spacer(modifier = Modifier.height(innerPadding.calculateBottomPadding()))
         }
     }
 }

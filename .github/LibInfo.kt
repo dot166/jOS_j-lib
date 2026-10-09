@@ -1,3 +1,3 @@
 package io.github.dot166.jlib
 
-const val version: String = "template"
+const val jLibVersion: String = "template"

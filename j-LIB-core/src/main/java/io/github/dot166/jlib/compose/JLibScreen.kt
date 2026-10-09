@@ -20,6 +20,7 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.FilledTonalIconButton
@@ -34,6 +35,7 @@ import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.TopAppBarScrollBehavior
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.text.style.TextOverflow
@@ -88,8 +90,8 @@ fun JLibAppBar(
     actions: @Composable RowScope.() -> Unit = { },
     scrollBehavior: TopAppBarScrollBehavior,
     colors: TopAppBarColors = TopAppBarDefaults.topAppBarColors(
-        containerColor = MaterialTheme.colorScheme.background,
-        scrolledContainerColor = MaterialTheme.colorScheme.background,
+        containerColor = MaterialTheme.colorScheme.surface.copy(alpha = 0.5f),
+        scrolledContainerColor = MaterialTheme.colorScheme.surface.copy(alpha = 0.5f),
     ),
 ) {
     MediumFlexibleTopAppBar(
@@ -104,5 +106,6 @@ fun JLibAppBar(
         actions = { Row(Modifier.padding(end = 8.dp), content = actions) },
         colors = colors,
         scrollBehavior = scrollBehavior,
+        modifier = Modifier.clip(shape = RoundedCornerShape(0.dp, 0.dp, 20.dp, 20.dp))
     )
 }
