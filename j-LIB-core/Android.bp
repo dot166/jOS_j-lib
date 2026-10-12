@@ -67,7 +67,12 @@ android_library {
     ],
     use_resource_processor: true,
 
-    kotlincflags: ["-Xjvm-default=all"],
+    kotlincflags: [
+        "-Xjvm-default=all",
+        "-opt-in=kotlin.contracts.ExperimentalContracts",
+        "-opt-in=androidx.compose.material3.ExperimentalMaterial3ExpressiveApi",
+        "-opt-in=androidx.compose.material3.ExperimentalMaterial3Api",
+    ],
     sdk_version: "current",
     min_sdk_version: "31",
     plugins: ["jetpref-datastore-model-processor"],
