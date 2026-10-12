@@ -9,19 +9,11 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.calculateEndPadding
-import androidx.compose.foundation.layout.calculateStartPadding
 import androidx.compose.foundation.layout.displayCutoutPadding
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.imePadding
 import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.BugReport
 import androidx.compose.material.icons.filled.Close
@@ -30,9 +22,7 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.DividerDefaults
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
@@ -40,7 +30,6 @@ import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalConfiguration
-import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.compose.rememberNavController
@@ -53,8 +42,6 @@ import io.github.dot166.jlib.app.devtools.logWarning
 import io.github.dot166.jlib.compose.JLibAppTheme
 import io.github.dot166.jlib.compose.JLibScreen
 import io.github.dot166.jlib.compose.conditional
-import io.github.dot166.jlib.compose.florisScrollbar
-import io.github.dot166.jlib.compose.florisVerticalScroll
 import io.github.dot166.jlib.jLibVersion
 
 // This is originally from florisboard, its license should be preserved
@@ -219,115 +206,92 @@ private fun CrashDialogScreen(
         title = reportTitle,
         navigationIconVisible = false,
         bottomBar = {
-            Surface(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = 12.dp, vertical = 8.dp),
-                shape = RoundedCornerShape(20.dp),
-                color = MaterialTheme.colorScheme.surface.copy(alpha = 0.5f),
-                shadowElevation = 6.dp,
+            Column(
+                modifier = Modifier.fillMaxWidth(),
             ) {
-                Column(
-                    modifier = Modifier.fillMaxWidth(),
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(2.dp),
+                    horizontalArrangement = Arrangement.SpaceEvenly,
                 ) {
-                    Row(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(2.dp),
-                        horizontalArrangement = Arrangement.SpaceEvenly,
+                    OutlinedButton(
+                        onClick = onClose,
+                        modifier = Modifier.padding(2.dp),
                     ) {
-                        OutlinedButton(
-                            onClick = onClose,
-                            modifier = Modifier.padding(2.dp),
-                        ) {
-                            Icon(Icons.Default.Close, null)
-                            Text(
-                                text = stringResource(
-                                    R.string.crash_dialog__close
-                                )
+                        Icon(Icons.Default.Close, null)
+                        Text(
+                            text = stringResource(
+                                R.string.crash_dialog__close
                             )
-                        }
-
-                        Button(
-                            onClick = onOpenBugReport,
-                            modifier = Modifier.padding(2.dp),
-                        ) {
-                            Icon(Icons.Default.BugReport, null)
-                            Text(
-                                text = stringResource(
-                                    R.string.crash_dialog__open_issue_tracker
-                                )
-                            )
-                        }
+                        )
                     }
 
-                    Row(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(2.dp),
-                        horizontalArrangement = Arrangement.SpaceEvenly,
+                    Button(
+                        onClick = onOpenBugReport,
+                        modifier = Modifier.padding(2.dp),
                     ) {
-                        TextButton(
-                            onClick = onCopyToClipboard,
-                            modifier = Modifier.padding(2.dp),
-                        ) {
-                            Icon(Icons.Default.ContentCopy, null)
-                            Text(
-                                text = stringResource(
-                                    R.string.crash_dialog__copy_to_clipboard
-                                )
+                        Icon(Icons.Default.BugReport, null)
+                        Text(
+                            text = stringResource(
+                                R.string.crash_dialog__open_issue_tracker
                             )
-                        }
+                        )
+                    }
+                }
+
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(2.dp),
+                    horizontalArrangement = Arrangement.SpaceEvenly,
+                ) {
+                    TextButton(
+                        onClick = onCopyToClipboard,
+                        modifier = Modifier.padding(2.dp),
+                    ) {
+                        Icon(Icons.Default.ContentCopy, null)
+                        Text(
+                            text = stringResource(
+                                R.string.crash_dialog__copy_to_clipboard
+                            )
+                        )
                     }
                 }
             }
         },
-    ) { innerPadding ->
+    ) { (_, _) ->
 
-        Column(
+        Text(
+            text = reportDescription,
             modifier = Modifier
-                .fillMaxSize()
+                .fillMaxWidth()
+                .padding(8.dp),
+        )
+
+        Text(
+            text = reportInstructions,
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(8.dp),
+        )
+
+        HorizontalDivider(
+            modifier = Modifier
+                .fillMaxWidth()
                 .padding(
-                    start = innerPadding.calculateStartPadding(LocalLayoutDirection.current),
-                    end = innerPadding.calculateEndPadding(LocalLayoutDirection.current),
-                )
-                .florisVerticalScroll(),
-        ) {
-            Spacer(modifier = Modifier.height(innerPadding.calculateTopPadding()))
+                    top = 8.dp,
+                    bottom = 8.dp,
+                ),
+            thickness = DividerDefaults.Thickness,
+            color = Color.DarkGray,
+        )
 
-            Text(
-                text = reportDescription,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(8.dp),
-            )
-
-            Text(
-                text = reportInstructions,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(8.dp),
-            )
-
-            HorizontalDivider(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(
-                        top = 8.dp,
-                        bottom = 8.dp,
-                    ),
-                thickness = DividerDefaults.Thickness,
-                color = Color.DarkGray,
-            )
-
-            Text(
-                text = errorReport,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(8.dp),
-            )
-
-            Spacer(modifier = Modifier.height(innerPadding.calculateBottomPadding()))
-        }
+        Text(
+            text = errorReport,
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(8.dp),
+        )
     }
 }

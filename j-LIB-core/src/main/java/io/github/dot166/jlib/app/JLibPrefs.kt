@@ -17,6 +17,11 @@ abstract class JLibPreferenceModel : PreferenceModel() {
     inner class Internal {
     }
 
+    val theme = Theme()
+    inner class Theme {
+        val translucent = boolean("translucent", true)
+    }
+
     val tests = Tests()
     inner class Tests {
         val test = string("aaaaa", "null")

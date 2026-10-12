@@ -25,19 +25,23 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import io.github.dot166.jlib.compose.ScreenHorizontalPadding
 import io.github.dot166.jlib.compose.SegmentedListColumnVerticalPadding
+import io.github.dot166.jlib.compose.conditional
 import io.github.dot166.jlib.compose.florisVerticalScroll
 
 // This is originally from florisboard, its license should be preserved
 @Composable
 fun ScrollableScreenColumn(
     contentPadding: PaddingValues,
+    translucent: Boolean,
     content: @Composable ColumnScope.() -> Unit,
 ) {
     Column(
         Modifier
             .padding(contentPadding)
             .fillMaxSize()
-            .florisVerticalScroll()
+            .conditional(!translucent) {
+                florisVerticalScroll()
+            }
             .padding(
                 start = ScreenHorizontalPadding,
                 end = ScreenHorizontalPadding,

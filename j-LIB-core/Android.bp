@@ -49,6 +49,9 @@ android_library {
         "SettingsLibDataStore",
         "SettingsLibSettingsTheme",
         "SpaLib",
+        "jetpref-datastore-model",
+        "jetpref-datastore-ui",
+        "jetpref-material-ui",
     ],
 
     manifest: "src/main/AndroidManifest.xml",
@@ -67,4 +70,5 @@ android_library {
     kotlincflags: ["-Xjvm-default=all"],
     sdk_version: "current",
     min_sdk_version: "31",
+    plugins: ["jetpref-datastore-model-processor"],
 }

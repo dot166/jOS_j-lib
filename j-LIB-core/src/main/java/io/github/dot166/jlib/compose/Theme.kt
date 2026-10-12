@@ -10,6 +10,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.SideEffect
 import androidx.compose.runtime.remember
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
 import androidx.core.view.WindowCompat
@@ -49,3 +50,12 @@ fun JLibAppTheme(
         }
     }
 }
+
+fun Color.conditionalCopy(
+    condition: Boolean,
+    alpha: Float = this.alpha,
+    red: Float = this.red,
+    green: Float = this.green,
+    blue: Float = this.blue,
+): Color =
+    if (condition) copy(alpha = alpha, red = red, green = green, blue = blue) else this
