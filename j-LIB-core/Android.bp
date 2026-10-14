@@ -75,5 +75,6 @@ android_library {
     ],
     sdk_version: "current",
     min_sdk_version: "31",
+    enable_ksp: true,
     plugins: ["jetpref-datastore-model-processor"],
 }
