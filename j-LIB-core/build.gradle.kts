@@ -96,6 +96,7 @@ mavenPublishing {
             license {
                 name.set("MIT License")
                 url.set("https://opensource.org/licenses/MIT/")
+                distribution.set("repo")
             }
         }
         developers {
