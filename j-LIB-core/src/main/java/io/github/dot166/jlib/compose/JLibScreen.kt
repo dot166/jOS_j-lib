@@ -16,6 +16,7 @@
 
 package io.github.dot166.jlib.compose
 
+import androidx.activity.compose.LocalOnBackPressedDispatcherOwner
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
@@ -50,7 +51,6 @@ import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
-import io.github.dot166.jlib.app.LocalNavController
 import io.github.dot166.jlib.app.jLibPreferenceStore
 
 @Composable
@@ -64,7 +64,6 @@ fun JLibScreen(
     navigationIcon: ImageVector = Icons.AutoMirrored.Filled.ArrowBack,
     content: @Composable (PaddingWithTranslucency) -> Unit,
 ) {
-    val navController = LocalNavController.current
     val scrollBehavior = TopAppBarDefaults.exitUntilCollapsedScrollBehavior()
     val prefs by jLibPreferenceStore
     val translucent = translucency != Translucency.FORCE_OFF && (translucency == Translucency.FORCE_ON || prefs.theme.translucent.asFlow().collectAsState().value)
@@ -75,8 +74,9 @@ fun JLibScreen(
             JLibAppBar(
                 title,
                 (@Composable {
+                    val onBackPressedDispatcherOwner = LocalOnBackPressedDispatcherOwner.current
                     FilledTonalIconButton(
-                        onClick = { navController.popBackStack() },
+                        onClick = { onBackPressedDispatcherOwner?.onBackPressedDispatcher?.onBackPressed() },
                         modifier = Modifier.padding(start = 8.dp, end = 4.dp),
                         colors = IconButtonDefaults.filledTonalIconButtonColors(
                             containerColor = MaterialTheme.colorScheme.surfaceContainer,

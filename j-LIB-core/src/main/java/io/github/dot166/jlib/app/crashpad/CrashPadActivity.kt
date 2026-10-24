@@ -26,16 +26,13 @@ import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import androidx.navigation.compose.rememberNavController
 import io.github.dot166.jlib.R
 import io.github.dot166.jlib.app.CoreActivity
-import io.github.dot166.jlib.app.LocalNavController
 import io.github.dot166.jlib.app.devtools.Devtools
 import io.github.dot166.jlib.app.devtools.LogTopics
 import io.github.dot166.jlib.app.devtools.logWarning
@@ -106,41 +103,37 @@ class CrashPadActivity : CoreActivity() {
 
         setContent {
             JLibAppTheme {
-                CompositionLocalProvider(
-                    LocalNavController provides rememberNavController(),
+                Column(
+                    modifier = Modifier
+                        //.statusBarsPadding()
+                        .navigationBarsPadding()
+                        .conditional(LocalConfiguration.current.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+                            displayCutoutPadding()
+                        }
+                        .imePadding(),
                 ) {
-                    Column(
-                        modifier = Modifier
-                            //.statusBarsPadding()
-                            .navigationBarsPadding()
-                            .conditional(LocalConfiguration.current.orientation == Configuration.ORIENTATION_LANDSCAPE) {
-                                displayCutoutPadding()
-                            }
-                            .imePadding(),
-                    ) {
-                        CrashDialogScreen(
-                            errorReport = errorReport,
-                            reportInstructions = reportInstructions,
-                            onCopyToClipboard = {
-                                copyToClipboard(errorReport)
-                            },
-                            onOpenBugReport = {
-                                // TODO: somehow figure out how to let upstream apps funnel their issue tracker into crashpad
-//                                val browserIntent = Intent(
-//                                    Intent.ACTION_VIEW,
-//                                    Uri.parse(
-//                                        getString(R.string.florisboard__issue_tracker_url)
-//                                    ),
-//                                )
-//                                startActivity(browserIntent)
-                            },
-                            onClose = {
-                                finish()
-                            },
-                            reportTitle = reportTitle,
-                            reportDescription = reportDescription,
-                        )
-                    }
+                    CrashDialogScreen(
+                        errorReport = errorReport,
+                        reportInstructions = reportInstructions,
+                        onCopyToClipboard = {
+                            copyToClipboard(errorReport)
+                        },
+                        onOpenBugReport = {
+                            // TODO: somehow figure out how to let upstream apps funnel their issue tracker into crashpad
+//                            val browserIntent = Intent(
+//                                Intent.ACTION_VIEW,
+//                                Uri.parse(
+//                                    getString(R.string.florisboard__issue_tracker_url)
+//                                ),
+//                            )
+//                            startActivity(browserIntent)
+                        },
+                        onClose = {
+                            finish()
+                        },
+                        reportTitle = reportTitle,
+                        reportDescription = reportDescription,
+                    )
                 }
             }
         }

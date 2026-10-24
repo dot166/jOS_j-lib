@@ -12,16 +12,13 @@ import androidx.compose.material.icons.filled.Opacity
 import androidx.compose.material.icons.filled.ToggleOn
 import androidx.compose.material.icons.outlined.BugReport
 import androidx.compose.material3.ListItemDefaults
-import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.res.stringResource
-import androidx.navigation.compose.rememberNavController
 import dev.patrickgold.jetpref.datastore.ui.Preference
 import dev.patrickgold.jetpref.datastore.ui.SwitchPreference
 import io.github.dot166.jlib.app.CoreActivity
-import io.github.dot166.jlib.app.LocalNavController
 import io.github.dot166.jlib.app.jLibPreferenceStore
 import io.github.dot166.jlib.compose.JLibAppTheme
 import io.github.dot166.jlib.compose.JLibScreen
@@ -49,54 +46,50 @@ class LIBTestActivity : CoreActivity() {
         }
         setContent {
             JLibAppTheme {
-                CompositionLocalProvider(
-                    LocalNavController provides rememberNavController(),
+                Column(
+                    modifier = Modifier
+                        //.statusBarsPadding()
+                        .navigationBarsPadding()
+                        .conditional(LocalConfiguration.current.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+                            displayCutoutPadding()
+                        }
+                        .imePadding(),
                 ) {
-                    Column(
-                        modifier = Modifier
-                            //.statusBarsPadding()
-                            .navigationBarsPadding()
-                            .conditional(LocalConfiguration.current.orientation == Configuration.ORIENTATION_LANDSCAPE) {
-                                displayCutoutPadding()
+                    JLibScreen(
+                        title = stringResource(R.string.jlib),
+                        navigationIconVisible = false,
+                    ) { (contentPadding, translucent) ->
+                        ScrollableScreenColumn(contentPadding, translucent) {
+                            SegmentedListColumn(title = "Theme") {
+                                val count = 1
+                                SwitchPreference(
+                                    pref = prefs.theme.translucent,
+                                    shapes = ListItemDefaults.segmentedShapes(0, count),
+                                    icon = Icons.Default.Opacity,
+                                    title = "Translucency",
+                                )
                             }
-                            .imePadding(),
-                    ) {
-                        JLibScreen(
-                            title = stringResource(R.string.jlib),
-                            navigationIconVisible = false,
-                        ) { (contentPadding, translucent) ->
-                            ScrollableScreenColumn(contentPadding, translucent) {
-                                SegmentedListColumn(title = "Theme") {
-                                    val count = 1
-                                    SwitchPreference(
-                                        pref = prefs.theme.translucent,
-                                        shapes = ListItemDefaults.segmentedShapes(0, count),
-                                        icon = Icons.Default.Opacity,
-                                        title = "Translucency",
-                                    )
-                                }
-                                SegmentedListColumn(title = "Tests") {
-                                    val count = 2
-                                    val testTitle = prefs.tests.test.asFlow().collectAsState().value
-                                    SwitchPreference(
-                                        pref = prefs.tests.testBool,
-                                        shapes = ListItemDefaults.segmentedShapes(0, count),
-                                        icon = Icons.Default.ToggleOn,
-                                        title = testTitle,
-                                    )
-                                    Preference(
-                                        shapes = ListItemDefaults.segmentedShapes(1, count),
-                                        icon = Icons.Outlined.BugReport,
-                                        title = stringResource(R.string.devtools__test_crash_report__label),
-                                        summary = stringResource(R.string.devtools__test_crash_report__summary),
-                                        onClick = {
-                                            throw Exception(
-                                                "GLaDOS: you have completed all available tests, you will now receive cake",
-                                                Exception("Success! The app crashed purposely to display this beautiful screen we all love :3")
-                                            )
-                                        },
-                                    )
-                                }
+                            SegmentedListColumn(title = "Tests") {
+                                val count = 2
+                                val testTitle = prefs.tests.test.asFlow().collectAsState().value
+                                SwitchPreference(
+                                    pref = prefs.tests.testBool,
+                                    shapes = ListItemDefaults.segmentedShapes(0, count),
+                                    icon = Icons.Default.ToggleOn,
+                                    title = testTitle,
+                                )
+                                Preference(
+                                    shapes = ListItemDefaults.segmentedShapes(1, count),
+                                    icon = Icons.Outlined.BugReport,
+                                    title = stringResource(R.string.devtools__test_crash_report__label),
+                                    summary = stringResource(R.string.devtools__test_crash_report__summary),
+                                    onClick = {
+                                        throw Exception(
+                                            "GLaDOS: you have completed all available tests, you will now receive cake",
+                                            Exception("Success! The app crashed purposely to display this beautiful screen we all love :3")
+                                        )
+                                    },
+                                )
                             }
                         }
                     }
