@@ -126,6 +126,7 @@ configure<GenerateBpPluginExtension> {
             module.group.startsWith("androidx") -> true
             module.group.startsWith("org.jetbrains") -> true
             module.group.startsWith("io.github.dot166") -> true
+            module.group.startsWith("dev.patrickgold.jetpref") -> true
             module.group.startsWith("com.google") -> true
             else -> false
         }
