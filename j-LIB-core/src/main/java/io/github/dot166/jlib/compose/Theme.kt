@@ -14,6 +14,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
 import androidx.core.view.WindowCompat
+import com.google.android.gsa.overlay.controllers.OverlayController
 
 @Composable
 fun JLibAppTheme(
@@ -34,7 +35,12 @@ fun JLibAppTheme(
     val view = LocalView.current
     if (!view.isInEditMode) {
         SideEffect {
-            val window = (view.context as Activity).window
+            val window = if (view.context is OverlayController) {
+                // assume -1
+                (view.context as OverlayController).window!!
+            } else {
+                (view.context as Activity).window
+            }
             WindowCompat.getInsetsController(window, window.decorView).isAppearanceLightStatusBars = !darkTheme
         }
     }
