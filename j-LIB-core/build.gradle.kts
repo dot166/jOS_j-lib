@@ -57,6 +57,8 @@ kotlin {
         freeCompilerArgs.set(
             listOf(
                 "-opt-in=kotlin.contracts.ExperimentalContracts",
+                "-opt-in=androidx.compose.material3.ExperimentalMaterial3ExpressiveApi",
+                "-opt-in=androidx.compose.material3.ExperimentalMaterial3Api",
 //                "-jvm-default=enable",
 //                "-Xwhen-guards",
 //                "-Xexplicit-backing-fields",
