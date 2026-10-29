@@ -3,7 +3,7 @@ pluginManagement {
         google()
         mavenCentral()
         gradlePluginPortal()
-        maven("https://raw.githubusercontent.com/dot166/gradle-generatebp/v1.36/.m2")
+        maven("https://raw.githubusercontent.com/dot166/gradle-generatebp/v1.37/.m2")
     }
 }
 dependencyResolutionManagement {
