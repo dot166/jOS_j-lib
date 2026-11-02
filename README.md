@@ -22,13 +22,13 @@ to use jLib in an AOSP Project add the module ```j-Lib``` to the static_libs sec
 
 if your app uses the [generateBp Plugin](https://github.com/lineage-next/gradle-generatebp) to automatically add the dependencies for AOSP builds
 from Gradle build files (like jLib uses), you would need to use [my fork of generateBp](https://github.com/dot166/gradle-generatebp)
-due to jLib using ```j-Lib``` as the AOSP dependency name (and SettingsLib being used).
+due to jLib using ```j-Lib``` as the AOSP dependency name (and my jetpref fork needs to be added to your AOSP manifest).
 
 to do that change the maven repo line to be ```dot166/gradle-generatebp```
 
 ### a note on versioning
 
-you might notice that the versioning of both this and [SettingsLib](https://github.com/dot166/platform_frameworks_base/tree/16-qpr2/packages/SettingsLib) is a mess.
+you might notice that the versioning is a mess.
 
 the reason why is that initially this started at 3.0.0 and was AOSP only, eventually (around 3.2.6) this was added to maven.
 
@@ -38,11 +38,7 @@ turns out, single number versioning (no clue what the proper name for it is) doe
 
 so I swapped to some weird cross between semver and [pride versioning](https://pridever.org/), but, because of the previous, that started at 104, that's why the major version is that high.
 
-SettingsLib started at 104.2.1 because it initially matched the jLib version, because it was initially only a dependency of jLib, but, that makes no sense to anyone else.
-
-so, starting with jLib 104.3, I will try to use semver again, with SettingsLib 136, it will sort of use semver,
-its major version will be the AOSP SDK version that its sources match add 100 (because maven is doing its job, example, Android 16 - 36 - 136), the minor version will match AOSPs minor version,
-and the patch version will be the build time in the following format ```yyyyMMddHHmm```.
+so, starting with jLib 104.3, I will try to use semver again as best I can.
 
 ## folder structure
 
