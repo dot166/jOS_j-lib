@@ -1,36 +1,27 @@
 package io.github.dot166.jlib.app.crashpad
 
+import android.annotation.SuppressLint
 import android.content.ClipData
 import android.content.ClipboardManager
+import android.content.Intent
 import android.content.res.Configuration
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.displayCutoutPadding
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.imePadding
-import androidx.compose.foundation.layout.navigationBarsPadding
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.BugReport
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.ContentCopy
-import androidx.compose.material3.Button
-import androidx.compose.material3.DividerDefaults
-import androidx.compose.material3.HorizontalDivider
-import androidx.compose.material3.Icon
-import androidx.compose.material3.OutlinedButton
-import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
+import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalConfiguration
+import androidx.compose.ui.platform.LocalResources
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import androidx.core.net.toUri
 import io.github.dot166.jlib.R
 import io.github.dot166.jlib.app.CoreActivity
 import io.github.dot166.jlib.app.devtools.Devtools
@@ -44,6 +35,7 @@ import io.github.dot166.jlib.jLibVersion
 // This is originally from florisboard, its license should be preserved
 class CrashPadActivity : CoreActivity() {
 
+    @SuppressLint("DiscouragedApi")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -112,21 +104,20 @@ class CrashPadActivity : CoreActivity() {
                         }
                         .imePadding(),
                 ) {
+                    val urlRes = LocalResources.current.getIdentifier("__issue_tracker_url", "string", packageName)
                     CrashDialogScreen(
                         errorReport = errorReport,
                         reportInstructions = reportInstructions,
                         onCopyToClipboard = {
                             copyToClipboard(errorReport)
                         },
+                        isBugReportAvailable = urlRes != 0,
                         onOpenBugReport = {
-                            // TODO: somehow figure out how to let upstream apps funnel their issue tracker into crashpad
-//                            val browserIntent = Intent(
-//                                Intent.ACTION_VIEW,
-//                                Uri.parse(
-//                                    getString(R.string.florisboard__issue_tracker_url)
-//                                ),
-//                            )
-//                            startActivity(browserIntent)
+                            val browserIntent = Intent(
+                                Intent.ACTION_VIEW,
+                                getString(urlRes).toUri(),
+                            )
+                            startActivity(browserIntent)
                         },
                         onClose = {
                             finish()
@@ -190,6 +181,7 @@ private fun CrashDialogScreen(
     errorReport: String,
     reportInstructions: String,
     onCopyToClipboard: () -> Unit,
+    isBugReportAvailable: Boolean,
     onOpenBugReport: () -> Unit,
     onClose: () -> Unit,
     reportTitle: String,
@@ -220,16 +212,18 @@ private fun CrashDialogScreen(
                         )
                     }
 
-                    Button(
-                        onClick = onOpenBugReport,
-                        modifier = Modifier.padding(2.dp),
-                    ) {
-                        Icon(Icons.Default.BugReport, null)
-                        Text(
-                            text = stringResource(
-                                R.string.crash_dialog__open_issue_tracker
+                    if (isBugReportAvailable) {
+                        Button(
+                            onClick = onOpenBugReport,
+                            modifier = Modifier.padding(2.dp),
+                        ) {
+                            Icon(Icons.Default.BugReport, null)
+                            Text(
+                                text = stringResource(
+                                    R.string.crash_dialog__open_issue_tracker
+                                )
                             )
-                        )
+                        }
                     }
                 }
 
